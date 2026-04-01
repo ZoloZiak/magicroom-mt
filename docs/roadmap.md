@@ -53,10 +53,14 @@ MagicRoom to mały salon z jedną osobą. Strona ma być prosta, przejrzysta i f
 ### Faza 3: Rozszerzenie (opcjonalne)
 
 **Cele:**
-- Galeria zdjęć z lightbox
-- Integracja social media
-- Blog / poradnik
+- Galeria zdjęć z lightbox (zoom, fullscreen)
+- Blog / poradnik ("Jak wybrać suknię ślubną", "Trendy 2026")
+- FAQ sekcja z wyszukiwarką
+- Portfolio poprzednich ślubów (za zgodą klientek)
+- Partnerzy — poleceni dostawcy (fotograf, catering, DJ)
 - Online kalendarz rezerwacji
+- Breadcrumbs nawigacja (SEO)
+- Strona 404 z powrotem do homepage
 
 ---
 

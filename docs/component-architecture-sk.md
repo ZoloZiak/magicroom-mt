@@ -42,6 +42,12 @@
 │
 ├── public/
 │   └── images/
+
+### Optimalizácia obrázkov
+- Astro automaticky lazy-loaduje obrázky (<img loading="lazy">)
+- Formát: WebP s fallbackom na JPEG/PNG
+- Rozmery: max 800px šírka pre galériu, 1200px pre hero
+- Kompresia: 80% kvalita
 │
 ├── supabase/
 │   └── migrations/          # Database schema

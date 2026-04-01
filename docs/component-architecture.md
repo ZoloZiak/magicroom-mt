@@ -42,6 +42,12 @@
 │
 ├── public/
 │   └── images/
+
+### Optymalizacja obrazów
+- Astro automatycznie lazy-loaduje obrazy (<img loading="lazy">)
+- Format: WebP z fallbackiem na JPEG/PNG
+- Wymiary: max 800px szerokość dla galerii, 1200px dla hero
+- Kompresja: 80% jakość
 │
 ├── supabase/
 │   └── migrations/          # Database schema

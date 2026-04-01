@@ -74,6 +74,7 @@ CTA:            #B85C4A  (Terracotta Rose — výzva k akcii)
 /komisny-predaj         — Consignment (aktuálne: plná kapacita)
 /prenajom-dekoracii     — Katalóg dekorácií s cenníkom
 /kontakt                — Formulár + mapa + WhatsApp
+/404                    — Vlastná 404 stránka (CTA na homepage)
 ```
 
 ### Štruktúra Homepage (priority)

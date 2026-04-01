@@ -54,10 +54,14 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 ### Fáza 3: Rozšírenie (voliteľné)
 
 **Ciele:**
-- Galéria fotiek s lightbox
-- Integrácia social media
-- Blog / poradník
+- Galéria fotiek s lightbox (zoom, fullscreen)
+- Blog / poradník ("Ako vybrať svadobné šaty", "Trendy 2026")
+- FAQ sekcia s vyhľadávaním
+- Portfolio predchádzajúcich svadieb (s povolením klientok)
+- Partneri — odporúčaní dodávatelia (fotograf, catering, DJ)
 - Online kalendár rezervácií
+- Breadcrumbs navigácia (SEO)
+- 404 stránka s návratom na homepage
 
 ---
 
