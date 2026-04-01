@@ -86,7 +86,7 @@ CTA:            #B85C4A  (Terracotta Rose — wezwanie do działania)
    - Hero fotka: Natália v salóne, útulné prostredie
 
 2. **Transparentné ceny bar** (hneď pod hero — kľúčový USP)
-   - "Skúška šiat od 12€ · Šaty od 100€ · Komis šaty od 50€"
+   - "Skúška šiat 12€ (v cene nápoj) · Svadobné šaty 200-700€ · Spoločenské šaty 12-150€"
    - "Ceny vidíte hneď — žiadne skryté poplatky, žiadne prekvapenia"
 
 3. **Služby Preview** (3-kolumnowa grid)

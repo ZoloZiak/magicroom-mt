@@ -201,7 +201,7 @@ Táto sekcia slúži na prehľad trhu, nie ako priama konkurenčná analýza. Ma
 
 ### Konkurenčné výhody MagicRoom
 1. **Transparentné ceny online** — jediný salón v regióne, ktorý zobrazuje skutočné ceny na stránke. Žiadne "zavolaj pre cenu". Konkurencia v BB (DESIGNS, Shania), Žiline (LERYA, Valery) ani Liptove (THE WHITE HOUSE, Ľubica) to nerobí.
-2. **Najnižšie ceny v regióne** — skúška od 12€ (Beauty POINT od 350€, Valery 15€), šaty 100-700€ (DESIGNS premium, JADEI od 499€, Shania na objednávku)
+2. **Najnižšie ceny v regióne** — skúška 12€ (v cene nápoj) (Beauty POINT od 350€, Valery 15€), svadobné šaty 200-700€ (DESIGNS premium, JADEI od 499€, Shania na objednávku)
 3. **Komisný model** — druhý život šiat, dostupné ceny — nikto z konkurencie (ani v BB, ani v LM) to neponúka
 4. **Dekorácie na prenájom (kusovo)** — Svadba Martin ponúka balíkové dekorácie, ale nie kusový prenájom jednotlivých prvkov
 5. **Personalizácia** — Natália pracuje sama, individuálny prístup (ako AdellDecor, ale v širšom rozsahu)
@@ -353,7 +353,7 @@ komisný predaj svadobných šiat
 ### Unikátne selling points na zvýraznenie
 
 1. **Ceny online** — jediný salón v regióne, ktorý ukazuje ceny na stránke. Konkurencia vyžaduje telefonát.
-2. **Najlacnejšie v regióne** — skúška od 12€, šaty od 100€ (JADEI od 499€, LERYA prémiové, Beauty POINT od 350€)
+2. **Najlacnejšie v regióne** — skúška 12€ (v cene nápoj), svadobné šaty 200-700€ (JADEI od 499€, LERYA prémiové, Beauty POINT od 350€)
 3. **Komis** — druhý život šiat, dostupné ceny
 4. **Dekorácie na prenájom (kusovo)** — nemusíš kupovať všetko na jeden deň
 5. **Natália ako expertka** — osobný prístup, nie korporácia
@@ -405,7 +405,7 @@ MagicRoom je malý, osobný svadobný salón v Martine s jednou osobou (Natália
 - Populácia: ~70-80 tisíc ľudí
 
 ### Naše výhody (v primárnej zóne)
-1. **Najlacnejší** — skúška od 12€, šaty od 100€ (Salón Elizabeth a Beauty POINT drahšie)
+1. **Najlacnejší** — skúška 12€ (v cene nápoj), svadobné šaty 200-700€ (Salón Elizabeth a Beauty POINT drahšie)
 2. **Komis** — jediný v regióne, nikto iný to neponúka
 3. **Transparentné ceny** — jediný salón, ktorý ukazuje ceny online
 4. **Osobný prístup** — Natália ťa pozná, nie si číslo

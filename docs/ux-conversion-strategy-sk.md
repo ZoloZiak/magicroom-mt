@@ -34,7 +34,7 @@
 **Princíp:** Čo získam kliknutím? Prečo to mám urobiť TERAZ?
 
 **Implementácia:**
-- **Benefity pri CTA:** "Skúška od 12€ · Šaty od 100€"
+- **Benefity pri CTA:** "Skúška 12€ (v cene nápoj) · Svadobné šaty 200-700€"
 - **Osobný prístup:** "Natália ti osobne pomôže — nie si číslo v poradí"
 - **Komis výhoda:** "Jediný salón v regióne s komisom šiat"
 - **WhatsApp:** Primárny kontakt — nevesta môže napísať rovno z webu

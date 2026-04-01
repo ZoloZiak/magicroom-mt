@@ -222,7 +222,7 @@ Výnimka: ak salón ponúka niečo EXKLUZÍVNE, čo nikde inde nie je.
 
 ### Przewagi konkurencyjne MagicRoom
 1. **Transparentne ceny online** — jedyny salón w regióne, który zobrazuje skutočné ceny na stránke. Žiadne "zavolaj pre cenu". Konkurencia v BB (DESIGNS, Shania), Žiline (LERYA, Valery) ani Liptove (THE WHITE HOUSE, Ľubica) to nerobí.
-2. **Najnižšie ceny v regióne** — skúška od 12€ (Beauty POINT od 350€, Valery 15€), šaty 100-700€ (DESIGNS premium, JADEI od 499€, Shania na objednávku)
+2. **Najnižšie ceny v regióne** — skúška 12€ (v cene nápoj) (Beauty POINT od 350€, Valery 15€), svadobné šaty 200-700€ (DESIGNS premium, JADEI od 499€, Shania na objednávku)
 3. **Model komisowy** — drugie życie sukien, przystępne ceny — nikto z konkurencie (ani v BB, ani v LM) to neponúka
 4. **Dekorácie na prenájom (kusovo)** — Svadba Martin oferuje pakietowe dekorácie, ale nie per-kusowy wynajem indywidualnych elementów
 5. **Personalizácia** — Natália pracuje solo, indywidualne prístup (ako AdellDecor, ale v širšom rozsahu)
@@ -374,7 +374,7 @@ komisný predaj svadobných šiat
 ### Unikalne selling points do podkreślenia
 
 1. **Ceny online** — jedyny salon w regionie, który pokazuje ceny na stronie. Konkurencja wymaga telefonu.
-2. **Najtańsze w regionie** — skúška od 12€, šaty od 100€ (JADEI od 499€, LERYA premium, Beauty POINT od 350€)
+2. **Najtańsze w regionie** — skúška 12€ (v cene nápoj), svadobné šaty 200-700€ (JADEI od 499€, LERYA premium, Beauty POINT od 350€)
 3. **Komis** — drugie życie sukien, przystępne ceny
 4. **Dekorácie na wynajem (kusowo)** — nie musisz kupować wszystkiego na jeden dzień
 5. **Natália jako ekspert** — osobiste podejście, nie korporacja
@@ -426,7 +426,7 @@ MagicRoom to mały, osobisty salon ślubny w Martinie z jedną osobą (Natália)
 - Populacja: ~70-80 tysięcy ludzi
 
 ### Nasze zalety (w strefie pierwotnej)
-1. **Najtańszy** — skúška od 12€, šaty od 100€ (Salón Elizabeth i Beauty POINT droższe)
+1. **Najtańszy** — skúška 12€ (v cene nápoj), svadobné šaty 200-700€ (Salón Elizabeth i Beauty POINT droższe)
 2. **Komis** — jedyny w regionie, nikt inny tego nie oferuje
 3. **Transparentne ceny** — jedyny salon, który pokazuje ceny online
 4. **Osobiste podejście** — Natália cię zna, nie jesteś numerem

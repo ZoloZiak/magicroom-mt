@@ -52,7 +52,7 @@
 ```html
 <!-- Homepage -->
 <title>MagicRoom — Svadobné šaty Martin | Prenájom dekorácií</title>
-<meta name="description" content="Svadobný salón v Martine. Šaty od 100€, skúška od 12€, dekorácie na prenájom. Skutočné ceny online — najlacnejšie v regióne. Zarezervujte si skúšku." />
+<meta name="description" content="Svadobný salón v Martine. Svadobné šaty 200-700€, skúška 12€ (v cene nápoj), dekorácie na prenájom. Ceny vidíte hneď — žiadne skryté poplatky. Zarezervujte si skúšku." />
 <link rel="canonical" href="https://www.magicroom.sk/" />
 
 <!-- O nás -->
@@ -61,7 +61,7 @@
 
 <!-- Služby -->
 <title>Služby a cenník — MagicRoom Martin</title>
-<meta name="description" content="Služby MagicRoom: skúška šiat od 12€, organizácia svadby od 40€, prenájom dekorácií. Martin a okolie." />
+<meta name="description" content="Služby MagicRoom: skúška šiat 12€ (v cene nápoj), svadobné šaty 200-700€, spoločenské šaty 12-150€, prenájom dekorácií. Martin a okolie." />
 
 <!-- Dekorácie -->
 <title>Prenájom svadobných dekorácií Martin — MagicRoom</title>
@@ -76,7 +76,7 @@
 
 ```html
 <meta property="og:title" content="MagicRoom — Svadobné šaty Martin" />
-<meta property="og:description" content="Svadobné šaty od 100€, skúška od 12€. Ceny vidíte hneď — žiadne skryté poplatky. Najlacnejší svadobný salón v Martine." />
+<meta property="og:description" content="Svadobné šaty 200-700€, skúška 12€ (v cene nápoj). Ceny vidíte hneď — žiadne skryté poplatky. Svadobný salón v Martine." />
 <meta property="og:image" content="https://www.magicroom.sk/og-image.jpg" />
 <meta property="og:url" content="https://www.magicroom.sk" />
 <meta property="og:type" content="website" />

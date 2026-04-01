@@ -34,7 +34,7 @@
 **Zasada:** Co zyskam klikając? Dlaczego mam to zrobić TERAZ?
 
 **Implementacja:**
-- **Korzyści przy CTA:** "Skúška od 12€ · Šaty od 100€"
+- **Korzyści przy CTA:** "Skúška 12€ (v cene nápoj) · Svadobné šaty 200-700€"
 - **Osobiste podejście:** "Natália ci osobiście pomoże — nie jesteś numerem w kolejce"
 - **Komis zaleta:** "Jedyny salon w regionie z komisem sukni"
 - **WhatsApp:** Główny kontakt — nevesta może napisać prosto z webu
