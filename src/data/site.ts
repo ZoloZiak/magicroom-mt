@@ -1,7 +1,7 @@
 export const SITE_URL = 'https://www.magicroom.sk';
 export const SITE_NAME = 'MagicRoom';
 export const DEFAULT_DESCRIPTION =
-  'Svadobný salón v Martine so svadobnými šatami, dekoráciami na prenájom a osobným svadobným poradenstvom. Skúška šiat od 12 €.';
+  'Malý osobný svadobný salón v Martine. Svadobné šaty 200–700 €, skúška 12 € (v cene nápoj), komis, dekorácie. Ceny vidíte hneď.';
 
 export const PHONE_DISPLAY = '+421 950 490 323';
 export const PHONE_HREF = 'tel:+421950490323';
@@ -143,13 +143,6 @@ export function getBaseSchemas(pageUrl: string, imageUrl: string, description = 
       areaServed: {
         '@type': 'City',
         name: 'Martin',
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        reviewCount: '48',
-        bestRating: '5',
-        worstRating: '1',
       },
     },
   ];

@@ -22,9 +22,9 @@ export const IMAGE_ASSETS = {
 } as const;
 
 export const HOME_STATS = [
-  { value: '248+', label: 'neviest už našlo svoje šaty' },
-  { value: '150+', label: 'dekorácií na prenájom' },
-  { value: '1', label: 'miesto pre šaty, dekorácie aj pomoc' },
+  { value: '12 €', label: 'skúška šiat s nápojom v cene' },
+  { value: '200–700 €', label: 'svadobné šaty (nové aj komis)' },
+  { value: '1', label: 'salón, kde vás Natália osobne pozná' },
 ] as const;
 
 export const HOME_OFFER_CARDS = [
@@ -37,9 +37,17 @@ export const HOME_OFFER_CARDS = [
     icon: 'shirt',
   },
   {
-    title: 'Svadobné a spoločenské šaty',
-    price: 'od 100 €',
-    description: 'Nové modely, komisný predaj aj dostupné kúsky pre ženy, ktoré chcú kvalitu bez zbytočného tlaku.',
+    title: 'Svadobné šaty',
+    price: '200–700 €',
+    description: 'Nové modely aj komis. Svadobné šaty za férové ceny — vidíte ich ešte pred návštevou salónu.',
+    href: '/sluzby',
+    cta: 'Pozrieť služby',
+    icon: 'sparkles',
+  },
+  {
+    title: 'Spoločenské šaty',
+    price: '12–150 €',
+    description: 'Šaty na stužkovú, ples, oslavu alebo akúkoľvek špeciálnu príležitosť.',
     href: '/sluzby',
     cta: 'Pozrieť služby',
     icon: 'sparkles',
@@ -64,8 +72,8 @@ export const HOME_OFFER_CARDS = [
 
 export const TRUST_REASONS = [
   {
-    title: 'Všetko pod jednou strechou',
-    description: 'Šaty, dekorácie, doplnky aj organizácia v jednom tempe, bez zdĺhavého presúvania medzi dodávateľmi.',
+    title: 'Ceny vidíte hneď',
+    description: 'Žiadne "zavolaj pre cenu". Všetky ceny sú na stránke — skúška, šaty, dekorácie, organizácia.',
   },
   {
     title: 'Férové ceny od prvého kliknutia',
