@@ -1,0 +1,195 @@
+---
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Star } from '@phosphor-icons/react';
+import {
+  BOOKING_CTA_LABEL,
+  EMAIL,
+  EMAIL_HREF,
+  PHONE_HREF,
+  RESPONSE_PROMISE,
+  WHATSAPP_BASE_URL,
+  WHATSAPP_URL,
+} from '@/data/site';
+import { BOOKING_FEATURES } from '@/data/content';
+
+interface Props {
+  id?: string;
+  title?: string;
+  description?: string;
+}
+
+const {
+  id = 'booking',
+  title = 'Zarezervujte si skúšku šiat',
+  description = 'Vyplňte krátky formulár a pripravíme vám správu do WhatsAppu, ktorú si pred odoslaním ešte môžete upraviť. Ak vám viac vyhovuje telefonát alebo email, nájdete ich nižšie.',
+} = Astro.props;
+---
+
+<section id={id} class="rounded-[28px] border border-border/70 bg-white p-5 shadow-[0_24px_80px_rgba(45,36,33,0.08)] md:p-8">
+  <div class="mb-7 flex flex-col gap-5 lg:mb-8 lg:flex-row lg:items-end lg:justify-between">
+    <div class="space-y-3">
+      <p class="text-xs font-semibold uppercase tracking-[0.28em] text-primary/70">Rezervácia skúšky</p>
+      <h2 class="text-3xl font-display font-semibold text-foreground md:text-4xl">{title}</h2>
+      <p class="max-w-2xl text-base leading-7 text-muted-foreground">{description}</p>
+    </div>
+
+    <div class="grid gap-2 rounded-2xl bg-surface px-4 py-3 text-sm text-muted-foreground sm:grid-cols-2 lg:max-w-[26rem]">
+      {BOOKING_FEATURES.map((item) => (
+        <span class="flex items-center gap-2"><Star className="h-3.5 w-3.5 shrink-0 text-accent" weight="fill" />{item}</span>
+      ))}
+    </div>
+  </div>
+
+  <form class="space-y-6" data-booking-form data-whatsapp-base={WHATSAPP_BASE_URL} novalidate>
+    <div class="grid gap-5 md:grid-cols-2">
+      <div class="space-y-2">
+        <Label for={`${id}-name`}>Meno *</Label>
+        <Input className="form-input" id={`${id}-name`} name="name" autocomplete="name" required placeholder="Anna Nováková" />
+      </div>
+
+      <div class="space-y-2">
+        <Label for={`${id}-phone`}>Telefón *</Label>
+        <Input
+          className="form-input"
+          id={`${id}-phone`}
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          required
+          placeholder="+421 950 490 323"
+        />
+      </div>
+
+      <div class="space-y-2">
+        <Label for={`${id}-email`}>Email *</Label>
+        <Input
+          className="form-input"
+          id={`${id}-email`}
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+          placeholder="anna@email.sk"
+        />
+      </div>
+
+      <div class="space-y-2">
+        <Label for={`${id}-service`}>Čo chcete riešiť ako prvé? *</Label>
+        <select
+          id={`${id}-service`}
+          name="service"
+          required
+          class="form-input flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+        >
+          <option value="Skúška svadobných alebo spoločenských šiat">Skúška svadobných alebo spoločenských šiat</option>
+          <option value="Konzultácia k svadbe alebo harmonogramu">Konzultácia k svadbe alebo harmonogramu</option>
+          <option value="Prenájom dekorácií a výzdoby">Prenájom dekorácií a výzdoby</option>
+          <option value="Balík organizácie svadby">Balík organizácie svadby</option>
+        </select>
+      </div>
+
+      <div class="space-y-2">
+        <Label for={`${id}-date`}>Preferovaný dátum</Label>
+        <Input className="form-input" id={`${id}-date`} name="date" type="date" min={new Date().toISOString().split('T')[0]} />
+      </div>
+
+      <div class="space-y-2">
+        <Label for={`${id}-time`}>Preferovaný čas</Label>
+        <Input className="form-input" id={`${id}-time`} name="time" placeholder="napr. piatok poobede" />
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      <Label for={`${id}-note`}>Poznámka</Label>
+      <Textarea
+        className="form-input"
+        id={`${id}-note`}
+        name="note"
+        rows={4}
+        placeholder="Napíšte nám, aké šaty hľadáte, termín svadby alebo čo chcete pri rezervácii doriešiť ako prvé."
+      />
+    </div>
+
+    <div class="rounded-2xl bg-primary-900 px-5 py-4 text-sm text-white/80">
+      <p class="font-medium text-white">Skúška šiat: 12 € / 60 min • nápoj v cene • max. 2 blízke osoby.</p>
+      <p class="mt-1">{RESPONSE_PROMISE} Po kliknutí sa otvorí pripravená správa do WhatsAppu.</p>
+    </div>
+
+    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <p class="text-sm leading-6 text-muted-foreground">
+        Ak nechcete formulár dokončovať hneď, môžete sa ozvať aj priamo cez
+        <a href={PHONE_HREF} class="font-semibold text-primary underline-offset-4 hover:underline"> telefón</a>,
+        <a href={WHATSAPP_URL} class="font-semibold text-primary underline-offset-4 hover:underline" target="_blank" rel="noopener noreferrer"> WhatsApp</a>
+        alebo
+        <a href={EMAIL_HREF} class="font-semibold text-primary underline-offset-4 hover:underline"> email {EMAIL}</a>.
+      </p>
+
+      <Button type="submit" variant="cta" size="lg" className="w-full md:w-auto" data-default-label={BOOKING_CTA_LABEL}>
+        {BOOKING_CTA_LABEL}
+      </Button>
+    </div>
+
+    <p class="hidden rounded-2xl border border-success/30 bg-success/10 px-4 py-3 text-sm text-foreground" data-booking-status aria-live="polite"></p>
+  </form>
+</section>
+
+<script>
+  const forms = document.querySelectorAll('[data-booking-form]');
+
+  const buildMessage = (entries) => {
+    const lines = [
+      'Dobrý deň, chcela by som si rezervovať termín v MagicRoom.',
+      '',
+      `Meno: ${entries.name ?? ''}`,
+      `Telefón: ${entries.phone ?? ''}`,
+      `Email: ${entries.email ?? ''}`,
+      `Záujem: ${entries.service ?? ''}`,
+    ];
+
+    if (entries.date) lines.push(`Preferovaný dátum: ${entries.date}`);
+    if (entries.time) lines.push(`Preferovaný čas: ${entries.time}`);
+    if (entries.note) lines.push(`Poznámka: ${entries.note}`);
+
+    return lines.join('\n');
+  };
+
+  forms.forEach((form) => {
+    const status = form.querySelector('[data-booking-status]');
+    const button = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      if (!form.reportValidity()) {
+        return;
+      }
+
+      const formData = new FormData(form);
+      const entries = Object.fromEntries(formData.entries());
+      const url = new URL(form.dataset.whatsappBase || 'https://wa.me/421950490323');
+      url.searchParams.set('text', buildMessage(entries));
+
+      if (button) {
+        button.setAttribute('disabled', 'true');
+        button.innerHTML = '<svg class="mr-2 h-4 w-4 animate-spin inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Otvárame WhatsApp…';
+      }
+
+      window.open(url.toString(), '_blank', 'noopener,noreferrer');
+
+      if (status) {
+        status.classList.remove('hidden');
+        status.textContent = 'Správu sme pripravili do WhatsAppu. Ak sa neotvoril, použite telefón alebo email uvedený pri formulári.';
+      }
+
+      window.setTimeout(() => {
+        if (button) {
+          button.removeAttribute('disabled');
+          button.textContent = button.dataset.defaultLabel || 'Pripraviť WhatsApp rezerváciu';
+        }
+      }, 800);
+    });
+  });
+</script>

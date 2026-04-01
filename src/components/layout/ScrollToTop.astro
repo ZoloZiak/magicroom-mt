@@ -1,0 +1,36 @@
+---
+import { ChevronUp } from 'lucide-react';
+---
+
+<button
+  id="scroll-to-top"
+  class="fixed bottom-20 right-5 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-background/90 text-muted-foreground shadow-[0_8px_24px_rgba(45,36,33,0.12)] backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:text-foreground hover:shadow-[0_12px_32px_rgba(45,36,33,0.18)] md:bottom-24 md:right-8"
+  aria-label="Späť nahor"
+  style="opacity: 0; pointer-events: none; transform: translateY(10px);"
+>
+  <ChevronUp className="h-5 w-5" />
+</button>
+
+<script>
+  const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+  const toggleScrollButton = () => {
+    if (!scrollToTopBtn) return;
+    if (window.scrollY > 600) {
+      scrollToTopBtn.style.opacity = '1';
+      scrollToTopBtn.style.pointerEvents = 'auto';
+      scrollToTopBtn.style.transform = 'translateY(0)';
+    } else {
+      scrollToTopBtn.style.opacity = '0';
+      scrollToTopBtn.style.pointerEvents = 'none';
+      scrollToTopBtn.style.transform = 'translateY(10px)';
+    }
+  };
+
+  scrollToTopBtn?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', toggleScrollButton, { passive: true });
+  toggleScrollButton();
+</script>
