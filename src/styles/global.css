@@ -33,6 +33,10 @@
   --color-success: #7A9E7E;
   --color-surface: #F7F3EF;
 
+  /* Primary shades for dark sections */
+  --color-primary-900: #2D2421;
+  --color-primary-950: #1A1412;
+
   /* Radius */
   --radius-sm: 0.25rem;
   --radius-md: 0.375rem;
