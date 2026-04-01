@@ -91,7 +91,7 @@ magicroom-mt/
 
 ## Stack
 
-- **Framework:** Astro 5.x
+- **Framework:** Astro 6.x
 - **UI:** shadcn/ui + Tailwind CSS
 - **Backend:** Supabase
 - **Hosting:** Vercel
