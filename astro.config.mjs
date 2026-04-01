@@ -4,11 +4,13 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import vercel from '@astrojs/vercel';
 import path from 'path';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.magicroom.sk',
+  adapter: vercel(),
 
   vite: {
     plugins: [tailwindcss()],

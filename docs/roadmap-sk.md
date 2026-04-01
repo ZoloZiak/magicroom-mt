@@ -27,7 +27,8 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 | /komisny-predaj | TODO | Vysvetlenie komisu + status |
 | /prenajom-dekoracii | TODO | Zoznam dekorácií s cenami |
 | /kontakt | TODO | Formulár + WhatsApp + mapa |
-| Kontaktný formulár | TODO | Zápis do Supabase |
+| Kontaktný formulár | TODO | Email cez Resend → WhatsApp fallback |
+| Kontaktný formulár (DB) | PLANNED | Supabase / insforge.dev — ak bude veľa rezervácií a treba dashboard |
 | WhatsApp FAB | TODO | Floating button na mobile — PRIORITA |
 | Supabase setup | TODO | Databáza, API |
 | SEO basics | TODO | Meta tags, sitemap, zameranie Martin+Turiec |
@@ -134,7 +135,7 @@ Testovanie + Deploy
 ### MVP považovaný za hotový, keď:
 
 - [ ] Všetky podstránky fungujú a sú responzívne
-- [ ] Kontaktný formulár zapisuje do Supabase
+- [ ] Kontaktný formulár posiela email cez Resend
 - [ ] Navigácia funguje na mobile (hamburger menu)
 - [ ] CTA viditeľné na každej podstránke
 - [ ] Meta tagy nastavené pre každú stránku
@@ -178,7 +179,8 @@ Testovanie + Deploy
 | Služba | Plán | Náklady |
 |--------|------|---------|
 | Vercel | Hobby | 0€ |
-| Supabase | Free tier | 0€ |
+| Resend | Free tier (100 emails/deň) | 0€ |
+| Supabase (budúcnosť) | Free tier | 0€ |
 | Doména (magicroom.sk) | .sk doména | ~15€/rok |
 | SSL | V cene hostingu | 0€ |
 | **Total** | | **~15€/rok** |
@@ -193,7 +195,19 @@ Testovanie + Deploy
 
 ---
 
-## 8. Ďalšie kroky
+## 8. Budúci upgrade — Supabase / insforge.dev
+
+Ak počet rezervácií prekročí možnosti emailu (viac ako ~10/deň), pridáme:
+- **Supabase** alebo **insforge.dev** ako backend pre formulár
+- Dashboard pre Natáliu na správu rezervácií
+- Online kalendár rezervácií
+- Automatické potvrdzovanie termínov
+
+Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
+
+---
+
+## 9. Ďalšie kroky
 
 1. **Schválenie špecifikácie** — review SPEC.md
 2. **Rozhodnutie: Hosting** — Vercel vs iný
