@@ -1,0 +1,22 @@
+{
+  "name": "MagicRoom — Svadobný salón Martin",
+  "short_name": "MagicRoom",
+  "description": "Svadobný salón v Martine so svadobnými šatami, dekoráciami na prenájom a osobným svadobným poradenstvom.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDFBF9",
+  "theme_color": "#8B6F5C",
+  "lang": "sk",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

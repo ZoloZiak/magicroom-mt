@@ -66,7 +66,7 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
       </button>
 
       <div class="fixed inset-0 z-50 hidden bg-primary-950/35 backdrop-blur-sm" id="mobile-menu-overlay" role="dialog" aria-modal="true" aria-label="Mobilná navigácia">
-        <div class="absolute right-0 top-0 h-full w-[300px] border-l border-white/40 bg-[linear-gradient(180deg,#fffdfb_0%,#f8f3ef_100%)] shadow-[0_20px_60px_rgba(45,36,33,0.18)]">
+        <div class="mobile-menu-panel absolute right-0 top-0 h-full w-[300px] border-l border-white/40 bg-[linear-gradient(180deg,#fffdfb_0%,#f8f3ef_100%)] shadow-[0_20px_60px_rgba(45,36,33,0.18)]">
           <div class="border-b border-border/70 px-5 py-5">
             <div class="flex items-center justify-between">
               <div>
@@ -127,6 +127,9 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
   const openMenu = () => {
     if (overlay) {
       overlay.classList.remove('hidden');
+      // Force reflow, then add open class for animation
+      void overlay.offsetWidth;
+      overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
       toggle?.setAttribute('aria-expanded', 'true');
     }
@@ -134,7 +137,11 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
 
   const closeMenu = () => {
     if (overlay) {
-      overlay.classList.add('hidden');
+      overlay.classList.remove('open');
+      // Wait for animation to finish before hiding
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+      }, 350);
       document.body.style.overflow = '';
       toggle?.setAttribute('aria-expanded', 'false');
     }

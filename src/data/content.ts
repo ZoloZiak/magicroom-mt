@@ -34,6 +34,7 @@ export const HOME_OFFER_CARDS = [
     description: 'Pokojná skúška s nápojom v cene, priestorom pre dve blízke osoby a časom na fotky aj rozhodnutie.',
     href: '/kontakt#booking',
     cta: 'Rezervovať termín',
+    icon: 'shirt',
   },
   {
     title: 'Svadobné a spoločenské šaty',
@@ -41,6 +42,7 @@ export const HOME_OFFER_CARDS = [
     description: 'Nové modely, komisný predaj aj dostupné kúsky pre ženy, ktoré chcú kvalitu bez zbytočného tlaku.',
     href: '/sluzby',
     cta: 'Pozrieť služby',
+    icon: 'sparkles',
   },
   {
     title: 'Prenájom dekorácií',
@@ -48,6 +50,7 @@ export const HOME_OFFER_CARDS = [
     description: 'Zrkadlá, svietniky, kvety, príbor, candy bar aj drobnosti, ktoré dajú hostine jasný štýl.',
     href: '/prenajom-dekoracii',
     cta: 'Katalóg dekorácií',
+    icon: 'layout',
   },
   {
     title: 'Poradenstvo a organizácia',
@@ -55,6 +58,7 @@ export const HOME_OFFER_CARDS = [
     description: 'Od malej pomoci po kompletnú prípravu svadby, RSVP správu hostí, grafiku a rozlúčku so slobodou.',
     href: '/sluzby',
     cta: 'Pozrieť balíky',
+    icon: 'clipboard',
   },
 ] as const;
 
@@ -190,10 +194,10 @@ export const EXTRA_SERVICES = [
 ] as const;
 
 export const DECOR_FEATURED = [
-  { title: 'Veľké zrkadlo „Vitajte na našej svadbe“', price: '35 €' },
-  { title: 'Candy bar balík v zlatej farbe', price: '20 €' },
-  { title: 'Svadobná kulisa so závesmi a svetielkami', price: '35 €' },
-  { title: 'Zlatý príbor', price: '1 € / set' },
+  { title: 'Veľké zrkadlo „Vitajte na našej svadbe"', price: '35 €', icon: 'frame' },
+  { title: 'Candy bar balík v zlatej farbe', price: '20 €', icon: 'utensils' },
+  { title: 'Svadobná kulisa so závesmi a svetielkami', price: '35 €', icon: 'lamp' },
+  { title: 'Zlatý príbor', price: '1 € / set', icon: 'gift' },
 ] as const;
 
 export const DECOR_CATEGORIES = [

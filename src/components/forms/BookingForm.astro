@@ -47,12 +47,13 @@ const {
     <div class="grid gap-5 md:grid-cols-2">
       <div class="space-y-2">
         <Label for={`${id}-name`}>Meno *</Label>
-        <Input id={`${id}-name`} name="name" autocomplete="name" required placeholder="Anna Nováková" />
+        <Input className="form-input" id={`${id}-name`} name="name" autocomplete="name" required placeholder="Anna Nováková" />
       </div>
 
       <div class="space-y-2">
         <Label for={`${id}-phone`}>Telefón *</Label>
         <Input
+          className="form-input"
           id={`${id}-phone`}
           name="phone"
           type="tel"
@@ -65,6 +66,7 @@ const {
       <div class="space-y-2">
         <Label for={`${id}-email`}>Email *</Label>
         <Input
+          className="form-input"
           id={`${id}-email`}
           name="email"
           type="email"
@@ -80,7 +82,7 @@ const {
           id={`${id}-service`}
           name="service"
           required
-          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          class="form-input flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
         >
           <option value="Skúška svadobných alebo spoločenských šiat">Skúška svadobných alebo spoločenských šiat</option>
           <option value="Konzultácia k svadbe alebo harmonogramu">Konzultácia k svadbe alebo harmonogramu</option>
@@ -91,18 +93,19 @@ const {
 
       <div class="space-y-2">
         <Label for={`${id}-date`}>Preferovaný dátum</Label>
-        <Input id={`${id}-date`} name="date" type="date" min={new Date().toISOString().split('T')[0]} />
+        <Input className="form-input" id={`${id}-date`} name="date" type="date" min={new Date().toISOString().split('T')[0]} />
       </div>
 
       <div class="space-y-2">
         <Label for={`${id}-time`}>Preferovaný čas</Label>
-        <Input id={`${id}-time`} name="time" placeholder="napr. piatok poobede" />
+        <Input className="form-input" id={`${id}-time`} name="time" placeholder="napr. piatok poobede" />
       </div>
     </div>
 
     <div class="space-y-2">
       <Label for={`${id}-note`}>Poznámka</Label>
       <Textarea
+        className="form-input"
         id={`${id}-note`}
         name="note"
         rows={4}
@@ -171,7 +174,7 @@ const {
 
       if (button) {
         button.setAttribute('disabled', 'true');
-        button.textContent = 'Otvárame WhatsApp…';
+        button.innerHTML = '<svg class="mr-2 h-4 w-4 animate-spin inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Otvárame WhatsApp…';
       }
 
       window.open(url.toString(), '_blank', 'noopener,noreferrer');

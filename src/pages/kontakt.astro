@@ -2,6 +2,7 @@
 import BookingForm from '@/components/forms/BookingForm.astro';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -27,10 +28,15 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Kontakt, rezervácia skúšky a konzultácie — MagicRoom Martin"
-  description="Rezervujte si skúšku šiat alebo svadobnú konzultáciu v MagicRoom v Martine. Telefón, WhatsApp, email, mapa a formulár na jednom mieste."
+  title="Kontakt a rezervácia skúšky šiat — MagicRoom Martin"
+  description="Rezervujte si skúšku svadobných šiat od 12 € alebo svadobnú konzultáciu v MagicRoom v Martine. Telefón, WhatsApp, email, mapa a rezervačný formulár."
+  keywords="kontakt, rezervácia, martin, telefón, email, whatsapp"
   image={IMAGE_ASSETS.map}
   structuredData={faqSchema}
+  breadcrumbs={[
+    { name: 'Domov', url: '/' },
+    { name: 'Kontakt', url: '/kontakt' },
+  ]}
 >
   <Header />
 
@@ -152,4 +158,5 @@ const faqSchema = {
 
   <Footer />
   <WhatsAppFAB />
+  <ScrollToTop />
 </Layout>

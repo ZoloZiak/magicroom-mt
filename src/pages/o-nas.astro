@@ -1,6 +1,7 @@
 ---
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -30,9 +31,14 @@ const operatingPrinciples = [
 ---
 
 <Layout
-  title="O nás — MagicRoom Martin"
-  description="Spoznajte Natáliu, zakladateľku MagicRoom. Lokálny bridal concierge v Martine, kde sa spájajú šaty, dekorácie a pokojný osobný prístup."
+  title="O nás — Svadobný salón MagicRoom v Martine | Natália Ondrejková"
+  description="Spoznajte Natáliu, zakladateľku MagicRoom. Lokálny svadobný salón v Martine, kde sa spájajú šaty, dekorácie a pokojný osobný prístup."
+  keywords="natalia ondrejková, magicroom, zakladateľka, svadobný salón martin, príbeh"
   image={IMAGE_ASSETS.founder}
+  breadcrumbs={[
+    { name: 'Domov', url: '/' },
+    { name: 'O nás', url: '/o-nas' },
+  ]}
 >
   <Header />
 
@@ -112,13 +118,6 @@ const operatingPrinciples = [
                 </p>
               </div>
             </div>
-              <div class="rounded-[28px] bg-primary-900 px-5 py-5 text-white shadow-[0_22px_60px_rgba(45,36,33,0.18)]">
-                <p class="text-[11px] uppercase tracking-[0.26em] text-white/55">Ako dnes pracujeme</p>
-                <p class="mt-3 text-lg leading-7 text-white/85">
-                  Výzdoby a oslavy realizujeme pre menšie formáty, aby každá klientka dostala plnú pozornosť a nie „rýchly pásový servis“.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -181,13 +180,13 @@ const operatingPrinciples = [
                 src={item.src}
                 alt={item.alt}
                 class:list={[
-                  'w-full rounded-[22px] bg-surface object-contain transition-transform duration-500 group-hover:scale-[1.02]',
+                  'w-full rounded-[22px] bg-surface object-cover transition-transform duration-500 ease-out group-hover:scale-105',
                   index === 0 ? 'h-full min-h-[420px]' : 'h-[260px]',
                 ]}
                 loading="lazy"
               />
               <div class="px-2 pb-1 pt-4">
-                <p class="text-sm uppercase tracking-[0.2em] text-primary/60">{item.title}</p>
+                <p class="text-sm uppercase tracking-[0.2em] text-primary/60 transition-colors group-hover:text-primary">{item.title}</p>
               </div>
             </div>
           ))}
@@ -219,7 +218,7 @@ const operatingPrinciples = [
     <section class="bg-primary-900 py-16 text-white md:py-20">
       <div class="container mx-auto px-4">
         <div class="mx-auto max-w-4xl rounded-[34px] border border-white/10 bg-white/6 px-6 py-10 text-center shadow-[0_26px_80px_rgba(18,13,12,0.18)] md:px-10 md:py-14">
-          <p class="text-[11px] uppercase tracking-[0.28em] text-white/55">Ďalší krok</p>
+          <p class="text-[11px] uppercase tracking-[0.28em] text-white/70">Ďalší krok</p>
           <h2 class="mt-4 font-display text-4xl leading-tight md:text-5xl">
             Ak vám tento prístup sedí, začnime pokojnou skúškou alebo krátkym telefonátom.
           </h2>
@@ -248,4 +247,5 @@ const operatingPrinciples = [
 
   <Footer />
   <WhatsAppFAB />
+  <ScrollToTop />
 </Layout>

@@ -1,6 +1,7 @@
 ---
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -12,9 +13,14 @@ import { ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
 ---
 
 <Layout
-  title="Komisný predaj svadobných šiat — MagicRoom Martin"
-  description="Podmienky komisného predaja svadobných šiat v MagicRoom v Martine. Aktuálne plná kapacita, ale všetky pravidlá a kontakty sú pripravené."
+  title="Komisný predaj svadobných šiat v Martine — MagicRoom"
+  description="Podmienky komisného predaja svadobných šiat v MagicRoom v Martine. Férové pravidlá, osobná dohoda a vyplácanie do 7 dní. Aktuálne plná kapacita."
+  keywords="komisný predaj šiat, predaj svadobných šiat, martin, podmienky"
   image={IMAGE_ASSETS.dresses}
+  breadcrumbs={[
+    { name: 'Domov', url: '/' },
+    { name: 'Komisný predaj', url: '/komisny-predaj' },
+  ]}
 >
   <Header />
 
@@ -122,7 +128,7 @@ import { ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
             </div>
 
             <div class="mt-8 rounded-[28px] border border-primary/10 bg-primary-900 p-6 text-white shadow-[0_24px_70px_rgba(45,36,33,0.14)]">
-              <p class="text-sm uppercase tracking-[0.2em] text-white/60">Aktuálny stav</p>
+              <p class="text-sm uppercase tracking-[0.2em] text-white/70">Aktuálny stav</p>
               <h3 class="mt-3 font-display text-3xl">Plná kapacita prijatých šiat</h3>
               <p class="mt-3 text-sm leading-6 text-white/75">
                 Najlepší ďalší krok je napísať na {EMAIL}. Keď budeme mať priestor prijať ďalšie modely, ozveme sa vám a prejdeme spolu fotografie aj stav šiat.
@@ -165,4 +171,5 @@ import { ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
 
   <Footer />
   <WhatsAppFAB />
+  <ScrollToTop />
 </Layout>

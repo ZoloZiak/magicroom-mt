@@ -34,6 +34,7 @@ export const WHATSAPP_URL = buildWhatsAppUrl(WHATSAPP_MESSAGE);
 export const NAV_LINKS = [
   { href: '/o-nas', label: 'O nás' },
   { href: '/sluzby', label: 'Služby' },
+  { href: '/blog', label: 'Blog' },
   { href: '/komisny-predaj', label: 'Komisný predaj' },
   { href: '/prenajom-dekoracii', label: 'Dekorácie' },
   { href: '/kontakt', label: 'Kontakt' },
@@ -69,6 +70,31 @@ export function getBaseSchemas(pageUrl: string, imageUrl: string, description = 
       url: SITE_URL,
       name: SITE_NAME,
       inLanguage: 'sk-SK',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: `${SITE_URL}/?s={search_term_string}`,
+        'query-input': 'required name=search_term_string',
+      },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
+      name: SITE_NAME,
+      description,
+      url: SITE_URL,
+      logo: imageUrl,
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: PHONE_DISPLAY,
+        contactType: 'customer service',
+        availableLanguage: 'Slovak',
+      },
+      sameAs: SOCIAL_LINKS.map((item) => item.href),
+      founder: {
+        '@type': 'Person',
+        name: 'Natália Ondrejková',
+      },
     },
     {
       '@context': 'https://schema.org',
@@ -80,6 +106,7 @@ export function getBaseSchemas(pageUrl: string, imageUrl: string, description = 
       image: imageUrl,
       telephone: PHONE_DISPLAY,
       email: EMAIL,
+      priceRange: '€€',
       address: {
         '@type': 'PostalAddress',
         streetAddress: ADDRESS.streetAddress,
@@ -87,6 +114,25 @@ export function getBaseSchemas(pageUrl: string, imageUrl: string, description = 
         postalCode: ADDRESS.postalCode,
         addressCountry: ADDRESS.addressCountry,
       },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 49.0624,
+        longitude: 18.9186,
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '09:00',
+          closes: '18:00',
+        },
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: 'Saturday',
+          opens: '09:00',
+          closes: '14:00',
+        },
+      ],
       sameAs: SOCIAL_LINKS.map((item) => item.href),
       founder: {
         '@type': 'Person',
@@ -94,6 +140,17 @@ export function getBaseSchemas(pageUrl: string, imageUrl: string, description = 
       },
       hasMap: MAP_URL,
       mainEntityOfPage: pageUrl,
+      areaServed: {
+        '@type': 'City',
+        name: 'Martin',
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '48',
+        bestRating: '5',
+        worstRating: '1',
+      },
     },
   ];
 }
