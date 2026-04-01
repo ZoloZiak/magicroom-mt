@@ -1,43 +1,36 @@
-# Astro Starter Kit: Minimal
+# MagicRoom — Nová webová stránka
 
-```sh
-npm create astro@latest -- --template minimal
+Svadobný salón v Martine. Malý, osobný, s férovými cenami.
+
+## Štruktúra repozitára
+
+```
+docs/                       — Dokumentácia (výskum, stratégia, špecifikácie)
+├── SPEC-sk.md              — Hlavná špecifikácia projektu (SK)
+├── SPEC.md                 — Špecifikácia (PL)
+├── research-regional-market-sk.md — Prieskum trhu a konkurencie (SK)
+├── seo-local-strategy-sk.md — SEO stratégia (SK)
+├── ux-conversion-strategy-sk.md — UX a konverzná stratégia (SK)
+├── component-architecture-sk.md — Architektúra komponentov (SK)
+├── roadmap-sk.md           — Časový plán (SK)
+├── magicroom-strategia.pdf — Strategický raport pre vlastníčku
+└── magicroom-strategia.html — Zdrojový HTML pre PDF
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Stack
 
-## 🚀 Project Structure
+- **Framework:** Astro 5.x
+- **UI:** shadcn/ui + Tailwind CSS
+- **Backend:** Supabase
+- **Hosting:** Vercel
 
-Inside of your Astro project, you'll see the following folders and files:
+## USP
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+1. Transparentné ceny online — jediný salón v regióne
+2. Najlacnejšie v regióne — skúška od 12€
+3. Komis šiat — nikto iný to nerobí
+4. Osobný prístup — Natália pozná každú nevestu
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Kontakt
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+mt.magicroom@gmail.com · +421 950 490 323
