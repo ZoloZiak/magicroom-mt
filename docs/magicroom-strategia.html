@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MagicRoom — Stratégia novej webovej stránky</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: #2D2421;
+    background: #FDFBF9;
+    line-height: 1.6;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+  }
+
+  .header {
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: 2px solid #D4B8A0;
+    margin-bottom: 40px;
+  }
+
+  .header h1 {
+    font-size: 36px;
+    color: #8B6F5C;
+    margin-bottom: 8px;
+  }
+
+  .header .subtitle {
+    font-size: 16px;
+    color: #6B5E57;
+  }
+
+  .header .date {
+    font-size: 13px;
+    color: #6B5E57;
+    margin-top: 12px;
+  }
+
+  h2 {
+    font-size: 24px;
+    color: #8B6F5C;
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #EDE7E1;
+  }
+
+  h3 {
+    font-size: 18px;
+    color: #2D2421;
+    margin: 20px 0 8px;
+  }
+
+  p {
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+
+  .highlight-box {
+    background: #F7F3EF;
+    border-left: 4px solid #C9A86C;
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .highlight-box strong {
+    color: #8B6F5C;
+  }
+
+  .usp-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .usp-list li {
+    padding: 10px 16px;
+    margin: 8px 0;
+    background: #F7F3EF;
+    border-radius: 8px;
+    font-size: 14px;
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .usp-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 16px;
+    color: #7A9E7E;
+    font-weight: bold;
+  }
+
+  .zone-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+
+  .zone-table th {
+    background: #8B6F5C;
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 500;
+  }
+
+  .zone-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #EDE7E1;
+  }
+
+  .zone-table tr:nth-child(even) {
+    background: #F7F3EF;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .tag-green { background: #7A9E7E20; color: #5A7E5E; }
+  .tag-yellow { background: #C9A86C20; color: #9A7A3C; }
+  .tag-red { background: #B85C4A20; color: #9A3C2A; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+
+  .col-box {
+    background: #F7F3EF;
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .col-box h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: #8B6F5C;
+    margin-bottom: 8px;
+  }
+
+  .col-box p {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .cta-box {
+    background: #B85C4A;
+    color: white;
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+    margin: 32px 0;
+  }
+
+  .cta-box h3 {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .cta-box p {
+    color: white;
+    opacity: 0.9;
+    font-size: 14px;
+  }
+
+  .homepage-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 16px 0;
+  }
+
+  .flow-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background: #F7F3EF;
+    border-radius: 8px;
+    font-size: 13px;
+  }
+
+  .flow-num {
+    width: 28px;
+    height: 28px;
+    background: #8B6F5C;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .footer {
+    text-align: center;
+    padding-top: 32px;
+    border-top: 1px solid #EDE7E1;
+    margin-top: 40px;
+    color: #6B5E57;
+    font-size: 12px;
+  }
+
+  @media print {
+    body { padding: 20px; }
+    .header { page-break-after: avoid; }
+    h2 { page-break-after: avoid; }
+    .two-col { page-break-inside: avoid; }
+    .highlight-box { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>MagicRoom</h1>
+  <div class="subtitle">Stratégia novej webovej stránky</div>
+  <div class="date">Apríl 2026</div>
+</div>
+
+<h2>1. Kto sme a kam smerujeme</h2>
+
+<div class="highlight-box">
+  <strong>MagicRoom je malý, osobný svadobný salón v Martine.</strong> Prevádzkuje ho Natália osobne. Nechceme byť veľký luxusný salón — chceme byť ten, kam nevesty chodia, lebo nás <strong>poznajú, dôverujú nám a naše ceny sú férové.</strong>
+</div>
+
+<h3>Náš reálny trh</h3>
+
+<table class="zone-table">
+  <tr>
+    <th>Zóna</th>
+    <th>Územie</th>
+    <th>Pravdepodobnosť</th>
+  </tr>
+  <tr>
+    <td><span class="tag tag-green">Primárna</span></td>
+    <td>Martin, Turiec, Turčianske Teplice, Vrútky, Turany</td>
+    <td>90% — tu sme najbližší</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-yellow">Sekundárna</span></td>
+    <td>Ružomberok, Žilina, Dolný Kubín</td>
+    <td>10-20% — len cez ceny</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-red">Mimo dosah</span></td>
+    <td>Banská Bystrica, Liptovský Mikuláš</td>
+    <td>Neprídu — majú veľké salóny</td>
+  </tr>
+</table>
+
+<p><strong>Hlavný cieľ:</strong> Byť <strong>číslo 1 v primárnej zóne</strong> (Martin + okolie do 20 km, ~75 000 ľudí). Tu sú naše šance najvyššie.</p>
+
+
+<h2>2. Prečo prídu k nám, nie ku konkurencii</h2>
+
+<p>V Martine a okolí máme konkurenciu — Salón Elizabeth, Beauty POINT, AdellDecor a iné. Prečo si nevesta vyberie nás?</p>
+
+<ul class="usp-list">
+  <li><strong>Transparentné ceny</strong> — jediný salón v regióne, ktorý ukazuje skutočné ceny na webstránke. Žiadne "zavolaj pre cenu".</li>
+  <li><strong>Najdostupnejšie ceny</strong> — skúška od 12€, šaty od 100€. Konkurencia od 350€.</li>
+  <li><strong>Komis šiat</strong> — druhý život svadobných šiat, nikto iný v regióne to nerobí.</li>
+  <li><strong>Osobný prístup</strong> — Natália pozná každú nevestu. Nie ste číslo v poradí.</li>
+  <li><strong>Blízko</strong> — v centre Martina, nemusíte cestovať do Žiliny ani Banskej Bystrice.</li>
+</ul>
+
+
+<h2>3. Čo bude na novej stránke</h2>
+
+<div class="homepage-flow">
+  <div class="flow-step">
+    <div class="flow-num">1</div>
+    <div><strong>Hero</strong> — Veľký nadpis "Tvoje vysnívané šaty. Osobne. Za férovú cenu." + tlačidlo "Zarezervuj skúšku"</div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">2</div>
+    <div><strong>Ceny</strong> — Hneď pod hero: "Skúška od 12€ · Šaty od 100€ · Komis od 50€"</div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">3</div>
+    <div><strong>Služby</strong> — 3 karty: Šaty, Dekorácie, Organizácia — každá s konkrétnou cenou</div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">4</div>
+    <div><strong>Prečo malý salón</strong> — Osobný prístup, ceny online, komis, blízko</div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">5</div>
+    <div><strong>O Natálii</strong> — Krátky osobný príbeh, prečo založila salón</div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">6</div>
+    <div><strong>Rezervácia</strong> — Formulár + WhatsApp + telefón — nevesta si vyberie</div>
+  </div>
+</div>
+
+<p><strong>Podstránky:</strong> O nás · Služby a cenník · Komisný predaj · Prenájom dekorácií · Kontakt</p>
+
+
+<h2>4. Konkurencia — kto je na trhu</h2>
+
+<div class="two-col">
+  <div class="col-box">
+    <h4>Martin (priama konkurencia)</h4>
+    <p>• <strong>Salón Elizabeth</strong> — dlhoročný, "všetko pod jednou strechou"</p>
+    <p>• <strong>Beauty POINT</strong> — šitie na mieru, od 350€</p>
+    <p>• <strong>Svadba Martin</strong> — dekorácie + organizácia</p>
+    <p>• <strong>AdellDecor</strong> — výzdoba od 2012</p>
+    <p>• <strong>Noiva</strong> — nový, od 2025</p>
+  </div>
+  <div class="col-box">
+    <h4>Regionálna (nepriama)</h4>
+    <p>• <strong>DESIGNS</strong> (BB) — premium značky, Rosa Clará</p>
+    <p>• <strong>LERYA</strong> (Žilina) — premium, online rezervácie</p>
+    <p>• <strong>JADEI</strong> (Dolný Kubín) — prémiový, od 499€</p>
+    <p>• <strong>THE WHITE HOUSE</strong> (LM) — moderný web</p>
+    <p>• <strong>Salón Shania</strong> (BB) — full-service</p>
+  </div>
+</div>
+
+<div class="highlight-box">
+  <strong>Kľúčový poznatok:</strong> Žiadny konkurent v regióne neukazuje ceny online. Všetci vyžadujú telefonát alebo osobnú návštevu. My budeme prví.
+</div>
+
+
+<h2>5. Technické riešenie</h2>
+
+<table class="zone-table">
+  <tr>
+    <th>Časť</th>
+    <th>Riešenie</th>
+    <th>Prečo</th>
+  </tr>
+  <tr>
+    <td>Webstránka</td>
+    <td>Astro (nový framework)</td>
+    <td>Extrémne rýchla, dobrá pre Google</td>
+  </tr>
+  <tr>
+    <td>Dizajn</td>
+    <td>Štandardný komponentový systém</td>
+    <td>Pekný, profesionálny, bez veľkých nákladov</td>
+  </tr>
+  <tr>
+    <td>Formuláre</td>
+    <td>Supabase (databáza)</td>
+    <td>Zadarmo, automaticky ukladá rezervácie</td>
+  </tr>
+  <tr>
+    <td>Hosting</td>
+    <td>Vercel</td>
+    <td>Zadarmo, automaticky nasadenie</td>
+  </tr>
+  <tr>
+    <td>Náklady</td>
+    <td colspan="2"><strong>~15€/rok</strong> (len doména magicroom.sk)</td>
+  </tr>
+</table>
+
+
+<h2>6. Časový plán</h2>
+
+<table class="zone-table">
+  <tr>
+    <th>Fáza</th>
+    <th>Čas</th>
+    <th>Čo bude hotové</th>
+  </tr>
+  <tr>
+    <td><strong>Fáza 1 — MVP</strong></td>
+    <td>2-3 týždne</td>
+    <td>Celá stránka, formulár, ceny, WhatsApp tlačidlo, SEO základy</td>
+  </tr>
+  <tr>
+    <td><strong>Fáza 2 — Konverzia</strong></td>
+    <td>1 týždeň</td>
+    <td>Rezervačný formulár, Google Business, recenzie, rýchlosť</td>
+  </tr>
+  <tr>
+    <td><strong>Fáza 3 — Rast</strong></td>
+    <td>Voliteľné</td>
+    <td>Galéria, blog, online kalendár</td>
+  </tr>
+</table>
+
+
+<h2>7. Od čoho sa odlišujeme</h2>
+
+<div class="two-col">
+  <div class="col-box">
+    <h4>Aktuálna stránka (magicroom.sk)</h4>
+    <p>• Slogan "keď chceš viac" — nehovorí nič</p>
+    <p>• Žiadne ceny</p>
+    <p>• Žiadny online rezervačný formulár</p>
+    <p>• Slabý na mobile</p>
+    <p>• Žiadne fotky klientok</p>
+    <p>• WordPress — pomalá</p>
+  </div>
+  <div class="col-box">
+    <h4>Nová stránka</h4>
+    <p>• Jasné posolstvo: osobný prístup + férové ceny</p>
+    <p>• Ceny viditeľné hneď na homepage</p>
+    <p>• Formulár + WhatsApp + telefón</p>
+    <p>• Mobile-first dizajn</p>
+    <p>• Fotky reálnych neviest</p>
+    <p>• Astro — extrémne rýchla</p>
+  </div>
+</div>
+
+
+<div class="cta-box">
+  <h3>Ďalší krok</h3>
+  <p>Po schválení stratégie začíname s vývojom.<br>
+  Orientačný termín spustenia: <strong>2-3 týždne od začatia prác.</strong></p>
+</div>
+
+
+<div class="footer">
+  MagicRoom — Stratégia novej webovej stránky · Apríl 2026<br>
+  Kontakt: mt.magicroom@gmail.com · +421 950 490 323
+</div>
+
+</body>
+</html>
