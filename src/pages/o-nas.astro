@@ -1,0 +1,251 @@
+---
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { BOOKING_PAGE_HREF, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
+import { FOUNDER_STORY, GALLERY_ITEMS, HOME_STATS, IMAGE_ASSETS, TRUST_REASONS } from '@/data/content';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, CheckCircle2, Heart, Phone, Sparkles, Users } from 'lucide-react';
+
+const storyGallery = GALLERY_ITEMS.slice(0, 4);
+const operatingPrinciples = [
+  {
+    title: 'Osobná starostlivosť namiesto chaosu',
+    description: 'Každý kontakt s MagicRoom má byť pokojný, jasný a ľudský — od prvej správy až po finálne detaily.',
+    icon: Heart,
+  },
+  {
+    title: 'Svadby a oslavy do 50 hostí',
+    description: 'Vedome pracujeme v rozsahu, kde vieme udržať kvalitu, dohľad nad detailmi a osobný prístup Natálie.',
+    icon: Users,
+  },
+  {
+    title: 'Praktická pomoc s krásnym výsledkom',
+    description: 'Šaty, dekorácie aj poradenstvo majú pomôcť ušetriť čas a spraviť deň harmonickejším, nie komplikovanejším.',
+    icon: Sparkles,
+  },
+] as const;
+---
+
+<Layout
+  title="O nás — MagicRoom Martin"
+  description="Spoznajte Natáliu, zakladateľku MagicRoom. Lokálny bridal concierge v Martine, kde sa spájajú šaty, dekorácie a pokojný osobný prístup."
+  image={IMAGE_ASSETS.founder}
+>
+  <Header />
+
+  <main class="flex-1">
+    <section class="relative overflow-hidden soft-wash pt-20">
+      <div class="container mx-auto px-4 pb-14 pt-8 md:pb-24 md:pt-10">
+        <div class="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-center">
+          <div class="max-w-2xl">
+            <Badge variant="secondary" className="mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em] animate-fade-in-up animate-stagger-1">
+              O nás • MagicRoom Martin
+            </Badge>
+            <h1 class="font-display text-[2.9rem] leading-[0.96] text-foreground md:text-6xl lg:text-7xl animate-fade-in-up animate-stagger-2">
+              Miesto, ktoré vzniklo z potreby mať svadobné detaily konečne pokope.
+            </h1>
+            <p class="mt-6 max-w-xl text-lg leading-8 text-muted-foreground md:text-xl animate-fade-in-up animate-stagger-3">
+              MagicRoom nevznikol ako anonymný salón. Vznikol ako odpoveď na to, koľko stresu vie priniesť zháňanie šiat,
+              výzdoby a drobných rozhodnutí, ktoré spolu majú vytvoriť jeden dôležitý deň.
+            </p>
+
+            <div class="mt-8 luxury-panel p-6 md:p-7 animate-fade-in-up animate-stagger-4">
+              <p class="section-kicker">Zakladateľka</p>
+              <blockquote class="mt-3 font-display text-3xl italic leading-tight text-foreground md:text-4xl">
+                „{FOUNDER_STORY.quote}“
+              </blockquote>
+              <p class="mt-4 text-sm leading-7 text-muted-foreground">
+                Natália stavia MagicRoom na férovosti, ľudskom kontakte a na tom, aby nevesta nemusela behať medzi viacerými miestami naraz.
+              </p>
+            </div>
+
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row animate-fade-in-up animate-stagger-5">
+              <Button asChild variant="cta" size="lg" className="sm:min-w-[220px]">
+                <a href={BOOKING_PAGE_HREF}>
+                  Zarezervovať skúšku
+                  <ArrowRight className="h-5 w-5" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="sm:min-w-[220px]">
+                <a href={PHONE_HREF}>Zavolať {PHONE_DISPLAY}</a>
+              </Button>
+            </div>
+
+            <div class="mt-10 grid gap-4 sm:grid-cols-3">
+              {HOME_STATS.map((stat, i) => (
+                <div class={`rounded-2xl border border-border/70 bg-white/80 px-5 py-4 shadow-sm backdrop-blur animate-fade-in-up animate-stagger-${i + 1}`}>
+                  <p class="font-display text-3xl text-cta">{stat.value}</p>
+                  <p class="mt-1 text-sm leading-6 text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-6 -top-6 hidden h-24 w-24 rounded-full bg-accent/20 blur-2xl md:block"></div>
+            <div class="absolute -bottom-8 -right-8 hidden h-36 w-36 rounded-full bg-primary/15 blur-3xl md:block"></div>
+
+            <div class="overflow-hidden rounded-[32px] border border-white/60 bg-white p-3 shadow-[0_30px_80px_rgba(71,50,42,0.14)]">
+              <img
+                src={IMAGE_ASSETS.founder}
+                alt="Natália Ondrejková, zakladateľka MagicRoom."
+                class="max-h-[700px] w-full rounded-[24px] bg-surface object-contain"
+              />
+            </div>
+
+            <div class="mt-6 grid gap-5 sm:grid-cols-2 sm:items-start">
+              <div class="rounded-[28px] border border-border/70 bg-white p-5 shadow-[0_18px_50px_rgba(45,36,33,0.08)]">
+                <img
+                  src={IMAGE_ASSETS.founderAvatar}
+                  alt="Portrét Natálie Ondrejkovej."
+                  class="h-40 w-40 rounded-full object-cover shadow-[0_12px_32px_rgba(45,36,33,0.15)]"
+                  loading="lazy"
+                />
+              </div>
+              <div class="rounded-[28px] bg-primary-900 px-6 py-7 text-white shadow-[0_22px_60px_rgba(45,36,33,0.18)]">
+                <p class="text-[11px] uppercase tracking-[0.26em] text-white/70">Ako dnes pracujeme</p>
+                <p class="mt-4 text-base leading-7 text-white">
+                  Výzdoby a oslavy realizujeme pre menšie formáty, aby každá klientka dostala plnú pozornosť a nie „rýchly pásový servis".
+                </p>
+              </div>
+            </div>
+              <div class="rounded-[28px] bg-primary-900 px-5 py-5 text-white shadow-[0_22px_60px_rgba(45,36,33,0.18)]">
+                <p class="text-[11px] uppercase tracking-[0.26em] text-white/55">Ako dnes pracujeme</p>
+                <p class="mt-3 text-lg leading-7 text-white/85">
+                  Výzdoby a oslavy realizujeme pre menšie formáty, aby každá klientka dostala plnú pozornosť a nie „rýchly pásový servis“.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+          <div class="max-w-2xl">
+            <p class="section-kicker">Príbeh značky</p>
+            <h2 class="section-title mt-3">MagicRoom vznikol z vlastnej skúsenosti, nie z marketingovej frázy.</h2>
+            <div class="mt-8 space-y-5 editorial-copy">
+              {FOUNDER_STORY.paragraphs.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+
+          <div class="luxury-panel p-6 md:p-8">
+            <p class="section-kicker">Čo to znamená v praxi</p>
+            <div class="mt-6 space-y-5">
+              {TRUST_REASONS.map((reason) => (
+                <div class="rounded-2xl bg-surface px-5 py-5">
+                  <div class="flex items-start gap-4">
+                    <div class="mt-1 rounded-full bg-primary/10 p-2 text-primary">
+                      <CheckCircle2 className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold text-foreground">{reason.title}</h3>
+                      <p class="mt-2 text-sm leading-6 text-muted-foreground">{reason.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="section-kicker">Atmosféra MagicRoom</p>
+            <h2 class="section-title mt-3">Nie showroom. Skôr pokojný priestor, kde sa rozhoduje ľahšie.</h2>
+          </div>
+          <p class="max-w-xl text-base leading-7 text-muted-foreground">
+            Salón, skúška šiat, dekorácie a drobné detaily majú spolu fungovať vizuálne aj organizačne. Preto aj priestor pôsobí skôr ako vedené stretnutie než rýchly predaj.
+          </p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2">
+          {storyGallery.map((item, index) => (
+            <div class:list={[
+              'group overflow-hidden rounded-[30px] border border-white/60 bg-white p-3 shadow-[0_22px_70px_rgba(45,36,33,0.08)]',
+              index === 0 ? 'md:row-span-2' : '',
+            ]}>
+              <img
+                src={item.src}
+                alt={item.alt}
+                class:list={[
+                  'w-full rounded-[22px] bg-surface object-contain transition-transform duration-500 group-hover:scale-[1.02]',
+                  index === 0 ? 'h-full min-h-[420px]' : 'h-[260px]',
+                ]}
+                loading="lazy"
+              />
+              <div class="px-2 pb-1 pt-4">
+                <p class="text-sm uppercase tracking-[0.2em] text-primary/60">{item.title}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto mb-10 max-w-3xl text-center">
+          <p class="section-kicker">Ako Natália vedie MagicRoom</p>
+          <h2 class="section-title mt-3">Tri zásady, vďaka ktorým je celý proces ľudskejší.</h2>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-3">
+          {operatingPrinciples.map((item) => (
+            <div class="luxury-panel p-6 md:p-7">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <item.icon className="h-5 w-5" />
+              </div>
+              <h3 class="mt-6 font-display text-2xl text-foreground">{item.title}</h3>
+              <p class="mt-4 text-base leading-7 text-muted-foreground">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-primary-900 py-16 text-white md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto max-w-4xl rounded-[34px] border border-white/10 bg-white/6 px-6 py-10 text-center shadow-[0_26px_80px_rgba(18,13,12,0.18)] md:px-10 md:py-14">
+          <p class="text-[11px] uppercase tracking-[0.28em] text-white/55">Ďalší krok</p>
+          <h2 class="mt-4 font-display text-4xl leading-tight md:text-5xl">
+            Ak vám tento prístup sedí, začnime pokojnou skúškou alebo krátkym telefonátom.
+          </h2>
+          <p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/75">
+            Najjednoduchšie je rezervovať si termín na skúšku šiat. Ak ešte len zisťujete možnosti, pokojne zavolajte — poradíme, čo má pre vás zmysel riešiť ako prvé.
+          </p>
+
+          <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <Button asChild variant="secondary" size="lg">
+              <a href={BOOKING_PAGE_HREF}>
+                Rezervovať termín
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
+              <a href={PHONE_HREF}>
+                <Phone className="h-4 w-4" />
+                {PHONE_DISPLAY}
+              </a>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppFAB />
+</Layout>

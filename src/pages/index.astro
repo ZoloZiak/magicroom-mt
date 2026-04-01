@@ -1,17 +1,242 @@
 ---
-
+import BookingForm from '@/components/forms/BookingForm.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ADDRESS_LABEL, MAP_URL, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
+import {
+  FOUNDER_STORY,
+  HOME_OFFER_CARDS,
+  HOME_STATS,
+  IMAGE_ASSETS,
+  PROCESS_STEPS,
+  TRUST_REASONS,
+} from '@/data/content';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, CheckCircle2, Clock3, MapPin, Phone, Sparkles } from 'lucide-react';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="MagicRoom — svadobné šaty, dekorácie a bridal concierge v Martine"
+  description="MagicRoom je lokálny svadobný salón v Martine. Skúška šiat od 12 €, prenájom dekorácií, svadobné poradenstvo a pokojný osobný prístup."
+  image={IMAGE_ASSETS.hero}
+>
+  <Header />
+
+  <main class="flex-1">
+    <section class="relative overflow-hidden bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] pt-20">
+      <div class="container mx-auto px-4 pb-14 pt-8 md:pb-24 md:pt-10">
+        <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div class="max-w-2xl">
+            <Badge variant="secondary" className="mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em] animate-fade-in-up animate-stagger-1">
+              Boutique bridal concierge • Martin
+            </Badge>
+            <h1 class="font-display text-[2.9rem] leading-[0.95] text-foreground md:text-6xl lg:text-7xl animate-fade-in-up animate-stagger-2">
+              Šaty, dekorácie a pokojná svadobná pomoc na jednom mieste.
+            </h1>
+            <p class="mt-6 max-w-xl text-lg leading-8 text-muted-foreground md:text-xl animate-fade-in-up animate-stagger-3">
+              MagicRoom je pre nevesty, ktoré nechcú behať medzi piatimi dodávateľmi. Začnite skúškou šiat od 12 € a doriešte výzdobu aj detaily s človekom, ktorý vás pozná.
+            </p>
+
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row animate-fade-in-up animate-stagger-4">
+              <Button asChild variant="cta" size="lg" className="sm:min-w-[220px]">
+                <a href="#booking">
+                  Zarezervovať skúšku
+                  <ArrowRight className="h-5 w-5" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="sm:min-w-[220px]">
+                <a href="/sluzby">Pozrieť služby a cenník</a>
+              </Button>
+            </div>
+
+            <div class="mt-10 grid gap-4 sm:grid-cols-3">
+              {HOME_STATS.map((stat, i) => (
+                <div class={`rounded-2xl border border-border/70 bg-white/80 px-5 py-4 shadow-sm backdrop-blur animate-fade-in-up animate-stagger-${i + 1}`}>
+                  <p class="font-display text-3xl text-cta">{stat.value}</p>
+                  <p class="mt-1 text-sm leading-6 text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-6 -top-6 hidden h-24 w-24 rounded-full bg-accent/20 blur-2xl md:block"></div>
+            <div class="absolute -bottom-8 -right-8 hidden h-32 w-32 rounded-full bg-primary/15 blur-3xl md:block"></div>
+            <div class="overflow-hidden rounded-[32px] border border-white/60 bg-white p-3 shadow-[0_30px_80px_rgba(71,50,42,0.14)]">
+              <img
+                src={IMAGE_ASSETS.hero}
+                alt="Interiér svadobného salónu MagicRoom v Martine."
+                class="h-full max-h-[640px] w-full rounded-[24px] object-cover"
+              />
+            </div>
+
+            <div class="mt-5 grid gap-4 sm:grid-cols-2">
+              <a href={PHONE_HREF} class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
+                <div class="flex items-center gap-3 text-primary">
+                  <Phone className="h-4 w-4" />
+                  <span class="text-sm uppercase tracking-[0.2em]">Telefón</span>
+                </div>
+                <p class="mt-3 font-semibold text-foreground">{PHONE_DISPLAY}</p>
+              </a>
+              <a href={MAP_URL} target="_blank" rel="noopener noreferrer" class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
+                <div class="flex items-center gap-3 text-primary">
+                  <MapPin className="h-4 w-4" />
+                  <span class="text-sm uppercase tracking-[0.2em]">Adresa</span>
+                </div>
+                <p class="mt-3 text-sm leading-6 text-foreground">{ADDRESS_LABEL}</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.24em] text-primary/70">Čo u nás vybavíte</p>
+            <h2 class="mt-3 font-display text-4xl text-foreground md:text-5xl">Služby navrhnuté tak, aby ste nestrácali čas.</h2>
+          </div>
+          <p class="max-w-xl text-base leading-7 text-muted-foreground">
+            Každá karta nižšie je reálna časť ponuky MagicRoom — bez zbytočných fráz, s cenami a ďalším krokom, ktorý dáva zmysel.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {HOME_OFFER_CARDS.map((item, index) => (
+            <Card className={`border-0 bg-white shadow-[0_20px_60px_rgba(59,44,38,0.08)] spring-hover animate-fade-in-up animate-stagger-${index + 1}`}>
+              <CardHeader>
+                <div class="mb-5 flex items-start justify-between gap-3">
+                  <div class="rounded-full bg-primary/10 p-3 text-primary">
+                    <Sparkles className="h-5 w-5" />
+                  </div>
+                  {index === 0 && <Badge variant="cta">Najčastejší prvý krok</Badge>}
+                </div>
+                <CardTitle className="font-display text-2xl">{item.title}</CardTitle>
+                <p class="pt-2 text-sm font-semibold uppercase tracking-[0.16em] text-cta">{item.price}</p>
+                <CardDescription className="pt-3 text-base leading-7">{item.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button asChild variant="ghost" className="px-0 text-primary hover:text-cta">
+                  <a href={item.href}>
+                    {item.cta}
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div class="rounded-[30px] bg-primary-900 px-6 py-8 text-white shadow-[0_26px_80px_rgba(47,34,31,0.18)] md:px-10 md:py-12">
+            <p class="text-sm uppercase tracking-[0.24em] text-white/60">Prečo si nevesty vyberajú MagicRoom</p>
+            <h2 class="mt-4 font-display text-4xl leading-tight md:text-5xl">Osobný kontakt, jasné ceny a žiadny organizačný chaos.</h2>
+            <div class="mt-10 grid gap-5 md:grid-cols-2">
+              {TRUST_REASONS.map((reason) => (
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                  <div class="flex items-start gap-3">
+                    <div class="mt-1 rounded-full bg-white/10 p-2 text-accent">
+                      <CheckCircle2 className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold text-white">{reason.title}</h3>
+                      <p class="mt-2 text-sm leading-6 text-white/70">{reason.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="rounded-[30px] border border-border/70 bg-white p-6 shadow-[0_24px_80px_rgba(45,36,33,0.08)] md:p-10">
+            <p class="text-sm uppercase tracking-[0.24em] text-primary/70">Ako to prebieha</p>
+            <h2 class="mt-4 font-display text-4xl text-foreground">Rezervácia bez zbytočných krokov.</h2>
+            <div class="mt-8 space-y-5">
+              {PROCESS_STEPS.map((step, index) => (
+                <div class="flex gap-4 rounded-2xl bg-surface px-5 py-5">
+                  <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
+                    0{index + 1}
+                  </div>
+                  <p class="pt-1 text-base leading-7 text-muted-foreground">{step}</p>
+                </div>
+              ))}
+            </div>
+
+            <div class="mt-8 rounded-2xl border border-border/70 px-5 py-4">
+              <div class="flex items-center gap-3 text-primary">
+                <Clock3 className="h-4 w-4" />
+                <span class="text-sm uppercase tracking-[0.16em]">Rýchla odpoveď</span>
+              </div>
+              <p class="mt-3 text-sm leading-6 text-muted-foreground">Na rezervácie a dopyty odpovedáme spravidla do 24 hodín. Ak je to súrne, zavolajte nám.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div class="overflow-hidden rounded-[32px] border border-white/60 bg-white p-3 shadow-[0_24px_70px_rgba(45,36,33,0.1)]">
+            <img
+              src={IMAGE_ASSETS.founder}
+              alt="Natália Ondrejková, zakladateľka MagicRoom."
+              class="w-full rounded-[24px] bg-surface object-contain"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="max-w-2xl">
+            <p class="text-sm uppercase tracking-[0.24em] text-primary/70">Za MagicRoom stojí Natália</p>
+            <blockquote class="mt-4 font-display text-4xl italic leading-tight text-foreground md:text-5xl">
+              „{FOUNDER_STORY.quote}“
+            </blockquote>
+            <div class="mt-8 space-y-5 text-base leading-8 text-muted-foreground">
+              {FOUNDER_STORY.paragraphs.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+            </div>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button asChild variant="outline" size="lg">
+                <a href="/o-nas">Spoznať príbeh MagicRoom</a>
+              </Button>
+              <Button asChild variant="ghost" size="lg" className="px-0 text-primary hover:text-cta">
+                <a href="#booking">
+                  Prejsť rovno na rezerváciu
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto mb-10 max-w-3xl text-center">
+          <p class="text-sm uppercase tracking-[0.24em] text-primary/70">Rezervácia skúšky</p>
+          <h2 class="mt-3 font-display text-4xl text-foreground md:text-5xl">Začnite termínom, ktorý vám sadne.</h2>
+          <p class="mt-4 text-base leading-7 text-muted-foreground">
+            Skúška trvá 60 minút, stojí 12 € a v cene je aj nápoj. Ak už riešite dekorácie alebo konzultáciu, napíšte to rovno do formulára.
+          </p>
+        </div>
+
+        <BookingForm />
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppFAB />
+</Layout>

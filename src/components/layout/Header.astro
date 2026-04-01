@@ -1,0 +1,161 @@
+---
+import { Button } from '@/components/ui/button';
+import { BOOKING_PAGE_HREF, NAV_LINKS, PHONE_DISPLAY, PHONE_HREF, RESPONSE_PROMISE } from '@/data/site';
+import { Menu, X } from 'lucide-react';
+
+const currentPath = Astro.url.pathname;
+const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-border/70 bg-background/80 shadow-[0_10px_40px_rgba(45,36,33,0.05)] backdrop-blur-xl">
+  <div class="hidden border-b border-border/50 bg-white/60 md:block">
+    <div class="container mx-auto flex h-10 items-center justify-between px-4 text-[11px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
+      <p>Skúška šiat 12 € / 60 min</p>
+      <div class="flex items-center gap-6">
+        <p>Martin • na objednávku</p>
+        <a href={PHONE_HREF} class="hover:text-foreground">{PHONE_DISPLAY}</a>
+        <p>{RESPONSE_PROMISE}</p>
+      </div>
+    </div>
+  </div>
+
+  <nav class="container mx-auto flex h-[4.5rem] items-center justify-between px-4">
+    <a href="/" class="group flex items-center gap-3" aria-label="MagicRoom domov">
+      <div class="flex h-11 w-11 items-center justify-center rounded-full border border-white/60 bg-primary text-primary-foreground shadow-[0_12px_30px_rgba(139,111,92,0.22)]">
+        <span class="font-display text-lg font-bold">M</span>
+      </div>
+      <div class="hidden sm:block">
+        <span class="block font-display text-[1.45rem] leading-none transition-colors group-hover:text-primary">MagicRoom</span>
+        <span class="mt-1 block text-[10px] uppercase tracking-[0.34em] text-muted-foreground">bridal concierge • Martin</span>
+      </div>
+    </a>
+
+    <ul class="hidden items-center gap-8 md:flex">
+      {NAV_LINKS.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            aria-current={currentPath === link.href ? 'page' : undefined}
+            class:list={[
+              'relative text-sm font-medium tracking-[0.08em] after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:origin-left after:bg-cta after:transition-transform after:duration-300',
+              currentPath === link.href
+                ? 'text-foreground after:scale-x-100'
+                : 'text-foreground/70 after:scale-x-0 hover:text-foreground hover:after:scale-x-100',
+            ]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="hidden md:block">
+      <Button asChild variant="cta" size="sm">
+        <a href={bookingHref}>Zarezervuj skúšku</a>
+      </Button>
+    </div>
+
+    <div class="md:hidden">
+      <button
+        id="mobile-menu-toggle"
+        class="cursor-pointer rounded-lg p-2 transition-colors hover:bg-surface"
+        aria-label="Otvoriť navigáciu"
+        aria-expanded="false"
+      >
+        <Menu className="h-5 w-5" />
+      </button>
+
+      <div class="fixed inset-0 z-50 hidden bg-primary-950/35 backdrop-blur-sm" id="mobile-menu-overlay" role="dialog" aria-modal="true" aria-label="Mobilná navigácia">
+        <div class="absolute right-0 top-0 h-full w-[300px] border-l border-white/40 bg-[linear-gradient(180deg,#fffdfb_0%,#f8f3ef_100%)] shadow-[0_20px_60px_rgba(45,36,33,0.18)]">
+          <div class="border-b border-border/70 px-5 py-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="block font-display text-2xl">MagicRoom</span>
+                <span class="mt-1 block text-[10px] uppercase tracking-[0.28em] text-muted-foreground">bridal concierge • Martin</span>
+              </div>
+              <button id="mobile-menu-close" class="cursor-pointer rounded-lg p-2 hover:bg-surface" aria-label="Zavrieť navigáciu">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div class="mt-4 rounded-2xl border border-border/70 bg-white/80 px-4 py-3 text-sm text-muted-foreground">
+              <p class="font-medium text-foreground">{RESPONSE_PROMISE}</p>
+              <a href={PHONE_HREF} class="mt-1 block hover:text-primary">{PHONE_DISPLAY}</a>
+            </div>
+          </div>
+
+          <div class="px-5 py-3">
+            <p class="section-kicker">Navigácia</p>
+          </div>
+
+          <ul class="px-5">
+            {NAV_LINKS.map((link) => (
+              <li class="border-b border-border/50 py-3 last:border-0">
+                <a
+                  href={link.href}
+                  data-mobile-nav-link
+                  class:list={[
+                    'block py-2 text-lg font-medium transition-colors',
+                    currentPath === link.href ? 'text-cta' : 'hover:text-cta',
+                  ]}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div class="border-t border-border/70 p-5">
+            <Button asChild variant="cta" className="w-full">
+              <a href={bookingHref}>Zarezervuj skúšku</a>
+            </Button>
+            <a href={PHONE_HREF} class="mt-4 block text-center text-sm font-medium text-muted-foreground hover:text-foreground">
+              Alebo zavolajte priamo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const overlay = document.getElementById('mobile-menu-overlay');
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const closeBtn = document.getElementById('mobile-menu-close');
+  const mobileLinks = document.querySelectorAll('[data-mobile-nav-link]');
+
+  const openMenu = () => {
+    if (overlay) {
+      overlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      toggle?.setAttribute('aria-expanded', 'true');
+    }
+  };
+
+  const closeMenu = () => {
+    if (overlay) {
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+      toggle?.setAttribute('aria-expanded', 'false');
+    }
+  };
+
+  toggle?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+
+  overlay?.addEventListener('click', (event) => {
+    if (event.target === overlay) {
+      closeMenu();
+    }
+  });
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !overlay?.classList.contains('hidden')) {
+      closeMenu();
+    }
+  });
+</script>
