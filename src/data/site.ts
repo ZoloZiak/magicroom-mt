@@ -44,8 +44,6 @@ export const NAV_LINKS = [
 export const SOCIAL_LINKS = [
   { label: 'Facebook', href: 'https://www.facebook.com/909260838935730/' },
   { label: 'Instagram', href: 'https://www.instagram.com/mt.magicroom/' },
-  { label: 'Google recenzie', href: 'https://www.google.com/search?q=magicroom+martin+svadba' },
-  { label: 'Google Business', href: 'https://business.google.com/l/magicroom-martin' },
 ] as const;
 
 export const BOOKING_PAGE_HREF = '/kontakt#booking';
