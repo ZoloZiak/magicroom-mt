@@ -34,14 +34,14 @@
   --color-surface: #F7F3EF;
 
   /* Primary shades for dark sections */
-  --color-primary-900: #3D2A2E;
-  --color-primary-950: #2A1C1F;
+  --color-primary-900: #4A2E3A;
+  --color-primary-950: #351F2A;
 
   /* Shadows — warm rose tones */
-  --shadow-soft: 0 20px 60px rgba(61, 42, 46, 0.08);
-  --shadow-medium: 0 24px 80px rgba(61, 42, 46, 0.09);
-  --shadow-heavy: 0 30px 80px rgba(61, 42, 46, 0.12);
-  --shadow-dark: 0 26px 80px rgba(42, 28, 31, 0.18);
+  --shadow-soft: 0 20px 60px rgba(74, 46, 58, 0.08);
+  --shadow-medium: 0 24px 80px rgba(74, 46, 58, 0.09);
+  --shadow-heavy: 0 30px 80px rgba(74, 46, 58, 0.12);
+  --shadow-dark: 0 26px 80px rgba(53, 31, 42, 0.18);
 
   /* Radius */
   --radius-sm: 0.25rem;
@@ -125,7 +125,7 @@
   }
 
   .luxury-panel {
-    @apply rounded-[32px] border border-white/60 bg-white/90 shadow-[0_24px_80px_rgba(61,42,46,0.09)] backdrop-blur;
+    @apply rounded-[32px] border border-white/60 bg-white/90 shadow-[0_24px_80px_rgba(74,46,58,0.09)] backdrop-blur;
   }
 
   .soft-wash {
