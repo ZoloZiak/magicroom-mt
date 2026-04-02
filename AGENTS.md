@@ -26,8 +26,8 @@ MagicRoom is a wedding salon website in Martin, Slovakia. Built with Astro 6.x, 
 6. **Data:** all content in `src/data/content.ts`, config in `src/data/site.ts`
 
 ## Deployment
-- Push to `main` → Vercel auto-deploys
-- Manual: `source ~/.nvm/nvm.sh && vercel --prod --yes`
+- **AUTOMATICKY — NIKDY manual deploy!**
+- Commitni + Pushni na `main` → Vercel auto-deployne
 - Production URL: https://magicroom-mt.vercel.app
 
 ## Workflow (IMPORTANT)
