@@ -1,51 +1,54 @@
-# MagicRoom — Nová webová stránka
+# MagicRoom — Wedding Salon Website
 
-Svadobný salón v Martine. Malý, osobný, s férovými cenami.
+Wedding salon in Martin, Slovakia. Small, personal, fair prices.
 
-## Štruktúra repozitára
+## Repository Structure
 
 ```
 magicroom-mt/
+├── .github/workflows/              — CI (test + build on push)
 ├── .kilo/                          — Kilo CLI config
 │   ├── agent/                      — Custom agents
 │   └── command/                    — Slash commands (/deploy, /build, /colors)
-├── AGENTS.md                       — Project instructions pre Kilo
-├── README.md                       — Tento súbor
+├── AGENTS.md                       — Project instructions for Kilo
+├── README.md                       — This file
 │
-├── research/                       — Prieskum trhu, konkurencia
+├── research/                       — Market research, competitor analysis
 │   ├── regional-market.sk.md
 │   ├── regional-market.en.md
 │   └── magicroom-strategia.pdf
 │
-├── plan/                           — Strategické dokumenty
-│   ├── SPEC.sk.md                  — Hlavná špecifikácia (SK)
-│   ├── SPEC.en.md                  — Špecifikácia (EN)
-│   ├── seo-strategy.sk.md
-│   ├── seo-strategy.en.md
-│   ├── ux-strategy.sk.md
-│   ├── ux-strategy.en.md
-│   ├── roadmap.sk.md
+├── plans/                          — Strategy documents
+│   ├── SPEC.sk.md                  — Main specification (SK)
+│   ├── SPEC.en.md                  — Specification (EN)
+│   ├── seo-local-strategy.sk.md
+│   ├── seo-local-strategy.en.md
+│   ├── ux-conversion-strategy.sk.md
+│   ├── ux-conversion-strategy.en.md
+│   ├── roadmap-sk.md
 │   └── roadmap.en.md
 │
-├── docs/                           — Technická dokumentácia
-│   ├── component-architecture.sk.md — Architektúra komponentov
+├── docs/                           — Technical documentation
+│   ├── component-architecture.sk.md
 │   ├── component-architecture.en.md
-│   ├── color-palette.md            — Farebná škála + história
-│   └── deployment.md               — Deploy inštrukcie
+│   ├── color-palette.md            — Color history
+│   └── deployment.md               — Deploy instructions
 │
-├── testing/                        — Testy (plánované)
+├── testing/                        — Tests (Vitest)
+│   ├── site.test.ts                — 18 tests (config, navigation, schema.org)
+│   ├── content.test.ts             — 25 tests (services, catalog, gallery)
 │   └── README.md
 │
-├── referencie/                     — Raw fotky zo salónu (36 ks)
+├── references/                     — Raw salon photos (36 images)
 │
-├── public/                         — Statické súbory
+├── public/                         — Static files
 │   ├── favicon.ico
 │   ├── favicon.svg
 │   ├── robots.txt
 │   ├── site.webmanifest
 │   └── images/
 │       ├── logo.jpeg
-│       └── salon/                  — Optimalizované fotky
+│       └── salon/                  — Optimized photos
 │
 ├── src/                            — Source code
 │   ├── components/
@@ -59,10 +62,10 @@ magicroom-mt/
 │   │   │   ├── Sparkles.astro
 │   │   │   ├── ScrollToTop.astro
 │   │   │   └── WhatsAppFAB.astro
-│   │   └── ui/                     — shadcn/ui komponenty
+│   │   └── ui/                     — shadcn/ui components
 │   ├── data/
-│   │   ├── content.ts              — Všetok obsah (služby, ceny, galéria)
-│   │   └── site.ts                 — Konfigurácia (kontakt, navigácia)
+│   │   ├── content.ts              — All content (services, prices, gallery, catalog)
+│   │   └── site.ts                 — Config (contact, navigation)
 │   ├── layouts/
 │   │   └── Layout.astro
 │   ├── lib/
@@ -73,12 +76,13 @@ magicroom-mt/
 │   │   ├── blog/
 │   │   │   ├── index.astro
 │   │   │   └── svadobne-trendy-2026.astro
-│   │   ├── index.astro
-│   │   ├── o-nas.astro
-│   │   ├── sluzby.astro
-│   │   ├── kontakt.astro
-│   │   ├── komisny-predaj.astro
-│   │   └── prenajom-dekoracii.astro
+│   │   ├── index.astro             — Homepage
+│   │   ├── o-nas.astro             — About
+│   │   ├── sluzby.astro            — Services
+│   │   ├── svadobne-saty.astro     — Dress catalog
+│   │   ├── kontakt.astro           — Contact + booking
+│   │   ├── komisny-predaj.astro    — Consignment
+│   │   └── prenajom-dekoracii.astro — Decoration rental
 │   └── styles/
 │       └── global.css              — Tailwind theme + design tokens
 │
@@ -88,7 +92,8 @@ magicroom-mt/
 ├── components.json
 ├── package.json
 ├── package-lock.json
-└── tsconfig.json
+├── tsconfig.json
+└── vitest.config.ts
 ```
 
 ## Stack
@@ -96,7 +101,7 @@ magicroom-mt/
 - **Framework:** Astro 6.x
 - **UI:** shadcn/ui + Tailwind CSS
 - **Email:** Resend (booking form)
-- **Testing:** Vitest (39 unit tests)
+- **Testing:** Vitest (43 unit tests)
 - **CI:** GitHub Actions (test + build on push)
 - **Hosting:** Vercel
 
@@ -105,18 +110,18 @@ magicroom-mt/
 ```bash
 npm run dev           # local dev server
 npm run build         # production build
-npm run test          # run 39 unit tests
+npm run test          # run 43 unit tests
 npm run test:watch    # watch mode
 npm run test:coverage # with coverage report
 ```
 
 ## USP
 
-1. Transparentné ceny online — jediný salón v regióne
-2. Najlacnejšie v regióne — skúška od 12€
-3. Komis šiat — nikto iný to nerobí
-4. Osobný prístup — Natália pozná každú nevestu
+1. Transparent prices online — only salon in the region
+2. Cheapest in the region — trial from 12€
+3. Dress consignment — nobody else does it
+4. Personal approach — Natália knows every bride
 
-## Kontakt
+## Contact
 
 mt.magicroom@gmail.com · +421 950 490 323

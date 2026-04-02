@@ -42,8 +42,11 @@ MagicRoom is a wedding salon website in Martin, Slovakia. Built with Astro 6.x, 
 - `src/components/ui/` — shadcn/ui primitives
 - `src/data/` — content.ts (data), site.ts (config)
 - `src/styles/global.css` — Tailwind theme + design tokens
-- `docs/` — project documentation (SK + PL)
-- `referencie/` — raw salon photos (reference, not deployed)
+- `plans/` — strategy documents (SPEC, SEO, UX, roadmap)
+- `docs/` — technical documentation (architecture, colors, deployment)
+- `research/` — market research
+- `testing/` — Vitest unit tests
+- `references/` — raw salon photos (not deployed)
 
 ## Email
 - `from:` = `rezervacie@magicroom.sk` (verified domain)
