@@ -47,6 +47,40 @@ const servicePillars = [
     icon: ClipboardList,
   },
 ] as const;
+
+const servicesSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: SERVICE_PACKAGES.map((pkg, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Offer',
+        name: pkg.name,
+        description: pkg.description,
+        price: pkg.price,
+        priceCurrency: 'EUR',
+        availability: 'https://schema.org/InStock',
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList', 
+    itemListElement: EXTRA_SERVICES.map((svc, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Service',
+        name: svc.title,
+        description: svc.description,
+        price: svc.price,
+        priceCurrency: 'EUR',
+      },
+    })),
+  },
+];
 ---
 
 <Layout
@@ -54,6 +88,7 @@ const servicePillars = [
   description="Skúška svadobných šiat od 12 €, prenájom dekorácií, svadobné poradenstvo a balíky organizácie svadby v MagicRoom v Martine s jasnými cenami."
   keywords="svadobne sluzby, ceny, balíky, konzultácie, organizácia svadby"
   image={IMAGE_ASSETS.dresses}
+  structuredData={[servicesSchema]}
   breadcrumbs={[
     { name: 'Domov', url: '/' },
     { name: 'Služby a cenník', url: '/sluzby' },

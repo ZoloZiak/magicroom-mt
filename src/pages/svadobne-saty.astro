@@ -33,6 +33,32 @@ const statusColor = (status: string) => {
 };
 
 const typeLabel = (type: string) => type === 'new' ? 'Nové' : 'Komis';
+
+const dressesSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: DRESS_CATALOG.map((dress, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Product',
+      name: dress.name,
+      description: dress.description,
+      image: dress.image,
+      offers: {
+        '@type': 'Offer',
+        price: dress.price,
+        priceCurrency: 'EUR',
+        availability: dress.status === 'available' 
+          ? 'https://schema.org/InStock'
+          : dress.status === 'reserved'
+          ? 'https://schema.org/LimitedAvailability'
+          : 'https://schema.org/SoldOut',
+      },
+      size: dress.size,
+    },
+  })),
+};
 ---
 
 <Layout
@@ -40,6 +66,7 @@ const typeLabel = (type: string) => type === 'new' ? 'Nové' : 'Komis';
   description="Svadobné šaty v Martine od 12 €. Online katalóg s cenami, veľkosťami a stavom. Nové modely aj komis. Rezervujte si skúšku v MagicRoom."
   keywords="svadobne saty, saty martin, lacne svadobne saty, komis saty, saty turiec"
   image={IMAGE_ASSETS.satyRuzove1}
+  structuredData={dressesSchema}
 >
   <Header />
 

@@ -20,6 +20,18 @@ import {
 } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
 import { ArrowRight, CheckCircle2, Clock3, MapPin, Phone } from 'lucide-react';
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Ako rezervovať skúšku svadobných šiat v MagicRoom',
+  step: PROCESS_STEPS.map((step, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: `Krok ${i + 1}`,
+    text: step,
+  })),
+};
 ---
 
 <Layout
@@ -27,6 +39,7 @@ import { ArrowRight, CheckCircle2, Clock3, MapPin, Phone } from 'lucide-react';
   description="MagicRoom je lokálny svadobný salón v Martine. Skúška svadobných šiat od 12 €, výzdoba svadieb a osláv, svadobné poradenstvo a pokojný osobný prístup."
   keywords="svadobne saty, dekoracie, martin, bridal concierge, svadobne poradenstvo, komisny predaj"
   image={IMAGE_ASSETS.hero}
+  structuredData={howToSchema}
 >
   <Header />
 
