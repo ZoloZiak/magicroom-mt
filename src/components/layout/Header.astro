@@ -20,9 +20,13 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
 
   <nav class="container mx-auto flex h-[4.5rem] items-center justify-between px-4">
     <a href="/" class="group flex items-center gap-3" aria-label="MagicRoom domov">
-      <div class="flex h-11 w-11 items-center justify-center rounded-full border border-white/60 bg-primary text-primary-foreground shadow-[0_12px_30px_rgba(139,111,92,0.22)]">
-        <span class="font-display text-lg font-bold">M</span>
-      </div>
+      <img
+        src="/images/logo.jpeg"
+        alt="MagicRoom logo"
+        class="h-11 w-11 rounded-full object-cover shadow-[0_12px_30px_rgba(74,46,58,0.15)]"
+        width="44"
+        height="44"
+      />
       <div class="hidden sm:block">
         <span class="block font-display text-[1.45rem] leading-none transition-colors group-hover:text-primary">MagicRoom</span>
         <span class="mt-1 block text-[10px] uppercase tracking-[0.34em] text-muted-foreground">bridal concierge • Martin</span>
@@ -64,13 +68,16 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
       </button>
 
-      <div class="fixed inset-0 z-50 hidden bg-primary-950/35 backdrop-blur-sm" id="mobile-menu-overlay" role="dialog" aria-modal="true" aria-label="Mobilná navigácia">
-        <div id="mobile-menu-panel" class="absolute right-0 top-0 h-full w-[300px] translate-x-full border-l border-white/40 bg-[linear-gradient(180deg,#fffdfb_0%,#f8f3ef_100%)] shadow-[0_20px_60px_rgba(53,31,42,0.18)] transition-transform duration-350 ease-[cubic-bezier(0.16,1,0.3,1)]">
+      <div class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-sm" id="mobile-menu-overlay" role="dialog" aria-modal="true" aria-label="Mobilná navigácia">
+        <div id="mobile-menu-panel" class="absolute right-0 top-0 h-full w-[300px] translate-x-full border-l border-border/50 bg-background shadow-[0_20px_60px_rgba(53,31,42,0.18)] transition-transform duration-350 ease-[cubic-bezier(0.16,1,0.3,1)]">
           <div class="border-b border-border/70 px-5 py-5">
             <div class="flex items-center justify-between">
-              <div>
-                <span class="block font-display text-2xl">MagicRoom</span>
-                <span class="mt-1 block text-[10px] uppercase tracking-[0.28em] text-muted-foreground">bridal concierge • Martin</span>
+              <div class="flex items-center gap-3">
+                <img src="/images/logo.jpeg" alt="MagicRoom" class="h-10 w-10 rounded-full object-cover" width="40" height="40" />
+                <div>
+                  <span class="block font-display text-2xl">MagicRoom</span>
+                  <span class="mt-1 block text-[10px] uppercase tracking-[0.28em] text-muted-foreground">bridal concierge • Martin</span>
+                </div>
               </div>
               <button id="mobile-menu-close" class="cursor-pointer rounded-lg p-2 hover:bg-surface" aria-label="Zavrieť navigáciu">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>

@@ -19,6 +19,18 @@ export const IMAGE_ASSETS = {
   graphics: 'https://www.magicroom.sk/wp-content/uploads/2026/02/oznamenie-1.png',
   glasses: 'https://www.magicroom.sk/wp-content/uploads/2026/02/pohare-1.png',
   map: 'https://www.magicroom.sk/wp-content/uploads/2026/03/Snimka-obrazovky-2026-03-18-213208-1024x380.png',
+  // Salon reference photos
+  satyRuzove1: '/images/salon/saty-ruzove-1.jpeg',
+  satyRuzove3: '/images/salon/saty-ruzove-3.jpeg',
+  satyRuzove5: '/images/salon/saty-ruzove-5.jpeg',
+  satyFialove1: '/images/salon/saty-fialove-1.jpeg',
+  sachovnica1: '/images/salon/sachovnica-kontrast-1.jpeg',
+  sachovnica3: '/images/salon/sachovnica-svetle-1.jpeg',
+  interier1: '/images/salon/interier-teple-1.jpeg',
+  interier2: '/images/salon/interier-chladne-1.jpeg',
+  interier3: '/images/salon/interier-teple-3.jpeg',
+  detail1: '/images/salon/detail-tmave-1.jpeg',
+  detail2: '/images/salon/detail-tmave-4.jpeg',
 } as const;
 
 export const HOME_STATS = [
