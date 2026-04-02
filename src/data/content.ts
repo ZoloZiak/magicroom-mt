@@ -162,6 +162,31 @@ export const GALLERY_ITEMS = [
     alt: 'Handmade svadobné doplnky a smerové šípky.',
     title: 'Handmade doplnky',
   },
+  {
+    src: IMAGE_ASSETS.satyRuzove1,
+    alt: 'Ružové svadobné šaty v salóne MagicRoom.',
+    title: 'Ružové šaty',
+  },
+  {
+    src: IMAGE_ASSETS.interier1,
+    alt: 'Interiér svadobného salónu MagicRoom v Martine.',
+    title: 'Interiér salónu',
+  },
+  {
+    src: IMAGE_ASSETS.sachovnica1,
+    alt: 'Čierno-biela šachovnicová podlaha v salóne.',
+    title: 'Šachovnicový vzor',
+  },
+  {
+    src: IMAGE_ASSETS.satyRuzove5,
+    alt: 'Svadobné šaty na vešiaku v MagicRoom.',
+    title: 'Šaty na mieru',
+  },
+  {
+    src: IMAGE_ASSETS.interier2,
+    alt: 'Pohľad na salón MagicRoom.',
+    title: 'Náš priestor',
+  },
 ] as const;
 
 export const SERVICE_PACKAGES = [
