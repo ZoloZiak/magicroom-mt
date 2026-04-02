@@ -13,9 +13,9 @@
   --color-card-foreground: #2D2421;
   --color-popover: #FDFBF9;
   --color-popover-foreground: #2D2421;
-  --color-primary: #8B6F5C;
+  --color-primary: #B87A8E;
   --color-primary-foreground: #FDFBF9;
-  --color-secondary: #D4B8A0;
+  --color-secondary: #E8D0D8;
   --color-secondary-foreground: #2D2421;
   --color-muted: #F7F3EF;
   --color-muted-foreground: #6B5E57;
@@ -23,9 +23,9 @@
   --color-accent-foreground: #2D2421;
   --color-destructive: #B85C4A;
   --color-destructive-foreground: #FDFBF9;
-  --color-border: #D4B8A0;
-  --color-input: #D4B8A0;
-  --color-ring: #C9A86C;
+  --color-border: #E8D0D8;
+  --color-input: #E8D0D8;
+  --color-ring: #B87A8E;
 
   /* Custom MagicRoom Colors */
   --color-cta: #B85C4A;
@@ -34,8 +34,8 @@
   --color-surface: #F7F3EF;
 
   /* Primary shades for dark sections */
-  --color-primary-900: #2D2421;
-  --color-primary-950: #1A1412;
+  --color-primary-900: #3D2A2E;
+  --color-primary-950: #2A1C1F;
 
   /* Radius */
   --radius-sm: 0.25rem;

@@ -22,16 +22,16 @@ export const IMAGE_ASSETS = {
 } as const;
 
 export const HOME_STATS = [
-  { value: '12 €', label: 'skúška šiat s nápojom v cene' },
+  { value: '12 €', label: 'skúška svadobných šiat s nápojom v cene' },
   { value: '200–700 €', label: 'svadobné šaty (nové aj komis)' },
   { value: '1', label: 'salón, kde vás Natália osobne pozná' },
 ] as const;
 
 export const HOME_OFFER_CARDS = [
   {
-    title: 'Skúška šiat',
+    title: 'Skúška svadobných šiat',
     price: '12 € / 60 min',
-    description: 'Pokojná skúška s nápojom v cene, priestorom pre dve blízke osoby a časom na fotky aj rozhodnutie.',
+    description: 'Pokojná skúška svadobných šiat s nápojom v cene, priestorom pre dve blízke osoby a časom na fotky aj rozhodnutie.',
     href: '/kontakt#booking',
     cta: 'Rezervovať termín',
     icon: 'shirt',
@@ -53,12 +53,20 @@ export const HOME_OFFER_CARDS = [
     icon: 'sparkles',
   },
   {
-    title: 'Prenájom dekorácií',
+    title: 'Výzdoba svadieb a osláv',
     price: 'od 0,50 € / ks',
-    description: 'Zrkadlá, svietniky, kvety, príbor, candy bar aj drobnosti, ktoré dajú hostine jasný štýl.',
+    description: 'Celková výzdoba svadieb, osláv a eventov. Prenájom dekorácií aj kompletné realizácie na kľúč.',
     href: '/prenajom-dekoracii',
     cta: 'Katalóg dekorácií',
     icon: 'layout',
+  },
+  {
+    title: 'Custom doplnky',
+    price: 'od 15 €',
+    description: 'Personalizované svadobné poháre, tričká, župany a ďalšie handmade detaily presne podľa vašich predstáv.',
+    href: '/sluzby',
+    cta: 'Pozrieť doplnky',
+    icon: 'gift',
   },
   {
     title: 'Poradenstvo a organizácia',
@@ -92,7 +100,7 @@ export const TRUST_REASONS = [
 export const BOOKING_FEATURES = [
   '60 minút v príjemnej atmosfére',
   'pohárik prosecca, nealka alebo kávy v cene',
-  'skúška pre max. 2 osoby',
+  'skúška svadobných šiat pre max. 2 osoby',
   'fotenie počas skúšky bez limitu',
 ] as const;
 
@@ -254,8 +262,8 @@ export const DECOR_POLICIES = [
 
 export const CONTACT_FAQS = [
   {
-    question: 'Koľko stojí skúška šiat?',
-    answer: 'Skúška stojí 12 € za 60 minút a v cene je zahrnutý pohárik prosecca, nealko alebo káva.',
+    question: 'Koľko stojí skúška svadobných šiat?',
+    answer: 'Skúška svadobných šiat stojí 12 € za 60 minút a v cene je zahrnutý pohárik prosecca, nealko alebo káva.',
   },
   {
     question: 'Môžem si počas skúšky fotiť?',
