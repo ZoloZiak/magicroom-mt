@@ -13,9 +13,9 @@
   --color-card-foreground: #2A1A24;
   --color-popover: #FDFBF9;
   --color-popover-foreground: #2A1A24;
-  --color-primary: #E8A0BF;
+  --color-primary: #C4889A;
   --color-primary-foreground: #FFFFFF;
-  --color-secondary: #F8E8F0;
+  --color-secondary: #EAD0DA;
   --color-secondary-foreground: #2A1A24;
   --color-muted: #F7F3EF;
   --color-muted-foreground: #6B5570;
@@ -23,9 +23,9 @@
   --color-accent-foreground: #2A1A24;
   --color-destructive: #B85C4A;
   --color-destructive-foreground: #FDFBF9;
-  --color-border: #F8E8F0;
-  --color-input: #F8E8F0;
-  --color-ring: #E8A0BF;
+  --color-border: #EAD0DA;
+  --color-input: #EAD0DA;
+  --color-ring: #C4889A;
 
   /* Custom MagicRoom Colors */
   --color-cta: #B85C4A;
@@ -34,8 +34,8 @@
   --color-surface: #F7F3EF;
 
   /* Primary shades for dark sections */
-  --color-primary-900: #B85A8A;
-  --color-primary-950: #9A4872;
+  --color-primary-900: #7A4458;
+  --color-primary-950: #5E3344;
 
   /* Shadows — magenta tones */
   --shadow-soft: 0 20px 60px rgba(139, 58, 122, 0.08);
@@ -63,7 +63,7 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     background-image:
-      radial-gradient(circle at top, rgba(232,160,191,0.10), transparent 28%),
+      radial-gradient(circle at top, rgba(196,136,154,0.10), transparent 28%),
       linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(253, 251, 249, 0.96));
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
@@ -125,7 +125,7 @@
   }
 
   .luxury-panel {
-    @apply rounded-[32px] border border-white/60 bg-white/90 shadow-[0_24px_80px_rgba(184,90,138,0.09)] backdrop-blur;
+    @apply rounded-[32px] border border-white/60 bg-white/90 shadow-[0_24px_80px_rgba(122,68,88,0.09)] backdrop-blur;
   }
 
   .soft-wash {
@@ -257,7 +257,7 @@ html {
 
 /* Romantic soft glow behind elements */
 .glow-rose {
-  box-shadow: 0 0 40px rgba(232,160,191,0.12), 0 0 80px rgba(232,160,191,0.04);
+  box-shadow: 0 0 40px rgba(196,136,154,0.12), 0 0 80px rgba(196,136,154,0.04);
 }
 
 /* Section kicker — small uppercase label */
