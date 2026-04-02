@@ -37,7 +37,7 @@ export const POST: APIRoute = async ({ request }) => {
     `;
 
     await resend.emails.send({
-      from: 'MagicRoom Rezervácie <rezervacie@magicroom.sk>',
+      from: 'MagicRoom Rezervácie <onboarding@resend.dev>',
       to: ['mt.magicroom@gmail.com'],
       replyTo: email,
       subject: `Nová rezervácia: ${name} — ${service}`,
