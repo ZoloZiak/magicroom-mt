@@ -3,6 +3,11 @@
 ## About
 MagicRoom is a wedding salon website in Martin, Slovakia. Built with Astro 6.x, Tailwind CSS v4, shadcn/ui. Deployed on Vercel.
 
+## Team
+- **arciarchitekt** — Zolo Žiak, project owner & architect. Oslovuj "arciarchitekt", nie "user".
+- **Grzegorz** — Polish collaborator, developer. Commit messages must be in English for him.
+- **Natália** — salon owner (Natália Ondrejková). Final say on content, prices, design.
+
 ## Stack
 - **Framework:** Astro 6.x (static + SSR for API routes)
 - **Styling:** Tailwind CSS v4 (design tokens in `src/styles/global.css`)
