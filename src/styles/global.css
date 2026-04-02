@@ -210,6 +210,61 @@ html {
   scroll-padding-top: 5.5rem;
 }
 
+/* Sparkle animation */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.sparkle-delayed {
+  animation: sparkle 2s ease-in-out 0.7s infinite;
+}
+
+.sparkle-slow {
+  animation: sparkle 3s ease-in-out 1.4s infinite;
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.float-delayed {
+  animation: float 4s ease-in-out 1.5s infinite;
+}
+
+/* Shimmer text effect */
+.shimmer-text {
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 50%, var(--color-primary) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Romantic soft glow behind elements */
+.glow-rose {
+  box-shadow: 0 0 40px rgba(184, 122, 142, 0.15), 0 0 80px rgba(184, 122, 142, 0.05);
+}
+
+/* Section kicker — small uppercase label */
+.section-kicker {
+  @apply text-[11px] uppercase tracking-[0.28em] text-primary/70;
+}
+
 /* Focus visible styles for keyboard navigation */
 :focus-visible {
   outline: 2px solid var(--color-ring);

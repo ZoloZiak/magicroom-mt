@@ -4,6 +4,7 @@ import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import Sparkles from '@/components/layout/Sparkles.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -46,6 +47,7 @@ const operatingPrinciples = [
 
   <main class="flex-1">
     <section class="relative overflow-hidden soft-wash pt-20">
+      <Sparkles count={4} />
       <div class="container mx-auto px-4 pb-14 pt-8 md:pb-24 md:pt-10">
         <div class="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-center">
           <div class="max-w-2xl">

@@ -4,6 +4,7 @@ import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import Sparkles from '@/components/layout/Sparkles.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -31,6 +32,7 @@ import { ArrowRight, CheckCircle2, ClipboardList, Clock3, LayoutGrid, MapPin, Ph
 
   <main class="flex-1">
     <section class="relative overflow-hidden slovak-seasons bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] pt-20">
+      <Sparkles count={6} />
       <div class="container mx-auto px-4 pb-14 pt-8 md:pb-24 md:pt-10">
         <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div class="max-w-2xl">
