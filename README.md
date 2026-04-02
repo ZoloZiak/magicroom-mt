@@ -21,23 +21,13 @@ magicroom-mt/
 │   ├── roadmap.md
 │   ├── magicroom-strategia.pdf     — Strategický raport pre vlastníčku
 │   └── magicroom-strategia.html    — Zdrojový HTML pre PDF
+├── referencie/                      — Fotky zo salónu (36 ks, pending vision analysis)
 ├── public/                          — Statické súbory
 │   ├── favicon.ico
 │   ├── favicon.svg
 │   ├── robots.txt
 │   └── site.webmanifest
 ├── src/
-│   ├── animations/                  — GSAP/scroll animácie
-│   │   ├── index.js
-│   │   ├── basic.js
-│   │   ├── blog.js
-│   │   ├── cards.js
-│   │   ├── form.js
-│   │   ├── hero.js
-│   │   ├── hover.js
-│   │   ├── loops.js
-│   │   ├── scroll.js
-│   │   └── slovakia-culture.js
 │   ├── components/
 │   │   ├── forms/                   — Formuláre
 │   │   │   └── BookingForm.astro
@@ -70,6 +60,8 @@ magicroom-mt/
 │   ├── lib/
 │   │   └── utils.ts
 │   ├── pages/                       — Astro stránky
+│   │   ├── api/
+│   │   │   └── booking.ts           — API endpoint pre rezervácie (Resend email)
 │   │   ├── blog/
 │   │   │   ├── index.astro
 │   │   │   └── svadobne-trendy-2026.astro
@@ -81,6 +73,7 @@ magicroom-mt/
 │   │   └── sluzby.astro
 │   └── styles/
 │       └── global.css
+├── .env.example
 ├── .gitignore
 ├── astro.config.mjs
 ├── components.json
@@ -93,7 +86,7 @@ magicroom-mt/
 
 - **Framework:** Astro 6.x
 - **UI:** shadcn/ui + Tailwind CSS
-- **Backend:** Supabase
+- **Email:** Resend (booking form)
 - **Hosting:** Vercel
 
 ## USP
