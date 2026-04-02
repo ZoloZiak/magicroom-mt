@@ -20,16 +20,48 @@ test.describe('MagicRoom SEO', () => {
     }
   });
 
-  test('structured data is present', async ({ page }) => {
+  test('structured data is present on homepage', async ({ page }) => {
     await page.goto('/');
     
-    const schema = page.locator('script[type="application/ld+json"]');
-    await expect(schema).toHaveCount(1);
+    const schemas = page.locator('script[type="application/ld+json"]');
+    expect(await schemas.count()).toBeGreaterThan(0);
     
-    const text = await schema.textContent();
+    const text = await schemas.first().textContent();
     expect(text).toContain('WebSite');
     expect(text).toContain('Organization');
     expect(text).toContain('LocalBusiness');
+  });
+
+  test('HowTo schema for booking process', async ({ page }) => {
+    await page.goto('/');
+    
+    const text = await page.content();
+    expect(text).toContain('HowTo');
+    expect(text).toContain('Krok');
+  });
+
+  test('Product schema on dress catalog', async ({ page }) => {
+    await page.goto('/svadobne-saty');
+    
+    const text = await page.content();
+    expect(text).toContain('Product');
+    expect(text).toContain('Offer');
+  });
+
+  test('Service schema on services page', async ({ page }) => {
+    await page.goto('/sluzby');
+    
+    const text = await page.content();
+    expect(text).toContain('Service');
+    expect(text).toContain('ItemList');
+  });
+
+  test('FAQ schema on contact page', async ({ page }) => {
+    await page.goto('/kontakt');
+    
+    const text = await page.content();
+    expect(text).toContain('FAQPage');
+    expect(text).toContain('Question');
   });
 
   test('robots.txt exists and allows crawling', async ({ page }) => {
