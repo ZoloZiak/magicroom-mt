@@ -1,4 +1,5 @@
 ---
+import CTASection from '@/components/layout/CTASection.astro';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
@@ -235,30 +236,11 @@ const servicePillars = [
       </div>
     </section>
 
-    <section class="bg-primary-900 py-16 text-white md:py-20">
-      <div class="container mx-auto px-4 text-center">
-        <p class="text-sm uppercase tracking-[0.24em] text-white/70">Ďalší krok</p>
-        <h2 class="mt-3 font-display text-4xl md:text-5xl">Povedzte nám, čo riešite ako prvé.</h2>
-        <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/75">
-          Či už potrebujete len skúšku, alebo chcete prejsť šaty, dekorácie aj harmonogram naraz, dohodneme si formu, ktorá bude pre vás prirodzená.
-        </p>
-
-        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-          <Button asChild size="lg" className="bg-white text-primary-900 hover:bg-white/90">
-            <a href={BOOKING_PAGE_HREF}>
-              Prejsť na rezerváciu
-              <ArrowRight className="h-5 w-5" />
-            </a>
-          </Button>
-          <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-            <a href={PHONE_HREF}>
-              <Phone className="h-5 w-5" />
-              {PHONE_DISPLAY}
-            </a>
-          </Button>
-        </div>
-      </div>
-    </section>
+    <CTASection
+      heading="Povedzte nám, čo riešite ako prvé."
+      description="Či už potrebujete len skúšku, alebo chcete prejsť šaty, dekorácie aj harmonogram naraz, dohodneme si formu, ktorá bude pre vás prirodzená."
+      ctaLabel="Prejsť na rezerváciu"
+    />
   </main>
 
   <Footer />

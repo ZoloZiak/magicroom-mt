@@ -1,4 +1,5 @@
 ---
+import CTASection from '@/components/layout/CTASection.astro';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
@@ -215,34 +216,12 @@ const operatingPrinciples = [
       </div>
     </section>
 
-    <section class="bg-primary-900 py-16 text-white md:py-20">
-      <div class="container mx-auto px-4">
-        <div class="mx-auto max-w-4xl rounded-[34px] border border-white/10 bg-white/6 px-6 py-10 text-center shadow-[0_26px_80px_rgba(53,31,42,0.18)] md:px-10 md:py-14">
-          <p class="text-[11px] uppercase tracking-[0.28em] text-white/70">Ďalší krok</p>
-          <h2 class="mt-4 font-display text-4xl leading-tight md:text-5xl">
-            Ak vám tento prístup sedí, začnime pokojnou skúškou alebo krátkym telefonátom.
-          </h2>
-          <p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/75">
-            Najjednoduchšie je rezervovať si termín na skúšku šiat. Ak ešte len zisťujete možnosti, pokojne zavolajte — poradíme, čo má pre vás zmysel riešiť ako prvé.
-          </p>
-
-          <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <Button asChild variant="secondary" size="lg">
-              <a href={BOOKING_PAGE_HREF}>
-                Rezervovať termín
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
-              <a href={PHONE_HREF}>
-                <Phone className="h-4 w-4" />
-                {PHONE_DISPLAY}
-              </a>
-            </Button>
-          </div>
-        </div>
-      </div>
-    </section>
+    <CTASection
+      card
+      heading="Ak vám tento prístup sedí, začnime pokojnou skúškou alebo krátkym telefonátom."
+      description="Najjednoduchšie je rezervovať si termín na skúšku šiat. Ak ešte len zisťujete možnosti, pokojne zavolajte — poradíme, čo má pre vás zmysel riešiť ako prvé."
+      ctaLabel="Rezervovať termín"
+    />
   </main>
 
   <Footer />
