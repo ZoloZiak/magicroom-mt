@@ -44,6 +44,8 @@ export const NAV_LINKS = [
 export const SOCIAL_LINKS = [
   { label: 'Facebook', href: 'https://www.facebook.com/909260838935730/' },
   { label: 'Instagram', href: 'https://www.instagram.com/mt.magicroom/' },
+  { label: 'Google recenzie', href: 'https://www.google.com/search?q=Magic+Room+-+Svadobn%C3%BD+sal%C3%B3n+Martin+Recenzie&tbm=lcl' },
+  { label: 'Google Business', href: 'https://share.google/eKjrFsvlBpnZZJ7N5' },
 ] as const;
 
 export const BOOKING_PAGE_HREF = '/kontakt#booking';
