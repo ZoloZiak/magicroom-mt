@@ -96,7 +96,19 @@ magicroom-mt/
 - **Framework:** Astro 6.x
 - **UI:** shadcn/ui + Tailwind CSS
 - **Email:** Resend (booking form)
+- **Testing:** Vitest (39 unit tests)
+- **CI:** GitHub Actions (test + build on push)
 - **Hosting:** Vercel
+
+## Commands
+
+```bash
+npm run dev           # local dev server
+npm run build         # production build
+npm run test          # run 39 unit tests
+npm run test:watch    # watch mode
+npm run test:coverage # with coverage report
+```
 
 ## USP
 
