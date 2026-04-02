@@ -47,7 +47,7 @@ export const SOCIAL_LINKS = [
 ] as const;
 
 export const BOOKING_PAGE_HREF = '/kontakt#booking';
-export const BOOKING_CTA_LABEL = 'Pripraviť WhatsApp rezerváciu';
+export const BOOKING_CTA_LABEL = 'Rezervovať skúšku';
 export const RESPONSE_PROMISE = 'Ozveme sa vám do 24 hodín.';
 export const COPYRIGHT_YEAR = new Date().getFullYear();
 

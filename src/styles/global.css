@@ -140,6 +140,14 @@
     @apply rounded-[32px] border border-white/60 bg-white/90 shadow-[var(--shadow-medium)] backdrop-blur;
   }
 
+  .photo-card {
+    @apply overflow-hidden rounded-[32px] border border-white/60 bg-white p-3 shadow-[var(--shadow-xl)];
+  }
+
+  .photo-card-lg {
+    @apply overflow-hidden rounded-[32px] border border-white/60 bg-white p-3 shadow-[var(--shadow-card-lg)];
+  }
+
   .soft-wash {
     background-image: linear-gradient(180deg, rgba(251, 245, 241, 0.95), rgba(255, 253, 251, 0.92));
   }
