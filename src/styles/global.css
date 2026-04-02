@@ -38,10 +38,16 @@
   --color-primary-950: #960C56;
 
   /* Shadows — magenta tones */
-  --shadow-soft: 0 20px 60px rgba(139, 58, 122, 0.08);
-  --shadow-medium: 0 24px 80px rgba(139, 58, 122, 0.09);
-  --shadow-heavy: 0 30px 80px rgba(139, 58, 122, 0.12);
-  --shadow-dark: 0 26px 80px rgba(92, 34, 79, 0.18);
+  --shadow-soft: 0 20px 60px rgba(194, 16, 110, 0.08);
+  --shadow-medium: 0 24px 80px rgba(194, 16, 110, 0.09);
+  --shadow-heavy: 0 30px 80px rgba(194, 16, 110, 0.12);
+  --shadow-dark: 0 26px 80px rgba(150, 12, 86, 0.18);
+  --shadow-sm: 0 10px 40px rgba(194, 16, 110, 0.05);
+  --shadow-xl: 0 24px 70px rgba(194, 16, 110, 0.10);
+  --shadow-2xl: 0 30px 80px rgba(194, 16, 110, 0.12);
+  --shadow-panel: 0 22px 60px rgba(150, 12, 86, 0.18);
+  --shadow-avatar: 0 12px 32px rgba(194, 16, 110, 0.15);
+  --shadow-card-lg: 0 30px 80px rgba(194, 16, 110, 0.14);
 
   /* Radius */
   --radius-sm: 0.25rem;
@@ -125,7 +131,7 @@
   }
 
   .luxury-panel {
-    @apply rounded-[32px] border border-white/60 bg-white/90 shadow-[0_24px_80px_rgba(194,16,110,0.09)] backdrop-blur;
+    @apply rounded-[32px] border border-white/60 bg-white/90 shadow-[var(--shadow-medium)] backdrop-blur;
   }
 
   .soft-wash {
