@@ -44,8 +44,7 @@ export const NAV_LINKS = [
 export const SOCIAL_LINKS = [
   { label: 'Facebook', href: 'https://www.facebook.com/909260838935730/' },
   { label: 'Instagram', href: 'https://www.instagram.com/mt.magicroom/' },
-  { label: 'Google recenzie', href: 'https://share.google/RMksKvnggtb6P5nHd' },
-  { label: 'Google Business', href: 'https://share.google/eKjrFsvlBpnZZJ7N5' },
+  { label: 'Recenzie na Google Mapách', href: 'https://share.google/RMksKvnggtb6P5nHd' },
 ] as const;
 
 export const BOOKING_PAGE_HREF = '/kontakt#booking';
