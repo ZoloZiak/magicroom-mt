@@ -3,7 +3,8 @@ node_modules/
 dist/
 .env
 .env.local
-.astro/
+.astrol
 .vercel/
 .vercel
 .gitnexus
+test-results/

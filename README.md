@@ -98,22 +98,31 @@ magicroom-mt/
 
 ## Stack
 
-- **Framework:** Astro 6.x
-- **UI:** shadcn/ui + Tailwind CSS
+- **Framework:** Astro 6.x (static + SSR for API)
+- **UI:** shadcn/ui + Tailwind CSS v4
 - **Email:** Resend (booking form)
-- **Testing:** Vitest (43 unit tests)
-- **CI:** GitHub Actions (test + build on push)
-- **Hosting:** Vercel
+- **Testing:** Vitest (43 unit) + Playwright (40 E2E)
+- **CI:** GitHub Actions (unit + e2e on push)
+- **Hosting:** Vercel (auto-deploy)
 
 ## Commands
 
 ```bash
 npm run dev           # local dev server
 npm run build         # production build
-npm run test          # run 43 unit tests
+npm run test          # unit tests (43)
+npm run test:e2e       # E2E tests (40)
+npm run test:e2e:ui   # E2E with UI
 npm run test:watch    # watch mode
-npm run test:coverage # with coverage report
 ```
+
+## SEO & LLM Optimization
+
+- RSS feed (`/rss.xml`)
+- OpenSearch (`/opensearch.xml`)
+- Dublin Core metadata
+- Schema.org (Organization, LocalBusiness, HowTo, Product, Service, FAQ)
+- Sitemap + robots.txt
 
 ## USP
 
