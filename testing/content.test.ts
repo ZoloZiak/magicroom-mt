@@ -14,6 +14,7 @@ import {
   CONTACT_FAQS,
   CONSIGNMENT_STEPS,
   IMAGE_ASSETS,
+  DRESS_CATALOG,
 } from '@/data/content';
 
 describe('content.ts — Homepage data', () => {
@@ -144,5 +145,34 @@ describe('content.ts — Other sections', () => {
 
   it('CONSIGNMENT_STEPS has 4 steps', () => {
     expect(CONSIGNMENT_STEPS).toHaveLength(4);
+  });
+});
+
+describe('content.ts — Dress catalog', () => {
+  it('DRESS_CATALOG has at least 5 dresses', () => {
+    expect(DRESS_CATALOG.length).toBeGreaterThanOrEqual(5);
+  });
+
+  it('each dress has required fields', () => {
+    DRESS_CATALOG.forEach((dress) => {
+      expect(dress.id).toBeTruthy();
+      expect(dress.name).toBeTruthy();
+      expect(dress.price).toBeGreaterThan(0);
+      expect(dress.size).toMatch(/^\d{2}$/);
+      expect(['available', 'reserved', 'sold']).toContain(dress.status);
+      expect(['new', 'consignment']).toContain(dress.type);
+      expect(dress.image).toBeTruthy();
+    });
+  });
+
+  it('has at least one featured dress', () => {
+    const featured = DRESS_CATALOG.filter((d) => d.featured);
+    expect(featured.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it('has both new and consignment types', () => {
+    const types = new Set(DRESS_CATALOG.map((d) => d.type));
+    expect(types.has('new')).toBe(true);
+    expect(types.has('consignment')).toBe(true);
   });
 });

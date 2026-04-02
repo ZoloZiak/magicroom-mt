@@ -44,8 +44,8 @@ describe('site.ts — Contact info', () => {
 });
 
 describe('site.ts — Navigation', () => {
-  it('has 6 navigation links', () => {
-    expect(NAV_LINKS).toHaveLength(6);
+  it('has 7 navigation links', () => {
+    expect(NAV_LINKS).toHaveLength(7);
   });
 
   it('all nav links have href and label', () => {
@@ -59,6 +59,7 @@ describe('site.ts — Navigation', () => {
     const hrefs = NAV_LINKS.map((l) => l.href);
     expect(hrefs).toContain('/o-nas');
     expect(hrefs).toContain('/sluzby');
+    expect(hrefs).toContain('/svadobne-saty');
     expect(hrefs).toContain('/kontakt');
     expect(hrefs).toContain('/blog');
   });

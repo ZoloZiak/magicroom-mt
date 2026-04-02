@@ -34,6 +34,7 @@ export const WHATSAPP_URL = buildWhatsAppUrl(WHATSAPP_MESSAGE);
 export const NAV_LINKS = [
   { href: '/o-nas', label: 'O nás' },
   { href: '/sluzby', label: 'Služby' },
+  { href: '/svadobne-saty', label: 'Šaty' },
   { href: '/blog', label: 'Blog' },
   { href: '/komisny-predaj', label: 'Komisný predaj' },
   { href: '/prenajom-dekoracii', label: 'Dekorácie' },

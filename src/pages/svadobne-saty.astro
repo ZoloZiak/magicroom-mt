@@ -1,0 +1,341 @@
+---
+import CTASection from '@/components/layout/CTASection.astro';
+import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
+import { DRESS_CATALOG, IMAGE_ASSETS } from '@/data/content';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, Phone } from 'lucide-react';
+
+const SIZES = ['34', '36', '38', '40', '42', '44'];
+const PRICE_RANGES = [
+  { label: 'do 200 €', value: '0-200' },
+  { label: '200–400 €', value: '200-400' },
+  { label: 'nad 400 €', value: '400+' },
+];
+
+const statusLabel = (status: string) => {
+  if (status === 'available') return 'Dostupné';
+  if (status === 'reserved') return 'Rezervované';
+  if (status === 'sold') return 'Predané';
+  return status;
+};
+
+const statusColor = (status: string) => {
+  if (status === 'available') return 'bg-success/15 text-success border-success/30';
+  if (status === 'reserved') return 'bg-accent/15 text-accent border-accent/30';
+  return 'bg-muted text-muted-foreground border-border';
+};
+
+const typeLabel = (type: string) => type === 'new' ? 'Nové' : 'Komis';
+---
+
+<Layout
+  title="Svadobné šaty v Martine — katalóg | MagicRoom"
+  description="Svadobné šaty v Martine od 12 €. Online katalóg s cenami, veľkosťami a stavom. Nové modely aj komis. Rezervujte si skúšku v MagicRoom."
+  keywords="svadobne saty, saty martin, lacne svadobne saty, komis saty, saty turiec"
+  image={IMAGE_ASSETS.satyRuzove1}
+>
+  <Header />
+
+  <main>
+    <section class="relative overflow-hidden bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] pt-20">
+      <div class="container mx-auto px-4 pb-14 pt-8 md:pb-24 md:pt-10">
+        <div class="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+          <div class="max-w-2xl">
+            <p class="text-[11px] uppercase tracking-[0.28em] text-primary/70">Online katalóg</p>
+            <h1 class="mt-3 font-display text-[2.9rem] leading-[0.95] text-foreground md:text-6xl">Svadobné šaty v Martine.</h1>
+            <p class="mt-6 text-lg leading-8 text-muted-foreground">
+              Nové modely aj komis — všetky s cenou, veľkosťou a stavom. Žiadne "zavolaj pre cenu". Rezervujte si skúšku a vyskúšajte ich osobne.
+            </p>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button asChild variant="cta" size="lg">
+                <a href="/kontakt#booking">
+                  Rezervovať skúšku
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <a href={PHONE_HREF}>
+                  <Phone className="h-4 w-4" />
+                  {PHONE_DISPLAY}
+                </a>
+              </Button>
+            </div>
+          </div>
+          <div class="overflow-hidden rounded-[32px] border border-white/60 bg-white p-3 shadow-[0_24px_70px_rgba(74,46,58,0.1)]">
+            <img
+              src={IMAGE_ASSETS.satyRuzove5}
+              alt="Svadobné šaty v salóne MagicRoom."
+              class="w-full rounded-[24px] object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <DecorativeDivider variant="floral" />
+
+    <!-- Filters -->
+    <section class="py-8">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap items-center gap-3 rounded-2xl border border-border/70 bg-white p-4 shadow-[0_20px_60px_rgba(74,46,58,0.08)]">
+          <span class="text-sm font-medium text-foreground">Filter:</span>
+
+          <!-- Size filter -->
+          <div class="flex flex-wrap gap-2">
+            {SIZES.map((size) => (
+              <button
+                data-filter-size={size}
+                class="filter-btn cursor-pointer rounded-full border border-border px-3 py-1.5 text-sm transition-colors hover:bg-primary hover:text-white hover:border-primary"
+              >
+                {size}
+              </button>
+            ))}
+          </div>
+
+          <span class="text-border">|</span>
+
+          <!-- Price filter -->
+          <div class="flex flex-wrap gap-2">
+            {PRICE_RANGES.map((range) => (
+              <button
+                data-filter-price={range.value}
+                class="filter-btn cursor-pointer rounded-full border border-border px-3 py-1.5 text-sm transition-colors hover:bg-primary hover:text-white hover:border-primary"
+              >
+                {range.label}
+              </button>
+            ))}
+          </div>
+
+          <span class="text-border">|</span>
+
+          <!-- Type filter -->
+          <div class="flex flex-wrap gap-2">
+            <button
+              data-filter-type="new"
+              class="filter-btn cursor-pointer rounded-full border border-border px-3 py-1.5 text-sm transition-colors hover:bg-primary hover:text-white hover:border-primary"
+            >
+              Nové
+            </button>
+            <button
+              data-filter-type="consignment"
+              class="filter-btn cursor-pointer rounded-full border border-border px-3 py-1.5 text-sm transition-colors hover:bg-primary hover:text-white hover:border-primary"
+            >
+              Komis
+            </button>
+          </div>
+
+          <span class="text-border">|</span>
+
+          <!-- Available only toggle -->
+          <label class="flex cursor-pointer items-center gap-2 text-sm">
+            <input type="checkbox" data-filter-available class="h-4 w-4 rounded accent-primary" />
+            Len dostupné
+          </label>
+
+          <!-- Reset -->
+          <button
+            data-filter-reset
+            class="ml-auto cursor-pointer text-sm text-muted-foreground hover:text-cta"
+          >
+            Reset filtrov
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dress grid -->
+    <section class="pb-16 pt-4 md:pb-20">
+      <div class="container mx-auto px-4">
+        <div class="mb-6 flex items-center justify-between">
+          <p class="text-sm text-muted-foreground" data-dress-count>
+            Zobrazených: {DRESS_CATALOG.length} šiat
+          </p>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-dress-grid>
+          {DRESS_CATALOG.map((dress) => (
+            <div
+              data-dress-card
+              data-size={dress.size}
+              data-price={dress.price}
+              data-type={dress.type}
+              data-status={dress.status}
+              class="group overflow-hidden rounded-2xl border border-border/70 bg-white shadow-[0_20px_60px_rgba(74,46,58,0.08)] transition-all hover:shadow-[0_24px_70px_rgba(74,46,58,0.12)]"
+            >
+              <div class="relative overflow-hidden">
+                <img
+                  src={dress.image}
+                  alt={dress.name}
+                  class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div class="absolute left-3 top-3 flex gap-2">
+                  <Badge className={statusColor(dress.status)}>{statusLabel(dress.status)}</Badge>
+                  <Badge variant="outline" className="bg-white/80 backdrop-blur-sm">{typeLabel(dress.type)}</Badge>
+                </div>
+                {dress.featured && (
+                  <Badge className="absolute right-3 top-3 bg-cta text-white">Obľúbené</Badge>
+                )}
+              </div>
+              <div class="p-5">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h3 class="font-display text-xl text-foreground">{dress.name}</h3>
+                    <p class="mt-1 text-sm text-muted-foreground">Veľkosť: {dress.size}</p>
+                  </div>
+                  <p class="text-lg font-semibold text-cta">{dress.price} €</p>
+                </div>
+                <p class="mt-3 text-sm leading-6 text-muted-foreground">{dress.description}</p>
+                {dress.status === 'available' && (
+                  <Button asChild variant="ghost" className="mt-4 px-0 text-primary hover:text-cta">
+                    <a href={`/kontakt?dress=${encodeURIComponent(dress.name)}#booking`}>
+                      Rezervovať skúšku týchto šiat
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+                  </Button>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p class="mt-8 text-center text-sm text-muted-foreground" data-no-results style="display:none;">
+          Žiadne šaty nezodpovedajú zvoleným filtrom. Skúste zmeniť kritériá.
+        </p>
+      </div>
+    </section>
+
+    <CTASection
+      heading="Pripravená vyskúšať si svoje vysnívané šaty?"
+      description="Rezervujte si skúšku v MagicRoom — Natália vám osobne pomôže nájsť tie pravé. Skúška stojí 12 € a v cene je pohárik prosecca."
+      ctaLabel="Rezervovať skúšku"
+    />
+  </main>
+
+  <Footer />
+  <WhatsAppFAB />
+  <ScrollToTop />
+</Layout>
+
+<script>
+  const cards = document.querySelectorAll('[data-dress-card]');
+  const countEl = document.querySelector('[data-dress-count]');
+  const noResults = document.querySelector('[data-no-results]');
+
+  let activeFilters: { size?: string; price?: string; type?: string; availableOnly: boolean } = {
+    availableOnly: false,
+  };
+
+  function applyFilters() {
+    let visible = 0;
+
+    cards.forEach((card) => {
+      const el = card as HTMLElement;
+      const size = el.dataset.size;
+      const price = parseInt(el.dataset.price || '0');
+      const type = el.dataset.type;
+      const status = el.dataset.status;
+
+      let show = true;
+
+      if (activeFilters.size && size !== activeFilters.size) show = false;
+
+      if (activeFilters.price) {
+        const [min, max] = activeFilters.price.split('-').map(Number);
+        if (max) {
+          if (price < min || price > max) show = false;
+        } else {
+          if (price < 400) show = false;
+        }
+      }
+
+      if (activeFilters.type && type !== activeFilters.type) show = false;
+      if (activeFilters.availableOnly && status !== 'available') show = false;
+
+      el.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    if (countEl) countEl.textContent = `Zobrazených: ${visible} šiat`;
+    if (noResults) (noResults as HTMLElement).style.display = visible === 0 ? '' : 'none';
+  }
+
+  // Size filter buttons
+  document.querySelectorAll('[data-filter-size]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const size = (btn as HTMLElement).dataset.filterSize;
+      if (activeFilters.size === size) {
+        activeFilters.size = undefined;
+        btn.classList.remove('bg-primary', 'text-white', 'border-primary');
+      } else {
+        document.querySelectorAll('[data-filter-size]').forEach((b) =>
+          b.classList.remove('bg-primary', 'text-white', 'border-primary')
+        );
+        activeFilters.size = size;
+        btn.classList.add('bg-primary', 'text-white', 'border-primary');
+      }
+      applyFilters();
+    });
+  });
+
+  // Price filter buttons
+  document.querySelectorAll('[data-filter-price]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const price = (btn as HTMLElement).dataset.filterPrice;
+      if (activeFilters.price === price) {
+        activeFilters.price = undefined;
+        btn.classList.remove('bg-primary', 'text-white', 'border-primary');
+      } else {
+        document.querySelectorAll('[data-filter-price]').forEach((b) =>
+          b.classList.remove('bg-primary', 'text-white', 'border-primary')
+        );
+        activeFilters.price = price;
+        btn.classList.add('bg-primary', 'text-white', 'border-primary');
+      }
+      applyFilters();
+    });
+  });
+
+  // Type filter buttons
+  document.querySelectorAll('[data-filter-type]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const type = (btn as HTMLElement).dataset.filterType;
+      if (activeFilters.type === type) {
+        activeFilters.type = undefined;
+        btn.classList.remove('bg-primary', 'text-white', 'border-primary');
+      } else {
+        document.querySelectorAll('[data-filter-type]').forEach((b) =>
+          b.classList.remove('bg-primary', 'text-white', 'border-primary')
+        );
+        activeFilters.type = type;
+        btn.classList.add('bg-primary', 'text-white', 'border-primary');
+      }
+      applyFilters();
+    });
+  });
+
+  // Available only toggle
+  document.querySelector('[data-filter-available]')?.addEventListener('change', (e) => {
+    activeFilters.availableOnly = (e.target as HTMLInputElement).checked;
+    applyFilters();
+  });
+
+  // Reset filters
+  document.querySelector('[data-filter-reset]')?.addEventListener('click', () => {
+    activeFilters = { availableOnly: false };
+    document.querySelectorAll('.filter-btn').forEach((b) =>
+      b.classList.remove('bg-primary', 'text-white', 'border-primary')
+    );
+    const checkbox = document.querySelector('[data-filter-available]') as HTMLInputElement;
+    if (checkbox) checkbox.checked = false;
+    applyFilters();
+  });
+</script>
