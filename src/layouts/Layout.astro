@@ -69,6 +69,12 @@ const jsonLd = JSON.stringify([
     <meta name="author" content={SITE_NAME} />
     {keywords && <meta name="keywords" content={keywords} />}
     <meta name="generator" content={Astro.generator} />
+    <meta name="DC.title" content={title} />
+    <meta name="DC.description" content={description} />
+    <meta name="DC.publisher" content={SITE_NAME} />
+    <meta name="DC.creator" content="Natália Ondrejková" />
+    <meta name="DC.language" content="sk-SK" />
+    <meta name="DC.type" content={type} />
     <link rel="canonical" href={canonicalUrl} />
 
     <!-- Open Graph -->
@@ -94,6 +100,7 @@ const jsonLd = JSON.stringify([
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MagicRoom hľadanie" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Preconnect to external origins -->

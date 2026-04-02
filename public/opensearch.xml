@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/local/search/">
+  <ShortName>MagicRoom</ShortName>
+  <Description>MagicRoom svadobný salón Martin — skúška šiat, dekorácie, poradenstvo</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Language>sk-SK</Language>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <Image width="16" height="16" type="image/x-icon">https://www.magicroom.sk/favicon.ico</Image>
+  <Url type="text/html" template="https://www.magicroom.sk/?s={searchTerms}" method="get">
+    <Param name="s" value="{searchTerms}"/>
+  </Url>
+  <Url type="application/rss+xml" template="https://www.magicroom.sk/rss.xml?q={searchTerms}" method="get"/>
+  <Contact>info@magicroom.sk</Contact>
+  <Tags>svadba svadobne-saty dekoracie martin</Tags>
+  <Developer>MagicRoom Team</Developer>
+  <Attribution>Search content Copyright MagicRoom</Attribution>
+  <SyndicationRight>open</SyndicationRight>
+  <AdultFilterPolicy>exclude</AdultFilterPolicy>
+  <Query role="example" searchTerms="svadobne saty"/>
+</OpenSearchDescription>
