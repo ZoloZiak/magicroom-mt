@@ -70,26 +70,17 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
   </nav>
 </header>
 
-<div id="mobile-menu-root"></div>
+<div id="mobile-menu-root" data-phone-href={PHONE_HREF} data-phone-display={PHONE_DISPLAY} data-response={RESPONSE_PROMISE} data-booking-href={bookingHref} data-nav={JSON.stringify(NAV_LINKS)}></div>
 
 <script>
-  const NAV_LINKS = [
-    { href: '/', label: 'Domov' },
-    { href: '/o-nas', label: 'O nás' },
-    { href: '/sluzby', label: 'Služby' },
-    { href: '/prenajom-dekoracii', label: 'Dekorácie' },
-    { href: '/komisny-predaj', label: 'Komis' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/kontakt', label: 'Kontakt' },
-  ];
-
-  const PHONE_HREF = 'tel:+421950490323';
-  const PHONE_DISPLAY = '+421 950 490 323';
-  const RESPONSE_PROMISE = 'Odpisujeme do 24 hodín.';
-  const currentPath = window.location.pathname;
-  const bookingHref = currentPath === '/' ? '#booking' : '/kontakt#booking';
-
   const root = document.getElementById('mobile-menu-root');
+  const PHONE_HREF = root?.dataset.phoneHref || 'tel:+421950490323';
+  const PHONE_DISPLAY = root?.dataset.phoneDisplay || '+421 950 490 323';
+  const RESPONSE_PROMISE = root?.dataset.response || '';
+  const bookingHref = root?.dataset.bookingHref || '/kontakt#booking';
+  const NAV_LINKS = JSON.parse(root?.dataset.nav || '[]');
+  const currentPath = window.location.pathname;
+
   const toggleBtn = document.getElementById('mobile-menu-toggle');
   let menuEl = null;
 
@@ -99,8 +90,8 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
     el.setAttribute('role', 'dialog');
     el.setAttribute('aria-modal', 'true');
     el.innerHTML = `
-      <div id="mobile-backdrop" style="position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,0.5);display:none;"></div>
-      <div id="mobile-panel" style="position:fixed;top:0;right:0;z-index:9999;height:100vh;width:300px;background:var(--color-background);box-shadow:-4px 0 30px rgba(0,0,0,0.15);transform:translateX(100%);transition:transform 0.3s ease;overflow-y:auto;">
+      <div id="mobile-backdrop" style="position:fixed;inset:0;z-index:var(--z-overlay);background:rgba(0,0,0,0.5);display:none;"></div>
+      <div id="mobile-panel" style="position:fixed;top:0;right:0;z-index:var(--z-modal);height:100vh;width:300px;background:var(--color-background);box-shadow:-4px 0 30px rgba(0,0,0,0.15);transform:translateX(100%);transition:transform 0.3s ease;overflow-y:auto;">
         <div style="padding:20px;border-bottom:1px solid #E8D0D8;display:flex;align-items:center;justify-content:space-between;">
           <div style="display:flex;align-items:center;gap:12px;">
             <img src="/images/logo.jpeg" alt="MagicRoom" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />

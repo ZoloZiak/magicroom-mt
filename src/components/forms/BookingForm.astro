@@ -9,6 +9,7 @@ import {
   EMAIL_HREF,
   PHONE_HREF,
   RESPONSE_PROMISE,
+  WHATSAPP_BASE_URL,
   WHATSAPP_URL,
 } from '@/data/site';
 import { BOOKING_FEATURES } from '@/data/content';
@@ -193,7 +194,7 @@ const {
           if (entries.note) lines.push(`Poznámka: ${entries.note}`);
 
           if (whatsappLink) {
-            const url = new URL('https://wa.me/421950490323');
+            const url = new URL(WHATSAPP_BASE_URL);
             url.searchParams.set('text', lines.join('\n'));
             whatsappLink.href = url.toString();
             whatsappSection?.classList.remove('hidden');
