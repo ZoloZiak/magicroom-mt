@@ -210,16 +210,6 @@ html {
   scroll-padding-top: 5.5rem;
 }
 
-/* Mobile menu slide animation */
-.mobile-menu-panel {
-  transform: translateX(100%);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.mobile-menu-overlay.open .mobile-menu-panel {
-  transform: translateX(0);
-}
-
 /* Focus visible styles for keyboard navigation */
 :focus-visible {
   outline: 2px solid var(--color-ring);
