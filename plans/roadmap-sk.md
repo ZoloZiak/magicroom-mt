@@ -31,7 +31,7 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 | WhatsApp FAB | DONE | Floating button |
 | Blog | DONE | |
 | SEO basics | DONE | Meta tags, sitemap, Schema.org |
-| Social proof section | TODO | Recenzie — reálne fotky |
+| Social proof section | DONE | Google recenzie link v pätičke |
 | Google Analytics | TODO | Sledovanie konverzií |
 | Speed optimization | PARTIAL | LCP, headers — viac možno |
 | Google Business Profile | DONE | Overené v Google Search Console |
@@ -48,7 +48,7 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 
 | Komponent | Status | Poznámky |
 |-----------|--------|----------|
-| Social proof section | TODO | Reálne recenzie + fotky |
+| Social proof section | DONE | Google recenzie link |
 | Google Business Profile | TODO | Verifikácia (robí majiteľ) |
 | Speed optimization | PARTIAL | LCP, headers |
 | Google Analytics | TODO | Sledovanie konverzií |
