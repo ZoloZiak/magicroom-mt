@@ -66,7 +66,7 @@ export const HOME_OFFER_CARDS = [
   },
   {
     title: 'Výzdoba svadieb a osláv',
-    price: 'od 0,50 € / ks',
+    price: 'od 100 €',
     description: 'Celková výzdoba svadieb, osláv a eventov. Prenájom dekorácií aj kompletné realizácie na kľúč.',
     href: '/prenajom-dekoracii',
     cta: 'Katalóg dekorácií',
@@ -74,7 +74,7 @@ export const HOME_OFFER_CARDS = [
   },
   {
     title: 'Custom doplnky',
-    price: 'od 15 €',
+    price: 'od 5 €',
     description: 'Personalizované svadobné poháre, tričká, župany a ďalšie handmade detaily presne podľa vašich predstáv.',
     href: '/sluzby',
     cta: 'Pozrieť doplnky',
@@ -82,7 +82,7 @@ export const HOME_OFFER_CARDS = [
   },
   {
     title: 'Poradenstvo a organizácia',
-    price: 'od 40 €',
+    price: 'od 15 €',
     description: 'Od malej pomoci po kompletnú prípravu svadby, RSVP správu hostí, grafiku a rozlúčku so slobodou.',
     href: '/sluzby',
     cta: 'Pozrieť balíky',
