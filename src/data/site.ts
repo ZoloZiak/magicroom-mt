@@ -6,7 +6,7 @@ export const DEFAULT_DESCRIPTION =
 export const PHONE_DISPLAY = '+421 950 490 323';
 export const PHONE_HREF = 'tel:+421950490323';
 
-export const EMAIL = 'mt.magicroom@gmail.com';
+export const EMAIL = 'info@magicroom.sk';
 export const EMAIL_HREF = `mailto:${EMAIL}`;
 
 export const ADDRESS = {
