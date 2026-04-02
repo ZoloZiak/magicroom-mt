@@ -34,8 +34,8 @@
   --color-surface: #F7F3EF;
 
   /* Primary shades for dark sections */
-  --color-primary-900: #4A2E3A;
-  --color-primary-950: #351F2A;
+  --color-primary-900: #A3536D;
+  --color-primary-950: #7A3D52;
 
   /* Shadows — warm rose tones */
   --shadow-soft: 0 20px 60px rgba(74, 46, 58, 0.08);
@@ -125,7 +125,7 @@
   }
 
   .luxury-panel {
-    @apply rounded-[32px] border border-white/60 bg-white/90 shadow-[0_24px_80px_rgba(74,46,58,0.09)] backdrop-blur;
+    @apply rounded-[32px] border border-white/60 bg-white/90 shadow-[0_24px_80px_rgba(163,83,109,0.09)] backdrop-blur;
   }
 
   .soft-wash {
