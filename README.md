@@ -6,73 +6,82 @@ Svadobný salón v Martine. Malý, osobný, s férovými cenami.
 
 ```
 magicroom-mt/
-├── docs/                           — Dokumentácia (výskum, stratégia, špecifikácie)
-│   ├── SPEC-sk.md                  — Hlavná špecifikácia projektu (SK)
-│   ├── SPEC.md                     — Špecifikácia (PL)
-│   ├── research-regional-market-sk.md — Prieskum trhu a konkurencie (SK)
-│   ├── research-regional-market.md
-│   ├── seo-local-strategy-sk.md    — SEO stratégia (SK)
-│   ├── seo-local-strategy.md
-│   ├── ux-conversion-strategy-sk.md — UX a konverzná stratégia (SK)
-│   ├── ux-conversion-strategy.md
-│   ├── component-architecture-sk.md — Architektúra komponentov (SK)
-│   ├── component-architecture.md
-│   ├── roadmap-sk.md               — Časový plán (SK)
-│   ├── roadmap.md
-│   ├── magicroom-strategia.pdf     — Strategický raport pre vlastníčku
-│   └── magicroom-strategia.html    — Zdrojový HTML pre PDF
-├── referencie/                      — Fotky zo salónu (36 ks, pending vision analysis)
-├── public/                          — Statické súbory
+├── .kilo/                          — Kilo CLI config
+│   ├── agent/                      — Custom agents
+│   └── command/                    — Slash commands (/deploy, /build, /colors)
+├── AGENTS.md                       — Project instructions pre Kilo
+├── README.md                       — Tento súbor
+│
+├── research/                       — Prieskum trhu, konkurencia
+│   ├── regional-market.sk.md
+│   ├── regional-market.en.md
+│   └── magicroom-strategia.pdf
+│
+├── plan/                           — Strategické dokumenty
+│   ├── SPEC.sk.md                  — Hlavná špecifikácia (SK)
+│   ├── SPEC.en.md                  — Špecifikácia (EN)
+│   ├── seo-strategy.sk.md
+│   ├── seo-strategy.en.md
+│   ├── ux-strategy.sk.md
+│   ├── ux-strategy.en.md
+│   ├── roadmap.sk.md
+│   └── roadmap.en.md
+│
+├── docs/                           — Technická dokumentácia
+│   ├── component-architecture.sk.md — Architektúra komponentov
+│   ├── component-architecture.en.md
+│   ├── color-palette.md            — Farebná škála + história
+│   └── deployment.md               — Deploy inštrukcie
+│
+├── testing/                        — Testy (plánované)
+│   └── README.md
+│
+├── referencie/                     — Raw fotky zo salónu (36 ks)
+│
+├── public/                         — Statické súbory
 │   ├── favicon.ico
 │   ├── favicon.svg
 │   ├── robots.txt
-│   └── site.webmanifest
-├── src/
+│   ├── site.webmanifest
+│   └── images/
+│       ├── logo.jpeg
+│       └── salon/                  — Optimalizované fotky
+│
+├── src/                            — Source code
 │   ├── components/
-│   │   ├── forms/                   — Formuláre
+│   │   ├── forms/
 │   │   │   └── BookingForm.astro
-│   │   ├── layout/                  — Layout komponenty
+│   │   ├── layout/
 │   │   │   ├── Header.astro
 │   │   │   ├── Footer.astro
+│   │   │   ├── CTASection.astro
+│   │   │   ├── DecorativeDivider.astro
+│   │   │   ├── Sparkles.astro
 │   │   │   ├── ScrollToTop.astro
 │   │   │   └── WhatsAppFAB.astro
-│   │   └── ui/                      — shadcn/ui komponenty (15 ks)
-│   │       ├── accordion.tsx
-│   │       ├── avatar.tsx
-│   │       ├── badge.tsx
-│   │       ├── button.tsx
-│   │       ├── card.tsx
-│   │       ├── dropdown-menu.tsx
-│   │       ├── input.tsx
-│   │       ├── label.tsx
-│   │       ├── scroll-area.tsx
-│   │       ├── select.tsx
-│   │       ├── separator.tsx
-│   │       ├── sheet.tsx
-│   │       ├── skeleton.tsx
-│   │       ├── tabs.tsx
-│   │       └── textarea.tsx
-│   ├── data/                        — Dáta a konfigurácia
-│   │   ├── content.ts
-│   │   └── site.ts
+│   │   └── ui/                     — shadcn/ui komponenty
+│   ├── data/
+│   │   ├── content.ts              — Všetok obsah (služby, ceny, galéria)
+│   │   └── site.ts                 — Konfigurácia (kontakt, navigácia)
 │   ├── layouts/
 │   │   └── Layout.astro
 │   ├── lib/
 │   │   └── utils.ts
-│   ├── pages/                       — Astro stránky
+│   ├── pages/
 │   │   ├── api/
-│   │   │   └── booking.ts           — API endpoint pre rezervácie (Resend email)
+│   │   │   └── booking.ts          — API endpoint (Resend email)
 │   │   ├── blog/
 │   │   │   ├── index.astro
 │   │   │   └── svadobne-trendy-2026.astro
 │   │   ├── index.astro
-│   │   ├── komisny-predaj.astro
-│   │   ├── kontakt.astro
 │   │   ├── o-nas.astro
-│   │   ├── prenajom-dekoracii.astro
-│   │   └── sluzby.astro
+│   │   ├── sluzby.astro
+│   │   ├── kontakt.astro
+│   │   ├── komisny-predaj.astro
+│   │   └── prenajom-dekoracii.astro
 │   └── styles/
-│       └── global.css
+│       └── global.css              — Tailwind theme + design tokens
+│
 ├── .env.example
 ├── .gitignore
 ├── astro.config.mjs
