@@ -111,8 +111,9 @@ const operatingPrinciples = [
                 <img
                   src={IMAGE_ASSETS.founderAvatar}
                   alt="Portrét Natálie Ondrejkovej."
-                  class="h-40 w-40 rounded-full object-cover shadow-[var(--shadow-avatar)]"
+                  class="h-40 w-40 rounded-full object-cover shadow-[0_8px_30px_rgba(184,122,142,0.25)]"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="rounded-[28px] bg-primary-900 px-6 py-7 text-white shadow-[var(--shadow-panel)]">
@@ -185,10 +186,11 @@ const operatingPrinciples = [
                 src={item.src}
                 alt={item.alt}
                 class:list={[
-                  'w-full rounded-[22px] bg-surface object-cover transition-transform duration-500 ease-out group-hover:scale-105',
+                  'w-full rounded-[22px] bg-surface object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-105',
                   index === 0 ? 'h-full min-h-[420px]' : 'h-[260px]',
                 ]}
                 loading="lazy"
+                decoding="async"
               />
               <div class="px-2 pb-1 pt-4">
                 <p class="text-sm uppercase tracking-[0.2em] text-primary/60 transition-colors group-hover:text-primary">{item.title}</p>
