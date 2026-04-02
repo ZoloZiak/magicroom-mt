@@ -84,16 +84,16 @@ export const TRUST_REASONS = [
     description: 'Žiadne "zavolaj pre cenu". Všetky ceny sú na stránke — skúška, šaty, dekorácie, organizácia.',
   },
   {
-    title: 'Férové ceny od prvého kliknutia',
-    description: 'Skúška, konzultácie aj dekorácie majú jasne pomenované ceny, aby ste vedeli, čo si plánujete.',
-  },
-  {
     title: 'Osobný prístup od Natálie',
     description: 'MagicRoom nie je anonymný salón. Je to lokálne miesto, kde sa každej neveste venuje konkrétny človek.',
   },
   {
     title: 'Praktická pomoc bez chaosu',
     description: 'Od moodboardu po RSVP formulár — vždy ide o riešenia, ktoré šetria čas, stres aj zbytočné výdavky.',
+  },
+  {
+    title: 'Šaty aj výzdoba pod jednou strechou',
+    description: 'Nemusíte behať medzi piatimi dodávateľmi. V MagicRoom vybavíte šaty, dekorácie aj detaily naraz.',
   },
 ] as const;
 
