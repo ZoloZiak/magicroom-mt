@@ -34,7 +34,7 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 | Social proof section | TODO | Recenzie — reálne fotky |
 | Google Analytics | TODO | Sledovanie konverzií |
 | Speed optimization | PARTIAL | LCP, headers — viac možno |
-| Google Business Profile | TODO | Verifikácia (robí majiteľ) |
+| Google Business Profile | IN_PROGRESS | Meta tag pridaný — treba kod z Google Search Console |
 
 ### Fáza 2: Konverzia (1 týždeň)
 
