@@ -18,21 +18,23 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 
 | Komponent | Status | Poznámky |
 |-----------|--------|----------|
-| Astro projekt + Tailwind | TODO | |
-| shadcn/ui setup | TODO | |
-| Layout (Header, Footer) | TODO | WhatsApp button vždy viditeľný |
-| Homepage | TODO | Hero + ceny bar + služby + O Natálii + CTA |
-| /o-nas | TODO | Osobný príbeh Natálie (kľúčový pre malý salón) |
-| /sluzby | TODO | Balíčky + ceny (transparentnosť!) |
-| /komisny-predaj | TODO | Vysvetlenie komisu + status |
-| /prenajom-dekoracii | TODO | Zoznam dekorácií s cenami |
-| /kontakt | TODO | Formulár + WhatsApp + mapa |
-| Kontaktný formulár | TODO | Email cez Resend → WhatsApp fallback |
-| Kontaktný formulár (DB) | PLANNED | Supabase / insforge.dev — ak bude veľa rezervácií a treba dashboard |
-| WhatsApp FAB | TODO | Floating button na mobile — PRIORITA |
-| Supabase setup | TODO | Databáza, API |
-| SEO basics | TODO | Meta tags, sitemap, zameranie Martin+Turiec |
-| Mobilné testy | TODO | Skutočné zariadenia |
+| Astro projekt + Tailwind | DONE | |
+| shadcn/ui setup | DONE | |
+| Layout (Header, Footer) | DONE | WhatsApp button vždy viditeľný |
+| Homepage | DONE | |
+| /o-nas | DONE | |
+| /sluzby | DONE | |
+| /komisny-predaj | DONE | |
+| /prenajom-dekoracii | DONE | |
+| /kontakt | DONE | |
+| Kontaktný formulár | DONE | Email cez Resend |
+| WhatsApp FAB | DONE | Floating button |
+| Blog | DONE | |
+| SEO basics | DONE | Meta tags, sitemap, Schema.org |
+| Social proof section | TODO | Recenzie — reálne fotky |
+| Google Analytics | TODO | Sledovanie konverzií |
+| Speed optimization | PARTIAL | LCP, headers — viac možno |
+| Google Business Profile | TODO | Verifikácia (robí majiteľ) |
 
 ### Fáza 2: Konverzia (1 týždeň)
 
@@ -46,10 +48,9 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 
 | Komponent | Status | Poznámky |
 |-----------|--------|----------|
-| Reservation form | TODO | 4 polia, validácia |
-| Social proof section | TODO | Reálne recenzie (nie veľké čísla) |
-| Google Business Profile | TODO | Verifikácia |
-| Speed optimization | TODO | Lighthouse > 90 |
+| Social proof section | TODO | Reálne recenzie + fotky |
+| Google Business Profile | TODO | Verifikácia (robí majiteľ) |
+| Speed optimization | PARTIAL | LCP, headers |
 | Google Analytics | TODO | Sledovanie konverzií |
 
 ### Fáza 3: Rozšírenie (voliteľné)
