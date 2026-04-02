@@ -133,4 +133,4 @@ npm run test:watch    # watch mode
 
 ## Contact
 
-mt.magicroom@gmail.com · +421 950 490 323
+info@magicroom.sk · +421 950 490 323
