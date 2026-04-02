@@ -43,7 +43,7 @@ export const HOME_OFFER_CARDS = [
   {
     title: 'Skúška svadobných šiat',
     price: '12 € / 60 min',
-    description: 'Pokojná skúška svadobných šiat s nápojom v cene, priestorom pre dve blízke osoby a časom na fotky aj rozhodnutie.',
+    description: 'Pokojná skúška s nápojom v cene, priestorom pre dve osoby a časom na rozhodnutie.',
     href: '/kontakt#booking',
     cta: 'Rezervovať termín',
     icon: 'shirt',
@@ -51,7 +51,7 @@ export const HOME_OFFER_CARDS = [
   {
     title: 'Svadobné šaty',
     price: '200–700 €',
-    description: 'Nové modely aj komis. Svadobné šaty za férové ceny — vidíte ich ešte pred návštevou salónu.',
+    description: 'Nové modely aj komis za férové ceny — vidíte ich ešte pred návštevou salónu.',
     href: '/sluzby',
     cta: 'Pozrieť služby',
     icon: 'sparkles',
@@ -59,7 +59,7 @@ export const HOME_OFFER_CARDS = [
   {
     title: 'Spoločenské šaty',
     price: '12–150 €',
-    description: 'Šaty na stužkovú, ples, oslavu alebo akúkoľvek špeciálnu príležitosť.',
+    description: 'Šaty na stužkovú, ples, oslavu alebo akúkoľvek príležitosť.',
     href: '/sluzby',
     cta: 'Pozrieť služby',
     icon: 'sparkles',
@@ -67,7 +67,7 @@ export const HOME_OFFER_CARDS = [
   {
     title: 'Výzdoba svadieb a osláv',
     price: 'od 100 €',
-    description: 'Celková výzdoba svadieb, osláv a eventov. Prenájom dekorácií aj kompletné realizácie na kľúč.',
+    description: 'Kompletná výzdoba na kľúč — svadby, oslavy, eventy.',
     href: '/prenajom-dekoracii',
     cta: 'Katalóg dekorácií',
     icon: 'layout',
@@ -75,7 +75,7 @@ export const HOME_OFFER_CARDS = [
   {
     title: 'Custom doplnky',
     price: 'od 5 €',
-    description: 'Personalizované svadobné poháre, tričká, župany a ďalšie handmade detaily presne podľa vašich predstáv.',
+    description: 'Personalizované poháre, tričká, župany a ďalšie handmade detaily.',
     href: '/sluzby',
     cta: 'Pozrieť doplnky',
     icon: 'gift',
@@ -83,7 +83,7 @@ export const HOME_OFFER_CARDS = [
   {
     title: 'Poradenstvo a organizácia',
     price: 'od 15 €',
-    description: 'Od malej pomoci po kompletnú prípravu svadby, RSVP správu hostí, grafiku a rozlúčku so slobodou.',
+    description: 'Od malej pomoci po kompletnú prípravu svadby, RSVP a grafiku.',
     href: '/sluzby',
     cta: 'Pozrieť balíky',
     icon: 'clipboard',
@@ -93,19 +93,19 @@ export const HOME_OFFER_CARDS = [
 export const TRUST_REASONS = [
   {
     title: 'Ceny vidíte hneď',
-    description: 'Žiadne "zavolaj pre cenu". Všetky ceny sú na stránke — skúška, šaty, dekorácie, organizácia.',
+    description: 'Žiadne "zavolaj pre cenu". Všetko na stránke.',
   },
   {
     title: 'Osobný prístup od Natálie',
-    description: 'MagicRoom nie je anonymný salón. Je to lokálne miesto, kde sa každej neveste venuje konkrétny človek.',
+    description: 'Nie anonymný salón — konkrétny človek, ktorý vás pozná.',
   },
   {
-    title: 'Praktická pomoc bez chaosu',
-    description: 'Od moodboardu po RSVP formulár — vždy ide o riešenia, ktoré šetria čas, stres aj zbytočné výdavky.',
+    title: 'Praktická pomoc',
+    description: 'Od moodboardu po RSVP — riešenia, ktoré šetria čas a stres.',
   },
   {
-    title: 'Šaty aj výzdoba pod jednou strechou',
-    description: 'Nemusíte behať medzi piatimi dodávateľmi. V MagicRoom vybavíte šaty, dekorácie aj detaily naraz.',
+    title: 'Všetko pod jednou strechou',
+    description: 'Šaty, dekorácie aj detaily — nemusíte behať medzi dodávateľmi.',
   },
 ] as const;
 
@@ -125,9 +125,8 @@ export const PROCESS_STEPS = [
 export const FOUNDER_STORY = {
   quote: 'Každá žena si zaslúži moment, keď sa cíti výnimočne.',
   paragraphs: [
-    'Ahoj, volám sa Natália. Myšlienka založiť MagicRoom vznikla vtedy, keď som si pripravovala vlastnú svadbu a zistila som, koľko času zhltne zháňanie šiat, výzdoby a drobných detailov.',
-    'Chcela som vytvoriť miesto, kde ženy nájdu všetko pokope — svadobné šaty, dekorácie, handmade doplnky aj férovú radu bez stresu a zbytočného preplácania.',
-    'Momentálne realizujem výzdoby pre svadby a oslavy do 50 ľudí, aby som sa každej zákazníčke mohla venovať osobne a naplno.',
+    'Ahoj, volám sa Natália. MagicRoom vznikol, keď som si pripravovala vlastnú svadbu a zistila, koľko času zhltne zháňanie šiat, výzdoby a detailov.',
+    'Chcela som miesto, kde ženy nájdu všetko pokope — šaty, dekorácie aj férovú radu bez stresu a preplácania.',
   ],
 } as const;
 
@@ -193,32 +192,31 @@ export const SERVICE_PACKAGES = [
   {
     name: 'Malá pomoc',
     price: '40 €',
-    description: 'Rýchle nasmerovanie pre nevestu, ktorá potrebuje jasný začiatok a odporúčania.',
+    description: 'Jasné nasmerovanie a odporúčania pre nevestu na začiatku.',
     features: ['1 konzultácia (60 min)', 'moodboard', 'odporúčanie dekorácií'],
   },
   {
     name: 'Svadba základ',
     price: '150–200 €',
-    description: 'Najčastejšia voľba pre páry, ktoré chcú mať poriadok v prípravách a dodávateľoch.',
+    description: 'Najčastejšia voľba — poriadok v prípravách a dodávateľoch.',
     recommended: true,
     features: [
-      '2–3 osobné alebo online konzultácie',
+      '2–3 konzultácie',
       'návrh výzdoby a moodboard',
       'harmonogram príprav',
       'odporúčanie dodávateľov',
-      'poradenstvo počas príprav',
     ],
   },
   {
-    name: 'Kompletná príprava svadby',
+    name: 'Kompletná príprava',
     price: '200–300 €',
-    description: 'Pre páry, ktoré chcú mať pri sebe človeka na kompletnú prípravu a koordináciu detailov.',
+    description: 'Kompletná príprava a koordinácia detailov.',
     features: [
-      '3–4 osobné konzultácie',
+      '3–4 konzultácie',
       'návrh výzdoby a moodboard',
       'harmonogram + hry',
-      'odporúčanie aj obvolanie dodávateľov',
-      'QR formulár RSVP online',
+      'obvolanie dodávateľov',
+      'QR RSVP formulár',
     ],
   },
 ] as const;
@@ -227,22 +225,22 @@ export const EXTRA_SERVICES = [
   {
     title: 'Individuálna konzultácia',
     price: '15 € / 60 min',
-    description: 'Osobne alebo online — ideálne na prvé rozhodnutia, rozpočet a štýl svadby.',
+    description: 'Osobne alebo online — rozpočet, štýl, prvé rozhodnutia.',
   },
   {
     title: 'Rozlúčka so slobodou',
     price: 'od 40 €',
-    description: 'Koncept, program, dekorácie a tipy na aktivity v balíkoch Basic a Premium.',
+    description: 'Koncept, program a tipy na aktivity v balíkoch Basic a Premium.',
   },
   {
     title: 'Grafika a handmade doplnky',
     price: 'od 15 €',
-    description: 'Oznámenia, poháre na mieru, tričká, texty a ďalšie malé personalizované detaily.',
+    description: 'Oznámenia, poháre, tričká a personalizované detaily.',
   },
   {
     title: 'RSVP online správa',
     price: '18 €',
-    description: 'QR formulár, zber odpovedí hostí a prehľadná tabuľka účasti pre lepšie plánovanie.',
+    description: 'QR formulár, zber odpovedí hostí a prehľadná tabuľka.',
   },
 ] as const;
 
@@ -300,19 +298,19 @@ export const DECOR_POLICIES = [
 export const CONTACT_FAQS = [
   {
     question: 'Koľko stojí skúška svadobných šiat?',
-    answer: 'Skúška svadobných šiat stojí 12 € za 60 minút a v cene je zahrnutý pohárik prosecca, nealko alebo káva.',
+    answer: '12 € za 60 minút — prosecco, nealko alebo káva v cene.',
   },
   {
     question: 'Môžem si počas skúšky fotiť?',
-    answer: 'Áno, počas skúšky sa môžete fotiť bez obmedzenia a porovnať si viac modelov pokojne naraz.',
+    answer: 'Áno, bez obmedzenia.',
   },
   {
     question: 'Ako si rezervujem termín?',
-    answer: 'Vyplnením formulára, cez WhatsApp, emailom alebo priamym zavolaním do salónu.',
+    answer: 'Formulárom, WhatsApp, emailom alebo zavolaním.',
   },
   {
     question: 'Ponúkate aj online konzultácie?',
-    answer: 'Áno, svadobné konzultácie a časť plánovania vieme riešiť aj online podľa vašich možností.',
+    answer: 'Áno, časť plánovania vieme riešiť aj online.',
   },
 ] as const;
 
@@ -379,7 +377,7 @@ export const DRESS_CATALOG = [
   {
     id: '1',
     name: 'Elegantná čipka',
-    description: 'Klasické svadobné šaty s čipkovaným vrchom a áčkovou sukňou. Jemný ružový tón.',
+    description: 'Čipkovaný vrch, áčková sukňa, jemný ružový tón.',
     price: 350,
     size: '38',
     status: 'available',
@@ -390,7 +388,7 @@ export const DRESS_CATALOG = [
   {
     id: '2',
     name: 'Boho princezná',
-    description: 'Voľné boho šaty s jemným zdobením. Pohodlné a romantické.',
+    description: 'Voľné boho šaty s jemným zdobením.',
     price: 280,
     size: '36',
     status: 'available',
@@ -401,7 +399,7 @@ export const DRESS_CATALOG = [
   {
     id: '3',
     name: 'Fialový sen',
-    description: 'Netradičné fialové šaty pre odvážne nevesty. Unikátny dizajn.',
+    description: 'Netradičné fialové šaty pre odvážne nevesty.',
     price: 450,
     size: '40',
     status: 'available',
@@ -412,7 +410,7 @@ export const DRESS_CATALOG = [
   {
     id: '4',
     name: 'Klasická biela',
-    description: 'Tradičné biele šaty s čistými líniami. Nadčasová elegancia.',
+    description: 'Čisté línie, nadčasová elegancia.',
     price: 550,
     size: '38',
     status: 'available',
@@ -423,7 +421,7 @@ export const DRESS_CATALOG = [
   {
     id: '5',
     name: 'Romantický závoj',
-    description: 'Šaty s dlhým závojem a jemným zdobením. Ideálne pre kostolnú svadbu.',
+    description: 'Dlhý závoj, jemné zdobenie. Ideálne pre kostol.',
     price: 200,
     size: '42',
     status: 'available',
@@ -434,7 +432,7 @@ export const DRESS_CATALOG = [
   {
     id: '6',
     name: 'Minimalistka',
-    description: 'Čisté minimalistické šaty bez zbytočného zdobenia. Pre moderné nevesty.',
+    description: 'Čisté šaty bez zdobenia. Pre moderné nevesty.',
     price: 180,
     size: '36',
     status: 'reserved',
