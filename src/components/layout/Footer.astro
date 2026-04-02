@@ -12,7 +12,7 @@ import {
   PHONE_HREF,
   SOCIAL_LINKS,
 } from '@/data/site';
-import { EnvelopeSimple, MapPin, Phone } from '@phosphor-icons/react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 
 const currentPath = Astro.url.pathname;
 const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
@@ -94,7 +94,7 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
           </li>
           <li>
             <a href={EMAIL_HREF} class="flex items-center gap-2 transition-colors hover:text-white">
-              <EnvelopeSimple className="h-4 w-4 shrink-0" weight="regular" />
+              <Mail className="h-4 w-4 shrink-0" />
               {EMAIL}
             </a>
           </li>
