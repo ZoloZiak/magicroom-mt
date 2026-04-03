@@ -3,11 +3,22 @@ import { Resend } from 'resend';
 
 export const prerender = false;
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
+const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
 
 export const POST: APIRoute = async ({ request }) => {
   try {
     const data = await request.json();
+
+    // Check if API key is configured
+    if (!RESEND_API_KEY) {
+      console.error('RESEND_API_KEY not configured');
+      return new Response(
+        JSON.stringify({ error: 'Email služba nie je nakonfigurovaná. Zavolajte nám na +421 950 490 323.' }),
+        { status: 503, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    const resend = new Resend(RESEND_API_KEY);
 
     const { name, phone, email, service, date, time, note } = data;
 
