@@ -1,0 +1,174 @@
+---
+import FooterEn from '@/components/layout/FooterEn.astro';
+import HeaderEn from '@/components/layout/HeaderEn.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { BOOKING_PAGE_HREF_EN, PHONE_HREF, PHONE_DISPLAY } from '@/data/site';
+import { IMAGE_ASSETS } from '@/data/content';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, Calendar, Clock, Phone } from 'lucide-react';
+
+const RELATED_POSTS = [
+  {
+    slug: 'wedding-trends-2026',
+    title: 'Wedding Trends 2026',
+    excerpt: 'Discover the latest trends in wedding fashion for 2026.',
+    image: IMAGE_ASSETS.dresses,
+  },
+  {
+    slug: 'wedding-decorations-small-celebrations',
+    title: 'Decorations for Small Celebrations',
+    excerpt: 'Inspiration for romantic decorations without unnecessary expenses.',
+    image: IMAGE_ASSETS.decorMain,
+  },
+];
+---
+
+<Layout
+  title="How to Choose Wedding Dresses: A Practical Guide | MagicRoom Blog"
+  description="Step by step, we guide you through choosing the ideal wedding dress. From budget to style and comfort — everything you need to know."
+  keywords="wedding dresses, how to choose, guide, wedding dress selection, budget"
+  type="article"
+  image={IMAGE_ASSETS.founder}
+  structuredData={{
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: 'How to Choose Wedding Dresses: A Practical Guide',
+    image: IMAGE_ASSETS.founder,
+    datePublished: '2026-03-15',
+    author: {
+      '@type': 'Person',
+      name: 'Natália Ondrejková',
+    },
+  }}
+  breadcrumbs={[
+    { name: 'Home', url: '/en' },
+    { name: 'Blog', url: '/en/blog' },
+    { name: 'How to Choose Wedding Dresses', url: '/en/blog/wedding-dresses-how-to-choose' },
+  ]}
+  language="en"
+>
+  <HeaderEn />
+
+  <main class="flex-1">
+    <article class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <div class="mb-8">
+          <Badge variant="secondary" className="mb-4 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">
+            Blog • Dresses
+          </Badge>
+          <h1 class="font-display text-4xl text-foreground md:text-5xl">
+            How to Choose Wedding Dresses: A Practical Guide
+          </h1>
+          <div class="mt-4 flex items-center gap-4 text-muted-foreground">
+            <div class="flex items-center gap-2">
+              <Calendar className="h-4 w-4" />
+              <span>March 15, 2026</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Clock className="h-4 w-4" />
+              <span>7 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+          <p class="article-element">
+            Choosing a wedding dress is one of the most important decisions for your big day.
+            But don't worry — we're here to guide you through the entire process.
+          </p>
+
+          <h2 class="article-element">1. Define Your Budget</h2>
+          <p class="article-element">
+            Before you start trying on dresses, set a clear budget. Remember to include alterations, accessories, and underwear.
+            At MagicRoom, we offer options from 100 € for those looking for quality without breaking the bank.
+          </p>
+
+          <h2 class="article-element">2. Consider Your Venue and Style</h2>
+          <p class="article-element">
+            Your wedding venue greatly influences your dress choice. A beach wedding calls for lighter fabrics,
+            while a formal ballroom wedding allows for more elaborate designs. Think about the overall vibe you want to create.
+          </p>
+
+          <img src={IMAGE_ASSETS.founder} alt="Wedding Dress Selection" class="article-element rounded-2xl my-8" />
+
+          <h2 class="article-element">3. Start Shopping Early</h2>
+          <p class="article-element">
+            We recommend starting your dress search at least 6-9 months before your wedding.
+            This gives you time for alterations and any unexpected changes. At MagicRoom, we offer fitting sessions where you can take your time and compare different styles.
+          </p>
+
+          <h2 class="article-element">4. Bring the Right People</h2>
+          <p class="article-element">
+            Bring 1-2 people whose opinion you trust. Too many opinions can make the decision harder.
+            At MagicRoom, we welcome your close ones to join the fitting — we have space for two people during each session.
+          </p>
+
+          <h2 class="article-element">5. Trust Your Instincts</h2>
+          <p class="article-element">
+            In the end, choose the dress that makes you feel confident and beautiful.
+            If you love it, that's the one. Your comfort on the big day is what matters most.
+          </p>
+        </div>
+
+        <div class="mt-12 rounded-2xl border border-border/70 bg-white p-6 md:p-8">
+          <h3 class="font-display text-2xl mb-4">Ready to Find Your Dream Dress?</h3>
+          <p class="text-muted-foreground mb-6">
+            Book a fitting session at MagicRoom and let us help you find the perfect dress.
+            We speak English and welcome international brides.
+          </p>
+          <div class="flex flex-col gap-4 sm:flex-row">
+            <Button asChild variant="cta" size="lg">
+              <a href={BOOKING_PAGE_HREF_EN}>
+                Book a fitting
+                <ArrowRight className="h-4 w-4 ml-2" />
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <a href={PHONE_HREF}>
+                <Phone className="h-4 w-4 mr-2" />
+                {PHONE_DISPLAY}
+              </a>
+            </Button>
+          </div>
+        </div>
+
+        <div class="mt-12">
+          <h3 class="font-display text-2xl mb-6">Related Articles</h3>
+          <div class="grid gap-6 md:grid-cols-2">
+            {RELATED_POSTS.map((post) => (
+              <Card className="border-0 bg-white shadow-[var(--shadow-soft)] spring-hover">
+                <div class="overflow-hidden rounded-t-xl">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    class="h-32 w-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle className="font-display text-lg line-clamp-2">{post.title}</CardTitle>
+                  <CardDescription className="line-clamp-2">{post.excerpt}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button asChild variant="ghost" className="px-0 text-primary hover:text-cta">
+                    <a href={`/en/blog/${post.slug}`}>
+                      Read article
+                      <ArrowRight className="h-4 w-4 ml-2" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <FooterEn />
+  <WhatsAppFAB />
+  <ScrollToTop />
+</Layout>

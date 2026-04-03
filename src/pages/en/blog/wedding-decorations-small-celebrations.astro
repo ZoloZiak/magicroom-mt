@@ -1,0 +1,172 @@
+---
+import FooterEn from '@/components/layout/FooterEn.astro';
+import HeaderEn from '@/components/layout/HeaderEn.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { BOOKING_PAGE_HREF_EN, PHONE_HREF, PHONE_DISPLAY } from '@/data/site';
+import { IMAGE_ASSETS } from '@/data/content';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, Calendar, Clock, Phone } from 'lucide-react';
+
+const RELATED_POSTS = [
+  {
+    slug: 'wedding-trends-2026',
+    title: 'Wedding Trends 2026',
+    excerpt: 'Discover the latest trends in wedding fashion for 2026.',
+    image: IMAGE_ASSETS.dresses,
+  },
+  {
+    slug: 'wedding-dresses-how-to-choose',
+    title: 'How to Choose Wedding Dresses',
+    excerpt: 'Step by step guide to choosing the ideal wedding dress.',
+    image: IMAGE_ASSETS.founder,
+  },
+];
+---
+
+<Layout
+  title="Wedding Decorations for Small Celebrations Up to 50 Guests | MagicRoom Blog"
+  description="Inspiration and tips for wedding decorations for intimate weddings. How to create a romantic atmosphere without unnecessary expenses."
+  keywords="wedding decorations, small weddings, intimate wedding, decoration ideas, budget wedding"
+  type="article"
+  image={IMAGE_ASSETS.decorMain}
+  structuredData={{
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: 'Wedding Decorations for Small Celebrations Up to 50 Guests',
+    image: IMAGE_ASSETS.decorMain,
+    datePublished: '2026-02-28',
+    author: {
+      '@type': 'Person',
+      name: 'Natália Ondrejková',
+    },
+  }}
+  breadcrumbs={[
+    { name: 'Home', url: '/en' },
+    { name: 'Blog', url: '/en/blog' },
+    { name: 'Decorations for Small Celebrations', url: '/en/blog/wedding-decorations-small-celebrations' },
+  ]}
+  language="en"
+>
+  <HeaderEn />
+
+  <main class="flex-1">
+    <article class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <div class="mb-8">
+          <Badge variant="secondary" className="mb-4 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">
+            Blog • Decorations
+          </Badge>
+          <h1 class="font-display text-4xl text-foreground md:text-5xl">
+            Wedding Decorations for Small Celebrations Up to 50 Guests
+          </h1>
+          <div class="mt-4 flex items-center gap-4 text-muted-foreground">
+            <div class="flex items-center gap-2">
+              <Calendar className="h-4 w-4" />
+              <span>February 28, 2026</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Clock className="h-4 w-4" />
+              <span>6 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+          <p class="article-element">
+            Intimate weddings don't mean less style — they often mean more personalization.
+            With fewer guests, you can focus on details that make your celebration unique.
+          </p>
+
+          <h2 class="article-element">Welcome Mirror</h2>
+          <p class="article-element">
+            A large welcome mirror is the centerpiece of any small wedding. 
+            At MagicRoom, we offer mirror rentals starting from 25 € with custom text options.
+            It's not just functional — it creates a stunning photo opportunity for your guests.
+          </p>
+
+          <h2 class="article-element">Table Decorations</h2>
+          <p class="article-element">
+            For small celebrations, focus on table centerpieces rather than overwhelming the space.
+            Simple candle arrangements, small vases with flowers, or our gold candelabras create intimacy
+            without cluttering the space.
+          </p>
+
+          <img src={IMAGE_ASSETS.decorMain} alt="Wedding Table Decoration" class="article-element rounded-2xl my-8" />
+
+          <h2 class="article-element">Backdrop for Photos</h2>
+          <p class="article-element">
+            Create a designated photo area with our wedding backdrop. 
+            It's perfect for capturing memories with your closest family and friends.
+            Our backdrops come with fairy lights that create magical evening ambiance.
+          </p>
+
+          <h2 class="article-element">Candy Bar for Guests</h2>
+          <p class="article-element">
+            A small candy bar is always a hit at intimate weddings. 
+            Our gold candy bar package starts at just 20 € and includes everything you need
+            to treat your guests to something sweet.
+          </p>
+        </div>
+
+        <div class="mt-12 rounded-2xl border border-border/70 bg-white p-6 md:p-8">
+          <h3 class="font-display text-2xl mb-4">Need Help with Decorations?</h3>
+          <p class="text-muted-foreground mb-6">
+            At MagicRoom, we offer decoration rental from 0.50 € per item.
+            We can help you put together the perfect combination for your small celebration.
+          </p>
+          <div class="flex flex-col gap-4 sm:flex-row">
+            <Button asChild variant="cta" size="lg">
+              <a href={BOOKING_PAGE_HREF_EN}>
+                Ask about availability
+                <ArrowRight className="h-4 w-4 ml-2" />
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <a href={PHONE_HREF}>
+                <Phone className="h-4 w-4 mr-2" />
+                {PHONE_DISPLAY}
+              </a>
+            </Button>
+          </div>
+        </div>
+
+        <div class="mt-12">
+          <h3 class="font-display text-2xl mb-6">Related Articles</h3>
+          <div class="grid gap-6 md:grid-cols-2">
+            {RELATED_POSTS.map((post) => (
+              <Card className="border-0 bg-white shadow-[var(--shadow-soft)] spring-hover">
+                <div class="overflow-hidden rounded-t-xl">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    class="h-32 w-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle className="font-display text-lg line-clamp-2">{post.title}</CardTitle>
+                  <CardDescription className="line-clamp-2">{post.excerpt}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button asChild variant="ghost" className="px-0 text-primary hover:text-cta">
+                    <a href={`/en/blog/${post.slug}`}>
+                      Read article
+                      <ArrowRight className="h-4 w-4 ml-2" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <FooterEn />
+  <WhatsAppFAB />
+  <ScrollToTop />
+</Layout>

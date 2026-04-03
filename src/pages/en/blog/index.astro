@@ -1,0 +1,115 @@
+---
+import FooterEn from '@/components/layout/FooterEn.astro';
+import HeaderEn from '@/components/layout/HeaderEn.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { IMAGE_ASSETS } from '@/data/content';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, Calendar, Clock } from 'lucide-react';
+
+const BLOG_POSTS = [
+  {
+    slug: 'wedding-trends-2026',
+    title: 'Wedding Trends 2026: What Will Be in Fashion?',
+    excerpt: 'Discover the latest trends in wedding fashion for 2026. From colors to styles — everything you need to know.',
+    image: IMAGE_ASSETS.dresses,
+    date: '2026-04-01',
+    readTime: '5 min read',
+    tags: ['trends', 'dresses', '2026'],
+  },
+  {
+    slug: 'wedding-dresses-how-to-choose',
+    title: 'How to Choose Wedding Dresses: A Practical Guide',
+    excerpt: 'Step by step, we guide you through choosing the ideal wedding dress. From budget to style and comfort.',
+    image: IMAGE_ASSETS.founder,
+    date: '2026-03-15',
+    readTime: '7 min read',
+    tags: ['dresses', 'selection', 'advice'],
+  },
+  {
+    slug: 'wedding-decorations-small-celebrations',
+    title: 'Wedding Decorations for Small Celebrations Up to 50 Guests',
+    excerpt: 'Inspiration and tips for decorations for intimate weddings. How to create a romantic atmosphere without unnecessary expenses.',
+    image: IMAGE_ASSETS.decorMain,
+    date: '2026-02-28',
+    readTime: '6 min read',
+    tags: ['decorations', 'small weddings', 'inspiration'],
+  },
+] as const;
+---
+
+<Layout
+  title="MagicRoom Wedding Blog — Tips, Inspiration and Trends"
+  description="Read our articles about wedding dresses, decorations, advice and the latest trends. Practical tips from Natália at MagicRoom in Martin."
+  keywords="wedding blog, tips, trends, inspiration, wedding dresses, decorations"
+  image={IMAGE_ASSETS.hero}
+  breadcrumbs={[
+    { name: 'Home', url: '/en' },
+    { name: 'Blog', url: '/en/blog' },
+  ]}
+  language="en"
+>
+  <HeaderEn />
+
+  <main class="flex-1">
+    <section class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="mb-12 text-center">
+          <Badge variant="secondary" className="mb-4 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">
+            Wedding blog
+          </Badge>
+          <h1 class="font-display text-4xl text-foreground md:text-5xl">
+            Tips, Inspiration and Trends for Your Wedding
+          </h1>
+          <p class="mt-4 max-w-2xl mx-auto text-base leading-7 text-muted-foreground">
+            Practical advice, the latest trends and personal experiences from wedding organization. Everything you need to know about dresses, decorations and wedding consulting.
+          </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {BLOG_POSTS.map((post) => (
+            <Card className="blog-card border-0 bg-white shadow-[var(--shadow-soft)] spring-hover">
+              <div class="overflow-hidden rounded-t-xl">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  class="h-48 w-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <CardHeader>
+                <div class="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                  <Calendar className="h-4 w-4" />
+                  <span>{new Date(post.date).toLocaleDateString('en-GB')}</span>
+                  <Clock className="h-4 w-4 ml-2" />
+                  <span>{post.readTime}</span>
+                </div>
+                <CardTitle className="font-display text-xl line-clamp-2">{post.title}</CardTitle>
+                <CardDescription className="line-clamp-3">{post.excerpt}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {post.tags.map((tag) => (
+                    <Badge variant="outline" className="text-xs">{tag}</Badge>
+                  ))}
+                </div>
+                <Button asChild variant="ghost" className="px-0 text-primary hover:text-cta">
+                  <a href={`/en/blog/${post.slug}`}>
+                    Read article
+                    <ArrowRight className="h-4 w-4 ml-2" />
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <FooterEn />
+  <WhatsAppFAB />
+  <ScrollToTop />
+</Layout>

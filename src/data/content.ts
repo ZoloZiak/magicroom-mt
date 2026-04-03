@@ -307,6 +307,13 @@ export const DECOR_FEATURED = [
   { title: 'Zlatý príbor', price: '1 € / set', icon: 'gift' },
 ] as const;
 
+export const DECOR_FEATURED_EN = [
+  { title: 'Large "Welcome to Our Wedding" mirror', price: '35 €', icon: 'frame' },
+  { title: 'Gold candy bar package', price: '20 €', icon: 'utensils' },
+  { title: 'Wedding backdrop with drapes and fairy lights', price: '35 €', icon: 'lamp' },
+  { title: 'Gold cutlery', price: '1 € / set', icon: 'gift' },
+] as const;
+
 export const DECOR_CATEGORIES = [
   {
     category: 'Zrkadlá a uvítanie',
@@ -344,11 +351,55 @@ export const DECOR_CATEGORIES = [
   },
 ] as const;
 
+export const DECOR_CATEGORIES_EN = [
+  {
+    category: 'Mirrors & Welcome',
+    items: [
+      { name: 'Large mirror 72 × 163 cm with "Welcome to Our Wedding" text', price: '35 €' },
+      { name: 'White mirror 70 × 90 cm for seating chart with fairy lights and stand', price: '25 €' },
+      { name: 'Text frames 10 × 12 cm (12 pcs)', price: '18 €' },
+    ],
+  },
+  {
+    category: 'Flowers, Vases & Textiles',
+    items: [
+      { name: 'Artificial flowers', price: 'from 0.50 € / pc' },
+      { name: 'Vases of various sizes', price: 'from 0.60 € / pc' },
+      { name: 'Fabric napkins', price: 'from 0.40 € / pc' },
+    ],
+  },
+  {
+    category: 'Tables & Sweet Bar',
+    items: [
+      { name: 'Stands', price: 'from 5 €' },
+      { name: 'Baskets', price: 'from 2 €' },
+      { name: 'Gold candy bar package', price: '20 €' },
+      { name: 'Wooden table numbers 1–8', price: '5 €' },
+    ],
+  },
+  {
+    category: 'Backdrops & Accessories',
+    items: [
+      { name: 'Wedding backdrop with drapes and fairy lights (2–3 m)', price: '35 €' },
+      { name: 'Gold candelabras', price: '1.70 € / pc' },
+      { name: 'Light decorations', price: 'from 1 €' },
+      { name: 'Wooden decorative arrows', price: '25 €' },
+    ],
+  },
+] as const;
+
 export const DECOR_POLICIES = [
   'Ku každej objednávke sa účtuje vratná záloha podľa hodnoty zapožičaných položiek.',
   'Pri oneskorenom vrátení si účtujeme 20 % z ceny nájmu za každý deň omeškania.',
   'Dekorácie sú určené na opakované používanie, preto prosíme o šetrné zaobchádzanie.',
   'Text na mieru vieme pripraviť za +5 € / pár nálepiek.',
+] as const;
+
+export const DECOR_POLICIES_EN = [
+  'A refundable deposit is charged based on the value of borrowed items.',
+  'For late returns, we charge 20% of the rental price per day of delay.',
+  'Decorations are intended for repeated use, so please handle them carefully.',
+  'Custom text can be prepared for +5 € / pair of stickers.',
 ] as const;
 
 export const CONTACT_FAQS = [
@@ -377,10 +428,23 @@ export const CONSIGNMENT_STEPS = [
   'Peniaze vám pošleme do 7 dní od predaja.',
 ] as const;
 
+export const CONSIGNMENT_STEPS_EN = [
+  'You entrust us clean dresses and send photos in advance.',
+  'We agree together on the price you want to get for the dresses.',
+  'MagicRoom displays, promotes and communicates with interested brides.',
+  'We send the money to you within 7 days after the sale.',
+] as const;
+
 export const CONSIGNMENT_BENEFITS = [
   'Druhý život pre vaše šaty bez riešenia inzercie a správ.',
   'Majiteľka určuje svoju cenu, provízia sa k nej pripočítava zvlášť.',
   'Ak sa šaty nepredajú, vrátia sa v pôvodnom stave alebo sa predĺži zmluva.',
+] as const;
+
+export const CONSIGNMENT_BENEFITS_EN = [
+  'Second life for your dresses without dealing with ads and messages.',
+  'The owner sets their own price, our commission is added separately.',
+  'If the dresses don\'t sell, they return in original condition or we extend the contract.',
 ] as const;
 
 export const CONSIGNMENT_CONDITIONS = [
@@ -399,6 +463,25 @@ export const CONSIGNMENT_CONDITIONS = [
   {
     title: 'Zmluva na niekoľko mesiacov',
     description: 'Ak sa šaty nepredajú, vrátime ich v pôvodnom stave alebo sa spoločne dohodneme na predĺžení.',
+  },
+] as const;
+
+export const CONSIGNMENT_CONDITIONS_EN = [
+  {
+    title: 'Dresses must be clean',
+    description: 'If they arrive dirty or damaged, we return them to the owner before listing.',
+  },
+  {
+    title: 'You set the price',
+    description: 'We don\'t change the price you want for the dresses. Our commission is added separately.',
+  },
+  {
+    title: 'Payment within 7 days',
+    description: 'After the sale, we send the money to your account within 7 days or by agreement.',
+  },
+  {
+    title: 'Contract for several months',
+    description: 'If the dresses don\'t sell, we return them in original condition or agree on extension.',
   },
 ] as const;
 
