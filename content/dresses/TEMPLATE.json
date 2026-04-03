@@ -1,0 +1,12 @@
+{
+  "id": "Kopiujte-tento-subor-a-premenujte",
+  "name": "Názov šiat",
+  "description": "Krátky popis šiat - materiál, štýl, čo je výnimočné",
+  "price": 0,
+  "size": "36",
+  "type": "new",
+  "status": "available",
+  "color": "Biela",
+  "style": "Elegantné/Klasické/Romantické/Moderné",
+  "details": "Doplnkové informácie - zips, podprsenka, dĺžka, atď."
+}
