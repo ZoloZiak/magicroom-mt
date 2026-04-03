@@ -26,16 +26,18 @@
 
 ### Farebná paleta
 ```
-Primary:        #8B6F5C  (Warm Taupe — elegancia, teplo)
-Secondary:      #D4B8A0  (Blush Sand — romantickosť)
+Primary:        #B87A8E  (Rose — elegance, teplo, MagicRoom značka)
+Primary-900:    #4A2E3A  (Bordo — hlboký akcent)
 Accent:         #C9A86C  (Muted Gold — luxus, prestíž)
-Background:     #FDFBF9  (Warm White — čistý, nie studený)
-Surface:        #F7F3EF  (Cream — stránky, sekcie)
+Background:     #FFFBF8  (Warm White — čistý, nie studený)
+Surface:        #FFF5F0  (Cream — stránky, sekcie)
 Text Primary:   #2D2421  (Dark Warm Brown)
 Text Secondary: #6B5E57  (Medium Taupe)
 Success:        #7A9E7E  (Sage Green — rezervácia, potvrdenie)
-CTA:            #B85C4A  (Terracotta Rose — výzva k akcii)
+CTA:            #FF69B4  (Barbie Pink — výzva k akcii)
 ```
+
+> ⚠️ Dôležité: Farby boli zmenené z pôvodných (Warm Taupe #8B6F5C) na Rose (#B87A8E) pre konzistentnosť so značkou MagicRoom. Pozri aj `src/styles/global.css`.
 
 ### Typografia
 - **Headings:** `Cormorant Garamond` (serif, elegancia, romantickosť)

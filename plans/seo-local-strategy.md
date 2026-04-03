@@ -1,5 +1,7 @@
 # SEO & Local Strategy — MagicRoom
 
+> ⚠️ **POZNÁMKA:** Tento súbor je duplikát. Slovak verzia je v `seo-local-strategy-sk.md`. Tento súbor možno vymazať.
+
 ## 1. Keyword Research
 
 ### Cel SEO strefy

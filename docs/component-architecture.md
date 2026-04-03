@@ -1,5 +1,7 @@
 # Architektura Komponentów — MagicRoom
 
+> ⚠️ **POZNÁMKA:** Tento dokument obsahuje zastarané referencie na Supabase, ktoré sa už nepoužívajú. Aktuálna verzia používa Resend pre emaily.
+
 ## 1. Stack technologiczny
 
 ### Wybór: Astro + shadcn/ui

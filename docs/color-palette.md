@@ -9,8 +9,8 @@
 | `--color-primary-950` | `#351F2A` | Veľmi tmavá — overlay, tiene |
 | `--color-secondary` | `#E8D0D8` | Svetlá ružová — border, input, hover |
 | `--color-accent` | `#C9A86C` | Zlatá — secondary akcent |
-| `--color-cta` | `#B85C4A` | Teplá červená — primary CTA button |
-| `--color-cta-hover` | `#A04D3C` | Hover state pre CTA |
+| `--color-cta` | `#FF69B4` | Barbie Pink — primary CTA button |
+| `--color-cta-hover` | `#FF1493` | Hover state pre CTA |
 | `--color-success` | `#7A9E7E` | Zelená — success states |
 | `--color-surface` | `#F7F3EF` | Svetlá plocha — sekcie, cards bg |
 | `--color-background` | `#FDFBF9` | Pozadie stránky (teplá biela) |
