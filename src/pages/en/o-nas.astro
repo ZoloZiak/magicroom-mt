@@ -1,0 +1,224 @@
+---
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import CTASection from '@/components/layout/CTASection.astro';
+import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
+import FooterEn from '@/components/layout/FooterEn.astro';
+import HeaderEn from '@/components/layout/HeaderEn.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import Sparkles from '@/components/layout/Sparkles.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { BOOKING_PAGE_HREF_EN, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_URL } from '@/data/site';
+import { FOUNDER_STORY, GALLERY_ITEMS, HOME_STATS_EN, IMAGE_ASSETS, TRUST_REASONS_EN } from '@/data/content';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, CheckCircle2, Heart, Phone, Sparkles, Users } from 'lucide-react';
+
+const storyGallery = GALLERY_ITEMS.slice(0, 4);
+const operatingPrinciples = [
+  {
+    title: 'Personal care instead of chaos',
+    description: 'Every contact with MagicRoom should be calm, clear and human — from the first message to the final details.',
+    icon: Heart,
+  },
+  {
+    title: 'Weddings and parties up to 50 guests',
+    description: 'We knowingly work in a range where we can maintain quality, attention to details and Natália\'s personal approach.',
+    icon: Users,
+  },
+  {
+    title: 'Practical help with beautiful results',
+    description: 'Dresses, decorations and consulting should help save time and make the day more harmonious, not more complicated.',
+    icon: Sparkles,
+  },
+] as const;
+---
+
+<Layout
+  title="About — MagicRoom Wedding Salon in Martin | Natália Ondrejková"
+  description="Meet Natália, founder of MagicRoom. Local wedding salon in Martin where dresses, decorations and calm personal approach come together. English spoken — Norwegian students welcome!"
+  keywords="natalia ondrejková, magicroom, founder, wedding salon martin, story"
+  image={IMAGE_ASSETS.founder}
+  breadcrumbs={[
+    { name: 'Home', url: '/en' },
+    { name: 'About', url: '/en/o-nas' },
+  ]}
+  language="en"
+>
+  <HeaderEn />
+
+  <main class="flex-1">
+    <Breadcrumbs items={[
+      { name: 'About', url: '/en/o-nas' }
+    ]} />
+
+    <section class="relative overflow-hidden soft-wash pt-12">
+      <Sparkles count={4} />
+      <div class="container mx-auto px-4 pb-14 pt-8 md:pb-24 md:pt-10">
+        <div class="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-center">
+          <div class="max-w-2xl">
+            <Badge variant="secondary" className="mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em] animate-fade-in-up animate-stagger-1">
+              About • MagicRoom Martin
+            </Badge>
+            <h1 class="font-display text-[2.9rem] leading-[0.96] text-foreground md:text-6xl lg:text-7xl animate-fade-in-up animate-stagger-2">
+              A place that came from the need to finally have wedding details together.
+            </h1>
+            <p class="mt-6 max-w-xl text-lg leading-8 text-muted-foreground md:text-xl animate-fade-in-up animate-stagger-3">
+              MagicRoom didn't start as an anonymous salon. It started as an answer to how much stress finding dresses,
+              decorations and small decisions can bring, which together should create one important day.
+            </p>
+
+            <div class="mt-8 luxury-panel p-6 md:p-7 animate-fade-in-up animate-stagger-4">
+              <p class="section-kicker">Founder</p>
+              <blockquote class="mt-3 font-display text-3xl italic leading-tight text-foreground md:text-4xl">
+                "{FOUNDER_STORY.quote}"
+              </blockquote>
+              <p class="mt-4 text-sm leading-7 text-muted-foreground">
+                Natália builds MagicRoom on fairness, human contact and on the bride not having to run between multiple places at once.
+              </p>
+            </div>
+
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row animate-fade-in-up animate-stagger-5">
+              <Button asChild variant="cta" size="lg" className="sm:min-w-[220px]">
+                <a href={BOOKING_PAGE_HREF_EN}>
+                  Book a fitting
+                  <ArrowRight className="h-5 w-5" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="sm:min-w-[220px]">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Message on WhatsApp</a>
+              </Button>
+            </div>
+
+            <div class="mt-6 flex items-center gap-3 text-sm text-muted-foreground">
+              <Badge variant="success">English spoken</Badge>
+              <span>•</span>
+              <span>Norwegian students welcome</span>
+              <span>•</span>
+              <span>Transparent prices</span>
+            </div>
+
+            <div class="mt-10 grid gap-4 sm:grid-cols-3">
+              {HOME_STATS_EN.map((stat, i) => (
+                <div class={`rounded-2xl border border-border/70 bg-white/80 px-5 py-4 shadow-sm backdrop-blur animate-fade-in-up animate-stagger-${i + 1}`}>
+                  <p class="font-display text-3xl text-cta">{stat.value}</p>
+                  <p class="mt-1 text-sm leading-6 text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-6 -top-6 hidden h-24 w-24 rounded-full bg-accent/20 blur-2xl md:block"></div>
+            <div class="absolute -bottom-8 -right-8 hidden h-36 w-36 rounded-full bg-primary/15 blur-3xl md:block"></div>
+
+            <div class="photo-card-lg">
+              <img
+                src={IMAGE_ASSETS.founder}
+                alt="Natália Ondrejková, founder of MagicRoom."
+                class="max-h-[700px] w-full rounded-[24px] bg-surface object-contain"
+              />
+            </div>
+
+            <div class="mt-6 grid gap-5 sm:grid-cols-2 sm:items-start">
+              <div class="rounded-[28px] bg-primary-900 px-6 py-7 text-white shadow-[var(--shadow-panel)]">
+                <p class="text-[11px] uppercase tracking-[0.26em] text-white/70">Working hours</p>
+                <p class="mt-4 text-base leading-7 text-white">
+                  Mon–Fri: 9:00–18:00<br/>
+                  Sat: 9:00–14:00<br/>
+                  By appointment only
+                </p>
+              </div>
+              <div class="rounded-[28px] bg-primary-900 px-6 py-7 text-white shadow-[var(--shadow-panel)]">
+                <p class="text-[11px] uppercase tracking-[0.26em] text-white/70">How we work today</p>
+                <p class="mt-4 text-base leading-7 text-white">
+                  We do decorations and parties for smaller formats so every client gets full attention and not "fast assembly line service".
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+          <div class="max-w-2xl">
+            <p class="section-kicker">Brand story</p>
+            <h2 class="section-title mt-3">MagicRoom came from personal experience, not marketing phrase.</h2>
+            <div class="mt-8 space-y-5 editorial-copy">
+              {FOUNDER_STORY.paragraphs.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+            </div>
+            <DecorativeDivider variant="floral" />
+          </div>
+
+          <div class="luxury-panel p-6 md:p-8">
+            <p class="section-kicker">What it means in practice</p>
+            <div class="mt-6 space-y-5">
+              {TRUST_REASONS_EN.map((reason) => (
+                <div class="rounded-2xl bg-surface px-5 py-5">
+                  <div class="flex items-start gap-4">
+                    <div class="mt-1 rounded-full bg-primary/10 p-2 text-primary">
+                      <CheckCircle2 className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold text-foreground">{reason.title}</h3>
+                      <p class="mt-2 text-sm leading-6 text-muted-foreground">{reason.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="section-kicker">MagicRoom atmosphere</p>
+            <h2 class="section-title mt-3">Not a showroom. More like a calm space where decisions are easier.</h2>
+          </div>
+          <p class="max-w-xl text-base leading-7 text-muted-foreground">
+            Small, personal, with prices you see right away — exactly what many brides can't find in larger salons.
+          </p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {storyGallery.map((item, i) => (
+            <div class={`animate-fade-in-up animate-stagger-${i + 1}`}>
+              <div class="photo-card aspect-[3/4] overflow-hidden rounded-2xl">
+                <img src={item.src} alt={item.alt} class="h-full w-full object-cover" loading="lazy" decoding="async" />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-10 rounded-2xl border border-border/70 bg-white p-6 md:p-8">
+          <div class="grid gap-8 md:grid-cols-3">
+            {operatingPrinciples.map((principle) => (
+              <div class="text-center">
+                <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <principle.icon className="h-5 w-5" />
+                </div>
+                <h3 class="text-lg font-semibold text-foreground">{principle.title}</h3>
+                <p class="mt-2 text-sm leading-6 text-muted-foreground">{principle.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTASection />
+
+    <FooterEn />
+    <WhatsAppFAB />
+    <ScrollToTop />
+  </main>
+</Layout>

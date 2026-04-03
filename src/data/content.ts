@@ -244,6 +244,62 @@ export const EXTRA_SERVICES = [
   },
 ] as const;
 
+export const SERVICE_PACKAGES_EN = [
+  {
+    name: 'Small help',
+    price: '40 €',
+    description: 'Clear direction and recommendations for the bride at the beginning.',
+    features: ['1 consultation (60 min)', 'moodboard', 'decoration recommendations'],
+  },
+  {
+    name: 'Wedding Basic',
+    price: '150–200 €',
+    description: 'Most popular choice — order in preparations and vendors.',
+    recommended: true,
+    features: [
+      '2–3 consultations',
+      'decoration proposal and moodboard',
+      'preparation timeline',
+      'vendor recommendations',
+    ],
+  },
+  {
+    name: 'Complete Preparation',
+    price: '200–300 €',
+    description: 'Complete preparation and coordination of details.',
+    features: [
+      '3–4 consultations',
+      'decoration proposal and moodboard',
+      'timeline + games',
+      'vendor coordination',
+      'QR RSVP form',
+    ],
+  },
+] as const;
+
+export const EXTRA_SERVICES_EN = [
+  {
+    title: 'Individual Consultation',
+    price: '15 € / 60 min',
+    description: 'In person or online — budget, style, first decisions.',
+  },
+  {
+    title: 'Bachelor/Bachelorette Party',
+    price: 'from 40 €',
+    description: 'Concept, program and activity tips in Basic and Premium packages.',
+  },
+  {
+    title: 'Graphics and handmade items',
+    price: 'from 15 €',
+    description: 'Announcements, glasses, t-shirts and personalized details.',
+  },
+  {
+    title: 'Online RSVP management',
+    price: '18 €',
+    description: 'QR form, guest response collection and clear spreadsheet.',
+  },
+] as const;
+
 export const DECOR_FEATURED = [
   { title: 'Veľké zrkadlo „Vitajte na našej svadbe"', price: '35 €', icon: 'frame' },
   { title: 'Candy bar balík v zlatej farbe', price: '20 €', icon: 'utensils' },
@@ -370,6 +426,52 @@ export const CONTACT_ACTIONS = [
     description: 'Jilemnického 4015/43, Záturčie. Kliknutím otvoríte mapu.',
     href: MAP_URL,
     label: 'Otvoriť mapu',
+  },
+] as const;
+
+export const CONTACT_FAQS_EN = [
+  {
+    question: 'How much does a wedding dress fitting cost?',
+    answer: '12 € for 60 minutes — prosecco, non-alcoholic or coffee included.',
+  },
+  {
+    question: 'Can I take photos during the fitting?',
+    answer: 'Yes, without limits.',
+  },
+  {
+    question: 'How do I book an appointment?',
+    answer: 'Via form, WhatsApp, email or phone call.',
+  },
+  {
+    question: 'Do you offer online consultations?',
+    answer: 'Yes, part of the planning can be done online.',
+  },
+] as const;
+
+export const CONTACT_ACTIONS_EN = [
+  {
+    title: 'Call us',
+    description: 'The fastest way if you want to sort out an appointment right now.',
+    href: PHONE_HREF,
+    label: PHONE_DISPLAY,
+  },
+  {
+    title: 'Write on WhatsApp',
+    description: 'A short message is enough — we\'ll reply as soon as possible.',
+    href: WHATSAPP_URL,
+    label: 'WhatsApp booking',
+  },
+  {
+    title: 'Send an email',
+    description: 'If you prefer a calm inquiry with details, write us an email.',
+    href: EMAIL_HREF,
+    label: EMAIL,
+  },
+  {
+    title: 'Find us in Martin',
+    description: 'Jilemnického 4015/43, Záturčie. Click to open the map.',
+    href: MAP_URL,
+    label: 'Open map',
   },
 ] as const;
 
