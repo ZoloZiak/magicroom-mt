@@ -5,7 +5,6 @@ MagicRoom is a wedding salon website in Martin, Slovakia. Built with Astro 6.x, 
 
 ## Team
 - **arciarchitekt** — Zolo Žiak, project owner & architect. Oslovuj "arciarchitekt", nie "user".
-- **Grzegorz** — Polish collaborator, developer. Commit messages must be in English for him.
 - **Natália** — salon owner (Natália Ondrejková). Final say on content, prices, design.
 
 ## Stack
@@ -15,10 +14,9 @@ MagicRoom is a wedding salon website in Martin, Slovakia. Built with Astro 6.x, 
 - **Email:** Resend API (booking form → mt.magicroom@gmail.com)
 - **Hosting:** Vercel (auto-deploy on git push to main)
 - **Owner:** Natália Ondrejková
-- **Collaborator:** Grzegorz (Polish, speaks Polish in chat)
 
 ## Key Rules
-1. **Commit messages in English** — Grzegorz reads them
+1. **Commit messages in English**
 2. **Colors:** primary `#B87A8E` (rose), primary-900 `#4A2E3A` (bordo), accent `#C9A86C` (gold)
 3. **No hardcoded brown shadows** — use `rgba(74,46,58,...)` or `rgba(53,31,42,...)`
 4. **Mobile menu:** pure inline styles + JS (no Tailwind classes!)

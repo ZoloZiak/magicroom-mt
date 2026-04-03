@@ -7,8 +7,8 @@
 **Odôvodnenie:**
 - Astro = rýchlosť (zero JS predvolene) + SSR keď je potrebné
 - shadcn/ui = overené komponenty + customizácia cez Tailwind
-- Supabase = backend (databáza, storage, auth)
 - Tailwind = štylovanie (už v shadcn)
+- Resend = email pre rezervácie
 
 ### Štruktúra projektu
 
