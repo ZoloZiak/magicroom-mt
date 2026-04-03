@@ -1,0 +1,40 @@
+---
+import type { Language } from '@/lib/i18n';
+
+interface Props {
+  currentLanguage: Language;
+}
+
+const { currentLanguage } = Astro.props;
+const nextLanguage = currentLanguage === 'sk' ? 'en' : 'sk';
+const nextLabel = currentLanguage === 'sk' ? 'EN' : 'SK';
+---
+
+<button
+  type="button"
+  class="language-switcher inline-flex items-center gap-1 rounded-full border border-border/70 bg-white/80 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:border-primary/50 hover:bg-white hover:text-foreground"
+  data-current-language={currentLanguage}
+  data-next-language={nextLanguage}
+  aria-label={`Switch to ${nextLanguage === 'en' ? 'English' : 'Slovak'}`}
+>
+  <span class="opacity-50">{currentLanguage.toUpperCase()}</span>
+  <span class="text-[10px] text-primary">/</span>
+  <span class="font-semibold text-foreground">{nextLabel}</span>
+</button>
+
+<script>
+  const switcher = document.querySelector('.language-switcher') as HTMLButtonElement;
+  
+  if (switcher) {
+    switcher.addEventListener('click', () => {
+      const currentLang = switcher.dataset.currentLanguage as 'sk' | 'en';
+      const nextLang = switcher.dataset.nextLanguage as 'sk' | 'en';
+      
+      localStorage.setItem('magicroom-lang', nextLang);
+      
+      const url = new URL(window.location.href);
+      url.searchParams.set('lang', nextLang);
+      window.location.href = url.toString();
+    });
+  }
+</script>

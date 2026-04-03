@@ -1,5 +1,6 @@
 ---
 import { Button } from '@/components/ui/button';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher.astro';
 import { BOOKING_PAGE_HREF, NAV_LINKS, PHONE_DISPLAY, PHONE_HREF, RESPONSE_PROMISE } from '@/data/site';
 
 const currentPath = Astro.url.pathname;
@@ -52,7 +53,8 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
       ))}
     </ul>
 
-    <div class="hidden md:block">
+    <div class="hidden items-center gap-4 md:flex">
+      <LanguageSwitcher currentLanguage="sk" />
       <Button asChild variant="cta" size="sm">
         <a href={bookingHref} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label="header_cta">Zarezervuj skúšku</a>
       </Button>
