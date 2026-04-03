@@ -154,20 +154,12 @@ import { ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
           Stačí fotka šiat, veľkosť a vaša predstava o cene. Nemusíte si pamätať celý proces — keď sa otvorí kapacita, všetko si prejdeme spolu.
         </p>
 
-        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-          <Button asChild variant="cta" size="lg">
-            <a href={EMAIL_HREF}>
-              Napísať na {EMAIL}
-              <ArrowRight className="h-5 w-5" />
-            </a>
-          </Button>
-          <Button asChild variant="outline" size="lg">
-            <a href={PHONE_HREF}>
-              <Phone className="h-5 w-5" />
-              {PHONE_DISPLAY}
-            </a>
-          </Button>
-        </div>
+        <Button asChild variant="cta" size="lg" className="mt-8">
+          <a href="/kontakt">
+            Prejsť na kontakt
+            <ArrowRight className="h-5 w-5" />
+          </a>
+        </Button>
       </div>
     </section>
   </main>
