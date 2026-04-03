@@ -44,15 +44,15 @@ export const NAV_LINKS = [
 ] as const;
 
 export const NAV_LINKS_EN = [
-  { href: '/en/o-nas', label: 'About' },
-  { href: '/en/sluzby', label: 'Services' },
-  { href: '/en/svadobne-saty', label: 'Dresses' },
-  { href: '/en/galeria', label: 'Gallery' },
+  { href: '/en/about', label: 'About' },
+  { href: '/en/services', label: 'Services' },
+  { href: '/en/dresses', label: 'Dresses' },
+  { href: '/en/gallery', label: 'Gallery' },
   { href: '/en/blog', label: 'Blog' },
-  { href: '/en/komisny-predaj', label: 'Consignment' },
-  { href: '/en/prenajom-dekoracii', label: 'Decorations' },
-  { href: '/en/partneri', label: 'Partners' },
-  { href: '/en/kontakt', label: 'Contact' },
+  { href: '/en/consignment', label: 'Consignment' },
+  { href: '/en/decorations', label: 'Decorations' },
+  { href: '/en/partners', label: 'Partners' },
+  { href: '/en/contact', label: 'Contact' },
 ] as const;
 
 export const SOCIAL_LINKS = [
