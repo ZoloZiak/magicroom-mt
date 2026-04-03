@@ -130,6 +130,14 @@ export const FOUNDER_STORY = {
   ],
 } as const;
 
+export const FOUNDER_STORY_EN = {
+  quote: 'Every woman deserves a moment when she feels extraordinary.',
+  paragraphs: [
+    "Hi, I'm Natália. MagicRoom was born when I was planning my own wedding and realized how much time finding dresses, decorations and details takes.",
+    'I wanted a place where women find everything together — dresses, decorations and fair advice without stress and overpaying.',
+  ],
+} as const;
+
 export const GALLERY_ITEMS = [
   {
     src: IMAGE_ASSETS.hero,
