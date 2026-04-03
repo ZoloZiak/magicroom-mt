@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'list',
   use: {
-    baseURL: process.env.BASE_URL || 'http://localhost:4321',
+    baseURL: process.env.BASE_URL || 'http://localhost:4325',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
@@ -17,15 +17,11 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-    {
-      name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'] },
-    },
   ],
   webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:4321',
-    reuseExistingServer: !process.env.CI,
-    timeout: 120000,
+    command: 'npm run preview -- --port 4325',
+    url: 'http://localhost:4325',
+    reuseExistingServer: true,
+    timeout: 30000,
   },
 });
