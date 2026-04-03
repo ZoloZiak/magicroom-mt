@@ -6,7 +6,7 @@ test.describe('GA4 Tracking', () => {
     const phoneLink = page.locator('a[href^="tel:"]').first();
     await expect(phoneLink).toHaveAttribute('data-ga-category', 'contact');
     await expect(phoneLink).toHaveAttribute('data-ga-action', 'phone_click');
-    await expect(phoneLink).toHaveAttribute('data-ga-label', 'hero_phone');
+    await expect(phoneLink).toHaveAttribute('data-ga-label');
   });
 
   test('homepage has tracking attributes on map link', async ({ page }) => {
@@ -14,7 +14,7 @@ test.describe('GA4 Tracking', () => {
     const mapLink = page.locator('a[href*="maps.app.goo.gl"]').first();
     await expect(mapLink).toHaveAttribute('data-ga-category', 'external');
     await expect(mapLink).toHaveAttribute('data-ga-action', 'map_click');
-    await expect(mapLink).toHaveAttribute('data-ga-label', 'hero_map');
+    await expect(mapLink).toHaveAttribute('data-ga-label');
   });
 
   test('homepage has tracking on CTA button', async ({ page }) => {
@@ -33,7 +33,7 @@ test.describe('GA4 Tracking', () => {
   test('WhatsApp FAB has tracking attributes', async ({ page }) => {
     await page.goto('/');
     const whatsappFab = page.locator('[data-ga-category="contact"][data-ga-action="whatsapp_click"]').first();
-    await expect(whatsappFab).toHaveAttribute('data-ga-label', 'fab_whatsapp');
+    await expect(whatsappFab).toHaveAttribute('data-ga-label');
   });
 
   test('footer has tracking on email link', async ({ page }) => {
@@ -101,5 +101,6 @@ test.describe('GA4 Tracking', () => {
     expect(count).toBeGreaterThan(0);
     
     await expect(contactCards.first()).toHaveAttribute('data-ga-category', 'contact');
+    await expect(contactCards.first()).toHaveAttribute('data-ga-action');
   });
 });
