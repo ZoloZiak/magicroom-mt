@@ -21,15 +21,15 @@
   --color-muted-foreground: #886078;
   --color-accent: #C9A86C;
   --color-accent-foreground: #2A1A24;
-  --color-destructive: #B85C4A;
+  --color-destructive: #D9444A;
   --color-destructive-foreground: #FDFBF9;
   --color-border: #FFD0E8;
   --color-input: #FFD0E8;
   --color-ring: #FF69B4;
 
   /* Custom MagicRoom Colors */
-  --color-cta: #B85C4A;
-  --color-cta-hover: #A04D3C;
+  --color-cta: #FF69B4;
+  --color-cta-hover: #E05595;
   --color-success: #7A9E7E;
   --color-surface: #F7F3EF;
 
@@ -43,11 +43,11 @@
   --z-overlay: 9998;
   --z-modal: 9999;
 
-  /* Shadows — magenta tones */
-  --shadow-soft: 0 20px 60px rgba(194, 16, 110, 0.08);
-  --shadow-medium: 0 24px 80px rgba(194, 16, 110, 0.09);
-  --shadow-heavy: 0 30px 80px rgba(194, 16, 110, 0.12);
-  --shadow-dark: 0 26px 80px rgba(150, 12, 86, 0.18);
+  /* Shadows — pink tones */
+  --shadow-soft: 0 20px 60px rgba(255, 105, 180, 0.12);
+  --shadow-medium: 0 24px 80px rgba(255, 105, 180, 0.14);
+  --shadow-heavy: 0 30px 80px rgba(255, 105, 180, 0.16);
+  --shadow-dark: 0 26px 80px rgba(224, 85, 149, 0.2);
   --shadow-sm: 0 10px 40px rgba(194, 16, 110, 0.05);
   --shadow-xl: 0 24px 70px rgba(194, 16, 110, 0.10);
   --shadow-2xl: 0 30px 80px rgba(194, 16, 110, 0.12);
