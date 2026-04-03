@@ -38,6 +38,7 @@ export const NAV_LINKS = [
   { href: '/blog', label: 'Blog' },
   { href: '/komisny-predaj', label: 'Komisný predaj' },
   { href: '/prenajom-dekoracii', label: 'Dekorácie' },
+  { href: '/partneri', label: 'Partneri' },
   { href: '/kontakt', label: 'Kontakt' },
 ] as const;
 
@@ -48,6 +49,7 @@ export const NAV_LINKS_EN = [
   { href: '/en/blog', label: 'Blog' },
   { href: '/en/komisny-predaj', label: 'Consignment' },
   { href: '/en/prenajom-dekoracii', label: 'Decorations' },
+  { href: '/en/partneri', label: 'Partners' },
   { href: '/en/kontakt', label: 'Contact' },
 ] as const;
 
