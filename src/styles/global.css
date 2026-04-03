@@ -13,7 +13,7 @@
   --color-card-foreground: #2A1A24;
   --color-popover: #FDFBF9;
   --color-popover-foreground: #2A1A24;
-  --color-primary: #FF1493;
+  --color-primary: #FF69B4;
   --color-primary-foreground: #FFFFFF;
   --color-secondary: #FFE0F0;
   --color-secondary-foreground: #2A1A24;
@@ -25,7 +25,7 @@
   --color-destructive-foreground: #FDFBF9;
   --color-border: #FFD0E8;
   --color-input: #FFD0E8;
-  --color-ring: #FF1493;
+  --color-ring: #FF69B4;
 
   /* Custom MagicRoom Colors */
   --color-cta: #B85C4A;
@@ -34,8 +34,8 @@
   --color-surface: #F7F3EF;
 
   /* Primary shades for dark sections */
-  --color-primary-900: #C2106E;
-  --color-primary-950: #960C56;
+  --color-primary-900: #E05595;
+  --color-primary-950: #C04080;
 
   /* Z-index layers */
   --z-dropdown: 40;
