@@ -6,6 +6,7 @@ import {
   getBaseSchemas,
   toAbsoluteUrl,
 } from '@/data/site';
+import type { Language } from '@/lib/i18n';
 
 interface Props {
   title: string;
@@ -16,6 +17,7 @@ interface Props {
   noindex?: boolean;
   structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
   breadcrumbs?: Array<{ name: string; url: string }>;
+  language?: Language;
 }
 
 const {
@@ -27,6 +29,7 @@ const {
   noindex = false,
   structuredData = [],
   breadcrumbs = [],
+  language = 'sk',
 } = Astro.props;
 
 const canonicalUrl = toAbsoluteUrl(Astro.url.pathname);
@@ -59,7 +62,7 @@ const jsonLd = JSON.stringify([
 ---
 
 <!doctype html>
-<html lang="sk">
+<html lang={language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

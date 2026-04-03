@@ -41,15 +41,33 @@ export const NAV_LINKS = [
   { href: '/kontakt', label: 'Kontakt' },
 ] as const;
 
+export const NAV_LINKS_EN = [
+  { href: '/en/o-nas', label: 'About' },
+  { href: '/en/sluzby', label: 'Services' },
+  { href: '/en/svadobne-saty', label: 'Dresses' },
+  { href: '/en/blog', label: 'Blog' },
+  { href: '/en/komisny-predaj', label: 'Consignment' },
+  { href: '/en/prenajom-dekoracii', label: 'Decorations' },
+  { href: '/en/kontakt', label: 'Contact' },
+] as const;
+
 export const SOCIAL_LINKS = [
   { label: 'Facebook', href: 'https://www.facebook.com/909260838935730/' },
   { label: 'Instagram', href: 'https://www.instagram.com/mt.magicroom/' },
   { label: 'Recenzie na Google Mapách', href: 'https://share.google/RMksKvnggtb6P5nHd' },
 ] as const;
 
+export const SOCIAL_LINKS_EN = [
+  { label: 'Facebook', href: 'https://www.facebook.com/909260838935730/' },
+  { label: 'Instagram', href: 'https://www.instagram.com/mt.magicroom/' },
+  { label: 'Google Reviews', href: 'https://share.google/RMksKvnggtb6P5nHd' },
+] as const;
+
 export const BOOKING_PAGE_HREF = '/kontakt#booking';
+export const BOOKING_PAGE_HREF_EN = '/en/kontakt#booking';
 export const BOOKING_CTA_LABEL = 'Rezervovať skúšku';
 export const RESPONSE_PROMISE = 'Ozveme sa vám do 24 hodín.';
+export const RESPONSE_PROMISE_EN = 'We\'ll get back to you within 24 hours.';
 export const COPYRIGHT_YEAR = new Date().getFullYear();
 
 export const DEFAULT_OG_IMAGE =

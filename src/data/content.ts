@@ -441,3 +441,101 @@ export const DRESS_CATALOG = [
     featured: false,
   },
 ] as const;
+
+export const HOME_STATS_EN = [
+  { value: '12 €', label: 'wedding dress fitting with drink included' },
+  { value: '200–700 €', label: 'wedding dresses (new & consignment)' },
+  { value: '1', label: 'salon where Natália knows you personally' },
+] as const;
+
+export const HOME_OFFER_CARDS_EN = [
+  {
+    title: 'Wedding dress fitting',
+    price: '12 € / 60 min',
+    description: 'Calm fitting with drink included, space for two people and time to decide.',
+    href: '/en/kontakt#booking',
+    cta: 'Book a time',
+    icon: 'shirt',
+  },
+  {
+    title: 'Wedding dresses',
+    price: '200–700 €',
+    description: 'New models and consignment at fair prices — see them before visiting the salon.',
+    href: '/en/sluzby',
+    cta: 'View services',
+    icon: 'sparkles',
+  },
+  {
+    title: 'Formal dresses',
+    price: '12–150 €',
+    description: 'Dresses for prom, party or any occasion.',
+    href: '/en/sluzby',
+    cta: 'View services',
+    icon: 'sparkles',
+  },
+  {
+    title: 'Wedding & party decorations',
+    price: 'from 100 €',
+    description: 'Complete decoration on key — weddings, parties, events.',
+    href: '/en/prenajom-dekoracii',
+    cta: 'Decorations catalog',
+    icon: 'layout',
+  },
+  {
+    title: 'Custom accessories',
+    price: 'from 5 €',
+    description: 'Personalized glasses, t-shirts, robes and other handmade details.',
+    href: '/en/sluzby',
+    cta: 'View accessories',
+    icon: 'sparkles',
+  },
+  {
+    title: 'Wedding planning',
+    price: 'from 200 €',
+    description: 'From moodboard to RSVP — solutions that save time and stress.',
+    href: '/en/sluzby',
+    cta: 'View services',
+    icon: 'clipboard',
+  },
+  {
+    title: 'Bridal consultation',
+    price: '40 € / 60 min',
+    description: 'Calm advice on dress, style and wedding details.',
+    href: '/en/kontakt#booking',
+    cta: 'Book consultation',
+    icon: 'message',
+  },
+  {
+    title: 'Consignment sale',
+    price: 'from 50 €',
+    description: 'Give your wedding dress a second life. We help with the whole process.',
+    href: '/en/komisny-predaj',
+    cta: 'More info',
+    icon: 'refresh',
+  },
+] as const;
+
+export const TRUST_REASONS_EN = [
+  {
+    title: 'Prices are visible upfront',
+    description: 'No "call for price". Everything on the site.',
+  },
+  {
+    title: 'Personal approach from Natália',
+    description: 'Not an anonymous salon — a specific person who knows you.',
+  },
+  {
+    title: 'Practical help',
+    description: 'From moodboard to RSVP — solutions that save time and stress.',
+  },
+  {
+    title: 'Everything under one roof',
+    description: 'Dresses, decorations and details — no need to run between suppliers.',
+  },
+] as const;
+
+export const PROCESS_STEPS_EN = [
+  'Fill out a short form or write to us on WhatsApp.',
+  'Within 24 hours we\'ll get back to you and finalize the fitting or consultation time.',
+  'On-site you can calmly solve dresses, decorations and other details in one place.',
+] as const;
