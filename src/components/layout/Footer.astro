@@ -29,10 +29,10 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
 
         <div class="mb-6 flex flex-wrap gap-3">
           <Button asChild variant="secondary" size="sm">
-            <a href={bookingHref}>Rezervovať skúšku</a>
+            <a href={bookingHref} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label="footer_cta">Rezervovať skúšku</a>
           </Button>
           <Button asChild variant="outline" size="sm" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
-            <a href={PHONE_HREF}>Zavolať</a>
+            <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" data-ga-label="footer_phone">Zavolať</a>
           </Button>
         </div>
 
@@ -42,6 +42,9 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
+              data-ga-category="external"
+              data-ga-action="social_click"
+              data-ga-label={`footer_${item.label.toLowerCase().replace(/[^a-z]/g, '_')}`}
               class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition-colors hover:border-white/20 hover:text-accent"
               aria-label={item.label}
             >
@@ -65,6 +68,9 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
         <div class="flex flex-col gap-3">
           <a
             href={EMAIL_HREF}
+            data-ga-category="contact"
+            data-ga-action="email_click"
+            data-ga-label="footer_email"
             class="flex flex-col items-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-5 py-4 text-center transition-colors hover:border-white/40 hover:bg-white/10"
           >
             <Mail className="h-6 w-6" />
@@ -72,6 +78,9 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
           </a>
           <a
             href={PHONE_HREF}
+            data-ga-category="contact"
+            data-ga-action="phone_click"
+            data-ga-label="footer_phone_card"
             class="flex flex-col items-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-5 py-4 text-center transition-colors hover:border-white/40 hover:bg-white/10"
           >
             <Phone className="h-6 w-6" weight="regular" />
@@ -82,6 +91,9 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
           href={MAP_URL}
           target="_blank"
           rel="noopener noreferrer"
+          data-ga-category="external"
+          data-ga-action="map_click"
+          data-ga-label="footer_map"
           class="mt-4 flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"
         >
           <MapPin className="h-4 w-4 shrink-0" weight="regular" />

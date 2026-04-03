@@ -36,7 +36,7 @@ const {
     </div>
   </div>
 
-  <form class="space-y-6" data-booking-form novalidate>
+  <form class="space-y-6" data-booking-form data-ga-category="conversion" data-ga-action="booking_form_submit" data-ga-label="booking_form" novalidate>
     <div class="grid gap-5 md:grid-cols-2">
       <div class="space-y-2">
         <Label for={`${id}-name`}>Meno</Label>
@@ -112,10 +112,10 @@ const {
     <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <p class="text-sm leading-6 text-muted-foreground">
         Ak nechcete formulár dokončovať hneď, môžete sa ozvať aj priamo cez
-        <a href={PHONE_HREF} class="font-semibold text-primary underline-offset-4 hover:underline"> telefón</a>,
-        <a href={WHATSAPP_URL} class="font-semibold text-primary underline-offset-4 hover:underline" target="_blank" rel="noopener noreferrer"> WhatsApp</a>
+        <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" data-ga-label="booking_form_alt_phone" class="font-semibold text-primary underline-offset-4 hover:underline"> telefón</a>,
+        <a href={WHATSAPP_URL} data-ga-category="contact" data-ga-action="whatsapp_click" data-ga-label="booking_form_alt_whatsapp" class="font-semibold text-primary underline-offset-4 hover:underline" target="_blank" rel="noopener noreferrer"> WhatsApp</a>
         alebo
-        <a href={EMAIL_HREF} class="font-semibold text-primary underline-offset-4 hover:underline"> email {EMAIL}</a>.
+        <a href={EMAIL_HREF} data-ga-category="contact" data-ga-action="email_click" data-ga-label="booking_form_alt_email" class="font-semibold text-primary underline-offset-4 hover:underline"> email {EMAIL}</a>.
       </p>
 
       <Button type="submit" variant="cta" size="lg" className="w-full md:w-auto">
@@ -125,7 +125,7 @@ const {
 
     <p class="hidden rounded-2xl border border-success/30 bg-success/10 px-4 py-3 text-sm text-foreground" data-booking-status aria-live="polite"></p>
     <div class="hidden" data-booking-whatsapp>
-      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-2xl bg-[#25D366] px-5 py-3 text-sm font-medium text-white hover:bg-[#20BD5A]">
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" data-ga-category="contact" data-ga-action="whatsapp_click" data-ga-label="booking_form_whatsapp_success" class="inline-flex items-center gap-2 rounded-2xl bg-[#25D366] px-5 py-3 text-sm font-medium text-white hover:bg-[#20BD5A]">
         Pokračovať cez WhatsApp
       </a>
     </div>
@@ -167,6 +167,11 @@ const {
             status.classList.remove('border-destructive/30', 'bg-destructive/10');
             status.classList.add('border-success/30', 'bg-success/10');
             status.textContent = 'Rezervácia odoslaná! Ozveme sa vám do 24 hodín.';
+          }
+
+          // Track successful booking form submission
+          if (typeof window.trackEvent === 'function') {
+            window.trackEvent('conversion', 'booking_form_success', 'booking_submitted', 1);
           }
 
           const lines = [

@@ -12,7 +12,7 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
       <p>Skúška svadobných šiat 12 € / 60 min</p>
       <div class="flex items-center gap-6">
         <p>Martin • na objednávku</p>
-        <a href={PHONE_HREF} class="hover:text-foreground">{PHONE_DISPLAY}</a>
+        <a href={PHONE_HREF} class="hover:text-foreground" data-ga-category="contact" data-ga-action="phone_click" data-ga-label="header_phone">{PHONE_DISPLAY}</a>
         <p>{RESPONSE_PROMISE}</p>
       </div>
     </div>
@@ -54,7 +54,7 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
 
     <div class="hidden md:block">
       <Button asChild variant="cta" size="sm">
-        <a href={bookingHref}>Zarezervuj skúšku</a>
+        <a href={bookingHref} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label="header_cta">Zarezervuj skúšku</a>
       </Button>
     </div>
 
@@ -107,7 +107,7 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
         <div style="padding:12px 20px;">
           <div style="border-radius:16px;border:1px solid #E8D0D8;background:var(--color-card);padding:12px 16px;font-size:14px;color:var(--color-muted-foreground);">
             <p style="font-weight:500;color:#2D2421;margin:0;">${RESPONSE_PROMISE}</p>
-            <a href="${PHONE_HREF}" style="display:block;margin-top:4px;color:#B87A8E;text-decoration:none;">${PHONE_DISPLAY}</a>
+            <a href="${PHONE_HREF}" data-ga-category="contact" data-ga-action="phone_click" data-ga-label="mobile_menu_phone" style="display:block;margin-top:4px;color:#B87A8E;text-decoration:none;">${PHONE_DISPLAY}</a>
           </div>
         </div>
         <div style="padding:12px 20px 0;">
@@ -124,10 +124,10 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
           `).join('')}
         </ul>
         <div style="padding:20px;border-top:1px solid #E8D0D8;">
-          <a href="${bookingHref}" style="display:block;text-align:center;padding:12px 24px;background:#B85C4A;color:#fff;border-radius:12px;font-weight:500;text-decoration:none;font-size:15px;">
+          <a href="${bookingHref}" data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label="mobile_menu_cta" style="display:block;text-align:center;padding:12px 24px;background:#B85C4A;color:#fff;border-radius:12px;font-weight:500;text-decoration:none;font-size:15px;">
             Zarezervuj skúšku
           </a>
-          <a href="${PHONE_HREF}" style="display:block;margin-top:16px;text-align:center;font-size:14px;font-weight:500;color:var(--color-muted-foreground);text-decoration:none;">
+          <a href="${PHONE_HREF}" data-ga-category="contact" data-ga-action="phone_click" data-ga-label="mobile_menu_call" style="display:block;margin-top:16px;text-align:center;font-size:14px;font-weight:500;color:var(--color-muted-foreground);text-decoration:none;">
             Alebo zavolajte priamo
           </a>
         </div>

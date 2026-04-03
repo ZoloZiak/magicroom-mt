@@ -61,13 +61,13 @@ const howToSchema = {
 
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button asChild variant="cta" size="lg" className="hero-button interactive-ripple sm:min-w-[220px]">
-                <a href="#booking">
+                <a href="#booking" data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label="hero_cta">
                   Zarezervovať skúšku
                   <ArrowRight className="icon-morph slovak-heart h-5 w-5" />
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="hero-button sm:min-w-[220px]">
-                <a href="/sluzby">Pozrieť služby a cenník</a>
+                <a href="/sluzby" data-ga-category="engagement" data-ga-action="navigation_click" data-ga-label="hero_services">Pozrieť služby a cenník</a>
               </Button>
             </div>
 
@@ -95,14 +95,14 @@ const howToSchema = {
             </div>
 
             <div class="mt-5 grid gap-4 sm:grid-cols-2">
-              <a href={PHONE_HREF} class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
+              <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" data-ga-label="hero_phone" class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
                 <div class="flex items-center gap-3 text-primary">
                   <Phone className="h-4 w-4" />
                   <span class="text-sm uppercase tracking-[0.2em]">Telefón</span>
                 </div>
                 <p class="mt-3 font-semibold text-foreground">{PHONE_DISPLAY}</p>
               </a>
-              <a href={MAP_URL} target="_blank" rel="noopener noreferrer" class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
+              <a href={MAP_URL} target="_blank" rel="noopener noreferrer" data-ga-category="external" data-ga-action="map_click" data-ga-label="hero_map" class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
                 <div class="flex items-center gap-3 text-primary">
                   <MapPin className="h-4 w-4" />
                   <span class="text-sm uppercase tracking-[0.2em]">Adresa</span>
@@ -140,7 +140,7 @@ const howToSchema = {
               </CardHeader>
               <CardContent>
                 <Button asChild variant="ghost" className="px-0 text-primary hover:text-cta">
-                  <a href={item.href}>
+                  <a href={item.href} data-ga-category="engagement" data-ga-action="navigation_click" data-ga-label={`homepage_services_${item.href.replace('/', '')}`}>
                     {item.cta}
                     <ArrowRight className="icon-morph h-4 w-4" />
                   </a>
