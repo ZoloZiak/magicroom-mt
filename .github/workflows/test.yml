@@ -39,5 +39,11 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install chromium
 
+      - name: Start dev server
+        run: |
+          npm run dev -- --port 4321 &
+          echo "Waiting for server..."
+          npx wait-on http://localhost:4321 --timeout 120000 || exit 1
+
       - name: Run e2e tests
         run: npm run test:e2e
