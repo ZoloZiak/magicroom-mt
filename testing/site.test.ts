@@ -44,8 +44,8 @@ describe('site.ts — Contact info', () => {
 });
 
 describe('site.ts — Navigation', () => {
-  it('has 7 navigation links', () => {
-    expect(NAV_LINKS).toHaveLength(7);
+  it('has 9 navigation links', () => {
+    expect(NAV_LINKS).toHaveLength(9);
   });
 
   it('all nav links have href and label', () => {
