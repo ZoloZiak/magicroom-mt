@@ -1,12 +1,21 @@
 # Dress Catalog Management
 
+## Folder structure
+
+```
+magicroom-mt/
+├── content/dresses/          ← JSON súbory (tu pridávaj/upravuj)
+├── public/content/dresses/    ← Fotky (tu nahrávaj fotky)
+└── ...
+```
+
 ## How to add/edit dresses
 
-1. **Add a photo** to `content/dresses/` folder:
+1. **Add a photo** to `public/content/dresses/` folder:
    - Format: JPG, JPEG, or PNG
    - Naming: e.g., `svadobne-001.jpg`
 
-2. **Add a JSON file** with the same name:
+2. **Add a JSON file** to `content/dresses/` with the same name:
    - e.g., `svadobne-001.json`
 
 3. **Edit the JSON** with dress details:

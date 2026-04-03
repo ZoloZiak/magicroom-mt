@@ -18,7 +18,9 @@ export interface Dress {
 const DRESSES_DIR = 'content/dresses';
 
 export function getDresses(): Dress[] {
-  const dressesPath = path.join(process.cwd(), 'public', DRESSES_DIR);
+  // Read from content folder, images from public
+  const dressesPath = path.join(process.cwd(), DRESSES_DIR);
+  const publicPath = path.join(process.cwd(), 'public', 'content', 'dresses');
   
   if (!fs.existsSync(dressesPath)) {
     return [];
@@ -31,19 +33,19 @@ export function getDresses(): Dress[] {
     const content = fs.readFileSync(filepath, 'utf-8');
     const dress = JSON.parse(content) as Dress;
     
-    // Auto-generate image path from JSON filename
+    // Auto-generate image path from JSON filename - check in public folder
     const baseName = filename.replace('.json', '');
-    const imagePath = `/${DRESSES_DIR}/${baseName}.jpg`;
-    const imagePathJpeg = `/${DRESSES_DIR}/${baseName}.jpeg`;
-    const imagePathPng = `/${DRESSES_DIR}/${baseName}.png`;
+    const imagePathJpg = path.join(publicPath, `${baseName}.jpg`);
+    const imagePathJpeg = path.join(publicPath, `${baseName}.jpeg`);
+    const imagePathPng = path.join(publicPath, `${baseName}.png`);
     
-    // Check which image exists
-    if (fs.existsSync(path.join(dressesPath, `${baseName}.jpg`))) {
-      dress.image = imagePath;
-    } else if (fs.existsSync(path.join(dressesPath, `${baseName}.jpeg`))) {
-      dress.image = imagePathJpeg;
-    } else if (fs.existsSync(path.join(dressesPath, `${baseName}.png`))) {
-      dress.image = imagePathPng;
+    // Set URL path for the image if it exists
+    if (fs.existsSync(imagePathJpg)) {
+      dress.image = `/content/dresses/${baseName}.jpg`;
+    } else if (fs.existsSync(imagePathJpeg)) {
+      dress.image = `/content/dresses/${baseName}.jpeg`;
+    } else if (fs.existsSync(imagePathPng)) {
+      dress.image = `/content/dresses/${baseName}.png`;
     }
     
     return dress;

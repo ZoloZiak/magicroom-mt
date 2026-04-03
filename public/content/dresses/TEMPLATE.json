@@ -1,5 +1,5 @@
 {
-  "id": "Kopiujte-tento-subor-a-premenujte",
+  "id": "pomenuj-tento-subor",
   "name": "Názov šiat",
   "description": "Krátky popis šiat - materiál, štýl, čo je výnimočné",
   "price": 0,
@@ -7,6 +7,6 @@
   "type": "new",
   "status": "available",
   "color": "Biela",
-  "style": "Elegantné/Klasické/Romantické/Moderné",
-  "details": "Doplnkové informácie - zips, podprsenka, dĺžka, atď."
+  "style": "Elegantné",
+  "details": "Doplnkové informácie"
 }
