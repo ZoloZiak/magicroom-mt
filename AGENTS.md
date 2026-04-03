@@ -23,6 +23,44 @@ MagicRoom is a wedding salon website in Martin, Slovakia. Built with Astro 6.x, 
 5. **Images:** salon photos in `public/images/salon/`, logo in `public/images/logo.jpeg`
 6. **Data:** all content in `src/data/content.ts`, config in `src/data/site.ts`
 
+## Bilingual Website — SK & EN
+
+The website supports both Slovak and English versions. All pages must be mirrored:
+
+| Slovak | English |
+|--------|---------|
+| `/` | `/en` |
+| `/sluzby` | `/en/sluzby` |
+| `/o-nas` | `/en/o-nas` |
+| `/kontakt` | `/en/kontakt` |
+| `/svadobne-saty` | `/en/svadobne-saty` |
+| `/komisny-predaj` | `/en/komisny-predaj` |
+| `/prenajom-dekoracii` | `/en/prenajom-dekoracii` |
+| `/blog` | `/en/blog` |
+
+### Procedure: When Changing Slovak Pages
+
+**When modifying any Slovak page, ALWAYS update the English counterpart:**
+
+1. **Find the parallel file:** If editing `src/pages/sluzby.astro`, also edit `src/pages/en/sluzby.astro`
+2. **Update translations:** If adding new content text, add EN translations to `src/data/content.ts` (create `_EN` constant if needed)
+3. **Update site config:** If changing navigation or links, update `src/data/site.ts` (e.g., `NAV_LINKS_EN`)
+4. **Update components:** If using Header/Footer, ensure `HeaderEn.astro` and `FooterEn.astro` are also updated
+5. **Test both versions:** Run `npm run build && npm run test:e2e` to verify both SK and EN work
+
+### File Structure for EN Pages
+- EN pages go in `src/pages/en/` directory
+- EN components: `HeaderEn.astro`, `FooterEn.astro`
+- EN data: `_EN` suffix constants in content.ts and site.ts
+- Language switcher: `src/components/ui/LanguageSwitcher.astro`
+
+### Targeting Norwegian Students
+The EN version targets Norwegian students studying in Slovakia:
+- Mention "Norwegian students welcome" with special rates
+- English-speaking staff available
+- Remote consultations available via WhatsApp
+- Prices 50-70% cheaper than Norway
+
 ## Deployment
 - **AUTOMATICKY — NIKDY manual deploy!**
 - Commitni + Pushni na `main` → Vercel auto-deployne

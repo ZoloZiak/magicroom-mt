@@ -227,7 +227,7 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 | Astro projekt + Tailwind | ✅ DONE |
 | shadcn/ui setup | ✅ DONE |
 | Layout (Header, Footer) | ✅ DONE |
-| Homepage | ✅ DONE |
+| Homepage (SK) | ✅ DONE |
 | /o-nas + breadcrumbs | ✅ DONE |
 | /sluzby + breadcrumbs | ✅ DONE |
 | /komisny-predaj | ✅ DONE |
@@ -242,11 +242,32 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 | Breadcrumbs navigácia | ✅ DONE |
 | Social proof (Google recenzie) | ✅ DONE |
 | Google Analytics 4 | ✅ DONE |
+| GA4 konverzie (phone, email, WhatsApp, form) | ✅ DONE |
 | Google Business Profile | ✅ DONE |
-| E2E tests (46) | ✅ DONE |
-| Unit tests (43) | ✅ DONE |
+| E2E tests (46+) | ✅ DONE |
+| Unit tests (56) | ✅ DONE |
 | CI workflow | ✅ DONE |
 | Dress catalog CMS (JSON) | ✅ DONE |
+
+### 🇬🇧 ANGLICKÁ VERZIA (2026-04-03)
+
+| Komponent | Status | Poznámky |
+|-----------|--------|----------|
+| EN Homepage (/en) | ✅ DONE | Norwegian students targeting |
+| EN /sluzby | ✅ DONE | |
+| EN /o-nas | ✅ DONE | |
+| EN /kontakt | ✅ DONE | |
+| EN /svadobne-saty | ✅ DONE | |
+| EN /komisny-predaj | ✅ DONE | |
+| EN /prenajom-dekoracii | ✅ DONE | |
+| EN /blog | ✅ DONE | |
+| EN blog posts | ✅ DONE | 3 articles |
+| EN Header (HeaderEn.astro) | ✅ DONE | |
+| EN Footer (FooterEn.astro) | ✅ DONE | |
+| LanguageSwitcher | ✅ DONE | SK/EN toggle |
+| EN translations (content.ts) | ✅ DONE | All content |
+| EN data exports (site.ts) | ✅ DONE | NAV_LINKS_EN, etc. |
+| BookingForm multilang | ✅ DONE | language prop |
 
 ### 🔲 NEROBIŤ (nízka priorita)
 
