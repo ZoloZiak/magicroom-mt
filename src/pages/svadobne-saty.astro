@@ -1,4 +1,5 @@
 ---
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
 import CTASection from '@/components/layout/CTASection.astro';
 import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
 import Footer from '@/components/layout/Footer.astro';
@@ -70,11 +71,18 @@ const dressesSchema = {
   keywords="svadobne saty, saty martin, lacne svadobne saty, komis saty, saty turiec"
   image={IMAGE_ASSETS.satyRuzove1}
   structuredData={dressesSchema}
+  breadcrumbs={[
+    { name: 'Svadobné šaty', url: '/svadobne-saty' },
+  ]}
 >
   <Header />
 
   <main>
-    <section class="relative overflow-hidden bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] pt-20">
+    <Breadcrumbs items={[
+      { name: 'Svadobné šaty', url: '/svadobne-saty' }
+    ]} />
+
+    <section class="relative overflow-hidden bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] pt-8">
       <div class="container mx-auto px-4 pb-14 pt-8 md:pb-24 md:pt-10">
         <div class="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div class="max-w-2xl">

@@ -1,4 +1,5 @@
 ---
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
 import CTASection from '@/components/layout/CTASection.astro';
 import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
 import Footer from '@/components/layout/Footer.astro';
@@ -97,6 +98,10 @@ const servicesSchema = [
   <Header />
 
   <main class="flex-1">
+    <Breadcrumbs items={[
+      { name: 'Služby a cenník', url: '/sluzby' }
+    ]} />
+
     <section class="bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] py-16 md:py-20">
       <div class="container mx-auto px-4">
         <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">

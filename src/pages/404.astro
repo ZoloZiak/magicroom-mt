@@ -1,0 +1,44 @@
+---
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import { Button } from '@/components/ui/button';
+import Layout from '@/layouts/Layout.astro';
+import { Home } from 'lucide-react';
+
+const backLink = Astro.url.searchParams.get('from') || '/';
+---
+
+<Layout
+  title="Stránka sa nenašla | MagicRoom"
+  description="Ospravedlňujeme sa, požadovaná stránka neexistuje."
+>
+  <Header />
+
+  <main>
+    <section class="flex min-h-[60vh] items-center justify-center">
+      <div class="container px-4 text-center">
+        <h1 class="font-display text-[8rem] leading-none text-primary md:text-[12rem]">404</h1>
+        <p class="mt-4 text-xl text-muted-foreground">Ospravedlňujeme sa, požadovaná stránka neexistuje.</p>
+        <p class="mt-2 text-muted-foreground">Možno ste sa pomýlili v adrese alebo stránka bola presunutá.</p>
+        
+        <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <Button asChild size="lg">
+            <a href="/">
+              <Home className="mr-2 h-4 w-4" />
+              Späť na hlavnú stránku
+            </a>
+          </Button>
+          <Button asChild variant="outline" size="lg">
+            <a href="/kontakt">Kontaktovať nás</a>
+          </Button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppFAB />
+  <ScrollToTop />
+</Layout>

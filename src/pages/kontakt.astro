@@ -1,4 +1,5 @@
 ---
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
 import BookingForm from '@/components/forms/BookingForm.astro';
 import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
 import Footer from '@/components/layout/Footer.astro';
@@ -42,6 +43,10 @@ const faqSchema = {
   <Header />
 
   <main class="flex-1">
+    <Breadcrumbs items={[
+      { name: 'Kontakt', url: '/kontakt' }
+    ]} />
+
     <section class="bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] py-16 md:py-20">
       <div class="container mx-auto px-4">
         <div class="mx-auto max-w-3xl text-center">

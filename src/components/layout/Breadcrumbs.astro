@@ -1,0 +1,39 @@
+---
+interface Props {
+  items: Array<{ name: string; url: string }>;
+}
+
+const { items } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="Breadcrumbs py-3">
+  <ol class="flex flex-wrap items-center gap-1 text-sm" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="/" class="text-muted-foreground hover:text-primary transition-colors" itemprop="item">
+        <span itemprop="name">Domov</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+    {items.map((item, index) => (
+      <li class="flex items-center gap-1">
+        <span class="text-border">/</span>
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          {index === items.length - 1 ? (
+            <span class="text-foreground font-medium" itemprop="name">{item.name}</span>
+          ) : (
+            <a href={item.url} class="text-muted-foreground hover:text-primary transition-colors" itemprop="item">
+              <span itemprop="name">{item.name}</span>
+            </a>
+          )}
+          <meta itemprop="position" content={String(index + 2)} />
+        </span>
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .Breadcrumbs a {
+    text-decoration: none;
+  }
+</style>
