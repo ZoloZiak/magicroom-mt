@@ -72,9 +72,13 @@ const jsonLd = JSON.stringify([
     <!-- Google Analytics 4 -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC"></script>
     <script is:inline>
-      // Don't track localhost or dev
-      if (window.location.hostname === 'localhost' || window.location.hostname.includes('.local')) {
-        console.log('GA disabled for localhost');
+      // Don't track localhost, .local domains, or CI environments
+      const hostname = window.location.hostname;
+      if (hostname === 'localhost' || 
+          hostname.includes('.local') || 
+          hostname.includes('vercel.app') && hostname.includes('-preview') ||
+          window.location.search.includes('test=true')) {
+        console.log('GA disabled for', hostname);
       } else {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
