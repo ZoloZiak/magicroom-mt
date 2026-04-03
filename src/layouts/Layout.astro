@@ -72,10 +72,15 @@ const jsonLd = JSON.stringify([
     <!-- Google Analytics 4 -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC"></script>
     <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-90JKE6RJNC');
+      // Don't track localhost or dev
+      if (window.location.hostname === 'localhost' || window.location.hostname.includes('.local')) {
+        console.log('GA disabled for localhost');
+      } else {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-90JKE6RJNC');
+      }
     </script>
     <!-- Google Business Profile verification -->
     <meta name="google-site-verification" content="MERGE_FROM_GOOGLE" />
