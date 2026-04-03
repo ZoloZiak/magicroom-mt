@@ -135,16 +135,16 @@ Testovanie + Deploy
 
 ### MVP považovaný za hotový, keď:
 
-- [ ] Všetky podstránky fungujú a sú responzívne
-- [ ] Kontaktný formulár posiela email cez Resend
-- [ ] Navigácia funguje na mobile (hamburger menu)
-- [ ] CTA viditeľné na každej podstránke
-- [ ] Meta tagy nastavené pre každú stránku
-- [ ] Sitemap.xml generovaný automaticky
-- [ ] Lighthouse score > 80 (mobile)
-- [ ] Žiadne chyby JavaScript v konzole
-- [ ] Odkazy na social media fungujú
-- [ ] Google Business Profile založený
+- [x] Všetky podstránky fungujú a sú responzívne
+- [x] Kontaktný formulár posiela email cez Resend
+- [x] Navigácia funguje na mobile (hamburger menu)
+- [x] CTA viditeľné na každej podstránke
+- [x] Meta tagy nastavené pre každú stránku
+- [x] Sitemap.xml generovaný automaticky
+- [x] Lighthouse score > 80 (mobile)
+- [x] Žiadne chyby JavaScript v konzole
+- [x] Odkazy na social media fungujú
+- [x] Google Business Profile založené
 
 ---
 
@@ -218,5 +218,46 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 
 ---
 
+## 10. Aktuálny stav (2026-04-03)
+
+### ✅ HOTOVÉ
+
+| Komponent | Status |
+|-----------|--------|
+| Astro projekt + Tailwind | ✅ DONE |
+| shadcn/ui setup | ✅ DONE |
+| Layout (Header, Footer) | ✅ DONE |
+| Homepage | ✅ DONE |
+| /o-nas + breadcrumbs | ✅ DONE |
+| /sluzby + breadcrumbs | ✅ DONE |
+| /komisny-predaj | ✅ DONE |
+| /prenajom-dekoracii | ✅ DONE |
+| /kontakt + breadcrumbs | ✅ DONE |
+| /svadobne-saty + breadcrumbs | ✅ DONE |
+| /blog | ✅ DONE |
+| /404 stránka | ✅ DONE |
+| Kontaktný formulár (Resend) | ✅ DONE |
+| WhatsApp FAB | ✅ DONE |
+| SEO (meta, sitemap, Schema.org) | ✅ DONE |
+| Breadcrumbs navigácia | ✅ DONE |
+| Social proof (Google recenzie) | ✅ DONE |
+| Google Analytics 4 | ✅ DONE |
+| Google Business Profile | ✅ DONE |
+| E2E tests (46) | ✅ DONE |
+| Unit tests (43) | ✅ DONE |
+| CI workflow | ✅ DONE |
+| Dress catalog CMS (JSON) | ✅ DONE |
+
+### 🔲 NEROBIŤ (nízka priorita)
+
+| Komponent | Poznámka |
+|-----------|----------|
+| Galéria fotiek s lightbox | Pridať až keď bude viac fotiek |
+| FAQ sekcia s vyhľadávaním | Pridať až keď bude viac otázok |
+| Portfolio predchádzajúcich svadieb | Vyžaduje súhlas klientok |
+| Partneri (dodávatelia) | Možno neskôr |
+
+---
+
 *Document created: 2026-04-01*
-*Version: 1.0*
+*Version: 1.1 - 2026-04-03*
