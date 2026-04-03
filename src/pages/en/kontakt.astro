@@ -127,10 +127,16 @@ const faqSchema = {
           <Card className="border-0 bg-primary-900 text-white shadow-[var(--shadow-dark)]">
             <CardHeader>
               <CardTitle className="font-display text-3xl">You often ask</CardTitle>
+              <input
+                type="text"
+                id="faq-search"
+                placeholder="Search for an answer..."
+                class="mt-4 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50 focus:border-white/40 focus:outline-none"
+              />
             </CardHeader>
-            <CardContent class="space-y-4">
+            <CardContent class="space-y-4" id="faq-list">
               {CONTACT_FAQS_EN.map((item) => (
-                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <div class="faq-item rounded-2xl border border-white/10 bg-white/5 p-5" data-question={item.question.toLowerCase()} data-answer={item.answer.toLowerCase()}>
                   <h2 class="text-base font-semibold text-white">{item.question}</h2>
                   <p class="mt-2 text-sm leading-6 text-white/75">{item.answer}</p>
                 </div>
@@ -174,4 +180,24 @@ const faqSchema = {
   <FooterEn />
   <WhatsAppFAB />
   <ScrollToTop />
+
+  <script>
+    const searchInput = document.getElementById('faq-search');
+    const faqList = document.getElementById('faq-list');
+    if (searchInput && faqList) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        const items = faqList.querySelectorAll('.faq-item');
+        items.forEach((item) => {
+          const question = item.getAttribute('data-question') || '';
+          const answer = item.getAttribute('data-answer') || '';
+          if (query === '' || question.includes(query) || answer.includes(query)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    }
+  </script>
 </Layout>
