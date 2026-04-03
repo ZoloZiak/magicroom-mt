@@ -1,82 +1,52 @@
-# Ako pridať svadobné šaty na web
+# Ako pridať svadobné šaty — Návod pre Natáliu
 
-## Jednoduchý návod
+## Čo potrebuješ
 
-### 1. Vytvor súbory
+1. **GitHub účet** — ak ho ešte nemáš, vytvor si ho na https://github.com
+2. **Prístup k repozitáru** — Zolo ti pridá ako collabodatora
 
-V PC choď do dvoch zložiek:
+## Krok za krokom
 
-1. **Fotka** — choď do `public/content/dresses/`
-   - Pridaj fotku šiat vo formáte JPG alebo PNG
-   - Názov: napr. `moje-satky-01.jpg`
-   
-2. **JSON súbor** — choď do `content/dresses/`
-   - Vytvor textový súbor s rovnakým názvom
-   - Názov: napr. `moje-satky-01.json`
+### 1. Otvor repozitár
+ choď na: https://github.com/ziak-z/magicroom-mt
 
-### 2. Uprav JSON súbor
+### 2. Nájdľ content/dresses
+V repozitári klikni na priečinok `content` → `dresses`
 
-Otvori v texte editore (Notepad, TextEdit...) a vyplň:
+### 3. Pridaj JSON súbor
+Klikni na "Add file" → "Create new file"
 
+Názov súboru musí byť: `nazov-siat.json` (malé písmená, pomlčky)
+
+Obsah súboru:
 ```json
 {
-  "id": "moje-satky-01",
-  "name": "Emma - Saténové šaty",
-  "description": "Krásne saténové šaty s čipkou.",
-  "price": 450,
+  "id": "tvoj-unikatny-id",
+  "name": "Názov šiat",
+  "description": "Krátky popis",
+  "price": 350,
   "size": "38",
   "type": "new",
   "status": "available",
-  "color": "Biela",
-  "style": "Elegantné",
-  "details": "Saténová sukňa, čipkované rukávy."
+  "color": "biela",
+  "style": "elegantná"
 }
 ```
 
-### 3. Nahraj na GitHub
+### 4. Pridaj fotku
+1. Choď do `public/content/dresses/`
+2. Klikni na "Add file" → "Upload files"
+3. Nahraj fotku s názvom: `tvoj-unikatny-id.jpg` alebo `.jpeg`
 
-1. Otvor https://github.com/ZoloZiak/magicroom-mt
-2. Pre fotky: choď do `public/content/dresses/` → Add file → Upload
-3. Pre JSON: choď do `content/dresses/` → Add file → Upload
-4. Napíš správu (napr. "Pridané šaty Emma")
-5. Klikni **Commit changes**
+## Typy a stavy
 
-### 4. Hotovo!
+| Pole | Možnosti |
+|------|----------|
+| `type` | `new` (nové) alebo `consignment` (komis) |
+| `status` | `available` (dostupné), `reserved` (rezervované), `sold` (predané) |
 
-Web sa automaticky aktualizuje do 1-2 minút.
+## Po uložení
+Po commitnutí zmien sa na stránke automaticky zobrazia nové šaty (do pár minút).
 
----
-
-## Čo znamenajú polia
-
-| Pole | Čo tam napísať |
-|------|-----------------|
-| `name` | Názov šiat (napr. "Emma - Saténové") |
-| `description` | Krátky popis |
-| `price` | Cena v EUR (napr. 450) |
-| `size` | Veľkosť (napr. "38") |
-| `type` | `"new"` = nové, `"consignment"` = komisné |
-| `status` | `"available"` = na predaj, `"reserved"` = rezervované, `"sold"` = predané |
-| `color` | Farba (Biela, Smotanová...) |
-| `style` | Štýl (Elegantné, Klasické, Romantické...) |
-| `details` | Ďalšie info (zips, podprsenka...) |
-
----
-
-## Časté otázky
-
-**Ako zmením cenu?**  
-Zmeň hodnotu `price` v JSON (napr. na 399).
-
-**Ako označím ako predané?**  
-Zmeň `"status": "available"` na `"status": "sold"`.
-
-**Môžem použiť iný formát fotky?**  
-Áno, funguje JPG, JPEG aj PNG.
-
-**Čo keď to nefunguje?**  
-Napíš mi (Zolo) a ja to opravím.
-
----
-
-Pre viac info pozri README.md v zložke.
+## Pomoc
+Ak máš problém, napíš Zolovi.

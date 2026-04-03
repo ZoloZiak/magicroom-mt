@@ -11,8 +11,9 @@ export interface Dress {
   status: 'available' | 'reserved' | 'sold';
   color: string;
   style: string;
-  details: string;
+  details?: string;
   image?: string;
+  featured?: boolean;
 }
 
 const DRESSES_DIR = 'content/dresses';

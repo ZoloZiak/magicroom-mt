@@ -8,9 +8,12 @@ import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
-import { DRESS_CATALOG, IMAGE_ASSETS } from '@/data/content';
+import { IMAGE_ASSETS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
 import { ArrowRight, Phone } from 'lucide-react';
+import { getDresses } from '@/lib/dresses';
+
+const dresses = getDresses();
 
 const SIZES = ['34', '36', '38', '40', '42', '44'];
 const PRICE_RANGES = [
@@ -37,7 +40,7 @@ const typeLabel = (type: string) => type === 'new' ? 'Nové' : 'Komis';
 const dressesSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  itemListElement: DRESS_CATALOG.map((dress, i) => ({
+  itemListElement: dresses.map((dress, i) => ({
     '@type': 'ListItem',
     position: i + 1,
     item: {
@@ -183,12 +186,12 @@ const dressesSchema = {
       <div class="container mx-auto px-4">
         <div class="mb-6 flex items-center justify-between">
           <p class="text-sm text-muted-foreground" data-dress-count>
-            Zobrazených: {DRESS_CATALOG.length} šiat
+            Zobrazených: {dresses.length} šiat
           </p>
         </div>
 
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-dress-grid>
-          {DRESS_CATALOG.map((dress) => (
+          {dresses.map((dress) => (
             <div
               data-dress-card
               data-size={dress.size}
