@@ -11,9 +11,10 @@ export const POST: APIRoute = async ({ request }) => {
 
     const { name, phone, email, service, date, time, note } = data;
 
-    if (!name || !phone || !email || !service) {
+    // At least one contact method required
+    if (!phone && !email && !name) {
       return new Response(
-        JSON.stringify({ error: 'Vyplňte všetky povinné polia (meno, telefón, email, služba).' }),
+        JSON.stringify({ error: 'Vyplňte aspoň meno alebo telefón.' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
@@ -23,16 +24,14 @@ export const POST: APIRoute = async ({ request }) => {
     const noteLine = note ? `\nPoznámka: ${note}` : '';
 
     const html = `
-      <h2>Nová rezervácia z magicroom.sk</h2>
-      <table style="border-collapse:collapse;width:100%;max-width:500px;">
-        <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold;">Meno</td><td style="padding:8px;border:1px solid #eee;">${name}</td></tr>
-        <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold;">Telefón</td><td style="padding:8px;border:1px solid #eee;">${phone}</td></tr>
-        <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold;">Email</td><td style="padding:8px;border:1px solid #eee;">${email}</td></tr>
-        <tr><td style="padding:8px;border:1px solid #eee;font-weight:bold;">Služba</td><td style="padding:8px;border:1px solid #eee;">${service}</td></tr>
-        ${date ? `<tr><td style="padding:8px;border:1px solid #eee;font-weight:bold;">Dátum</td><td style="padding:8px;border:1px solid #eee;">${date}</td></tr>` : ''}
-        ${time ? `<tr><td style="padding:8px;border:1px solid #eee;font-weight:bold;">Čas</td><td style="padding:8px;border:1px solid #eee;">${time}</td></tr>` : ''}
-        ${note ? `<tr><td style="padding:8px;border:1px solid #eee;font-weight:bold;">Poznámka</td><td style="padding:8px;border:1px solid #eee;">${note}</td></tr>` : ''}
-      </table>
+      <h2>Nová správa z magicroom.sk</h2>
+      ${name ? `<p><strong>Meno:</strong> ${name}</p>` : ''}
+      ${phone ? `<p><strong>Telefón:</strong> ${phone}</p>` : ''}
+      ${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}
+      ${service ? `<p><strong>Služba:</strong> ${service}</p>` : ''}
+      ${dateLine ? `<p>${dateLine}</p>` : ''}
+      ${timeLine ? `<p>${timeLine}</p>` : ''}
+      ${noteLine ? `<p>${noteLine}</p>` : ''}
       <p style="margin-top:16px;color:#666;font-size:13px;">Odoslané z magicroom.sk</p>
     `;
 

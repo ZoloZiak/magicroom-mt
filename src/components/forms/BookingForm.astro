@@ -39,44 +39,42 @@ const {
   <form class="space-y-6" data-booking-form novalidate>
     <div class="grid gap-5 md:grid-cols-2">
       <div class="space-y-2">
-        <Label for={`${id}-name`}>Meno *</Label>
-        <Input className="form-input" id={`${id}-name`} name="name" autocomplete="name" required placeholder="Anna Nováková" />
+        <Label for={`${id}-name`}>Meno</Label>
+        <Input className="form-input" id={`${id}-name`} name="name" autocomplete="name" placeholder="Vaše meno" />
       </div>
 
       <div class="space-y-2">
-        <Label for={`${id}-phone`}>Telefón *</Label>
+        <Label for={`${id}-phone`}>Telefón alebo WhatsApp</Label>
         <Input
           className="form-input"
           id={`${id}-phone`}
           name="phone"
           type="tel"
           autocomplete="tel"
-          required
           placeholder="+421 950 490 323"
         />
       </div>
 
       <div class="space-y-2">
-        <Label for={`${id}-email`}>Email *</Label>
+        <Label for={`${id}-email`}>Email</Label>
         <Input
           className="form-input"
           id={`${id}-email`}
           name="email"
           type="email"
           autocomplete="email"
-          required
-          placeholder="anna@email.sk"
+          placeholder="anna@email.sk (nepovinné)"
         />
       </div>
 
       <div class="space-y-2">
-        <Label for={`${id}-service`}>Čo chcete riešiť ako prvé? *</Label>
+        <Label for={`${id}-service`}>Čo chcete riešiť?</Label>
         <select
           id={`${id}-service`}
           name="service"
-          required
           class="form-input flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
         >
+          <option value="">Vyberte si...</option>
           <option value="Skúška svadobných alebo spoločenských šiat">Skúška svadobných alebo spoločenských šiat</option>
           <option value="Konzultácia k svadbe alebo harmonogramu">Konzultácia k svadbe alebo harmonogramu</option>
           <option value="Prenájom dekorácií a výzdoby">Prenájom dekorácií a výzdoby</option>
@@ -145,10 +143,6 @@ const {
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-
-      if (!form.reportValidity()) {
-        return;
-      }
 
       const formData = new FormData(form);
       const entries = Object.fromEntries(formData.entries());
