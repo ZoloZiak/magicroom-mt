@@ -69,6 +69,14 @@ const jsonLd = JSON.stringify([
     <meta name="author" content={SITE_NAME} />
     {keywords && <meta name="keywords" content={keywords} />}
     <meta name="generator" content={Astro.generator} />
+    <!-- Google Analytics 4 -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MEASUREMENT_ID');
+    </script>
     <!-- Google Business Profile verification -->
     <meta name="google-site-verification" content="MERGE_FROM_GOOGLE" />
     <meta name="DC.title" content={title} />
