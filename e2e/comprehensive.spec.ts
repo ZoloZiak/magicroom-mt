@@ -121,7 +121,7 @@ test.describe('MagicRoom SEO', () => {
     await page.goto('/');
     
     const schema = page.locator('script[type="application/ld+json"]');
-    await expect(schema).toBeVisible();
+    await expect(schema).toHaveCount(1);
   });
 });
 
