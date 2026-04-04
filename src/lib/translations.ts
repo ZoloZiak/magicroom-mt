@@ -122,6 +122,21 @@ const sk: Translations = {
     nextStepsDesc1: 'Po odoslaní formulára sa otvorí pripravená WhatsApp správa. Môžete ju doplniť alebo upraviť podľa seba.',
     nextStepsDesc2: 'Keď nám správa príde, ozveme sa vám s potvrdením termínu alebo s doplňujúcou otázkou.',
   },
+  services: {
+    pageTitle: 'Služby a cenník — Svadobné šaty, dekorácie, poradenstvo | MagicRoom Martin',
+    pageDescription: 'Služby MagicRoom: skúška svadobných šiat od 12 €, výzdoba svadieb, svadobné poradenstvo. Cenová ponuka a.objednávanie.',
+    heroBadge: 'Služby • cenník • Martin',
+    heroTitle: 'Služby navrhnuté tak, aby ste nestrácali čas.',
+    heroDescription: 'Každá karta nižšie je reálna časť ponuky MagicRoom — bez zbytočných fráz, s cenami a ďalším krokom, ktorý dáva zmysel.',
+    bookingTitle: 'Rezervácia skúšky alebo dopyt na dekorácie',
+    bookingDescription: 'Vyplňte pár detailov a ozveme sa vám s ponukou alebo potvrdením termínu.',
+  },
+  about: {
+    pageTitle: 'O nás — Svadobný salón MagicRoom v Martine | Natália Ondrejková',
+    pageDescription: 'MagicRoom je svadobný salón v Martine, ktorý prevádzkuje Natália Ondrejková. Personalizovaný prístup a skúsenosti.',
+    heroBadge: 'O nás • MagicRoom Martin',
+    heroTitle: 'Za MagicRoom stojí Natália',
+  },
 };
 
 const en: Translations = {
@@ -183,6 +198,21 @@ const en: Translations = {
     nextStepsTitle: 'First a message, then a time confirmation.',
     nextStepsDesc1: 'After submitting the form, a prepared WhatsApp message will open. You can add to it or edit it as you like.',
     nextStepsDesc2: 'When we receive your message, we will get back to you with a time confirmation or a follow-up question.',
+  },
+  services: {
+    pageTitle: 'Services and prices — Wedding dresses, decorations, consulting | MagicRoom Martin',
+    pageDescription: 'MagicRoom services: wedding dress fitting from 12 €, wedding decorations, wedding consulting. Price list and booking.',
+    heroBadge: 'Services • prices • Martin',
+    heroTitle: 'Services designed so you do not waste time.',
+    heroDescription: 'Each card below is a real part of MagicRoom offer — no fluff, with prices and next steps that make sense.',
+    bookingTitle: 'Book a fitting or query about decorations',
+    bookingDescription: 'Fill in a few details and we will get back to you with a quote or time confirmation.',
+  },
+  about: {
+    pageTitle: 'About — Wedding salon MagicRoom in Martin | Natália Ondrejková',
+    pageDescription: 'MagicRoom is a wedding salon in Martin run by Natália Ondrejková. Personalized approach and experience.',
+    heroBadge: 'About • MagicRoom Martin',
+    heroTitle: 'Behind MagicRoom is Natália',
   },
 };
 

@@ -11,8 +11,13 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { BOOKING_PAGE_HREF_EN, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_URL } from '@/data/site';
 import { FOUNDER_STORY_EN, GALLERY_ITEMS, HOME_STATS_EN, IMAGE_ASSETS, TRUST_REASONS_EN } from '@/data/content';
+import { getTranslations } from '@/lib/translations';
+import type { Language } from '@/lib/i18n';
 import Layout from '@/layouts/Layout.astro';
 import { ArrowRight, CheckCircle2, Heart, Phone, Sparkles, Users } from 'lucide-react';
+
+const language: Language = 'en';
+const t = getTranslations(language);
 
 const storyGallery = GALLERY_ITEMS.slice(0, 4);
 const operatingPrinciples = [
@@ -58,7 +63,7 @@ const operatingPrinciples = [
         <div class="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-center">
           <div class="max-w-2xl">
             <Badge variant="secondary" className="mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em] animate-fade-in-up animate-stagger-1">
-              About • MagicRoom Martin
+              {t.about.heroBadge}
             </Badge>
             <h1 class="font-display text-[2.9rem] leading-[0.96] text-foreground md:text-6xl lg:text-7xl animate-fade-in-up animate-stagger-2">
               A place that came from the need to finally have wedding details together.

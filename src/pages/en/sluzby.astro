@@ -11,8 +11,13 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BOOKING_PAGE_HREF_EN, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_URL } from '@/data/site';
 import { EXTRA_SERVICES_EN, IMAGE_ASSETS, SERVICE_PACKAGES_EN } from '@/data/content';
+import { getTranslations } from '@/lib/translations';
+import type { Language } from '@/lib/i18n';
 import Layout from '@/layouts/Layout.astro';
 import { ArrowRight, CheckCircle2, ClipboardList, LayoutGrid, Phone, Shirt, Sparkles } from 'lucide-react';
+
+const language: Language = 'en';
+const t = getTranslations(language);
 
 const servicePillars = [
   {

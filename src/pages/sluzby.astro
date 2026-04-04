@@ -11,8 +11,13 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BOOKING_PAGE_HREF, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
 import { EXTRA_SERVICES, IMAGE_ASSETS, SERVICE_PACKAGES } from '@/data/content';
+import { getTranslations } from '@/lib/translations';
+import type { Language } from '@/lib/i18n';
 import Layout from '@/layouts/Layout.astro';
 import { ArrowRight, CheckCircle2, ClipboardList, LayoutGrid, Phone, Shirt, Sparkles } from 'lucide-react';
+
+const language: Language = 'sk';
+const t = getTranslations(language);
 
 const servicePillars = [
   {
@@ -107,7 +112,7 @@ const servicesSchema = [
         <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div class="max-w-2xl">
             <Badge variant="secondary" className="mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em] animate-fade-in-up animate-stagger-1">
-              Služby • cenník • Martin
+              {t.services.heroBadge}
             </Badge>
             <h1 class="font-display text-[2.9rem] leading-tight text-foreground md:text-6xl animate-fade-in-up animate-stagger-2">
               Jasná ponuka pre nevestu, ktorá chce všetko vyriešiť s pokojom.
