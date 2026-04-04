@@ -10,8 +10,13 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ADDRESS_LABEL, PHONE_DISPLAY } from '@/data/site';
 import { CONTACT_ACTIONS, CONTACT_FAQS, IMAGE_ASSETS } from '@/data/content';
+import { getTranslations } from '@/lib/translations';
+import type { Language } from '@/lib/i18n';
 import Layout from '@/layouts/Layout.astro';
 import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
+
+const language: Language = 'sk';
+const t = getTranslations(language);
 
 const contactIcons = [Phone, MessageCircle, Mail, MapPin];
 
@@ -30,8 +35,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Kontakt a rezervácia skúšky šiat — MagicRoom Martin"
-  description="Rezervujte si skúšku svadobných šiat od 12 € alebo svadobnú konzultáciu v MagicRoom v Martine. Telefón, WhatsApp, email, mapa a rezervačný formulár."
+  title="{t.contact.pageTitle}"
+  description="{t.contact.pageDescription}"
   keywords="kontakt, rezervácia, martin, telefón, email, whatsapp"
   image={IMAGE_ASSETS.map}
   structuredData={faqSchema}
@@ -51,16 +56,16 @@ const faqSchema = {
       <div class="container mx-auto px-4">
         <div class="mx-auto max-w-3xl text-center">
           <Badge variant="secondary" className="mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">
-            Kontakt • rezervácia • Martin
+            {t.contact.heroBadge}
           </Badge>
-          <h1 class="font-display text-[2.85rem] leading-tight text-foreground md:text-6xl">Ozvite sa tak, ako vám je to prirodzené.</h1>
+          <h1 class="font-display text-[2.85rem] leading-tight text-foreground md:text-6xl">{t.contact.heroTitle}</h1>
           <p class="mt-6 text-lg leading-8 text-muted-foreground">
-            Ak chcete skúšku šiat, dekorácie alebo pokojne prejsť svadobné detaily, vyberte si telefonát, WhatsApp, email alebo rovno formulár nižšie.
+            {t.contact.heroDescription}
           </p>
           <div class="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground">
-            <span class="rounded-full border border-border/70 bg-white/80 px-4 py-2">Martin • návšteva na objednávku</span>
-            <span class="rounded-full border border-border/70 bg-white/80 px-4 py-2">Odpoveď zvyčajne do 24 hodín</span>
-            <span class="rounded-full border border-border/70 bg-white/80 px-4 py-2">Skúška svadobných šiat 12 € / 60 min</span>
+            <span class="rounded-full border border-border/70 bg-white/80 px-4 py-2">{t.contact.visitNote}</span>
+            <span class="rounded-full border border-border/70 bg-white/80 px-4 py-2">{t.contact.replyNote}</span>
+            <span class="rounded-full border border-border/70 bg-white/80 px-4 py-2">{t.contact.fittingNote}</span>
           </div>
         </div>
       </div>
@@ -102,20 +107,20 @@ const faqSchema = {
       <div class="container mx-auto grid gap-8 px-4 xl:grid-cols-[1.15fr_0.85fr]">
         <BookingForm
           id="booking"
-          title="Zarezervujte si skúšku alebo pošlite dopyt bez zbytočného čakania"
-          description="Vyplňte pár detailov a pripravíme vám WhatsApp správu, ktorú si pred odoslaním ešte skontrolujete. Ak radšej voláte alebo píšete email, rovnaké kontakty nájdete aj vedľa formulára."
+          title="{t.contact.bookingTitle}"
+          description="{t.contact.bookingDescription}"
         />
 
         <div class="space-y-6">
           <Card className="border border-border/70 shadow-[var(--shadow-soft)]">
             <CardContent className="space-y-4 p-6">
               <div>
-                <p class="text-sm uppercase tracking-[0.2em] text-primary/70">Čo sa stane potom</p>
-                <h2 class="mt-2 text-2xl font-display text-foreground">Najprv správa, potom potvrdenie termínu.</h2>
+                <p class="text-sm uppercase tracking-[0.2em] text-primary/70">{t.contact.nextStepsTitle}</p>
+                <h2 class="mt-2 text-2xl font-display text-foreground">{t.contact.nextStepsTitle}</h2>
               </div>
               <div class="space-y-3 text-sm leading-6 text-muted-foreground">
-                <p>Po odoslaní formulára sa otvorí pripravená WhatsApp správa. Môžete ju doplniť alebo upraviť podľa seba.</p>
-                <p>Keď nám správa príde, ozveme sa vám s potvrdením termínu alebo s doplňujúcou otázkou, ak riešite šaty, dekorácie aj konzultáciu naraz.</p>
+                <p>{t.contact.nextStepsDesc1}</p>
+                <p>{t.contact.nextStepsDesc2}</p>
               </div>
             </CardContent>
           </Card>

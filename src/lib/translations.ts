@@ -45,6 +45,21 @@ export interface Translations {
     viewAll: string;
     reserve: string;
   };
+  contact: {
+    pageTitle: string;
+    pageDescription: string;
+    heroBadge: string;
+    heroTitle: string;
+    heroDescription: string;
+    visitNote: string;
+    replyNote: string;
+    fittingNote: string;
+    bookingTitle: string;
+    bookingDescription: string;
+    nextStepsTitle: string;
+    nextStepsDesc1: string;
+    nextStepsDesc2: string;
+  };
 }
 
 const sk: Translations = {
@@ -92,6 +107,21 @@ const sk: Translations = {
     viewAll: 'Pozrieť všetky',
     reserve: 'Rezervovať',
   },
+  contact: {
+    pageTitle: 'Kontakt a rezervácia skúšky šiat — MagicRoom Martin',
+    pageDescription: 'Rezervujte si skúšku svadobných šiat od 12 € alebo svadobnú konzultáciu v MagicRoom v Martine.',
+    heroBadge: 'Kontakt • rezervácia • Martin',
+    heroTitle: 'Ozvite sa tak, ako vám je to prirodzené.',
+    heroDescription: 'Ak chcete skúšku šiat, dekorácie alebo pokojne prejsť svadobné detaily, vyberte si telefonát, WhatsApp, email alebo rovno formulár nižšie.',
+    visitNote: 'Martin • návšteva na objednávku',
+    replyNote: 'Odpoveď zvyčajne do 24 hodín',
+    fittingNote: 'Skúška svadobných šiat 12 € / 60 min',
+    bookingTitle: 'Zarezervujte si skúšku alebo pošlite dopyt bez zbytočného čakania',
+    bookingDescription: 'Vyplňte pár detailov a pripravíme vám WhatsApp správu, ktorú si pred odoslaním ešte skontrolujete.',
+    nextStepsTitle: 'Najprv správa, potom potvrdenie termínu.',
+    nextStepsDesc1: 'Po odoslaní formulára sa otvorí pripravená WhatsApp správa. Môžete ju doplniť alebo upraviť podľa seba.',
+    nextStepsDesc2: 'Keď nám správa príde, ozveme sa vám s potvrdením termínu alebo s doplňujúcou otázkou.',
+  },
 };
 
 const en: Translations = {
@@ -138,6 +168,21 @@ const en: Translations = {
     readMore: 'Read more',
     viewAll: 'View all',
     reserve: 'Reserve',
+  },
+  contact: {
+    pageTitle: 'Contact and dress fitting reservation — MagicRoom Martin',
+    pageDescription: 'Book your wedding dress fitting from 12 € or wedding consultation at MagicRoom in Martin.',
+    heroBadge: 'Contact • reservation • Martin',
+    heroTitle: 'Reach out in whatever way feels natural.',
+    heroDescription: 'If you want a dress fitting, decorations or just to calmly discuss wedding details, choose a phone call, WhatsApp, email or the form below.',
+    visitNote: 'Martin • visit by appointment',
+    replyNote: 'Reply usually within 24 hours',
+    fittingNote: 'Wedding dress fitting 12 € / 60 min',
+    bookingTitle: 'Book a fitting or send a query without waiting',
+    bookingDescription: 'Fill in a few details and we will prepare a WhatsApp message for you to check before sending.',
+    nextStepsTitle: 'First a message, then a time confirmation.',
+    nextStepsDesc1: 'After submitting the form, a prepared WhatsApp message will open. You can add to it or edit it as you like.',
+    nextStepsDesc2: 'When we receive your message, we will get back to you with a time confirmation or a follow-up question.',
   },
 };
 

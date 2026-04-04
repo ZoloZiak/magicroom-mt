@@ -19,8 +19,13 @@ import {
   PROCESS_STEPS,
   TRUST_REASONS,
 } from '@/data/content';
+import { getTranslations } from '@/lib/translations';
+import type { Language } from '@/lib/i18n';
 import Layout from '@/layouts/Layout.astro';
 import { ArrowRight, CheckCircle2, Clock3, MapPin, Phone } from 'lucide-react';
+
+const language: Language = 'sk';
+const t = getTranslations(language);
 
 const howToSchema = {
   '@context': 'https://schema.org',
@@ -51,24 +56,24 @@ const howToSchema = {
         <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div class="max-w-2xl">
             <Badge variant="secondary" className="hero-badge badge folk-pattern mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">
-              Boutique bridal concierge • Martin
+              {t.home.heroBadge}
             </Badge>
             <h1 class="hero-title font-display text-[2.9rem] leading-[0.95] text-foreground md:text-6xl lg:text-7xl">
-              Šaty, dekorácie a pokojná svadobná pomoc na jednom mieste.
+              {t.home.heroTitle}
             </h1>
             <p class="hero-description mt-6 max-w-xl text-lg leading-8 text-muted-foreground md:text-xl">
-              MagicRoom je pre nevesty, ktoré nechcú behať medzi piatimi dodávateľmi. Začnite skúškou šiat od 12 € a doriešte výzdobu aj detaily s človekom, ktorý vás pozná.
+              {t.home.heroDescription}
             </p>
 
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button asChild variant="cta" size="lg" className="hero-button interactive-ripple sm:min-w-[220px]">
                 <a href="#booking" data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label="hero_cta">
-                  Zarezervovať skúšku
+                  {t.home.ctaBook}
                   <ArrowRight className="icon-morph slovak-heart h-5 w-5" />
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="hero-button sm:min-w-[220px]">
-                <a href="/sluzby" data-ga-category="engagement" data-ga-action="navigation_click" data-ga-label="hero_services">Pozrieť služby a cenník</a>
+                <a href="/sluzby" data-ga-category="engagement" data-ga-action="navigation_click" data-ga-label="hero_services">{t.home.ctaServices}</a>
               </Button>
             </div>
 

@@ -18,8 +18,13 @@ import {
   PROCESS_STEPS_EN,
   TRUST_REASONS_EN,
 } from '@/data/content';
+import { getTranslations } from '@/lib/translations';
+import type { Language } from '@/lib/i18n';
 import Layout from '@/layouts/Layout.astro';
 import { ArrowRight, CheckCircle2, Clock3, MapPin, Phone } from 'lucide-react';
+
+const language: Language = 'en';
+const t = getTranslations(language);
 
 const howToSchema = {
   '@context': 'https://schema.org',
@@ -51,24 +56,24 @@ const howToSchema = {
         <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div class="max-w-2xl">
             <Badge variant="secondary" className="hero-badge badge folk-pattern mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">
-              Boutique bridal concierge • Martin
+              {t.home.heroBadge}
             </Badge>
             <h1 class="hero-title font-display text-[2.9rem] leading-[0.95] text-foreground md:text-6xl lg:text-7xl">
-              Dresses, decorations and calm wedding help in one place.
+              {t.home.heroTitle}
             </h1>
             <p class="hero-description mt-6 max-w-xl text-lg leading-8 text-muted-foreground md:text-xl">
-              MagicRoom is for brides who don't want to run between five suppliers. Start with a dress fitting from 12 € and sort out decorations and details with someone who knows you.
+              {t.home.heroDescription}
             </p>
 
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button asChild variant="cta" size="lg" className="hero-button interactive-ripple sm:min-w-[220px]">
                 <a href="/en/kontakt#booking" data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label="hero_cta_en">
-                  Book a fitting
+                  {t.home.ctaBook}
                   <ArrowRight className="icon-morph slovak-heart h-5 w-5" />
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="hero-button sm:min-w-[220px]">
-                <a href="/en/sluzby" data-ga-category="engagement" data-ga-action="navigation_click" data-ga-label="hero_services_en">View services & prices</a>
+                <a href="/en/sluzby" data-ga-category="engagement" data-ga-action="navigation_click" data-ga-label="hero_services_en">{t.home.ctaServices}</a>
               </Button>
             </div>
 
@@ -272,7 +277,7 @@ const howToSchema = {
     <section class="py-16 md:py-20">
       <div class="container mx-auto px-4">
         <div class="mx-auto mb-10 max-w-3xl text-center">
-          <p class="text-sm uppercase tracking-[0.24em] text-primary/70">Book a fitting</p>
+          <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{t.home.ctaBook}</p>
           <h2 class="mt-3 font-display text-4xl text-foreground md:text-5xl">Start with a time that suits you.</h2>
           <p class="mt-4 text-base leading-7 text-muted-foreground">
             Fitting takes 60 minutes, costs 12 € and includes a drink. If you're also dealing with decorations or consultation, write that in the form.
