@@ -7,18 +7,25 @@ import {
   WHATSAPP_URL,
 } from '@/data/site';
 
+import heroImage from '../assets/images/hero.png';
+import dressesImage from '../assets/images/dresses.png';
+import founderImage from '../assets/images/founder.png';
+import decorMainImage from '../assets/images/decor-main.jpg';
+import decorAltImage from '../assets/images/decor-alt.jpg';
+import mapImage from '../assets/images/map.png';
+
 export const IMAGE_ASSETS = {
-  hero: 'https://www.magicroom.sk/wp-content/uploads/2026/02/magicroombackround-1024x683.png',
-  dresses: 'https://www.magicroom.sk/wp-content/uploads/2026/02/svadobnesaty.png',
-  founder: 'https://www.magicroom.sk/wp-content/uploads/2026/02/5babd3c2-aadb-4851-8ed1-6ed110251da8-1-683x1024.png',
+  hero: heroImage,
+  dresses: dressesImage,
+  founder: founderImage,
   founderAvatar: 'https://www.magicroom.sk/wp-content/uploads/2026/02/6d39468c-1f56-4919-8b0e-8af6b524c601-1-1-150x150.png',
-  decorMain: 'https://www.magicroom.sk/wp-content/uploads/2026/02/IMG_3240_1-1-1024x693.jpg',
-  decorAlt: 'https://www.magicroom.sk/wp-content/uploads/2026/02/IMG_3174-1-1024x683.jpg',
+  decorMain: decorMainImage,
+  decorAlt: decorAltImage,
   decorBackdrop: 'https://www.magicroom.sk/wp-content/uploads/2026/02/Stolzavesy-1-1024x700.jpg',
   decorDetails: 'https://www.magicroom.sk/wp-content/uploads/2026/02/zapichydozeme-1-1.jpg',
   graphics: 'https://www.magicroom.sk/wp-content/uploads/2026/02/oznamenie-1.png',
   glasses: 'https://www.magicroom.sk/wp-content/uploads/2026/02/pohare-1.png',
-  map: 'https://www.magicroom.sk/wp-content/uploads/2026/03/Snimka-obrazovky-2026-03-18-213208-1024x380.png',
+  map: mapImage,
   // Salon reference photos
   satyRuzove1: '/images/salon/saty-ruzove-1.jpeg',
   satyRuzove3: '/images/salon/saty-ruzove-3.jpeg',
@@ -31,6 +38,15 @@ export const IMAGE_ASSETS = {
   interier3: '/images/salon/interier-teple-3.jpeg',
   detail1: '/images/salon/detail-tmave-1.jpeg',
   detail2: '/images/salon/detail-tmave-4.jpeg',
+} as const;
+
+export const IMAGE_URLS = {
+  hero: heroImage.src,
+  dresses: dressesImage.src,
+  founder: founderImage.src,
+  decorMain: decorMainImage.src,
+  decorAlt: decorAltImage.src,
+  map: mapImage.src,
 } as const;
 
 export const HOME_STATS = [

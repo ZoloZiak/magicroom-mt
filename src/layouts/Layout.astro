@@ -33,7 +33,7 @@ const {
 } = Astro.props;
 
 const canonicalUrl = toAbsoluteUrl(Astro.url.pathname);
-const imageUrl = toAbsoluteUrl(image);
+const imageUrl = typeof image === 'string' ? toAbsoluteUrl(image) : (image?.src || DEFAULT_OG_IMAGE);
 const extraSchemas = Array.isArray(structuredData)
   ? structuredData
   : structuredData

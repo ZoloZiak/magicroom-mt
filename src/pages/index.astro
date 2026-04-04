@@ -15,6 +15,7 @@ import {
   HOME_OFFER_CARDS,
   HOME_STATS,
   IMAGE_ASSETS,
+  IMAGE_URLS,
   PROCESS_STEPS,
   TRUST_REASONS,
 } from '@/data/content';
@@ -38,7 +39,7 @@ const howToSchema = {
   title="MagicRoom — svadobné šaty, dekorácie a bridal concierge v Martine"
   description="MagicRoom je lokálny svadobný salón v Martine. Skúška svadobných šiat od 12 €, výzdoba svadieb a osláv, svadobné poradenstvo a pokojný osobný prístup."
   keywords="svadobne saty, dekoracie, martin, bridal concierge, svadobne poradenstvo, komisny predaj"
-  image={IMAGE_ASSETS.hero}
+  image={IMAGE_URLS.hero}
   structuredData={howToSchema}
 >
   <Header />
@@ -86,7 +87,7 @@ const howToSchema = {
             <div class="absolute -bottom-8 -right-8 hidden h-32 w-32 rounded-full bg-primary/15 blur-3xl md:block"></div>
             <div class="photo-card-lg">
               <img
-                src={IMAGE_ASSETS.hero}
+                src={IMAGE_URLS.hero}
                 alt="Interiér svadobného salónu MagicRoom v Martine."
                 class="hero parallax-float tatry-mountain h-full max-h-[640px] w-full rounded-[24px] object-cover"
                 loading="eager"
