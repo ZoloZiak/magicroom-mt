@@ -2,20 +2,20 @@
 import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
 import BookingForm from '@/components/forms/BookingForm.astro';
 import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
-import Footer from '@/components/layout/Footer.astro';
-import Header from '@/components/layout/Header.astro';
+import FooterEn from '@/components/layout/FooterEn.astro';
+import HeaderEn from '@/components/layout/HeaderEn.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { ADDRESS_LABEL, PHONE_DISPLAY } from '@/data/site';
-import { CONTACT_ACTIONS, CONTACT_FAQS, IMAGE_ASSETS } from '@/data/content';
+import { WHATSAPP_URL } from '@/data/site';
+import { CONTACT_ACTIONS_EN, CONTACT_FAQS_EN, IMAGE_ASSETS } from '@/data/content';
 import { getTranslations } from '@/lib/translations';
 import type { Language } from '@/lib/i18n';
 import Layout from '@/layouts/Layout.astro';
 import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 
-const language: Language = 'sk';
+const language: Language = 'en';
 const t = getTranslations(language);
 
 const contactIcons = [Phone, MessageCircle, Mail, MapPin];
@@ -23,7 +23,7 @@ const contactIcons = [Phone, MessageCircle, Mail, MapPin];
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: CONTACT_FAQS.map((item) => ({
+  mainEntity: CONTACT_FAQS_EN.map((item) => ({
     '@type': 'Question',
     name: item.question,
     acceptedAnswer: { '@type': 'Answer', text: item.answer },
@@ -32,16 +32,17 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Kontakt a rezervácia — MagicRoom Martin"
-  description="Rezervujte si skúšku svadobných šiat od 12 € v MagicRoom."
+  title="Contact and booking — MagicRoom Martin"
+  description="Book your wedding dress fitting from 12 €."
   image={IMAGE_ASSETS.map}
   structuredData={faqSchema}
-  breadcrumbs={[{ name: 'Domov', url: '/' }, { name: 'Kontakt', url: '/kontakt' }]}
+  breadcrumbs={[{ name: 'Home', url: '/en' }, { name: 'Contact', url: '/en/contact' }]}
+  language="en"
 >
-  <Header />
+  <HeaderEn />
 
   <main class="flex-1">
-    <Breadcrumbs items={[{ name: 'Kontakt', url: '/kontakt' }]} />
+    <Breadcrumbs items={[{ name: 'Contact', url: '/en/contact' }]} />
 
     <section class="bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] py-16 md:py-20">
       <div class="container mx-auto px-4">
@@ -52,8 +53,8 @@ const faqSchema = {
           <h1 class="font-display text-[2.85rem] leading-tight text-foreground md:text-6xl">{t.contact.heroTitle}</h1>
           <p class="mt-6 text-lg leading-8 text-muted-foreground">{t.contact.heroDescription}</p>
           <div class="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground">
-            <span class="rounded-full border border-border/70 bg-white/80 px-4 py-2">Martin • návšteva na objednávku</span>
-            <span class="rounded-full border border-border/70 bg-white/80 px-4 py-2">Odpoveď do 24h</span>
+            <span class="rounded-full border border-border/70 bg-white/80 px-4 py-2">Martin • appointment</span>
+            <span class="rounded-full border border-border/70 bg-white/80 px-4 py-2">Reply within 24h</span>
           </div>
         </div>
       </div>
@@ -64,7 +65,7 @@ const faqSchema = {
     <section class="py-10 md:py-12">
       <div class="container mx-auto px-4">
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-          {CONTACT_ACTIONS.map((action, index) => {
+          {CONTACT_ACTIONS_EN.map((action, index) => {
             const Icon = contactIcons[index];
             const isExternal = action.href.startsWith('http');
             return (
@@ -82,19 +83,19 @@ const faqSchema = {
 
     <section class="pb-16 pt-6 md:pb-20 md:pt-8">
       <div class="container mx-auto grid gap-8 px-4 xl:grid-cols-[1.15fr_0.85fr]">
-        <BookingForm id="booking" title="Zarezervujte si skúšku" description="Vyplňte pár detailov." />
+        <BookingForm id="booking" title="Book a fitting" description="Fill in a few details." />
         <div class="space-y-6">
           <Card className="border border-border/70 shadow-[var(--shadow-soft)]">
             <CardContent className="space-y-4 p-6">
-              <p class="text-sm uppercase tracking-[0.2em] text-primary/70">Čo sa stane</p>
-              <h2 class="mt-2 text-2xl font-display text-foreground">Najprv správa.</h2>
+              <p class="text-sm uppercase tracking-[0.2em] text-primary/70">What happens</p>
+              <h2 class="mt-2 text-2xl font-display text-foreground">First message.</h2>
             </CardContent>
           </Card>
         </div>
       </div>
     </section>
 
-  <Footer />
+  <FooterEn />
   <WhatsAppFAB />
   <ScrollToTop />
   </main>

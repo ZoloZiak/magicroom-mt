@@ -1,0 +1,110 @@
+---
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
+import FooterEn from '@/components/layout/FooterEn.astro';
+import HeaderEn from '@/components/layout/HeaderEn.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import Sparkles from '@/components/layout/Sparkles.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardTitle } from '@/components/ui/card';
+import { BOOKING_PAGE_HREF_EN, PHONE_DISPLAY, WHATSAPP_URL } from '@/data/site';
+import { FOUNDER_STORY_EN, GALLERY_ITEMS, IMAGE_ASSETS, TRUST_REASONS_EN } from '@/data/content';
+import { getTranslations } from '@/lib/translations';
+import type { Language } from '@/lib/i18n';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, CheckCircle2, Heart, Phone, Sparkles as SparklesIcon, Users } from 'lucide-react';
+
+const language: Language = 'en';
+const t = getTranslations(language);
+
+const operatingPrinciples = [
+  { title: 'Personal care', description: 'Calm and clear contact.', icon: Heart },
+  { title: 'Up to 50 guests', description: 'Quality and personal approach.', icon: Users },
+  { title: 'Practical help', description: 'Save time and enjoy.', icon: SparklesIcon },
+];
+
+const storyGallery = GALLERY_ITEMS.slice(0, 4);
+---
+
+<Layout
+  title="About — MagicRoom Martin"
+  description="About Natália and MagicRoom."
+  image={IMAGE_ASSETS.founder}
+  breadcrumbs={[{ name: 'Home', url: '/en' }, { name: 'About', url: '/en/about' }]}
+  language="en"
+>
+  <HeaderEn />
+
+  <main class="flex-1">
+    <Breadcrumbs items={[{ name: 'About', url: '/en/about' }]} />
+
+    <section class="relative overflow-hidden bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] pt-20 pb-16 md:pt-24 md:pb-20">
+      <Sparkles count={6} />
+      <div class="container mx-auto px-4">
+        <div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div class="max-w-2xl">
+            <Badge variant="secondary" className="mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">{t.about.heroBadge}</Badge>
+            <h1 class="font-display text-[2.9rem] leading-tight text-foreground md:text-6xl">{t.about.heroTitle}</h1>
+            <blockquote class="mt-6 font-display text-3xl italic">„{FOUNDER_STORY_EN.quote}“</blockquote>
+            <p class="mt-6 text-lg leading-8 text-muted-foreground">{FOUNDER_STORY_EN.paragraphs[0]}</p>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button asChild variant="cta" size="lg"><a href={BOOKING_PAGE_HREF_EN}>Book fitting<ArrowRight className="h-5 w-5 ml-2" /></a></Button>
+              <Button asChild variant="outline" size="lg"><a href={WHATSAPP_URL}>Contact</a></Button>
+            </div>
+          </div>
+          <div class="photo-card"><img src={IMAGE_ASSETS.founder} alt="Natália" class="w-full rounded-[24px] object-contain" loading="eager" /></div>
+        </div>
+      </div>
+    </section>
+
+    <DecorativeDivider variant="floral" />
+
+    <section class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto mb-12 max-w-3xl text-center"><p class="text-sm uppercase tracking-[0.24em] text-primary/70">How we work</p></div>
+        <div class="grid gap-6 md:grid-cols-3">
+          {operatingPrinciples.map((item, index) => (
+            <div class="rounded-2xl border border-border/70 bg-white p-6 shadow-[var(--shadow-soft)]">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10"><item.icon className="h-5 w-5" /></div>
+              <h3 className="mt-5 text-xl font-semibold">{item.title}</h3>
+              <p className="mt-3 text-base">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-primary-900 py-16 text-white">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div class="rounded-[30px] bg-white/5 px-6 py-8 md:px-10 md:py-12">
+            <p class="text-sm uppercase tracking-[0.24em] text-white/70">Why choose MagicRoom</p>
+            <h2 class="mt-4 font-display text-4xl">{t.home.whyTitle}</h2>
+            <div class="mt-10 grid gap-5 md:grid-cols-2">
+              {TRUST_REASONS_EN.map((r) => (
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                  <div class="flex items-start gap-3">
+                    <div class="mt-1 rounded-full bg-white/10 p-2 text-accent"><CheckCircle2 className="h-4 w-4" /></div>
+                    <div><h3 class="text-lg font-semibold">{r.title}</h3><p class="mt-2 text-sm text-white/70">{r.description}</p></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <Card className="border border-white/10 bg-white/5 p-6 text-white">
+            <CardContent className="space-y-4">
+              <div className="flex items-center gap-3 text-primary"><Phone className="h-4 w-4" /><span className="text-sm uppercase">Phone</span></div>
+              <p className="text-2xl font-semibold">{PHONE_DISPLAY}</p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+  <FooterEn />
+  <WhatsAppFAB />
+  <ScrollToTop />
+  </main>
+</Layout>
