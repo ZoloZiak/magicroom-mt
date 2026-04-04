@@ -1,0 +1,45 @@
+---
+import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { IMAGE_ASSETS } from '@/data/content';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowLeft } from 'lucide-react';
+
+const post = {
+  title: 'Ako si vybrať svadobné šaty: Praktický sprievodca',
+  description: 'Naučte sa vybrať dokonalé svadobné šaty podľa postavy, rozpočtu a štýlu vašej svadby.',
+  image: IMAGE_ASSETS.dresses,
+};
+---
+
+<Layout
+  title={`${post.title} | MagicRoom Blog`}
+  description={post.description}
+  image={post.image}
+>
+  <Header />
+  <main class="flex-1">
+    <section class="bg-surface py-12">
+      <div class="container mx-auto px-4">
+        <a href="/blog" class="inline-flex items-center text-primary hover:text-cta mb-6">
+          <ArrowLeft className="h-4 w-4 mr-2" />
+          Späť na blog
+        </a>
+        
+        <div class="max-w-2xl">
+          <Badge variant="secondary" className="mb-4">Šaty</Badge>
+          <h1 class="font-display text-4xl text-foreground">{post.title}</h1>
+          <p class="mt-6 text-lg text-muted-foreground">Príprava článku prebieha.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <WhatsAppFAB />
+  <ScrollToTop />
+</Layout>
