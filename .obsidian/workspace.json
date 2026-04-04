@@ -187,13 +187,13 @@
   "lastOpenFiles": [
     "dist/client/sitemap-index.xml",
     "dist/client/sitemap-0.xml",
-    "dist/client/_astro/dresses.W5AgR11L.png",
     "dist/client/_astro/Layout.Cef9oYrN.css",
     "dist/client/_astro/hero.BMmuVbCV.png",
     "dist/client/_astro/map.RHNrvu_s.png",
-    "dist/client/_astro/decor-alt.G4eWqQXg.jpg",
-    "dist/client/_astro/decor-main.DOjZtKaN.jpg",
     "dist/client/_astro/founder.yVxkPpyu.png",
+    "dist/client/_astro/decor-main.DOjZtKaN.jpg",
+    "dist/client/_astro/decor-alt.G4eWqQXg.jpg",
+    "dist/client/_astro/dresses.W5AgR11L.png",
     "dist/client/index.html",
     "dist/client/svadobne-saty/index.html",
     "dist/client/svadobne-saty",
@@ -205,6 +205,6 @@
     "dist/client/images/salon/saty-ruzove-6.jpeg",
     "dist/client/images/salon/saty-ruzove-5.jpeg",
     "dist/client/images/salon/saty-ruzove-4.jpeg",
-    "dist/client/images/salon/saty-ruzove-3.jpeg"
+    "dist/client/images/salon/saty-ruzove-2.jpeg"
   ]
 }
