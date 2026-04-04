@@ -276,9 +276,73 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 | Galéria fotiek s lightbox | Pridať až keď bude viac fotiek |
 | FAQ sekcia s vyhľadávaním | Pridať až keď bude viac otázok |
 | Portfolio predchádzajúcich svadieb | Vyžaduje súhlas klientok |
-| Partneri (dodávatelia) | Možno neskôr |
+
+---
+
+## 11. Audit - Komplexné vylepšenia (2026-04-04)
+
+### ✅ UROBENÉ (v audit)
+
+| Úloha | Status | Poznámky |
+|-------|--------|----------|
+| Image optimization (6 kritických obrázkov) | ✅ DONE | Presun z WordPress do src/assets/ |
+| Gallery + Lightbox | ✅ DONE | Pridané na SK + EN stránky |
+| FAQ search filter | ✅ DONE | Na contact stránke |
+| Partners page | ✅ DONE | Odporúčaní dodávatelia |
+| Unit tests fix | ✅ DONE | NAV_LINKS count updated |
+| Fonts localization | ✅ DONE | Satoshi + DM Sans lokálne |
+| Centralize translations | ✅ DONE | getTranslations() v .astro súboroch |
+| EN page URLs (English slugs) | ✅ DONE | /en/contact nie /en/kontakt |
+| Build + tests pass | ✅ DONE | 56 unit + 59 E2E |
+
+**Audit odporúčania (status):**
+
+1. ✅ Optimize Images - DONE (presun obrázkov lokálne)
+2. ✅ Centralize Translations - DONE (getTranslations)
+3. ⏸️ Modernize Routing - Nízka priorita (duplikácia OK)
+4. ✅ Localize Fonts - DONE
+5. ⏸️ Audit shadcn/Tailwind v4 - Voliteľné
+
+**P0 - Kritické (opravené):**
+
+| Úloha | Status |
+|-------|--------|
+| EN Header logo link "/" → "/en" | ✅ DONE |
+| Chýbajúce SK blog posty (2) | ✅ DONE |
+
+**P1 - Vysoká priorita:**
+
+| Úloha | Status |
+|-------|--------|
+| Partner data (fiktívne) | ⏸️ Čaká na reálne dáta od Natálie |
+| /galeria v navigácii | ✅ DONE |
+| /partneri v navigácii | ✅ DONE |
+| EN blog related links | ✅ DONE (žiadne) |
+
+**P2 - Stredná priorita:**
+
+| Úloha | Status |
+|-------|--------|
+| Viac šiat do katalógu | ⏸️ |
+| Skutočné svadobné fotky | ⏸️ |
+| Dress upload mechanism | ⏸️ |
+
+**P3 - Technický dlh:**
+
+| Úloha | Status |
+|-------|--------|
+| Duplicate GitNexus sekcie | ⏸️ |
+| Orphaned files (info.ts, booking.ts) | ⏸️ |
+
+**P4 - Nice to Have:**
+
+| Úloha | Status |
+|-------|--------|
+| FAQ sekcia | ⏸️ |
+| Gallery lightbox EN | ⏸️ |
+| Google Business Profile | ✅ DONE |
 
 ---
 
 *Document created: 2026-04-01*
-*Version: 1.1 - 2026-04-03*
+*Version: 1.2 - 2026-04-04*
