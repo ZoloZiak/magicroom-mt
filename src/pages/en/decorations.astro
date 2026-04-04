@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BOOKING_PAGE_HREF_EN, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
-import { DECOR_CATEGORIES_EN, DECOR_FEATURED_EN, DECOR_POLICIES_EN, IMAGE_ASSETS } from '@/data/content';
+import { DECOR_CATEGORIES_EN, DECOR_FEATURED_EN, DECOR_POLICIES_EN, IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
 import { ArrowRight, CheckCircle2, Frame, Gift, Lamp, Phone, Sparkles, UtensilsCrossed } from 'lucide-react';
 ---
@@ -18,7 +18,7 @@ import { ArrowRight, CheckCircle2, Frame, Gift, Lamp, Phone, Sparkles, UtensilsC
   title="Wedding Decoration Rental — Mirrors, Vases, Backdrops | MagicRoom Martin"
   description="Wedding decoration rental in Martin from 0.50 €: mirrors, vases, candelabras, backdrops, candy bar and textiles with clear prices and terms."
   keywords="decoration rental, wedding decorations, vases, mirrors, backdrops, martin"
-  image={IMAGE_ASSETS.decorMain}
+  image={IMAGE_URLS.decorMain}
   breadcrumbs={[
     { name: 'Home', url: '/en' },
     { name: 'Decorations', url: '/en/prenajom-dekoracii' },
@@ -58,14 +58,14 @@ import { ArrowRight, CheckCircle2, Frame, Gift, Lamp, Phone, Sparkles, UtensilsC
           <div class="grid gap-5 sm:grid-cols-2">
             <div class="overflow-hidden rounded-[28px] border border-white/60 bg-white p-3 shadow-[var(--shadow-xl)] sm:col-span-2">
               <img
-                src={IMAGE_ASSETS.decorMain}
+                src={IMAGE_URLS.decorMain}
                 alt="Decorations ready for wedding celebration at MagicRoom."
                 class="max-h-[420px] w-full rounded-[22px] bg-surface object-contain"
               />
             </div>
             <div class="overflow-hidden rounded-[28px] border border-white/60 bg-white p-3 shadow-sm">
               <img
-                src={IMAGE_ASSETS.decorAlt}
+                src={IMAGE_URLS.decorAlt}
                 alt="Wedding table with rented MagicRoom decorations."
                 class="h-[280px] w-full rounded-[22px] bg-surface object-contain"
                 loading="lazy"

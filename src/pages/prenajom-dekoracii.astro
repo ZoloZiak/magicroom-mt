@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BOOKING_PAGE_HREF, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
-import { DECOR_CATEGORIES, DECOR_FEATURED, DECOR_POLICIES, IMAGE_ASSETS } from '@/data/content';
+import { DECOR_CATEGORIES, DECOR_FEATURED, DECOR_POLICIES, IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
 import { ArrowRight, CheckCircle2, Frame, Gift, Lamp, Phone, Sparkles, UtensilsCrossed } from 'lucide-react';
 ---
@@ -18,7 +18,7 @@ import { ArrowRight, CheckCircle2, Frame, Gift, Lamp, Phone, Sparkles, UtensilsC
   title="Prenájom svadobných dekorácií — Zrkadlá, vázy, kulisy | MagicRoom Martin"
   description="Prenájom svadobných dekorácií v Martine od 0,50 €: zrkadlá, vázy, svietniky, kulisy, candy bar a textílie s jasnými cenami a podmienkami."
   keywords="prenájom dekorácií, svadobné dekorácie, vázy, zrkadlá, kulisy, martin"
-  image={IMAGE_ASSETS.decorMain}
+  image={IMAGE_URLS.decorMain}
   breadcrumbs={[
     { name: 'Domov', url: '/' },
     { name: 'Dekorácie', url: '/prenajom-dekoracii' },
@@ -57,14 +57,14 @@ import { ArrowRight, CheckCircle2, Frame, Gift, Lamp, Phone, Sparkles, UtensilsC
           <div class="grid gap-5 sm:grid-cols-2">
             <div class="overflow-hidden rounded-[28px] border border-white/60 bg-white p-3 shadow-[var(--shadow-xl)] sm:col-span-2">
               <img
-                src={IMAGE_ASSETS.decorMain}
+                src={IMAGE_URLS.decorMain}
                 alt="Dekorácie pripravené na svadobnú hostinu od MagicRoom."
                 class="max-h-[420px] w-full rounded-[22px] bg-surface object-contain"
               />
             </div>
             <div class="overflow-hidden rounded-[28px] border border-white/60 bg-white p-3 shadow-sm">
               <img
-                src={IMAGE_ASSETS.decorAlt}
+                src={IMAGE_URLS.decorAlt}
                 alt="Svadobný stôl s prenajatými dekoráciami MagicRoom."
                 class="h-[280px] w-full rounded-[22px] bg-surface object-contain"
                 loading="lazy"

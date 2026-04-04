@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BOOKING_PAGE_HREF_EN, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
-import { IMAGE_ASSETS } from '@/data/content';
+import { IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
 import { ArrowRight, Camera, ChefHat, Music, PartyPopper, Phone, Scissors } from 'lucide-react';
 
@@ -56,7 +56,7 @@ const PARTNERS = [
   title="Recommended Suppliers — MagicRoom Partners"
   description="Recommended suppliers for your wedding: photographer, catering, DJ, florist and more in Martin. Trusted partners of MagicRoom wedding salon."
   keywords="wedding suppliers, photographer, catering, DJ, florist, Martin, wedding vendors"
-  image={IMAGE_ASSETS.hero}
+  image={IMAGE_URLS.hero}
   breadcrumbs={[
     { name: 'Home', url: '/en' },
     { name: 'Partners', url: '/en/partneri' },

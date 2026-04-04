@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
-import { CONSIGNMENT_BENEFITS, CONSIGNMENT_CONDITIONS, CONSIGNMENT_STEPS, IMAGE_ASSETS } from '@/data/content';
+import { CONSIGNMENT_BENEFITS, CONSIGNMENT_CONDITIONS, CONSIGNMENT_STEPS, IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
 import { ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
 ---
@@ -17,7 +17,7 @@ import { ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
   title="Komisný predaj svadobných šiat v Martine — MagicRoom"
   description="Podmienky komisného predaja svadobných šiat v MagicRoom v Martine. Férové pravidlá, osobná dohoda a vyplácanie do 7 dní. Aktuálne plná kapacita."
   keywords="komisný predaj šiat, predaj svadobných šiat, martin, podmienky"
-  image={IMAGE_ASSETS.dresses}
+  image={IMAGE_URLS.dresses}
   breadcrumbs={[
     { name: 'Domov', url: '/' },
     { name: 'Komisný predaj', url: '/komisny-predaj' },
@@ -64,7 +64,7 @@ import { ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
 
           <div class="photo-card">
             <img
-              src={IMAGE_ASSETS.dresses}
+              src={IMAGE_URLS.dresses}
               alt="Svadobné šaty pripravené v salóne MagicRoom."
               class="max-h-[560px] w-full rounded-[24px] bg-surface object-contain"
             />

@@ -6,7 +6,7 @@ import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { IMAGE_ASSETS } from '@/data/content';
+import { IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
 
@@ -45,7 +45,7 @@ const BLOG_POSTS = [
   title="MagicRoom Wedding Blog — Tips, Inspiration and Trends"
   description="Read our articles about wedding dresses, decorations, advice and the latest trends. Practical tips from Natália at MagicRoom in Martin."
   keywords="wedding blog, tips, trends, inspiration, wedding dresses, decorations"
-  image={IMAGE_ASSETS.hero}
+  image={IMAGE_URLS.hero}
   breadcrumbs={[
     { name: 'Home', url: '/en' },
     { name: 'Blog', url: '/en/blog' },

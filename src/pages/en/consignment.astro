@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BOOKING_PAGE_HREF_EN, EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_URL } from '@/data/site';
-import { CONSIGNMENT_BENEFITS_EN, CONSIGNMENT_CONDITIONS_EN, CONSIGNMENT_STEPS_EN, IMAGE_ASSETS } from '@/data/content';
+import { CONSIGNMENT_BENEFITS_EN, CONSIGNMENT_CONDITIONS_EN, CONSIGNMENT_STEPS_EN, IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
 import { ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
 ---
@@ -17,7 +17,7 @@ import { ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
   title="Consignment Sale of Wedding Dresses in Martin — MagicRoom"
   description="Consignment sale conditions for wedding dresses at MagicRoom in Martin. Fair rules, personal agreement and payment within 7 days. Currently at full capacity."
   keywords="consignment dress sale, sell wedding dress, martin, conditions"
-  image={IMAGE_ASSETS.dresses}
+  image={IMAGE_URLS.dresses}
   breadcrumbs={[
     { name: 'Home', url: '/en' },
     { name: 'Consignment', url: '/en/komisny-predaj' },
@@ -65,7 +65,7 @@ import { ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
 
           <div class="photo-card">
             <img
-              src={IMAGE_ASSETS.dresses}
+              src={IMAGE_URLS.dresses}
               alt="Wedding dresses ready at MagicRoom salon."
               class="max-h-[560px] w-full rounded-[24px] bg-surface object-contain"
             />

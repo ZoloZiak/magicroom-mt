@@ -9,7 +9,7 @@ import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { BOOKING_PAGE_HREF_EN, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_URL } from '@/data/site';
-import { IMAGE_ASSETS } from '@/data/content';
+import { IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
 import { ArrowRight, Phone, Sparkles } from 'lucide-react';
 import { getDresses } from '@/lib/dresses';
@@ -44,7 +44,7 @@ const typeLabel = (type: string) => type === 'new' ? 'New' : 'Consignment';
   title="Wedding Dress Catalog — Rent & Buy | MagicRoom Martin"
   description="Browse our wedding dress collection. Rental from 200 €, new and consignment dresses available. See prices, sizes and availability — English spoken, Norwegian students welcome!"
   keywords="wedding dresses, dress rental, buy wedding dress, consignment, martin, slovakia"
-  image={IMAGE_ASSETS.dresses}
+  image={IMAGE_URLS.dresses}
   breadcrumbs={[
     { name: 'Home', url: '/en' },
     { name: 'Dresses', url: '/en/svadobne-saty' },
@@ -111,7 +111,7 @@ const typeLabel = (type: string) => type === 'new' ? 'New' : 'Consignment';
           <div class="grid gap-5">
             <div class="photo-card">
               <img
-                src={IMAGE_ASSETS.dresses}
+                src={IMAGE_URLS.dresses}
                 alt="Wedding dress collection at MagicRoom."
                 class="max-h-[520px] w-full rounded-[24px] bg-surface object-contain"
               />

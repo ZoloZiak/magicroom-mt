@@ -10,7 +10,7 @@ import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { BOOKING_PAGE_HREF, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
-import { FOUNDER_STORY, GALLERY_ITEMS, HOME_STATS, IMAGE_ASSETS, TRUST_REASONS } from '@/data/content';
+import { FOUNDER_STORY, GALLERY_ITEMS, HOME_STATS, IMAGE_ASSETS, IMAGE_URLS, TRUST_REASONS } from '@/data/content';
 import { getTranslations } from '@/lib/translations';
 import type { Language } from '@/lib/i18n';
 import Layout from '@/layouts/Layout.astro';
@@ -43,7 +43,7 @@ const operatingPrinciples = [
   title="O nás — Svadobný salón MagicRoom v Martine | Natália Ondrejková"
   description="Spoznajte Natáliu, zakladateľku MagicRoom. Lokálny svadobný salón v Martine, kde sa spájajú šaty, dekorácie a pokojný osobný prístup."
   keywords="natalia ondrejková, magicroom, zakladateľka, svadobný salón martin, príbeh"
-  image={IMAGE_ASSETS.founder}
+  image={IMAGE_URLS.founder}
   breadcrumbs={[
     { name: 'Domov', url: '/' },
     { name: 'O nás', url: '/o-nas' },
@@ -110,7 +110,7 @@ const operatingPrinciples = [
 
             <div class="photo-card-lg">
               <img
-                src={IMAGE_ASSETS.founder}
+                src={IMAGE_URLS.founder}
                 alt="Natália Ondrejková, zakladateľka MagicRoom."
                 class="max-h-[700px] w-full rounded-[24px] bg-surface object-contain"
               />
