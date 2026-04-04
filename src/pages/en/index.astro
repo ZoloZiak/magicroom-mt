@@ -15,6 +15,7 @@ import {
   HOME_OFFER_CARDS_EN,
   HOME_STATS_EN,
   IMAGE_ASSETS,
+  IMAGE_URLS,
   PROCESS_STEPS_EN,
   TRUST_REASONS_EN,
 } from '@/data/content';
@@ -92,7 +93,7 @@ const howToSchema = {
             <div class="absolute -bottom-8 -right-8 hidden h-32 w-32 rounded-full bg-primary/15 blur-3xl md:block"></div>
             <div class="photo-card-lg">
               <img
-                src={IMAGE_ASSETS.hero}
+                src={IMAGE_URLS.hero}
                 alt="Interior of MagicRoom wedding salon in Martin."
                 class="hero parallax-float tatry-mountain h-full max-h-[640px] w-full rounded-[24px] object-cover"
                 loading="eager"
@@ -214,7 +215,7 @@ const howToSchema = {
         <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div class="photo-card">
             <img
-              src={IMAGE_ASSETS.founder}
+              src={IMAGE_URLS.founder}
               alt="Natália Ondrejková, founder of MagicRoom."
               class="w-full rounded-[24px] bg-surface object-contain"
               loading="lazy"
@@ -265,7 +266,7 @@ const howToSchema = {
           </div>
           <div class="photo-card">
             <img
-              src={IMAGE_ASSETS.decorMain}
+              src={IMAGE_URLS.decorMain}
               alt="Wedding decorations and inspiration at MagicRoom"
               class="w-full rounded-[24px] object-cover"
             />

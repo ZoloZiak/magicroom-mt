@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import { BOOKING_PAGE_HREF_EN, PHONE_DISPLAY, WHATSAPP_URL } from '@/data/site';
-import { FOUNDER_STORY_EN, GALLERY_ITEMS, IMAGE_ASSETS, TRUST_REASONS_EN } from '@/data/content';
+import { FOUNDER_STORY_EN, GALLERY_ITEMS, IMAGE_ASSETS, IMAGE_URLS, TRUST_REASONS_EN } from '@/data/content';
 import { getTranslations } from '@/lib/translations';
 import type { Language } from '@/lib/i18n';
 import Layout from '@/layouts/Layout.astro';
@@ -54,7 +54,7 @@ const storyGallery = GALLERY_ITEMS.slice(0, 4);
               <Button asChild variant="outline" size="lg"><a href={WHATSAPP_URL}>Contact</a></Button>
             </div>
           </div>
-          <div class="photo-card"><img src={IMAGE_ASSETS.founder} alt="Natália" class="w-full rounded-[24px] object-contain" loading="eager" /></div>
+          <div class="photo-card"><img src={IMAGE_URLS.founder} alt="Natália" class="w-full rounded-[24px] object-contain" loading="eager" /></div>
         </div>
       </div>
     </section>
