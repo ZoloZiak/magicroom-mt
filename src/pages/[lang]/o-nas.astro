@@ -1,0 +1,206 @@
+---
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import CTASection from '@/components/layout/CTASection.astro';
+import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
+import Footer from '@/components/layout/Footer.astro';
+import FooterEn from '@/components/layout/FooterEn.astro';
+import Header from '@/components/layout/Header.astro';
+import HeaderEn from '@/components/layout/HeaderEn.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import Sparkles from '@/components/layout/Sparkles.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { BOOKING_PAGE_HREF, BOOKING_PAGE_HREF_EN, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_URL } from '@/data/site';
+import { FOUNDER_STORY, FOUNDER_STORY_EN, GALLERY_ITEMS, IMAGE_ASSETS, TRUST_REASONS, TRUST_REASONS_EN } from '@/data/content';
+import { getTranslations } from '@/lib/translations';
+import type { Language } from '@/lib/i18n';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, CheckCircle2, Heart, Phone, Sparkles as SparklesIcon, Users } from 'lucide-react';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'sk' }, props: { language: 'sk' as Language } },
+    { params: { lang: 'en' }, props: { language: 'en' as Language } },
+  ];
+}
+
+interface Props {
+  language: Language;
+}
+
+const { language } = Astro.props;
+const t = getTranslations(language);
+
+const isEn = language === 'en';
+const founderStory = isEn ? FOUNDER_STORY_EN : FOUNDER_STORY;
+const trustReasons = isEn ? TRUST_REASONS_EN : TRUST_REASONS;
+const storyGallery = GALLERY_ITEMS.slice(0, 4);
+const HeaderComponent = isEn ? HeaderEn : Header;
+const FooterComponent = isEn ? FooterEn : Footer;
+
+const operatingPrinciples = isEn
+  ? [
+      { title: 'Personal care instead of chaos', description: 'Every contact with MagicRoom should be calm, clear and human — from the first message to the final details.', icon: Heart },
+      { title: 'Weddings and celebrations up to 50 guests', description: 'We consciously work in a range where we can maintain quality, oversight of details and Natália personal approach.', icon: Users },
+      { title: 'Practical help with beautiful results', description: 'Dresses, decorations and consulting should help save time and make the day more harmonious, not more complicated.', icon: SparklesIcon },
+    ]
+  : [
+      { title: 'Osobná starostlivosť namiesto chaosu', description: 'Každý kontakt s MagicRoom má byť pokojný, jasný a ľudský — od prvej správy až po finálne detaily.', icon: Heart },
+      { title: 'Svadby a oslavy do 50 hostí', description: 'Vedome pracujeme v rozsahu, kde vieme udržať kvalitu, dohľad nad detailmi a osobný prístup Natálie.', icon: Users },
+      { title: 'Praktická pomoc s krásnym výsledkom', description: 'Šaty, dekorácie aj poradenstvo majú pomôcť ušetriť čas a spraviť deň harmonickejším, nie komplikovanejším.', icon: SparklesIcon },
+    ];
+
+const pageData = isEn
+  ? {
+      title: 'About — Wedding salon MagicRoom in Martin | Natália Ondrejková',
+      description: 'MagicRoom is a wedding salon in Martin run by Natália Ondrejková. Personalized approach and experience.',
+      breadcrumbs: [{ name: 'Home', url: '/en' }, { name: 'About', url: '/en/o-nas' }],
+      heroBadge: 'About • MagicRoom Martin',
+      ctaBook: 'Book a fitting',
+      ctaContact: 'Contact us',
+      storyTitle: 'Behind MagicRoom is Natália',
+      principlesTitle: 'How we work',
+      principlesDesc: 'Our approach is designed for brides who want clear guidance without the overwhelm.',
+      galleryTitle: 'From our salon',
+      galleryDesc: 'Moments we have shared with brides who trusted us.',
+    }
+  : {
+      title: 'O nás — Svadobný salón MagicRoom v Martine | Natália Ondrejková',
+      description: 'MagicRoom je svadobný salón v Martine, ktorý prevádzkuje Natália Ondrejková. Personalizovaný prístup a skúsenosti.',
+      breadcrumbs: [{ name: 'Domov', url: '/' }, { name: 'O nás', url: '/o-nas' }],
+      heroBadge: 'O nás • MagicRoom Martin',
+      ctaBook: 'Rezervovať skúšku',
+      ctaContact: 'Kontaktovať',
+      storyTitle: 'Za MagicRoom stojí Natália',
+      principlesTitle: 'Ako pracujeme',
+      principlesDesc: 'Náš prístup je navrhnutý pre nevesty, ktoré chcú jasné vedenie bez preťažovania.',
+      galleryTitle: 'Z nášho salónu',
+      galleryDesc: 'Momentky, ktoré sme zdieľali s nevestami, ktoré nám dôverovali.',
+    };
+---
+
+<Layout
+  title={pageData.title}
+  description={pageData.description}
+  keywords="natalia ondrejková, magicroom, zakladateľka, svadobný salón martin, príbeh"
+  image={IMAGE_ASSETS.founder}
+  breadcrumbs={pageData.breadcrumbs}
+  language={isEn ? 'en' : undefined}
+>
+  <HeaderComponent />
+
+  <main class="flex-1">
+    <Breadcrumbs items={[{ name: isEn ? 'About' : 'O nás', url: `/${language}/o-nas` }]} />
+
+    <section class="relative overflow-hidden slovak-seasons bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] pt-20 pb-16 md:pt-24 md:pb-20">
+      <Sparkles count={6} />
+      <div class="container mx-auto px-4">
+        <div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div class="max-w-2xl">
+            <Badge variant="secondary" className="mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">
+              {t.about.heroBadge}
+            </Badge>
+            <h1 class="font-display text-[2.9rem] leading-tight text-foreground md:text-6xl">{t.about.heroTitle}</h1>
+            <blockquote class="mt-6 font-display text-3xl italic leading-tight text-foreground md:text-4xl">„{founderStory.quote}“</blockquote>
+            <p class="mt-6 text-lg leading-8 text-muted-foreground">{founderStory.paragraphs[0]}</p>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button asChild variant="cta" size="lg">
+                <a href={isEn ? BOOKING_PAGE_HREF_EN : BOOKING_PAGE_HREF}>{pageData.ctaBook}<ArrowRight className="h-5 w-5 ml-2" /></a>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <a href={isEn ? WHATSAPP_URL : PHONE_HREF}>{pageData.ctaContact}</a>
+              </Button>
+            </div>
+          </div>
+
+          <div class="photo-card">
+            <img src={IMAGE_ASSETS.founder} alt="Natália Ondrejková" class="w-full rounded-[24px] bg-surface object-contain" loading="eager" fetchpriority="high" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <DecorativeDivider variant="floral" />
+
+    <section class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto mb-12 max-w-3xl text-center">
+          <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{pageData.principlesTitle}</p>
+          <h2 class="mt-3 font-display text-4xl text-foreground md:text-5xl">{pageData.principlesDesc}</h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          {operatingPrinciples.map((item: any, index: number) => (
+            <div class={`rounded-2xl border border-border/70 bg-white p-6 shadow-[var(--shadow-soft)] animate-fade-in-up animate-stagger-${index + 1}`}>
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <item.icon className="h-5 w-5" />
+              </div>
+              <h3 class="mt-5 text-xl font-semibold text-foreground">{item.title}</h3>
+              <p class="mt-3 text-base leading-7 text-muted-foreground">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto mb-10 max-w-2xl text-center">
+          <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{pageData.galleryTitle}</p>
+          <h2 class="mt-3 font-display text-3xl text-foreground md:text-4xl">{pageData.galleryDesc}</h2>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {storyGallery.map((item: any, index: number) => (
+            <div class="overflow-hidden rounded-2xl shadow-[var(--shadow-soft)] animate-fade-in-up animate-stagger-${index + 1}">
+              <img src={item.src} alt={item.alt} class="h-64 w-full object-cover" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-primary-900 py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div class="rounded-[30px] bg-white/5 px-6 py-8 text-white md:px-10 md:py-12">
+            <p class="text-sm uppercase tracking-[0.24em] text-white/70">{isEn ? 'Why brides choose MagicRoom' : 'Prečo si nevesty vyberajú MagicRoom'}</p>
+            <h2 class="mt-4 font-display text-4xl leading-tight md:text-5xl">{t.home.whyTitle}</h2>
+            <div class="mt-10 grid gap-5 md:grid-cols-2">
+              {trustReasons.map((reason: any) => (
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                  <div class="flex items-start gap-3">
+                    <div class="mt-1 rounded-full bg-white/10 p-2 text-accent"><CheckCircle2 className="h-4 w-4" /></div>
+                    <div>
+                      <h3 class="text-lg font-semibold text-white">{reason.title}</h3>
+                      <p class="mt-2 text-sm leading-6 text-white/70">{reason.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <Card className="border border-white/10 bg-white/5 p-6 text-white">
+              <CardContent className="space-y-4">
+                <div class="flex items-center gap-3 text-primary">
+                  <Phone className="h-4 w-4" />
+                  <span class="text-sm uppercase tracking-[0.2em]">{isEn ? 'Phone' : 'Telefón'}</span>
+                </div>
+                <p class="text-2xl font-semibold">{PHONE_DISPLAY}</p>
+                <p class="text-sm leading-6 text-white/70">{isEn ? 'Available Mon-Fri 9:00-17:00' : 'Dostupný Po-Pia 9:00-17:00'}</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <FooterComponent />
+    <WhatsAppFAB />
+    <ScrollToTop />
+  </main>
+</Layout>

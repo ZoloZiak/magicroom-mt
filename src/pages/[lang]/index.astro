@@ -1,0 +1,345 @@
+---
+import BookingForm from '@/components/forms/BookingForm.astro';
+import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
+import Footer from '@/components/layout/Footer.astro';
+import FooterEn from '@/components/layout/FooterEn.astro';
+import Header from '@/components/layout/Header.astro';
+import HeaderEn from '@/components/layout/HeaderEn.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import Sparkles from '@/components/layout/Sparkles.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ADDRESS_LABEL, MAP_URL, PHONE_DISPLAY, PHONE_HREF, NAV_LINKS_EN, WHATSAPP_URL } from '@/data/site';
+import {
+  FOUNDER_STORY,
+  FOUNDER_STORY_EN,
+  HOME_OFFER_CARDS,
+  HOME_OFFER_CARDS_EN,
+  HOME_STATS,
+  HOME_STATS_EN,
+  IMAGE_ASSETS,
+  IMAGE_URLS,
+  PROCESS_STEPS,
+  PROCESS_STEPS_EN,
+  TRUST_REASONS,
+  TRUST_REASONS_EN,
+} from '@/data/content';
+import { getTranslations } from '@/lib/translations';
+import type { Language } from '@/lib/i18n';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, CheckCircle2, Clock3, MapPin, Phone } from 'lucide-react';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'sk' }, props: { language: 'sk' as Language } },
+    { params: { lang: 'en' }, props: { language: 'en' as Language } },
+  ];
+}
+
+interface Props {
+  language: Language;
+}
+
+const { language } = Astro.props;
+const t = getTranslations(language);
+
+const isEn = language === 'en';
+const stats = isEn ? HOME_STATS_EN : HOME_STATS;
+const cards = isEn ? HOME_OFFER_CARDS_EN : HOME_OFFER_CARDS;
+const trustReasons = isEn ? TRUST_REASONS_EN : TRUST_REASONS;
+const processSteps = isEn ? PROCESS_STEPS_EN : PROCESS_STEPS;
+const founderStory = isEn ? FOUNDER_STORY_EN : FOUNDER_STORY;
+const HeaderComponent = isEn ? HeaderEn : Header;
+const FooterComponent = isEn ? FooterEn : Footer;
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: isEn ? 'How to book a wedding dress fitting at MagicRoom' : 'Ako rezervovať skúšku svadobných šiat v MagicRoom',
+  step: processSteps.map((step, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: `Step ${i + 1}`,
+    text: step,
+  })),
+};
+
+const pageData = isEn
+  ? {
+      title: 'MagicRoom — wedding dresses, decorations and bridal concierge in Martin',
+      description: 'MagicRoom is a local wedding salon in Martin. Wedding dress fitting from 12 €, wedding decorations and party setup, wedding consulting and calm personal approach.',
+      keywords: 'wedding dresses, decorations, martin, bridal concierge, wedding consulting, consignment',
+      servicesHref: '/en/services',
+      aboutHref: '/en/about',
+      blogHref: '/en/blog',
+      contactHref: '/en/kontakt',
+      ctaLabel: 'services',
+    }
+  : {
+      title: 'MagicRoom — svadobné šaty, dekorácie a bridal concierge v Martine',
+      description: 'MagicRoom je lokálny svadobný salón v Martine. Skúška svadobných šiat od 12 €, výzdoba svadieb a osláv, svadobné poradenstvo a pokojný osobný prístup.',
+      keywords: 'svadobne saty, dekoracie, martin, bridal concierge, svadobne poradenstvo, komisny predaj',
+      servicesHref: '/sluzby',
+      aboutHref: '/o-nas',
+      blogHref: '/blog',
+      contactHref: '/kontakt',
+      ctaLabel: 'služby',
+    };
+---
+
+<Layout
+  title={pageData.title}
+  description={pageData.description}
+  keywords={pageData.keywords}
+  image={IMAGE_URLS.hero}
+  structuredData={howToSchema}
+  language={isEn ? 'en' : undefined}
+>
+  <HeaderComponent />
+
+  <main class="flex-1">
+    <section class="relative overflow-hidden slovak-seasons bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] pt-20">
+      <Sparkles count={6} />
+      <div class="container mx-auto px-4 pb-14 pt-8 md:pb-24 md:pt-10">
+        <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div class="max-w-2xl">
+            <Badge variant="secondary" className="hero-badge badge folk-pattern mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">
+              {t.home.heroBadge}
+            </Badge>
+            <h1 class="hero-title font-display text-[2.9rem] leading-[0.95] text-foreground md:text-6xl lg:text-7xl">
+              {t.home.heroTitle}
+            </h1>
+            <p class="hero-description mt-6 max-w-xl text-lg leading-8 text-muted-foreground md:text-xl">
+              {t.home.heroDescription}
+            </p>
+
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button asChild variant="cta" size="lg" className="hero-button interactive-ripple sm:min-w-[220px]">
+                <a href={pageData.contactHref + "#booking"} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label="hero_cta">
+                  {t.home.ctaBook}
+                  <ArrowRight className="icon-morph slovak-heart h-5 w-5" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="hero-button sm:min-w-[220px]">
+                <a href={pageData.servicesHref} data-ga-category="engagement" data-ga-action="navigation_click" data-ga-label="hero_services">{t.home.ctaServices}</a>
+              </Button>
+            </div>
+
+            <div class="mt-10 grid gap-4 sm:grid-cols-3">
+              {stats.map((stat, i) => (
+                <div class={`rounded-2xl border border-border/70 bg-white/80 px-5 py-4 shadow-sm backdrop-blur animate-fade-in-up animate-stagger-${i + 1}`}>
+                  <p class="font-display text-3xl text-cta">{stat.value}</p>
+                  <p class="mt-1 text-sm leading-6 text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-6 -top-6 hidden h-24 w-24 rounded-full bg-accent/20 blur-2xl md:block"></div>
+            <div class="absolute -bottom-8 -right-8 hidden h-32 w-32 rounded-full bg-primary/15 blur-3xl md:block"></div>
+            <div class="photo-card-lg">
+              <img
+                src={IMAGE_URLS.hero}
+                alt="MagicRoom interior"
+                class="hero parallax-float tatry-mountain h-full max-h-[640px] w-full rounded-[24px] object-cover"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+
+            <div class="mt-5 grid gap-4 sm:grid-cols-2">
+              <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" data-ga-label="hero_phone" class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
+                <div class="flex items-center gap-3 text-primary">
+                  <Phone className="h-4 w-4" />
+                  <span class="text-sm uppercase tracking-[0.2em]">{t.common.phone}</span>
+                </div>
+                <p class="mt-3 font-semibold text-foreground">{PHONE_DISPLAY}</p>
+              </a>
+              <a href={MAP_URL} target="_blank" rel="noopener noreferrer" data-ga-category="external" data-ga-action="map_click" data-ga-label="hero_map" class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
+                <div class="flex items-center gap-3 text-primary">
+                  <MapPin className="h-4 w-4" />
+                  <span class="text-sm uppercase tracking-[0.2em]">{t.common.address}</span>
+                </div>
+                <p class="mt-3 text-sm leading-6 text-foreground">{ADDRESS_LABEL}</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{isEn ? 'What we offer' : 'Čo u nás vybavíte'}</p>
+            <h2 class="mt-3 font-display text-4xl text-foreground md:text-5xl">{t.home.servicesTitle}</h2>
+          </div>
+          <p class="max-w-xl text-base leading-7 text-muted-foreground">
+            {t.home.servicesSubtitle}
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {cards.map((item, index) => (
+            <Card className={`service-card border-0 bg-white shadow-[var(--shadow-soft)] spring-hover`}>
+              <CardHeader>
+                <div class="mb-5 flex items-start justify-between gap-3">
+                  {index === 0 && <Badge variant="cta">{isEn ? 'Most common first step' : 'Najčastejší prvý krok'}</Badge>}
+                </div>
+                <CardTitle className="font-display text-2xl">{item.title}</CardTitle>
+                <p class="pt-2 text-sm font-semibold uppercase tracking-[0.16em] text-cta">{item.price}</p>
+                <CardDescription className="pt-3 text-base leading-7">{item.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button asChild variant="ghost" className="px-0 text-primary hover:text-cta">
+                  <a href={item.href} data-ga-category="engagement" data-ga-action="navigation_click" data-ga-label={`homepage_services_${item.href.replace('/', '')}`}>
+                    {item.cta}
+                    <ArrowRight className="icon-morph h-4 w-4" />
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <DecorativeDivider variant="floral" />
+
+    <section class="py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div class="rounded-[30px] bg-primary-900 px-6 py-8 text-white shadow-[var(--shadow-dark)] md:px-10 md:py-12">
+            <p class="text-sm uppercase tracking-[0.24em] text-white/70">{isEn ? 'Why brides choose MagicRoom' : 'Prečo si nevesty vyberajú MagicRoom'}</p>
+            <h2 class="mt-4 font-display text-4xl leading-tight md:text-5xl">{t.home.whyTitle}</h2>
+            <div class="mt-10 grid gap-5 md:grid-cols-2">
+              {trustReasons.map((reason) => (
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                  <div class="flex items-start gap-3">
+                    <div class="mt-1 rounded-full bg-white/10 p-2 text-accent">
+                      <CheckCircle2 className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold text-white">{reason.title}</h3>
+                      <p class="mt-2 text-sm leading-6 text-white/70">{reason.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="rounded-[30px] border border-border/70 bg-white p-6 shadow-[var(--shadow-soft)] md:p-10">
+            <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{isEn ? 'How it works' : 'Ako to prebieha'}</p>
+            <h2 class="mt-4 font-display text-4xl text-foreground">{t.home.processTitle}</h2>
+            <div class="mt-8 space-y-5">
+              {processSteps.map((step, index) => (
+                <div class="flex gap-4 rounded-2xl bg-surface px-5 py-5">
+                  <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
+                    0{index + 1}
+                  </div>
+                  <p class="pt-1 text-base leading-7 text-muted-foreground">{step}</p>
+                </div>
+              ))}
+            </div>
+
+            <div class="mt-8 rounded-2xl border border-border/70 px-5 py-4">
+              <div class="flex items-center gap-3 text-primary">
+                <Clock3 className="h-4 w-4" />
+                <span class="text-sm uppercase tracking-[0.16em]">{isEn ? 'Quick response' : 'Rýchla odpoveď'}</span>
+              </div>
+              <p class="mt-3 text-sm leading-6 text-muted-foreground">{isEn ? 'We respond to reservations and queries within 24 hours. If urgent, call us.' : 'Na rezervácie a dopyty odpovedáme spravidla do 24 hodín. Ak je to súrne, zavolajte nám.'}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div class="photo-card">
+            <img
+              src={IMAGE_ASSETS.founder}
+              alt="Natália Ondrejková, zakladateľka MagicRoom."
+              class="w-full rounded-[24px] bg-surface object-contain"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="max-w-2xl">
+            <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{t.home.founderLabel}</p>
+            <blockquote class="mt-4 font-display text-4xl italic leading-tight text-foreground md:text-5xl">
+              „{founderStory.quote}“
+            </blockquote>
+            <p class="mt-6 text-base leading-7 text-muted-foreground">
+              {founderStory.paragraphs[0]}
+            </p>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button asChild variant="outline" size="lg">
+                <a href={pageData.aboutHref}>{isEn ? 'Learn MagicRoom story' : 'Spoznať príbeh MagicRoom'}</a>
+              </Button>
+              <Button asChild variant="ghost" size="lg" className="px-0 text-primary hover:text-cta">
+                <a href="#booking">
+                  {isEn ? 'Go to reservation' : 'Prejsť rovno na rezerváciu'}
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{isEn ? 'Our tips' : 'Naše tipy'}</p>
+            <h2 class="mt-3 font-display text-4xl text-foreground md:text-5xl">{t.home.blogTitle}</h2>
+            <p class="mt-4 text-base leading-7 text-muted-foreground">
+              {t.home.blogSubtitle}
+            </p>
+            <div class="mt-6">
+              <Button asChild variant="outline" size="lg">
+                <a href={pageData.blogHref}>
+                  {t.home.blogCta}
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </a>
+              </Button>
+            </div>
+          </div>
+          <div class="photo-card">
+            <img
+              src={IMAGE_ASSETS.decorMain}
+              alt="Wedding decorations and inspiration at MagicRoom"
+              class="w-full rounded-[24px] object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto mb-10 max-w-3xl text-center">
+          <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{isEn ? 'Book a fitting' : 'Rezervácia skúšky'}</p>
+          <h2 class="mt-3 font-display text-4xl text-foreground md:text-5xl">{t.home.bookingTitle}</h2>
+          <p class="mt-4 text-base leading-7 text-muted-foreground">
+            {t.home.bookingSubtitle}
+          </p>
+        </div>
+
+        <BookingForm />
+      </div>
+    </section>
+  </main>
+
+  <FooterComponent />
+  <WhatsAppFAB />
+  <ScrollToTop />
+</Layout>
