@@ -7,6 +7,9 @@ import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
 import Layout from '@/layouts/Layout.astro';
+import type { Language } from '@/lib/i18n';
+
+const language: Language = 'en';
 
 const GALLERY_IMAGES = [
   { src: '/images/salon/interier-teple-1.jpeg', alt: 'MagicRoom Interior - warm lighting', category: 'interior' },

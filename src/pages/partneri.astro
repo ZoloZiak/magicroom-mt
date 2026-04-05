@@ -15,6 +15,44 @@ import type { Language } from '@/lib/i18n';
 import { ArrowRight, Camera, ChefHat, Music, PartyPopper, Phone, Scissors } from 'lucide-react';
 
 const language: Language = 'sk';
+
+const PARTNERS = [
+  {
+    category: 'Fotografia',
+    partners: [
+      { name: 'Svadobná fotografia', description: 'Profesionálne svadobné fotenie v Martine a okolí', phone: '+421 950 123 456' },
+    ],
+    icon: Camera,
+  },
+  {
+    category: 'Catering',
+    partners: [
+      { name: 'Svadobný catering', description: 'Kompletný catering pre svadby a oslavy', phone: '+421 944 567 890' },
+    ],
+    icon: ChefHat,
+  },
+  {
+    category: 'DJ & Hudba',
+    partners: [
+      { name: 'DJ Miroslav', description: 'Svadobný DJ s hudbou pre všetky generácie', phone: '+421 903 234 567' },
+    ],
+    icon: Music,
+  },
+  {
+    category: 'Vizáž',
+    partners: [
+      { name: 'Svadobný make-up', description: 'Profesionálne líčenie pre nevesty', phone: '+421 915 678 901' },
+    ],
+    icon: Scissors,
+  },
+  {
+    category: 'Výzdoba',
+    partners: [
+      { name: 'Kvetinové štúdio', description: 'Čerstvé kvety a aranžmány', phone: '+421 940 345 678' },
+    ],
+    icon: PartyPopper,
+  },
+] as const;
 ---
 
 <Layout
