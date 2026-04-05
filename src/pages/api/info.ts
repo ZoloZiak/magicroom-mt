@@ -1,8 +1,16 @@
+/**
+ * API Endpoint: /api/info
+ * Provides essential site information for integrations and external tools.
+ * This endpoint is stable and maintained for partners and SEO tools.
+ * 
+ * @see e2e/feeds.spec.ts for automated tests
+ */
 import type { APIRoute } from 'astro';
 
 export const prerender = false;
 
 const siteInfo = {
+  version: '1.0.0',
   name: 'MagicRoom',
   description: 'Svadobný salón v Martine — skúška šiat, dekorácie, poradenstvo',
   url: 'https://www.magicroom.sk',

@@ -353,7 +353,7 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 | Úloha | Status |
 |-------|--------|
 | Duplicate GitNexus sekcie | ⏸️ |
-| Orphaned files (info.ts, booking.ts) | ⏸️ |
+| Orphaned files (info.ts, booking.ts) | ✅ DONE |
 
 **P4 - Nice to Have:**
 

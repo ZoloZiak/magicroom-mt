@@ -1,3 +1,8 @@
+/**
+ * API Endpoint: /api/booking
+ * Handles POST requests for salon bookings via Resend email service.
+ * Used for integrations where standard form actions are not applicable.
+ */
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
