@@ -1,8 +1,8 @@
 ---
 import CTASection from '@/components/layout/CTASection.astro';
 import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
-import FooterEn from '@/components/layout/FooterEn.astro';
-import HeaderEn from '@/components/layout/HeaderEn.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
@@ -35,7 +35,7 @@ const GALLERY_IMAGES = [
   ]}
   language="en"
 >
-  <HeaderEn />
+  <Header language={language} />
 
   <main class="flex-1">
     <section class="bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] py-16 md:py-20">
@@ -111,7 +111,7 @@ const GALLERY_IMAGES = [
     <p id="lightbox-caption" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-center text-white/80"></p>
   </div>
 
-  <FooterEn />
+  <Footer language={language} />
   <WhatsAppFAB />
   <ScrollToTop />
 

@@ -38,7 +38,7 @@ const faqSchema = {
   structuredData={faqSchema}
   breadcrumbs={[{ name: 'Domov', url: '/' }, { name: 'Kontakt', url: '/kontakt' }]}
 >
-  <Header />
+  <Header language={language} />
 
   <main class="flex-1">
     <Breadcrumbs items={[{ name: 'Kontakt', url: '/kontakt' }]} />
@@ -94,7 +94,7 @@ const faqSchema = {
       </div>
     </section>
 
-  <Footer />
+  <Footer language={language} />
   <WhatsAppFAB />
   <ScrollToTop />
   </main>

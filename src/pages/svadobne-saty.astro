@@ -11,8 +11,11 @@ import { Button } from '@/components/ui/button';
 import { PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
 import { IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
+import type { Language } from '@/lib/i18n';
 import { ArrowRight, Phone } from 'lucide-react';
 import { getDresses } from '@/lib/dresses';
+
+const language: Language = 'sk';
 
 const dresses = getDresses();
 

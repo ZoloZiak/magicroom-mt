@@ -2,198 +2,127 @@
 
 ## Executive Summary
 
-This document analyzes Norwegian students as a potential target audience for MagicRoom's English-language website. Norwegian students planning weddings in Slovakia represent an underserved niche with high spending power and specific needs.
+Tento dokument analyzuje nórskych študentov ako kľúčovú cieľovú skupinu pre anglickú verziu webu MagicRoom. Pôvodné zameranie na svadby sa rozširuje o **spoločenské šaty (Occasion Wear)**, ktoré lepšie zodpovedajú demografii (19–25 rokov). Nórska kultúra je bohatá na formálne udalosti, pričom ceny v SR sú 3–5x nižšie ako v Nórsku, čo predstavuje obrovskú príležitosť pre prenájom aj predaj.
 
 ---
 
 ## 1. Market Overview
 
-### Why Norwegian Students?
+### Prečo nórski študenti?
 
-- **High disposable income** — Norwegian students receive generous financial support from Lånekassen (Norwegian State Education Loan Fund), averaging 10,000-12,000 NOK/month in loans + grants
-- **Study abroad trend** — Slovakia offers affordable medical/dental programs in English, attracting 2,000+ Norwegian students
-- **Destination weddings** — Many Norwegians prefer Southern/Eastern Europe for weddings due to lower costs
-- **Cross-border shopping** — Norwegians routinely shop across borders for better prices
+- **Vysoká kúpna sila** — Nóri dostávajú štedrú podporu od Lånekassen (štátny fond), v priemere 10 000–12 000 NOK/mesiac.
+- **Štúdium v SR** — V Martin, Bratislave a Košiciach študuje 2 000+ Nórov (najmä medicínu a veterinu).
+- **Kultúra udalostí** — Nórska študentská komunita organizuje bály, galavečery a vianočné večierky (**Julebord**), kde sú formálne šaty povinné.
+- **Svadby (Niche)** — Svadby v tomto veku sú menej časté, ale vyskytujú sa u starších študentov (končiace ročníky) alebo mladých profesionálov.
 
-### Target Profile
+### Cieľový profil
 
-| Attribute | Detail |
+| Atribút | Detail |
 |-----------|--------|
-| Age | 25-35 (students + young professionals) |
-| Income | 8,000-15,000 NOK/month (~$700-1,400) |
-| Savings capacity | High (due to Norwegian Krone strength) |
-| Wedding budget | 150,000-400,000 NOK (~$15,000-40,000) |
-| Language | English fluent, Slovak minimal |
-| Decision timeline | 6-18 months before wedding |
+| Vek | 19–27 (prevažne študenti) |
+| Hlavný záujem | Spoločenské šaty (plesové, gala, Julebord) |
+| Vedľajší záujem | Svadobné šaty (staršie ročníky) |
+| Rozpočet | 100 – 400 € (vysoký v porovnaní s cenami v SR) |
+| Jazyk | Plynulá angličtina, nulová slovenčina |
 
 ---
 
-## 2. Norwegian Student Needs Analysis
+## 2. Needs Analysis: Occasion Wear vs. Wedding
 
-### 2.1 Dress Rental Requirements
+### 2.1 Spoločenské šaty (Hlavný dopyt)
 
-Norwegian students specifically seek:
+Nórski študenti hľadajú šaty na:
+1. **Julebord** (Vianočné večierky) — November/December.
+2. **Student Balls / Gala** — Jar (apríl/máj).
+3. **Graduation Ceremonies** — Jún.
 
-| Need | Priority | Solution |
+| Potreba | Priorita | Riešenie v MagicRoom |
 |------|----------|----------|
-| **Language accessibility** | Critical | Full English website, English-speaking staff |
-| **Price transparency** | High | Clear pricing in NOK or EUR |
-| **Size availability** | High | European sizes 34-44, size conversion guides |
-| **Shipping/fitting** | Medium | Option to try on before purchase, international shipping |
-| **Return policy** | High | Flexible return for international customers |
+| **Cenová výhodnosť** | Kritická | Prenájom od 12 €, predaj do 150 € (Nórsko: 300+ €) |
+| **Dostupnosť ihneď** | Vysoká | Široký skladový výber bez nutnosti objednávania |
+| **Trendy & Štýl** | Vysoká | Moderné európske strihy, ktoré v Nórsku stoja majland |
 
-### 2.2 Key Pain Points
+### 2.2 Svadobné šaty (Sekundárny dopyt)
 
-1. **Communication barrier** — Most Slovak salons only communicate in Slovak
-2. **Unknown quality** — No reviews/trust signals for Slovak businesses
-3. **Distance** — Need assurance they can handle everything remotely
-4. **Legal requirements** — Confusion about marriage requirements for foreigners
-
-### 2.3 Decision Factors
-
-Norwegian students prioritize (in order):
-1. Price transparency (no hidden costs)
-2. English communication
-3. Photo galleries of actual dresses
-4. Reviews from other international clients
-5. Easy booking/reservation process
-6. WhatsApp/English phone contact
+- **Cestovanie za šatami** — Nóri bežne nakupujú v zahraničí kvôli cenám.
+- **Osobné poradenstvo** — Vyžadujú plynulú angličtinu a trpezlivosť.
 
 ---
 
 ## 3. Competitive Analysis
 
-### Regional Competitors
-
-| Competitor | Strengths | Weaknesses |
+| Konkurent | Sila | Slabina |
 |------------|-----------|------------|
-| Slovak salons (general) | Prices | Language barrier, no EN site |
-| Norwegian rental shops | Language, trust | 3x-5x more expensive |
-| International online | Scale | No fitting, returns difficult |
-| Prague/Vienna salons | Options | Still more expensive than SK |
-
-### MagicRoom Opportunity
-
-**Positioning:** "Affordable wedding dresses in Slovakia — English spoken, Norwegian-friendly"
-
-**USP for Norwegians:**
-- 50-70% cheaper than Norway
-- Full English support
-- Personal fitting experience (not online)
-- Norwegian customers served before
+| Salóny v SR | Nízka cena | Jazyková bariéra, zastarané weby |
+| Nórske požičovne | Jazyk, dôvera | Extrémne drahé (3-5x viac) |
+| Online (ASOS, Zalando) | Škála | Nemožnosť vyskúšať, časté vrátenia |
+| **MagicRoom** | **Cena + Jazyk + Servis** | **Budovanie povedomia u cudzincov** |
 
 ---
 
 ## 4. Norwegian Keywords & SEO
 
-### High-Volume Search Terms
+### Spoločenské šaty (Gala & Party)
 
-| Norwegian | English translation | Est. monthly searches |
+| Nórsky výraz | Význam | Strategický význam |
 |-----------|---------------------|------------------------|
-| bryllupskjole leie | rent wedding dress | 1,200 |
-| billig bryllupskjole | cheap wedding dress | 800 |
-| leie bryllupskjole | rent wedding dress | 600 |
-| bryllup i utlandet | wedding abroad | 400 |
-| bryllup Slovakia | wedding Slovakia | 150 |
+| selskapskjoler | spoločenské šaty | Kľúčové slovo pre Google |
+| ballkjoler | plesové šaty | Zameranie na študentské bály |
+| galla kjole | gala šaty | Formálne udalosti |
+| leie kjole | prenájom šiat | Hlavný USP (renting is trendy) |
+| billige kjoler | lacné šaty | Cenový ťahák |
 
-### English Keywords (for EN site)
+### Svadobné šaty (Wedding)
 
-| Keyword | Est. monthly searches |
-|---------|---------------------|
-| rent wedding dress Europe | 2,500 |
-| affordable wedding dress | 3,000 |
-| wedding dress rental abroad | 400 |
-| cheap wedding dress Europe | 600 |
-| Slovak wedding dress | 100 |
+| Nórsky výraz | Význam |
+|-----------|---------------------|
+| bryllupskjole leie | prenájom svadobných šiat |
+| brudekjole slovakia | svadobné šaty Slovensko |
 
 ---
 
-## 5. Content Recommendations
+## 5. Content Recommendations for EN Site
 
-### For English Site
+### Messaging
+- **"Occasion wear for every event"** — Zdôrazniť bály a party.
+- **"Affordable elegance in Martin"** — Lokálny kontext pre študentov v Martine.
+- **"English-speaking staff"** — Kľúč k odbúraniu stresu.
+- **"Save up to 70% compared to Norway"** — Transparentné porovnanie.
 
-**Messaging should emphasize:**
-- "English spoken" (prominent)
-- Price comparison (Norway vs Slovakia)
-- "Trusted by Norwegian brides"
-- Easy booking process
-- Remote consultation available
-- WhatsApp contact
-
-### Key Phrases to Include
-
-1. "Wedding dress rental from 200 €"
-2. "English-speaking wedding consultant"
-3. "Norwegian brides welcome"
-4. "Transparent prices — no hidden fees"
-5. "Book your fitting remotely"
-
-### Page-Specific Content
-
-**Homepage EN:**
-- Hero: "Affordable Wedding Dresses in Slovakia — English Spoken"
-- Stats in NOK equivalent
-- Norwegian flag/mention in social proof
-
-**Services EN:**
-- Clear price comparison table (NOK vs €)
-- "What's included" in clear bullet points
-
-**Contact EN:**
-- WhatsApp prominently displayed
-- Response time guarantee (24h)
-- Remote consultation option
+### Key Phrases
+1. "Perfect dress for Julebord or Graduation"
+2. "Rent a designer gown from 20 €"
+3. "The only English-friendly salon in the region"
 
 ---
 
-## 6. Implementation Priorities
+## 6. Implementation Priorities (Updated)
 
 ### Phase 1 (Immediate)
-- [ ] English website with Norwegian-focused messaging
-- [ ] WhatsApp contact (preferred by Norwegians)
-- [ ] Price display in EUR with NOK comparison
-- [ ] Norwegian customer testimonials/case studies
+- [ ] Vytvoriť anglickú podstránku "Formal & Gala Dresses".
+- [ ] Pridať referencie od nórskych študentov (social proof).
+- [ ] Zverejniť cenník v EUR aj orientačne v NOK.
 
 ### Phase 2 (Short-term)
-- [ ] Size guide (EU vs Norwegian sizes)
-- [ ] Blog post: "How to plan a wedding in Slovakia as a foreigner"
-- [ ] FAQ in English addressing Norwegian concerns
-
-### Phase 3 (Medium-term)
-- [ ] Partner with Norwegian wedding planners
-- [ ] Norwegian language site (.no) if demand exists
-- [ ] Payment via Norwegian-friendly methods (Klarna, etc.)
+- [ ] Partnerstvá so študentskými spolkami (napr. nórski medici v Martine).
+- [ ] Instagram kampaň zacielená na cudzincov v regióne (English only).
 
 ---
 
-## 7. Metrics & KPIs
+## 7. Metrics & Success Indicators
 
-### Success Metrics
-
-| Metric | Target (6 months) |
+| Metrika | Cieľ (6 mesiacov) |
 |--------|-------------------|
-| Norwegian visitors/month | 200+ |
-| Booking requests from NO | 20+ |
-| Conversion rate | 5% |
-| Average order value | 400 € |
-
-### Tracking
-
-- UTMs for Norwegian traffic
-- Separate booking source tracking
-- Customer survey (nationality question)
+| Rezervácie od cudzincov | 15+ mesačne |
+| Pomer Svadba vs. Spoločenské | 20% / 80% (u študentov) |
+| Priemerná tržba (študent) | 40 – 120 € |
 
 ---
 
 ## 8. Conclusion
 
-Norwegian students represent a high-value, underserved target audience for MagicRoom's English site. They have the budget, need the service, and currently face language barriers with Slovak providers. 
-
-**Key differentiator:** Personal service + English + prices 50-70% below Norway = strong value proposition.
-
-**Next steps:** Launch EN site with Norwegian messaging, track metrics, iterate based on data.
+Nórski študenti v SR sú „zlatá baňa“ pre spoločenské šaty. Sú mladí, majú peniaze, potrebujú šaty na časté podujatia a v miestnych salónoch sa nevedia dohovoriť. MagicRoom by sa mal prezentovať ako **ich prvý bod kontaktu pre každú formálnu príležitosť v SR**.
 
 ---
-
-*Document created: 2026-04-03*
-*Author: MagicRoom Strategy Team*
+*Dokument aktualizovaný: 2026-04-05*
+*Zameranie: Occasion Wear & Norwegian Demographics*

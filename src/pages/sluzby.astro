@@ -100,7 +100,7 @@ const servicesSchema = [
     { name: 'Služby a cenník', url: '/sluzby' },
   ]}
 >
-  <Header />
+  <Header language={language} />
 
   <main class="flex-1">
     <Breadcrumbs items={[
@@ -313,7 +313,7 @@ const servicesSchema = [
       </div>
     </section>
 
-    <Footer />
+    <Footer language={language} />
     <WhatsAppFAB />
     <ScrollToTop />
   </main>

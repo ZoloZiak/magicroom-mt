@@ -1,8 +1,8 @@
 ---
 import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
 import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
-import FooterEn from '@/components/layout/FooterEn.astro';
-import HeaderEn from '@/components/layout/HeaderEn.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
@@ -19,10 +19,10 @@ const language: Language = 'en';
 const t = getTranslations(language);
 
 const servicePillars = [
-  { title: 'Wedding Dress Fitting', price: '12 € / 60 min', description: 'Calm fitting with drink.', cta: 'Book a fitting', href: BOOKING_PAGE_HREF_EN, icon: Shirt },
-  { title: 'Dress Selection', price: 'from 100 €', description: 'New models and consignment.', cta: 'Ask', href: BOOKING_PAGE_HREF_EN, icon: Sparkles },
-  { title: 'Decorations', price: 'from 0.50 €', description: 'Mirrors, vases, candlesticks.', cta: 'View', href: '/en/decorations', icon: LayoutGrid },
-  { title: 'Consulting', price: 'from 40 €', description: 'Consultations, moodboard.', cta: 'View', href: '#packages', icon: ClipboardList },
+  { title: 'Formal Dress Fitting', price: '12 € / 60 min', description: 'Calm fitting with drink.', cta: 'Book a fitting', href: BOOKING_PAGE_HREF_EN, icon: Shirt },
+  { title: 'Prom & Gala Dresses', price: 'from 12 €', description: 'High quality dresses at student prices.', cta: 'Ask', href: BOOKING_PAGE_HREF_EN, icon: Sparkles },
+  { title: 'Event Decorations', price: 'from 0.50 €', description: 'Mirrors, vases, candlesticks.', cta: 'View', href: '/en/decorations', icon: LayoutGrid },
+  { title: 'Styling Advice', price: 'from 40 €', description: 'Consultations, moodboards.', cta: 'View', href: '#packages', icon: ClipboardList },
 ];
 
 const servicePackages = SERVICE_PACKAGES_EN;
@@ -30,13 +30,13 @@ const extraServices = EXTRA_SERVICES_EN;
 ---
 
 <Layout
-  title="Services & Pricing — MagicRoom Martin"
-  description="Wedding services and packages."
+  title="Occasion Wear & Pricing — MagicRoom Martin"
+  description="Formal dress fitting, prom and gala dresses, and event decorations in Martin."
   image={IMAGE_URLS.dresses}
   breadcrumbs={[{ name: 'Home', url: '/en' }, { name: 'Services', url: '/en/services' }]}
   language="en"
 >
-  <HeaderEn />
+  <Header language={language} />
 
   <main class="flex-1">
     <Breadcrumbs items={[{ name: 'Services', url: '/en/services' }]} />
@@ -46,8 +46,8 @@ const extraServices = EXTRA_SERVICES_EN;
         <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div class="max-w-2xl">
             <Badge variant="secondary" className="mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">{t.services.heroBadge}</Badge>
-            <h1 class="font-display text-[2.9rem] leading-tight text-foreground md:text-6xl">Clear offer for the bride.</h1>
-            <p class="mt-6 text-lg leading-8 text-muted-foreground">Services that make sense.</p>
+            <h1 class="font-display text-[2.9rem] leading-tight text-foreground md:text-6xl">Clear offer for your event.</h1>
+            <p class="mt-6 text-lg leading-8 text-muted-foreground">Occasion wear services that make sense.</p>
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button asChild variant="cta" size="lg"><a href={BOOKING_PAGE_HREF_EN}>Book fitting<ArrowRight className="h-5 w-5" /></a></Button>
               <Button asChild variant="outline" size="lg"><a href={WHATSAPP_URL}>WhatsApp</a></Button>
@@ -104,7 +104,7 @@ const extraServices = EXTRA_SERVICES_EN;
       </div>
     </section>
 
-  <FooterEn />
+  <Footer language={language} />
   <WhatsAppFAB />
   <ScrollToTop />
   </main>

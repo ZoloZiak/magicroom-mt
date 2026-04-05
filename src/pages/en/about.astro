@@ -1,8 +1,8 @@
 ---
 import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
 import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
-import FooterEn from '@/components/layout/FooterEn.astro';
-import HeaderEn from '@/components/layout/HeaderEn.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import Sparkles from '@/components/layout/Sparkles.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
@@ -35,7 +35,7 @@ const storyGallery = GALLERY_ITEMS.slice(0, 4);
   breadcrumbs={[{ name: 'Home', url: '/en' }, { name: 'About', url: '/en/about' }]}
   language="en"
 >
-  <HeaderEn />
+  <Header language={language} />
 
   <main class="flex-1">
     <Breadcrumbs items={[{ name: 'About', url: '/en/about' }]} />
@@ -103,7 +103,7 @@ const storyGallery = GALLERY_ITEMS.slice(0, 4);
       </div>
     </section>
 
-  <FooterEn />
+  <Footer language={language} />
   <WhatsAppFAB />
   <ScrollToTop />
   </main>

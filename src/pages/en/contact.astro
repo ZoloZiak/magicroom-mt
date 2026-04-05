@@ -2,8 +2,8 @@
 import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
 import BookingForm from '@/components/forms/BookingForm.astro';
 import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
-import FooterEn from '@/components/layout/FooterEn.astro';
-import HeaderEn from '@/components/layout/HeaderEn.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
@@ -40,7 +40,7 @@ const faqSchema = {
   breadcrumbs={[{ name: 'Home', url: '/en' }, { name: 'Contact', url: '/en/contact' }]}
   language="en"
 >
-  <HeaderEn />
+  <Header language={language} />
 
   <main class="flex-1">
     <Breadcrumbs items={[{ name: 'Contact', url: '/en/contact' }]} />
@@ -96,7 +96,7 @@ const faqSchema = {
       </div>
     </section>
 
-  <FooterEn />
+  <Footer language={language} />
   <WhatsAppFAB />
   <ScrollToTop />
   </main>

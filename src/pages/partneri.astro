@@ -11,45 +11,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { BOOKING_PAGE_HREF, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
 import { IMAGE_ASSETS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
+import type { Language } from '@/lib/i18n';
 import { ArrowRight, Camera, ChefHat, Music, PartyPopper, Phone, Scissors } from 'lucide-react';
 
-const PARTNERS = [
-  {
-    category: 'Fotograf',
-    partners: [
-      { name: ' wedding fotograf', description: 'Profesionálne svadobné fotenie v Martine a okolí', phone: '+421 950 123 456' },
-    ],
-    icon: Camera,
-  },
-  {
-    category: 'Catering',
-    partners: [
-      { name: 'Svadobný catering', description: 'Kompletný catering pre svadby a oslavy', phone: '+421 944 567 890' },
-    ],
-    icon: ChefHat,
-  },
-  {
-    category: 'DJ & Hudba',
-    partners: [
-      { name: 'DJ Miroslav', description: 'Svadobný DJ s hudbou pre každý vkus', phone: '+421 903 234 567' },
-    ],
-    icon: Music,
-  },
-  {
-    category: 'Make-up',
-    partners: [
-      { name: 'Svadobný make-up', description: 'Profesionálny make-up pre nevesty', phone: '+421 915 678 901' },
-    ],
-    icon: Scissors,
-  },
-  {
-    category: 'Výzdoba',
-    partners: [
-      { name: 'Kvetinárstvo', description: 'Čerstvé kvety a aranžmány', phone: '+421 940 345 678' },
-    ],
-    icon: PartyPopper,
-  },
-] as const;
+const language: Language = 'sk';
 ---
 
 <Layout
@@ -62,7 +27,7 @@ const PARTNERS = [
     { name: 'Partneri', url: '/partneri' },
   ]}
 >
-  <Header />
+  <Header language={language} />
 
   <main class="flex-1">
     <section class="bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] py-16 md:py-20">
@@ -122,7 +87,7 @@ const PARTNERS = [
 
   </main>
 
-  <Footer />
+  <Footer language={language} />
   <WhatsAppFAB />
   <ScrollToTop />
 </Layout>

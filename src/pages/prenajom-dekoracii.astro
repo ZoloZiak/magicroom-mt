@@ -11,7 +11,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BOOKING_PAGE_HREF, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
 import { DECOR_CATEGORIES, DECOR_FEATURED, DECOR_POLICIES, IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
+import type { Language } from '@/lib/i18n';
 import { ArrowRight, CheckCircle2, Frame, Gift, Lamp, Phone, Sparkles, UtensilsCrossed } from 'lucide-react';
+
+const language: Language = 'sk';
 ---
 
 <Layout
@@ -24,7 +27,7 @@ import { ArrowRight, CheckCircle2, Frame, Gift, Lamp, Phone, Sparkles, UtensilsC
     { name: 'Dekorácie', url: '/prenajom-dekoracii' },
   ]}
 >
-  <Header />
+  <Header language={language} />
 
   <main class="flex-1">
     <section class="bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] py-16 md:py-20">
@@ -191,7 +194,7 @@ import { ArrowRight, CheckCircle2, Frame, Gift, Lamp, Phone, Sparkles, UtensilsC
 
   </main>
 
-  <Footer />
+  <Footer language={language} />
   <WhatsAppFAB />
   <ScrollToTop />
 </Layout>

@@ -1,7 +1,7 @@
 ---
 import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
-import FooterEn from '@/components/layout/FooterEn.astro';
-import HeaderEn from '@/components/layout/HeaderEn.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
@@ -10,7 +10,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BOOKING_PAGE_HREF_EN, EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_URL } from '@/data/site';
 import { CONSIGNMENT_BENEFITS_EN, CONSIGNMENT_CONDITIONS_EN, CONSIGNMENT_STEPS_EN, IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
+import type { Language } from '@/lib/i18n';
 import { ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
+
+const language: Language = 'en';
 ---
 
 <Layout
@@ -24,7 +27,7 @@ import { ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
   ]}
   language="en"
 >
-  <HeaderEn />
+  <Header language={language} />
 
   <main class="flex-1">
     <section class="bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] py-16 md:py-20">
@@ -165,7 +168,7 @@ import { ArrowRight, CheckCircle2, Mail, Phone } from 'lucide-react';
     </section>
   </main>
 
-  <FooterEn />
+  <Footer language={language} />
   <WhatsAppFAB />
   <ScrollToTop />
 </Layout>

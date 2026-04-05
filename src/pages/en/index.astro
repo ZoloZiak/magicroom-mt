@@ -1,8 +1,8 @@
 ---
 import BookingForm from '@/components/forms/BookingForm.astro';
 import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
-import FooterEn from '@/components/layout/FooterEn.astro';
-import HeaderEn from '@/components/layout/HeaderEn.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import Sparkles from '@/components/layout/Sparkles.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
@@ -41,14 +41,14 @@ const howToSchema = {
 ---
 
 <Layout
-  title="MagicRoom — wedding dresses, decorations and bridal concierge in Martin"
-  description="MagicRoom is a local wedding salon in Martin. Wedding dress fitting from 12 €, wedding decorations and party setup, wedding consulting and calm personal approach."
-  keywords="wedding dresses, decorations, martin, bridal concierge, wedding consulting, consignment"
+  title="MagicRoom — formal dresses, prom wear and event styling in Martin"
+  description="MagicRoom is your local salon in Martin for prom, gala and formal dresses. Dress fitting from 12 €, event decorations, styling advice and English speaking service for international students."
+  keywords="prom dresses, gala dresses, formal wear, selskapskjoler, ballkjoler, martin, event styling, graduation dresses"
   image={IMAGE_ASSETS.hero}
   structuredData={howToSchema}
   language="en"
 >
-  <HeaderEn />
+  <Header language={language} />
 
   <main class="flex-1">
     <section class="relative overflow-hidden slovak-seasons bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] pt-20">
@@ -290,7 +290,7 @@ const howToSchema = {
     </section>
   </main>
 
-  <FooterEn />
+  <Footer language={language} />
   <WhatsAppFAB />
   <ScrollToTop />
 </Layout>

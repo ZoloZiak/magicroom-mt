@@ -270,33 +270,33 @@ export const EXTRA_SERVICES = [
 
 export const SERVICE_PACKAGES_EN = [
   {
-    name: 'Small help',
+    name: 'Event Styling',
     price: '40 €',
-    description: 'Clear direction and recommendations for the bride at the beginning.',
-    features: ['1 consultation (60 min)', 'moodboard', 'decoration recommendations'],
+    description: 'Perfect for students or guests who need help with their overall event look.',
+    features: ['1 styling session (60 min)', 'color palette & accessories', 'vendor recommendations'],
   },
   {
-    name: 'Wedding Basic',
+    name: 'Event Basic',
     price: '150–200 €',
-    description: 'Most popular choice — order in preparations and vendors.',
+    description: 'Most popular choice for smaller events, balls and celebrations.',
     recommended: true,
     features: [
-      '2–3 consultations',
+      '2–3 planning sessions',
       'decoration proposal and moodboard',
       'preparation timeline',
-      'vendor recommendations',
+      'budget optimization tips',
     ],
   },
   {
-    name: 'Complete Preparation',
+    name: 'Full Coordination',
     price: '200–300 €',
-    description: 'Complete preparation and coordination of details.',
+    description: 'Complete stress-free preparation for your wedding or big event.',
     features: [
       '3–4 consultations',
       'decoration proposal and moodboard',
-      'timeline + games',
+      'timeline + entertainment plan',
       'vendor coordination',
-      'QR RSVP form',
+      'online guest management (RSVP)',
     ],
   },
 ] as const;
@@ -305,22 +305,22 @@ export const EXTRA_SERVICES_EN = [
   {
     title: 'Individual Consultation',
     price: '15 € / 60 min',
-    description: 'In person or online — budget, style, first decisions.',
+    description: 'In person or online — budget, style, dress selection advice.',
   },
   {
-    title: 'Bachelor/Bachelorette Party',
+    title: 'Student Events & Julebord',
     price: 'from 40 €',
-    description: 'Concept, program and activity tips in Basic and Premium packages.',
+    description: 'Planning, program and styling tips for student balls and parties.',
   },
   {
-    title: 'Graphics and handmade items',
-    price: 'from 15 €',
-    description: 'Announcements, glasses, t-shirts and personalized details.',
+    title: 'Custom Party Supplies',
+    price: 'from 5 €',
+    description: 'Personalized glasses, t-shirts, and handmade event details.',
   },
   {
     title: 'Online RSVP management',
     price: '18 €',
-    description: 'QR form, guest response collection and clear spreadsheet.',
+    description: 'QR form, guest response collection and guest list management.',
   },
 ] as const;
 
@@ -652,40 +652,40 @@ export const DRESS_CATALOG = [
 ] as const;
 
 export const HOME_STATS_EN = [
-  { value: '12 €', label: 'wedding dress fitting with drink included' },
-  { value: '200–700 €', label: 'wedding dresses (new & consignment)' },
+  { value: '12 €', label: 'formal dress fitting with drink included' },
+  { value: '12–150 €', label: 'gala, prom & party dresses' },
   { value: '1', label: 'salon where Natália knows you personally' },
 ] as const;
 
 export const HOME_OFFER_CARDS_EN = [
   {
-    title: 'Wedding dress fitting',
+    title: 'Formal dress fitting',
     price: '12 € / 60 min',
-    description: 'Calm fitting with drink included, space for two people and time to decide.',
+    description: 'Calm fitting for your prom, gala or event dress. Drink included.',
     href: '/en/kontakt#booking',
     cta: 'Book a time',
     icon: 'shirt',
   },
   {
+    title: 'Prom & Gala dresses',
+    price: '12–150 €',
+    description: 'Perfect for Julebord, student balls or graduation. Quality dresses at student-friendly prices.',
+    href: '/en/sluzby',
+    cta: 'View collection',
+    icon: 'sparkles',
+  },
+  {
     title: 'Wedding dresses',
     price: '200–700 €',
-    description: 'New models and consignment at fair prices — see them before visiting the salon.',
+    description: 'New models and consignment at fair prices. See them before visiting.',
     href: '/en/sluzby',
     cta: 'View services',
     icon: 'sparkles',
   },
   {
-    title: 'Formal dresses',
-    price: '12–150 €',
-    description: 'Dresses for prom, party or any occasion.',
-    href: '/en/sluzby',
-    cta: 'View services',
-    icon: 'sparkles',
-  },
-  {
-    title: 'Wedding & party decorations',
-    price: 'from 100 €',
-    description: 'Complete decoration on key — weddings, parties, events.',
+    title: 'Event decorations',
+    price: 'from 0.50 €',
+    description: 'Rent mirrors, vases, or let us handle the complete setup for your party.',
     href: '/en/prenajom-dekoracii',
     cta: 'Decorations catalog',
     icon: 'layout',
@@ -726,25 +726,25 @@ export const HOME_OFFER_CARDS_EN = [
 
 export const TRUST_REASONS_EN = [
   {
-    title: 'Prices are visible upfront',
-    description: 'No "call for price". Everything on the site.',
+    title: 'Transparent pricing',
+    description: 'No hidden fees. Student-friendly prices for gala and prom dresses.',
   },
   {
-    title: 'Personal approach from Natália',
-    description: 'Not an anonymous salon — a specific person who knows you.',
+    title: 'Personal approach',
+    description: 'Not an anonymous store. Natália will help you find the dress that fits your style.',
   },
   {
-    title: 'Practical help',
-    description: 'From moodboard to RSVP — solutions that save time and stress.',
+    title: 'Perfect for international students',
+    description: 'English speaking service, close to medical faculties, and much cheaper than in Norway.',
   },
   {
-    title: 'Everything under one roof',
-    description: 'Dresses, decorations and details — no need to run between suppliers.',
+    title: 'Everything for your event',
+    description: 'Dresses, accessories and decorations in one cozy place in Martin.',
   },
 ] as const;
 
 export const PROCESS_STEPS_EN = [
-  'Fill out a short form or write to us on WhatsApp.',
-  'Within 24 hours we\'ll get back to you and finalize the fitting or consultation time.',
-  'On-site you can calmly solve dresses, decorations and other details in one place.',
+  'Choose your favorite dresses from our online gallery.',
+  'Book a fitting via the form or WhatsApp (we speak English).',
+  'Visit our salon in Martin, enjoy a drink, and find your perfect dress.',
 ] as const;

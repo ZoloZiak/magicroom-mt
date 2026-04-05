@@ -1,6 +1,6 @@
 ---
-import FooterEn from '@/components/layout/FooterEn.astro';
-import HeaderEn from '@/components/layout/HeaderEn.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
@@ -9,7 +9,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { BOOKING_PAGE_HREF_EN, PHONE_HREF, PHONE_DISPLAY } from '@/data/site';
 import { IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
+import type { Language } from '@/lib/i18n';
 import { ArrowRight, Calendar, Clock, Phone } from 'lucide-react';
+
+const language: Language = 'en';
 
 const RELATED_POSTS = [
   {
@@ -51,7 +54,7 @@ const RELATED_POSTS = [
   ]}
   language="en"
 >
-  <HeaderEn />
+  <Header language={language} />
 
   <main class="flex-1">
     <article class="bg-surface py-16 md:py-20">
@@ -156,7 +159,7 @@ const RELATED_POSTS = [
     </article>
   </main>
 
-  <FooterEn />
+  <Footer language={language} />
   <WhatsAppFAB />
   <ScrollToTop />
 </Layout>
