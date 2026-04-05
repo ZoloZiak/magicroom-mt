@@ -13,18 +13,23 @@ import founderImage from '../assets/images/founder.png';
 import decorMainImage from '../assets/images/decor-main.jpg';
 import decorAltImage from '../assets/images/decor-alt.jpg';
 import mapImage from '../assets/images/map.png';
+import founderAvatar from '../assets/images/founder-avatar.png';
+import decorBackdrop from '../assets/images/decor-backdrop.jpg';
+import decorDetails from '../assets/images/decor-details.jpg';
+import graphicsImage from '../assets/images/graphics.png';
+import glassesImage from '../assets/images/glasses.png';
 
 export const IMAGE_ASSETS = {
   hero: heroImage,
   dresses: dressesImage,
   founder: founderImage,
-  founderAvatar: 'https://www.magicroom.sk/wp-content/uploads/2026/02/6d39468c-1f56-4919-8b0e-8af6b524c601-1-1-150x150.png',
+  founderAvatar: founderAvatar,
   decorMain: decorMainImage,
   decorAlt: decorAltImage,
-  decorBackdrop: 'https://www.magicroom.sk/wp-content/uploads/2026/02/Stolzavesy-1-1024x700.jpg',
-  decorDetails: 'https://www.magicroom.sk/wp-content/uploads/2026/02/zapichydozeme-1-1.jpg',
-  graphics: 'https://www.magicroom.sk/wp-content/uploads/2026/02/oznamenie-1.png',
-  glasses: 'https://www.magicroom.sk/wp-content/uploads/2026/02/pohare-1.png',
+  decorBackdrop: decorBackdrop,
+  decorDetails: decorDetails,
+  graphics: graphicsImage,
+  glasses: glassesImage,
   map: mapImage,
   // Salon reference photos
   satyRuzove1: '/images/salon/saty-ruzove-1.jpeg',

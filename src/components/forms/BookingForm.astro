@@ -8,12 +8,10 @@ import {
   EMAIL,
   EMAIL_HREF,
   PHONE_HREF,
-  RESPONSE_PROMISE,
-  RESPONSE_PROMISE_EN,
   WHATSAPP_BASE_URL,
   WHATSAPP_URL,
 } from '@/data/site';
-import { BOOKING_FEATURES } from '@/data/content';
+import { getTranslations } from '@/lib/translations';
 
 interface Props {
   id?: string;
@@ -24,78 +22,17 @@ interface Props {
 
 const {
   id = 'booking',
-  title: defaultTitle = 'Zarezervujte si skúšku šiat',
-  description: defaultDescription = 'Vyplňte krátky formulár a pripravíme vám správu do WhatsAppu, ktorú si pred odoslaním ešte môžete upraviť. Ak vám viac vyhovuje telefonát alebo email, nájdete ich nižšie.',
+  title: propTitle,
+  description: propDescription,
   language = 'sk',
 } = Astro.props;
 
+const t = getTranslations(language);
 const isEn = language === 'en';
+const labels = t.bookingForm;
 
-const labels = isEn ? {
-  reservation: 'Booking fitting',
-  name: 'Name',
-  namePlaceholder: 'Your name',
-  phone: 'Phone or WhatsApp',
-  phonePlaceholder: '+421 950 490 323',
-  email: 'Email',
-  emailPlaceholder: 'anna@email.sk (optional)',
-  service: 'What would you like to solve?',
-  serviceSelect: 'Choose...',
-  serviceOptions: [
-    'Wedding or formal dress fitting',
-    'Wedding consultation or timeline',
-    'Decoration rental',
-    'Wedding planning package',
-  ],
-  date: 'Preferred date',
-  time: 'Preferred time',
-  note: 'Note',
-  notePlaceholder: 'Tell us about your wedding dress preferences, wedding date or what you want to solve first.',
-  priceInfo: 'Wedding dress fitting: 12 € / 60 min • drink included • max. 2 close people.',
-  altContact: 'If you don\'t want to complete the form right now, you can also reach us directly via',
-  phoneLabel: 'phone',
-  whatsappLabel: 'WhatsApp',
-  emailLabel: 'email',
-  submit: 'Submit booking',
-  success: 'Booking sent! We\'ll get back to you within 24 hours.',
-  successWhatsapp: 'Continue on WhatsApp',
-  error: 'Something went wrong. Try again.',
-  networkError: 'Connection error. Try again or call us.',
-} : {
-  reservation: 'Rezervácia skúšky',
-  name: 'Meno',
-  namePlaceholder: 'Vaše meno',
-  phone: 'Telefón alebo WhatsApp',
-  phonePlaceholder: '+421 950 490 323',
-  email: 'Email',
-  emailPlaceholder: 'anna@email.sk (nepovinné)',
-  service: 'Čo chcete riešiť?',
-  serviceSelect: 'Vyberte si...',
-  serviceOptions: [
-    'Skúška svadobných alebo spoločenských šiat',
-    'Konzultácia k svadbe alebo harmonogramu',
-    'Prenájom dekorácií a výzdoby',
-    'Balík organizácie svadby',
-  ],
-  date: 'Preferovaný dátum',
-  time: 'Preferovaný čas',
-  note: 'Poznámka',
-  notePlaceholder: 'Napíšte nám, aké šaty hľadáte, termín svadby alebo čo chcete pri rezervácii doriešiť ako prvé.',
-  priceInfo: 'Skúška svadobných šiat: 12 € / 60 min • nápoj v cene • max. 2 blízke osoby.',
-  altContact: 'Ak nechcete formulár dokončovať hneď, môžete sa ozvať aj priamo cez',
-  phoneLabel: 'telefón',
-  whatsappLabel: 'WhatsApp',
-  emailLabel: 'email',
-  submit: 'Odoslať rezerváciu',
-  success: 'Rezervácia odoslaná! Ozveme sa vám do 24 hodín.',
-  successWhatsapp: 'Pokračovať cez WhatsApp',
-  error: 'Niečo sa pokazilo. Skúste to znova.',
-  networkError: 'Chyba pripojenia. Skúste to znova alebo nám zavolajte.',
-};
-
-const responsePromise = isEn ? RESPONSE_PROMISE_EN : RESPONSE_PROMISE;
-const title = isEn ? 'Book a fitting or send an inquiry without waiting' : defaultTitle;
-const description = isEn ? 'Fill in a few details and we\'ll prepare a WhatsApp message you can check before sending. If you prefer calling or emailing, those contacts are next to the form.' : defaultDescription;
+const title = propTitle || (isEn ? labels.reservation : 'Zarezervujte si skúšku šiat');
+const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňte krátky formulár a pripravíme vám správu do WhatsAppu, ktorú si pred odoslaním ešte môžete upraviť. Ak vám viac vyhovuje telefonát alebo email, nájdete ich nižšie.');
 ---
 
 <section id={id} class="rounded-[28px] border border-border/70 bg-white p-5 shadow-[var(--shadow-soft)] md:p-8">
@@ -159,7 +96,7 @@ const description = isEn ? 'Fill in a few details and we\'ll prepare a WhatsApp 
 
       <div class="space-y-2">
         <Label for={`${id}-time`}>{labels.time}</Label>
-        <Input className="form-input" id={`${id}-time`} name="time" placeholder={isEn ? 'e.g. Friday afternoon' : 'napr. piatok poobede'} />
+        <Input className="form-input" id={`${id}-time`} name="time" placeholder={labels.timePlaceholder} />
       </div>
     </div>
 
@@ -176,7 +113,7 @@ const description = isEn ? 'Fill in a few details and we\'ll prepare a WhatsApp 
 
     <div class="rounded-2xl bg-primary-900 px-5 py-4 text-sm text-white/80">
       <p class="font-medium text-white">{labels.priceInfo}</p>
-      <p class="mt-1">{responsePromise} {isEn ? 'After sending, you\'ll get the option to continue on WhatsApp.' : 'Po odoslaní dostanete možnosť pokračovať aj cez WhatsApp.'}</p>
+      <p class="mt-1">{t.common.replyNote} {labels.whatsappPre}</p>
     </div>
 
     <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -219,7 +156,7 @@ const description = isEn ? 'Fill in a few details and we\'ll prepare a WhatsApp 
 
       if (button) {
         button.setAttribute('disabled', 'true');
-        button.innerHTML = '<svg class="mr-2 h-4 w-4 animate-spin inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Odosielame…';
+        button.innerHTML = `<svg class="mr-2 h-4 w-4 animate-spin inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> ${labels.submitting}`;
       }
 
       try {
@@ -236,7 +173,7 @@ const description = isEn ? 'Fill in a few details and we\'ll prepare a WhatsApp 
             status.classList.remove('hidden');
             status.classList.remove('border-destructive/30', 'bg-destructive/10');
             status.classList.add('border-success/30', 'bg-success/10');
-            status.textContent = isEn ? 'Booking sent! We\'ll get back to you within 24 hours.' : 'Rezervácia odoslaná! Ozveme sa vám do 24 hodín.';
+            status.textContent = labels.success;
           }
 
           // Track successful booking form submission
@@ -244,24 +181,17 @@ const description = isEn ? 'Fill in a few details and we\'ll prepare a WhatsApp 
             window.trackEvent('conversion', 'booking_form_success', `booking_submitted_${language}`, 1);
           }
 
-          const lines = isEn ? [
-            'Hello, I would like to book an appointment at MagicRoom.',
+          const lines = [
+            labels.whatsappLines.intro,
             '',
-            `Name: ${entries.name ?? ''}`,
-            `Phone: ${entries.phone ?? ''}`,
-            `Email: ${entries.email ?? ''}`,
-            `Interest: ${entries.service ?? ''}`,
-          ] : [
-            'Dobrý deň, chcela by som si rezervovať termín v MagicRoom.',
-            '',
-            `Meno: ${entries.name ?? ''}`,
-            `Telefón: ${entries.phone ?? ''}`,
-            `Email: ${entries.email ?? ''}`,
-            `Záujem: ${entries.service ?? ''}`,
+            `${labels.whatsappLines.name}: ${entries.name ?? ''}`,
+            `${labels.whatsappLines.phone}: ${entries.phone ?? ''}`,
+            `${labels.whatsappLines.email}: ${entries.email ?? ''}`,
+            `${labels.whatsappLines.interest}: ${entries.service ?? ''}`,
           ];
-          if (entries.date) lines.push(isEn ? `Preferred date: ${entries.date}` : `Preferovaný dátum: ${entries.date}`);
-          if (entries.time) lines.push(isEn ? `Preferred time: ${entries.time}` : `Preferovaný čas: ${entries.time}`);
-          if (entries.note) lines.push(isEn ? `Note: ${entries.note}` : `Poznámka: ${entries.note}`);
+          if (entries.date) lines.push(`${labels.whatsappLines.date}: ${entries.date}`);
+          if (entries.time) lines.push(`${labels.whatsappLines.time}: ${entries.time}`);
+          if (entries.note) lines.push(`${labels.whatsappLines.note}: ${entries.note}`);
 
           if (whatsappLink) {
             const url = new URL(WHATSAPP_BASE_URL);
@@ -280,7 +210,7 @@ const description = isEn ? 'Fill in a few details and we\'ll prepare a WhatsApp 
             status.classList.remove('hidden');
             status.classList.remove('border-success/30', 'bg-success/10');
             status.classList.add('border-destructive/30', 'bg-destructive/10');
-            status.textContent = isEn ? 'Something went wrong. Try again.' : result.error || 'Niečo sa pokazilo. Skúste to znova.';
+            status.textContent = labels.error;
           }
         }
       } catch {
@@ -288,13 +218,13 @@ const description = isEn ? 'Fill in a few details and we\'ll prepare a WhatsApp 
           status.classList.remove('hidden');
           status.classList.remove('border-success/30', 'bg-success/10');
           status.classList.add('border-destructive/30', 'bg-destructive/10');
-          status.textContent = isEn ? 'Connection error. Try again or call us.' : 'Chyba pripojenia. Skúste to znova alebo nám zavolajte.';
+          status.textContent = labels.networkError;
         }
       }
 
       if (button) {
         button.removeAttribute('disabled');
-        button.textContent = 'Odoslať rezerváciu';
+        button.textContent = labels.submit;
       }
     });
   });

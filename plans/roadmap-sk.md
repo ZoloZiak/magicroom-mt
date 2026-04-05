@@ -33,9 +33,10 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 | SEO basics | DONE | Meta tags, sitemap, Schema.org |
 | Social proof section | DONE | Google recenzie link v pätičke |
 | Google Analytics | DONE | GA4 configured, disabled on local/CI |
-| Speed optimization | PARTIAL | LCP, headers — viac možno |
-| Google Business Profile | DONE | Overené v Google Search Console |
-| Jazykové prepínanie (i18n) | DONE | Opravené 404 a asymetrické slugy |
+| Speed optimization | ✅ DONE | LCP, local assets, i18n consolidation |
+| Google Analytics | ✅ DONE | GA4 configured with conversions |
+| Google Business Profile | ✅ DONE | Verified and active |
+| Jazykové prepínanie (i18n) | ✅ DONE | Consistently using translations.ts |
 | Refaktoring Header/Footer | DONE | Zjednotená logika cez preklady |
 | SEO Hreflang | DONE | Prepojenie SK/EN verzií |
 
@@ -53,8 +54,8 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 |-----------|--------|----------|
 | Social proof section | DONE | Google recenzie link |
 | Google Business Profile | DONE | Overené v Google Search Console |
-| Speed optimization | PARTIAL | LCP, headers |
-| Google Analytics | TODO | Sledovanie konverzií |
+| Speed optimization | ✅ DONE | LCP, local assets |
+| Google Analytics | ✅ DONE | GA4 configured with conversions |
 
 ### Fáza 3: Rozšírenie (voliteľné)
 
@@ -306,23 +307,23 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 
 | Úloha | Status | Poznámky |
 |-------|--------|----------|
-| Image optimization (6 kritických obrázkov) | ✅ DONE | Presun z WordPress do src/assets/ |
+| Image optimization | ✅ DONE | Všetky obrázky presunuté z WordPress do src/assets/ |
+| Centralize translations | ✅ DONE | Všetky preklady v translations.ts (vrátane BookingForm a Header) |
+| Refactor Header | ✅ DONE | Mobilné menu cez Tailwind, bez inline štýlov |
+| API Integration | ✅ DONE | BookingForm napojený na /api/booking |
+| FAQ section | ✅ DONE | Implementované na kontaktnej stránke s vyhľadávaním |
 | Gallery + Lightbox | ✅ DONE | Pridané na SK + EN stránky |
-| FAQ search filter | ✅ DONE | Na contact stránke |
-| Partners page | ✅ DONE | Odporúčaní dodávatelia |
-| Unit tests fix | ✅ DONE | NAV_LINKS count updated |
 | Fonts localization | ✅ DONE | Satoshi + DM Sans lokálne |
-| Centralize translations | ✅ DONE | getTranslations() v .astro súboroch |
-| EN page URLs (English slugs) | ✅ DONE | /en/contact nie /en/kontakt |
-| Build + tests pass | ✅ DONE | 56 unit + 59 E2E |
+| EN page URLs (English slugs) | ✅ DONE | /en/contact, /en/about atď. |
+| Build + tests pass | ✅ DONE | Verifikované |
 
 **Audit odporúčania (status):**
 
-1. ✅ Optimize Images - DONE (presun obrázkov lokálne)
-2. ✅ Centralize Translations - DONE (getTranslations)
-3. ⏸️ Modernize Routing - Nízka priorita (duplikácia OK)
+1. ✅ Optimize Images - DONE
+2. ✅ Centralize Translations - DONE
+3. ⏸️ Modernize Routing - Preskočené (súčasný stav je prehľadný a funkčný pre malý web)
 4. ✅ Localize Fonts - DONE
-5. ⏸️ Audit shadcn/Tailwind v4 - Voliteľné
+5. ✅ UI Component Refactor - DONE (Header & Mobile menu)
 
 **P0 - Kritické (opravené):**
 

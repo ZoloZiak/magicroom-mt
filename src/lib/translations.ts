@@ -68,6 +68,49 @@ export interface Translations {
     nextStepsDesc1: string;
     nextStepsDesc2: string;
   };
+  bookingForm: {
+    reservation: string;
+    name: string;
+    namePlaceholder: string;
+    phone: string;
+    phonePlaceholder: string;
+    email: string;
+    emailPlaceholder: string;
+    service: string;
+    serviceSelect: string;
+    serviceOptions: string[];
+    date: string;
+    time: string;
+    timePlaceholder: string;
+    note: string;
+    notePlaceholder: string;
+    priceInfo: string;
+    altContact: string;
+    phoneLabel: string;
+    whatsappLabel: string;
+    emailLabel: string;
+    submit: string;
+    submitting: string;
+    success: string;
+    successWhatsapp: string;
+    error: string;
+    networkError: string;
+    whatsappPre: string;
+    whatsappLines: {
+      intro: string;
+      name: string;
+      phone: string;
+      email: string;
+      interest: string;
+      date: string;
+      time: string;
+      note: string;
+    };
+  };
+  header: {
+    mobileNavigation: string;
+    mobileCallDirectly: string;
+  };
 }
 
 const sk: Translations = {
@@ -153,6 +196,54 @@ const sk: Translations = {
     heroBadge: 'O nás • MagicRoom Martin',
     heroTitle: 'Za MagicRoom stojí Natália',
   },
+  bookingForm: {
+    reservation: 'Rezervácia skúšky',
+    name: 'Meno',
+    namePlaceholder: 'Vaše meno',
+    phone: 'Telefón alebo WhatsApp',
+    phonePlaceholder: '+421 950 490 323',
+    email: 'Email',
+    emailPlaceholder: 'anna@email.sk (nepovinné)',
+    service: 'Čo chcete riešiť?',
+    serviceSelect: 'Vyberte si...',
+    serviceOptions: [
+      'Skúška svadobných alebo spoločenských šiat',
+      'Konzultácia k svadbe alebo harmonogramu',
+      'Prenájom dekorácií a výzdoby',
+      'Balík organizácie svadby',
+    ],
+    date: 'Preferovaný dátum',
+    time: 'Preferovaný čas',
+    timePlaceholder: 'napr. piatok poobede',
+    note: 'Poznámka',
+    notePlaceholder: 'Napíšte nám, aké šaty hľadáte, termín svadby alebo čo chcete pri rezervácii doriešiť ako prvé.',
+    priceInfo: 'Skúška svadobných šiat: 12 € / 60 min • nápoj v cene • max. 2 blízke osoby.',
+    altContact: 'Ak nechcete formulár dokončovať hneď, môžete sa ozvať aj priamo cez',
+    phoneLabel: 'telefón',
+    whatsappLabel: 'WhatsApp',
+    emailLabel: 'email',
+    submit: 'Odoslať rezerváciu',
+    submitting: 'Odosielame…',
+    success: 'Rezervácia odoslaná! Ozveme sa vám do 24 hodín.',
+    successWhatsapp: 'Pokračovať cez WhatsApp',
+    error: 'Niečo sa pokazilo. Skúste to znova.',
+    networkError: 'Chyba pripojenia. Skúste to znova alebo nám zavolajte.',
+    whatsappPre: 'Po odoslaní dostanete možnosť pokračovať aj cez WhatsApp.',
+    whatsappLines: {
+      intro: 'Dobrý deň, chcela by som si rezervovať termín v MagicRoom.',
+      name: 'Meno',
+      phone: 'Telefón',
+      email: 'Email',
+      interest: 'Záujem',
+      date: 'Preferovaný dátum',
+      time: 'Preferovaný čas',
+      note: 'Poznámka',
+    },
+  },
+  header: {
+    mobileNavigation: 'Navigácia',
+    mobileCallDirectly: 'Alebo zavolajte priamo',
+  },
 };
 
 const en: Translations = {
@@ -237,6 +328,54 @@ const en: Translations = {
     pageDescription: 'MagicRoom is a wedding salon in Martin run by Natália Ondrejková. Personalized approach and experience.',
     heroBadge: 'About • MagicRoom Martin',
     heroTitle: 'Behind MagicRoom is Natália',
+  },
+  bookingForm: {
+    reservation: 'Booking fitting',
+    name: 'Name',
+    namePlaceholder: 'Your name',
+    phone: 'Phone or WhatsApp',
+    phonePlaceholder: '+421 950 490 323',
+    email: 'Email',
+    emailPlaceholder: 'anna@email.sk (optional)',
+    service: 'What would you like to solve?',
+    serviceSelect: 'Choose...',
+    serviceOptions: [
+      'Wedding or formal dress fitting',
+      'Wedding consultation or timeline',
+      'Decoration rental',
+      'Wedding planning package',
+    ],
+    date: 'Preferred date',
+    time: 'Preferred time',
+    timePlaceholder: 'e.g. Friday afternoon',
+    note: 'Note',
+    notePlaceholder: 'Tell us about your wedding dress preferences, wedding date or what you want to solve first.',
+    priceInfo: 'Wedding dress fitting: 12 € / 60 min • drink included • max. 2 close people.',
+    altContact: 'If you don\'t want to complete the form right now, you can also reach us directly via',
+    phoneLabel: 'phone',
+    whatsappLabel: 'WhatsApp',
+    emailLabel: 'email',
+    submit: 'Submit booking',
+    submitting: 'Sending...',
+    success: 'Booking sent! We\'ll get back to you within 24 hours.',
+    successWhatsapp: 'Continue on WhatsApp',
+    error: 'Something went wrong. Try again.',
+    networkError: 'Connection error. Try again or call us.',
+    whatsappPre: 'After sending, you\'ll get the option to continue on WhatsApp.',
+    whatsappLines: {
+      intro: 'Hello, I would like to book an appointment at MagicRoom.',
+      name: 'Name',
+      phone: 'Phone',
+      email: 'Email',
+      interest: 'Interest',
+      date: 'Preferred date',
+      time: 'Preferred time',
+      note: 'Note',
+    },
+  },
+  header: {
+    mobileNavigation: 'Navigation',
+    mobileCallDirectly: 'Or call directly',
   },
 };
 
