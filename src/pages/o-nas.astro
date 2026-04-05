@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
 import CTASection from '@/components/layout/CTASection.astro';
 import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
@@ -109,19 +110,24 @@ const operatingPrinciples = [
             <div class="absolute -bottom-8 -right-8 hidden h-36 w-36 rounded-full bg-primary/15 blur-3xl md:block"></div>
 
             <div class="photo-card-lg">
-              <img
-                src={IMAGE_URLS.founder}
+              <Image
+                src={IMAGE_ASSETS.founder}
                 alt="Natália Ondrejková, zakladateľka MagicRoom."
                 class="max-h-[700px] w-full rounded-[24px] bg-surface object-contain"
+                width={800}
+                height={1000}
+                loading="eager"
               />
             </div>
 
             <div class="mt-6 grid gap-5 sm:grid-cols-2 sm:items-start">
               <div class="rounded-[28px] border border-border/70 bg-white p-5 shadow-[var(--shadow-soft)]">
-                <img
+                <Image
                   src={IMAGE_ASSETS.founderAvatar}
                   alt="Portrét Natálie Ondrejkovej."
                   class="h-40 w-40 rounded-full object-cover shadow-[0_8px_30px_rgba(184,122,142,0.25)]"
+                  width={160}
+                  height={160}
                   loading="lazy"
                   decoding="async"
                 />
@@ -192,13 +198,15 @@ const operatingPrinciples = [
               'group overflow-hidden rounded-[30px] border border-white/60 bg-white p-3 shadow-[var(--shadow-soft)]',
               index === 0 ? 'md:row-span-2' : '',
             ]}>
-              <img
+              <Image
                 src={item.src}
                 alt={item.alt}
                 class:list={[
                   'w-full rounded-[22px] bg-surface object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-105',
                   index === 0 ? 'h-full min-h-[420px]' : 'h-[260px]',
                 ]}
+                width={index === 0 ? 800 : 600}
+                height={index === 0 ? 1000 : 400}
                 loading="lazy"
                 decoding="async"
               />
