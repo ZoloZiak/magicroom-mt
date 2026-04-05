@@ -33,19 +33,6 @@ const socialLinks = isEn ? SOCIAL_LINKS_EN : SOCIAL_LINKS;
 const bookingPageHref = isEn ? BOOKING_PAGE_HREF_EN : BOOKING_PAGE_HREF;
 const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingPageHref;
 const gaLabelSuffix = isEn ? '_en' : '';
-
-const footerDescription = isEn
-  ? 'Boutique wedding salon in Martin for brides who want dresses, decorations and calm consulting without chaos.'
-  : 'Boutique svadobný salón v Martine pre nevesty, ktoré chcú šaty, dekorácie a pokojné poradenstvo bez chaosu.';
-
-const ctaText = isEn ? 'Book a fitting' : 'Rezervovať skúšku';
-const callText = isEn ? 'Call' : 'Zavolať';
-const contactTitle = isEn ? 'Contact' : 'Kontakt';
-const navTitle = isEn ? 'Navigation' : 'Navigácia';
-const copyrightText = isEn
-  ? `© ${COPYRIGHT_YEAR} MagicRoom. All rights reserved.`
-  : `© ${COPYRIGHT_YEAR} MagicRoom. Všetky práva vyhradené.`;
-const directionsText = isEn ? 'How to get here' : 'Ako sa k nám dostať';
 ---
 
 <footer class="mt-auto bg-primary-900 py-12 text-white">
@@ -54,16 +41,18 @@ const directionsText = isEn ? 'How to get here' : 'Ako sa k nám dostať';
       <div class="lg:col-span-2">
         <h3 class="mb-4 font-display text-2xl">MagicRoom</h3>
         <p class="mb-6 max-w-md text-white/70">
-          {footerDescription}
+          {t.common.footerDescription}
         </p>
 
         <div class="mb-6 flex flex-wrap gap-3">
-          <Button asChild variant="secondary" size="sm">
-            <a href={bookingHref} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label={`footer_cta${gaLabelSuffix}`}>{ctaText}</a>
-          </Button>
-          <Button asChild variant="outline" size="sm" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
-            <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" data-ga-label={`footer_phone${gaLabelSuffix}`}>{callText}</a>
-          </Button>
+          <div class="mb-6 flex flex-wrap gap-3">
+            <Button asChild variant="secondary" size="sm">
+              <a href={bookingHref} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label={`footer_cta${gaLabelSuffix}`}>{t.nav.bookAppointment}</a>
+            </Button>
+            <Button asChild variant="outline" size="sm" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
+              <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" data-ga-label={`footer_phone${gaLabelSuffix}`}>{t.common.callNow}</a>
+            </Button>
+          </div>
         </div>
 
         <div class="flex flex-wrap gap-4">
@@ -94,7 +83,7 @@ const directionsText = isEn ? 'How to get here' : 'Ako sa k nám dostať';
       </div>
 
       <div>
-        <h4 class="mb-4 font-semibold">{contactTitle}</h4>
+        <h4 class="mb-4 font-semibold">{t.nav.contact}</h4>
         <div class="flex flex-col gap-3">
           <a
             href={EMAIL_HREF}
@@ -132,7 +121,7 @@ const directionsText = isEn ? 'How to get here' : 'Ako sa k nám dostať';
       </div>
 
       <div>
-        <h4 class="mb-4 font-semibold">{navTitle}</h4>
+        <h4 class="mb-4 font-semibold">{t.nav.home}</h4>
         <ul class="space-y-2 text-white/70">
           {navLinks.map((link) => (
             <li><a href={link.href} class="transition-colors hover:text-white">{link.label}</a></li>
@@ -144,9 +133,9 @@ const directionsText = isEn ? 'How to get here' : 'Ako sa k nám dostať';
     <div class="my-8 h-px bg-white/15"></div>
 
     <div class="flex flex-col items-center justify-between gap-4 text-sm text-white/50 md:flex-row">
-      <p>{copyrightText}</p>
+      <p>{t.common.copyrightText}</p>
       <a href={MAP_URL} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-white">
-        {directionsText}
+        {t.common.directionsText}
       </a>
     </div>
   </div>

@@ -24,7 +24,6 @@ const currentPath = Astro.url.pathname;
 const isEn = language === 'en';
 
 const navLinks = isEn ? NAV_LINKS_EN : NAV_LINKS;
-const responsePromise = isEn ? RESPONSE_PROMISE_EN : RESPONSE_PROMISE;
 const bookingPageHref = isEn ? BOOKING_PAGE_HREF_EN : BOOKING_PAGE_HREF;
 const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingPageHref;
 const gaLabelSuffix = isEn ? '_en' : '';
@@ -33,17 +32,17 @@ const gaLabelSuffix = isEn ? '_en' : '';
 <header class="sticky top-0 z-50 w-full border-b border-border/70 bg-background/80 shadow-[var(--shadow-sm)] backdrop-blur-xl">
   <div class="hidden border-b border-border/50 bg-white/60 md:block">
     <div class="container mx-auto flex h-10 items-center justify-between px-4 text-[11px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
-      <p>{isEn ? 'Wedding dress fitting' : 'Skúška svadobných šiat'} 12 € / 60 min</p>
+      <p>{t.common.fittingNote} {t.common.fittingPrice}</p>
       <div class="flex items-center gap-6">
-        <p>{isEn ? 'Martin • by appointment' : 'Martin • na objednávku'}</p>
+        <p>{t.common.visitNote}</p>
         <a href={PHONE_HREF} class="hover:text-foreground" data-ga-category="contact" data-ga-action="phone_click" data-ga-label={`header_phone${gaLabelSuffix}`}>{PHONE_DISPLAY}</a>
-        <p>{responsePromise}</p>
+        <p>{t.common.replyNote}</p>
       </div>
     </div>
   </div>
 
   <nav class="container mx-auto flex h-[4.5rem] items-center justify-between px-4">
-    <a href={isEn ? '/en' : '/'} class="group flex items-center gap-3" aria-label="MagicRoom {isEn ? 'home' : 'domov'}">
+    <a href={isEn ? '/en' : '/'} class="group flex items-center gap-3" aria-label={`MagicRoom ${isEn ? 'home' : 'domov'}`}>
       <img
         src="/images/logo.jpeg"
         alt="MagicRoom logo"
@@ -53,7 +52,7 @@ const gaLabelSuffix = isEn ? '_en' : '';
       />
       <div class="hidden sm:block">
         <span class="block font-display text-[1.45rem] leading-none transition-colors group-hover:text-primary">MagicRoom</span>
-        <span class="mt-1 block text-[10px] uppercase tracking-[0.34em] text-muted-foreground">bridal concierge • Martin</span>
+        <span class="mt-1 block text-[10px] uppercase tracking-[0.34em] text-muted-foreground">{t.common.logoSubtext}</span>
       </div>
     </a>
 
@@ -95,7 +94,7 @@ const gaLabelSuffix = isEn ? '_en' : '';
   </nav>
 </header>
 
-<div id="mobile-menu-root" data-phone-href={PHONE_HREF} data-phone-display={PHONE_DISPLAY} data-response={responsePromise} data-booking-href={bookingHref} data-nav={JSON.stringify(navLinks)} data-is-en={isEn}></div>
+<div id="mobile-menu-root" data-phone-href={PHONE_HREF} data-phone-display={PHONE_DISPLAY} data-response={t.common.replyNote} data-booking-href={bookingHref} data-nav={JSON.stringify(navLinks)} data-is-en={isEn}></div>
 
 <script>
   const root = document.getElementById('mobile-menu-root');

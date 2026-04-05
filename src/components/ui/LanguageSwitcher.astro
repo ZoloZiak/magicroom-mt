@@ -1,5 +1,5 @@
 ---
-import type { Language } from '@/lib/i18n';
+import { getAlternateLanguageUrl, type Language } from '@/lib/i18n';
 
 interface Props {
   currentLanguage: Language;
@@ -9,14 +9,7 @@ const { currentLanguage } = Astro.props;
 const nextLanguage = currentLanguage === 'sk' ? 'en' : 'sk';
 const nextLabel = currentLanguage === 'sk' ? 'EN' : 'SK';
 
-const currentPath = Astro.url.pathname;
-
-let targetPath: string;
-if (currentLanguage === 'sk') {
-  targetPath = currentPath === '/' ? '/en' : `/en${currentPath}`;
-} else {
-  targetPath = currentPath === '/en' ? '/' : currentPath.replace('/en', '') || '/';
-}
+const targetPath = getAlternateLanguageUrl(Astro.url, currentLanguage);
 ---
 
 <a

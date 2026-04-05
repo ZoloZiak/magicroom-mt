@@ -35,6 +35,9 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 | Google Analytics | DONE | GA4 configured, disabled on local/CI |
 | Speed optimization | PARTIAL | LCP, headers — viac možno |
 | Google Business Profile | DONE | Overené v Google Search Console |
+| Jazykové prepínanie (i18n) | DONE | Opravené 404 a asymetrické slugy |
+| Refaktoring Header/Footer | DONE | Zjednotená logika cez preklady |
+| SEO Hreflang | DONE | Prepojenie SK/EN verzií |
 
 ### Fáza 2: Konverzia (1 týždeň)
 

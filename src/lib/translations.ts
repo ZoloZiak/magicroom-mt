@@ -44,6 +44,14 @@ export interface Translations {
     readMore: string;
     viewAll: string;
     reserve: string;
+    visitNote: string;
+    replyNote: string;
+    fittingNote: string;
+    fittingPrice: string;
+    logoSubtext: string;
+    footerDescription: string;
+    copyrightText: string;
+    directionsText: string;
   };
   contact: {
     pageTitle: string;
@@ -106,6 +114,14 @@ const sk: Translations = {
     readMore: 'Čítať viac',
     viewAll: 'Pozrieť všetky',
     reserve: 'Rezervovať',
+    visitNote: 'Martin • na objednávku',
+    replyNote: 'Ozveme sa vám do 24 hodín.',
+    fittingNote: 'Skúška svadobných šiat',
+    fittingPrice: '12 € / 60 min',
+    logoSubtext: 'bridal concierge • Martin',
+    footerDescription: 'Boutique svadobný salón v Martine pre nevesty, ktoré chcú šaty, dekorácie a pokojné poradenstvo bez chaosu.',
+    copyrightText: `© ${new Date().getFullYear()} MagicRoom. Všetky práva vyhradené.`,
+    directionsText: 'Ako sa k nám dostať',
   },
   contact: {
     pageTitle: 'Kontakt a rezervácia skúšky šiat — MagicRoom Martin',
@@ -183,6 +199,14 @@ const en: Translations = {
     readMore: 'Read more',
     viewAll: 'View all',
     reserve: 'Reserve',
+    visitNote: 'Martin • by appointment',
+    replyNote: "We'll get back to you within 24 hours.",
+    fittingNote: 'Wedding dress fitting',
+    fittingPrice: '12 € / 60 min',
+    logoSubtext: 'bridal concierge • Martin',
+    footerDescription: 'Boutique wedding salon in Martin for brides who want dresses, decorations and calm consulting without chaos.',
+    copyrightText: `© ${new Date().getFullYear()} MagicRoom. All rights reserved.`,
+    directionsText: 'How to get here',
   },
   contact: {
     pageTitle: 'Occasion Wear & Formal Dress Fitting — MagicRoom Martin',
