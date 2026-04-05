@@ -11,7 +11,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BOOKING_PAGE_HREF_EN, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
 import { DECOR_CATEGORIES_EN, DECOR_FEATURED_EN, DECOR_POLICIES_EN, IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
+import type { Language } from '@/lib/i18n';
 import { ArrowRight, CheckCircle2, Frame, Gift, Lamp, Phone, Sparkles, UtensilsCrossed } from 'lucide-react';
+
+const language: Language = 'en';
 ---
 
 <Layout

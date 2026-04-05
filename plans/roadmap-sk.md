@@ -67,6 +67,24 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 
 ---
 
+### Fáza 4: Medzinárodná expanzia (1-2 týždne)
+
+**Ciele:**
+- Osloviť komunitu nórskych študentov v Martine (ANSAM).
+- Optimalizovať EN verziu pre "Occasion Wear" (spoločenské šaty).
+- Zvýšiť viditeľnosť u cudzincov v regióne Turiec.
+
+**Rozsah:**
+
+| Komponent | Status | Poznámky |
+|-----------|--------|----------|
+| Audit prekladov pre študentov | DONE | Julebord, Gala, Occasion Wear |
+| Podstránka "Occasion Wear" EN | TODO | Špeciálne zameranie na bály |
+| Referencie nórskych študentov | TODO | Social proof |
+| Kontaktovanie ANSAM Martin | TODO | Potenciálne partnerstvo |
+
+---
+
 ## 2. Odhadovaný čas
 
 ### Fáza 1 — MVP

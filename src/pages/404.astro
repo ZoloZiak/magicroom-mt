@@ -5,7 +5,10 @@ import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import { Button } from '@/components/ui/button';
 import Layout from '@/layouts/Layout.astro';
+import type { Language } from '@/lib/i18n';
 import { Home } from 'lucide-react';
+
+const language: Language = 'sk';
 
 const backLink = Astro.url.searchParams.get('from') || '/';
 ---
@@ -14,7 +17,7 @@ const backLink = Astro.url.searchParams.get('from') || '/';
   title="Stránka sa nenašla | MagicRoom"
   description="Ospravedlňujeme sa, požadovaná stránka neexistuje."
 >
-  <Header />
+  <Header language={language} />
 
   <main>
     <section class="flex min-h-[60vh] items-center justify-center">
@@ -38,7 +41,7 @@ const backLink = Astro.url.searchParams.get('from') || '/';
     </section>
   </main>
 
-  <Footer />
+  <Footer language={language} />
   <WhatsAppFAB />
   <ScrollToTop />
 </Layout>

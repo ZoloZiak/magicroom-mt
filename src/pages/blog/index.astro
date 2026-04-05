@@ -8,7 +8,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { IMAGE_ASSETS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
+import type { Language } from '@/lib/i18n';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
+
+const language: Language = 'sk';
 
 const BLOG_POSTS = [
   {
@@ -51,7 +54,7 @@ const BLOG_POSTS = [
     { name: 'Blog', url: '/blog' },
   ]}
 >
-  <Header />
+  <Header language={language} />
 
   <main class="flex-1">
     <section class="bg-surface py-16 md:py-20">
@@ -108,7 +111,7 @@ const BLOG_POSTS = [
     </section>
   </main>
 
-  <Footer />
+  <Footer language={language} />
   <WhatsAppFAB />
   <ScrollToTop />
 </Layout>

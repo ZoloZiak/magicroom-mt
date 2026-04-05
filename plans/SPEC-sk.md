@@ -77,6 +77,12 @@ CTA:            #FF69B4  (Barbie Pink — výzva k akcii)
 /prenajom-dekoracii     — Katalóg dekorácií s cenníkom
 /kontakt                — Formulár + mapa + WhatsApp
 /404                    — Vlastná 404 stránka (CTA na homepage)
+
+/en                     — Homepage (EN - zameranie na medzinárodných študentov)
+/en/services            — Services (EN - priorita: Occasion Wear, Julebord, Gala)
+/en/dresses             — Wedding & Formal Dresses Catalog
+/en/about               — About us (EN)
+/en/contact             — Contact (EN)
 ```
 
 ### Štruktúra Homepage (priority)

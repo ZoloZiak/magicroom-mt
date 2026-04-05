@@ -11,8 +11,11 @@ import { Button } from '@/components/ui/button';
 import { BOOKING_PAGE_HREF_EN, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_URL } from '@/data/site';
 import { IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
 import Layout from '@/layouts/Layout.astro';
+import type { Language } from '@/lib/i18n';
 import { ArrowRight, Phone, Sparkles } from 'lucide-react';
 import { getDresses } from '@/lib/dresses';
+
+const language: Language = 'en';
 
 const dresses = getDresses();
 const availableDresses = dresses.filter(d => d.status === 'available');

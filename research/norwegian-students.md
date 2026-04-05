@@ -11,7 +11,7 @@ Tento dokument analyzuje nórskych študentov ako kľúčovú cieľovú skupinu 
 ### Prečo nórski študenti?
 
 - **Vysoká kúpna sila** — Nóri dostávajú štedrú podporu od Lånekassen (štátny fond), v priemere 10 000–12 000 NOK/mesiac.
-- **Štúdium v SR** — V Martin, Bratislave a Košiciach študuje 2 000+ Nórov (najmä medicínu a veterinu).
+- **Štúdium v Martine** — V Martine na Jesseniovej lekárskej fakulte (JLF UK) študuje cca 500 – 600 nórskych študentov (celkovo v SR cez 2 000). Sú organizovaní v rámci **ANSAM** (Association of Norwegian Students Abroad).
 - **Kultúra udalostí** — Nórska študentská komunita organizuje bály, galavečery a vianočné večierky (**Julebord**), kde sú formálne šaty povinné.
 - **Svadby (Niche)** — Svadby v tomto veku sú menej časté, ale vyskytujú sa u starších študentov (končiace ročníky) alebo mladých profesionálov.
 
@@ -19,11 +19,12 @@ Tento dokument analyzuje nórskych študentov ako kľúčovú cieľovú skupinu 
 
 | Atribút | Detail |
 |-----------|--------|
-| Vek | 19–27 (prevažne študenti) |
+| Vek | 19–27 (prevažne študenti medicíny) |
 | Hlavný záujem | Spoločenské šaty (plesové, gala, Julebord) |
 | Vedľajší záujem | Svadobné šaty (staršie ročníky) |
 | Rozpočet | 100 – 400 € (vysoký v porovnaní s cenami v SR) |
-| Jazyk | Plynulá angličtina, nulová slovenčina |
+| Jazyk | Plynulá angličtina, nórčina, minimálna slovenčina |
+| Komunita | Silná väzba na ANSAM Martin |
 
 ---
 
