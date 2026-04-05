@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import CTASection from '@/components/layout/CTASection.astro';
 import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
 import Footer from '@/components/layout/Footer.astro';
@@ -68,9 +69,11 @@ const GALLERY_IMAGES = [
               data-index={index}
               aria-label="Zoom photo"
             >
-              <img
+              <Image
                 src={img.src}
                 alt={img.alt}
+                width={800}
+                height={600}
                 class="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 loading={index < 4 ? 'eager' : 'lazy'}
               />
