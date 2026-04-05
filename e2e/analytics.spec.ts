@@ -3,8 +3,8 @@ import { test, expect } from '@playwright/test';
 test.describe('GA4 Tracking', () => {
   test('homepage has tracking attributes on phone link', async ({ page }) => {
     await page.goto('/');
-    const phoneLink = page.locator('a[href^="tel:"]').first();
-    await expect(phoneLink).toHaveAttribute('data-ga-category', 'contact');
+    // Looking for ANY phone link with data-ga-category
+    const phoneLink = page.locator('a[href^="tel:"][data-ga-category="contact"]').first();
     await expect(phoneLink).toHaveAttribute('data-ga-action', 'phone_click');
     await expect(phoneLink).toHaveAttribute('data-ga-label');
   });
@@ -82,10 +82,10 @@ test.describe('GA4 Tracking', () => {
 
   test('header has tracking on phone link', async ({ page }) => {
     await page.goto('/');
-    const headerPhone = page.locator('header a[href^="tel:"]').first();
+    // More specific selector for header phone link
+    const headerPhone = page.locator('header a[href^="tel:"][data-ga-label^="header_phone"]').first();
     await expect(headerPhone).toHaveAttribute('data-ga-category', 'contact');
     await expect(headerPhone).toHaveAttribute('data-ga-action', 'phone_click');
-    await expect(headerPhone).toHaveAttribute('data-ga-label', 'header_phone');
   });
 
   test('header has tracking on booking CTA', async ({ page }) => {

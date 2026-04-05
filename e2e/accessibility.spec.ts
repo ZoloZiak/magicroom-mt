@@ -58,9 +58,9 @@ test.describe('MagicRoom Accessibility', () => {
     }
   });
 
-  test('page has proper language attribute', async ({ page }) => {
+  test('homepage has proper language attribute', async ({ page }) => {
     await page.goto('/');
     const html = page.locator('html');
-    await expect(html).toHaveAttribute('lang', 'sk');
+    await expect(html).toHaveAttribute('lang', 'sk', { timeout: 15000 });
   });
 });

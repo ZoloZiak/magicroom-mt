@@ -29,7 +29,7 @@ const {
   noindex = false,
   structuredData = [],
   breadcrumbs = [],
-  language = 'sk',
+  language = Astro.props.language || 'sk',
 } = Astro.props;
 
 const canonicalUrl = toAbsoluteUrl(Astro.url.pathname);
