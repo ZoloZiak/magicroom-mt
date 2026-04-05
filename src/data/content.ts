@@ -52,7 +52,7 @@ export const IMAGE_URLS = {
 export const HOME_STATS = [
   { value: '12 €', label: 'skúška svadobných šiat s nápojom v cene' },
   { value: '200–700 €', label: 'svadobné šaty (nové aj komis)' },
-  { value: '1', label: 'salón, kde vás Natália osobne pozná' },
+  { value: 'Martin', label: 'osobný salón v budove Detský sen' },
 ] as const;
 
 export const HOME_OFFER_CARDS = [
@@ -108,20 +108,20 @@ export const HOME_OFFER_CARDS = [
 
 export const TRUST_REASONS = [
   {
-    title: 'Ceny vidíte hneď',
-    description: 'Žiadne "zavolaj pre cenu". Všetko na stránke.',
+    title: 'Transparentné ceny',
+    description: 'Všetky ceny šiat aj služieb nájdete priamo na webe. Žiadne skryté poplatky.',
   },
   {
-    title: 'Osobný prístup od Natálie',
-    description: 'Nie anonymný salón — konkrétny človek, ktorý vás pozná.',
+    title: 'Stretnutie s Natáliou',
+    description: 'V salóne sa stretnete priamo s majiteľkou, ktorá vám poradí z vlastnej skúsenosti.',
   },
   {
-    title: 'Praktická pomoc',
-    description: 'Od moodboardu po RSVP — riešenia, ktoré šetria čas a stres.',
+    title: 'Lokalita Martin - Sever',
+    description: 'Pohodlný prístup v budove Detský sen s možnosťou parkovania v blízkosti.',
   },
   {
-    title: 'Všetko pod jednou strechou',
-    description: 'Šaty, dekorácie aj detaily — nemusíte behať medzi dodávateľmi.',
+    title: 'Všetko na jednom mieste',
+    description: 'Od šiat cez doplnky až po kompletnú výzdobu sály. Šetríme váš čas aj energiu.',
   },
 ] as const;
 
@@ -530,7 +530,7 @@ export const CONTACT_ACTIONS = [
   },
   {
     title: 'Nájdete nás v Martine',
-    description: 'Jilemnického 4015/43, Záturčie. Kliknutím otvoríte mapu.',
+    description: 'Jilemnického 4015/43, Martin - Sever / Záturčie (budova Detský sen, prízemie). Kliknutím otvoríte mapu.',
     href: MAP_URL,
     label: 'Otvoriť mapu',
   },
@@ -576,7 +576,7 @@ export const CONTACT_ACTIONS_EN = [
   },
   {
     title: 'Find us in Martin',
-    description: 'Jilemnického 4015/43, Záturčie. Click to open the map.',
+    description: 'Jilemnického 4015/43, Martin - Sever / Záturčie (Detský sen building, ground floor). Click to open the map.',
     href: MAP_URL,
     label: 'Open map',
   },
@@ -654,7 +654,7 @@ export const DRESS_CATALOG = [
 export const HOME_STATS_EN = [
   { value: '12 €', label: 'formal dress fitting with drink included' },
   { value: '12–150 €', label: 'gala, prom & party dresses' },
-  { value: '1', label: 'salon where Natália knows you personally' },
+  { value: 'Martin', label: 'personal salon in the Detský sen building' },
 ] as const;
 
 export const HOME_OFFER_CARDS_EN = [

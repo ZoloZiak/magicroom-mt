@@ -43,13 +43,15 @@ const gaLabelSuffix = isEn ? '_en' : '';
 
   <nav class="container mx-auto flex h-[4.5rem] items-center justify-between px-4">
     <a href={isEn ? '/en' : '/'} class="group flex items-center gap-3" aria-label={`MagicRoom ${isEn ? 'home' : 'domov'}`}>
-      <img
-        src="/images/logo.jpeg"
-        alt="MagicRoom logo"
-        class="h-11 w-11 rounded-full object-cover shadow-[var(--shadow-xl)]"
-        width="44"
-        height="44"
-      />
+      <div class="h-11 w-11 overflow-hidden rounded-full shadow-[var(--shadow-xl)]">
+        <img
+          src="/images/logo.jpeg"
+          alt="Logo MagicRoom - Svadobný salón Martin"
+          class="h-full w-full object-cover"
+          width="44"
+          height="44"
+        />
+      </div>
       <div class="hidden sm:block">
         <span class="block font-display text-[1.45rem] leading-none transition-colors group-hover:text-primary">MagicRoom</span>
         <span class="mt-1 block text-[10px] uppercase tracking-[0.34em] text-muted-foreground">{t.common.logoSubtext}</span>
