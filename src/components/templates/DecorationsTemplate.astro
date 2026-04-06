@@ -101,9 +101,12 @@ const DECOR_POLICIES = getDecorPolicies(language);
               <h3 class="text-xl font-bold mb-4">{cat.category}</h3>
               <ul class="space-y-3">
                 {cat.items.map((item) => (
-                  <li class="flex items-center gap-2 text-muted-foreground italic">
-                    <div class="h-1 w-1 rounded-full bg-primary/40"></div>
-                    {item}
+                  <li class="flex items-center justify-between gap-2 text-muted-foreground italic">
+                    <div class="flex items-center gap-2">
+                      <div class="h-1 w-1 rounded-full bg-primary/40"></div>
+                      <span>{item.name}</span>
+                    </div>
+                    <span class="text-cta font-medium whitespace-nowrap">{item.price}</span>
                   </li>
                 ))}
               </ul>
