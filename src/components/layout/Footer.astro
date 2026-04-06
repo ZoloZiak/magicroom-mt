@@ -32,9 +32,9 @@ const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingP
 const gaLabelSuffix = isEn ? '_en' : '';
 ---
 
-<footer class="mt-auto bg-primary-900 py-12 text-white">
+<footer class="mt-auto bg-primary-900 py-8 text-white">
   <div class="container mx-auto px-4">
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
       <div class="lg:col-span-2">
         <h3 class="mb-4 font-display text-2xl">MagicRoom</h3>
         <p class="mb-6 max-w-md text-white/70">
@@ -123,21 +123,21 @@ const gaLabelSuffix = isEn ? '_en' : '';
           {navLinks.map((link) => (
             <li><a href={link.href} class="transition-colors hover:text-white">{link.label}</a></li>
           ))}
+          <li>
+            <a href={getRelativeHref('reklamacny-poriadok', language)} class="transition-colors hover:text-white">
+              {t.common.complaintPolicy}
+            </a>
+          </li>
         </ul>
       </div>
     </div>
 
-    <div class="flex flex-col items-center justify-between gap-6 pt-8 text-sm text-white/50 md:flex-row">
-      <div class="flex flex-col items-center gap-2 md:items-start">
+    <div class="flex flex-col items-center justify-between gap-4 pt-6 text-sm text-white/50 md:flex-row">
+      <div class="flex flex-col items-center gap-1 md:items-start">
         <p>{t.common.copyrightText}</p>
         <p class="text-xs opacity-70">
           Administrátor a tvorca: <a href="https://www.linkedin.com/in/zoltan-ziak/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Zoltán Žiak</a>, 2026
         </p>
-      </div>
-      <div class="flex flex-wrap justify-center gap-6 md:justify-end">
-        <a href={getRelativeHref('reklamacny-poriadok', language)} class="transition-colors hover:text-white">
-          {t.common.complaintPolicy}
-        </a>
       </div>
     </div>
   </div>
