@@ -1,9 +1,26 @@
 # MagicRoom — Wedding Salon Website
 
-Wedding salon in Martin, Slovakia. Small, personal, fair prices.
+> ⚠️ **SPECS-DRIVEN DEVELOPMENT** — All decisions start from `docs/01-specs/` — check there first!
 
-## ⚠️ SPECS-DRIVEN DEVELOPMENT
-All decisions start from `docs/01-specs/` — this is the source of truth.
+**Wedding salon in Martin, Slovakia. Small, personal, fair prices.**
+
+## Quick Info
+
+| | |
+|---|---|
+| **Stack** | Astro 6.x + Tailwind v4 + shadcn/ui + React |
+| **Tests** | 69 unit + 121 E2E (all passing) |
+| **Status** | ✅ Live on Vercel |
+| **Docs** | See `docs/01-specs/` for specs-driven source of truth |
+
+## Quick Start
+
+```bash
+npm run dev      # localhost:4321
+npm run build   # production build
+npm run test    # 69 unit tests
+npm run test:e2e # 121 E2E tests
+```
 
 ## Project Structure
 

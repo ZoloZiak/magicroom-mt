@@ -1,5 +1,24 @@
 # MagicRoom — Documentation
 
+> ⚠️ **SOURCE OF TRUTH** — Everything starts here. Never duplicate specs content elsewhere.
+
+## Quick Reference
+
+| Tier | Path | Purpose |
+|------|------|---------|
+| **SPECS** | `docs/01-specs/` | Source of truth - always check here first |
+| **ARCH** | `docs/02-architecture/` | Technical decisions |
+| **GUIDES** | `docs/03-guides/` | Operational procedures |
+
+```
+docs/
+├── 01-specs/                    # ✅ SOURCE OF TRUTH
+│   ├── research/                # Market & audience research
+│   ├── strategies/              # SEO, UX, conversion strategies
+│   ├── SPEC-sk.md              # Project specification
+│   └── roadmap-sk.md           # Implementation roadmap with status
+├── 02-architecture/             # Technical architecture
+└── 03-guides/                   # Operational guides
 ```
 docs/
 ├── 01-specs/                    # ✅ SPECS-DRIVEN DEVELOPMENT - Source of Truth
