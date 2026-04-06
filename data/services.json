@@ -55,7 +55,8 @@
       {
         "title": "Komisný predaj šiat",
         "price": "Individuálne",
-        "description": "Pomôžeme vám predať vaše svadobné šaty ďalšej neveste — u nás v salóne."
+        "description": "Pomôžeme vám predať vaše svadobné šaty ďalšej neveste — u nás v salóne.",
+        "link": "komisny-predaj"
       },
       {
         "title": "Doplnky pre pánov",
@@ -120,7 +121,8 @@
       {
         "title": "Dress Consignment",
         "price": "Individual",
-        "description": "We help you sell your wedding dress to another bride right in our salon."
+        "description": "We help you sell your wedding dress to another bride right in our salon.",
+        "link": "komisny-predaj"
       },
       {
         "title": "Men's Accessories",
