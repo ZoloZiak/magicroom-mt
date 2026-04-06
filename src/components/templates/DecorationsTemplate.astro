@@ -101,12 +101,25 @@ const DECOR_POLICIES = getDecorPolicies(language);
               <h3 class="text-xl font-bold mb-4">{cat.category}</h3>
               <ul class="space-y-3">
                 {cat.items.map((item) => (
-                  <li class="flex items-center justify-between gap-2 text-muted-foreground italic">
-                    <div class="flex items-center gap-2">
-                      <div class="h-1 w-1 rounded-full bg-primary/40"></div>
-                      <span>{item.name}</span>
+                  <li class="flex flex-col gap-2 p-3 rounded-xl hover:bg-surface transition-colors group/item">
+                    <div class="flex items-center justify-between gap-2 text-muted-foreground italic">
+                      <div class="flex items-center gap-2">
+                        <div class="h-1 w-1 rounded-full bg-primary/40"></div>
+                        <span class="text-foreground/90 not-italic font-medium">{item.name}</span>
+                      </div>
+                      <span class="text-cta font-semibold whitespace-nowrap">{item.price}</span>
                     </div>
-                    <span class="text-cta font-medium whitespace-nowrap">{item.price}</span>
+                    {item.imageUrl && (
+                      <div class="mt-2 overflow-hidden rounded-lg aspect-[16/9] bg-surface relative">
+                        <img 
+                          src={item.imageUrl} 
+                          alt={item.name}
+                          class="w-full h-full object-cover transition-transform duration-500 group-hover/item:scale-110"
+                          loading="lazy"
+                          onerror={`this.onerror=null; this.src='${IMAGE_URLS.decorAlt}'; this.parentElement.classList.add('opacity-50');`}
+                        />
+                      </div>
+                    )}
                   </li>
                 ))}
               </ul>

@@ -60,6 +60,8 @@ export const IMAGE_URLS = {
   founder: founderImage.src,
   decorMain: decorMainImage.src,
   decorAlt: decorAltImage.src,
+  decorBackdrop: decorBackdrop.src,
+  decorDetails: decorDetails.src,
   map: mapImage.src,
 } as const;
 
@@ -322,7 +324,14 @@ export function getDecorFeatured(lang: Language) {
 
 export function getDecorCategories(lang: Language) {
   const data = lang === 'sk' ? decorData.sk : decorData.en;
-  return data.categories;
+  return data.categories.map(cat => ({
+    ...cat,
+    items: cat.items.map(item => ({
+      ...item,
+      // @ts-ignore
+      imageUrl: item.image ? (IMAGE_URLS[item.image as keyof typeof IMAGE_URLS] || `/images/decor/${item.image}.jpg`) : null
+    }))
+  }));
 }
 
 export function getDecorPolicies(lang: Language) {
