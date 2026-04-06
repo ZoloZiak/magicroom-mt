@@ -5,7 +5,31 @@
       "category": "Fotografia",
       "description": "Zachytáva momenty s citom pre detail a prirodzenosť.",
       "link": "https://example.sk"
+    },
+    {
+      "name": "Kameraman",
+      "category": "Video",
+      "description": "Profesionálny záznam vášho dňa plný emócií.",
+      "link": "https://example.sk"
+    },
+    {
+      "name": "Starejší",
+      "category": "Zábava",
+      "description": "Zabezpečenie plynulého priebehu svadby a zábavy.",
+      "link": "https://example.sk"
+    },
+    {
+      "name": "Krajčírky",
+      "category": "Služby",
+      "description": "Úprava šiat na mieru priamo pre vás.",
+      "link": "https://example.sk"
+    },
+    {
+      "name": "Fotokútik",
+      "category": "Zábava",
+      "description": "Okamžitá pamiatka pre vás a vašich hostí.",
+      "link": "https://example.sk"
     }
   ],
-  "categories": ["Fotografia", "Catering", "Floristika", "DJ", "Video", "Koláče", "Výzdoba"]
+  "categories": ["Fotografia", "Video", "Zábava", "Služby", "Catering", "Floristika", "DJ", "Koláče", "Výzdoba"]
 }

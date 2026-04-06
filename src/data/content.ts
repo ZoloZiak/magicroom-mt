@@ -352,21 +352,41 @@ export function getContactActions(lang: Language) {
 }
 
 export function getGalleryItems(lang: Language) {
-  return galleryData.gallery.map(item => ({
-    src: item.filename.startsWith('/') ? item.filename : `/images/${item.filename}`,
-    alt: lang === 'sk' ? item.alt : item.altEn,
-    title: lang === 'sk' ? item.title : item.titleEn,
-  }));
+  return galleryData.gallery.map(item => {
+    let src = item.filename;
+    // Map existing assets in assets/images
+    if (['hero.png', 'dresses.png', 'decor-main.jpg', 'decor-alt.jpg', 'decor-backdrop.jpg', 'decor-details.jpg'].includes(src)) {
+       const key = src.split('.')[0].replace('decor-', 'decor');
+       return {
+         src: IMAGE_URLS[key as keyof typeof IMAGE_URLS] || `/images/salon/${src}`,
+         alt: lang === 'sk' ? item.alt : item.altEn,
+         title: lang === 'sk' ? item.title : item.titleEn,
+       };
+    }
+    
+    if (src.includes('saly-ruzove')) {
+       src = src.replace('saly-ruzove', 'saty-ruzove');
+    }
+    return {
+      src: src.startsWith('/') ? src : `/images/salon/${src}`,
+      alt: lang === 'sk' ? item.alt : item.altEn,
+      title: lang === 'sk' ? item.title : item.titleEn,
+    };
+  });
 }
 
 export const PARTNERS = partnersData.partners;
 
 export const PARTNER_CATEGORIES = partnersData.categories;
 
-export const DRESS_CATALOG = dressesData.dresses.map(dress => ({
-  ...dress,
-  image: `/content/dresses/${dress.id}.jpg`,
-}));
+export const DRESS_CATALOG = dressesData.dresses.map(dress => {
+  const imagePath = `/content/dresses/${dress.id}.jpg`;
+  return {
+    ...dress,
+    image: imagePath, // Dynamická cesta k obrázku na základe ID
+    fallbackImage: IMAGE_ASSETS.dresses.src, // Fallback, ak sa nepodarí načítať
+  };
+});
 
 export const CONSIGNMENT_STEPS = [
   'Šaty nám zveríte čisté a vopred pošlete fotografie.',

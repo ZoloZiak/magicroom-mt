@@ -74,12 +74,13 @@ const productSchema = dresses.map((dress) => ({
           {dresses.map((dress) => (
             <div class="group overflow-hidden rounded-[32px] border border-border/50 bg-white transition-all hover:shadow-2xl">
               <div class="relative aspect-[3/4] overflow-hidden">
-                <Image
+                <img
                   src={dress.image}
                   alt={dress.name}
                   class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  width={600}
-                  height={800}
+                  width="600"
+                  height="800"
+                  onerror={`this.onerror=null;this.src='${dress.fallbackImage}';`}
                 />
                 <div class="absolute right-4 top-4">
                   <Badge variant={dress.status === 'available' ? 'success' : 'outline'} className="backdrop-blur-md">
