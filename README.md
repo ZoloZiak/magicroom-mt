@@ -17,6 +17,54 @@ magicroom-mt/
 │   │   ├── SPEC-sk.md                # Project specification
 │   │   └── roadmap-sk.md             # Implementation status
 │   ├── 02-architecture/              # Technical architecture
+│   ├── 03-guides/                    # Operational guides
+│   └── 04-notes/                     # Internal notes
+│
+├── tutorials/                        # 📝 NATÁLIA TUTORIALS — start here
+│   ├── README.md                     # Hlavný návod
+│   ├── saty.md                      # Svadobné šaty
+│   ├── sluzby.md                    # Služby a ceny
+│   ├── partneri.md                  # Partneri
+│   ├── faq.md                       # FAQ
+│   └── galeria.md                   # Galéria
+│
+├── data/                            # 📦 CONTENT (JSON — upravuj cez GitHub)
+│   ├── services.json
+│   ├── dresses.json
+│   ├── partners.json
+│   ├── faqs.json
+│   ├── decor.json
+│   └── gallery.json
+│
+├── src/                              # 💻 SOURCE CODE
+│   ├── components/                   # Astro + React components
+│   ├── data/                         # Site config (site.ts, content.ts)
+│   ├── layouts/                     # Page layouts
+│   ├── lib/                          # Utilities & i18n
+│   └── pages/                        # Astro pages & API
+│
+├── e2e/                              # 🧪 E2E TESTS (Playwright)
+├── testing/                          # 🧪 UNIT TESTS (Vitest)
+├── public/                          # 🖼️ STATIC ASSETS
+│   └── content/dresses/             # Fotky šiat
+│
+├── .kilo/                            # 🤖 KILO CLI CONFIG
+├── .github/workflows/               # 🔄 CI/CD
+│
+├── AGENTS.md                        # 🤖 AI ASSISTANT INSTRUCTIONS
+├── CLAUDE.md                        # 🤖 CODE INTELLIGENCE (GitNexus)
+└── README.md                        # 📖 THIS FILE
+```
+
+## Pre Natáliu → `/tutorials/`
+magicroom-mt/
+├── docs/                              # 📚 DOCUMENTATION (SOURCE OF TRUTH)
+│   ├── 01-specs/                     # ✅ SPECS-DRIVEN
+│   │   ├── research/                 # Market & audience research
+│   │   ├── strategies/               # SEO, UX, conversion strategies
+│   │   ├── SPEC-sk.md                # Project specification
+│   │   └── roadmap-sk.md             # Implementation status
+│   ├── 02-architecture/              # Technical architecture
 │   └── 03-guides/                    # Operational guides
 │
 ├── src/                              # 💻 SOURCE CODE
