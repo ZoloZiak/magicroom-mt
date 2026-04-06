@@ -28,9 +28,10 @@
         "description": "Osobne alebo online — rozpočet, štýl, rady „ako a kde“ vybaviť veci výhodnejšie."
       },
       {
-        "title": "Okrúhle stoly a inventár",
-        "price": "Dohodou",
-        "description": "Zabezpečenie okrúhlych stolov a kompletného inventáru pre vašu oslavu."
+        "title": "Prenájom inventáru a dekorácií",
+        "price": "Cenník v sekcii",
+        "description": "Klubové taniere, chiavari stoličky, okrúhle stoly, svietniky a iný svadobný inventár.",
+        "link": "prenajom-dekoracii"
       },
       {
         "title": "Rozlúčka so slobodou",
@@ -94,9 +95,10 @@
         "description": "In person or online — budget, style, tips on how and where to get things efficiently."
       },
       {
-        "title": "Round Tables & Inventory",
-        "price": "Upon request",
-        "description": "Provision of round tables and complete inventory for your event."
+        "title": "Rental of Inventory & Decorations",
+        "price": "Price list in section",
+        "description": "Club plates, Chiavari chairs, round tables, candle holders and other wedding inventory.",
+        "link": "prenajom-dekoracii"
       },
       {
         "title": "Student Events & Julebord",
