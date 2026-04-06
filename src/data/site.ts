@@ -35,40 +35,53 @@ export function buildWhatsAppUrl(message: string) {
 export const WHATSAPP_URL = buildWhatsAppUrl(WHATSAPP_MESSAGE);
 
 export const NAV_LINKS = [
-  { href: '/o-nas', label: 'O nás' },
-  { href: '/sluzby', label: 'Služby' },
-  { href: '/svadobne-saty', label: 'Šaty' },
-  { href: '/galeria', label: 'Galéria' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/komisny-predaj', label: 'Komisný predaj' },
-  { href: '/prenajom-dekoracii', label: 'Dekorácie' },
-  { href: '/partneri', label: 'Partneri' },
-  { href: '/kontakt', label: 'Kontakt' },
+  { href: '/sk/o-nas', label: 'O nás' },
+  { href: '/sk/sluzby', label: 'Služby' },
+  { href: '/sk/svadobne-saty', label: 'Šaty' },
+  { href: '/sk/galeria', label: 'Galéria' },
+  { href: '/sk/blog', label: 'Blog' },
+  { href: '/sk/komisny-predaj', label: 'Komisný predaj' },
+  { href: '/sk/prenajom-dekoracii', label: 'Dekorácie' },
+  { href: '/sk/partneri', label: 'Partneri' },
+  { href: '/sk/kontakt', label: 'Kontakt' },
 ] as const;
 
 export const NAV_LINKS_EN = [
-  { href: '/en/o-nas', label: 'About' },
-  { href: '/en/sluzby', label: 'Services' },
-  { href: '/en/svadobne-saty', label: 'Dresses' },
+  { href: '/en/about', label: 'About' },
+  { href: '/en/services', label: 'Services' },
+  { href: '/en/dresses', label: 'Dresses' },
   { href: '/en/galeria', label: 'Gallery' },
   { href: '/en/blog', label: 'Blog' },
-  { href: '/en/komisny-predaj', label: 'Consignment' },
-  { href: '/en/prenajom-dekoracii', label: 'Decorations' },
-  { href: '/en/partneri', label: 'Partners' },
-  { href: '/en/kontakt', label: 'Contact' },
+  { href: '/en/consignment', label: 'Consignment' },
+  { href: '/en/decorations', label: 'Decorations' },
+  { href: '/en/partners', label: 'Partners' },
+  { href: '/en/contact', label: 'Contact' },
 ] as const;
 
 export function getNavLinks(lang: Language) {
+  if (lang === 'sk') {
+    return [
+      { href: '/sk/o-nas', label: 'O nás' },
+      { href: '/sk/sluzby', label: 'Služby' },
+      { href: '/sk/svadobne-saty', label: 'Šaty' },
+      { href: '/sk/galeria', label: 'Galéria' },
+      { href: '/sk/blog', label: 'Blog' },
+      { href: '/sk/komisny-predaj', label: 'Komisný predaj' },
+      { href: '/sk/prenajom-dekoracii', label: 'Dekorácie' },
+      { href: '/sk/partneri', label: 'Partneri' },
+      { href: '/sk/kontakt', label: 'Kontakt' },
+    ];
+  }
   return [
-    { href: getRelativeHref('o-nas', lang), label: lang === 'sk' ? 'O nás' : 'About' },
-    { href: getRelativeHref('sluzby', lang), label: lang === 'sk' ? 'Služby' : 'Services' },
-    { href: getRelativeHref('svadobne-saty', lang), label: lang === 'sk' ? 'Šaty' : 'Dresses' },
-    { href: getRelativeHref('galeria', lang), label: lang === 'sk' ? 'Galéria' : 'Gallery' },
-    { href: getRelativeHref('blog', lang), label: lang === 'sk' ? 'Blog' : 'Blog' },
-    { href: getRelativeHref('komisny-predaj', lang), label: lang === 'sk' ? 'Komisný predaj' : 'Consignment' },
-    { href: getRelativeHref('prenajom-dekoracii', lang), label: lang === 'sk' ? 'Dekorácie' : 'Decorations' },
-    { href: getRelativeHref('partneri', lang), label: lang === 'sk' ? 'Partneri' : 'Partners' },
-    { href: getRelativeHref('kontakt', lang), label: lang === 'sk' ? 'Kontakt' : 'Contact' },
+    { href: '/en/about', label: 'About' },
+    { href: '/en/services', label: 'Services' },
+    { href: '/en/dresses', label: 'Dresses' },
+    { href: '/en/galeria', label: 'Gallery' },
+    { href: '/en/blog', label: 'Blog' },
+    { href: '/en/consignment', label: 'Consignment' },
+    { href: '/en/decorations', label: 'Decorations' },
+    { href: '/en/partners', label: 'Partners' },
+    { href: '/en/contact', label: 'Contact' },
   ];
 }
 

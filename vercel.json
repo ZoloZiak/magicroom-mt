@@ -27,5 +27,30 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    { "source": "/", "destination": "/sk/" },
+    { "source": "/o-nas", "destination": "/sk/o-nas" },
+    { "source": "/sluzby", "destination": "/sk/sluzby" },
+    { "source": "/svadobne-saty", "destination": "/sk/svadobne-saty" },
+    { "source": "/galeria", "destination": "/sk/galeria" },
+    { "source": "/blog", "destination": "/sk/blog" },
+    { "source": "/blog/:slug", "destination": "/sk/blog/:slug" },
+    { "source": "/komisny-predaj", "destination": "/sk/komisny-predaj" },
+    { "source": "/prenajom-dekoracii", "destination": "/sk/prenajom-dekoracii" },
+    { "source": "/partneri", "destination": "/sk/partneri" },
+    { "source": "/kontakt", "destination": "/sk/kontakt" },
+    { "source": "/en", "destination": "/en" },
+    { "source": "/en/", "destination": "/en" },
+    { "source": "/en/about", "destination": "/en/about" },
+    { "source": "/en/services", "destination": "/en/services" },
+    { "source": "/en/dresses", "destination": "/en/dresses" },
+    { "source": "/en/galeria", "destination": "/en/galeria" },
+    { "source": "/en/blog", "destination": "/en/blog" },
+    { "source": "/en/blog/:slug", "destination": "/en/blog/:slug" },
+    { "source": "/en/consignment", "destination": "/en/consignment" },
+    { "source": "/en/decorations", "destination": "/en/decorations" },
+    { "source": "/en/partners", "destination": "/en/partners" },
+    { "source": "/en/contact", "destination": "/en/contact" }
   ]
 }
