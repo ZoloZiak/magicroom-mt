@@ -72,8 +72,8 @@ describe('content.ts — Services', () => {
     expect(recommended?.name).toBe('Svadba základ');
   });
 
-  it('EXTRA_SERVICES has 4 items', () => {
-    expect(EXTRA_SERVICES).toHaveLength(4);
+  it('EXTRA_SERVICES has 5 items', () => {
+    expect(EXTRA_SERVICES).toHaveLength(5);
   });
 
   it('BOOKING_FEATURES has 4 features', () => {

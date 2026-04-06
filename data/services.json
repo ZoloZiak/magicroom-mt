@@ -25,7 +25,12 @@
       {
         "title": "Individuálna konzultácia",
         "price": "15 € / 60 min",
-        "description": "Osobne alebo online — rozpočet, štýl, prvé rozhodnutia."
+        "description": "Osobne alebo online — rozpočet, štýl, rady „ako a kde“ vybaviť veci výhodnejšie."
+      },
+      {
+        "title": "Okrúhle stoly a inventár",
+        "price": "Dohodou",
+        "description": "Zabezpečenie okrúhlych stolov a kompletného inventáru pre vašu oslavu."
       },
       {
         "title": "Rozlúčka so slobodou",
@@ -35,7 +40,7 @@
       {
         "title": "Grafika a handmade doplnky",
         "price": "od 15 €",
-        "description": "Oznámenia, poháre, tričká a personalizované detaily."
+        "description": "Oznámenia, ručne zdobené poháre, tričká s vlastným návrhom a iné darčeky."
       },
       {
         "title": "RSVP online správa",
@@ -70,7 +75,12 @@
       {
         "title": "Individual Consultation",
         "price": "15 € / 60 min",
-        "description": "In person or online — budget, style, dress selection advice."
+        "description": "In person or online — budget, style, tips on how and where to get things efficiently."
+      },
+      {
+        "title": "Round Tables & Inventory",
+        "price": "Upon request",
+        "description": "Provision of round tables and complete inventory for your event."
       },
       {
         "title": "Student Events & Julebord",
@@ -80,7 +90,7 @@
       {
         "title": "Custom Party Supplies",
         "price": "from 5 €",
-        "description": "Personalized glasses, t-shirts, and handmade event details."
+        "description": "Personalized glasses, custom t-shirts, and handmade event gifts."
       },
       {
         "title": "Online RSVP management",

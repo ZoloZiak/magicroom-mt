@@ -86,7 +86,7 @@ export const HOME_OFFER_CARDS = [
   {
     title: 'Skúška svadobných šiat',
     price: '12 € / 60 min',
-    description: 'Pokojná skúška s nápojom v cene, priestorom pre dve osoby a časom na rozhodnutie.',
+    description: 'Pokojná skúška s nápojom v cene, priestorom pre dve osoby a časom na výber bez stresu.',
     href: '/kontakt#booking',
     cta: 'Rezervovať termín',
     icon: 'shirt',
