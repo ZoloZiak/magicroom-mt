@@ -101,7 +101,7 @@ export const HOME_OFFER_CARDS = [
     icon: 'sparkles',
   },
   {
-    title: 'Výzdoba svadieb a osl��v',
+    title: 'Výzdoba svadieb a osláv',
     price: 'od 100 €',
     description: 'Kompletná výzdoba na kľúč — svadby, oslavy, eventy.',
     href: '/prenajom-dekoracii',
