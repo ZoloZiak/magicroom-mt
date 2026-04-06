@@ -28,7 +28,15 @@ export function getLanguageFromUrl(url: URL): Language {
 }
 
 export function getAlternateLanguageUrl(url: URL, currentLanguage: Language): string {
-  const pathname = url.pathname;
+  let pathname = url.pathname;
+  
+  // Normalizácia pathname - odstránenie /sk prefixu ak existuje
+  if (pathname.startsWith('/sk/')) {
+    pathname = pathname.substring(3);
+  } else if (pathname === '/sk') {
+    pathname = '/';
+  }
+
   const parts = pathname.split('/').filter(Boolean);
 
   if (currentLanguage === 'sk') {
@@ -36,6 +44,12 @@ export function getAlternateLanguageUrl(url: URL, currentLanguage: Language): st
     if (parts.length === 0) return '/en';
     const skSlug = parts[0];
     const enSlug = SLUG_MAP[skSlug] || skSlug;
+    
+    // Špeciálny prípad pre blog príspevky (blog/slug)
+    if (parts.length > 1 && skSlug === 'blog') {
+      return `/en/blog/${parts[1]}${url.hash}`;
+    }
+    
     return `/en/${enSlug}${url.hash}`;
   } else {
     // EN -> SK
@@ -44,6 +58,12 @@ export function getAlternateLanguageUrl(url: URL, currentLanguage: Language): st
     if (parts.length <= 1) return '/';
     const enSlug = parts[1];
     const skSlug = REVERSE_SLUG_MAP[enSlug] || enSlug;
+    
+    // Špeciálny prípad pre blog príspevky
+    if (parts.length > 2 && enSlug === 'blog') {
+       return `/blog/${parts[2]}${url.hash}`;
+    }
+    
     return `/${skSlug}${url.hash}`;
   }
 }

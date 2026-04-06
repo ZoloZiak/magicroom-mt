@@ -8,9 +8,10 @@
       "size": "38",
       "type": "new",
       "status": "available",
-      "color": "biela",
+      "color": "ružová",
       "style": "elegantná",
-      "featured": true
+      "featured": true,
+      "details": "Čipka, áčková sukňa"
     },
     {
       "id": "boho-princezna",
@@ -22,7 +23,8 @@
       "status": "available",
       "color": "biela",
       "style": "boho",
-      "featured": true
+      "featured": true,
+      "details": "Voľná sukňa, jemné zdobenie"
     },
     {
       "id": "fialovy-sen",
@@ -34,7 +36,8 @@
       "status": "available",
       "color": "fialová",
       "style": "moderná",
-      "featured": true
+      "featured": true,
+      "details": "Fialová, netradičné"
     },
     {
       "id": "klasicka-biela",
@@ -46,19 +49,21 @@
       "status": "available",
       "color": "biela",
       "style": "klasická",
-      "featured": false
+      "featured": false,
+      "details": "Čisté línie, nadčasová"
     },
     {
-      "id": "romanticky-zasoj",
+      "id": "romanticky-zavoj",
       "name": "Romantický závoj",
       "description": "Dlhý závoj, jemné zdobenie. Ideálne pre kostol.",
       "price": 200,
       "size": "42",
       "type": "consignment",
       "status": "available",
-      "color": "biela",
+      "color": "biely",
       "style": "romantický",
-      "featured": false
+      "featured": false,
+      "details": "Dlhý závoj, jemné zdobenie"
     },
     {
       "id": "minimalistka",
