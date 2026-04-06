@@ -1,28 +1,25 @@
-# Dress Catalog Management
+# Dress Catalog — CMS Content
 
-## Folder structure
+## Štruktúra / Structure
 
 ```
-magicroom-mt/
-├── content/dresses/          ← JSON súbory (tu pridávaj/upravuj)
-├── public/content/dresses/    ← Fotky (tu nahrávaj fotky)
-└── ...
+content/dresses/          ← JSON súbory / JSON files
+public/content/dresses/   ← Fotky / Photos
 ```
 
-## How to add/edit dresses
+## Pridanie nových šiat / Adding new dresses
 
-1. **Add a photo** to `public/content/dresses/` folder:
-   - Format: JPG, JPEG, or PNG
-   - Naming: e.g., `svadobne-001.jpg`
+### 1. Pridaj fotku / Add photo
+Nahraj do `public/content/dresses/`
+- Formát: JPG, JPEG, PNG
+- Názov: napr. `moje-saty.jpg`
 
-2. **Add a JSON file** to `content/dresses/` with the same name:
-   - e.g., `svadobne-001.json`
-
-3. **Edit the JSON** with dress details:
+### 2. Pridaj JSON súbor / Add JSON file
+Vytvor súbor v `content/dresses/` s rovnakým názvom:
 
 ```json
 {
-  "id": "svadobne-001",
+  "id": "moje-saty",
   "name": "Emma - Saténové svadobné šaty",
   "description": "Krásne saténové šaty s čipkou.",
   "price": 450,
@@ -35,33 +32,33 @@ magicroom-mt/
 }
 ```
 
-## JSON Fields
+## JSON Polia / JSON Fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | string | Unique ID |
-| `name` | string | Dress name |
-| `description` | string | Short description |
-| `price` | number | Price in EUR |
-| `size` | string | Size |
-| `type` | "new" \| "consignment" | New or used |
-| `status` | "available" \| "reserved" \| "sold" | Availability |
-| `color` | string | Color |
-| `style` | string | Style |
-| `details` | string | Additional details |
+| Field | Type | Popis / Description |
+|-------|------|---------------------|
+| `id` | string | Unikátne ID |
+| `name` | string | Názov šiat |
+| `description` | string | Krátky popis |
+| `price` | number | Cena v € |
+| `size` | string | Veľkosť |
+| `type` | `"new"` \| `"consignment"` | Nové / Komis |
+| `status` | `"available"` \| `"reserved"` \| `"sold"` | Dostupnosť |
+| `color` | string | Farba |
+| `style` | string | Štýl |
+| `details` | string | Dodatočné detaily |
 
-## Quick actions
+## Rýchle akcie / Quick actions
 
-**To add a new dress:**
-1. Copy an existing JSON file
-2. Rename it (e.g., `svadobne-002.json`)
-3. Add matching photo (`svadobne-002.jpg`)
-4. Edit the JSON content
+**Pridať nové šaty / Add new dress:**
+1. Skopíruj existujúci JSON súbor
+2. Premenuj (napr. `nove-saty.json`)
+3. Pridaj matching fotku (`nove-saty.jpg`)
+4. Uprav JSON obsah
 5. Commit & push
 
-**To mark as sold:**
-Change `"status": "available"` to `"status": "sold"` in the JSON file.
+**Označiť ako predané / Mark as sold:**
+Zmeň `"status": "available"` na `"status": "sold"`
 
 ---
 
-The site automatically reads all JSON files from `content/dresses/` and displays available dresses on `/svadobne-saty` page.
+Stránka automaticky načíta všetky JSON súbory z `content/dresses/` a zobrazí dostupné šaty na `/svadobne-saty`.

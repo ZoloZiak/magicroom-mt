@@ -90,12 +90,14 @@ npm run test:e2e  # E2E tests (121)
 ## GitNexus 
 Run `npx gitnexus analyze` to update index after changes.
 
-## Specs Reference
-When working on any feature:
-1. Check `docs/01-specs/SPEC-sk.md` for design/tech specs
-2. Check `docs/01-specs/roadmap-sk.md` for implementation status
-3. Check `docs/01-specs/research/` for market context
-4. Check `docs/01-specs/strategies/` for strategy docs
+## Specs Reference (ALWAYS CHECK FIRST)
+When working on any feature, you MUST check in this order:
+1. ✅ `docs/01-specs/SPEC-sk.md` — design/tech specs
+2. ✅ `docs/01-specs/roadmap-sk.md` — implementation status
+3. ✅ `docs/01-specs/research/` — market context
+4. ✅ `docs/01-specs/strategies/` — strategy docs
+5. ✅ `docs/02-architecture/` — technical decisions
+6. ✅ `docs/03-guides/` — operational guides
 
 ---
 *Updated: 2026-04-06*

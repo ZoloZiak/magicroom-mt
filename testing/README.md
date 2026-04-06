@@ -1,48 +1,67 @@
 # Testing — MagicRoom
 
-## Running Tests
+## Test Commands
 
 ```bash
-npm run test          # run once
-npm run test:watch    # watch mode
-npm run test:coverage # with coverage report
+npm run test          # Unit tests (69 tests)
+npm run test:e2e     # E2E tests (121 tests)
+npm run test:watch   # Watch mode
 ```
 
-## Framework
+## Test Structure
 
-**Vitest** — compatible with Astro/Vite, fast, ESM-native.
+```
+testing/                    # UNIT TESTS (Vitest)
+├── mobile-menu.test.ts     # 11 tests — mobile menu logic
+├── site.test.ts            # 20 tests — config, navigation, schemas
+├── content.test.ts         # 25 tests — services, catalog, content
+├── analytics.test.ts       # 13 tests — GA4 tracking
+└── README.md              # This file
+
+e2e/                        # E2E TESTS (Playwright)
+├── mobile-menu.spec.ts     # 15 tests — mobile menu UX
+├── seo.spec.ts            # SEO tests (meta, schema, sitemap)
+├── analytics.spec.ts      # GA4 tracking tests
+├── accessibility.spec.ts  # A11y tests
+├── routes.spec.ts         # All pages return 200
+└── ...
+```
+
+## Current Coverage
+
+| Type | Count | Status |
+|------|-------|--------|
+| Unit tests | 69 | ✅ Passing |
+| E2E tests | 121 | ✅ Passing |
+| Mobile menu tests | 15 | ✅ Passing |
 
 ## CI/CD
 
-GitHub Actions runs tests automatically on every `git push` (`.github/workflows/test.yml`).
+GitHub Actions runs tests automatically on every `git push` to main:
+- `npm run test` — unit tests
+- `npm run test:e2e` — E2E tests (requires dev server on port 4321)
 
-## Structure
+## Adding Tests
 
+### Unit Test
+Add to `testing/`:
+```typescript
+import { describe, it, expect } from 'vitest';
+
+describe('Feature', () => {
+  it('should work', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-testing/
-├── site.test.ts       — 18 tests (config, navigation, schema.org)
-├── content.test.ts    — 25 tests (services, prices, gallery, catalog)
-└── README.md          — This file
+
+### E2E Test
+Add to `e2e/`:
+```typescript
+import { test, expect } from '@playwright/test';
+
+test('feature works', async ({ page }) => {
+  await page.goto('/');
+  // ...
+});
 ```
-
-## Test Coverage (43 tests total)
-
-### site.test.ts — 18 tests
-- Contact info: phone (SK format), email (@magicroom.sk), address (Martin, Záturčie)
-- Navigation: 7 links, correct pages (/o-nas, /sluzby, /svadobne-saty, /kontakt, /blog)
-- Social links: Facebook, Instagram (valid URLs)
-- WhatsApp: URL builder, encoded message
-- Utilities: toAbsoluteUrl, copyright year, booking href
-- Schema.org: WebSite, Organization (Natália = founder), LocalBusiness (Martin = areaServed)
-
-### content.test.ts — 25 tests
-- Homepage: 3 stats, 6 offer cards, 4 trust reasons, 3 process steps
-- Services: 3 packages (middle = recommended), 4 extra services, 4 booking features
-- Gallery: 6+ photos, IMAGE_ASSETS, salon photos
-- Decorations: 3+ categories, items with name+price, 3+ policies
-- Dress catalog: 6 dresses with required fields, featured, new/consignment types
-- Other: founder story, 3+ FAQs, 4 consignment steps
-
-## Planned
-- API tests (booking endpoint — `/api/booking`)
-- E2E tests (Playwright — navigation, form, hamburger menu)
