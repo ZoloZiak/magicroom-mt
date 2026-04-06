@@ -10,9 +10,9 @@
       {
         "category": "Zrkadlá a uvítanie",
         "items": [
-          { "name": "Veľké zrkadlo 72 × 163 cm s nápisom „Vitajte na našej svadbe\"", "price": "35 €", "image": "decor-mirror-welcome" },
-          { "name": "Biele zrkadlo 70 × 90 cm na zasadací poriadok so svetielkami a stojanom", "price": "25 €", "image": "decor-mirror-seating" },
-          { "name": "Zlatý rám na zasadací poriadok (bez výplne)", "price": "15 €" },
+          { "name": "Veľké zrkadlo 72 × 163 cm s nápisom „Vitajte na našej svadbe\"", "price": "35 €", "image": "decor-mirrors-welcome-set" },
+          { "name": "Biele zrkadlo 70 × 90 cm na zasadací poriadok so svetielkami a stojanom", "price": "25 €", "image": "decor-mirrors-welcome-set" },
+          { "name": "Zlatý rám na zasadací poriadok (bez výplne)", "price": "15 €", "image": "decor-mirrors-welcome-set" },
           { "name": "Rámčeky s textom 10 × 12 cm (12 ks)", "price": "18 €" },
           { "name": "Drevený stojan (štafle) na zrkadlo/tabuľu", "price": "10 €" }
         ]
@@ -40,7 +40,7 @@
       {
         "category": "Slávnostné sedenie",
         "items": [
-          { "name": "Chiavari stoličky (biele/zlaté)", "price": "od 3,50 € / ks", "image": "decor-chiavari-chairs" },
+          { "name": "Chiavari stoličky (biele/zlaté)", "price": "od 3,50 € / ks" },
           { "name": "Návleky na stoličky (univerzálne biele)", "price": "1,20 € / ks" },
           { "name": "Mašle na stoličky (šifón/satén/jutovina)", "price": "od 0,50 € / ks" },
           { "name": "Okrúhle stoly (pre 8-10 osôb)", "price": "15 € / ks", "image": "decor-table-round" }
@@ -84,9 +84,9 @@
       {
         "category": "Mirrors & Welcome",
         "items": [
-          { "name": "Large mirror 72 × 163 cm with \"Welcome to Our Wedding\" text", "price": "35 €", "image": "decor-mirror-welcome" },
-          { "name": "White mirror 70 × 90 cm for seating chart with fairy lights and stand", "price": "25 €", "image": "decor-mirror-seating" },
-          { "name": "Gold frame for seating chart (frame only)", "price": "15 €" },
+          { "name": "Large mirror 72 × 163 cm with \"Welcome to Our Wedding\" text", "price": "35 €", "image": "decor-mirrors-welcome-set" },
+          { "name": "White mirror 70 × 90 cm for seating chart with fairy lights and stand", "price": "25 €", "image": "decor-mirrors-welcome-set" },
+          { "name": "Gold frame for seating chart (frame only)", "price": "15 €", "image": "decor-mirrors-welcome-set" },
           { "name": "Text frames 10 × 12 cm (12 pcs)", "price": "18 €" },
           { "name": "Wooden easel for mirror/board", "price": "10 €" }
         ]
@@ -114,7 +114,7 @@
       {
         "category": "Seating",
         "items": [
-          { "name": "Chiavari chairs (white/gold)", "price": "from 3.50 € / pc", "image": "decor-chiavari-chairs" },
+          { "name": "Chiavari chairs (white/gold)", "price": "from 3.50 € / pc" },
           { "name": "Chair covers (universal white)", "price": "1.20 € / pc" },
           { "name": "Chair bows (chiffon/satin/jute)", "price": "from 0.50 € / pc" },
           { "name": "Round tables (for 8-10 people)", "price": "15 € / pc", "image": "decor-table-round" }
