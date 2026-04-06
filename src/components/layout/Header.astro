@@ -148,7 +148,7 @@ const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingP
     });
 
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+      if (e.key === 'Escape' && menu.style.visibility === 'visible') {
         closeMenu();
       }
     });
