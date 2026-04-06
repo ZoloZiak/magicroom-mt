@@ -342,7 +342,7 @@ export function getDecorCategories(lang: Language) {
        return {
           ...item,
           imageAsset: img,
-          fallbackImage: item.image === 'decor-placeholder-plates-cutlery' ? WHITE_FALLBACK : null
+          fallbackImage: null
        };
     })
   }));
