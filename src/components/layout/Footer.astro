@@ -70,40 +70,47 @@ const gaLabelSuffix = isEn ? '_en' : '';
 
       <div class="lg:col-span-1">
         <h4 class="mb-4 font-semibold">{t.nav.contact}</h4>
-        <div class="flex flex-col gap-3">
-          <a
-            href={EMAIL_HREF}
-            data-ga-category="contact"
-            data-ga-action="email_click"
-            data-ga-label={`footer_email${gaLabelSuffix}`}
-            class="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/5 px-4 py-3 transition-colors hover:border-white/40 hover:bg-white/10"
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <Mail className="mt-1 h-5 w-5 text-accent" />
+            <a href={EMAIL_HREF} class="transition-colors hover:text-white">{EMAIL}</a>
+          </li>
+          <li class="flex items-start gap-3">
+            <Phone className="mt-1 h-5 w-5 text-accent" />
+            <a href={PHONE_HREF} class="transition-colors hover:text-white">{PHONE_DISPLAY}</a>
+          </li>
+          <li class="flex items-start gap-3">
+            <MapPin className="mt-1 h-5 w-5 text-accent" />
+            <a href={MAP_URL} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-white">
+              {ADDRESS_LABEL}
+            </a>
+          </li>
+        </ul>
+
+        <div class="mt-8 flex flex-col gap-3">
+          <Button
+            href={bookingHref}
+            variant="accent"
+            size="lg"
+            className="w-full sm:w-auto"
+            data-ga-category="conversion"
+            data-ga-action="booking_click"
+            data-ga-label={`footer_booking${gaLabelSuffix}`}
           >
-            <Mail className="h-5 w-5" />
-            <span class="text-sm">{EMAIL}</span>
-          </a>
-          <a
+            {t.common.bookNow}
+          </Button>
+          <Button
             href={PHONE_HREF}
+            variant="outline"
+            size="lg"
+            className="w-full border-white/20 text-white hover:bg-white/10 sm:w-auto"
             data-ga-category="contact"
             data-ga-action="phone_click"
-            data-ga-label={`footer_phone_card${gaLabelSuffix}`}
-            class="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/5 px-4 py-3 transition-colors hover:border-white/40 hover:bg-white/10"
+            data-ga-label={`footer_phone${gaLabelSuffix}`}
           >
-            <Phone className="h-5 w-5" />
-            <span class="text-sm">{PHONE_DISPLAY}</span>
-          </a>
+            {t.common.callUs}
+          </Button>
         </div>
-        <a
-          href={MAP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-ga-category="external"
-          data-ga-action="map_click"
-          data-ga-label={`footer_map${gaLabelSuffix}`}
-          class="mt-4 flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"
-        >
-          <MapPin className="h-4 w-4 shrink-0" />
-          <span>{ADDRESS_LABEL}</span>
-        </a>
       </div>
 
       <div>
