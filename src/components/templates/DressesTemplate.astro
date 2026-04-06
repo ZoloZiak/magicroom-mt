@@ -24,12 +24,28 @@ const t = getTranslations(language);
 const isEn = language === 'en';
 
 const dresses = DRESS_CATALOG;
+
+const productSchema = dresses.map((dress) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: dress.name,
+  description: dress.description,
+  offers: {
+    '@type': 'Offer',
+    price: dress.price,
+    priceCurrency: 'EUR',
+    availability: dress.status === 'available' 
+      ? 'https://schema.org/InStock' 
+      : 'https://schema.org/SoldOut',
+  },
+}));
 ---
 
 <Layout
   title={t.dresses.pageTitle}
   description={t.dresses.pageDescription}
   image={IMAGE_URLS.dresses}
+  structuredData={productSchema}
   breadcrumbs={[
     { name: t.nav.home, url: isEn ? '/en' : '/' },
     { name: t.nav.dresses, url: getRelativeHref(skSlug, language) },

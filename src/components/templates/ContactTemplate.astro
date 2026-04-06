@@ -32,12 +32,26 @@ const contactIcons = {
   MessageCircle: MessageCircle,
   Mail: Mail,
 };
+
+const faqSchema = contactFaqs.length > 0 ? [{
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: contactFaqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+}] : [];
 ---
 
 <Layout
   title={t.contact.pageTitle}
   description={t.contact.pageDescription}
   image={IMAGE_URLS.hero}
+  structuredData={faqSchema}
   breadcrumbs={[
     { name: t.nav.home, url: isEn ? '/en' : '/' },
     { name: t.nav.contact, url: getRelativeHref(skSlug, language) },
@@ -61,28 +75,28 @@ const contactIcons = {
         </div>
 
         <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <a href={PHONE_HREF} class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
+          <a href={PHONE_HREF} data-ga-category="contact" class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
             <div class="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mx-auto mb-4">
                <Phone className="h-6 w-6" />
             </div>
             <h3 class="font-bold mb-1">{isEn ? 'Call us' : 'Zavolajte nám'}</h3>
             <p class="text-sm text-muted-foreground">{PHONE_DISPLAY}</p>
           </a>
-          <a href={WHATSAPP_URL} class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
+          <a href={WHATSAPP_URL} data-ga-category="contact" class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
             <div class="h-12 w-12 rounded-2xl bg-success/10 flex items-center justify-center text-success mx-auto mb-4">
                <MessageCircle className="h-6 w-6" />
             </div>
             <h3 class="font-bold mb-1">WhatsApp</h3>
             <p class="text-sm text-muted-foreground">{isEn ? 'Quick chat' : 'Rýchla správa'}</p>
           </a>
-          <a href={EMAIL_HREF} class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
+          <a href={EMAIL_HREF} data-ga-category="contact" class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
             <div class="h-12 w-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mx-auto mb-4">
                <Mail className="h-6 w-6" />
             </div>
             <h3 class="font-bold mb-1">{isEn ? 'Email us' : 'Napíšte nám'}</h3>
             <p class="text-sm text-muted-foreground">{EMAIL}</p>
           </a>
-          <a href={MAP_URL} target="_blank" rel="noopener noreferrer" class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
+          <a href={MAP_URL} target="_blank" rel="noopener noreferrer" data-ga-category="contact" class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
             <div class="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mx-auto mb-4">
                <MapPin className="h-6 w-6" />
             </div>

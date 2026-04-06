@@ -78,6 +78,21 @@ const servicesSchema = [
       },
     })),
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: isEn ? 'Wedding Dress Services' : 'Svadobné služby',
+    description: isEn ? 'Wedding dress fitting and styling services' : 'Skúška a výber svadobných šiat',
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'MagicRoom',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Martin',
+        addressCountry: 'SK',
+      },
+    },
+  },
 ];
 ---
 
