@@ -266,10 +266,14 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 | Google Analytics 4 | ✅ DONE |
 | GA4 konverzie (phone, email, WhatsApp, form) | ✅ DONE |
 | Google Business Profile | ✅ DONE |
-| E2E tests (46+) | ✅ DONE |
-| Unit tests (56) | ✅ DONE |
+| E2E tests (121) | ✅ DONE | 2026-04-06 |
+| Unit tests (69) | ✅ DONE | 2026-04-06 |
 | CI workflow | ✅ DONE |
 | Dress catalog CMS (JSON) | ✅ DONE |
+| Mobile menu (clean code) | ✅ DONE | 2026-04-06 |
+| Mobile menu E2E tests (15) | ✅ DONE | 2026-04-06 |
+| DEFAULT_KEYWORDS | ✅ DONE | 2026-04-06 |
+| LLM-friendly robots.txt | ✅ DONE | GPTBot, Claude, etc. |
 
 ### 🇬🇧 ANGLICKÁ VERZIA (2026-04-03)
 
@@ -367,4 +371,4 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 ---
 
 *Document created: 2026-04-01*
-*Version: 1.2 - 2026-04-04*
+*Version: 1.3 - 2026-04-06*
