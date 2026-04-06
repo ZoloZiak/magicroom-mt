@@ -1,6 +1,9 @@
 {
   "instructions": [
-    "AGENTS.md"
+    "AGENTS.md",
+    "docs/README.md",
+    "docs/01-specs/roadmap-sk.md",
+    "README.md"
   ],
   "default_agent": "code"
 }
