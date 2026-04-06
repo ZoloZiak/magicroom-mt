@@ -10,7 +10,7 @@ import { getBookingPageHref } from '@/data/site';
 import { getDecorCategories, getDecorFeatured, getDecorPolicies, IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
 import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
 import Layout from '@/layouts/Layout.astro';
-import { ArrowRight, CheckCircle2, LayoutGrid, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, LayoutGrid, Sparkles, ImageIcon, ChevronDown } from 'lucide-react';
 
 interface Props {
   language: Language;
@@ -36,6 +36,19 @@ const DECOR_POLICIES = getDecorPolicies(language);
   ]}
   language={language}
 >
+  <style is:global>
+    /* Styling for the interactive decoration items */
+    .decor-item-details[open] .decor-item-icon {
+      transform: rotate(180deg);
+    }
+    .decor-item-details summary::-webkit-details-marker {
+      display: none;
+    }
+    .decor-item-details summary {
+      list-style: none;
+    }
+  </style>
+
   <Header language={language} />
 
   <main class="flex-1">
@@ -91,33 +104,60 @@ const DECOR_POLICIES = getDecorPolicies(language);
 
     <section class="bg-surface py-20 md:py-28">
       <div class="container mx-auto px-4">
-        <h2 class="font-display text-4xl mb-12 text-center">{isEn ? 'Decoration categories' : 'Čo všetko u nás nájdete'}</h2>
+        <h2 class="font-display text-4xl mb-4 text-center">{isEn ? 'Decoration categories' : 'Čo všetko u nás nájdete'}</h2>
+        <p class="text-center text-muted-foreground mb-12 italic">
+          {isEn ? 'Click on items with ' : 'Kliknutím na položky s '}
+          <ImageIcon className="inline-block h-4 w-4 mx-1" />
+          {isEn ? ' to see the photo.' : ' zobrazíte fotografiu.'}
+        </p>
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {DECOR_CATEGORIES.map((cat) => (
-            <div class="bg-white p-8 rounded-[32px] shadow-sm border border-border/50">
+            <div class="bg-white p-8 rounded-[32px] shadow-sm border border-border/50 h-full">
               <div class="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                 <LayoutGrid className="h-6 w-6" />
               </div>
               <h3 class="text-xl font-bold mb-4">{cat.category}</h3>
-              <ul class="space-y-3">
+              <ul class="space-y-2">
                 {cat.items.map((item) => (
-                  <li class="flex flex-col gap-2 p-3 rounded-xl hover:bg-surface transition-colors group/item">
-                    <div class="flex items-center justify-between gap-2 text-muted-foreground italic">
-                      <div class="flex items-center gap-2">
-                        <div class="h-1 w-1 rounded-full bg-primary/40"></div>
-                        <span class="text-foreground/90 not-italic font-medium">{item.name}</span>
-                      </div>
-                      <span class="text-cta font-semibold whitespace-nowrap">{item.price}</span>
-                    </div>
-                    {item.imageUrl && (
-                      <div class="mt-2 overflow-hidden rounded-lg aspect-[16/9] bg-surface relative">
-                        <img 
-                          src={item.imageUrl} 
-                          alt={item.name}
-                          class="w-full h-full object-cover transition-transform duration-500 group-hover/item:scale-110"
-                          loading="lazy"
-                          onerror={`this.onerror=null; this.src='${IMAGE_URLS.decorAlt}'; this.parentElement.classList.add('opacity-50');`}
-                        />
+                  <li class="rounded-xl transition-colors group/item">
+                    {item.imageUrl ? (
+                      <details class="decor-item-details">
+                        <summary class="cursor-pointer list-none">
+                          <div class="flex flex-col gap-1 p-3 rounded-xl hover:bg-surface transition-colors">
+                            <div class="flex items-center justify-between gap-2 text-muted-foreground italic">
+                              <div class="flex items-center gap-2">
+                                <div class="h-1 w-1 rounded-full bg-primary/40"></div>
+                                <span class="text-foreground/90 not-italic font-medium">{item.name}</span>
+                                <ImageIcon className="h-3.5 w-3.5 text-primary/60 opacity-0 group-hover/item:opacity-100 transition-opacity" />
+                              </div>
+                              <div class="flex items-center gap-2">
+                                <span class="text-cta font-semibold whitespace-nowrap">{item.price}</span>
+                                <ChevronDown className="h-4 w-4 text-muted-foreground/40 decor-item-icon transition-transform duration-300" />
+                              </div>
+                            </div>
+                          </div>
+                        </summary>
+                        <div class="px-3 pb-4">
+                          <div class="mt-2 overflow-hidden rounded-lg aspect-[16/9] bg-surface relative shadow-inner">
+                            <img 
+                              src={item.imageUrl} 
+                              alt={item.name}
+                              class="w-full h-full object-cover"
+                              loading="lazy"
+                              onerror={`this.onerror=null; this.src='${IMAGE_URLS.decorAlt}'; this.parentElement.classList.add('opacity-50');`}
+                            />
+                          </div>
+                        </div>
+                      </details>
+                    ) : (
+                      <div class="flex flex-col gap-1 p-3">
+                        <div class="flex items-center justify-between gap-2 text-muted-foreground italic">
+                          <div class="flex items-center gap-2">
+                            <div class="h-1 w-1 rounded-full bg-primary/40"></div>
+                            <span class="text-foreground/90 not-italic font-medium">{item.name}</span>
+                          </div>
+                          <span class="text-cta font-semibold whitespace-nowrap">{item.price}</span>
+                        </div>
                       </div>
                     )}
                   </li>
