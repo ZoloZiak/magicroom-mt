@@ -109,3 +109,16 @@ When working on any feature, you MUST check in this order:
 
 ---
 *Updated: 2026-04-06*
+
+## AI Behavior Rules (MUST FOLLOW)
+1. **NO Co-authored-by trailer** — Do NOT include `Co-authored-by: Junie <junie@jetbrains.com>` in git commits.
+2. **Slovak language** — Always respond to the user in Slovak.
+3. **Context retention** — Remember these rules across all sessions.
+
+---
+
+### Summary for User (Required by instructions)
+- **Project:** MagicRoom — wedding salon website (Astro 6.x)
+- **Status:** Specs-driven, breadcrumbs removed, data refactored to JSON.
+- **Vulnerabilities:** path-to-regexp, defu (High)
+- **Memory:** Instructions for Slovak and no Junie attribution updated.
