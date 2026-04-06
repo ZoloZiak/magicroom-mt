@@ -11,8 +11,8 @@
         "category": "Zrkadlá a uvítanie",
         "items": [
           { "name": "Veľké zrkadlo 72 × 163 cm s nápisom „Vitajte na našej svadbe\"", "price": "35 €", "image": "decor-detail" },
-          { "name": "Biele zrkadlo 70 × 90 cm na zasadací poriadok so svetielkami a stojanom", "price": "25 €", "image": "decor-detail" },
-          { "name": "Zlatý rám na zasadací poriadok (bez výplne)", "price": "15 €", "image": "decor-detail" },
+          { "name": "Biele zrkadlo 70 × 90 cm na zasadací poriadok so svetielkami a stojanom", "price": "25 €", "image": "decor-details" },
+          { "name": "Zlatý rám na zasadací poriadok (bez výplne)", "price": "15 €", "image": "decor-alt" },
           { "name": "Rámčeky s textom 10 × 12 cm (12 ks)", "price": "18 €" },
           { "name": "Drevený stojan (štafle) na zrkadlo/tabuľu", "price": "10 €" }
         ]
@@ -20,8 +20,8 @@
       {
         "category": "Stolovanie a textil",
         "items": [
-          { "name": "Klubové dekoračné taniere (zlaté/sklenené)", "price": "od 1,50 € / ks", "image": "decor-placeholder-plates-cutlery" },
-          { "name": "Zlatý príbor (4-dielny set)", "price": "1 € / set", "image": "decor-placeholder-plates-cutlery" },
+          { "name": "Klubové dekoračné taniere (zlaté/sklenené)", "price": "od 1,50 € / ks", "image": "decor-main" },
+          { "name": "Zlatý príbor (4-dielny set)", "price": "1 € / set", "image": "decor-main" },
           { "name": "Látkové obrúsky (rôzne farby)", "price": "od 0,40 € / ks" },
           { "name": "Šifónové štóly na stred stola", "price": "3,50 € / ks" },
           { "name": "Okrúhle obrusy (biely satén/mat)", "price": "10 € / ks" }
@@ -85,8 +85,8 @@
         "category": "Mirrors & Welcome",
         "items": [
           { "name": "Large mirror 72 × 163 cm with \"Welcome to Our Wedding\" text", "price": "35 €", "image": "decor-detail" },
-          { "name": "White mirror 70 × 90 cm for seating chart with fairy lights and stand", "price": "25 €", "image": "decor-detail" },
-          { "name": "Gold frame for seating chart (frame only)", "price": "15 €", "image": "decor-detail" },
+          { "name": "White mirror 70 × 90 cm for seating chart with fairy lights and stand", "price": "25 €", "image": "decor-details" },
+          { "name": "Gold frame for seating chart (frame only)", "price": "15 €", "image": "decor-alt" },
           { "name": "Text frames 10 × 12 cm (12 pcs)", "price": "18 €" },
           { "name": "Wooden easel for mirror/board", "price": "10 €" }
         ]
@@ -94,8 +94,8 @@
       {
         "category": "Dining & Textiles",
         "items": [
-          { "name": "Charger plates (gold/glass)", "price": "from 1.50 € / pc", "image": "decor-placeholder-plates-cutlery" },
-          { "name": "Gold cutlery (4-piece set)", "price": "1 € / set", "image": "decor-placeholder-plates-cutlery" },
+          { "name": "Charger plates (gold/glass)", "price": "from 1.50 € / pc", "image": "decor-main" },
+          { "name": "Gold cutlery (4-piece set)", "price": "1 € / set", "image": "decor-main" },
           { "name": "Fabric napkins (various colors)", "price": "from 0.40 € / pc" },
           { "name": "Chiffon table runners", "price": "3.50 € / pc" },
           { "name": "Round tablecloths (white satin/matte)", "price": "10 € / pc" }
