@@ -66,7 +66,8 @@ Všetok obsah, ktorý chceš meniť, sa nachádza v priečinku `content/`.
 
 ## Stack
 
-- **Framework:** Astro 6.x (static + SSR for API)
+- **Framework:** Astro 6.x (static output with on-demand API)
+- **Performance:** 100% static prerendering for all pages, SSR only for `/api/*`
 - **UI:** shadcn/ui + Tailwind CSS v4
 - **Email:** Resend (booking form)
 - **Testing:** Vitest (69 unit) + Playwright (121 E2E)

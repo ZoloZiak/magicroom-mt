@@ -22,6 +22,7 @@ if (isProd) {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.magicroom.sk',
+  output: 'static',
   adapter: vercel(),
 
   vite: {
