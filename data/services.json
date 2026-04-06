@@ -46,6 +46,21 @@
         "title": "RSVP online správa",
         "price": "18 €",
         "description": "QR formulár, zber odpovedí hostí a prehľadná tabuľka."
+      },
+      {
+        "title": "Profesionálne čistenie",
+        "price": "od 25 €",
+        "description": "Zabezpečíme odborné vyčistenie vašich svadobných alebo spoločenských šiat po akcii."
+      },
+      {
+        "title": "Komisný predaj šiat",
+        "price": "Individuálne",
+        "description": "Pomôžeme vám predať vaše svadobné šaty ďalšej neveste — u nás v salóne."
+      },
+      {
+        "title": "Doplnky pre pánov",
+        "price": "od 10 €",
+        "description": "Prenájom a predaj motýlikov, trakov a iných doplnkov pre dokonalý pár."
       }
     ]
   },
@@ -96,6 +111,21 @@
         "title": "Online RSVP management",
         "price": "18 €",
         "description": "QR form, guest response collection and guest list management."
+      },
+      {
+        "title": "Professional Cleaning",
+        "price": "from 25 €",
+        "description": "We provide professional cleaning for your wedding or evening dresses after the event."
+      },
+      {
+        "title": "Dress Consignment",
+        "price": "Individual",
+        "description": "We help you sell your wedding dress to another bride right in our salon."
+      },
+      {
+        "title": "Men's Accessories",
+        "price": "from 10 €",
+        "description": "Rental and sale of bow ties, suspenders and other accessories for a perfect couple."
       }
     ]
   }
