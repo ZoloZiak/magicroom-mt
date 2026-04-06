@@ -20,8 +20,8 @@
       {
         "category": "Stolovanie a textil",
         "items": [
-          { "name": "Klubové dekoračné taniere (zlaté/sklenené)", "price": "od 1,50 € / ks", "image": "decor-plate-gold" },
-          { "name": "Zlatý príbor (4-dielny set)", "price": "1 € / set", "image": "decor-cutlery-gold" },
+          { "name": "Klubové dekoračné taniere (zlaté/sklenené)", "price": "od 1,50 € / ks", "image": "decor-placeholder-plates-cutlery" },
+          { "name": "Zlatý príbor (4-dielny set)", "price": "1 € / set", "image": "decor-placeholder-plates-cutlery" },
           { "name": "Látkové obrúsky (rôzne farby)", "price": "od 0,40 € / ks" },
           { "name": "Šifónové štóly na stred stola", "price": "3,50 € / ks" },
           { "name": "Okrúhle obrusy (biely satén/mat)", "price": "10 € / ks" }
@@ -30,9 +30,9 @@
       {
         "category": "Vázy a svietniky",
         "items": [
-          { "name": "Vysoké zlaté svietniky (5-ramenné)", "price": "8 € / ks", "image": "decor-candelabra-gold" },
+          { "name": "Vysoké zlaté svietniky (5-ramenné)", "price": "8 € / ks" },
           { "name": "Zlaté valcové svietniky (set 3 ks)", "price": "5 €" },
-          { "name": "Sklenené vázy rôznych tvarov", "price": "od 0,60 € / ks", "image": "decor-vase-glass" },
+          { "name": "Sklenené vázy rôznych tvarov", "price": "od 0,60 € / ks" },
           { "name": "Plávajúce sviečky v skle (set 3 ks)", "price": "4 €" },
           { "name": "Lucerny (biele/strieborné/drevené)", "price": "od 3 € / ks" }
         ]
@@ -43,7 +43,7 @@
           { "name": "Chiavari stoličky (biele/zlaté)", "price": "od 3,50 € / ks" },
           { "name": "Návleky na stoličky (univerzálne biele)", "price": "1,20 € / ks" },
           { "name": "Mašle na stoličky (šifón/satén/jutovina)", "price": "od 0,50 € / ks" },
-          { "name": "Okrúhle stoly (pre 8-10 osôb)", "price": "15 € / ks", "image": "decor-table-round" }
+          { "name": "Okrúhle stoly (pre 8-10 osôb)", "price": "15 € / ks" }
         ]
       },
       {
@@ -59,8 +59,8 @@
         "category": "Kulisy a fotokútik",
         "items": [
           { "name": "Svadobná kulisa so závesmi a svetielkami (3 m)", "price": "35 €", "image": "decor-backdrop-stol-zavesy" },
-          { "name": "Kruhový kovový oblúk (priemer 2 m)", "price": "30 €", "image": "decor-arch-circle" },
-          { "name": "Fotostena (kvetinová/trblietavá)", "price": "od 50 €", "image": "decor-photowall" },
+          { "name": "Kruhový kovový oblúk (priemer 2 m)", "price": "30 €" },
+          { "name": "Fotostena (kvetinová/trblietavá)", "price": "od 50 €" },
           { "name": "Rekvizity do fotokútika (set)", "price": "10 €" },
           { "name": "Zapichovacie drevené šípky „Svadba“", "price": "25 €", "image": "decor-arrows-zapichy" }
         ]
@@ -94,8 +94,8 @@
       {
         "category": "Dining & Textiles",
         "items": [
-          { "name": "Charger plates (gold/glass)", "price": "from 1.50 € / pc", "image": "decor-plate-gold" },
-          { "name": "Gold cutlery (4-piece set)", "price": "1 € / set", "image": "decor-cutlery-gold" },
+          { "name": "Charger plates (gold/glass)", "price": "from 1.50 € / pc", "image": "decor-placeholder-plates-cutlery" },
+          { "name": "Gold cutlery (4-piece set)", "price": "1 € / set", "image": "decor-placeholder-plates-cutlery" },
           { "name": "Fabric napkins (various colors)", "price": "from 0.40 € / pc" },
           { "name": "Chiffon table runners", "price": "3.50 € / pc" },
           { "name": "Round tablecloths (white satin/matte)", "price": "10 € / pc" }
@@ -104,9 +104,9 @@
       {
         "category": "Vases & Candelabras",
         "items": [
-          { "name": "Tall gold candelabras (5-arm)", "price": "8 € / pc", "image": "decor-candelabra-gold" },
+          { "name": "Tall gold candelabras (5-arm)", "price": "8 € / pc" },
           { "name": "Gold cylinder candle holders (set of 3)", "price": "5 €" },
-          { "name": "Glass vases of various shapes", "price": "from 0.60 € / pc", "image": "decor-vase-glass" },
+          { "name": "Glass vases of various shapes", "price": "from 0.60 € / pc" },
           { "name": "Floating candles in glass (set of 3)", "price": "4 €" },
           { "name": "Lanterns (white/silver/wooden)", "price": "from 3 € / pc" }
         ]
@@ -117,13 +117,13 @@
           { "name": "Chiavari chairs (white/gold)", "price": "from 3.50 € / pc" },
           { "name": "Chair covers (universal white)", "price": "1.20 € / pc" },
           { "name": "Chair bows (chiffon/satin/jute)", "price": "from 0.50 € / pc" },
-          { "name": "Round tables (for 8-10 people)", "price": "15 € / pc", "image": "decor-table-round" }
+          { "name": "Round tables (for 8-10 people)", "price": "15 € / pc" }
         ]
       },
       {
         "category": "Candy Bar & Accessories",
         "items": [
-          { "name": "Candy bar package (trays, tongs, jars)", "price": "20 €", "image": "decor-candybar" },
+          { "name": "Candy bar package (trays, tongs, jars)", "price": "20 €" },
           { "name": "Wooden table numbers 1–10", "price": "5 €" },
           { "name": "Gift/program baskets", "price": "from 2 €" },
           { "name": "Personalized glasses for newlyweds", "price": "from 15 € / pair" }
@@ -133,8 +133,8 @@
         "category": "Backdrops & Photo Booth",
         "items": [
           { "name": "Wedding backdrop with drapes and fairy lights (3 m)", "price": "35 €", "image": "decor-backdrop-stol-zavesy" },
-          { "name": "Circular metal arch (2 m diameter)", "price": "30 €", "image": "decor-arch-circle" },
-          { "name": "Photo wall (floral/shimmer)", "price": "from 50 €", "image": "decor-photowall" },
+          { "name": "Circular metal arch (2 m diameter)", "price": "30 €" },
+          { "name": "Photo wall (floral/shimmer)", "price": "from 50 €" },
           { "name": "Photo booth props (set)", "price": "10 €" },
           { "name": "Wooden decorative arrows \"Wedding\"", "price": "25 €", "image": "decor-arrows-zapichy" }
         ]

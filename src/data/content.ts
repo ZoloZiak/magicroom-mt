@@ -67,6 +67,7 @@ export const IMAGE_URLS = {
   'decor-arrows-zapichy': '/content/decorations/zapichy-do-zeme.jpg',
   'decor-mirrors-welcome-set': '/content/decorations/chiavari-chairs.jpg',
   'decor-detail-real': '/content/decorations/decor-detail.jpg',
+  'decor-placeholder-plates-cutlery': decorAltImage.src,
 } as const;
 
 export const HOME_STATS = [
