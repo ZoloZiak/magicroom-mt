@@ -165,28 +165,28 @@
   }
 }
 
-/* Custom scrollbar - all scrollbars */
+/* Custom scrollbar - use CSS variables */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F7F3EF !important;
+  background: var(--color-surface);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FF69B4 !important;
+  background: var(--color-cta);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #E05595 !important;
+  background: var(--color-cta-hover);
 }
 
 /* Firefox scrollbar */
 * {
-  scrollbar-color: #FF69B4 #F7F3EF !important;
+  scrollbar-color: var(--color-cta) var(--color-surface);
 }
 
 @layer utilities {
