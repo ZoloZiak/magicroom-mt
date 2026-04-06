@@ -57,11 +57,11 @@ describe('site.ts — Navigation', () => {
 
   it('includes key pages', () => {
     const hrefs = NAV_LINKS.map((l) => l.href);
-    expect(hrefs).toContain('/sk/o-nas');
-    expect(hrefs).toContain('/sk/sluzby');
-    expect(hrefs).toContain('/sk/svadobne-saty');
-    expect(hrefs).toContain('/sk/kontakt');
-    expect(hrefs).toContain('/sk/blog');
+    expect(hrefs).toContain('/o-nas');
+    expect(hrefs).toContain('/sluzby');
+    expect(hrefs).toContain('/svadobne-saty');
+    expect(hrefs).toContain('/kontakt');
+    expect(hrefs).toContain('/blog');
   });
 });
 

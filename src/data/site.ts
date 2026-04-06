@@ -35,15 +35,15 @@ export function buildWhatsAppUrl(message: string) {
 export const WHATSAPP_URL = buildWhatsAppUrl(WHATSAPP_MESSAGE);
 
 export const NAV_LINKS = [
-  { href: '/sk/o-nas', label: 'O nás' },
-  { href: '/sk/sluzby', label: 'Služby' },
-  { href: '/sk/svadobne-saty', label: 'Šaty' },
-  { href: '/sk/galeria', label: 'Galéria' },
-  { href: '/sk/blog', label: 'Blog' },
-  { href: '/sk/komisny-predaj', label: 'Komisný predaj' },
-  { href: '/sk/prenajom-dekoracii', label: 'Dekorácie' },
-  { href: '/sk/partneri', label: 'Partneri' },
-  { href: '/sk/kontakt', label: 'Kontakt' },
+  { href: '/o-nas', label: 'O nás' },
+  { href: '/sluzby', label: 'Služby' },
+  { href: '/svadobne-saty', label: 'Šaty' },
+  { href: '/galeria', label: 'Galéria' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/komisny-predaj', label: 'Komisný predaj' },
+  { href: '/prenajom-dekoracii', label: 'Dekorácie' },
+  { href: '/partneri', label: 'Partneri' },
+  { href: '/kontakt', label: 'Kontakt' },
 ] as const;
 
 export const NAV_LINKS_EN = [
@@ -61,15 +61,15 @@ export const NAV_LINKS_EN = [
 export function getNavLinks(lang: Language) {
   if (lang === 'sk') {
     return [
-      { href: '/sk/o-nas', label: 'O nás' },
-      { href: '/sk/sluzby', label: 'Služby' },
-      { href: '/sk/svadobne-saty', label: 'Šaty' },
-      { href: '/sk/galeria', label: 'Galéria' },
-      { href: '/sk/blog', label: 'Blog' },
-      { href: '/sk/komisny-predaj', label: 'Komisný predaj' },
-      { href: '/sk/prenajom-dekoracii', label: 'Dekorácie' },
-      { href: '/sk/partneri', label: 'Partneri' },
-      { href: '/sk/kontakt', label: 'Kontakt' },
+      { href: '/o-nas', label: 'O nás' },
+      { href: '/sluzby', label: 'Služby' },
+      { href: '/svadobne-saty', label: 'Šaty' },
+      { href: '/galeria', label: 'Galéria' },
+      { href: '/blog', label: 'Blog' },
+      { href: '/komisny-predaj', label: 'Komisný predaj' },
+      { href: '/prenajom-dekoracii', label: 'Dekorácie' },
+      { href: '/partneri', label: 'Partneri' },
+      { href: '/kontakt', label: 'Kontakt' },
     ];
   }
   return [
