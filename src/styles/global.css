@@ -175,11 +175,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary/40 rounded-full;
+  @apply bg-cta/40 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary/60;
+  @apply bg-cta/60;
 }
 
 @layer utilities {
