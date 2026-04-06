@@ -40,7 +40,7 @@
       {
         "category": "Slávnostné sedenie",
         "items": [
-          { "name": "Chiavari stoličky (biele/zlaté)", "price": "od 3,50 € / ks", "image": "decor-chiavari" },
+          { "name": "Chiavari stoličky (biele/zlaté)", "price": "od 3,50 € / ks", "image": "decor-chiavari-chairs" },
           { "name": "Návleky na stoličky (univerzálne biele)", "price": "1,20 € / ks" },
           { "name": "Mašle na stoličky (šifón/satén/jutovina)", "price": "od 0,50 € / ks" },
           { "name": "Okrúhle stoly (pre 8-10 osôb)", "price": "15 € / ks", "image": "decor-table-round" }
@@ -58,11 +58,11 @@
       {
         "category": "Kulisy a fotokútik",
         "items": [
-          { "name": "Svadobná kulisa so závesmi a svetielkami (3 m)", "price": "35 €", "image": "decor-backdrop-lights" },
+          { "name": "Svadobná kulisa so závesmi a svetielkami (3 m)", "price": "35 €", "image": "decor-backdrop-stol-zavesy" },
           { "name": "Kruhový kovový oblúk (priemer 2 m)", "price": "30 €", "image": "decor-arch-circle" },
           { "name": "Fotostena (kvetinová/trblietavá)", "price": "od 50 €", "image": "decor-photowall" },
           { "name": "Rekvizity do fotokútika (set)", "price": "10 €" },
-          { "name": "Zapichovacie drevené šípky „Svadba“", "price": "25 €" }
+          { "name": "Zapichovacie drevené šípky „Svadba“", "price": "25 €", "image": "decor-arrows-zapichy" }
         ]
       }
     ],
@@ -114,7 +114,7 @@
       {
         "category": "Seating",
         "items": [
-          { "name": "Chiavari chairs (white/gold)", "price": "from 3.50 € / pc", "image": "decor-chiavari" },
+          { "name": "Chiavari chairs (white/gold)", "price": "from 3.50 € / pc", "image": "decor-chiavari-chairs" },
           { "name": "Chair covers (universal white)", "price": "1.20 € / pc" },
           { "name": "Chair bows (chiffon/satin/jute)", "price": "from 0.50 € / pc" },
           { "name": "Round tables (for 8-10 people)", "price": "15 € / pc", "image": "decor-table-round" }
@@ -132,11 +132,11 @@
       {
         "category": "Backdrops & Photo Booth",
         "items": [
-          { "name": "Wedding backdrop with drapes and fairy lights (3 m)", "price": "35 €", "image": "decor-backdrop-lights" },
+          { "name": "Wedding backdrop with drapes and fairy lights (3 m)", "price": "35 €", "image": "decor-backdrop-stol-zavesy" },
           { "name": "Circular metal arch (2 m diameter)", "price": "30 €", "image": "decor-arch-circle" },
           { "name": "Photo wall (floral/shimmer)", "price": "from 50 €", "image": "decor-photowall" },
           { "name": "Photo booth props (set)", "price": "10 €" },
-          { "name": "Wooden decorative arrows \"Wedding\"", "price": "25 €" }
+          { "name": "Wooden decorative arrows \"Wedding\"", "price": "25 €", "image": "decor-arrows-zapichy" }
         ]
       }
     ],

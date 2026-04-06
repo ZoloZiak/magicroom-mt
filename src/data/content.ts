@@ -63,6 +63,10 @@ export const IMAGE_URLS = {
   decorBackdrop: decorBackdrop.src,
   decorDetails: decorDetails.src,
   map: mapImage.src,
+  'decor-backdrop-stol-zavesy': '/content/decorations/stol-zavesy.jpg',
+  'decor-arrows-zapichy': '/content/decorations/zapichy-do-zeme.jpg',
+  'decor-chiavari-chairs': '/content/decorations/chiavari-chairs.jpg',
+  'decor-detail-real': '/content/decorations/decor-detail.jpg',
 } as const;
 
 export const HOME_STATS = [
