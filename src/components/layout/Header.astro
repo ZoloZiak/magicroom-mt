@@ -25,7 +25,7 @@ const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingP
       <p>{t.common.fittingNote} {t.common.fittingPrice}</p>
       <div class="flex items-center gap-6">
         <p>{t.common.visitNote}</p>
-        <a href={PHONE_HREF} class="hover:text-foreground">{PHONE_DISPLAY}</a>
+        <a href={PHONE_HREF} class="hover:text-foreground" data-ga-category="contact" data-ga-action="phone_click" data-ga-label="header_phone">{PHONE_DISPLAY}</a>
         <p>{t.common.replyNote}</p>
       </div>
     </div>
@@ -55,7 +55,7 @@ const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingP
     <div class="hidden items-center gap-4 md:flex">
       <LanguageSwitcher currentLanguage={language} />
       <Button asChild variant="cta" size="sm">
-        <a href={bookingHref}>{t.nav.bookAppointment}</a>
+        <a href={bookingHref} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label="header_cta">{t.nav.bookAppointment}</a>
       </Button>
     </div>
 
