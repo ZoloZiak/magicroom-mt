@@ -59,7 +59,7 @@ const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingP
       </Button>
     </div>
 
-    <button id="menu-toggle" type="button" class="md:hidden p-2 rounded-lg hover:bg-muted" aria-label="Menu">
+    <button id="menu-toggle" type="button" class="md:hidden p-2 rounded-lg hover:bg-muted" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
       <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
@@ -67,7 +67,7 @@ const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingP
   </nav>
 </header>
 
-<div id="mobile-menu" class="fixed inset-0 z-50" style="visibility: hidden;">
+<div id="mobile-menu" class="fixed inset-0 z-50" style="visibility: hidden;" role="dialog" aria-modal="true" aria-label="Mobile navigation">
   <div id="menu-backdrop" class="absolute inset-0 bg-black/50 transition-opacity duration-300" style="opacity: 0;"></div>
   <div id="menu-panel" class="absolute top-0 right-0 h-full w-[300px] bg-background shadow-xl transition-transform duration-300 ease-out overflow-y-auto" style="transform: translateX(100%);">
     <div class="flex items-center justify-between border-b border-border p-5">
@@ -78,7 +78,7 @@ const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingP
           <span class="block text-[10px] uppercase tracking-[0.28em] text-muted-foreground">bridal concierge • Martin</span>
         </div>
       </div>
-      <button id="menu-close" type="button" class="rounded-lg p-2 hover:bg-muted" aria-label="Close">
+      <button id="menu-close" type="button" class="rounded-lg p-2 hover:bg-muted" aria-label="Close menu" aria-controls="mobile-menu">
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
@@ -125,12 +125,16 @@ const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingP
 
     function openMenu() {
       menu.style.visibility = 'visible';
+      menu.setAttribute('aria-hidden', 'false');
+      toggle.setAttribute('aria-expanded', 'true');
       backdrop.style.opacity = '1';
       panel.style.transform = 'translateX(0)';
       document.body.style.overflow = 'hidden';
     }
 
     function closeMenu() {
+      menu.setAttribute('aria-hidden', 'true');
+      toggle.setAttribute('aria-expanded', 'false');
       backdrop.style.opacity = '0';
       panel.style.transform = 'translateX(100%)';
       document.body.style.overflow = '';
