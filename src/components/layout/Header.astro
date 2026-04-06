@@ -1,54 +1,51 @@
 ---
 import { Button } from '@/components/ui/button';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher.astro';
-import { BOOKING_PAGE_HREF, NAV_LINKS, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
-import { getTranslations } from '@/lib/translations';
+import { getNavLinks, getBookingPageHref, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
+import { getTranslations, type Language } from '@/lib/translations';
 
-const t = getTranslations('sk');
+interface Props {
+  language: Language;
+}
+
+const { language } = Astro.props;
+const t = getTranslations(language);
+
 const currentPath = Astro.url.pathname;
-const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
+const isEn = language === 'en';
+
+const navLinks = getNavLinks(language);
+const bookingPageHref = getBookingPageHref(language);
+const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingPageHref;
 ---
 
 <header class="sticky top-0 z-50 w-full border-b border-border/70 bg-background/80 shadow-[var(--shadow-sm)] backdrop-blur-xl">
   <div class="hidden border-b border-border/50 bg-white/60 md:block">
     <div class="container mx-auto flex h-10 items-center justify-between px-4 text-[11px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
-      <p>Skúška svadobných šiat 12 € / 60 min</p>
+      <p>{t.common.fittingNote} {t.common.fittingPrice}</p>
       <div class="flex items-center gap-6">
-        <p>Martin • na objednávku</p>
-        <a href={PHONE_HREF} class="hover:text-foreground" data-ga-category="contact" data-ga-action="phone_click" data-ga-label="header_phone">{PHONE_DISPLAY}</a>
+        <p>{t.common.visitNote}</p>
+        <a href={PHONE_HREF} class="hover:text-foreground">{PHONE_DISPLAY}</a>
         <p>{t.common.replyNote}</p>
       </div>
     </div>
   </div>
 
   <nav class="container mx-auto flex h-[4.5rem] items-center justify-between px-4">
-    <a href="/" class="group flex items-center gap-3" aria-label="MagicRoom domov">
-      <img
-        src="/images/logo.jpeg"
-        alt="MagicRoom logo"
-        class="h-11 w-11 rounded-full object-cover shadow-[var(--shadow-xl)]"
-        width="44"
-        height="44"
-      />
+    <a href={isEn ? '/en' : '/'} class="group flex items-center gap-3" aria-label="MagicRoom">
+      <div class="h-11 w-11 overflow-hidden rounded-full shadow-[var(--shadow-xl)]">
+        <img src="/images/logo.jpeg" alt="Logo" class="h-full w-full object-cover" width="44" height="44" />
+      </div>
       <div class="hidden sm:block">
-        <span class="block font-display text-[1.45rem] leading-none transition-colors group-hover:text-primary">MagicRoom</span>
-        <span class="mt-1 block text-[10px] uppercase tracking-[0.34em] text-muted-foreground">bridal concierge • Martin</span>
+        <span class="block font-display text-[1.45rem] leading-none">MagicRoom</span>
+        <span class="mt-1 block text-[10px] uppercase tracking-[0.34em] text-muted-foreground">{t.common.logoSubtext}</span>
       </div>
     </a>
 
     <ul class="hidden items-center gap-8 md:flex">
-      {NAV_LINKS.map((link) => (
+      {navLinks.map((link) => (
         <li>
-          <a
-            href={link.href}
-            aria-current={currentPath === link.href ? 'page' : undefined}
-            class:list={[
-              'relative text-sm font-medium tracking-[0.08em] after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:origin-left after:bg-cta after:transition-transform after:duration-300',
-              currentPath === link.href
-                ? 'text-foreground after:scale-x-100'
-                : 'text-foreground/70 after:scale-x-0 hover:text-foreground hover:after:scale-x-100',
-            ]}
-          >
+          <a href={link.href} class="relative text-sm font-medium tracking-[0.08em] after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:origin-left after:bg-cta after:transition-transform after:duration-300 text-foreground/70 after:scale-x-0 hover:text-foreground hover:after:scale-x-100">
             {link.label}
           </a>
         </li>
@@ -56,118 +53,102 @@ const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
     </ul>
 
     <div class="hidden items-center gap-4 md:flex">
-      <LanguageSwitcher currentLanguage="sk" />
+      <LanguageSwitcher currentLanguage={language} />
       <Button asChild variant="cta" size="sm">
-        <a href={bookingHref} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label="header_cta">Zarezervuj skúšku</a>
+        <a href={bookingHref}>{t.nav.bookAppointment}</a>
       </Button>
     </div>
 
-    <div class="md:hidden">
-      <button
-        id="mobile-menu-toggle"
-        style="cursor:pointer;border-radius:8px;padding:8px;background:none;border:none;"
-        aria-label="Otvoriť navigáciu"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
-      </button>
-    </div>
+    <button id="menu-toggle" type="button" class="md:hidden p-2 rounded-lg hover:bg-muted" aria-label="Menu">
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
   </nav>
 </header>
 
-<div id="mobile-menu-root" data-phone-href={PHONE_HREF} data-phone-display={PHONE_DISPLAY} data-response={t.common.replyNote} data-booking-href={bookingHref} data-nav={JSON.stringify(NAV_LINKS)}></div>
-
-<script>
-  const root = document.getElementById('mobile-menu-root');
-  const PHONE_HREF = root?.dataset.phoneHref || 'tel:+421950490323';
-  const PHONE_DISPLAY = root?.dataset.phoneDisplay || '+421 950 490 323';
-  const RESPONSE_PROMISE = root?.dataset.response || '';
-  const bookingHref = root?.dataset.bookingHref || '/kontakt#booking';
-  const NAV_LINKS = JSON.parse(root?.dataset.nav || '[]');
-
-  const toggleBtn = document.getElementById('mobile-menu-toggle');
-  let menuEl = null;
-
-  function createMenu() {
-    const el = document.createElement('div');
-    el.id = 'mobile-drawer';
-    el.setAttribute('role', 'dialog');
-    el.setAttribute('aria-modal', 'true');
-    el.innerHTML = `
-      <div id="mobile-backdrop" style="position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.5);display:none;"></div>
-      <div id="mobile-panel" style="position:fixed;top:0;right:0;z-index:10000;height:100vh;width:300px;background:var(--color-background);box-shadow:-4px 0 30px rgba(0,0,0,0.15);transform:translateX(100%);transition:transform 0.3s ease;overflow-y:auto;">
-        <div style="padding:20px;border-bottom:1px solid var(--color-border);display:flex;align-items:center;justify-content:space-between;">
-          <div style="display:flex;align-items:center;gap:12px;">
-            <img src="/images/logo.jpeg" alt="MagicRoom" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
-            <div>
-              <span style="display:block;font-family:Satoshi,system-ui;font-size:1.5rem;font-weight:600;">MagicRoom</span>
-              <span style="display:block;font-size:10px;text-transform:uppercase;letter-spacing:0.28em;color:var(--color-muted-foreground);">bridal concierge &bull; Martin</span>
-            </div>
-          </div>
-          <button id="mobile-close-btn" style="cursor:pointer;padding:8px;background:none;border:none;border-radius:8px;" aria-label="Zavrieť">
-            <svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-          </button>
-        </div>
-        <div style="padding:12px 20px;">
-          <div style="border-radius:16px;border:1px solid var(--color-border);background:var(--color-card);padding:12px 16px;font-size:14px;color:var(--color-muted-foreground);">
-            <p style="font-weight:500;color:var(--color-foreground);margin:0;">${RESPONSE_PROMISE}</p>
-            <a href="${PHONE_HREF}" style="display:block;margin-top:4px;color:var(--color-primary);text-decoration:none;">${PHONE_DISPLAY}</a>
-          </div>
-        </div>
-        <div style="padding:12px 20px 0;">
-          <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.28em;color:var(--color-primary);margin:0;">Navigácia</p>
-        </div>
-        <ul style="list-style:none;margin:0;padding:0 20px;">
-          ${NAV_LINKS.map(link => `
-            <li style="border-bottom:1px solid var(--color-border);padding:12px 0;">
-              <a href="${link.href}" style="display:block;padding:8px 0;font-size:18px;font-weight:500;color:var(--color-foreground);text-decoration:none;">
-                ${link.label}
-              </a>
-            </li>
-          `).join('')}
-        </ul>
-        <div style="padding:20px;border-top:1px solid var(--color-border);">
-          <a href="${bookingHref}" style="display:block;text-align:center;padding:12px 24px;background:var(--color-cta);color:#fff;border-radius:12px;font-weight:500;text-decoration:none;font-size:15px;">
-            Zarezervuj skúšku
-          </a>
-          <a href="${PHONE_HREF}" style="display:block;margin-top:16px;text-align:center;font-size:14px;font-weight:500;color:var(--color-muted-foreground);text-decoration:none;">
-            Alebo zavolajte priamo
-          </a>
+<div id="mobile-menu" class="fixed inset-0 z-50 hidden">
+  <div id="menu-backdrop" class="absolute inset-0 bg-black/50"></div>
+  <div id="menu-panel" class="absolute top-0 right-0 h-full w-[300px] bg-background shadow-xl translate-x-full transition-transform duration-300 ease-out overflow-y-auto">
+    <div class="flex items-center justify-between border-b border-border p-5">
+      <div class="flex items-center gap-3">
+        <img src="/images/logo.jpeg" alt="MagicRoom" class="h-10 w-10 rounded-full object-cover" />
+        <div>
+          <span class="block font-display text-xl font-semibold">MagicRoom</span>
+          <span class="block text-[10px] uppercase tracking-[0.28em] text-muted-foreground">bridal concierge • Martin</span>
         </div>
       </div>
-    `;
-    document.body.appendChild(el);
-    menuEl = el;
+      <button id="menu-close" type="button" class="rounded-lg p-2 hover:bg-muted" aria-label="Close">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="p-5 pt-3">
+      <div class="rounded-2xl border border-border bg-card p-4 text-sm text-muted-foreground">
+        <p class="font-medium text-foreground">{t.common.replyNote}</p>
+        <a href={PHONE_HREF} class="mt-1 block font-semibold text-primary hover:underline">{PHONE_DISPLAY}</a>
+      </div>
+    </div>
+    <div class="px-5">
+      <p class="text-[11px] uppercase tracking-[0.28em] text-primary/70">{t.header.mobileNavigation}</p>
+    </div>
+    <ul class="px-5 mt-2">
+      {navLinks.map((link) => (
+        <li class="border-b border-border/50 py-3">
+          <a href={link.href} class="block py-2 text-lg font-medium text-foreground hover:text-primary transition-colors">
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="border-t border-border p-5 mt-4">
+      <a href={bookingHref} class="block rounded-xl bg-cta px-6 py-3 text-center text-[15px] font-medium text-white shadow-md hover:bg-cta/90 transition-colors">
+        {t.nav.bookAppointment}
+      </a>
+      <a href={PHONE_HREF} class="mt-4 block text-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+        {t.header.mobileCallDirectly}
+      </a>
+    </div>
+  </div>
+</div>
 
-    document.getElementById('mobile-backdrop')?.addEventListener('click', closeMenu);
-    document.getElementById('mobile-close-btn')?.addEventListener('click', closeMenu);
-    el.querySelectorAll('a[href]').forEach(a => {
-      a.addEventListener('click', closeMenu);
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    var menu = document.getElementById('mobile-menu');
+    var toggle = document.getElementById('menu-toggle');
+    var close = document.getElementById('menu-close');
+    var backdrop = document.getElementById('menu-backdrop');
+    var panel = document.getElementById('menu-panel');
+
+    if (!menu || !toggle || !panel) return;
+
+    function openMenu() {
+      menu.classList.remove('hidden');
+      panel.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      panel.classList.add('translate-x-full');
+      document.body.style.overflow = '';
+      setTimeout(function() {
+        menu.classList.add('hidden');
+      }, 300);
+    }
+
+    toggle.addEventListener('click', openMenu);
+    close && close.addEventListener('click', closeMenu);
+    backdrop && backdrop.addEventListener('click', closeMenu);
+
+    panel.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', closeMenu);
     });
-  }
 
-  function openMenu() {
-    if (!menuEl) createMenu();
-    const backdrop = document.getElementById('mobile-backdrop');
-    const panel = document.getElementById('mobile-panel');
-    if (backdrop) backdrop.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    requestAnimationFrame(() => {
-      if (panel) panel.style.transform = 'translateX(0)';
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+        closeMenu();
+      }
     });
-  }
-
-  function closeMenu() {
-    const backdrop = document.getElementById('mobile-backdrop');
-    const panel = document.getElementById('mobile-panel');
-    if (panel) panel.style.transform = 'translateX(100%)';
-    document.body.style.overflow = '';
-    setTimeout(() => {
-      if (backdrop) backdrop.style.display = 'none';
-    }, 300);
-  }
-
-  toggleBtn?.addEventListener('click', openMenu);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
   });
 </script>
