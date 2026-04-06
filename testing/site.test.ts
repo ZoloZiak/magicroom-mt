@@ -14,6 +14,8 @@ import {
   getBaseSchemas,
   SITE_URL,
   SITE_NAME,
+  DEFAULT_DESCRIPTION,
+  DEFAULT_KEYWORDS,
   BOOKING_PAGE_HREF,
   COPYRIGHT_YEAR,
 } from '@/data/site';
@@ -22,6 +24,17 @@ describe('site.ts — Contact info', () => {
   it('has valid Slovak phone number', () => {
     expect(PHONE_DISPLAY).toMatch(/^\+421 \d{3} \d{3} \d{3}$/);
     expect(PHONE_HREF).toBe('tel:+421950490323');
+  });
+
+  it('has default description', () => {
+    expect(DEFAULT_DESCRIPTION).toContain('svadobný salón');
+    expect(DEFAULT_DESCRIPTION).toContain('Martin');
+  });
+
+  it('has default keywords', () => {
+    expect(DEFAULT_KEYWORDS).toContain('svadobné šaty');
+    expect(DEFAULT_KEYWORDS).toContain('Martin');
+    expect(DEFAULT_KEYWORDS).toContain('Turiec');
   });
 
   it('has valid email address', () => {
