@@ -4,7 +4,7 @@
 
 Quick: `npm run dev` → localhost:4321
 
-Tests: 69 unit + 121 E2E ✅
+Tests: 80 unit + 156 E2E ✅
 
 ## Project Structure
 
