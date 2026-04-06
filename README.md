@@ -2,98 +2,41 @@
 
 Wedding salon in Martin, Slovakia. Small, personal, fair prices.
 
-## Repository Structure
+## ⚠️ SPECS-DRIVEN DEVELOPMENT
+All decisions start from `docs/01-specs/` — this is the source of truth.
+
+## Project Structure
 
 ```
 magicroom-mt/
-├── .github/workflows/              — CI (test + build on push)
-├── .kilo/                          — Kilo CLI config
-│   ├── agent/                      — Custom agents
-│   └── command/                    — Slash commands (/deploy, /build, /colors)
-├── AGENTS.md                       — Project instructions for Kilo
-├── README.md                       — This file
+├── docs/                              # 📚 DOCUMENTATION (SOURCE OF TRUTH)
+│   ├── 01-specs/                     # ✅ SPECS-DRIVEN
+│   │   ├── research/                 # Market & audience research
+│   │   ├── strategies/               # SEO, UX, conversion strategies
+│   │   ├── SPEC-sk.md                # Project specification
+│   │   └── roadmap-sk.md             # Implementation status
+│   ├── 02-architecture/              # Technical architecture
+│   └── 03-guides/                    # Operational guides
 │
-├── research/                       — Market research, competitor analysis
-│   ├── regional-market.sk.md
-│   ├── regional-market.en.md
-│   └── magicroom-strategia.pdf
+├── src/                              # 💻 SOURCE CODE
+│   ├── components/                   # Astro + React components
+│   ├── data/                         # Content & config (site.ts, content.ts)
+│   ├── layouts/                     # Page layouts
+│   ├── lib/                          # Utilities & i18n
+│   └── pages/                        # Astro pages & API
 │
-├── plans/                          — Strategy documents
-│   ├── SPEC.sk.md                  — Main specification (SK)
-│   ├── SPEC.en.md                  — Specification (EN)
-│   ├── seo-local-strategy.sk.md
-│   ├── seo-local-strategy.en.md
-│   ├── ux-conversion-strategy.sk.md
-│   ├── ux-conversion-strategy.en.md
-│   ├── roadmap-sk.md
-│   └── roadmap.en.md
+├── e2e/                              # 🧪 E2E TESTS (Playwright)
+├── testing/                          # 🧪 UNIT TESTS (Vitest)
+├── content/                          # 📦 CMS CONTENT (dresses JSON)
+├── public/                          # 🖼️ STATIC ASSETS
 │
-├── docs/                           — Technical documentation
-│   ├── component-architecture.sk.md
-│   ├── component-architecture.en.md
-│   ├── color-palette.md            — Color history
-│   └── deployment.md               — Deploy instructions
+├── .kilo/                            # 🤖 KILO CLI CONFIG
+├── .github/workflows/               # 🔄 CI/CD
+├── .claude/                         # 🤖 CLAUDE CODE CONFIG
 │
-├── testing/                        — Tests (Vitest)
-│   ├── site.test.ts                — 18 tests (config, navigation, schema.org)
-│   ├── content.test.ts             — 25 tests (services, catalog, gallery)
-│   └── README.md
-│
-├── references/                     — Raw salon photos (36 images)
-│
-├── public/                         — Static files
-│   ├── favicon.ico
-│   ├── favicon.svg
-│   ├── robots.txt
-│   ├── site.webmanifest
-│   └── images/
-│       ├── logo.jpeg
-│       └── salon/                  — Optimized photos
-│
-├── src/                            — Source code
-│   ├── components/
-│   │   ├── forms/
-│   │   │   └── BookingForm.astro
-│   │   ├── layout/
-│   │   │   ├── Header.astro
-│   │   │   ├── Footer.astro
-│   │   │   ├── CTASection.astro
-│   │   │   ├── DecorativeDivider.astro
-│   │   │   ├── Sparkles.astro
-│   │   │   ├── ScrollToTop.astro
-│   │   │   └── WhatsAppFAB.astro
-│   │   └── ui/                     — shadcn/ui components
-│   ├── data/
-│   │   ├── content.ts              — All content (services, prices, gallery, catalog)
-│   │   └── site.ts                 — Config (contact, navigation)
-│   ├── layouts/
-│   │   └── Layout.astro
-│   ├── lib/
-│   │   └── utils.ts
-│   ├── pages/
-│   │   ├── api/
-│   │   │   └── booking.ts          — API endpoint (Resend email)
-│   │   ├── blog/
-│   │   │   ├── index.astro
-│   │   │   └── svadobne-trendy-2026.astro
-│   │   ├── index.astro             — Homepage
-│   │   ├── o-nas.astro             — About
-│   │   ├── sluzby.astro            — Services
-│   │   ├── svadobne-saty.astro     — Dress catalog
-│   │   ├── kontakt.astro           — Contact + booking
-│   │   ├── komisny-predaj.astro    — Consignment
-│   │   └── prenajom-dekoracii.astro — Decoration rental
-│   └── styles/
-│       └── global.css              — Tailwind theme + design tokens
-│
-├── .env.example
-├── .gitignore
-├── astro.config.mjs
-├── components.json
-├── package.json
-├── package-lock.json
-├── tsconfig.json
-└── vitest.config.ts
+├── AGENTS.md                        # 🤖 AI ASSISTANT INSTRUCTIONS
+├── CLAUDE.md                        # 🤖 CODE INTELLIGENCE (GitNexus)
+└── README.md                        # 📖 THIS FILE
 ```
 
 ## Stack
@@ -101,35 +44,34 @@ magicroom-mt/
 - **Framework:** Astro 6.x (static + SSR for API)
 - **UI:** shadcn/ui + Tailwind CSS v4
 - **Email:** Resend (booking form)
-- **Testing:** Vitest (43 unit) + Playwright (40 E2E)
+- **Testing:** Vitest (69 unit) + Playwright (121 E2E)
 - **CI:** GitHub Actions (unit + e2e on push)
 - **Hosting:** Vercel (auto-deploy)
 
 ## Commands
 
 ```bash
-npm run dev           # local dev server
+npm run dev           # local dev server (port 4321)
 npm run build         # production build
-npm run test          # unit tests (43)
-npm run test:e2e       # E2E tests (40)
-npm run test:e2e:ui   # E2E with UI
-npm run test:watch    # watch mode
+npm run test          # unit tests (69)
+npm run test:e2e      # E2E tests (121)
 ```
+
+## USP
+
+1. Transparent prices online — only salon in the region
+2. Cheapest in the region — fitting from 12€
+3. Dress consignment — nobody else does it
+4. Personal approach — Natália knows every bride
 
 ## SEO & LLM Optimization
 
 - RSS feed (`/rss.xml`)
 - OpenSearch (`/opensearch.xml`)
 - Dublin Core metadata
-- Schema.org (Organization, LocalBusiness, HowTo, Product, Service, FAQ)
-- Sitemap + robots.txt
-
-## USP
-
-1. Transparent prices online — only salon in the region
-2. Cheapest in the region — trial from 12€
-3. Dress consignment — nobody else does it
-4. Personal approach — Natália knows every bride
+- Schema.org (Organization, LocalBusiness, HowTo, Product, Service, FAQ, BreadcrumbList)
+- Sitemap + robots.txt (LLM-optimized: GPTBot, Claude, PerplexityBot)
+- hreflang tags for SK/EN
 
 ## Contact
 
