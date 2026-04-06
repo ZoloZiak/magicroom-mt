@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'list',
   use: {
-    baseURL: 'http://localhost:4321',
+    baseURL: process.env.BASE_URL || 'https://magicroom-mt.vercel.app',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
