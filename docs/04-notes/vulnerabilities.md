@@ -4,19 +4,32 @@
 
 ## Aktuálne alerty
 
+**Stav:** ✅ VYRIEŠENÉ
+
+## Riešenie
+
+Pridané `overrides` do `package.json`:
+
+```json
+{
+  "overrides": {
+    "path-to-regexp": "^8.0.0",
+    "defu": "^6.1.6",
+    "vite": "^6.0.0"
+  }
+}
+```
+
+## Pôvodné alerty (už opravené)
+
 1. **path-to-regexp** — backtracking regex (High)
-   - Verzia: 6.1.0 (transitive cez @vercel/routing-utils)
-   - Status: ⏸️ Čakať na opravu od @astrojs/vercel
+   - Override: ^8.0.0
 
-2. **defu** — Prototype pollution (High)
-   - Verzia: 6.1.4 (transitive cez unstorage/h3)
-   - Status: ⏸️ Čakať na opravu od Astro
+2. **defu** — Prototype pollution (High)  
+   - Override: ^6.1.6
 
-## Poznámka
-
-Toto sú **transitive dependencies** — zraniteľnosti v knižniciach tretích strán (Astro/Vercel), nie v našom kóde.
-
-Momentálne neovplyvňujú fungovanie stránky. Sledovať a aktualizovať pri ďalšej major release Astro.
+3. **vite** — File read vulnerabilities (High)
+   - Override: ^6.0.0
 
 ## Links
 
