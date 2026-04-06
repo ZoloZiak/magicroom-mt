@@ -91,6 +91,8 @@
   --color-cta-hover: #E05595;
   --color-success: #7A9E7E;
   --color-surface: #F7F3EF;
+  --color-gradient-start: #fbf5f1;
+  --color-gradient-end: #fffdfb;
 
   /* Primary shades for dark sections */
   --color-primary-900: #E05595;
