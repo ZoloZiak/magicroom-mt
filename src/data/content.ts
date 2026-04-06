@@ -7,27 +7,30 @@ import {
   WHATSAPP_URL,
 } from '@/data/site';
 
-import heroImage from '../assets/images/hero.png';
-import dressesImage from '../assets/images/dresses.png';
-import founderImage from '../assets/images/founder.png';
-import decorMainImage from '../assets/images/decor-main.jpg';
-import decorAltImage from '../assets/images/decor-alt.jpg';
-import mapImage from '../assets/images/map.png';
-import founderAvatar from '../assets/images/founder-avatar.png';
-import decorBackdrop from '../assets/images/decor-backdrop.jpg';
-import decorDetails from '../assets/images/decor-details.jpg';
-import graphicsImage from '../assets/images/graphics.png';
-import glassesImage from '../assets/images/glasses.png';
+import heroImage from '../../content/images/systemassets/hero.png';
+import dressesImage from '../../content/images/systemassets/dresses.png';
+import founderImage from '../../content/images/systemassets/founder.png';
+import decorMainImage from '../../content/images/systemassets/decor-main.jpg';
+import decorAltImage from '../../content/images/systemassets/decor-alt.jpg';
+import mapImage from '../../content/images/systemassets/map.png';
+import founderAvatar from '../../content/images/systemassets/founder-avatar.png';
+import decorBackdrop from '../../content/images/systemassets/decor-backdrop.jpg';
+import decorDetails from '../../content/images/systemassets/decor-details.jpg';
+import graphicsImage from '../../content/images/systemassets/graphics.png';
+import glassesImage from '../../content/images/systemassets/glasses.png';
+import logoImage from '../../content/images/systemassets/logo.jpeg';
 
 import type { Language } from '@/lib/i18n';
-import { SLUG_MAP, REVERSE_SLUG_MAP } from '@/lib/i18n';
 
-import servicesData from '../../data/services.json';
-import dressesData from '../../data/dresses.json';
-import partnersData from '../../data/partners.json';
-import faqsData from '../../data/faqs.json';
-import decorData from '../../data/decor.json';
-import galleryData from '../../data/gallery.json';
+import servicesData from '../../content/json/services.json';
+import dressesData from '../../content/json/dresses.json';
+import partnersData from '../../content/json/partners.json';
+import faqsData from '../../content/json/faqs.json';
+import decorData from '../../content/json/decor.json';
+import galleryData from '../../content/json/gallery.json';
+
+// White pixel fallback (1x1 white PNG)
+export const WHITE_FALLBACK = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=";
 
 export const IMAGE_ASSETS = {
   hero: heroImage,
@@ -41,17 +44,7 @@ export const IMAGE_ASSETS = {
   graphics: graphicsImage,
   glasses: glassesImage,
   map: mapImage,
-  satyRuzove1: '/images/salon/saty-ruzove-1.jpeg',
-  satyRuzove3: '/images/salon/saty-ruzove-3.jpeg',
-  satyRuzove5: '/images/salon/saty-ruzove-5.jpeg',
-  satyFialove1: '/images/salon/saty-fialove-1.jpeg',
-  sachovnica1: '/images/salon/sachovnica-kontrast-1.jpeg',
-  sachovnica3: '/images/salon/sachovnica-svetle-1.jpeg',
-  interier1: '/images/salon/interier-teple-1.jpeg',
-  interier2: '/images/salon/interier-chladne-1.jpeg',
-  interier3: '/images/salon/interier-teple-3.jpeg',
-  detail1: '/images/salon/detail-tmave-1.jpeg',
-  detail2: '/images/salon/detail-tmave-4.jpeg',
+  logo: logoImage,
 } as const;
 
 export const IMAGE_URLS = {
@@ -63,12 +56,18 @@ export const IMAGE_URLS = {
   decorBackdrop: decorBackdrop.src,
   decorDetails: decorDetails.src,
   map: mapImage.src,
-  'decor-backdrop-stol-zavesy': '/content/decorations/stol-zavesy.jpg',
-  'decor-arrows-zapichy': '/content/decorations/zapichy-do-zeme.jpg',
-  'decor-mirrors-welcome-set': '/content/decorations/chiavari-chairs.jpg',
-  'decor-detail-real': '/content/decorations/decor-detail.jpg',
-  'decor-placeholder-plates-cutlery': decorAltImage.src,
+  logo: logoImage.src,
 } as const;
+
+// Dynamic asset loaders
+const galleryImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/gallery/*.{jpeg,jpg,png}', { eager: true });
+const dressImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/dresses/*.{jpeg,jpg,png}', { eager: true });
+const decorationImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/decorations/*.{jpeg,jpg,png}', { eager: true });
+
+function getDynamicImage(glob: Record<string, any>, filename: string) {
+  const match = Object.entries(glob).find(([path]) => path.endsWith('/' + filename));
+  return match ? (match[1] as any).default : null;
+}
 
 export const HOME_STATS = [
   { value: '12 €', label: 'skúška svadobných šiat s nápojom v cene' },
@@ -331,11 +330,13 @@ export function getDecorCategories(lang: Language) {
   const data = lang === 'sk' ? decorData.sk : decorData.en;
   return data.categories.map(cat => ({
     ...cat,
-    items: cat.items.map(item => ({
-      ...item,
-      // @ts-ignore
-      imageUrl: item.image ? (IMAGE_URLS[item.image as keyof typeof IMAGE_URLS] || `/images/decor/${item.image}.jpg`) : null
-    }))
+    items: cat.items.map(item => {
+       const img = item.image ? (getDynamicImage(decorationImages, item.image + '.jpg')) : null;
+       return {
+          ...item,
+          imageAsset: img
+       };
+    })
   }));
 }
 
@@ -366,27 +367,25 @@ export function getContactActions(lang: Language) {
 }
 
 export function getGalleryItems(lang: Language) {
-  return galleryData.gallery.map(item => {
-    let src = item.filename;
-    // Map existing assets in assets/images
-    if (['hero.png', 'dresses.png', 'decor-main.jpg', 'decor-alt.jpg', 'decor-backdrop.jpg', 'decor-details.jpg'].includes(src)) {
-       const key = src.split('.')[0].replace('decor-', 'decor');
-       return {
-         src: IMAGE_URLS[key as keyof typeof IMAGE_URLS] || `/images/salon/${src}`,
-         alt: lang === 'sk' ? item.alt : item.altEn,
-         title: lang === 'sk' ? item.title : item.titleEn,
-       };
-    }
-    
-    if (src.includes('saly-ruzove')) {
-       src = src.replace('saly-ruzove', 'saty-ruzove');
-    }
-    return {
-      src: src.startsWith('/') ? src : `/images/salon/${src}`,
-      alt: lang === 'sk' ? item.alt : item.altEn,
-      title: lang === 'sk' ? item.title : item.titleEn,
-    };
-  });
+  return galleryData.gallery
+    .filter(item => !['hero.png', 'dresses.png', 'decor-main.jpg', 'decor-alt.jpg', 'decor-backdrop.jpg', 'decor-details.jpg'].includes(item.filename))
+    .map(item => {
+      let filename = item.filename;
+      if (filename.includes('saly-ruzove')) {
+         filename = filename.replace('saly-ruzove', 'saty-ruzove');
+      }
+      // gallery images are .jpeg now after move
+      if (filename.endsWith('.png')) filename = filename.replace('.png', '.jpeg');
+      
+      const img = getDynamicImage(galleryImages, filename);
+      
+      return {
+        src: img as ImageMetadata,
+        alt: lang === 'sk' ? item.alt : item.altEn,
+        title: lang === 'sk' ? item.title : item.titleEn,
+      };
+    })
+    .filter(item => item.src !== null);
 }
 
 export const PARTNERS = partnersData.partners;
@@ -394,11 +393,11 @@ export const PARTNERS = partnersData.partners;
 export const PARTNER_CATEGORIES = partnersData.categories;
 
 export const DRESS_CATALOG = dressesData.dresses.map(dress => {
-  const imagePath = `/content/dresses/${dress.id}.jpg`;
+  const img = getDynamicImage(dressImages, dress.id + '.png');
   return {
     ...dress,
-    image: imagePath, // Dynamická cesta k obrázku na základe ID
-    fallbackImage: IMAGE_ASSETS.dresses.src, // Fallback, ak sa nepodarí načítať
+    imageAsset: img as ImageMetadata,
+    fallbackImage: WHITE_FALLBACK,
   };
 });
 

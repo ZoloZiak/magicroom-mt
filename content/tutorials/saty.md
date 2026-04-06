@@ -1,6 +1,6 @@
 # Svadobné šaty — ako pridať/upraviť
 
-🔗 **Otvoriť:** `data/dresses.json`
+🔗 **Otvoriť:** `content/json/dresses.json`
 
 ---
 
@@ -46,9 +46,9 @@
 
 ## Fotka
 
-1. Choď do `public/content/dresses/`
-2. Nahraj fotku ako `nazov-siat.jpg`
-3. Názov fotky = `id` + `.jpg`
+1. Choď do `content/images/dresses/`
+2. Nahraj fotku ako `nazov-siat.jpg` (alebo `.png`)
+3. Názov fotky = `id` v JSON súbore.
 
 ---
 

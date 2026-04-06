@@ -10,43 +10,44 @@ Tests: 69 unit + 121 E2E ✅
 
 ```
 magicroom-mt/
-├── docs/                              # 📚 DOCUMENTATION (SOURCE OF TRUTH)
+├── content/                          # 📦 CMS & CONTENT (SOURCE OF TRUTH)
+│   ├── images/                       # 🖼️ OPTIMIZED IMAGES (Astro Image)
+│   │   ├── systemassets/             # UI elements (logos, hero, etc.)
+│   │   ├── gallery/                  # Interior & salon photos
+│   │   ├── dresses/                  # Product photos (id.png)
+│   │   ├── decorations/              # Decor catalog (id.jpg)
+│   │   └── unusedimages/             # Temporarily unused files
+│   ├── json/                         # 📦 DATA (JSON — upravuj cez GitHub)
+│   │   ├── services.json
+│   │   ├── dresses.json
+│   │   ├── partners.json
+│   │   ├── faqs.json
+│   │   ├── decor.json
+│   │   └── gallery.json
+│   └── tutorials/                    # 📝 TUTORIALS — návody pre Natáliu
+│       ├── README.md                 # Hlavný návod pre Natáliu
+│       ├── saty.md                  # Návod: Svadobné šaty
+│       ├── sluzby.md                # Návod: Služby a ceny
+│       ├── partneri.md              # Návod: Partneri
+│       ├── faq.md                   # Návod: FAQ
+│       └── galeria.md               # Návod: Galéria
+│
+├── docs/                             # 📚 TECHNICAL DOCUMENTATION
 │   ├── 01-specs/                     # ✅ SPECS-DRIVEN
-│   │   ├── research/                 # Market & audience research
-│   │   ├── strategies/               # SEO, UX, conversion strategies
-│   │   ├── SPEC-sk.md                # Project specification
-│   │   └── roadmap-sk.md             # Implementation status
 │   ├── 02-architecture/              # Technical architecture
 │   ├── 03-guides/                    # Operational guides
 │   └── 04-notes/                     # Internal notes
 │
-├── tutorials/                        # 📝 NATÁLIA TUTORIALS — start here
-│   ├── README.md                     # Hlavný návod
-│   ├── saty.md                      # Svadobné šaty
-│   ├── sluzby.md                    # Služby a ceny
-│   ├── partneri.md                  # Partneri
-│   ├── faq.md                       # FAQ
-│   └── galeria.md                   # Galéria
-│
-├── data/                            # 📦 CONTENT (JSON — upravuj cez GitHub)
-│   ├── services.json
-│   ├── dresses.json
-│   ├── partners.json
-│   ├── faqs.json
-│   ├── decor.json
-│   └── gallery.json
-│
 ├── src/                              # 💻 SOURCE CODE
 │   ├── components/                   # Astro + React components
-│   ├── data/                         # Site config (site.ts, content.ts)
+│   ├── data/                         # Config (site.ts, content.ts)
 │   ├── layouts/                     # Page layouts
 │   ├── lib/                          # Utilities & i18n
 │   └── pages/                        # Astro pages & API
 │
 ├── e2e/                              # 🧪 E2E TESTS (Playwright)
 ├── testing/                          # 🧪 UNIT TESTS (Vitest)
-├── public/                          # 🖼️ STATIC ASSETS
-│   └── content/dresses/             # Fotky šiat
+├── public/                          # 🖼️ STATIC ASSETS (Favicon, fonts, robots.txt)
 │
 ├── .kilo/                            # 🤖 KILO CLI CONFIG
 ├── .github/workflows/               # 🔄 CI/CD
@@ -56,37 +57,12 @@ magicroom-mt/
 └── README.md                        # 📖 THIS FILE
 ```
 
-## Pre Natáliu → `/tutorials/`
-magicroom-mt/
-├── docs/                              # 📚 DOCUMENTATION (SOURCE OF TRUTH)
-│   ├── 01-specs/                     # ✅ SPECS-DRIVEN
-│   │   ├── research/                 # Market & audience research
-│   │   ├── strategies/               # SEO, UX, conversion strategies
-│   │   ├── SPEC-sk.md                # Project specification
-│   │   └── roadmap-sk.md             # Implementation status
-│   ├── 02-architecture/              # Technical architecture
-│   └── 03-guides/                    # Operational guides
-│
-├── src/                              # 💻 SOURCE CODE
-│   ├── components/                   # Astro + React components
-│   ├── data/                         # Content & config (site.ts, content.ts)
-│   ├── layouts/                     # Page layouts
-│   ├── lib/                          # Utilities & i18n
-│   └── pages/                        # Astro pages & API
-│
-├── e2e/                              # 🧪 E2E TESTS (Playwright)
-├── testing/                          # 🧪 UNIT TESTS (Vitest)
-├── content/                          # 📦 CMS CONTENT (dresses JSON)
-├── public/                          # 🖼️ STATIC ASSETS
-│
-├── .kilo/                            # 🤖 KILO CLI CONFIG
-├── .github/workflows/               # 🔄 CI/CD
-├── .claude/                         # 🤖 CLAUDE CODE CONFIG
-│
-├── AGENTS.md                        # 🤖 AI ASSISTANT INSTRUCTIONS
-├── CLAUDE.md                        # 🤖 CODE INTELLIGENCE (GitNexus)
-└── README.md                        # 📖 THIS FILE
-```
+## Pre Natáliu → `/content/tutorials/`
+
+Všetok obsah, ktorý chceš meniť, sa nachádza v priečinku `content/`.
+- **JSON dáta:** v `content/json/`
+- **Obrázky:** v `content/images/`
+- **Návody:** v `content/tutorials/` (začni súborom `README.md`)
 
 ## Stack
 

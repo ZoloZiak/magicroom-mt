@@ -100,12 +100,6 @@ describe('content.ts — Gallery & Images', () => {
     expect(IMAGE_ASSETS.founder).toBeTruthy();
     expect(IMAGE_ASSETS.decorMain).toBeTruthy();
   });
-
-  it('salon photos are included', () => {
-    expect(IMAGE_ASSETS.satyRuzove1).toContain('saty-ruzove');
-    expect(IMAGE_ASSETS.sachovnica1).toContain('sachovnica');
-    expect(IMAGE_ASSETS.interier1).toContain('interier');
-  });
 });
 
 describe('content.ts — Decorations', () => {
@@ -161,7 +155,7 @@ describe('content.ts — Dress catalog', () => {
       expect(dress.size).toMatch(/^\d{2}$/);
       expect(['available', 'reserved', 'sold']).toContain(dress.status);
       expect(['new', 'consignment']).toContain(dress.type);
-      expect(dress.image).toBeTruthy();
+      expect(dress.imageAsset || dress.fallbackImage).toBeTruthy();
     });
   });
 

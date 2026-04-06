@@ -1,6 +1,6 @@
 # Partneri — ako pridať
 
-🔗 **Otvoriť:** `data/partners.json`
+🔗 **Otvoriť:** `content/json/partners.json`
 
 ---
 

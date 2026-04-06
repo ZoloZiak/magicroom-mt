@@ -1,7 +1,8 @@
 ---
 import { Button } from '@/components/ui/button';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher.astro';
-import { getNavLinks, getBookingPageHref, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
+import { getBookingPageHref, getNavLinks, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
+import { IMAGE_URLS } from '@/data/content';
 import { getTranslations, type Language } from '@/lib/translations';
 
 interface Props {
@@ -34,7 +35,7 @@ const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingP
   <nav class="container mx-auto flex h-[4.5rem] items-center justify-between px-4">
     <a href={isEn ? '/en' : '/'} class="group flex items-center gap-3" aria-label="MagicRoom">
       <div class="h-11 w-11 overflow-hidden rounded-full shadow-[var(--shadow-xl)]">
-        <img src="/images/logo.jpeg" alt="Logo" class="h-full w-full object-cover" width="44" height="44" />
+        <img src={IMAGE_URLS.logo} alt="Logo" class="h-full w-full object-cover" width="44" height="44" />
       </div>
       <div class="hidden lg:block">
         <span class="block font-display text-[1.45rem] leading-none">MagicRoom</span>

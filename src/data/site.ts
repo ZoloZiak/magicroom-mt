@@ -107,7 +107,7 @@ export function getResponsePromise(lang: Language) {
 }
 export const COPYRIGHT_YEAR = new Date().getFullYear();
 
-export const DEFAULT_OG_IMAGE = '/images/hero.png';
+export const DEFAULT_OG_IMAGE = '/favicon.ico';
 
 export function toAbsoluteUrl(pathOrUrl: string) {
   if (pathOrUrl.startsWith('http://') || pathOrUrl.startsWith('https://')) {

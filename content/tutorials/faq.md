@@ -1,6 +1,6 @@
 # FAQ — často kladené otázky
 
-🔗 **Otvoriť:** `data/faqs.json`
+🔗 **Otvoriť:** `content/json/faqs.json`
 
 ---
 

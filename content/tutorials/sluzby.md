@@ -1,6 +1,6 @@
 # Služby — ako upraviť
 
-🔗 **Otvoriť:** `data/services.json`
+🔗 **Otvoriť:** `content/json/services.json`
 
 ---
 

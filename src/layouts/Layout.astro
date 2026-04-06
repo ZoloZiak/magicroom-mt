@@ -35,7 +35,9 @@ const {
 const canonicalUrl = toAbsoluteUrl(Astro.url.pathname);
 const alternateUrl = toAbsoluteUrl(getAlternateLanguageUrl(Astro.url, language));
 const alternateLang = language === 'sk' ? 'en' : 'sk';
-const imageUrl = typeof image === 'string' ? toAbsoluteUrl(image) : (image?.src || DEFAULT_OG_IMAGE);
+const imageUrl = typeof image === 'string' 
+  ? (image.startsWith('http') ? image : toAbsoluteUrl(image)) 
+  : (image?.src ? toAbsoluteUrl(image.src) : toAbsoluteUrl(DEFAULT_OG_IMAGE));
 const extraSchemas = Array.isArray(structuredData)
   ? structuredData
   : structuredData

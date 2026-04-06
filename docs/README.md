@@ -12,6 +12,6 @@ docs/
 
 ## Pre Natáliu
 
-**Návody:** `/tutorials/` — jednoduché návody ako upravovať obsah cez GitHub.
+**Návody:** `/content/tutorials/` — jednoduché návody ako upravovať obsah cez GitHub.
 
 See `docs/01-specs/SPEC-sk.md` for full project specification.

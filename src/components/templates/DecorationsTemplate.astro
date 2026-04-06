@@ -139,13 +139,17 @@ const DECOR_POLICIES = getDecorPolicies(language);
                         </summary>
                         <div class="px-3 pb-4">
                           <div class="mt-2 overflow-hidden rounded-lg aspect-[16/9] bg-surface relative shadow-inner">
-                            <img 
-                              src={item.imageUrl} 
-                              alt={item.name}
-                              class="w-full h-full object-cover"
-                              loading="lazy"
-                              onerror={`this.onerror=null; this.src='${IMAGE_URLS.decorAlt}'; this.parentElement.classList.add('opacity-50');`}
-                            />
+                            {item.imageAsset ? (
+                              <Image 
+                                src={item.imageAsset} 
+                                alt={item.name}
+                                class="w-full h-full object-cover"
+                                width={800}
+                                height={450}
+                              />
+                            ) : (
+                               <div class="w-full h-full bg-white opacity-50" />
+                            )}
                           </div>
                         </div>
                       </details>
