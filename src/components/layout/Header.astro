@@ -83,102 +83,109 @@ const gaLabelSuffix = isEn ? '_en' : '';
   </nav>
 </header>
 
-<div id="mobile-menu" style="display: none; position: fixed; inset: 0; z-index: 9999;">
-  <div id="mobile-menu-backdrop" style="position: absolute; inset: 0; background-color: rgba(0,0,0,0.5);" class="mobile-backdrop"></div>
-  <div id="mobile-menu-panel" class="mobile-panel" style="position: absolute; top: 0; right: 0; height: 100%; width: 300px; max-width: 85vw; background: var(--color-background); box-shadow: var(--shadow-2xl); overflow-y: auto;">
-    <div class="flex items-center justify-between border-b border-border p-5">
-      <div class="flex items-center gap-3">
-        <img src="/images/logo.jpeg" alt="MagicRoom" class="h-10 w-10 rounded-full object-cover" />
-        <div>
-          <span class="block font-display text-xl font-semibold">MagicRoom</span>
-          <span class="block text-[10px] uppercase tracking-[0.28em] text-muted-foreground">bridal concierge &bull; Martin</span>
-        </div>
-      </div>
-      <button id="mobile-menu-close" type="button" class="rounded-lg p-2 hover:bg-muted" aria-label="Close">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-    </div>
-    <div class="p-5 pt-3">
-      <div class="rounded-2xl border border-border bg-card p-4 text-sm text-muted-foreground">
-        <p class="font-medium text-foreground">{t.common.replyNote}</p>
-        <a href={PHONE_HREF} class="mt-1 block font-semibold text-primary hover:underline">{PHONE_DISPLAY}</a>
-      </div>
-    </div>
-    <div class="px-5">
-      <p class="text-[11px] uppercase tracking-[0.28em] text-primary/70">{t.header.mobileNavigation}</p>
-    </div>
-    <ul class="px-5 mt-2">
-      {navLinks.map((link) => (
-        <li class="border-b border-border/50 py-3 last:border-0">
-          <a href={link.href} class:list={['block py-2 text-lg font-medium transition-colors', currentPath === link.href ? 'text-primary' : 'text-foreground hover:text-primary']}>
-            {link.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-    <div class="border-t border-border p-5 mt-4">
-      <a href={bookingHref} class="block rounded-xl bg-cta px-6 py-3 text-center text-[15px] font-medium text-white shadow-lg hover:bg-cta/90 transition-colors">
-        {t.nav.bookAppointment}
-      </a>
-      <a href={PHONE_HREF} class="mt-4 block text-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-        {t.header.mobileCallDirectly}
-      </a>
-    </div>
-  </div>
-</div>
-
-<style is:global>
-  .mobile-backdrop { opacity: 0; transition: opacity 0.3s ease; }
-  .mobile-panel { transform: translateX(100%); transition: transform 0.3s ease-out; }
-  #mobile-menu.open .mobile-backdrop { opacity: 1; }
-  #mobile-menu.open .mobile-panel { transform: translateX(0); }
-</style>
+<div id="mobile-menu-root" data-phone-href={PHONE_HREF} data-phone-display={PHONE_DISPLAY} data-response={t.common.replyNote} data-booking-href={bookingHref} data-nav={JSON.stringify(navLinks)} data-is-en={isEn} data-t-nav={t.header.mobileNavigation} data-t-call={t.header.mobileCallDirectly} data-t-book={t.nav.bookAppointment}></div>
 
 <script is:inline>
-  (function() {
-    var menu = document.getElementById('mobile-menu');
-    var toggle = document.getElementById('mobile-menu-toggle');
-    var closeBtn = document.getElementById('mobile-menu-close');
-    var backdrop = document.getElementById('mobile-menu-backdrop');
-    var panel = document.getElementById('mobile-menu-panel');
+  document.addEventListener('DOMContentLoaded', function() {
+    const root = document.getElementById('mobile-menu-root');
+    if (!root) return;
+    
+    const PHONE_HREF = root.dataset.phoneHref || 'tel:+421950490323';
+    const PHONE_DISPLAY = root.dataset.phoneDisplay || '+421 950 490 323';
+    const RESPONSE_PROMISE = root.dataset.response || '';
+    const bookingHref = root.dataset.bookingHref || (root.dataset.isEn === 'true' ? '/en/kontakt#booking' : '/kontakt#booking');
+    const NAV_LINKS = JSON.parse(root.dataset.nav || '[]');
+    const isEn = root.dataset.isEn === 'true';
+    const tNav = root.dataset.tNav || 'Navigation';
+    const tCall = root.dataset.tCall || 'Or call directly';
+    const tBook = root.dataset.tBook || 'Book a fitting';
+    const currentPath = window.location.pathname;
+
+    const toggleBtn = document.getElementById('mobile-menu-toggle');
+    let menuEl = null;
+
+    function createMenu() {
+      const el = document.createElement('div');
+      el.id = 'mobile-drawer';
+      el.setAttribute('role', 'dialog');
+      el.setAttribute('aria-modal', 'true');
+      el.innerHTML = `
+        <div id="mobile-backdrop" class="fixed inset-0 z-[100] bg-black/50" style="display:none;"></div>
+        <div id="mobile-panel" class="fixed top-0 right-0 z-[101] h-screen w-[300px] translate-x-full bg-background shadow-2xl transition-transform duration-300 ease-in-out overflow-y-auto">
+          <div class="flex items-center justify-between border-b border-border p-5">
+            <div class="flex items-center gap-3">
+              <img src="/images/logo.jpeg" alt="MagicRoom" class="h-10 w-10 rounded-full object-cover" />
+              <div>
+                <span class="block font-display text-xl font-semibold">MagicRoom</span>
+                <span class="block text-[10px] uppercase tracking-[0.28em] text-muted-foreground">bridal concierge &bull; Martin</span>
+              </div>
+            </div>
+            <button id="mobile-close-btn" class="rounded-lg p-2 hover:bg-muted" aria-label="${isEn ? 'Close' : 'Zavrieť'}">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+          </div>
+          <div class="p-5 pt-3">
+            <div class="rounded-2xl border border-border bg-card p-4 text-sm text-muted-foreground">
+              <p class="font-medium text-foreground">${RESPONSE_PROMISE}</p>
+              <a href="${PHONE_HREF}" class="mt-1 block font-semibold text-primary hover:underline">${PHONE_DISPLAY}</a>
+            </div>
+          </div>
+          <div class="px-5">
+            <p class="text-[11px] uppercase tracking-[0.28em] text-primary/70">${tNav}</p>
+          </div>
+          <ul class="px-5 mt-2">
+            ${NAV_LINKS.map(link => `
+              <li class="border-b border-border/50 py-3 last:border-0">
+                <a href="${link.href}" class="block py-2 text-lg font-medium ${currentPath === link.href ? 'text-primary' : 'text-foreground hover:text-primary'} transition-colors">
+                  ${link.label}
+                </a>
+              </li>
+            `).join('')}
+          </ul>
+          <div class="border-t border-border p-5 mt-4">
+            <a href="${bookingHref}" class="block rounded-xl bg-cta px-6 py-3 text-center text-[15px] font-medium text-white shadow-md hover:bg-cta/90 transition-colors">
+              ${tBook}
+            </a>
+            <a href="${PHONE_HREF}" class="mt-4 block text-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+              ${tCall}
+            </a>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(el);
+      menuEl = el;
+
+      document.getElementById('mobile-backdrop')?.addEventListener('click', closeMenu);
+      document.getElementById('mobile-close-btn')?.addEventListener('click', closeMenu);
+      el.querySelectorAll('a[href]').forEach(a => {
+        a.addEventListener('click', closeMenu);
+      });
+    }
 
     function openMenu() {
-      if (!menu || !panel) return;
-      menu.style.display = 'block';
-      requestAnimationFrame(function() {
-        menu.classList.add('open');
-      });
+      if (!menuEl) createMenu();
+      const backdrop = document.getElementById('mobile-backdrop');
+      const panel = document.getElementById('mobile-panel');
+      if (backdrop) backdrop.style.display = 'block';
       document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
+        if (panel) panel.style.transform = 'translateX(0)';
+      });
     }
 
     function closeMenu() {
-      if (!menu || !panel) return;
-      menu.classList.remove('open');
+      const backdrop = document.getElementById('mobile-backdrop');
+      const panel = document.getElementById('mobile-panel');
+      if (panel) panel.style.transform = 'translateX(100%)';
       document.body.style.overflow = '';
-      setTimeout(function() {
-        if (!menu.classList.contains('open')) {
-          menu.style.display = 'none';
-        }
+      setTimeout(() => {
+        if (backdrop) backdrop.style.display = 'none';
       }, 300);
     }
 
-    if (toggle) toggle.addEventListener('click', openMenu);
-    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-    if (backdrop) backdrop.addEventListener('click', closeMenu);
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && menu && menu.classList.contains('open')) {
-        closeMenu();
-      }
+    toggleBtn?.addEventListener('click', openMenu);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
     });
-
-    if (panel) {
-      var links = panel.querySelectorAll('a');
-      for (var i = 0; i < links.length; i++) {
-        links[i].addEventListener('click', closeMenu);
-      }
-    }
-  })();
+  });
 </script>
