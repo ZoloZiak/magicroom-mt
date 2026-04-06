@@ -8,6 +8,7 @@
 import type { APIRoute } from 'astro';
 
 export const prerender = false;
+export const runtime = 'edge';
 
 const siteInfo = {
   version: '1.0.0',

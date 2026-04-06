@@ -5,14 +5,26 @@
  */
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
+import { bookingFormSchema } from '@/lib/schemas';
 
 export const prerender = false;
+export const runtime = 'edge';
 
 const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
 
 export const POST: APIRoute = async ({ request }) => {
   try {
     const data = await request.json();
+
+    // Zod validation
+    const result = bookingFormSchema.safeParse(data);
+    if (!result.success) {
+      const errors = result.error.flatten().fieldErrors;
+      return new Response(
+        JSON.stringify({ error: errors.name?.[0] || errors.phone?.[0] || errors.email?.[0] || 'Neplatné údaje' }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
 
     // Check if API key is configured
     if (!RESEND_API_KEY) {
@@ -26,14 +38,6 @@ export const POST: APIRoute = async ({ request }) => {
     const resend = new Resend(RESEND_API_KEY);
 
     const { name, phone, email, service, date, time, note } = data;
-
-    // At least one contact method required
-    if (!phone && !email && !name) {
-      return new Response(
-        JSON.stringify({ error: 'Vyplňte aspoň meno alebo telefón.' }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
 
     const dateLine = date ? `\nPreferovaný dátum: ${date}` : '';
     const timeLine = time ? `\nPreferovaný čas: ${time}` : '';
