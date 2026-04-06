@@ -73,6 +73,7 @@
   --color-popover: #FDFBF9;
   --color-popover-foreground: #2A1A24;
   --color-primary: #FF69B4;
+  --color-mobile-bar: #FF69B4; /* Synced with theme-color meta in Layout.astro */
   --color-primary-foreground: #FFFFFF;
   --color-secondary: #FFE0F0;
   --color-secondary-foreground: #2A1A24;
