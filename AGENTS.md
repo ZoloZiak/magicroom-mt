@@ -1,19 +1,9 @@
-# MagicRoom — Project Instructions
+# MagicRoom — AI Assistant Instructions
 
 ## ⚠️ CRITICAL: READ README.md FIRST
-When opening this project, you MUST:
-1. **Read `README.md` completely** — it contains the project structure and entry points
-2. **Read `docs/README.md`** — it explains the SPECS-DRIVEN hierarchy
-3. **Check `docs/01-specs/roadmap-sk.md`** for current implementation status
-4. **Check `docs/01-specs/SPEC-sk.md`** for design/tech specifications
+See `README.md` for full project structure and entry points.
 
-DO NOT assume or guess project structure — always verify from docs.
-
-## ⚠️ SPECS-DRIVEN DEVELOPMENT
-All decisions start from `docs/01-specs/` — this is the source of truth.
-- **NEVER** duplicate specs content elsewhere
-- **ALWAYS** check docs/01-specs/ before making decisions
-- **NEVER** create new docs without checking if they belong in 01-specs/
+DO NOT assume or guess project structure — verify from docs.
 
 ## Auto-start (MUST FOLLOW THIS ORDER)
 
@@ -96,19 +86,13 @@ npm run test:e2e  # E2E tests (135)
 ### ⚠️ Alerts
 - Dependabot: path-to-regexp, defu (High) — see `docs/04-notes/vulnerabilities.md`
 
-## For Natália
-- **Tutorials:** `/tutorials/` — simple guides for editing content via GitHub
-- **Data files:** `/data/*.json` — JSON files to edit
-- **GitHub:** https://github.com/ziak-z/magicroom-mt/tree/main/tutorials
-
-## File Reference
+## File Reference (AI specific)
 
 | Path | Description |
 |------|-------------|
-| `/tutorials/` | Natália Tutorials (start here) |
-| `/data/*.json` | Content (edit via GitHub) |
+| `/tutorials/` | Natália Tutorials |
+| `/data/*.json` | Content data |
 | `/docs/04-notes/` | Internal notes & alerts |
-| `/docs/01-specs/` | SPECS-DRIVEN source of truth |
 
 ## GitNexus 
 Run `npx gitnexus analyze` to update index after changes.
