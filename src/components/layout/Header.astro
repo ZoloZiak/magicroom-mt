@@ -83,112 +83,97 @@ const gaLabelSuffix = isEn ? '_en' : '';
   </nav>
 </header>
 
-<div id="mobile-menu" class="fixed inset-0 z-50">
-  <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/50"></div>
-  <div id="mobile-menu-panel" class="absolute top-0 right-0 h-full w-[300px] max-w-[85vw] bg-background shadow-2xl translate-x-full transition-transform duration-300 ease-out">
-    <div class="flex items-center justify-between border-b border-border p-5">
-      <div class="flex items-center gap-3">
-        <img src="/images/logo.jpeg" alt="MagicRoom" class="h-10 w-10 rounded-full object-cover" />
+<div id="mobile-menu" style="display: none; position: fixed; inset: 0; z-index: 9999;">
+  <div id="mobile-menu-backdrop" style="position: absolute; inset: 0; background-color: rgba(0,0,0,0.5);"></div>
+  <div id="mobile-menu-panel" style="position: absolute; top: 0; right: 0; height: 100%; width: 300px; max-width: 85vw; background-color: white; box-shadow: 0 10px 40px rgba(0,0,0,0.2); transform: translateX(100%); transition: transform 0.3s ease-out; overflow-y: auto;">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px; border-bottom: 1px solid #e5e7eb;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="/images/logo.jpeg" alt="MagicRoom" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;" />
         <div>
-          <span class="block font-display text-xl font-semibold">MagicRoom</span>
-          <span class="block text-[10px] uppercase tracking-[0.28em] text-muted-foreground">bridal concierge &bull; Martin</span>
+          <span style="display: block; font-size: 1.25rem; font-weight: 600;">MagicRoom</span>
+          <span style="display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.28em; color: #71717a;">bridal concierge &bull; Martin</span>
         </div>
       </div>
-      <button id="mobile-menu-close" type="button" class="rounded-lg p-2 hover:bg-muted" aria-label="Close">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <button id="mobile-menu-close" type="button" style="padding: 8px; border-radius: 8px; border: none; background: transparent; cursor: pointer;">
+        <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
     </div>
-    <div class="p-5 pt-3">
-      <div class="rounded-2xl border border-border bg-card p-4 text-sm text-muted-foreground">
-        <p class="font-medium text-foreground">{t.common.replyNote}</p>
-        <a href={PHONE_HREF} class="mt-1 block font-semibold text-primary hover:underline">{PHONE_DISPLAY}</a>
+    <div style="padding: 16px 20px;">
+      <div style="border: 1px solid #e5e7eb; border-radius: 16px; padding: 16px; font-size: 14px; color: #71717a;">
+        <p style="font-weight: 500; color: #18181b;">{t.common.replyNote}</p>
+        <a href={PHONE_HREF} style="display: block; margin-top: 4px; font-weight: 600; color: #ec4899; text-decoration: underline;">{PHONE_DISPLAY}</a>
       </div>
     </div>
-    <div class="px-5">
-      <p class="text-[11px] uppercase tracking-[0.28em] text-primary/70">{t.header.mobileNavigation}</p>
+    <div style="padding: 0 20px;">
+      <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.28em; color: rgba(236,72,153,0.7);">{t.header.mobileNavigation}</p>
     </div>
-    <ul class="px-5 mt-2">
-      {navLinks.map((link) => (
-        <li class:list={['border-b border-border/50 py-3', { 'border-0': link.href === navLinks[navLinks.length - 1].href }]}>
+    <ul style="padding: 8px 20px;">
+      {navLinks.map((link, index) => (
+        <li style={`border-bottom: ${link.href === navLinks[navLinks.length - 1].href ? 'none' : '1px solid #e5e7eb'}; padding: 12px 0;`}>
           <a
             href={link.href}
-            class:list={['block py-2 text-lg font-medium transition-colors', currentPath === link.href ? 'text-primary' : 'text-foreground hover:text-primary']}
+            style={`display: block; padding: 8px 0; font-size: 1.125rem; font-weight: 500; transition: color 0.2s; ${currentPath === link.href ? 'color: #ec4899;' : 'color: #18181a;'}`}
           >
             {link.label}
           </a>
         </li>
       ))}
     </ul>
-    <div class="border-t border-border p-5 mt-4">
-      <a href={bookingHref} class="block rounded-xl bg-cta px-6 py-3 text-center text-[15px] font-medium text-white shadow-md hover:bg-cta/90 transition-colors">
+    <div style="border-top: 1px solid #e5e7eb; padding: 20px; margin-top: 16px;">
+      <a href={bookingHref} style="display: block; border-radius: 12px; background-color: #ec4899; padding: 12px 24px; text-align: center; font-size: 15px; font-weight: 500; color: white; box-shadow: 0 4px 6px rgba(236,72,153,0.3);">
         {t.nav.bookAppointment}
       </a>
-      <a href={PHONE_HREF} class="mt-4 block text-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+      <a href={PHONE_HREF} style="display: block; margin-top: 16px; text-align: center; font-size: 14px; font-weight: 500; color: #71717a; transition: color 0.2s;">
         {t.header.mobileCallDirectly}
       </a>
     </div>
   </div>
 </div>
 
-<style is:global>
-  #mobile-menu {
-    visibility: hidden;
-    transition: visibility 0s 0.3s;
-  }
-  #mobile-menu.open {
-    visibility: visible;
-    transition: visibility 0s 0s;
-  }
-  #mobile-menu-backdrop {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  #mobile-menu.open #mobile-menu-backdrop {
-    opacity: 1;
-  }
-  #mobile-menu-panel {
-    transform: translateX(100%);
-    transition: transform 0.3s ease-out;
-  }
-  #mobile-menu.open #mobile-menu-panel {
-    transform: translateX(0);
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const menu = document.getElementById('mobile-menu');
-    const toggle = document.getElementById('mobile-menu-toggle');
-    const closeBtn = document.getElementById('mobile-menu-close');
-    const backdrop = document.getElementById('mobile-menu-backdrop');
-    const panel = document.getElementById('mobile-menu-panel');
+<script is:inline>
+  (function() {
+    var menu = document.getElementById('mobile-menu');
+    var toggle = document.getElementById('mobile-menu-toggle');
+    var closeBtn = document.getElementById('mobile-menu-close');
+    var backdrop = document.getElementById('mobile-menu-backdrop');
+    var panel = document.getElementById('mobile-menu-panel');
+    var isOpen = false;
 
     function openMenu() {
-      if (menu) menu.classList.add('open');
+      if (!menu || !panel) return;
+      menu.style.display = 'block';
+      panel.style.transform = 'translateX(0)';
+      isOpen = true;
       document.body.style.overflow = 'hidden';
     }
 
     function closeMenu() {
-      if (menu) menu.classList.remove('open');
+      if (!menu || !panel) return;
+      panel.style.transform = 'translateX(100%)';
+      isOpen = false;
       document.body.style.overflow = '';
+      setTimeout(function() {
+        if (!isOpen) menu.style.display = 'none';
+      }, 300);
     }
 
     if (toggle) toggle.addEventListener('click', openMenu);
     if (closeBtn) closeBtn.addEventListener('click', closeMenu);
     if (backdrop) backdrop.addEventListener('click', closeMenu);
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menu?.classList.contains('open')) {
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && isOpen) {
         closeMenu();
       }
     });
 
     if (panel) {
-      panel.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-      });
+      var links = panel.querySelectorAll('a');
+      for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', closeMenu);
+      }
     }
-  });
+  })();
 </script>
