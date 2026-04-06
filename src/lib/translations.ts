@@ -1,4 +1,5 @@
 import type { Language } from './i18n';
+import { SLUG_MAP, REVERSE_SLUG_MAP } from './i18n';
 
 export interface Translations {
   nav: {
@@ -52,6 +53,41 @@ export interface Translations {
     footerDescription: string;
     copyrightText: string;
     directionsText: string;
+  };
+  dresses: {
+    pageTitle: string;
+    pageDescription: string;
+    heroBadge: string;
+    heroTitle: string;
+    heroDescription: string;
+  };
+  consignment: {
+    pageTitle: string;
+    pageDescription: string;
+    heroBadge: string;
+    heroTitle: string;
+    heroDescription: string;
+  };
+  decorations: {
+    pageTitle: string;
+    pageDescription: string;
+    heroBadge: string;
+    heroTitle: string;
+    heroDescription: string;
+  };
+  gallery: {
+    pageTitle: string;
+    pageDescription: string;
+    heroBadge: string;
+    heroTitle: string;
+    heroDescription: string;
+  };
+  partners: {
+    pageTitle: string;
+    pageDescription: string;
+    heroBadge: string;
+    heroTitle: string;
+    heroDescription: string;
   };
   contact: {
     pageTitle: string;
@@ -110,6 +146,7 @@ export interface Translations {
   header: {
     mobileNavigation: string;
     mobileCallDirectly: string;
+    mobileClose: string;
   };
 }
 
@@ -196,6 +233,41 @@ const sk: Translations = {
     heroBadge: 'O nás • MagicRoom Martin',
     heroTitle: 'Za MagicRoom stojí Natália',
   },
+  dresses: {
+    pageTitle: 'Svadobné šaty — Katalóg šiat v MagicRoom Martin',
+    pageDescription: 'Vyberte si svadobné šaty z našej kolekcie. Nové aj komisné modely, rôzne veľkosti a štýly.',
+    heroBadge: 'Svadobné šaty • Martin',
+    heroTitle: 'Svadobné šaty, ktoré si zamilujete',
+    heroDescription: 'Prezrite si našu kolekciu svadobných šiat. Každý model je jedinečný a pripravený na vašu skúšku.',
+  },
+  consignment: {
+    pageTitle: 'Komisný predaj svadobných šiat — MagicRoom Martin',
+    pageDescription: 'Predajte svoje svadobné šaty ďalším nevestám. Jednoduchý proces, férové podmienky.',
+    heroBadge: 'Komisný predaj • Martin',
+    heroTitle: 'Komisný predaj svadobných šiat',
+    heroDescription: 'Ponúknite svoje svadobné šaty a nechajte ich žiť ďalej. Všetko vybavíme za vás.',
+  },
+  decorations: {
+    pageTitle: 'Svadobné dekorácie a výzdoba — Prenájom | MagicRoom Martin',
+    pageDescription: 'Prenájom svadobných dekorácií. Výzdoba stolov, arky, kulisy a doplnky pre vašu svadbu.',
+    heroBadge: 'Dekorácie • Martin',
+    heroTitle: 'Dekorácie, ktoré vytvárajú atmosféru',
+    heroDescription: 'Od ariek po stolové dekorácie — všetko potrebné pre váš svadobný deň na jednom mieste.',
+  },
+  gallery: {
+    pageTitle: 'Galéria — Svadobný salón MagicRoom Martin',
+    pageDescription: 'Pozrite si fotografie z nášho salóna a svadobných dekorácií.',
+    heroBadge: 'Galéria • Martin',
+    heroTitle: 'Galéria inšpirácií',
+    heroDescription: 'Fotografie z našich realizácií a interiéru salóna.',
+  },
+  partners: {
+    pageTitle: 'Partneri — Odporúčaní dodávatelia | MagicRoom Martin',
+    pageDescription: 'Spoľahliví partneri pre vašu svadbu. Fotograf, catering, DJ a ďalší profesionáli.',
+    heroBadge: 'Partneri • Martin',
+    heroTitle: 'Naši partneri',
+    heroDescription: 'Odporúčame len overených profesionálov, s ktorými máme osobnú skúsenosť.',
+  },
   bookingForm: {
     reservation: 'Rezervácia skúšky',
     name: 'Meno',
@@ -243,6 +315,7 @@ const sk: Translations = {
   header: {
     mobileNavigation: 'Navigácia',
     mobileCallDirectly: 'Alebo zavolajte priamo',
+    mobileClose: 'Zavrieť',
   },
 };
 
@@ -329,6 +402,41 @@ const en: Translations = {
     heroBadge: 'About • MagicRoom Martin',
     heroTitle: 'Behind MagicRoom is Natália',
   },
+  dresses: {
+    pageTitle: 'Wedding Dresses — Catalog at MagicRoom Martin',
+    pageDescription: 'Choose from our collection of wedding dresses. New and consignment models, various sizes and styles.',
+    heroBadge: 'Wedding dresses • Martin',
+    heroTitle: 'Wedding dresses you will love',
+    heroDescription: 'Browse our collection of wedding dresses. Each model is unique and ready for your fitting.',
+  },
+  consignment: {
+    pageTitle: 'Consignment — Sell Your Wedding Dress | MagicRoom Martin',
+    pageDescription: 'Sell your wedding dress to other brides. Simple process, fair terms.',
+    heroBadge: 'Consignment • Martin',
+    heroTitle: 'Consignment Wedding Dresses',
+    heroDescription: 'Offer your wedding dress and let it live on. We handle everything for you.',
+  },
+  decorations: {
+    pageTitle: 'Wedding Decorations & Rentals | MagicRoom Martin',
+    pageDescription: 'Rent wedding decorations. Table centerpieces, arches, backdrops and accessories for your wedding.',
+    heroBadge: 'Decorations • Martin',
+    heroTitle: 'Decorations that create atmosphere',
+    heroDescription: 'From arches to table centerpieces — everything you need for your wedding day in one place.',
+  },
+  gallery: {
+    pageTitle: 'Gallery — MagicRoom Wedding Salon Martin',
+    pageDescription: 'Browse photos from our salon and wedding decorations.',
+    heroBadge: 'Gallery • Martin',
+    heroTitle: 'Gallery of inspirations',
+    heroDescription: 'Photos from our installations and salon interior.',
+  },
+  partners: {
+    pageTitle: 'Partners — Recommended Vendors | MagicRoom Martin',
+    pageDescription: 'Reliable partners for your wedding. Photographer, catering, DJ and other professionals.',
+    heroBadge: 'Partners • Martin',
+    heroTitle: 'Our Partners',
+    heroDescription: 'We only recommend verified professionals we have personal experience with.',
+  },
   bookingForm: {
     reservation: 'Booking fitting',
     name: 'Name',
@@ -376,6 +484,7 @@ const en: Translations = {
   header: {
     mobileNavigation: 'Navigation',
     mobileCallDirectly: 'Or call directly',
+    mobileClose: 'Close',
   },
 };
 
@@ -383,4 +492,25 @@ export const translations: Record<Language, Translations> = { sk, en };
 
 export function getTranslations(language: Language): Translations {
   return translations[language];
+}
+
+/**
+ * Returns translated href for a given SK slug and target language
+ */
+export function getRelativeHref(skSlug: string, lang: Language): string {
+  if (lang === 'sk') {
+    return skSlug === 'index' ? '/' : `/${skSlug}`;
+  }
+  
+  const enSlug = skSlug === 'index' ? '' : (SLUG_MAP[skSlug] || skSlug);
+  return enSlug === '' ? '/en' : `/en/${enSlug}`;
+}
+
+/**
+ * Returns SK slug for a given potentially translated slug and language
+ */
+export function getSkSlug(slug: string | undefined, lang: Language): string {
+  if (!slug || slug === 'index') return 'index';
+  if (lang === 'sk') return slug;
+  return REVERSE_SLUG_MAP[slug] || slug;
 }

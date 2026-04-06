@@ -1,0 +1,147 @@
+---
+import { Image } from 'astro:assets';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { getBookingPageHref } from '@/data/site';
+import { getDecorCategories, getDecorFeatured, getDecorPolicies, IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
+import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, CheckCircle2, LayoutGrid, Sparkles } from 'lucide-react';
+
+interface Props {
+  language: Language;
+  skSlug: string;
+}
+
+const { language, skSlug } = Astro.props;
+const t = getTranslations(language);
+const isEn = language === 'en';
+
+const DECOR_FEATURED = getDecorFeatured(language);
+const DECOR_CATEGORIES = getDecorCategories(language);
+const DECOR_POLICIES = getDecorPolicies(language);
+---
+
+<Layout
+  title={t.decorations.pageTitle}
+  description={t.decorations.pageDescription}
+  image={IMAGE_URLS.decorMain}
+  breadcrumbs={[
+    { name: t.nav.home, url: isEn ? '/en' : '/' },
+    { name: t.nav.decorations, url: getRelativeHref(skSlug, language) },
+  ]}
+  language={language}
+>
+  <Header language={language} />
+
+  <main class="flex-1">
+    <Breadcrumbs items={[
+      { name: t.nav.decorations, url: getRelativeHref(skSlug, language) }
+    ]} />
+
+    <section class="relative overflow-hidden bg-surface py-16 md:py-24">
+      <div class="container relative mx-auto px-4">
+        <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div class="max-w-2xl">
+            <Badge variant="secondary" className="mb-5">
+              {t.decorations.heroBadge}
+            </Badge>
+            <h1 class="font-display text-[2.9rem] leading-tight md:text-6xl">
+              {t.decorations.heroTitle}
+            </h1>
+            <p class="mt-6 text-lg leading-8 text-muted-foreground md:text-xl">
+              {t.decorations.heroDescription}
+            </p>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button asChild variant="cta" size="lg">
+                <a href={getBookingPageHref(language)}>
+                  {isEn ? 'Inquire decorations' : 'Dopyt na výzdobu'}
+                  <ArrowRight className="h-5 w-5 ml-2" />
+                </a>
+              </Button>
+            </div>
+          </div>
+          <div class="photo-card-lg">
+            <Image src={IMAGE_ASSETS.decorMain} alt="Decorations" class="rounded-3xl shadow-xl w-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-28 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="mb-12">
+          <h2 class="font-display text-4xl">{isEn ? 'Featured items' : 'Obľúbené kúsky'}</h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {DECOR_FEATURED.map((item) => (
+            <div class="p-6 rounded-2xl border border-border bg-surface flex items-center justify-between group hover:border-primary/50 transition-colors">
+              <div class="flex items-center gap-4">
+                <div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                   <Sparkles className="h-5 w-5" />
+                </div>
+                <span class="font-medium">{item.title}</span>
+              </div>
+              <span class="font-semibold text-cta">{item.price}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-20 md:py-28">
+      <div class="container mx-auto px-4">
+        <h2 class="font-display text-4xl mb-12 text-center">{isEn ? 'Decoration categories' : 'Čo všetko u nás nájdete'}</h2>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {DECOR_CATEGORIES.map((cat) => (
+            <div class="bg-white p-8 rounded-[32px] shadow-sm border border-border/50">
+              <div class="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+                <LayoutGrid className="h-6 w-6" />
+              </div>
+              <h3 class="text-xl font-bold mb-4">{cat.category}</h3>
+              <ul class="space-y-3">
+                {cat.items.map((item) => (
+                  <li class="flex items-center gap-2 text-muted-foreground italic">
+                    <div class="h-1 w-1 rounded-full bg-primary/40"></div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-28 bg-white">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-4xl">{isEn ? 'Rental conditions' : 'Pravidlá prenájmu'}</h2>
+        </div>
+        <div class="space-y-4">
+          {DECOR_POLICIES.map((policy) => (
+            <div class="flex gap-4 p-5 rounded-2xl bg-surface border border-border/50">
+               <CheckCircle2 className="h-5 w-5 text-primary mt-1 shrink-0" />
+               <p>{policy}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mt-12 p-8 rounded-[32px] bg-primary-900 text-white text-center">
+          <p class="text-lg mb-6">{isEn ? 'Need a custom decoration or help with setup?' : 'Potrebujete individuálnu cenovú ponuku alebo pomoc s inštaláciou?'}</p>
+          <Button asChild variant="secondary" size="lg">
+            <a href={getBookingPageHref(language)}>{isEn ? 'Contact us' : 'Napísať dopyt'}</a>
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    <Footer language={language} />
+    <WhatsAppFAB />
+    <ScrollToTop />
+  </main>
+</Layout>

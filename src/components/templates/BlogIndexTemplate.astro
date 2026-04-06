@@ -1,0 +1,123 @@
+---
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { IMAGE_ASSETS } from '@/data/content';
+import { getTranslations, type Language } from '@/lib/translations';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, Calendar, Clock } from 'lucide-react';
+
+interface Props {
+  language: Language;
+}
+
+const { language } = Astro.props;
+const t = getTranslations(language);
+const isEn = language === 'en';
+
+const BLOG_POSTS = [
+  {
+    slug: isEn ? 'wedding-trends-2026' : 'svadobne-trendy-2026',
+    title: isEn ? 'Wedding Trends 2026: What Will Be in Fashion?' : 'Svadobné trendy 2026: Čo bude v móde?',
+    excerpt: isEn ? 'Discover the latest trends in wedding fashion for 2026. From colors to styles — everything you need to know.' : 'Objavte najnovšie trendy v svadobnej móde pre rok 2026. Od farieb po štýly — všetko, čo potrebujete vedieť.',
+    image: IMAGE_ASSETS.dresses,
+    date: '2026-04-01',
+    readTime: isEn ? '5 min read' : '5 min čítania',
+    tags: isEn ? ['trends', 'dresses', '2026'] : ['trendy', 'šaty', '2026'],
+  },
+  {
+    slug: isEn ? 'wedding-dresses-how-to-choose' : 'ako-zvolit-svadobne-saty',
+    title: isEn ? 'How to Choose Wedding Dresses: A Practical Guide' : 'Ako si vybrať svadobné šaty: Praktický sprievodca',
+    excerpt: isEn ? 'Step by step, we guide you through choosing the ideal wedding dress. From budget to style and comfort.' : 'Krok za krokom vás prevedieme výberom ideálnych svadobných šiat. Od rozpočtu po štýl a pohodlie.',
+    image: IMAGE_ASSETS.founder,
+    date: '2026-03-15',
+    readTime: isEn ? '7 min read' : '7 min čítania',
+    tags: isEn ? ['dresses', 'choice', 'advice'] : ['šaty', 'výber', 'poradenstvo'],
+  },
+  {
+    slug: isEn ? 'wedding-decorations-small-celebrations' : 'svadobne-dekoracie-na-male-oslavy',
+    title: isEn ? 'Wedding Decorations for Small Celebrations up to 50 Guests' : 'Svadobné dekorácie pre malé oslavy do 50 hostí',
+    excerpt: isEn ? 'Inspiration and tips for decorations for intimate weddings. How to create a romantic atmosphere without unnecessary expenses.' : 'Inšpirácie a tipy na dekorácie pre intimné svadby. Ako vytvoriť romantickú atmosféru bez zbytočných výdavkov.',
+    image: IMAGE_ASSETS.decorMain,
+    date: '2026-02-28',
+    readTime: isEn ? '6 min read' : '6 min čítania',
+    tags: isEn ? ['decorations', 'small weddings', 'inspiration'] : ['dekorácie', 'malé svadby', 'inšpirácie'],
+  },
+] as const;
+---
+
+<Layout
+  title={isEn ? "Wedding Blog MagicRoom — Tips, Inspiration & Trends" : "Svadobný blog MagicRoom — Tipy, inšpirácie a trendy"}
+  description={isEn ? "Read our articles about wedding dresses, decorations, advice and latest trends." : "Čítajte naše články o svadobných šatách, dekoráciách, poradenstve a najnovších trendov."}
+  image={IMAGE_ASSETS.hero}
+  breadcrumbs={[
+    { name: t.nav.home, url: isEn ? '/en' : '/' },
+    { name: t.nav.blog, url: isEn ? '/en/blog' : '/blog' },
+  ]}
+  language={language}
+>
+  <Header language={language} />
+
+  <main class="flex-1">
+    <section class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="mb-12 text-center">
+          <Badge variant="secondary" className="mb-4 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">
+            {isEn ? 'Wedding Blog' : 'Svadobný blog'}
+          </Badge>
+          <h1 class="font-display text-4xl text-foreground md:text-5xl">
+            {isEn ? 'Tips, Inspiration & Trends for Your Wedding' : 'Tipy, inšpirácie a trendy pre vašu svadbu'}
+          </h1>
+          <p class="mt-4 max-w-2xl mx-auto text-base leading-7 text-muted-foreground">
+            {isEn ? 'Practical advice, latest trends and personal experience from organizing weddings.' : 'Praktické rady, najnovšie trendy a osobné skúsenosti z organizácie svadieb.'}
+          </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {BLOG_POSTS.map((post) => (
+            <Card className="blog-card border-0 bg-white shadow-[var(--shadow-soft)] spring-hover rounded-[32px] overflow-hidden">
+              <div class="overflow-hidden">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  class="h-48 w-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <CardHeader>
+                <div class="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                  <Calendar className="h-4 w-4" />
+                  <span>{new Date(post.date).toLocaleDateString(isEn ? 'en-US' : 'sk-SK')}</span>
+                  <Clock className="h-4 w-4 ml-2" />
+                  <span>{post.readTime}</span>
+                </div>
+                <CardTitle className="font-display text-xl line-clamp-2">{post.title}</CardTitle>
+                <CardDescription className="line-clamp-3">{post.excerpt}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {post.tags.map((tag) => (
+                    <Badge variant="outline" className="text-xs">{tag}</Badge>
+                  ))}
+                </div>
+                <Button asChild variant="ghost" className="px-0 text-primary hover:text-cta group">
+                  <a href={isEn ? `/en/blog/${post.slug}` : `/blog/${post.slug}`}>
+                    {isEn ? 'Read article' : 'Čítať článok'}
+                    <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer language={language} />
+  <WhatsAppFAB />
+  <ScrollToTop />
+</Layout>

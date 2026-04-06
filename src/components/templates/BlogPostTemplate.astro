@@ -1,0 +1,177 @@
+---
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { getBookingPageHref, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
+import { IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
+import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, Calendar, Clock, Phone } from 'lucide-react';
+
+interface Props {
+  language: Language;
+  skSlug: string;
+}
+
+const { language, skSlug } = Astro.props;
+const t = getTranslations(language);
+const isEn = language === 'en';
+
+// Simplified blog data for template
+const ALL_POSTS: Record<string, any> = {
+  'svadobne-trendy-2026': {
+    sk: {
+      title: 'Svadobné trendy 2026: Čo bude v móde?',
+      description: 'Objavte najnovšie trendy v svadobnej móde pre rok 2026.',
+      date: '2026-04-01',
+      readTime: '5 min čítania',
+      content: 'Rok 2026 prináša nové trendy v svadobnej móde, ktoré kombinujú klasiku s modernými prvkami.'
+    },
+    en: {
+      title: 'Wedding Trends 2026: What Will Be in Fashion?',
+      description: 'Discover the latest trends in wedding fashion for 2026.',
+      date: '2026-04-01',
+      readTime: '5 min read',
+      content: 'The year 2026 brings new trends in wedding fashion that combine classic with modern elements.'
+    }
+  },
+  'ako-zvolit-svadobne-saty': {
+    sk: {
+      title: 'Ako si vybrať svadobné šaty: Praktický sprievodca',
+      description: 'Naučte sa vybrať dokonalé svadobné šaty.',
+      date: '2026-03-15',
+      readTime: '7 min čítania',
+      content: 'Výber svadobných šiat je jeden z najdôležitejších krokov prípravy.'
+    },
+    en: {
+      title: 'How to Choose Wedding Dresses: A Practical Guide',
+      description: 'Learn how to choose the perfect wedding dress.',
+      date: '2026-03-15',
+      readTime: '7 min read',
+      content: 'Choosing a wedding dress is one of the most important steps of preparation.'
+    }
+  },
+  'svadobne-dekoracie-na-male-oslavy': {
+    sk: {
+      title: 'Svadobné dekorácie pre malé oslavy do 50 hostí',
+      description: 'Inšpirácie a tipy na dekorácie pre intimné svadby.',
+      date: '2026-02-28',
+      readTime: '6 min čítania',
+      content: 'Malé svadby majú svoje nezameniteľné čaro a intímnu atmosféru.'
+    },
+    en: {
+      title: 'Wedding Decorations for Small Celebrations',
+      description: 'Inspiration and tips for decorations for intimate weddings.',
+      date: '2026-02-28',
+      readTime: '6 min read',
+      content: 'Small weddings have their unmistakable charm and intimate atmosphere.'
+    }
+  }
+};
+
+const postData = ALL_POSTS[skSlug];
+const post = isEn ? postData.en : postData.sk;
+
+const RELATED_POSTS = [
+  {
+    slug: isEn ? 'wedding-dresses-how-to-choose' : 'ako-zvolit-svadobne-saty',
+    title: isEn ? 'How to Choose Wedding Dresses' : 'Ako si vybrať svadobné šaty',
+    image: IMAGE_ASSETS.founder,
+  },
+  {
+    slug: isEn ? 'wedding-decorations-small-celebrations' : 'svadobne-dekoracie-na-male-oslavy',
+    title: isEn ? 'Decorations for Small Celebrations' : 'Dekorácie pre malé oslavy',
+    image: IMAGE_ASSETS.decorMain,
+  },
+];
+---
+
+<Layout
+  title={`${post.title} | MagicRoom Blog`}
+  description={post.description}
+  type="article"
+  image={IMAGE_ASSETS.dresses}
+  breadcrumbs={[
+    { name: t.nav.home, url: isEn ? '/en' : '/' },
+    { name: t.nav.blog, url: isEn ? '/en/blog' : '/blog' },
+    { name: post.title, url: '#' },
+  ]}
+  language={language}
+>
+  <Header language={language} />
+
+  <main class="flex-1">
+    <article class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <div class="mb-8">
+          <Badge variant="secondary" className="mb-4">Blog</Badge>
+          <h1 class="font-display text-4xl text-foreground md:text-5xl">{post.title}</h1>
+          <div class="mt-4 flex items-center gap-4 text-muted-foreground text-sm">
+            <div class="flex items-center gap-2">
+              <Calendar className="h-4 w-4" />
+              <span>{new Date(post.date).toLocaleDateString(isEn ? 'en-US' : 'sk-SK')}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Clock className="h-4 w-4" />
+              <span>{post.readTime}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="prose prose-lg max-w-none bg-white p-8 md:p-12 rounded-[32px] shadow-sm border border-border/50">
+          <p class="text-xl leading-relaxed mb-8">{post.content}</p>
+          <p class="text-muted-foreground italic">Príprava kompletného obsahu článku prebieha. Čoskoro tu nájdete viac detailov a inšpirácií.</p>
+          
+          <img src={IMAGE_URLS.dresses} alt="Svadobné inšpirácie" class="rounded-2xl my-12 w-full object-cover" />
+        </div>
+
+        <div class="mt-12 rounded-[32px] border border-border/70 bg-white p-8 md:p-12">
+          <h3 class="font-display text-2xl mb-4">{isEn ? 'Have Questions?' : 'Máte otázky?'}</h3>
+          <p class="text-muted-foreground mb-8">
+            {isEn ? "At MagicRoom, we'll help you find everything for your perfect day." : 'V MagicRoom vám pomôžeme nájsť šaty, dekorácie aj pokojný prístup.'}
+          </p>
+          <div class="flex flex-col gap-4 sm:flex-row">
+            <Button asChild variant="cta" size="lg">
+              <a href={getBookingPageHref(language)}>
+                {t.nav.bookAppointment}
+                <ArrowRight className="h-4 w-4 ml-2" />
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <a href={PHONE_HREF}>
+                <Phone className="h-4 w-4 mr-2" />
+                {PHONE_DISPLAY}
+              </a>
+            </Button>
+          </div>
+        </div>
+
+        <div class="mt-20">
+          <h3 class="font-display text-2xl mb-8">{isEn ? 'Related Articles' : 'Súvisiace články'}</h3>
+          <div class="grid gap-6 md:grid-cols-2">
+            {RELATED_POSTS.map((p) => (
+              <a href={isEn ? `/en/blog/${p.slug}` : `/blog/${p.slug}`} class="group">
+                <Card className="border-0 bg-white shadow-sm overflow-hidden transition-all hover:shadow-xl rounded-2xl">
+                  <div class="h-32 overflow-hidden">
+                    <img src={p.image} alt={p.title} class="w-full h-full object-cover transition-transform group-hover:scale-105" />
+                  </div>
+                  <CardHeader className="p-4">
+                    <CardTitle className="font-display text-lg group-hover:text-primary transition-colors">{p.title}</CardTitle>
+                  </CardHeader>
+                </Card>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer language={language} />
+  <WhatsAppFAB />
+  <ScrollToTop />
+</Layout>

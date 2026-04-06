@@ -19,6 +19,9 @@ import decorDetails from '../assets/images/decor-details.jpg';
 import graphicsImage from '../assets/images/graphics.png';
 import glassesImage from '../assets/images/glasses.png';
 
+import type { Language } from '@/lib/i18n';
+import { SLUG_MAP, REVERSE_SLUG_MAP } from '@/lib/i18n';
+
 export const IMAGE_ASSETS = {
   hero: heroImage,
   dresses: dressesImage,
@@ -163,57 +166,157 @@ export const GALLERY_ITEMS = [
   {
     src: IMAGE_ASSETS.hero,
     alt: 'Interiér MagicRoom v Martine s jemnou svadobnou atmosférou.',
+    altEn: 'MagicRoom interior in Martin with a delicate wedding atmosphere.',
     title: 'Salón v Martine',
+    titleEn: 'Salon in Martin',
   },
   {
     src: IMAGE_ASSETS.dresses,
     alt: 'Svadobné šaty pripravené na skúšku v MagicRoom.',
+    altEn: 'Wedding dresses ready for fitting at MagicRoom.',
     title: 'Modely na skúšku',
+    titleEn: 'Models for fitting',
   },
   {
     src: IMAGE_ASSETS.decorMain,
     alt: 'Svadobné dekorácie na prenájom od MagicRoom.',
+    altEn: 'Wedding decorations for rent from MagicRoom.',
     title: 'Výzdoba stolov',
+    titleEn: 'Table decoration',
   },
   {
     src: IMAGE_ASSETS.decorAlt,
     alt: 'Detail romantickej svadobnej výzdoby.',
+    altEn: 'Detail of romantic wedding decoration.',
     title: 'Romantické detaily',
+    titleEn: 'Romantic details',
   },
   {
     src: IMAGE_ASSETS.decorBackdrop,
     alt: 'Svadobná kulisa so závesmi a svetielkami.',
+    altEn: 'Wedding backdrop with curtains and lights.',
     title: 'Kulisa a svetlá',
+    titleEn: 'Backdrop and lights',
   },
   {
     src: IMAGE_ASSETS.decorDetails,
     alt: 'Handmade svadobné doplnky a smerové šípky.',
+    altEn: 'Handmade wedding accessories and directional arrows.',
     title: 'Handmade doplnky',
+    titleEn: 'Handmade accessories',
   },
   {
     src: IMAGE_ASSETS.satyRuzove1,
     alt: 'Ružové svadobné šaty v salóne MagicRoom.',
+    altEn: 'Pink wedding dresses in the MagicRoom salon.',
     title: 'Ružové šaty',
+    titleEn: 'Pink dresses',
   },
   {
     src: IMAGE_ASSETS.interier1,
     alt: 'Interiér svadobného salónu MagicRoom v Martine.',
+    altEn: 'Interior of the MagicRoom wedding salon in Martin.',
     title: 'Interiér salónu',
+    titleEn: 'Salon interior',
   },
   {
     src: IMAGE_ASSETS.sachovnica1,
     alt: 'Čierno-biela šachovnicová podlaha v salóne.',
+    altEn: 'Black and white checkered floor in the salon.',
     title: 'Šachovnicový vzor',
+    titleEn: 'Checkered pattern',
   },
   {
     src: IMAGE_ASSETS.satyRuzove5,
     alt: 'Svadobné šaty na vešiaku v MagicRoom.',
+    altEn: 'Wedding dresses on a hanger at MagicRoom.',
     title: 'Šaty na mieru',
+    titleEn: 'Custom dresses',
   },
   {
     src: IMAGE_ASSETS.interier2,
     alt: 'Pohľad na salón MagicRoom.',
+    altEn: 'View of the MagicRoom salon.',
     title: 'Náš priestor',
+    titleEn: 'Our space',
+  },
+] as const;
+
+export function getHomeStats(lang: Language) {
+  return lang === 'sk' ? HOME_STATS : HOME_STATS_EN;
+}
+
+export function getHomeOfferCards(lang: Language) {
+  return lang === 'sk' ? HOME_OFFER_CARDS : HOME_OFFER_CARDS_EN;
+}
+
+export function getTrustReasons(lang: Language) {
+  return lang === 'sk' ? TRUST_REASONS : TRUST_REASONS_EN;
+}
+
+export function getProcessSteps(lang: Language) {
+  return lang === 'sk' ? PROCESS_STEPS : PROCESS_STEPS_EN;
+}
+
+export function getFounderStory(lang: Language) {
+  return lang === 'sk' ? FOUNDER_STORY : FOUNDER_STORY_EN;
+}
+
+export function getServicePackages(lang: Language) {
+  return lang === 'sk' ? SERVICE_PACKAGES : SERVICE_PACKAGES_EN;
+}
+
+export function getExtraServices(lang: Language) {
+  return lang === 'sk' ? EXTRA_SERVICES : EXTRA_SERVICES_EN;
+}
+
+export function getDecorFeatured(lang: Language) {
+  return lang === 'sk' ? DECOR_FEATURED : DECOR_FEATURED_EN;
+}
+
+export function getDecorCategories(lang: Language) {
+  return lang === 'sk' ? DECOR_CATEGORIES : DECOR_CATEGORIES_EN;
+}
+
+export function getDecorPolicies(lang: Language) {
+  return lang === 'sk' ? DECOR_POLICIES : DECOR_POLICIES_EN;
+}
+
+export function getConsignmentSteps(lang: Language) {
+  return lang === 'sk' ? CONSIGNMENT_STEPS : CONSIGNMENT_STEPS_EN;
+}
+
+export function getConsignmentBenefits(lang: Language) {
+  return lang === 'sk' ? CONSIGNMENT_BENEFITS : CONSIGNMENT_BENEFITS_EN;
+}
+
+export function getConsignmentConditions(lang: Language) {
+  return lang === 'sk' ? CONSIGNMENT_CONDITIONS : CONSIGNMENT_CONDITIONS_EN;
+}
+
+export function getContactFaqs(lang: Language) {
+  return lang === 'sk' ? CONTACT_FAQS : CONTACT_FAQS_EN;
+}
+
+export function getContactActions(lang: Language) {
+  return lang === 'sk' ? CONTACT_ACTIONS : CONTACT_ACTIONS_EN;
+}
+
+
+export function getGalleryItems(lang: Language) {
+  return GALLERY_ITEMS.map(item => ({
+    src: item.src,
+    alt: lang === 'sk' ? item.alt : item.altEn,
+    title: lang === 'sk' ? item.title : item.titleEn,
+  }));
+}
+
+export const PARTNERS = [
+  {
+    name: 'Fotograf Peter',
+    category: 'Fotografia',
+    description: 'Zachytáva momenty s citom pre detail a prirodzenosť.',
+    link: '#',
   },
 ] as const;
 

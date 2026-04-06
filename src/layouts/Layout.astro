@@ -57,7 +57,7 @@ const breadcrumbSchema = breadcrumbs.length > 0
   : [];
 
 const jsonLd = JSON.stringify([
-  ...getBaseSchemas(canonicalUrl, imageUrl, description),
+  ...getBaseSchemas(canonicalUrl, imageUrl, language, description),
   ...breadcrumbSchema,
   ...extraSchemas,
 ]);

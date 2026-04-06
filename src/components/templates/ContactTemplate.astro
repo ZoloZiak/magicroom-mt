@@ -1,0 +1,164 @@
+---
+import BookingForm from '@/components/forms/BookingForm.astro';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import Sparkles from '@/components/layout/Sparkles.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
+import { ADDRESS_LABEL, EMAIL, EMAIL_HREF, MAP_URL, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_URL } from '@/data/site';
+import { getContactActions, getContactFaqs, IMAGE_URLS } from '@/data/content';
+import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
+import Layout from '@/layouts/Layout.astro';
+import { Mail, MapPin, MessageCircle, Phone, ArrowRight } from 'lucide-react';
+
+interface Props {
+  language: Language;
+  skSlug: string;
+}
+
+const { language, skSlug } = Astro.props;
+const t = getTranslations(language);
+const isEn = language === 'en';
+
+const contactFaqs = getContactFaqs(language);
+const contactActions = getContactActions(language);
+
+const contactIcons = {
+  Phone: Phone,
+  MessageCircle: MessageCircle,
+  Mail: Mail,
+};
+---
+
+<Layout
+  title={t.contact.pageTitle}
+  description={t.contact.pageDescription}
+  image={IMAGE_URLS.hero}
+  breadcrumbs={[
+    { name: t.nav.home, url: isEn ? '/en' : '/' },
+    { name: t.nav.contact, url: getRelativeHref(skSlug, language) },
+  ]}
+  language={language}
+>
+  <Header language={language} />
+
+  <main class="flex-1">
+    <Breadcrumbs items={[
+      { name: t.nav.contact, url: getRelativeHref(skSlug, language) }
+    ]} />
+
+    <section class="bg-surface py-12 md:py-20 relative overflow-hidden">
+      <Sparkles count={6} />
+      <div class="container mx-auto px-4 relative">
+        <div class="mx-auto max-w-3xl text-center">
+          <Badge variant="secondary" className="mb-4">{t.contact.heroBadge}</Badge>
+          <h1 class="font-display text-4xl md:text-6xl mb-6">{t.contact.heroTitle}</h1>
+          <p class="text-lg text-muted-foreground">{t.contact.heroDescription}</p>
+        </div>
+
+        <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <a href={PHONE_HREF} class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
+            <div class="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mx-auto mb-4">
+               <Phone className="h-6 w-6" />
+            </div>
+            <h3 class="font-bold mb-1">{isEn ? 'Call us' : 'Zavolajte nám'}</h3>
+            <p class="text-sm text-muted-foreground">{PHONE_DISPLAY}</p>
+          </a>
+          <a href={WHATSAPP_URL} class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
+            <div class="h-12 w-12 rounded-2xl bg-success/10 flex items-center justify-center text-success mx-auto mb-4">
+               <MessageCircle className="h-6 w-6" />
+            </div>
+            <h3 class="font-bold mb-1">WhatsApp</h3>
+            <p class="text-sm text-muted-foreground">{isEn ? 'Quick chat' : 'Rýchla správa'}</p>
+          </a>
+          <a href={EMAIL_HREF} class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
+            <div class="h-12 w-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mx-auto mb-4">
+               <Mail className="h-6 w-6" />
+            </div>
+            <h3 class="font-bold mb-1">{isEn ? 'Email us' : 'Napíšte nám'}</h3>
+            <p class="text-sm text-muted-foreground">{EMAIL}</p>
+          </a>
+          <a href={MAP_URL} target="_blank" rel="noopener noreferrer" class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
+            <div class="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mx-auto mb-4">
+               <MapPin className="h-6 w-6" />
+            </div>
+            <h3 class="font-bold mb-1">{isEn ? 'Visit us' : 'Príďte k nám'}</h3>
+            <p class="text-sm text-muted-foreground">Martin, SK</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <DecorativeDivider variant="ornamental" />
+
+    <section class="py-20 md:py-28 bg-white" id="booking">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-16 lg:grid-cols-2">
+          <div>
+            <h2 class="font-display text-4xl mb-6">{t.contact.bookingTitle}</h2>
+            <p class="text-lg text-muted-foreground mb-10">{t.contact.bookingDescription}</p>
+            
+            <div class="space-y-8">
+               <div>
+                  <h3 class="font-bold text-xl mb-4">{t.contact.nextStepsTitle}</h3>
+                  <div class="space-y-4">
+                     <div class="flex gap-4">
+                        <div class="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">1</div>
+                        <p class="text-muted-foreground">{t.contact.nextStepsDesc1}</p>
+                     </div>
+                     <div class="flex gap-4">
+                        <div class="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">2</div>
+                        <p class="text-muted-foreground">{t.contact.nextStepsDesc2}</p>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="p-6 rounded-3xl bg-surface">
+                  <h4 class="font-semibold mb-2">{t.common.directionsText}</h4>
+                  <p class="text-sm text-muted-foreground mb-4">{ADDRESS_LABEL}</p>
+                  <a href={MAP_URL} target="_blank" rel="noopener noreferrer" class="text-primary font-medium flex items-center gap-2 hover:underline">
+                     {t.common.openMap} <ArrowRight className="h-4 w-4" />
+                  </a>
+               </div>
+            </div>
+          </div>
+          
+          <div class="luxury-panel p-6 md:p-10 bg-white">
+            <BookingForm language={language} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {contactFaqs.length > 0 && (
+      <section class="bg-surface py-20 md:py-28">
+        <div class="container mx-auto px-4 max-w-3xl">
+          <h2 class="font-display text-4xl mb-12 text-center">{isEn ? 'Common questions' : 'Časté otázky'}</h2>
+          <div class="space-y-4">
+            {contactFaqs.map((faq) => (
+              <details class="group rounded-2xl bg-white border border-border/50 p-6 transition-all open:shadow-md">
+                <summary class="flex cursor-pointer items-center justify-between font-bold list-none">
+                  {faq.question}
+                  <span class="transition-transform group-open:rotate-180">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                  </span>
+                </summary>
+                <p class="mt-4 text-muted-foreground leading-relaxed">
+                  {faq.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <Footer language={language} />
+    <WhatsAppFAB />
+    <ScrollToTop />
+  </main>
+</Layout>

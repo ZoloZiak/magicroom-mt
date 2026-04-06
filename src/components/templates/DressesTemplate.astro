@@ -1,0 +1,118 @@
+---
+import { Image } from 'astro:assets';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import Sparkles from '@/components/layout/Sparkles.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { getBookingPageHref } from '@/data/site';
+import { DRESS_CATALOG, IMAGE_URLS } from '@/data/content';
+import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, Heart } from 'lucide-react';
+
+interface Props {
+  language: Language;
+  skSlug: string;
+}
+
+const { language, skSlug } = Astro.props;
+const t = getTranslations(language);
+const isEn = language === 'en';
+
+const dresses = DRESS_CATALOG;
+---
+
+<Layout
+  title={t.dresses.pageTitle}
+  description={t.dresses.pageDescription}
+  image={IMAGE_URLS.dresses}
+  breadcrumbs={[
+    { name: t.nav.home, url: isEn ? '/en' : '/' },
+    { name: t.nav.dresses, url: getRelativeHref(skSlug, language) },
+  ]}
+  language={language}
+>
+  <Header language={language} />
+
+  <main class="flex-1">
+    <Breadcrumbs items={[
+      { name: t.nav.dresses, url: getRelativeHref(skSlug, language) }
+    ]} />
+
+    <section class="bg-surface py-12 md:py-20">
+      <div class="container mx-auto px-4 text-center">
+        <Badge variant="secondary" className="mb-4">
+          {t.dresses.heroBadge}
+        </Badge>
+        <h1 class="font-display text-4xl md:text-6xl mb-6">
+          {t.dresses.heroTitle}
+        </h1>
+        <p class="max-w-2xl mx-auto text-lg text-muted-foreground">
+          {t.dresses.heroDescription}
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {dresses.map((dress) => (
+            <div class="group overflow-hidden rounded-[32px] border border-border/50 bg-white transition-all hover:shadow-2xl">
+              <div class="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src={dress.image}
+                  alt={dress.name}
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  width={600}
+                  height={800}
+                />
+                <div class="absolute right-4 top-4">
+                  <Badge variant={dress.status === 'available' ? 'success' : 'outline'} className="backdrop-blur-md">
+                    {dress.status === 'available' ? (isEn ? 'Available' : 'Dostupné') : (isEn ? 'Reserved' : 'Rezervované')}
+                  </Badge>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h3 class="font-display text-2xl">{dress.name}</h3>
+                    <p class="mt-1 text-sm text-muted-foreground">{dress.description}</p>
+                  </div>
+                  <p class="text-xl font-bold text-cta">{dress.price} €</p>
+                </div>
+                <div class="mt-6 flex items-center justify-between border-t border-border/50 pt-4">
+                  <span class="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+                    {isEn ? 'Size' : 'Veľkosť'} {dress.size}
+                  </span>
+                  <Button asChild variant="ghost" size="sm" className="group/btn">
+                    <a href={getBookingPageHref(language)}>
+                      {isEn ? 'Book fitting' : 'Rezervovať skúšku'}
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-20 text-center p-12 rounded-[40px] bg-surface border border-dashed border-primary/30">
+           <Heart className="h-10 w-10 text-primary mx-auto mb-6" />
+           <h2 class="font-display text-3xl mb-4">{isEn ? 'Want to sell your dress?' : 'Chcete u nás predať svoje šaty?'}</h2>
+           <p class="mb-8 text-muted-foreground">{isEn ? 'We accept dresses in consignment.' : 'Ponúknite svoje svadobné šaty ďalším nevestám cez náš komisný predaj.'}</p>
+           <Button asChild variant="outline">
+              <a href={getRelativeHref('komisny-predaj', language)}>{t.nav.consignment}</a>
+           </Button>
+        </div>
+      </div>
+    </section>
+
+    <Footer language={language} />
+    <WhatsAppFAB />
+    <ScrollToTop />
+  </main>
+</Layout>

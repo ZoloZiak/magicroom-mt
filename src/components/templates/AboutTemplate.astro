@@ -1,0 +1,198 @@
+---
+import { Image } from 'astro:assets';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import Sparkles from '@/components/layout/Sparkles.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { getBookingPageHref, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_URL } from '@/data/site';
+import { getFounderStory, getGalleryItems, getHomeStats, getTrustReasons, IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
+import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, CheckCircle2, Heart, Phone, Sparkles as SparklesIcon, Users } from 'lucide-react';
+
+interface Props {
+  language: Language;
+  skSlug: string;
+}
+
+const { language, skSlug } = Astro.props;
+const t = getTranslations(language);
+
+const isEn = language === 'en';
+const TRUST_REASONS = getTrustReasons(language);
+const FOUNDER_STORY = getFounderStory(language);
+const GALLERY_ITEMS = getGalleryItems(language);
+const HOME_STATS = getHomeStats(language);
+
+const storyGallery = GALLERY_ITEMS.slice(0, 4);
+const operatingPrinciples = [
+  {
+    title: isEn ? 'Personal care' : 'Osobná starostlivosť namiesto chaosu',
+    description: isEn ? 'Calm and clear contact.' : 'Každý kontakt s MagicRoom má byť pokojný, jasný a ľudský — od prvej správy až po finálne detaily.',
+    icon: Heart,
+  },
+  {
+    title: isEn ? 'Up to 50 guests' : 'Svadby a oslavy do 50 hostí',
+    description: isEn ? 'Quality and personal approach.' : 'Vedome pracujeme v rozsahu, kde vieme udržať kvalitu, dohľad nad detailmi a osobný prístup Natálie.',
+    icon: Users,
+  },
+  {
+    title: isEn ? 'Practical help' : 'Praktická pomoc s krásnym výsledkom',
+    description: isEn ? 'Save time and enjoy.' : 'Šaty, dekorácie aj poradenstvo majú pomôcť ušetriť čas a spraviť deň harmonickejším, nie komplikovanejším.',
+    icon: SparklesIcon,
+  },
+];
+---
+
+<Layout
+  title={t.about.pageTitle}
+  description={t.about.pageDescription}
+  image={IMAGE_URLS.founder}
+  breadcrumbs={[
+    { name: t.nav.home, url: isEn ? '/en' : '/' },
+    { name: t.nav.about, url: getRelativeHref(skSlug, language) },
+  ]}
+  language={language}
+>
+  <Header language={language} />
+
+  <main class="flex-1">
+    <Breadcrumbs items={[
+      { name: t.nav.about, url: getRelativeHref(skSlug, language) }
+    ]} />
+
+    <section class="relative overflow-hidden bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] pt-12 pb-16 md:pt-20 md:pb-24">
+      <Sparkles count={6} />
+      <div class="container mx-auto px-4">
+        <div class="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-center">
+          <div class="max-w-2xl">
+            <Badge variant="secondary" className="mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em] animate-fade-in-up animate-stagger-1">
+              {t.about.heroBadge}
+            </Badge>
+            <h1 class="font-display text-[2.9rem] leading-[0.96] text-foreground md:text-6xl lg:text-7xl animate-fade-in-up animate-stagger-2">
+              {t.about.heroTitle}
+            </h1>
+            {!isEn && (
+              <p class="mt-6 max-w-xl text-lg leading-8 text-muted-foreground md:text-xl animate-fade-in-up animate-stagger-3">
+                MagicRoom nevznikol ako anonymný salón. Vznikol ako odpoveď na to, koľko stresu vie priniesť zháňanie šiat,
+                výzdoby a drobných rozhodnutí, ktoré spolu majú vytvoriť jeden dôležitý deň.
+              </p>
+            )}
+            
+            <div class="mt-8 luxury-panel p-6 md:p-7 animate-fade-in-up animate-stagger-4">
+              <p class="section-kicker">{isEn ? 'Founder' : 'Zakladateľka'}</p>
+              <blockquote class="mt-3 font-display text-3xl italic leading-tight text-foreground md:text-4xl">
+                „{FOUNDER_STORY.quote}“
+              </blockquote>
+              <p class="mt-4 text-sm leading-7 text-muted-foreground">
+                {isEn ? FOUNDER_STORY.paragraphs[0] : 'Natália stavia MagicRoom na férovosti, ľudskom kontakte a na tom, aby nevesta nemusela behať medzi viacerými miestami naraz.'}
+              </p>
+            </div>
+
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row animate-fade-in-up animate-stagger-5">
+              <Button asChild variant="cta" size="lg" className="sm:min-w-[220px]">
+                <a href={getBookingPageHref(language)}>
+                  {t.nav.bookAppointment}
+                  <ArrowRight className="h-5 w-5 ml-2" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="sm:min-w-[220px]">
+                <a href={isEn ? WHATSAPP_URL : PHONE_HREF}>{isEn ? 'Contact' : `Zavolať ${PHONE_DISPLAY}`}</a>
+              </Button>
+            </div>
+
+            {!isEn && (
+              <div class="mt-10 grid gap-4 sm:grid-cols-3">
+                {HOME_STATS.map((stat, i) => (
+                  <div class={`rounded-2xl border border-border/70 bg-white/80 px-5 py-4 shadow-sm backdrop-blur animate-fade-in-up animate-stagger-${i + 1}`}>
+                    <p class="font-display text-3xl text-cta">{stat.value}</p>
+                    <p class="mt-1 text-sm leading-6 text-muted-foreground">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div class="photo-card animate-fade-in-right">
+            <Image
+              src={IMAGE_ASSETS.founder}
+              alt="Natália Ondrejková"
+              class="w-full rounded-[24px] object-cover"
+              width={800}
+              height={1000}
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <DecorativeDivider variant="floral" />
+
+    <section class="bg-surface py-16 md:py-24">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto mb-12 max-w-3xl text-center">
+          <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{isEn ? 'How we work' : 'Princípy MagicRoom'}</p>
+          {!isEn && <h2 class="mt-3 font-display text-4xl">Na čom nám záleží</h2>}
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          {operatingPrinciples.map((item, index) => (
+            <div class={`rounded-2xl border border-border/70 bg-white p-6 shadow-[var(--shadow-soft)] animate-fade-in-up animate-stagger-${index+1}`}>
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                <item.icon className="h-5 w-5 text-primary" />
+              </div>
+              <h3 className="mt-5 text-xl font-semibold">{item.title}</h3>
+              <p className="mt-3 text-base text-muted-foreground">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-primary-900 py-20 text-white relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-1/4 h-full bg-accent/5 blur-3xl"></div>
+      <div class="container relative mx-auto px-4">
+        <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div class="rounded-[30px] bg-white/5 px-6 py-8 md:px-10 md:py-12 border border-white/10">
+            <p class="text-sm uppercase tracking-[0.24em] text-accent">{isEn ? 'Why choose MagicRoom' : 'Prečo my?'}</p>
+            <h2 class="mt-4 font-display text-4xl">{t.home.whyTitle}</h2>
+            <div class="mt-10 grid gap-5 md:grid-cols-2">
+              {TRUST_REASONS.map((reason) => (
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10">
+                  <div class="flex items-start gap-3 text-accent">
+                    <CheckCircle2 className="h-4 w-4 mt-1" />
+                    <div>
+                      <h3 class="text-lg font-semibold text-white">{reason.title}</h3>
+                      <p class="mt-2 text-sm text-white/70">{reason.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <Card className="border border-white/10 bg-white/5 p-6 text-white backdrop-blur-sm">
+            <CardContent className="space-y-4 pt-4">
+              <div className="flex items-center gap-3 text-accent">
+                <Phone className="h-4 w-4" />
+                <span className="text-sm uppercase tracking-widest">{isEn ? 'Phone' : 'Telefón'}</span>
+              </div>
+              <p className="text-2xl font-semibold">{PHONE_DISPLAY}</p>
+              {!isEn && <p class="text-sm text-white/60">Sme tu pre vás každý pracovný deň a v sobotu dopoludnia.</p>}
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <Footer language={language} />
+    <WhatsAppFAB />
+    <ScrollToTop />
+  </main>
+</Layout>

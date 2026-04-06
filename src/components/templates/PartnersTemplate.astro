@@ -1,0 +1,99 @@
+---
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardTitle } from '@/components/ui/card';
+import { PARTNERS, IMAGE_URLS } from '@/data/content';
+import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, ExternalLink } from 'lucide-react';
+
+interface Props {
+  language: Language;
+  skSlug: string;
+}
+
+const { language, skSlug } = Astro.props;
+const t = getTranslations(language);
+const isEn = language === 'en';
+
+const partners = PARTNERS;
+---
+
+<Layout
+  title={isEn ? "Recommended Partners — MagicRoom Martin" : "Overení svadobní partneri — MagicRoom Martin"}
+  description={isEn ? "Handpicked wedding professionals in Martin." : "Zoznam overených svadobných profesionálov v Martine a okolí, s ktorými v MagicRoom radi spolupracujeme."}
+  image={IMAGE_URLS.hero}
+  breadcrumbs={[
+    { name: t.nav.home, url: isEn ? '/en' : '/' },
+    { name: t.nav.partners, url: getRelativeHref(skSlug, language) },
+  ]}
+  language={language}
+>
+  <Header language={language} />
+
+  <main class="flex-1">
+    <Breadcrumbs items={[
+      { name: t.nav.partners, url: getRelativeHref(skSlug, language) }
+    ]} />
+
+    <section class="py-12 md:py-20 bg-surface">
+      <div class="container mx-auto px-4 text-center">
+        <Badge variant="secondary" className="mb-4">{isEn ? 'Recommended' : 'Odporúčame'}</Badge>
+        <h1 class="font-display text-4xl md:text-6xl mb-6">
+          {isEn ? 'Wedding Partners' : 'Svadobní partneri'}
+        </h1>
+        <p class="max-w-2xl mx-auto text-lg text-muted-foreground">
+          {isEn ? 'Professionals we trust.' : 'Svadba je o ľuďoch. Tu sú profesionáli z Martina a okolia, ktorých prácu poznáme a s čistým svedomím vám ich odporúčame.'}
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {partners.map((partner) => (
+            <Card className="flex flex-col border-border/50 bg-white hover:border-primary/50 transition-all hover:shadow-xl rounded-[24px]">
+              <CardContent className="pt-6 flex-1 flex flex-col">
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="h-12 w-12 rounded-full bg-primary/5 flex items-center justify-center text-primary font-display text-xl uppercase">
+                    {partner.name[0]}
+                  </div>
+                  <div>
+                    <CardTitle className="font-display text-2xl">{partner.name}</CardTitle>
+                    <p class="text-sm text-cta font-medium uppercase tracking-wider">{partner.category}</p>
+                  </div>
+                </div>
+                <p class="text-muted-foreground mb-6 flex-1">{partner.description}</p>
+                <div class="mt-auto pt-4 border-t border-border/50 flex items-center justify-between">
+                   <Button asChild variant="ghost" size="sm" className="px-0 group">
+                      <a href={partner.link} target="_blank" rel="noopener noreferrer">
+                         {isEn ? 'View work' : 'Pozrieť prácu'}
+                         <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                   </Button>
+                   <span class="text-xs text-muted-foreground italic">Martin & okolie</span>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        
+        <div class="mt-20 p-8 rounded-[32px] bg-primary-900 text-white text-center">
+          <p class="text-lg mb-6">{isEn ? 'Are you a professional wanting to work with us?' : 'Ste svadobný profesionál a chcete s nami spolupracovať?'}</p>
+          <Button asChild variant="secondary" size="lg">
+            <a href={getRelativeHref('kontakt', language)}>{t.nav.contact}</a>
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    <Footer language={language} />
+    <WhatsAppFAB />
+    <ScrollToTop />
+  </main>
+</Layout>

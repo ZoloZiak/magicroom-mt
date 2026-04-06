@@ -1,0 +1,79 @@
+---
+import { Image } from 'astro:assets';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { getGalleryItems, IMAGE_URLS } from '@/data/content';
+import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
+import Layout from '@/layouts/Layout.astro';
+
+interface Props {
+  language: Language;
+  skSlug: string;
+}
+
+const { language, skSlug } = Astro.props;
+const t = getTranslations(language);
+const isEn = language === 'en';
+
+const galleryItems = getGalleryItems(language);
+---
+
+<Layout
+  title={isEn ? "Gallery — MagicRoom Martin" : "Galéria salónu a našej práce — MagicRoom Martin"}
+  description={isEn ? "MagicRoom salon and decorations gallery." : "Pozrite si priestory nášho salónu v Martine a ukážky svadobnej výzdoby, ktorú sme realizovali."}
+  image={IMAGE_URLS.hero}
+  breadcrumbs={[
+    { name: t.nav.home, url: isEn ? '/en' : '/' },
+    { name: t.nav.gallery, url: getRelativeHref(skSlug, language) },
+  ]}
+  language={language}
+>
+  <Header language={language} />
+
+  <main class="flex-1">
+    <Breadcrumbs items={[
+      { name: t.nav.gallery, url: getRelativeHref(skSlug, language) }
+    ]} />
+
+    <section class="py-12 md:py-20 bg-surface">
+      <div class="container mx-auto px-4 text-center">
+        <Badge variant="secondary" className="mb-4">MagicRoom Martin</Badge>
+        <h1 class="font-display text-4xl md:text-6xl mb-6">
+          {isEn ? 'Atmosphere & Details' : 'Atmosféra a detaily'}
+        </h1>
+        <p class="max-w-2xl mx-auto text-lg text-muted-foreground">
+          {isEn ? 'Explore our salon and work.' : 'Niekedy je lepšie raz vidieť. Tu sú fragmenty z nášho salónu a svadieb, ktoré sme pomáhali tvoriť.'}
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="columns-1 gap-6 sm:columns-2 lg:columns-3">
+          {galleryItems.map((item, i) => (
+            <div class="mb-6 break-inside-avoid overflow-hidden rounded-[24px] bg-surface transition-all hover:shadow-xl">
+              <Image
+                src={item.src}
+                alt={item.alt}
+                class="w-full object-cover transition-transform duration-500 hover:scale-105"
+                width={800}
+                height={1200}
+              />
+              <div class="p-4 bg-white">
+                <p class="font-display text-lg">{item.title}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <Footer language={language} />
+    <WhatsAppFAB />
+    <ScrollToTop />
+  </main>
+</Layout>

@@ -1,17 +1,8 @@
 ---
 import { Button } from '@/components/ui/button';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher.astro';
+import { getNavLinks, getBookingPageHref, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
 import { getTranslations, type Language } from '@/lib/translations';
-import {
-  BOOKING_PAGE_HREF,
-  BOOKING_PAGE_HREF_EN,
-  NAV_LINKS,
-  NAV_LINKS_EN,
-  PHONE_DISPLAY,
-  PHONE_HREF,
-  RESPONSE_PROMISE,
-  RESPONSE_PROMISE_EN,
-} from '@/data/site';
 
 interface Props {
   language: Language;
@@ -23,8 +14,8 @@ const t = getTranslations(language);
 const currentPath = Astro.url.pathname;
 const isEn = language === 'en';
 
-const navLinks = isEn ? NAV_LINKS_EN : NAV_LINKS;
-const bookingPageHref = isEn ? BOOKING_PAGE_HREF_EN : BOOKING_PAGE_HREF;
+const navLinks = getNavLinks(language);
+const bookingPageHref = getBookingPageHref(language);
 const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingPageHref;
 const gaLabelSuffix = isEn ? '_en' : '';
 ---
@@ -96,7 +87,7 @@ const gaLabelSuffix = isEn ? '_en' : '';
   </nav>
 </header>
 
-<div id="mobile-menu-root" data-phone-href={PHONE_HREF} data-phone-display={PHONE_DISPLAY} data-response={t.common.replyNote} data-booking-href={bookingHref} data-nav={JSON.stringify(navLinks)} data-is-en={isEn} data-t-nav={t.header.mobileNavigation} data-t-call={t.header.mobileCallDirectly} data-t-book={t.nav.bookAppointment}></div>
+<div id="mobile-menu-root" data-phone-href={PHONE_HREF} data-phone-display={PHONE_DISPLAY} data-response={t.common.replyNote} data-booking-href={bookingHref} data-nav={JSON.stringify(navLinks)} data-is-en={isEn} data-t-nav={t.header.mobileNavigation} data-t-call={t.header.mobileCallDirectly} data-t-book={t.nav.bookAppointment} data-t-close={t.header.mobileClose}></div>
 
 <script>
   const root = document.getElementById('mobile-menu-root');
@@ -109,6 +100,7 @@ const gaLabelSuffix = isEn ? '_en' : '';
   const tNav = root?.dataset.tNav || 'Navigation';
   const tCall = root?.dataset.tCall || 'Or call directly';
   const tBook = root?.dataset.tBook || 'Book a fitting';
+  const tClose = root?.dataset.tClose || 'Close';
   const currentPath = window.location.pathname;
 
   const toggleBtn = document.getElementById('mobile-menu-toggle');
@@ -130,7 +122,7 @@ const gaLabelSuffix = isEn ? '_en' : '';
               <span class="block text-[10px] uppercase tracking-[0.28em] text-muted-foreground">bridal concierge &bull; Martin</span>
             </div>
           </div>
-          <button id="mobile-close-btn" class="rounded-lg p-2 hover:bg-muted" aria-label="${isEn ? 'Close' : 'Zavrieť'}">
+          <button id="mobile-close-btn" class="rounded-lg p-2 hover:bg-muted" aria-label="${tClose}">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
           </button>
         </div>

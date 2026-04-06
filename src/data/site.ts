@@ -1,3 +1,6 @@
+import type { Language } from '@/lib/i18n';
+import { getRelativeHref } from '@/lib/translations';
+
 export const SITE_URL = 'https://www.magicroom.sk';
 export const SITE_NAME = 'MagicRoom';
 export const DEFAULT_DESCRIPTION =
@@ -55,27 +58,38 @@ export const NAV_LINKS_EN = [
   { href: '/en/kontakt', label: 'Contact' },
 ] as const;
 
-export const SOCIAL_LINKS = [
-  { label: 'Facebook', href: 'https://www.facebook.com/909260838935730/' },
-  { label: 'Instagram', href: 'https://www.instagram.com/mt.magicroom/' },
-  { label: 'Recenzie na Google Mapách', href: 'https://share.google/RMksKvnggtb6P5nHd' },
-] as const;
+export function getNavLinks(lang: Language) {
+  return [
+    { href: getRelativeHref('o-nas', lang), label: lang === 'sk' ? 'O nás' : 'About' },
+    { href: getRelativeHref('sluzby', lang), label: lang === 'sk' ? 'Služby' : 'Services' },
+    { href: getRelativeHref('svadobne-saty', lang), label: lang === 'sk' ? 'Šaty' : 'Dresses' },
+    { href: getRelativeHref('galeria', lang), label: lang === 'sk' ? 'Galéria' : 'Gallery' },
+    { href: getRelativeHref('blog', lang), label: lang === 'sk' ? 'Blog' : 'Blog' },
+    { href: getRelativeHref('komisny-predaj', lang), label: lang === 'sk' ? 'Komisný predaj' : 'Consignment' },
+    { href: getRelativeHref('prenajom-dekoracii', lang), label: lang === 'sk' ? 'Dekorácie' : 'Decorations' },
+    { href: getRelativeHref('partneri', lang), label: lang === 'sk' ? 'Partneri' : 'Partners' },
+    { href: getRelativeHref('kontakt', lang), label: lang === 'sk' ? 'Kontakt' : 'Contact' },
+  ];
+}
 
-export const SOCIAL_LINKS_EN = [
-  { label: 'Facebook', href: 'https://www.facebook.com/909260838935730/' },
-  { label: 'Instagram', href: 'https://www.instagram.com/mt.magicroom/' },
-  { label: 'Google Reviews', href: 'https://share.google/RMksKvnggtb6P5nHd' },
-] as const;
+export function getSocialLinks(lang: Language) {
+  return [
+    { label: 'Facebook', href: 'https://www.facebook.com/909260838935730/' },
+    { label: 'Instagram', href: 'https://www.instagram.com/mt.magicroom/' },
+    { label: lang === 'sk' ? 'Recenzie na Google Mapách' : 'Google Reviews', href: 'https://share.google/RMksKvnggtb6P5nHd' },
+  ];
+}
 
-export const BOOKING_PAGE_HREF = '/kontakt#booking';
-export const BOOKING_PAGE_HREF_EN = '/en/kontakt#booking';
-export const BOOKING_CTA_LABEL = 'Rezervovať skúšku';
-export const RESPONSE_PROMISE = 'Ozveme sa vám do 24 hodín.';
-export const RESPONSE_PROMISE_EN = 'We\'ll get back to you within 24 hours.';
+export function getBookingPageHref(lang: Language) {
+  return getRelativeHref('kontakt', lang) + '#booking';
+}
+
+export function getResponsePromise(lang: Language) {
+  return lang === 'sk' ? 'Ozveme sa vám do 24 hodín.' : "We'll get back to you within 24 hours.";
+}
 export const COPYRIGHT_YEAR = new Date().getFullYear();
 
-export const DEFAULT_OG_IMAGE =
-  'https://www.magicroom.sk/wp-content/uploads/2026/02/magicroombackround-1024x683.png';
+export const DEFAULT_OG_IMAGE = '/images/hero.png';
 
 export function toAbsoluteUrl(pathOrUrl: string) {
   if (pathOrUrl.startsWith('http://') || pathOrUrl.startsWith('https://')) {
@@ -85,7 +99,8 @@ export function toAbsoluteUrl(pathOrUrl: string) {
   return new URL(pathOrUrl, SITE_URL).toString();
 }
 
-export function getBaseSchemas(pageUrl: string, imageUrl: string, description = DEFAULT_DESCRIPTION) {
+export function getBaseSchemas(pageUrl: string, imageUrl: string, language: Language = 'sk', description = DEFAULT_DESCRIPTION) {
+  const socialLinks = getSocialLinks(language);
   return [
     {
       '@context': 'https://schema.org',
@@ -93,7 +108,7 @@ export function getBaseSchemas(pageUrl: string, imageUrl: string, description = 
       '@id': `${SITE_URL}/#website`,
       url: SITE_URL,
       name: SITE_NAME,
-      inLanguage: 'sk-SK',
+      inLanguage: language === 'sk' ? 'sk-SK' : 'en-US',
       potentialAction: {
         '@type': 'SearchAction',
         target: `${SITE_URL}/?s={search_term_string}`,
@@ -112,9 +127,9 @@ export function getBaseSchemas(pageUrl: string, imageUrl: string, description = 
         '@type': 'ContactPoint',
         telephone: PHONE_DISPLAY,
         contactType: 'customer service',
-        availableLanguage: 'Slovak',
+        availableLanguage: language === 'sk' ? 'Slovak' : 'English',
       },
-      sameAs: SOCIAL_LINKS.map((item) => item.href),
+      sameAs: socialLinks.map((item) => item.href),
       founder: {
         '@type': 'Person',
         name: 'Natália Ondrejková',
@@ -157,7 +172,7 @@ export function getBaseSchemas(pageUrl: string, imageUrl: string, description = 
           closes: '14:00',
         },
       ],
-      sameAs: SOCIAL_LINKS.map((item) => item.href),
+      sameAs: socialLinks.map((item) => item.href),
       founder: {
         '@type': 'Person',
         name: 'Natália Ondrejková',

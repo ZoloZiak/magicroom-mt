@@ -2,18 +2,15 @@
 import { Button } from '@/components/ui/button';
 import {
   ADDRESS_LABEL,
-  BOOKING_PAGE_HREF,
-  BOOKING_PAGE_HREF_EN,
   COPYRIGHT_YEAR,
   EMAIL,
   EMAIL_HREF,
   MAP_URL,
-  NAV_LINKS,
-  NAV_LINKS_EN,
   PHONE_DISPLAY,
   PHONE_HREF,
-  SOCIAL_LINKS,
-  SOCIAL_LINKS_EN,
+  getNavLinks,
+  getSocialLinks,
+  getBookingPageHref,
 } from '@/data/site';
 import { getTranslations, type Language } from '@/lib/translations';
 import { Mail, MapPin, Phone } from 'lucide-react';
@@ -28,9 +25,9 @@ const t = getTranslations(language);
 const currentPath = Astro.url.pathname;
 const isEn = language === 'en';
 
-const navLinks = isEn ? NAV_LINKS_EN : NAV_LINKS;
-const socialLinks = isEn ? SOCIAL_LINKS_EN : SOCIAL_LINKS;
-const bookingPageHref = isEn ? BOOKING_PAGE_HREF_EN : BOOKING_PAGE_HREF;
+const navLinks = getNavLinks(language);
+const socialLinks = getSocialLinks(language);
+const bookingPageHref = getBookingPageHref(language);
 const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingPageHref;
 const gaLabelSuffix = isEn ? '_en' : '';
 ---

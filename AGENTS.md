@@ -1,5 +1,12 @@
 # MagicRoom — Project Instructions
 
+## Auto-start
+Pri otvorení projektu Kilo automaticky:
+1. Skontroluje či beží dev server na porte 4321
+2. Ak nebeží, spustí `npm run dev` v pozadí
+3. Nájde všetky .ts/.astro súbory v src/ pre pochopenie štruktúry
+4. Pri prvom interakte poskytne súhrn: názov, stack, dostupné skripty, počet stránok/komponentov
+
 ## About
 MagicRoom is a wedding salon website in Martin, Slovakia. Built with Astro 6.x, Tailwind CSS v4, shadcn/ui. Deployed on Vercel.
 

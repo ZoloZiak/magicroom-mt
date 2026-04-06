@@ -1,0 +1,304 @@
+---
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'sk' } },
+    { params: { lang: 'en' } },
+  ];
+}
+
+import { Image } from 'astro:assets';
+import BookingForm from '@/components/forms/BookingForm.astro';
+import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import Sparkles from '@/components/layout/Sparkles.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  ADDRESS_LABEL,
+  MAP_URL,
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  getBookingPageHref,
+} from '@/data/site';
+import {
+  getFounderStory,
+  getHomeOfferCards,
+  getHomeStats,
+  getProcessSteps,
+  getTrustReasons,
+  IMAGE_ASSETS,
+  IMAGE_URLS,
+} from '@/data/content';
+import { getTranslations } from '@/lib/translations';
+import type { Language } from '@/lib/i18n';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, CheckCircle2, Clock3, MapPin, Phone, Sparkles as SparklesIcon } from 'lucide-react';
+
+const { lang } = Astro.params;
+const language = lang as Language;
+const t = getTranslations(language);
+
+const PROCESS_STEPS = getProcessSteps(language);
+const HOME_STATS = getHomeStats(language);
+const HOME_OFFER_CARDS = getHomeOfferCards(language);
+const TRUST_REASONS = getTrustReasons(language);
+const FOUNDER_STORY = getFounderStory(language);
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: language === 'sk' ? 'Ako rezervovať skúšku svadobných šiat v MagicRoom' : 'How to book a wedding dress fitting at MagicRoom',
+  step: PROCESS_STEPS.map((step, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: language === 'sk' ? `Krok ${i + 1}` : `Step ${i + 1}`,
+    text: step,
+  })),
+};
+---
+
+<Layout
+  title={language === 'sk' ? "MagicRoom — svadobné šaty, dekorácie a bridal concierge v Martine" : "MagicRoom — formal dresses, prom wear and event styling in Martin"}
+  description={language === 'sk' ? "MagicRoom je lokálny svadobný salón v Martine. Skúška svadobných šiat od 12 €, výzdoba svadieb a osláv, svadobné poradenstvo a pokojný osobný prístup." : "MagicRoom is your local salon in Martin for prom, gala and formal dresses. Dress fitting from 12 €, event decorations, styling advice and English speaking service for international students."}
+  keywords={language === 'sk' ? "svadobne saty, dekoracie, martin, bridal concierge, svadobne poradenstvo, komisny predaj" : "prom dresses, gala dresses, formal wear, selskapskjoler, ballkjoler, martin, event styling, graduation dresses"}
+  image={IMAGE_URLS.hero}
+  structuredData={howToSchema}
+  language={language}
+>
+  <Header language={language} />
+
+  <main class="flex-1">
+    <section class="relative overflow-hidden slovak-seasons bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] pt-20">
+      <Sparkles count={6} />
+      <div class="container mx-auto px-4 pb-14 pt-8 md:pb-24 md:pt-10">
+        <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div class="max-w-2xl">
+            <Badge variant="secondary" className="hero-badge badge folk-pattern mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">
+              {t.home.heroBadge}
+            </Badge>
+            <h1 class="hero-title font-display text-[2.9rem] leading-[0.95] text-foreground md:text-6xl lg:text-7xl">
+              {t.home.heroTitle}
+            </h1>
+            <p class="hero-description mt-6 max-w-xl text-lg leading-8 text-muted-foreground md:text-xl">
+              {t.home.heroDescription}
+            </p>
+
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button asChild variant="cta" size="lg" className="hero-button interactive-ripple sm:min-w-[220px]">
+                <a href={getBookingPageHref(language)} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label={language === 'sk' ? "hero_cta" : "hero_cta_en"}>
+                  {t.home.ctaBook}
+                  <ArrowRight className="icon-morph slovak-heart h-5 w-5" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="hero-button sm:min-w-[220px]">
+                <a href={language === 'sk' ? "/sluzby" : "/en/services"} data-ga-category="engagement" data-ga-action="navigation_click" data-ga-label={language === 'sk' ? "hero_services" : "hero_services_en"}>{t.home.ctaServices}</a>
+              </Button>
+            </div>
+
+            <div class="mt-10 grid gap-4 sm:grid-cols-3">
+              {HOME_STATS.map((stat, i) => (
+                <div class={`rounded-2xl border border-border/70 bg-white/80 px-5 py-4 shadow-sm backdrop-blur animate-fade-in-up animate-stagger-${i + 1}`}>
+                  <p class="font-display text-3xl text-cta">{stat.value}</p>
+                  <p class="mt-1 text-sm leading-6 text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-6 -top-6 hidden h-24 w-24 rounded-full bg-accent/20 blur-2xl md:block"></div>
+            <div class="absolute -bottom-8 -right-8 hidden h-32 w-32 rounded-full bg-primary/15 blur-3xl md:block"></div>
+            <div class="photo-card-lg">
+              <Image
+                src={IMAGE_ASSETS.hero}
+                alt={language === 'sk' ? "Interiér svadobného salónu MagicRoom v Martine. Štýlové prostredie pre výber vašich vysnívaných svadobných šiat." : "Interior of MagicRoom wedding salon in Martin."}
+                class="hero parallax-float tatry-mountain h-full max-h-[640px] w-full rounded-[24px] object-cover"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+
+            <div class="mt-5 grid gap-4 sm:grid-cols-2">
+              <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" data-ga-label={language === 'sk' ? "hero_phone" : "hero_phone_en"} class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
+                <div class="flex items-center gap-3 text-primary">
+                  <Phone className="h-4 w-4" />
+                  <span class="text-sm uppercase tracking-[0.2em]">{language === 'sk' ? 'Telefón' : 'Phone'}</span>
+                </div>
+                <p class="mt-3 font-semibold text-foreground">{PHONE_DISPLAY}</p>
+              </a>
+              <a href={MAP_URL} target="_blank" rel="noopener noreferrer" data-ga-category="engagement" data-ga-action="map_click" data-ga-label={language === 'sk' ? "hero_map" : "hero_map_en"} class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
+                <div class="flex items-center gap-3 text-primary">
+                  <MapPin className="h-4 w-4" />
+                  <span class="text-sm uppercase tracking-[0.2em]">{language === 'sk' ? 'Adresa' : 'Address'}</span>
+                </div>
+                <p class="mt-3 font-semibold text-foreground">{ADDRESS_LABEL}</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <DecorativeDivider variant="floral" />
+
+    <section class="bg-surface py-20 md:py-28">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto mb-16 max-w-3xl text-center">
+          <Badge variant="outline" className="badge folk-pattern mb-4 px-4 py-1 text-[11px] uppercase tracking-[0.28em] text-primary/70">
+            {t.home.servicesSubtitle}
+          </Badge>
+          <h2 class="font-display text-4xl leading-tight text-foreground md:text-5xl lg:text-6xl">
+            {t.home.servicesTitle}
+          </h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {HOME_OFFER_CARDS.map((card, i) => (
+            <Card className={`group border-border/50 bg-white/50 transition-all duration-300 hover:border-primary/30 hover:bg-white hover:shadow-xl animate-fade-in-up animate-stagger-${i + 1}`}>
+              <CardHeader>
+                <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
+                  <SparklesIcon className="h-6 w-6" />
+                </div>
+                <CardTitle className="font-display text-2xl">{card.title}</CardTitle>
+                <CardDescription className="text-cta font-medium">{card.price}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p class="mb-6 text-muted-foreground leading-relaxed">{card.description}</p>
+                <Button asChild variant="ghost" className="group/btn w-full justify-between hover:bg-primary hover:text-white">
+                  <a href={card.href}>
+                    {card.cta}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-primary-900 py-24 text-white overflow-hidden relative">
+      <div class="absolute top-0 right-0 w-1/3 h-full bg-accent/5 blur-3xl rounded-full translate-x-1/2"></div>
+      <div class="container relative mx-auto px-4">
+        <div class="grid gap-16 lg:grid-cols-2 lg:items-center">
+          <div class="rounded-[40px] bg-white/5 p-8 md:p-12 backdrop-blur-sm border border-white/10">
+            <p class="text-sm uppercase tracking-[0.3em] text-accent font-medium">{t.home.whySubtitle}</p>
+            <h2 class="mt-4 font-display text-4xl leading-tight md:text-5xl">
+              {t.home.whyTitle}
+            </h2>
+
+            <div class="mt-12 grid gap-6">
+              {TRUST_REASONS.map((reason) => (
+                <div class="flex gap-5 group">
+                  <div class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-accent transition-colors group-hover:bg-accent group-hover:text-white">
+                    <CheckCircle2 className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold text-white">{reason.title}</h3>
+                    <p class="mt-2 leading-7 text-white/70">{reason.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="photo-card-lg animate-fade-in-right">
+            <Image
+              src={IMAGE_ASSETS.dresses}
+              alt={language === 'sk' ? "Svadobné šaty v salóne MagicRoom v Martine. Široký výber a pokojné prostredie." : "Wedding dresses in the MagicRoom salon in Martin."}
+              class="w-full rounded-[32px] object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-20 md:py-28">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-16 lg:grid-cols-2 lg:items-center">
+          <div class="photo-card">
+            <Image
+              src={IMAGE_ASSETS.founder}
+              alt={language === 'sk' ? "Natália Ondrejková, zakladateľka svadobného salónu MagicRoom v Martine." : "Natália Ondrejková, founder of MagicRoom wedding salon in Martin."}
+              class="w-full rounded-[24px] object-cover"
+            />
+          </div>
+          <div class="max-w-xl">
+            <p class="section-kicker">{t.home.founderLabel}</p>
+            <h2 class="mt-4 font-display text-4xl leading-tight md:text-5xl">
+              {language === 'sk' ? 'Miesto, kde svadobné detaily dávajú zmysel.' : 'A place where wedding details make sense.'}
+            </h2>
+            <div class="mt-8 space-y-6 text-lg leading-8 text-muted-foreground">
+              <p>
+                {FOUNDER_STORY.paragraphs[0]}
+              </p>
+              <p>
+                {FOUNDER_STORY.paragraphs[1]}
+              </p>
+            </div>
+            <div class="mt-10 flex items-center gap-4 border-l-2 border-accent pl-6 italic text-foreground">
+              <p class="text-xl font-display">
+                „{FOUNDER_STORY.quote}“
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <DecorativeDivider variant="ornamental" />
+
+    <section class="bg-white py-20 md:py-28">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="font-display text-4xl leading-tight md:text-5xl lg:text-6xl">
+          {t.home.processTitle}
+        </h2>
+
+        <div class="mt-16 grid gap-8 md:grid-cols-3">
+          {PROCESS_STEPS.map((step, i) => (
+            <div class="relative group">
+              <div class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/5 text-2xl font-display text-primary transition-all group-hover:bg-primary group-hover:text-white">
+                {i + 1}
+              </div>
+              <p class="text-lg leading-relaxed text-muted-foreground px-4">
+                {step}
+              </p>
+              {i < 2 && (
+                <div class="absolute right-0 top-8 hidden h-px w-1/2 bg-border md:block -mr-4 opacity-50"></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="relative bg-surface py-24 md:py-32" id="booking">
+      <Sparkles count={8} />
+      <div class="container relative mx-auto px-4">
+        <div class="mx-auto max-w-4xl text-center">
+          <Badge variant="secondary" className="mb-6 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">
+            {language === 'sk' ? 'Rezervácia termínu' : 'Book an appointment'}
+          </Badge>
+          <h2 class="font-display text-4xl leading-tight text-foreground md:text-5xl lg:text-7xl">
+            {t.home.bookingTitle}
+          </h2>
+          <p class="mt-6 text-xl text-muted-foreground">
+            {t.home.bookingSubtitle}
+          </p>
+
+          <div class="mt-14 luxury-panel p-6 md:p-12 bg-white">
+            <BookingForm language={language} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Footer language={language} />
+    <WhatsAppFAB />
+    <ScrollToTop />
+  </main>
+</Layout>

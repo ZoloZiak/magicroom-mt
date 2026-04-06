@@ -1,0 +1,39 @@
+---
+import { SLUG_MAP } from '@/lib/i18n';
+
+export async function getStaticPaths() {
+  const paths = [];
+  
+  // Blog index
+  paths.push({ params: { lang: 'sk', rest: 'blog' }, props: { type: 'index' } });
+  paths.push({ params: { lang: 'en', rest: 'blog' }, props: { type: 'index' } });
+
+  // Blog posts
+  const posts = [
+    { sk: 'svadobne-trendy-2026', en: 'wedding-trends-2026' },
+    { sk: 'ako-zvolit-svadobne-saty', en: 'wedding-dresses-how-to-choose' },
+    { sk: 'svadobne-dekoracie-na-male-oslavy', en: 'wedding-decorations-small-celebrations' },
+  ];
+
+  for (const post of posts) {
+    paths.push({ params: { lang: 'sk', rest: `blog/${post.sk}` }, props: { type: 'post', skSlug: post.sk } });
+    paths.push({ params: { lang: 'en', rest: `blog/${post.en}` }, props: { type: 'post', skSlug: post.sk } });
+  }
+
+  return paths;
+}
+
+import type { Language } from '@/lib/i18n';
+import BlogIndexTemplate from '@/components/templates/BlogIndexTemplate.astro';
+import BlogPostTemplate from '@/components/templates/BlogPostTemplate.astro';
+
+const { lang, rest } = Astro.params;
+const language = lang as Language;
+const { type, skSlug } = Astro.props;
+---
+
+{type === 'index' ? (
+  <BlogIndexTemplate language={language} />
+) : (
+  <BlogPostTemplate language={language} skSlug={skSlug} />
+)}

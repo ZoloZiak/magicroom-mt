@@ -360,8 +360,8 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 
 | Úloha | Status |
 |-------|--------|
-| FAQ sekcia | ⏸️ |
-| Gallery lightbox EN | ⏸️ |
+| FAQ sekcia | ✅ DONE |
+| Gallery lightbox EN | ✅ DONE |
 | Google Business Profile | ✅ DONE |
 
 ---

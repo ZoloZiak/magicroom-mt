@@ -1,0 +1,231 @@
+---
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { getBookingPageHref, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_URL } from '@/data/site';
+import { getExtraServices, getServicePackages, IMAGE_URLS } from '@/data/content';
+import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
+import Layout from '@/layouts/Layout.astro';
+import { ArrowRight, CheckCircle2, ClipboardList, LayoutGrid, Shirt, Sparkles } from 'lucide-react';
+
+interface Props {
+  language: Language;
+  skSlug: string;
+}
+
+const { language, skSlug } = Astro.props;
+const t = getTranslations(language);
+const isEn = language === 'en';
+
+const SERVICE_PACKAGES = getServicePackages(language);
+const EXTRA_SERVICES = getExtraServices(language);
+
+const servicePillars = [
+  {
+    title: isEn ? 'Formal Dress Fitting' : 'Skúška svadobných šiat',
+    price: '12 € / 60 min',
+    description: isEn ? 'Calm fitting with drink.' : 'Pokojná skúška s nápojom v cene, priestorom pre dve blízke osoby a časom porovnať si viac modelov bez stresu.',
+    cta: isEn ? 'Book a fitting' : 'Rezervovať skúšku',
+    href: getBookingPageHref(language),
+    icon: Shirt,
+  },
+  {
+    title: isEn ? 'Prom & Gala Dresses' : 'Predaj a výber šiat',
+    price: isEn ? 'from 12 €' : 'od 100 €',
+    description: isEn ? 'High quality dresses at student prices.' : 'Nové modely, dostupné kúsky aj komisný výber pre ženy, ktoré chcú dobrý pocit aj z rozpočtu.',
+    cta: isEn ? 'Ask' : 'Napísať o výber',
+    href: getBookingPageHref(language),
+    icon: Sparkles,
+  },
+  {
+    title: isEn ? 'Event Decorations' : 'Prenájom dekorácií',
+    price: isEn ? 'from 0.50 €' : 'od 0,50 € / ks',
+    description: isEn ? 'Mirrors, vases, candlesticks.' : 'Zrkadlá, vázy, svietniky, kulisy aj candy bar doplnky tak, aby ste vedeli zladiť hostinu bez chaosu.',
+    cta: isEn ? 'View' : 'Pozrieť dekorácie',
+    href: getRelativeHref('prenajom-dekoracii', language),
+    icon: LayoutGrid,
+  },
+  {
+    title: isEn ? 'Styling Advice' : 'Svadobné poradenstvo',
+    price: isEn ? 'from 40 €' : 'od 40 €',
+    description: isEn ? 'Consultations, moodboards.' : 'Konzultácie, moodboard, harmonogram aj odporúčania dodávateľov podľa toho, koľko pomoci naozaj potrebujete.',
+    cta: isEn ? 'View' : 'Pozrieť balíky',
+    href: '#baliky',
+    icon: ClipboardList,
+  },
+];
+
+const servicesSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: SERVICE_PACKAGES.map((pkg, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Offer',
+        name: pkg.name,
+        description: pkg.description,
+        price: pkg.price.replace(/[^0-9]/g, ''),
+        priceCurrency: 'EUR',
+        availability: 'https://schema.org/InStock',
+      },
+    })),
+  },
+];
+---
+
+<Layout
+  title={t.services.pageTitle}
+  description={t.services.pageDescription}
+  image={IMAGE_URLS.dresses}
+  structuredData={servicesSchema}
+  breadcrumbs={[
+    { name: t.nav.home, url: isEn ? '/en' : '/' },
+    { name: t.nav.services, url: getRelativeHref(skSlug, language) },
+  ]}
+  language={language}
+>
+  <Header language={language} />
+
+  <main class="flex-1">
+    <Breadcrumbs items={[
+      { name: t.nav.services, url: getRelativeHref(skSlug, language) }
+    ]} />
+
+    <section class="bg-[linear-gradient(180deg,#fbf5f1_0%,#fffdfb_100%)] py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div class="max-w-2xl">
+            <Badge variant="secondary" className="mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em] animate-fade-in-up animate-stagger-1">
+              {t.services.heroBadge}
+            </Badge>
+            <h1 class="font-display text-[2.9rem] leading-tight text-foreground md:text-6xl animate-fade-in-up animate-stagger-2">
+              {isEn ? 'Clear offer for your event.' : 'Služby navrhnuté tak, aby ste nestrácali čas.'}
+            </h1>
+            <p class="mt-6 text-lg leading-8 text-muted-foreground animate-fade-in-up animate-stagger-3">
+              {isEn ? 'Occasion wear services that make sense.' : 'Každá karta nižšie je reálna časť ponuky MagicRoom — bez zbytočných fráz, s cenami a ďalším krokom.'}
+            </p>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row animate-fade-in-up animate-stagger-4">
+              <Button asChild variant="cta" size="lg" className="sm:min-w-[220px]">
+                <a href={getBookingPageHref(language)}>
+                  {t.nav.bookAppointment}
+                  <ArrowRight className="h-5 w-5 ml-2" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="sm:min-w-[220px]">
+                <a href={isEn ? WHATSAPP_URL : PHONE_HREF}>{isEn ? 'WhatsApp' : `Zavolať ${PHONE_DISPLAY}`}</a>
+              </Button>
+            </div>
+          </div>
+          <div class="photo-card animate-fade-in-right">
+            <img src={IMAGE_URLS.dresses} alt="Dresses" class="max-h-[520px] w-full rounded-[24px] object-cover shadow-2xl" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <DecorativeDivider variant="floral" />
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="mb-12">
+          <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{isEn ? 'What we offer' : 'Štyri piliere služieb'}</p>
+          <h2 class="mt-3 font-display text-4xl">{isEn ? 'Four services.' : 'Všetko na jednom mieste.'}</h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {servicePillars.map((item, index) => (
+            <Card className={`border-0 bg-surface shadow-[var(--shadow-soft)] hover:shadow-xl transition-shadow animate-fade-in-up animate-stagger-${index+1}`}>
+              <CardHeader>
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-sm text-primary">
+                  <item.icon className="h-6 w-6" />
+                </div>
+                <CardTitle className="font-display text-2xl">{item.title}</CardTitle>
+                <p className="pt-2 text-sm font-semibold uppercase text-cta">{item.price}</p>
+                <CardDescription className="pt-2">{item.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button asChild variant="ghost" className="px-0 text-primary group">
+                  <a href={item.href}>
+                    {item.cta}
+                    <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="baliky" class="bg-surface py-20 md:py-28">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto mb-16 max-w-3xl text-center">
+          <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{isEn ? 'Planning packages' : 'Balíky svadobného poradenstva'}</p>
+          <h2 className="mt-3 font-display text-4xl md:text-5xl">{isEn ? 'Choose level of help.' : 'Pomôžeme vám s prípravami.'}</h2>
+        </div>
+        <div class="grid gap-8 lg:grid-cols-3">
+          {SERVICE_PACKAGES.map((pkg, index) => (
+            <Card className={`bg-white shadow-lg border-0 flex flex-col ${pkg.recommended ? 'ring-2 ring-cta relative' : ''} animate-fade-in-up animate-stagger-${index+1}`}>
+              {pkg.recommended && (
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-cta px-4 py-1 text-[11px] font-bold uppercase tracking-widest text-white">
+                  {isEn ? 'Most popular' : 'Najobľúbenejší'}
+                </div>
+              )}
+              <CardHeader className="text-center">
+                <CardTitle className="font-display text-3xl">{pkg.name}</CardTitle>
+                <p class="text-2xl font-semibold text-cta mt-2">{pkg.price}</p>
+                <CardDescription className="mt-2">{pkg.description}</CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1">
+                <ul className="space-y-4 mb-8">
+                  {pkg.features.map((f) => (
+                    <li className="flex items-start gap-3 text-sm">
+                      <div class="mt-1 shrink-0 rounded-full bg-success/10 p-1 text-success">
+                        <CheckCircle2 className="h-3 w-3" />
+                      </div>
+                      <span class="text-muted-foreground">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button asChild className="mt-auto w-full" variant={pkg.recommended ? 'cta' : 'outline'}>
+                  <a href={getBookingPageHref(language)}>{isEn ? 'Explore' : 'Zistiť viac o balíku'}</a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <h3 class="mb-10 font-display text-3xl">{isEn ? 'Extra services' : 'Doplnkové služby'}</h3>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {EXTRA_SERVICES.map((svc) => (
+            <div class="flex items-start gap-4 rounded-2xl border border-border/50 p-6 transition-colors hover:bg-surface">
+              <div class="mt-1 shrink-0 rounded-full bg-primary/10 p-2 text-primary">
+                <Sparkles className="h-4 w-4" />
+              </div>
+              <div>
+                <h4 class="font-semibold">{svc.title}</h4>
+                <p class="text-sm font-medium text-cta">{svc.price}</p>
+                <p class="mt-1 text-sm text-muted-foreground">{svc.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <Footer language={language} />
+    <WhatsAppFAB />
+    <ScrollToTop />
+  </main>
+</Layout>
