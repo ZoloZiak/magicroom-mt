@@ -35,22 +35,11 @@ const gaLabelSuffix = isEn ? '_en' : '';
 <footer class="mt-auto bg-primary-900 py-8 text-white">
   <div class="container mx-auto px-4">
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-      <div class="lg:col-span-2">
+      <div class="lg:col-span-1">
         <h3 class="mb-4 font-display text-2xl">MagicRoom</h3>
         <p class="mb-6 max-w-md text-white/70">
           {t.common.footerDescription}
         </p>
-
-        <div class="mb-6 flex flex-wrap gap-3">
-          <div class="mb-6 flex flex-wrap gap-3">
-            <Button asChild variant="secondary" size="sm">
-              <a href={bookingHref} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label={`footer_cta${gaLabelSuffix}`}>{t.nav.bookAppointment}</a>
-            </Button>
-            <Button asChild variant="outline" size="sm" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
-              <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" data-ga-label={`footer_phone${gaLabelSuffix}`}>{t.common.callNow}</a>
-            </Button>
-          </div>
-        </div>
 
         <div class="flex flex-wrap gap-4">
           {socialLinks.map((item) => (
@@ -79,7 +68,7 @@ const gaLabelSuffix = isEn ? '_en' : '';
         </div>
       </div>
 
-      <div>
+      <div class="lg:col-span-1">
         <h4 class="mb-4 font-semibold">{t.nav.contact}</h4>
         <div class="flex flex-col gap-3">
           <a
@@ -87,9 +76,9 @@ const gaLabelSuffix = isEn ? '_en' : '';
             data-ga-category="contact"
             data-ga-action="email_click"
             data-ga-label={`footer_email${gaLabelSuffix}`}
-            class="flex flex-col items-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-5 py-4 text-center transition-colors hover:border-white/40 hover:bg-white/10"
+            class="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/5 px-4 py-3 transition-colors hover:border-white/40 hover:bg-white/10"
           >
-            <Mail className="h-6 w-6" />
+            <Mail className="h-5 w-5" />
             <span class="text-sm">{EMAIL}</span>
           </a>
           <a
@@ -97,9 +86,9 @@ const gaLabelSuffix = isEn ? '_en' : '';
             data-ga-category="contact"
             data-ga-action="phone_click"
             data-ga-label={`footer_phone_card${gaLabelSuffix}`}
-            class="flex flex-col items-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-5 py-4 text-center transition-colors hover:border-white/40 hover:bg-white/10"
+            class="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/5 px-4 py-3 transition-colors hover:border-white/40 hover:bg-white/10"
           >
-            <Phone className="h-6 w-6" weight="regular" />
+            <Phone className="h-5 w-5" />
             <span class="text-sm">{PHONE_DISPLAY}</span>
           </a>
         </div>
@@ -112,7 +101,7 @@ const gaLabelSuffix = isEn ? '_en' : '';
           data-ga-label={`footer_map${gaLabelSuffix}`}
           class="mt-4 flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"
         >
-          <MapPin className="h-4 w-4 shrink-0" weight="regular" />
+          <MapPin className="h-4 w-4 shrink-0" />
           <span>{ADDRESS_LABEL}</span>
         </a>
       </div>
@@ -132,13 +121,11 @@ const gaLabelSuffix = isEn ? '_en' : '';
       </div>
     </div>
 
-    <div class="flex flex-col items-center justify-between gap-4 pt-6 text-sm text-white/50 md:flex-row">
-      <div class="flex flex-col items-center gap-1 md:items-start">
-        <p>{t.common.copyrightText}</p>
-        <p class="text-xs opacity-70">
-          Administrátor a tvorca: <a href="https://www.linkedin.com/in/zoltan-ziak/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Zoltán Žiak</a>, 2026
-        </p>
-      </div>
+    <div class="pt-6 text-sm text-white/50 border-t border-white/10 mt-6">
+      <p class="text-center md:text-left">
+        &copy; {COPYRIGHT_YEAR} MagicRoom. {isEn ? 'All rights reserved.' : 'Všetky práva vyhradené.'} 
+        Creator: <a href="https://www.linkedin.com/in/zoltan-ziak/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Zoltán Žiak</a>.
+      </p>
     </div>
   </div>
 </footer>
