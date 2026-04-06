@@ -65,7 +65,14 @@ const dressImages = import.meta.glob<{ default: ImageMetadata }>('../../content/
 const decorationImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/decorations/*.{jpeg,jpg,png}', { eager: true });
 
 function getDynamicImage(glob: Record<string, any>, filename: string) {
-  const match = Object.entries(glob).find(([path]) => path.endsWith('/' + filename));
+  const match = Object.entries(glob).find(([path]) => {
+     const normalizedPath = path.replace(/\\/g, '/');
+     const nameWithoutExt = filename.replace(/\.(jpeg|jpg|png)$/, '');
+     return normalizedPath.endsWith('/' + nameWithoutExt + '.jpg') || 
+            normalizedPath.endsWith('/' + nameWithoutExt + '.jpeg') || 
+            normalizedPath.endsWith('/' + nameWithoutExt + '.png') ||
+            normalizedPath.endsWith('/' + filename);
+  });
   return match ? (match[1] as any).default : null;
 }
 
@@ -331,10 +338,11 @@ export function getDecorCategories(lang: Language) {
   return data.categories.map(cat => ({
     ...cat,
     items: cat.items.map(item => {
-       const img = item.image ? (getDynamicImage(decorationImages, item.image + '.jpg')) : null;
+       const img = item.image ? (getDynamicImage(decorationImages, item.image)) : null;
        return {
           ...item,
-          imageAsset: img
+          imageAsset: img,
+          fallbackImage: item.image === 'decor-placeholder-plates-cutlery' ? WHITE_FALLBACK : null
        };
     })
   }));
@@ -374,8 +382,6 @@ export function getGalleryItems(lang: Language) {
       if (filename.includes('saly-ruzove')) {
          filename = filename.replace('saly-ruzove', 'saty-ruzove');
       }
-      // gallery images are .jpeg now after move
-      if (filename.endsWith('.png')) filename = filename.replace('.png', '.jpeg');
       
       const img = getDynamicImage(galleryImages, filename);
       
