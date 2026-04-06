@@ -1,5 +1,4 @@
 ---
-import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
@@ -37,10 +36,6 @@ const partners = PARTNERS;
   <Header language={language} />
 
   <main class="flex-1">
-    <Breadcrumbs items={[
-      { name: t.nav.partners, url: getRelativeHref(skSlug, language) }
-    ]} />
-
     <section class="py-12 md:py-20 bg-surface">
       <div class="container mx-auto px-4 text-center">
         <Badge variant="secondary" className="mb-4">{isEn ? 'Recommended' : 'Odporúčame'}</Badge>

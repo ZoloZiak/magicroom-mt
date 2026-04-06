@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
@@ -40,10 +39,6 @@ const DECOR_POLICIES = getDecorPolicies(language);
   <Header language={language} />
 
   <main class="flex-1">
-    <Breadcrumbs items={[
-      { name: t.nav.decorations, url: getRelativeHref(skSlug, language) }
-    ]} />
-
     <section class="relative overflow-hidden bg-surface py-16 md:py-24">
       <div class="container relative mx-auto px-4">
         <div class="grid gap-12 lg:grid-cols-2 lg:items-center">

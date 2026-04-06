@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
@@ -53,10 +52,6 @@ const consignmentSchema = {
   <Header language={language} />
 
   <main class="flex-1">
-    <Breadcrumbs items={[
-      { name: t.nav.consignment, url: getRelativeHref(skSlug, language) }
-    ]} />
-
     <section class="relative overflow-hidden bg-primary-900 py-16 md:py-24 text-white">
       <div class="absolute top-0 right-0 w-1/3 h-full bg-accent/10 blur-3xl rounded-full translate-x-1/2"></div>
       <div class="container relative mx-auto px-4">
