@@ -84,6 +84,10 @@ export function getBookingPageHref(lang: Language) {
   return getRelativeHref('kontakt', lang) + '#booking';
 }
 
+export const BOOKING_PAGE_HREF = getBookingPageHref('sk');
+
+export const SOCIAL_LINKS = getSocialLinks('sk');
+
 export function getResponsePromise(lang: Language) {
   return lang === 'sk' ? 'Ozveme sa vám do 24 hodín.' : "We'll get back to you within 24 hours.";
 }
