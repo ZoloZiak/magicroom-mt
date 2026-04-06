@@ -1,56 +1,43 @@
 ---
 import { Button } from '@/components/ui/button';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher.astro';
-import { getNavLinks, getBookingPageHref, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
-import { getTranslations, type Language } from '@/lib/translations';
+import { BOOKING_PAGE_HREF, NAV_LINKS, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
+import { getTranslations } from '@/lib/translations';
 
-interface Props {
-  language: Language;
-}
-
-const { language } = Astro.props;
-const t = getTranslations(language);
-
+const t = getTranslations('sk');
 const currentPath = Astro.url.pathname;
-const isEn = language === 'en';
-
-const navLinks = getNavLinks(language);
-const bookingPageHref = getBookingPageHref(language);
-const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingPageHref;
-const gaLabelSuffix = isEn ? '_en' : '';
+const bookingHref = currentPath === '/' ? '#booking' : BOOKING_PAGE_HREF;
 ---
 
 <header class="sticky top-0 z-50 w-full border-b border-border/70 bg-background/80 shadow-[var(--shadow-sm)] backdrop-blur-xl">
   <div class="hidden border-b border-border/50 bg-white/60 md:block">
     <div class="container mx-auto flex h-10 items-center justify-between px-4 text-[11px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
-      <p>{t.common.fittingNote} {t.common.fittingPrice}</p>
+      <p>Skúška svadobných šiat 12 € / 60 min</p>
       <div class="flex items-center gap-6">
-        <p>{t.common.visitNote}</p>
-        <a href={PHONE_HREF} class="hover:text-foreground" data-ga-category="contact" data-ga-action="phone_click" data-ga-label={`header_phone${gaLabelSuffix}`}>{PHONE_DISPLAY}</a>
+        <p>Martin • na objednávku</p>
+        <a href={PHONE_HREF} class="hover:text-foreground" data-ga-category="contact" data-ga-action="phone_click" data-ga-label="header_phone">{PHONE_DISPLAY}</a>
         <p>{t.common.replyNote}</p>
       </div>
     </div>
   </div>
 
   <nav class="container mx-auto flex h-[4.5rem] items-center justify-between px-4">
-    <a href={isEn ? '/en' : '/'} class="group flex items-center gap-3" aria-label={`MagicRoom ${isEn ? 'home' : 'domov'}`}>
-      <div class="h-11 w-11 overflow-hidden rounded-full shadow-[var(--shadow-xl)]">
-        <img
-          src="/images/logo.jpeg"
-          alt="Logo MagicRoom - Svadobný salón Martin"
-          class="h-full w-full object-cover"
-          width="44"
-          height="44"
-        />
-      </div>
+    <a href="/" class="group flex items-center gap-3" aria-label="MagicRoom domov">
+      <img
+        src="/images/logo.jpeg"
+        alt="MagicRoom logo"
+        class="h-11 w-11 rounded-full object-cover shadow-[var(--shadow-xl)]"
+        width="44"
+        height="44"
+      />
       <div class="hidden sm:block">
         <span class="block font-display text-[1.45rem] leading-none transition-colors group-hover:text-primary">MagicRoom</span>
-        <span class="mt-1 block text-[10px] uppercase tracking-[0.34em] text-muted-foreground">{t.common.logoSubtext}</span>
+        <span class="mt-1 block text-[10px] uppercase tracking-[0.34em] text-muted-foreground">bridal concierge • Martin</span>
       </div>
     </a>
 
     <ul class="hidden items-center gap-8 md:flex">
-      {navLinks.map((link) => (
+      {NAV_LINKS.map((link) => (
         <li>
           <a
             href={link.href}
@@ -69,123 +56,118 @@ const gaLabelSuffix = isEn ? '_en' : '';
     </ul>
 
     <div class="hidden items-center gap-4 md:flex">
-      <LanguageSwitcher currentLanguage={language} />
+      <LanguageSwitcher currentLanguage="sk" />
       <Button asChild variant="cta" size="sm">
-        <a href={bookingHref} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label={`header_cta${gaLabelSuffix}`}>{t.nav.bookAppointment}</a>
+        <a href={bookingHref} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label="header_cta">Zarezervuj skúšku</a>
       </Button>
     </div>
 
-    <button id="mobile-menu-toggle" type="button" class="md:hidden p-2 rounded-lg hover:bg-muted" aria-label="Menu">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
+    <div class="md:hidden">
+      <button
+        id="mobile-menu-toggle"
+        style="cursor:pointer;border-radius:8px;padding:8px;background:none;border:none;"
+        aria-label="Otvoriť navigáciu"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+      </button>
+    </div>
   </nav>
 </header>
 
-<div id="mobile-menu-root" data-phone-href={PHONE_HREF} data-phone-display={PHONE_DISPLAY} data-response={t.common.replyNote} data-booking-href={bookingHref} data-nav={JSON.stringify(navLinks)} data-is-en={isEn} data-t-nav={t.header.mobileNavigation} data-t-call={t.header.mobileCallDirectly} data-t-book={t.nav.bookAppointment}></div>
+<div id="mobile-menu-root" data-phone-href={PHONE_HREF} data-phone-display={PHONE_DISPLAY} data-response={t.common.replyNote} data-booking-href={bookingHref} data-nav={JSON.stringify(NAV_LINKS)}></div>
 
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', function() {
-    const root = document.getElementById('mobile-menu-root');
-    if (!root) return;
-    
-    const PHONE_HREF = root.dataset.phoneHref || 'tel:+421950490323';
-    const PHONE_DISPLAY = root.dataset.phoneDisplay || '+421 950 490 323';
-    const RESPONSE_PROMISE = root.dataset.response || '';
-    const bookingHref = root.dataset.bookingHref || (root.dataset.isEn === 'true' ? '/en/kontakt#booking' : '/kontakt#booking');
-    const NAV_LINKS = JSON.parse(root.dataset.nav || '[]');
-    const isEn = root.dataset.isEn === 'true';
-    const tNav = root.dataset.tNav || 'Navigation';
-    const tCall = root.dataset.tCall || 'Or call directly';
-    const tBook = root.dataset.tBook || 'Book a fitting';
-    const currentPath = window.location.pathname;
+<script>
+  const root = document.getElementById('mobile-menu-root');
+  const PHONE_HREF = root?.dataset.phoneHref || 'tel:+421950490323';
+  const PHONE_DISPLAY = root?.dataset.phoneDisplay || '+421 950 490 323';
+  const RESPONSE_PROMISE = root?.dataset.response || '';
+  const bookingHref = root?.dataset.bookingHref || '/kontakt#booking';
+  const NAV_LINKS = JSON.parse(root?.dataset.nav || '[]');
 
-    const toggleBtn = document.getElementById('mobile-menu-toggle');
-    let menuEl = null;
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  let menuEl = null;
 
-    function createMenu() {
-      const el = document.createElement('div');
-      el.id = 'mobile-drawer';
-      el.setAttribute('role', 'dialog');
-      el.setAttribute('aria-modal', 'true');
-      el.innerHTML = `
-        <div id="mobile-backdrop" class="fixed inset-0 z-[100] bg-black/50" style="display:none;"></div>
-        <div id="mobile-panel" class="fixed top-0 right-0 z-[101] h-screen w-[300px] translate-x-full bg-background shadow-2xl transition-transform duration-300 ease-in-out overflow-y-auto">
-          <div class="flex items-center justify-between border-b border-border p-5">
-            <div class="flex items-center gap-3">
-              <img src="/images/logo.jpeg" alt="MagicRoom" class="h-10 w-10 rounded-full object-cover" />
-              <div>
-                <span class="block font-display text-xl font-semibold">MagicRoom</span>
-                <span class="block text-[10px] uppercase tracking-[0.28em] text-muted-foreground">bridal concierge &bull; Martin</span>
-              </div>
-            </div>
-            <button id="mobile-close-btn" class="rounded-lg p-2 hover:bg-muted" aria-label="${isEn ? 'Close' : 'Zavrieť'}">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-          </div>
-          <div class="p-5 pt-3">
-            <div class="rounded-2xl border border-border bg-card p-4 text-sm text-muted-foreground">
-              <p class="font-medium text-foreground">${RESPONSE_PROMISE}</p>
-              <a href="${PHONE_HREF}" class="mt-1 block font-semibold text-primary hover:underline">${PHONE_DISPLAY}</a>
+  function createMenu() {
+    const el = document.createElement('div');
+    el.id = 'mobile-drawer';
+    el.setAttribute('role', 'dialog');
+    el.setAttribute('aria-modal', 'true');
+    el.innerHTML = `
+      <div id="mobile-backdrop" style="position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.5);display:none;"></div>
+      <div id="mobile-panel" style="position:fixed;top:0;right:0;z-index:10000;height:100vh;width:300px;background:var(--color-background);box-shadow:-4px 0 30px rgba(0,0,0,0.15);transform:translateX(100%);transition:transform 0.3s ease;overflow-y:auto;">
+        <div style="padding:20px;border-bottom:1px solid #E8D0D8;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <img src="/images/logo.jpeg" alt="MagicRoom" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+            <div>
+              <span style="display:block;font-family:Satoshi,system-ui;font-size:1.5rem;font-weight:600;">MagicRoom</span>
+              <span style="display:block;font-size:10px;text-transform:uppercase;letter-spacing:0.28em;color:var(--color-muted-foreground);">bridal concierge &bull; Martin</span>
             </div>
           </div>
-          <div class="px-5">
-            <p class="text-[11px] uppercase tracking-[0.28em] text-primary/70">${tNav}</p>
-          </div>
-          <ul class="px-5 mt-2">
-            ${NAV_LINKS.map(link => `
-              <li class="border-b border-border/50 py-3 last:border-0">
-                <a href="${link.href}" class="block py-2 text-lg font-medium ${currentPath === link.href ? 'text-primary' : 'text-foreground hover:text-primary'} transition-colors">
-                  ${link.label}
-                </a>
-              </li>
-            `).join('')}
-          </ul>
-          <div class="border-t border-border p-5 mt-4">
-            <a href="${bookingHref}" class="block rounded-xl bg-cta px-6 py-3 text-center text-[15px] font-medium text-white shadow-md hover:bg-cta/90 transition-colors">
-              ${tBook}
-            </a>
-            <a href="${PHONE_HREF}" class="mt-4 block text-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-              ${tCall}
-            </a>
+          <button id="mobile-close-btn" style="cursor:pointer;padding:8px;background:none;border:none;border-radius:8px;" aria-label="Zavrieť">
+            <svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px;" fill="none" viewBox="0 0 24 24" stroke="#2D2421" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+          </button>
+        </div>
+        <div style="padding:12px 20px;">
+          <div style="border-radius:16px;border:1px solid #E8D0D8;background:var(--color-card);padding:12px 16px;font-size:14px;color:var(--color-muted-foreground);">
+            <p style="font-weight:500;color:#2D2421;margin:0;">${RESPONSE_PROMISE}</p>
+            <a href="${PHONE_HREF}" style="display:block;margin-top:4px;color:#B87A8E;text-decoration:none;">${PHONE_DISPLAY}</a>
           </div>
         </div>
-      `;
-      document.body.appendChild(el);
-      menuEl = el;
+        <div style="padding:12px 20px 0;">
+          <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.28em;color:var(--color-primary);margin:0;">Navigácia</p>
+        </div>
+        <ul style="list-style:none;margin:0;padding:0 20px;">
+          ${NAV_LINKS.map(link => `
+            <li style="border-bottom:1px solid rgba(232,208,216,0.5);padding:12px 0;">
+              <a href="${link.href}" style="display:block;padding:8px 0;font-size:18px;font-weight:500;color:#2D2421;text-decoration:none;">
+                ${link.label}
+              </a>
+            </li>
+          `).join('')}
+        </ul>
+        <div style="padding:20px;border-top:1px solid #E8D0D8;">
+          <a href="${bookingHref}" style="display:block;text-align:center;padding:12px 24px;background:#B85C4A;color:#fff;border-radius:12px;font-weight:500;text-decoration:none;font-size:15px;">
+            Zarezervuj skúšku
+          </a>
+          <a href="${PHONE_HREF}" style="display:block;margin-top:16px;text-align:center;font-size:14px;font-weight:500;color:var(--color-muted-foreground);text-decoration:none;">
+            Alebo zavolajte priamo
+          </a>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(el);
+    menuEl = el;
 
-      document.getElementById('mobile-backdrop')?.addEventListener('click', closeMenu);
-      document.getElementById('mobile-close-btn')?.addEventListener('click', closeMenu);
-      el.querySelectorAll('a[href]').forEach(a => {
-        a.addEventListener('click', closeMenu);
-      });
-    }
-
-    function openMenu() {
-      if (!menuEl) createMenu();
-      const backdrop = document.getElementById('mobile-backdrop');
-      const panel = document.getElementById('mobile-panel');
-      if (backdrop) backdrop.style.display = 'block';
-      document.body.style.overflow = 'hidden';
-      requestAnimationFrame(() => {
-        if (panel) panel.style.transform = 'translateX(0)';
-      });
-    }
-
-    function closeMenu() {
-      const backdrop = document.getElementById('mobile-backdrop');
-      const panel = document.getElementById('mobile-panel');
-      if (panel) panel.style.transform = 'translateX(100%)';
-      document.body.style.overflow = '';
-      setTimeout(() => {
-        if (backdrop) backdrop.style.display = 'none';
-      }, 300);
-    }
-
-    toggleBtn?.addEventListener('click', openMenu);
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
+    document.getElementById('mobile-backdrop')?.addEventListener('click', closeMenu);
+    document.getElementById('mobile-close-btn')?.addEventListener('click', closeMenu);
+    el.querySelectorAll('a[href]').forEach(a => {
+      a.addEventListener('click', closeMenu);
     });
+  }
+
+  function openMenu() {
+    if (!menuEl) createMenu();
+    const backdrop = document.getElementById('mobile-backdrop');
+    const panel = document.getElementById('mobile-panel');
+    if (backdrop) backdrop.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => {
+      if (panel) panel.style.transform = 'translateX(0)';
+    });
+  }
+
+  function closeMenu() {
+    const backdrop = document.getElementById('mobile-backdrop');
+    const panel = document.getElementById('mobile-panel');
+    if (panel) panel.style.transform = 'translateX(100%)';
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      if (backdrop) backdrop.style.display = 'none';
+    }, 300);
+  }
+
+  toggleBtn?.addEventListener('click', openMenu);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
   });
 </script>
