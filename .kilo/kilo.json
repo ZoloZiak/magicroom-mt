@@ -1,11 +1,8 @@
 {
   "instructions": [
     "README.md",
-    "docs/README.md",
-    "docs/01-specs/SPEC-sk.md",
     "docs/01-specs/roadmap-sk.md",
-    "AGENTS.md"
+    "docs/README.md"
   ],
-  "default_agent": "code",
-  "model": "anthropic/claude-sonnet-4-20250514"
+  "default_agent": "code"
 }
