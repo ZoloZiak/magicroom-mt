@@ -127,21 +127,16 @@ const gaLabelSuffix = isEn ? '_en' : '';
       </div>
     </div>
 
-    <div class="my-8 h-px bg-white/15"></div>
-
-    <div class="flex flex-col items-center justify-between gap-4 text-sm text-white/50 md:flex-row">
-      <div class="flex flex-col items-center gap-4 md:items-start md:gap-6">
+    <div class="flex flex-col items-center justify-between gap-6 pt-8 text-sm text-white/50 md:flex-row">
+      <div class="flex flex-col items-center gap-2 md:items-start">
         <p>{t.common.copyrightText}</p>
         <p class="text-xs opacity-70">
           Administrátor a tvorca: <a href="https://www.linkedin.com/in/zoltan-ziak/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Zoltán Žiak</a>, 2026
         </p>
       </div>
-      <div class="flex flex-wrap justify-center gap-4 md:justify-end">
+      <div class="flex flex-wrap justify-center gap-6 md:justify-end">
         <a href={getRelativeHref('reklamacny-poriadok', language)} class="transition-colors hover:text-white">
           {t.common.complaintPolicy}
-        </a>
-        <a href={MAP_URL} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-white">
-          {t.common.directionsText}
         </a>
       </div>
     </div>
