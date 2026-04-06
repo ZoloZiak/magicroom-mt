@@ -89,7 +89,7 @@ const gaLabelSuffix = isEn ? '_en' : '';
 
 <div id="mobile-menu-root" data-phone-href={PHONE_HREF} data-phone-display={PHONE_DISPLAY} data-response={t.common.replyNote} data-booking-href={bookingHref} data-nav={JSON.stringify(navLinks)} data-is-en={isEn} data-t-nav={t.header.mobileNavigation} data-t-call={t.header.mobileCallDirectly} data-t-book={t.nav.bookAppointment} data-t-close={t.header.mobileClose}></div>
 
-<script>
+<script is:inline>
   const root = document.getElementById('mobile-menu-root');
   const PHONE_HREF = root?.dataset.phoneHref || 'tel:+421950490323';
   const PHONE_DISPLAY = root?.dataset.phoneDisplay || '+421 950 490 323';
