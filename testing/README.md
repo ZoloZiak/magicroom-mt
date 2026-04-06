@@ -4,7 +4,7 @@
 
 ```bash
 npm run test          # Unit tests (69 tests)
-npm run test:e2e     # E2E tests (121 tests)
+npm run test:e2e     # E2E tests (135 tests)
 npm run test:watch   # Watch mode
 ```
 
@@ -32,7 +32,7 @@ e2e/                        # E2E TESTS (Playwright)
 | Type | Count | Status |
 |------|-------|--------|
 | Unit tests | 69 | ✅ Passing |
-| E2E tests | 121 | ✅ Passing |
+| E2E tests | 135 | ✅ Passing |
 | Mobile menu tests | 15 | ✅ Passing |
 
 ## CI/CD
