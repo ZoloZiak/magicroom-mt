@@ -1,0 +1,11 @@
+{
+  "partners": [
+    {
+      "name": "Fotograf Peter",
+      "category": "Fotografia",
+      "description": "Zachytáva momenty s citom pre detail a prirodzenosť.",
+      "link": "https://example.sk"
+    }
+  ],
+  "categories": ["Fotografia", "Catering", "Floristika", "DJ", "Video", "Koláče", "Výzdoba"]
+}

@@ -1,0 +1,76 @@
+{
+  "dresses": [
+    {
+      "id": "elegantna-cipka",
+      "name": "Elegantná čipka",
+      "description": "Čipkovaný vrch, áčková sukňa, jemný ružový tón.",
+      "price": 350,
+      "size": "38",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "elegantná",
+      "featured": true
+    },
+    {
+      "id": "boho-princezna",
+      "name": "Boho princezná",
+      "description": "Voľné boho šaty s jemným zdobením.",
+      "price": 280,
+      "size": "36",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "boho",
+      "featured": true
+    },
+    {
+      "id": "fialovy-sen",
+      "name": "Fialový sen",
+      "description": "Netradičné fialové šaty pre odvážne nevesty.",
+      "price": 450,
+      "size": "40",
+      "type": "new",
+      "status": "available",
+      "color": "fialová",
+      "style": "moderná",
+      "featured": true
+    },
+    {
+      "id": "klasicka-biela",
+      "name": "Klasická biela",
+      "description": "Čisté línie, nadčasová elegancia.",
+      "price": 550,
+      "size": "38",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "klasická",
+      "featured": false
+    },
+    {
+      "id": "romanticky-zasoj",
+      "name": "Romantický závoj",
+      "description": "Dlhý závoj, jemné zdobenie. Ideálne pre kostol.",
+      "price": 200,
+      "size": "42",
+      "type": "consignment",
+      "status": "available",
+      "color": "biela",
+      "style": "romantický",
+      "featured": false
+    },
+    {
+      "id": "minimalistka",
+      "name": "Minimalistka",
+      "description": "Čisté šaty bez zdobenia. Pre moderné nevesty.",
+      "price": 180,
+      "size": "36",
+      "type": "consignment",
+      "status": "reserved",
+      "color": "biela",
+      "style": "minimalistická",
+      "featured": false
+    }
+  ]
+}

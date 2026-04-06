@@ -1,0 +1,81 @@
+{
+  "gallery": [
+    {
+      "filename": "hero.png",
+      "alt": "Interiér MagicRoom v Martine s jemnou svadobnou atmosférou.",
+      "altEn": "MagicRoom interior in Martin with a delicate wedding atmosphere.",
+      "title": "Salón v Martine",
+      "titleEn": "Salon in Martin"
+    },
+    {
+      "filename": "dresses.png",
+      "alt": "Svadobné šaty pripravené na skúšku v MagicRoom.",
+      "altEn": "Wedding dresses ready for fitting at MagicRoom.",
+      "title": "Modely na skúšku",
+      "titleEn": "Models for fitting"
+    },
+    {
+      "filename": "decor-main.jpg",
+      "alt": "Svadobné dekorácie na prenájom od MagicRoom.",
+      "altEn": "Wedding decorations for rent from MagicRoom.",
+      "title": "Výzdoba stolov",
+      "titleEn": "Table decoration"
+    },
+    {
+      "filename": "decor-alt.jpg",
+      "alt": "Detail romantickej svadobnej výzdoby.",
+      "altEn": "Detail of romantic wedding decoration.",
+      "title": "Romantické detaily",
+      "titleEn": "Romantic details"
+    },
+    {
+      "filename": "decor-backdrop.jpg",
+      "alt": "Svadobná kulisa so závesmi a svetielkami.",
+      "altEn": "Wedding backdrop with curtains and lights.",
+      "title": "Kulisa a svetlá",
+      "titleEn": "Backdrop and lights"
+    },
+    {
+      "filename": "decor-details.jpg",
+      "alt": "Handmade svadobné doplnky a smerové šípky.",
+      "altEn": "Handmade wedding accessories and directional arrows.",
+      "title": "Handmade doplnky",
+      "titleEn": "Handmade accessories"
+    },
+    {
+      "filename": "saly-ruzove-1.jpeg",
+      "alt": "Ružové svadobné šaty v salóne MagicRoom.",
+      "altEn": "Pink wedding dresses in the MagicRoom salon.",
+      "title": "Ružové šaty",
+      "titleEn": "Pink dresses"
+    },
+    {
+      "filename": "interier-teple-1.jpeg",
+      "alt": "Interiér svadobného salónu MagicRoom v Martine.",
+      "altEn": "Interior of the MagicRoom wedding salon in Martin.",
+      "title": "Interiér salónu",
+      "titleEn": "Salon interior"
+    },
+    {
+      "filename": "sachovnica-kontrast-1.jpeg",
+      "alt": "Čierno-biela šachovnicová podlaha v salóne.",
+      "altEn": "Black and white checkered floor in the salon.",
+      "title": "Šachovnicový vzor",
+      "titleEn": "Checkered pattern"
+    },
+    {
+      "filename": "saly-ruzove-5.jpeg",
+      "alt": "Svadobné šaty na vešiaku v MagicRoom.",
+      "altEn": "Wedding dresses on a hanger at MagicRoom.",
+      "title": "Šaty na mieru",
+      "titleEn": "Custom dresses"
+    },
+    {
+      "filename": "interier-chladne-1.jpeg",
+      "alt": "Pohľad na salón MagicRoom.",
+      "altEn": "View of the MagicRoom salon.",
+      "title": "Náš priestor",
+      "titleEn": "Our space"
+    }
+  ]
+}

@@ -22,6 +22,13 @@ import glassesImage from '../assets/images/glasses.png';
 import type { Language } from '@/lib/i18n';
 import { SLUG_MAP, REVERSE_SLUG_MAP } from '@/lib/i18n';
 
+import servicesData from '../../data/services.json';
+import dressesData from '../../data/dresses.json';
+import partnersData from '../../data/partners.json';
+import faqsData from '../../data/faqs.json';
+import decorData from '../../data/decor.json';
+import galleryData from '../../data/gallery.json';
+
 export const IMAGE_ASSETS = {
   hero: heroImage,
   dresses: dressesImage,
@@ -34,7 +41,6 @@ export const IMAGE_ASSETS = {
   graphics: graphicsImage,
   glasses: glassesImage,
   map: mapImage,
-  // Salon reference photos
   satyRuzove1: '/images/salon/saty-ruzove-1.jpeg',
   satyRuzove3: '/images/salon/saty-ruzove-3.jpeg',
   satyRuzove5: '/images/salon/saty-ruzove-5.jpeg',
@@ -63,6 +69,12 @@ export const HOME_STATS = [
   { value: 'Martin', label: 'osobný salón v budove Detský sen' },
 ] as const;
 
+export const HOME_STATS_EN = [
+  { value: '12 €', label: 'formal dress fitting with drink included' },
+  { value: '12–150 €', label: 'gala, prom & party dresses' },
+  { value: 'Martin', label: 'personal salon in the Detský sen building' },
+] as const;
+
 export const HOME_OFFER_CARDS = [
   {
     title: 'Skúška svadobných šiat',
@@ -89,7 +101,7 @@ export const HOME_OFFER_CARDS = [
     icon: 'sparkles',
   },
   {
-    title: 'Výzdoba svadieb a osláv',
+    title: 'Výzdoba svadieb a osl��v',
     price: 'od 100 €',
     description: 'Kompletná výzdoba na kľúč — svadby, oslavy, eventy.',
     href: '/prenajom-dekoracii',
@@ -112,657 +124,6 @@ export const HOME_OFFER_CARDS = [
     cta: 'Pozrieť balíky',
     icon: 'clipboard',
   },
-] as const;
-
-export const TRUST_REASONS = [
-  {
-    title: 'Transparentné ceny',
-    description: 'Všetky ceny šiat aj služieb nájdete priamo na webe. Žiadne skryté poplatky.',
-  },
-  {
-    title: 'Stretnutie s Natáliou',
-    description: 'V salóne sa stretnete priamo s majiteľkou, ktorá vám poradí z vlastnej skúsenosti.',
-  },
-  {
-    title: 'Lokalita Martin - Sever',
-    description: 'Pohodlný prístup v budove Detský sen s možnosťou parkovania v blízkosti.',
-  },
-  {
-    title: 'Všetko na jednom mieste',
-    description: 'Od šiat cez doplnky až po kompletnú výzdobu sály. Šetríme váš čas aj energiu.',
-  },
-] as const;
-
-export const BOOKING_FEATURES = [
-  '60 minút v príjemnej atmosfére',
-  'pohárik prosecca, nealka alebo kávy v cene',
-  'skúška svadobných šiat pre max. 2 osoby',
-  'fotenie počas skúšky bez limitu',
-] as const;
-
-export const PROCESS_STEPS = [
-  'Vyplníte krátky formulár alebo nám napíšete na WhatsApp.',
-  'Do 24 hodín sa vám ozveme a doladíme termín skúšky či konzultácie.',
-  'Na mieste vyriešite šaty, dekorácie aj ďalšie detaily pokojne a v jednom priestore.',
-] as const;
-
-export const FOUNDER_STORY = {
-  quote: 'Každá žena si zaslúži moment, keď sa cíti výnimočne.',
-  paragraphs: [
-    'Ahoj, volám sa Natália. MagicRoom vznikol, keď som si pripravovala vlastnú svadbu a zistila, koľko času zhltne zháňanie šiat, výzdoby a detailov.',
-    'Chcela som miesto, kde ženy nájdu všetko pokope — šaty, dekorácie aj férovú radu bez stresu a preplácania.',
-  ],
-} as const;
-
-export const FOUNDER_STORY_EN = {
-  quote: 'Every woman deserves a moment when she feels extraordinary.',
-  paragraphs: [
-    "Hi, I'm Natália. MagicRoom was born when I was planning my own wedding and realized how much time finding dresses, decorations and details takes.",
-    'I wanted a place where women find everything together — dresses, decorations and fair advice without stress and overpaying.',
-  ],
-} as const;
-
-export const GALLERY_ITEMS = [
-  {
-    src: IMAGE_ASSETS.hero,
-    alt: 'Interiér MagicRoom v Martine s jemnou svadobnou atmosférou.',
-    altEn: 'MagicRoom interior in Martin with a delicate wedding atmosphere.',
-    title: 'Salón v Martine',
-    titleEn: 'Salon in Martin',
-  },
-  {
-    src: IMAGE_ASSETS.dresses,
-    alt: 'Svadobné šaty pripravené na skúšku v MagicRoom.',
-    altEn: 'Wedding dresses ready for fitting at MagicRoom.',
-    title: 'Modely na skúšku',
-    titleEn: 'Models for fitting',
-  },
-  {
-    src: IMAGE_ASSETS.decorMain,
-    alt: 'Svadobné dekorácie na prenájom od MagicRoom.',
-    altEn: 'Wedding decorations for rent from MagicRoom.',
-    title: 'Výzdoba stolov',
-    titleEn: 'Table decoration',
-  },
-  {
-    src: IMAGE_ASSETS.decorAlt,
-    alt: 'Detail romantickej svadobnej výzdoby.',
-    altEn: 'Detail of romantic wedding decoration.',
-    title: 'Romantické detaily',
-    titleEn: 'Romantic details',
-  },
-  {
-    src: IMAGE_ASSETS.decorBackdrop,
-    alt: 'Svadobná kulisa so závesmi a svetielkami.',
-    altEn: 'Wedding backdrop with curtains and lights.',
-    title: 'Kulisa a svetlá',
-    titleEn: 'Backdrop and lights',
-  },
-  {
-    src: IMAGE_ASSETS.decorDetails,
-    alt: 'Handmade svadobné doplnky a smerové šípky.',
-    altEn: 'Handmade wedding accessories and directional arrows.',
-    title: 'Handmade doplnky',
-    titleEn: 'Handmade accessories',
-  },
-  {
-    src: IMAGE_ASSETS.satyRuzove1,
-    alt: 'Ružové svadobné šaty v salóne MagicRoom.',
-    altEn: 'Pink wedding dresses in the MagicRoom salon.',
-    title: 'Ružové šaty',
-    titleEn: 'Pink dresses',
-  },
-  {
-    src: IMAGE_ASSETS.interier1,
-    alt: 'Interiér svadobného salónu MagicRoom v Martine.',
-    altEn: 'Interior of the MagicRoom wedding salon in Martin.',
-    title: 'Interiér salónu',
-    titleEn: 'Salon interior',
-  },
-  {
-    src: IMAGE_ASSETS.sachovnica1,
-    alt: 'Čierno-biela šachovnicová podlaha v salóne.',
-    altEn: 'Black and white checkered floor in the salon.',
-    title: 'Šachovnicový vzor',
-    titleEn: 'Checkered pattern',
-  },
-  {
-    src: IMAGE_ASSETS.satyRuzove5,
-    alt: 'Svadobné šaty na vešiaku v MagicRoom.',
-    altEn: 'Wedding dresses on a hanger at MagicRoom.',
-    title: 'Šaty na mieru',
-    titleEn: 'Custom dresses',
-  },
-  {
-    src: IMAGE_ASSETS.interier2,
-    alt: 'Pohľad na salón MagicRoom.',
-    altEn: 'View of the MagicRoom salon.',
-    title: 'Náš priestor',
-    titleEn: 'Our space',
-  },
-] as const;
-
-export function getHomeStats(lang: Language) {
-  return lang === 'sk' ? HOME_STATS : HOME_STATS_EN;
-}
-
-export function getHomeOfferCards(lang: Language) {
-  return lang === 'sk' ? HOME_OFFER_CARDS : HOME_OFFER_CARDS_EN;
-}
-
-export function getTrustReasons(lang: Language) {
-  return lang === 'sk' ? TRUST_REASONS : TRUST_REASONS_EN;
-}
-
-export function getProcessSteps(lang: Language) {
-  return lang === 'sk' ? PROCESS_STEPS : PROCESS_STEPS_EN;
-}
-
-export function getFounderStory(lang: Language) {
-  return lang === 'sk' ? FOUNDER_STORY : FOUNDER_STORY_EN;
-}
-
-export function getServicePackages(lang: Language) {
-  return lang === 'sk' ? SERVICE_PACKAGES : SERVICE_PACKAGES_EN;
-}
-
-export function getExtraServices(lang: Language) {
-  return lang === 'sk' ? EXTRA_SERVICES : EXTRA_SERVICES_EN;
-}
-
-export function getDecorFeatured(lang: Language) {
-  return lang === 'sk' ? DECOR_FEATURED : DECOR_FEATURED_EN;
-}
-
-export function getDecorCategories(lang: Language) {
-  return lang === 'sk' ? DECOR_CATEGORIES : DECOR_CATEGORIES_EN;
-}
-
-export function getDecorPolicies(lang: Language) {
-  return lang === 'sk' ? DECOR_POLICIES : DECOR_POLICIES_EN;
-}
-
-export function getConsignmentSteps(lang: Language) {
-  return lang === 'sk' ? CONSIGNMENT_STEPS : CONSIGNMENT_STEPS_EN;
-}
-
-export function getConsignmentBenefits(lang: Language) {
-  return lang === 'sk' ? CONSIGNMENT_BENEFITS : CONSIGNMENT_BENEFITS_EN;
-}
-
-export function getConsignmentConditions(lang: Language) {
-  return lang === 'sk' ? CONSIGNMENT_CONDITIONS : CONSIGNMENT_CONDITIONS_EN;
-}
-
-export function getContactFaqs(lang: Language) {
-  return lang === 'sk' ? CONTACT_FAQS : CONTACT_FAQS_EN;
-}
-
-export function getContactActions(lang: Language) {
-  return lang === 'sk' ? CONTACT_ACTIONS : CONTACT_ACTIONS_EN;
-}
-
-
-export function getGalleryItems(lang: Language) {
-  return GALLERY_ITEMS.map(item => ({
-    src: item.src,
-    alt: lang === 'sk' ? item.alt : item.altEn,
-    title: lang === 'sk' ? item.title : item.titleEn,
-  }));
-}
-
-export const PARTNERS = [
-  {
-    name: 'Fotograf Peter',
-    category: 'Fotografia',
-    description: 'Zachytáva momenty s citom pre detail a prirodzenosť.',
-    link: '#',
-  },
-] as const;
-
-export const SERVICE_PACKAGES = [
-  {
-    name: 'Malá pomoc',
-    price: '40 €',
-    description: 'Jasné nasmerovanie a odporúčania pre nevestu na začiatku.',
-    features: ['1 konzultácia (60 min)', 'moodboard', 'odporúčanie dekorácií'],
-  },
-  {
-    name: 'Svadba základ',
-    price: '150–200 €',
-    description: 'Najčastejšia voľba — poriadok v prípravách a dodávateľoch.',
-    recommended: true,
-    features: [
-      '2–3 konzultácie',
-      'návrh výzdoby a moodboard',
-      'harmonogram príprav',
-      'odporúčanie dodávateľov',
-    ],
-  },
-  {
-    name: 'Kompletná príprava',
-    price: '200–300 €',
-    description: 'Kompletná príprava a koordinácia detailov.',
-    features: [
-      '3–4 konzultácie',
-      'návrh výzdoby a moodboard',
-      'harmonogram + hry',
-      'obvolanie dodávateľov',
-      'QR RSVP formulár',
-    ],
-  },
-] as const;
-
-export const EXTRA_SERVICES = [
-  {
-    title: 'Individuálna konzultácia',
-    price: '15 € / 60 min',
-    description: 'Osobne alebo online — rozpočet, štýl, prvé rozhodnutia.',
-  },
-  {
-    title: 'Rozlúčka so slobodou',
-    price: 'od 40 €',
-    description: 'Koncept, program a tipy na aktivity v balíkoch Basic a Premium.',
-  },
-  {
-    title: 'Grafika a handmade doplnky',
-    price: 'od 15 €',
-    description: 'Oznámenia, poháre, tričká a personalizované detaily.',
-  },
-  {
-    title: 'RSVP online správa',
-    price: '18 €',
-    description: 'QR formulár, zber odpovedí hostí a prehľadná tabuľka.',
-  },
-] as const;
-
-export const SERVICE_PACKAGES_EN = [
-  {
-    name: 'Event Styling',
-    price: '40 €',
-    description: 'Perfect for students or guests who need help with their overall event look.',
-    features: ['1 styling session (60 min)', 'color palette & accessories', 'vendor recommendations'],
-  },
-  {
-    name: 'Event Basic',
-    price: '150–200 €',
-    description: 'Most popular choice for smaller events, balls and celebrations.',
-    recommended: true,
-    features: [
-      '2–3 planning sessions',
-      'decoration proposal and moodboard',
-      'preparation timeline',
-      'budget optimization tips',
-    ],
-  },
-  {
-    name: 'Full Coordination',
-    price: '200–300 €',
-    description: 'Complete stress-free preparation for your wedding or big event.',
-    features: [
-      '3–4 consultations',
-      'decoration proposal and moodboard',
-      'timeline + entertainment plan',
-      'vendor coordination',
-      'online guest management (RSVP)',
-    ],
-  },
-] as const;
-
-export const EXTRA_SERVICES_EN = [
-  {
-    title: 'Individual Consultation',
-    price: '15 € / 60 min',
-    description: 'In person or online — budget, style, dress selection advice.',
-  },
-  {
-    title: 'Student Events & Julebord',
-    price: 'from 40 €',
-    description: 'Planning, program and styling tips for student balls and parties.',
-  },
-  {
-    title: 'Custom Party Supplies',
-    price: 'from 5 €',
-    description: 'Personalized glasses, t-shirts, and handmade event details.',
-  },
-  {
-    title: 'Online RSVP management',
-    price: '18 €',
-    description: 'QR form, guest response collection and guest list management.',
-  },
-] as const;
-
-export const DECOR_FEATURED = [
-  { title: 'Veľké zrkadlo „Vitajte na našej svadbe"', price: '35 €', icon: 'frame' },
-  { title: 'Candy bar balík v zlatej farbe', price: '20 €', icon: 'utensils' },
-  { title: 'Svadobná kulisa so závesmi a svetielkami', price: '35 €', icon: 'lamp' },
-  { title: 'Zlatý príbor', price: '1 € / set', icon: 'gift' },
-] as const;
-
-export const DECOR_FEATURED_EN = [
-  { title: 'Large "Welcome to Our Wedding" mirror', price: '35 €', icon: 'frame' },
-  { title: 'Gold candy bar package', price: '20 €', icon: 'utensils' },
-  { title: 'Wedding backdrop with drapes and fairy lights', price: '35 €', icon: 'lamp' },
-  { title: 'Gold cutlery', price: '1 € / set', icon: 'gift' },
-] as const;
-
-export const DECOR_CATEGORIES = [
-  {
-    category: 'Zrkadlá a uvítanie',
-    items: [
-      { name: 'Veľké zrkadlo 72 × 163 cm s nápisom „Vitajte na našej svadbe“', price: '35 €' },
-      { name: 'Biele zrkadlo 70 × 90 cm na zasadací poriadok so svetielkami a stojanom', price: '25 €' },
-      { name: 'Rámčeky s textom 10 × 12 cm (12 ks)', price: '18 €' },
-    ],
-  },
-  {
-    category: 'Kvety, vázy a textílie',
-    items: [
-      { name: 'Umelé kvety', price: 'od 0,50 € / ks' },
-      { name: 'Vázy rôznych veľkostí', price: 'od 0,60 € / ks' },
-      { name: 'Látkové obrúsky', price: 'od 0,40 € / ks' },
-    ],
-  },
-  {
-    category: 'Stoly a sweet bar',
-    items: [
-      { name: 'Stojany', price: 'od 5 €' },
-      { name: 'Košíky', price: 'od 2 €' },
-      { name: 'Candy bar balík v zlatej farbe', price: '20 €' },
-      { name: 'Drevené čísla na stoly 1–8', price: '5 €' },
-    ],
-  },
-  {
-    category: 'Kulisy a doplnky',
-    items: [
-      { name: 'Svadobná kulisa so závesmi a svetielkami (2–3 m)', price: '35 €' },
-      { name: 'Zlaté svietniky', price: '1,70 € / ks' },
-      { name: 'Svetelné dekorácie', price: 'od 1 €' },
-      { name: 'Zapichovacie drevené šípky', price: '25 €' },
-    ],
-  },
-] as const;
-
-export const DECOR_CATEGORIES_EN = [
-  {
-    category: 'Mirrors & Welcome',
-    items: [
-      { name: 'Large mirror 72 × 163 cm with "Welcome to Our Wedding" text', price: '35 €' },
-      { name: 'White mirror 70 × 90 cm for seating chart with fairy lights and stand', price: '25 €' },
-      { name: 'Text frames 10 × 12 cm (12 pcs)', price: '18 €' },
-    ],
-  },
-  {
-    category: 'Flowers, Vases & Textiles',
-    items: [
-      { name: 'Artificial flowers', price: 'from 0.50 € / pc' },
-      { name: 'Vases of various sizes', price: 'from 0.60 € / pc' },
-      { name: 'Fabric napkins', price: 'from 0.40 € / pc' },
-    ],
-  },
-  {
-    category: 'Tables & Sweet Bar',
-    items: [
-      { name: 'Stands', price: 'from 5 €' },
-      { name: 'Baskets', price: 'from 2 €' },
-      { name: 'Gold candy bar package', price: '20 €' },
-      { name: 'Wooden table numbers 1–8', price: '5 €' },
-    ],
-  },
-  {
-    category: 'Backdrops & Accessories',
-    items: [
-      { name: 'Wedding backdrop with drapes and fairy lights (2–3 m)', price: '35 €' },
-      { name: 'Gold candelabras', price: '1.70 € / pc' },
-      { name: 'Light decorations', price: 'from 1 €' },
-      { name: 'Wooden decorative arrows', price: '25 €' },
-    ],
-  },
-] as const;
-
-export const DECOR_POLICIES = [
-  'Ku každej objednávke sa účtuje vratná záloha podľa hodnoty zapožičaných položiek.',
-  'Pri oneskorenom vrátení si účtujeme 20 % z ceny nájmu za každý deň omeškania.',
-  'Dekorácie sú určené na opakované používanie, preto prosíme o šetrné zaobchádzanie.',
-  'Text na mieru vieme pripraviť za +5 € / pár nálepiek.',
-] as const;
-
-export const DECOR_POLICIES_EN = [
-  'A refundable deposit is charged based on the value of borrowed items.',
-  'For late returns, we charge 20% of the rental price per day of delay.',
-  'Decorations are intended for repeated use, so please handle them carefully.',
-  'Custom text can be prepared for +5 € / pair of stickers.',
-] as const;
-
-export const CONTACT_FAQS = [
-  {
-    question: 'Koľko stojí skúška svadobných šiat?',
-    answer: '12 € za 60 minút — prosecco, nealko alebo káva v cene.',
-  },
-  {
-    question: 'Môžem si počas skúšky fotiť?',
-    answer: 'Áno, bez obmedzenia.',
-  },
-  {
-    question: 'Ako si rezervujem termín?',
-    answer: 'Formulárom, WhatsApp, emailom alebo zavolaním.',
-  },
-  {
-    question: 'Ponúkate aj online konzultácie?',
-    answer: 'Áno, časť plánovania vieme riešiť aj online.',
-  },
-] as const;
-
-export const CONSIGNMENT_STEPS = [
-  'Šaty nám zveríte čisté a vopred pošlete fotografie.',
-  'Spoločne sa dohodne cena, ktorú chcete za šaty získať.',
-  'MagicRoom šaty vystaví, propaguje a komunikuje so záujemkyňami.',
-  'Peniaze vám pošleme do 7 dní od predaja.',
-] as const;
-
-export const CONSIGNMENT_STEPS_EN = [
-  'You entrust us clean dresses and send photos in advance.',
-  'We agree together on the price you want to get for the dresses.',
-  'MagicRoom displays, promotes and communicates with interested brides.',
-  'We send the money to you within 7 days after the sale.',
-] as const;
-
-export const CONSIGNMENT_BENEFITS = [
-  'Druhý život pre vaše šaty bez riešenia inzercie a správ.',
-  'Majiteľka určuje svoju cenu, provízia sa k nej pripočítava zvlášť.',
-  'Ak sa šaty nepredajú, vrátia sa v pôvodnom stave alebo sa predĺži zmluva.',
-] as const;
-
-export const CONSIGNMENT_BENEFITS_EN = [
-  'Second life for your dresses without dealing with ads and messages.',
-  'The owner sets their own price, our commission is added separately.',
-  'If the dresses don\'t sell, they return in original condition or we extend the contract.',
-] as const;
-
-export const CONSIGNMENT_CONDITIONS = [
-  {
-    title: 'Šaty musia byť vyčistené',
-    description: 'Ak prídu znečistené alebo poškodené, vrátime ich späť majiteľke ešte pred zaradením do ponuky.',
-  },
-  {
-    title: 'Cenu určujete vy',
-    description: 'Cenu, ktorú chcete za šaty dostať, nemeníme. Naša provízia sa k nej pripočítava samostatne.',
-  },
-  {
-    title: 'Vyplácanie do 7 dní',
-    description: 'Po predaji vám pošleme peniaze do 7 dní na účet alebo podľa dohody.',
-  },
-  {
-    title: 'Zmluva na niekoľko mesiacov',
-    description: 'Ak sa šaty nepredajú, vrátime ich v pôvodnom stave alebo sa spoločne dohodneme na predĺžení.',
-  },
-] as const;
-
-export const CONSIGNMENT_CONDITIONS_EN = [
-  {
-    title: 'Dresses must be clean',
-    description: 'If they arrive dirty or damaged, we return them to the owner before listing.',
-  },
-  {
-    title: 'You set the price',
-    description: 'We don\'t change the price you want for the dresses. Our commission is added separately.',
-  },
-  {
-    title: 'Payment within 7 days',
-    description: 'After the sale, we send the money to your account within 7 days or by agreement.',
-  },
-  {
-    title: 'Contract for several months',
-    description: 'If the dresses don\'t sell, we return them in original condition or agree on extension.',
-  },
-] as const;
-
-export const CONTACT_ACTIONS = [
-  {
-    title: 'Zavolajte nám',
-    description: 'Najrýchlejší spôsob, ak chcete termín doriešiť hneď.',
-    href: PHONE_HREF,
-    label: PHONE_DISPLAY,
-  },
-  {
-    title: 'Napíšte na WhatsApp',
-    description: 'Krátka správa stačí — odpovieme vám čo najskôr.',
-    href: WHATSAPP_URL,
-    label: 'WhatsApp rezervácia',
-  },
-  {
-    title: 'Pošlite email',
-    description: 'Ak vám viac vyhovuje pokojný dopyt s detailami, napíšte nám email.',
-    href: EMAIL_HREF,
-    label: EMAIL,
-  },
-  {
-    title: 'Nájdete nás v Martine',
-    description: 'Jilemnického 4015/43, Martin - Sever / Záturčie (budova Detský sen, prízemie). Kliknutím otvoríte mapu.',
-    href: MAP_URL,
-    label: 'Otvoriť mapu',
-  },
-] as const;
-
-export const CONTACT_FAQS_EN = [
-  {
-    question: 'How much does a wedding dress fitting cost?',
-    answer: '12 € for 60 minutes — prosecco, non-alcoholic or coffee included.',
-  },
-  {
-    question: 'Can I take photos during the fitting?',
-    answer: 'Yes, without limits.',
-  },
-  {
-    question: 'How do I book an appointment?',
-    answer: 'Via form, WhatsApp, email or phone call.',
-  },
-  {
-    question: 'Do you offer online consultations?',
-    answer: 'Yes, part of the planning can be done online.',
-  },
-] as const;
-
-export const CONTACT_ACTIONS_EN = [
-  {
-    title: 'Call us',
-    description: 'The fastest way if you want to sort out an appointment right now.',
-    href: PHONE_HREF,
-    label: PHONE_DISPLAY,
-  },
-  {
-    title: 'Write on WhatsApp',
-    description: 'A short message is enough — we\'ll reply as soon as possible.',
-    href: WHATSAPP_URL,
-    label: 'WhatsApp booking',
-  },
-  {
-    title: 'Send an email',
-    description: 'If you prefer a calm inquiry with details, write us an email.',
-    href: EMAIL_HREF,
-    label: EMAIL,
-  },
-  {
-    title: 'Find us in Martin',
-    description: 'Jilemnického 4015/43, Martin - Sever / Záturčie (Detský sen building, ground floor). Click to open the map.',
-    href: MAP_URL,
-    label: 'Open map',
-  },
-] as const;
-
-export const DRESS_CATALOG = [
-  {
-    id: '1',
-    name: 'Elegantná čipka',
-    description: 'Čipkovaný vrch, áčková sukňa, jemný ružový tón.',
-    price: 350,
-    size: '38',
-    status: 'available',
-    type: 'new',
-    image: IMAGE_ASSETS.satyRuzove1,
-    featured: true,
-  },
-  {
-    id: '2',
-    name: 'Boho princezná',
-    description: 'Voľné boho šaty s jemným zdobením.',
-    price: 280,
-    size: '36',
-    status: 'available',
-    type: 'new',
-    image: IMAGE_ASSETS.satyRuzove3,
-    featured: true,
-  },
-  {
-    id: '3',
-    name: 'Fialový sen',
-    description: 'Netradičné fialové šaty pre odvážne nevesty.',
-    price: 450,
-    size: '40',
-    status: 'available',
-    type: 'new',
-    image: IMAGE_ASSETS.satyFialove1,
-    featured: true,
-  },
-  {
-    id: '4',
-    name: 'Klasická biela',
-    description: 'Čisté línie, nadčasová elegancia.',
-    price: 550,
-    size: '38',
-    status: 'available',
-    type: 'new',
-    image: IMAGE_ASSETS.satyRuzove5,
-    featured: false,
-  },
-  {
-    id: '5',
-    name: 'Romantický závoj',
-    description: 'Dlhý závoj, jemné zdobenie. Ideálne pre kostol.',
-    price: 200,
-    size: '42',
-    status: 'available',
-    type: 'consignment',
-    image: IMAGE_ASSETS.satyRuzove1,
-    featured: false,
-  },
-  {
-    id: '6',
-    name: 'Minimalistka',
-    description: 'Čisté šaty bez zdobenia. Pre moderné nevesty.',
-    price: 180,
-    size: '36',
-    status: 'reserved',
-    type: 'consignment',
-    image: IMAGE_ASSETS.satyRuzove3,
-    featured: false,
-  },
-] as const;
-
-export const HOME_STATS_EN = [
-  { value: '12 €', label: 'formal dress fitting with drink included' },
-  { value: '12–150 €', label: 'gala, prom & party dresses' },
-  { value: 'Martin', label: 'personal salon in the Detský sen building' },
 ] as const;
 
 export const HOME_OFFER_CARDS_EN = [
@@ -832,6 +193,25 @@ export const HOME_OFFER_CARDS_EN = [
   },
 ] as const;
 
+export const TRUST_REASONS = [
+  {
+    title: 'Transparentné ceny',
+    description: 'Všetky ceny šiat aj služieb nájdete priamo na webe. Žiadne skryté poplatky.',
+  },
+  {
+    title: 'Stretnutie s Natáliou',
+    description: 'V salóne sa stretnete priamo s majiteľkou, ktorá vám poradí z vlastnej skúsenosti.',
+  },
+  {
+    title: 'Lokalita Martin - Sever',
+    description: 'Pohodlný prístup v budove Detský sen s možnosťou parkovania v blízkosti.',
+  },
+  {
+    title: 'Všetko na jednom mieste',
+    description: 'Od šiat cez doplnky až po kompletnú výzdobu sály. Šetríme váš čas aj energiu.',
+  },
+] as const;
+
 export const TRUST_REASONS_EN = [
   {
     title: 'Transparent pricing',
@@ -851,8 +231,264 @@ export const TRUST_REASONS_EN = [
   },
 ] as const;
 
+export const BOOKING_FEATURES = [
+  '60 minút v príjemnej atmosfére',
+  'pohárik prosecca, nealka alebo kávy v cene',
+  'skúška svadobných šiat pre max. 2 osoby',
+  'fotenie počas skúšky bez limitu',
+] as const;
+
+export const PROCESS_STEPS = [
+  'Vyplníte krátky formulár alebo nám napíšete na WhatsApp.',
+  'Do 24 hodín sa vám ozveme a doladíme termín skúšky či konzultácie.',
+  'Na mieste vyriešite šaty, dekorácie aj ďalšie detaily pokojne a v jednom priestore.',
+] as const;
+
 export const PROCESS_STEPS_EN = [
   'Choose your favorite dresses from our online gallery.',
   'Book a fitting via the form or WhatsApp (we speak English).',
   'Visit our salon in Martin, enjoy a drink, and find your perfect dress.',
 ] as const;
+
+export const FOUNDER_STORY = {
+  quote: 'Každá žena si zaslúži moment, keď sa cíti výnimočne.',
+  paragraphs: [
+    'Ahoj, volám sa Natália. MagicRoom vznikol, keď som si pripravovala vlastnú svadbu a zistila, koľko času zhltne zháňanie šiat, výzdoby a detailov.',
+    'Chcela som miesto, kde ženy nájdu všetko pokope — šaty, dekorácie aj férovú radu bez stresu a preplácania.',
+  ],
+} as const;
+
+export const FOUNDER_STORY_EN = {
+  quote: 'Every woman deserves a moment when she feels extraordinary.',
+  paragraphs: [
+    "Hi, I'm Natália. MagicRoom was born when I was planning my own wedding and realized how much time finding dresses, decorations and details takes.",
+    'I wanted a place where women find everything together — dresses, decorations and fair advice without stress and overpaying.',
+  ],
+} as const;
+
+const ASSET_IMAGE_MAP: Record<string, string> = {
+  hero: heroImage.src,
+  dresses: dressesImage.src,
+  decorMain: decorMainImage.src,
+  decorAlt: decorAltImage.src,
+  decorBackdrop: decorBackdrop.src,
+  decorDetails: decorDetails.src,
+};
+
+function getImageAsset(filename: string): string {
+  if (!filename) return IMAGE_ASSETS.satyRuzove1;
+  if (filename.startsWith('/')) return filename;
+  return `/${filename}`;
+}
+
+function getAssetImage(key: string): string {
+  return ASSET_IMAGE_MAP[key] || IMAGE_ASSETS.satyRuzove1;
+}
+
+export function getHomeStats(lang: Language) {
+  return lang === 'sk' ? HOME_STATS : HOME_STATS_EN;
+}
+
+export function getHomeOfferCards(lang: Language) {
+  return lang === 'sk' ? HOME_OFFER_CARDS : HOME_OFFER_CARDS_EN;
+}
+
+export function getTrustReasons(lang: Language) {
+  return lang === 'sk' ? TRUST_REASONS : TRUST_REASONS_EN;
+}
+
+export function getProcessSteps(lang: Language) {
+  return lang === 'sk' ? PROCESS_STEPS : PROCESS_STEPS_EN;
+}
+
+export function getFounderStory(lang: Language) {
+  return lang === 'sk' ? FOUNDER_STORY : FOUNDER_STORY_EN;
+}
+
+export function getServicePackages(lang: Language) {
+  const data = lang === 'sk' ? servicesData.sk : servicesData.en;
+  return data.packages;
+}
+
+export function getExtraServices(lang: Language) {
+  const data = lang === 'sk' ? servicesData.sk : servicesData.en;
+  return data.extra;
+}
+
+export function getDecorFeatured(lang: Language) {
+  const data = lang === 'sk' ? decorData.sk : decorData.en;
+  return data.featured;
+}
+
+export function getDecorCategories(lang: Language) {
+  const data = lang === 'sk' ? decorData.sk : decorData.en;
+  return data.categories;
+}
+
+export function getDecorPolicies(lang: Language) {
+  const data = lang === 'sk' ? decorData.sk : decorData.en;
+  return data.policies;
+}
+
+export function getConsignmentSteps(lang: Language) {
+  return lang === 'sk' ? CONSIGNMENT_STEPS : CONSIGNMENT_STEPS_EN;
+}
+
+export function getConsignmentBenefits(lang: Language) {
+  return lang === 'sk' ? CONSIGNMENT_BENEFITS : CONSIGNMENT_BENEFITS_EN;
+}
+
+export function getConsignmentConditions(lang: Language) {
+  return lang === 'sk' ? CONSIGNMENT_CONDITIONS : CONSIGNMENT_CONDITIONS_EN;
+}
+
+export function getContactFaqs(lang: Language) {
+  const data = lang === 'sk' ? faqsData.sk : faqsData.en;
+  return data;
+}
+
+export function getContactActions(lang: Language) {
+  return lang === 'sk' ? CONTACT_ACTIONS : CONTACT_ACTIONS_EN;
+}
+
+export function getGalleryItems(lang: Language) {
+  return galleryData.gallery.map(item => ({
+    src: item.filename.startsWith('/') ? item.filename : `/images/${item.filename}`,
+    alt: lang === 'sk' ? item.alt : item.altEn,
+    title: lang === 'sk' ? item.title : item.titleEn,
+  }));
+}
+
+export const PARTNERS = partnersData.partners;
+
+export const PARTNER_CATEGORIES = partnersData.categories;
+
+export const DRESS_CATALOG = dressesData.dresses.map(dress => ({
+  ...dress,
+  image: `/content/dresses/${dress.id}.jpg`,
+}));
+
+export const CONSIGNMENT_STEPS = [
+  'Šaty nám zveríte čisté a vopred pošlete fotografie.',
+  'Spoločne sa dohodne cena, ktorú chcete za šaty získať.',
+  'MagicRoom šaty vystaví, propaguje a komunikuje so záujemkyňami.',
+  'Peniaze vám pošleme do 7 dní od predaja.',
+] as const;
+
+export const CONSIGNMENT_STEPS_EN = [
+  'You entrust us clean dresses and send photos in advance.',
+  'We agree together on the price you want to get for the dresses.',
+  'MagicRoom displays, promotes and communicates with interested brides.',
+  'We send the money to you within 7 days after the sale.',
+] as const;
+
+export const CONSIGNMENT_BENEFITS = [
+  'Druhý život pre vaše šaty bez riešenia inzercie a správ.',
+  'Majiteľka určuje svoju cenu, provízia sa k nej pripočítava zvlášť.',
+  'Ak sa šaty nepredajú, vrátia sa v pôvodnom stave alebo sa predĺži zmluva.',
+] as const;
+
+export const CONSIGNMENT_BENEFITS_EN = [
+  "Second life for your dresses without dealing with ads and messages.",
+  "The owner sets their own price, our commission is added separately.",
+  "If the dresses don't sell, they return in original condition or we extend the contract.",
+] as const;
+
+export const CONSIGNMENT_CONDITIONS = [
+  {
+    title: 'Šaty musia byť vyčistené',
+    description: 'Ak prídu znečistené alebo poškodené, vrátime ich späť majiteľke ešte pred zaradením do ponuky.',
+  },
+  {
+    title: 'Cenu určujete vy',
+    description: 'Cenu, ktorú chcete za šaty dostať, nemeníme. Naša provízia sa k nej pripočítava samostatne.',
+  },
+  {
+    title: 'Vyplácanie do 7 dní',
+    description: 'Po predaji vám pošleme peniaze do 7 dní na účet alebo podľa dohody.',
+  },
+  {
+    title: 'Zmluva na niekoľko mesiacov',
+    description: 'Ak sa šaty nepredajú, vrátime ich v pôvodnom stave alebo sa spoločne dohodneme na predĺžení.',
+  },
+] as const;
+
+export const CONSIGNMENT_CONDITIONS_EN = [
+  {
+    title: 'Dresses must be clean',
+    description: 'If they arrive dirty or damaged, we return them to the owner before listing.',
+  },
+  {
+    title: 'You set the price',
+    description: "We don't change the price you want for the dresses. Our commission is added separately.",
+  },
+  {
+    title: 'Payment within 7 days',
+    description: 'After the sale, we send the money to your account within 7 days or by agreement.',
+  },
+  {
+    title: 'Contract for several months',
+    description: "If the dresses don't sell, we return them in original condition or agree on extension.",
+  },
+] as const;
+
+export const CONTACT_ACTIONS = [
+  {
+    title: 'Zavolajte nám',
+    description: 'Najrýchlejší spôsob, ak chcete termín doriešiť hneď.',
+    href: PHONE_HREF,
+    label: PHONE_DISPLAY,
+  },
+  {
+    title: 'Napíšte na WhatsApp',
+    description: 'Krátka správa stačí — odpovieme vám čo najskôr.',
+    href: WHATSAPP_URL,
+    label: 'WhatsApp rezervácia',
+  },
+  {
+    title: 'Pošlite email',
+    description: 'Ak vám viac vyhovuje pokojný dopyt s detailami, napíšte nám email.',
+    href: EMAIL_HREF,
+    label: EMAIL,
+  },
+  {
+    title: 'Nájdete nás v Martine',
+    description: 'Jilemnického 4015/43, Martin - Sever / Záturčie (budova Detský sen, prízemie). Kliknutím otvoríte mapu.',
+    href: MAP_URL,
+    label: 'Otvoriť mapu',
+  },
+] as const;
+
+export const CONTACT_ACTIONS_EN = [
+  {
+    title: 'Call us',
+    description: 'The fastest way if you want to sort out an appointment right now.',
+    href: PHONE_HREF,
+    label: PHONE_DISPLAY,
+  },
+  {
+    title: 'Write on WhatsApp',
+    description: "A short message is enough — we'll reply as soon as possible.",
+    href: WHATSAPP_URL,
+    label: 'WhatsApp booking',
+  },
+  {
+    title: 'Send an email',
+    description: 'If you prefer a calm inquiry with details, write us an email.',
+    href: EMAIL_HREF,
+    label: EMAIL,
+  },
+  {
+    title: 'Find us in Martin',
+    description: 'Jilemnického 4015/43, Martin - Sever / Záturčie (Detský sen building, ground floor). Click to open the map.',
+    href: MAP_URL,
+    label: 'Open map',
+  },
+] as const;
+
+export const SERVICE_PACKAGES = getServicePackages('sk');
+export const EXTRA_SERVICES = getExtraServices('sk');
+export const DECOR_CATEGORIES = getDecorCategories('sk');
+export const DECOR_POLICIES = getDecorPolicies('sk');
+export const CONTACT_FAQS = getContactFaqs('sk');
+export const GALLERY_ITEMS = getGalleryItems('sk');

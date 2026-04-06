@@ -1,29 +1,25 @@
-# Ako pridať svadobné šaty — Návod pre Natáliu
+# Ako pridať šaty cez GitHub
 
-## Čo potrebuješ
+🔗 **Otvoriť:** https://github.com/ziak-z/magicroom-mt
 
-1. **GitHub účet** — ak ho ešte nemáš, vytvor si ho na https://github.com
-2. **Prístup k repozitáru** — Zolo ti pridá ako collabodatora
+---
 
-## Krok za krokom
+## 1. Pridaj šaty
 
-### 1. Otvor repozitár
- choď na: https://github.com/ziak-z/magicroom-mt
+### Krok 1
+Ideme do `content/dresses/` → klikni **Add file** → **Create new file**
 
-### 2. Nájdľ content/dresses
-V repozitári klikni na priečinok `content` → `dresses`
+### Krok 2
+Názov súboru: `julia.json` (tvoje-slovo.json)
 
-### 3. Pridaj JSON súbor
-Klikni na "Add file" → "Create new file"
+### Krok 3
+Vlož toto:
 
-Názov súboru musí byť: `nazov-siat.json` (malé písmená, pomlčky)
-
-Obsah súboru:
 ```json
 {
-  "id": "tvoj-unikatny-id",
-  "name": "Názov šiat",
-  "description": "Krátky popis",
+  "id": "julia",
+  "name": "Julia",
+  "description": "Krásne svadobné šaty",
   "price": 350,
   "size": "38",
   "type": "new",
@@ -33,20 +29,25 @@ Obsah súboru:
 }
 ```
 
-### 4. Pridaj fotku
-1. Choď do `public/content/dresses/`
-2. Klikni na "Add file" → "Upload files"
-3. Nahraj fotku s názvom: `tvoj-unikatny-id.jpg` alebo `.jpeg`
+### Krok 4
+Zmeň si podľa seba:
+- `id` = názov súboru bez .json
+- `name` = názov ktorý sa zobrazí
+- `price` = cena
+- `type` = `new` (nové) alebo `consignment` (komis)
+- `status` = `available`, `reserved`, `sold`
 
-## Typy a stavy
+### Krok 5
+Klikni **Commit changes**
 
-| Pole | Možnosti |
-|------|----------|
-| `type` | `new` (nové) alebo `consignment` (komis) |
-| `status` | `available` (dostupné), `reserved` (rezervované), `sold` (predané) |
+---
 
-## Po uložení
-Po commitnutí zmien sa na stránke automaticky zobrazia nové šaty (do pár minút).
+## 2. Pridaj fotku
 
-## Pomoc
-Ak máš problém, napíš Zolovi.
+Ideme do `public/content/dresses/` → **Add file** → **Upload files**
+
+Nahraj fotku ako `julia.jpg` (rovnaké ako id v JSON)
+
+---
+
+Hotovo! 🌸

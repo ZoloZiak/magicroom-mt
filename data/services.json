@@ -1,0 +1,92 @@
+{
+  "sk": {
+    "packages": [
+      {
+        "name": "Malá pomoc",
+        "price": "40 €",
+        "description": "Jasné nasmerovanie a odporúčania pre nevestu na začiatku.",
+        "features": ["1 konzultácia (60 min)", "moodboard", "odporúčanie dekorácií"]
+      },
+      {
+        "name": "Svadba základ",
+        "price": "150–200 €",
+        "description": "Najčastejšia voľba — poriadok v prípravách a dodávateľoch.",
+        "recommended": true,
+        "features": ["2–3 konzultácie", "návrh výzdoby a moodboard", "harmonogram príprav", "odporúčanie dodávateľov"]
+      },
+      {
+        "name": "Kompletná príprava",
+        "price": "200–300 €",
+        "description": "Kompletná príprava a koordinácia detailov.",
+        "features": ["3–4 konzultácie", "návrh výzdoby a moodboard", "harmonogram + hry", "obvolanie dodávateľov", "QR RSVP formulár"]
+      }
+    ],
+    "extra": [
+      {
+        "title": "Individuálna konzultácia",
+        "price": "15 € / 60 min",
+        "description": "Osobne alebo online — rozpočet, štýl, prvé rozhodnutia."
+      },
+      {
+        "title": "Rozlúčka so slobodou",
+        "price": "od 40 €",
+        "description": "Koncept, program a tipy na aktivity v balíkoch Basic a Premium."
+      },
+      {
+        "title": "Grafika a handmade doplnky",
+        "price": "od 15 €",
+        "description": "Oznámenia, poháre, tričká a personalizované detaily."
+      },
+      {
+        "title": "RSVP online správa",
+        "price": "18 €",
+        "description": "QR formulár, zber odpovedí hostí a prehľadná tabuľka."
+      }
+    ]
+  },
+  "en": {
+    "packages": [
+      {
+        "name": "Event Styling",
+        "price": "40 €",
+        "description": "Perfect for students or guests who need help with their overall event look.",
+        "features": ["1 styling session (60 min)", "color palette & accessories", "vendor recommendations"]
+      },
+      {
+        "name": "Event Basic",
+        "price": "150–200 €",
+        "description": "Most popular choice for smaller events, balls and celebrations.",
+        "recommended": true,
+        "features": ["2–3 planning sessions", "decoration proposal and moodboard", "preparation timeline", "budget optimization tips"]
+      },
+      {
+        "name": "Full Coordination",
+        "price": "200–300 €",
+        "description": "Complete stress-free preparation for your wedding or big event.",
+        "features": ["3–4 consultations", "decoration proposal and moodboard", "timeline + entertainment plan", "vendor coordination", "online guest management (RSVP)"]
+      }
+    ],
+    "extra": [
+      {
+        "title": "Individual Consultation",
+        "price": "15 € / 60 min",
+        "description": "In person or online — budget, style, dress selection advice."
+      },
+      {
+        "title": "Student Events & Julebord",
+        "price": "from 40 €",
+        "description": "Planning, program and styling tips for student balls and parties."
+      },
+      {
+        "title": "Custom Party Supplies",
+        "price": "from 5 €",
+        "description": "Personalized glasses, t-shirts, and handmade event details."
+      },
+      {
+        "title": "Online RSVP management",
+        "price": "18 €",
+        "description": "QR form, guest response collection and guest list management."
+      }
+    ]
+  }
+}
