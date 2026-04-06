@@ -12,6 +12,7 @@ export const SLUG_MAP: Record<string, string> = {
   'prenajom-dekoracii': 'decorations',
   'partneri': 'partners',
   'kontakt': 'contact',
+  'reklamacny-poriadok': 'complaint-policy',
 };
 
 // Inverzné mapovanie EN na SK

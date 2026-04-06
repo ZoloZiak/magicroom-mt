@@ -8,6 +8,7 @@ import ConsignmentTemplate from '@/components/templates/ConsignmentTemplate.astr
 import DecorationsTemplate from '@/components/templates/DecorationsTemplate.astro';
 import PartnersTemplate from '@/components/templates/PartnersTemplate.astro';
 import ContactTemplate from '@/components/templates/ContactTemplate.astro';
+import ComplaintPolicyTemplate from '@/components/templates/ComplaintPolicyTemplate.astro';
 import BlogIndexTemplate from '@/components/templates/BlogIndexTemplate.astro';
 import BlogPostTemplate from '@/components/templates/BlogPostTemplate.astro';
 
@@ -20,6 +21,7 @@ const TEMPLATES = {
   decorations: DecorationsTemplate,
   partners: PartnersTemplate,
   contact: ContactTemplate,
+  complaintPolicy: ComplaintPolicyTemplate,
 };
 
 export async function getStaticPaths() {
@@ -32,6 +34,7 @@ export async function getStaticPaths() {
     { sk: 'prenajom-dekoracii', en: 'decorations', template: 'decorations' },
     { sk: 'partneri', en: 'partners', template: 'partners' },
     { sk: 'kontakt', en: 'contact', template: 'contact' },
+    { sk: 'reklamacny-poriadok', en: 'complaint-policy', template: 'complaintPolicy' },
   ];
   
   const paths = [];

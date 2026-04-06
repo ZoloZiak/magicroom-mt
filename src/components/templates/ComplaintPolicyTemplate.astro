@@ -1,0 +1,91 @@
+---
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import { Badge } from '@/components/ui/badge';
+import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
+import Layout from '@/layouts/Layout.astro';
+import { IMAGE_URLS } from '@/data/content';
+
+interface Props {
+  language: Language;
+  skSlug: string;
+}
+
+const { language, skSlug } = Astro.props;
+const t = getTranslations(language);
+const isEn = language === 'en';
+---
+
+<Layout
+  title={isEn ? "Complaint Policy — MagicRoom Martin" : "Reklamačný poriadok — MagicRoom Martin"}
+  description={isEn ? "Complaint policy and terms for MagicRoom wedding salon in Martin." : "Reklamačný poriadok a podmienky svadobného salónu MagicRoom v Martine."}
+  image={IMAGE_URLS.hero}
+  breadcrumbs={[
+    { name: t.nav.home, url: isEn ? '/en' : '/' },
+    { name: t.common.complaintPolicy, url: getRelativeHref(skSlug, language) },
+  ]}
+  language={language}
+>
+  <Header language={language} />
+
+  <main class="flex-1">
+    <section class="py-12 md:py-20 bg-surface">
+      <div class="container mx-auto px-4 text-center">
+        <Badge variant="secondary" className="mb-4">{isEn ? 'Terms' : 'Podmienky'}</Badge>
+        <h1 class="font-display text-4xl md:text-6xl mb-6">
+          {isEn ? 'Complaint Policy' : 'Reklamačný poriadok'}
+        </h1>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto prose prose-primary">
+          {isEn ? (
+            <>
+              <h2>1. General Provisions</h2>
+              <p>This complaint policy governs the method and conditions of claiming defects in goods and services purchased at the MagicRoom wedding salon.</p>
+              
+              <h2>2. Warranty Period</h2>
+              <p>The warranty period for new goods is 24 months. For rented items, the condition of the item is checked upon handover and return as per the rental agreement.</p>
+              
+              <h2>3. Claim Procedure</h2>
+              <p>Claims must be made in person at our salon or in writing via email. Please provide the proof of purchase and a description of the defect.</p>
+              
+              <h2>4. Resolution of Claims</h2>
+              <p>We will evaluate your claim and inform you of the resolution within 30 days. Resolution may include repair, replacement, or a refund.</p>
+            </>
+          ) : (
+            <>
+              <h2>1. Všeobecné ustanovenia</h2>
+              <p>Tento reklamačný poriadok upravuje spôsob a podmienky uplatňovania nárokov z vád tovaru a služieb zakúpených v svadobnom salóne MagicRoom.</p>
+              
+              <h2>2. Záručná doba</h2>
+              <p>Záručná doba na nový tovar je 24 mesiacov. Pri zapožičaní vecí sa stav veci kontroluje pri odovzdaní a prevzatí podľa zmluvy o nájme.</p>
+              
+              <h2>3. Postup pri reklamácii</h2>
+              <p>Reklamáciu je potrebné uplatniť osobne v našom salóne alebo písomne e-mailom. K reklamácii je potrebné doložiť doklad o kúpe a popis vady.</p>
+              
+              <h2>4. Vybavenie reklamácie</h2>
+              <p>O spôsobe vybavenia reklamácie rozhodneme ihneď, v zložitých prípadoch do 3 pracovných dní. Celý proces vybavenia reklamácie nepresiahne 30 dní.</p>
+            </>
+          )}
+          
+          <div class="mt-12 p-6 bg-surface rounded-2xl border border-border">
+            <p class="text-sm text-muted-foreground m-0">
+              {isEn 
+                ? "If you have any questions regarding our complaint policy, please contact us at info@magicroom.sk." 
+                : "V prípade akýchkoľvek otázok ohľadom reklamačného poriadku nás neváhajte kontaktovať na info@magicroom.sk."}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Footer language={language} />
+    <WhatsAppFAB />
+    <ScrollToTop />
+  </main>
+</Layout>

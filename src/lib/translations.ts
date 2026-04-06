@@ -52,6 +52,7 @@ export interface Translations {
     logoSubtext: string;
     footerDescription: string;
     copyrightText: string;
+    complaintPolicy: string;
     directionsText: string;
   };
   dresses: {
@@ -201,6 +202,7 @@ const sk: Translations = {
     logoSubtext: 'bridal concierge • Martin',
     footerDescription: 'Boutique svadobný salón v Martine pre nevesty, ktoré chcú šaty, dekorácie a pokojné poradenstvo bez chaosu.',
     copyrightText: `© ${new Date().getFullYear()} MagicRoom. Všetky práva vyhradené.`,
+    complaintPolicy: 'Reklamačný poriadok',
     directionsText: 'Ako sa k nám dostať',
   },
   contact: {
@@ -370,6 +372,7 @@ const en: Translations = {
     logoSubtext: 'bridal concierge • Martin',
     footerDescription: 'Boutique wedding salon in Martin for brides who want dresses, decorations and calm consulting without chaos.',
     copyrightText: `© ${new Date().getFullYear()} MagicRoom. All rights reserved.`,
+    complaintPolicy: 'Complaint Policy',
     directionsText: 'How to get here',
   },
   contact: {
