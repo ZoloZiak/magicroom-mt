@@ -28,6 +28,7 @@ import partnersData from '../../content/json/partners.json';
 import faqsData from '../../content/json/faqs.json';
 import decorData from '../../content/json/decor.json';
 import galleryData from '../../content/json/gallery.json';
+import blogData from '../../content/json/blog.json';
 
 // White pixel fallback (1x1 white PNG)
 export const WHITE_FALLBACK = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=";
@@ -531,3 +532,50 @@ export const DECOR_CATEGORIES = getDecorCategories('sk');
 export const DECOR_POLICIES = getDecorPolicies('sk');
 export const CONTACT_FAQS = getContactFaqs('sk');
 export const GALLERY_ITEMS = getGalleryItems('sk');
+
+export function getBlogPosts(lang: Language) {
+  return blogData.posts.map(post => {
+    const p = lang === 'sk' ? post.sk : post.en;
+    const imageKey = post.image as keyof typeof IMAGE_ASSETS | undefined;
+    const imageSrc = imageKey && IMAGE_ASSETS[imageKey] ? String(IMAGE_ASSETS[imageKey]) : String(IMAGE_ASSETS.dresses);
+    return {
+      slug: lang === 'sk' ? post.slug : post.enSlug,
+      skSlug: post.slug,
+      enSlug: post.enSlug,
+      title: p.title,
+      excerpt: p.excerpt,
+      description: p.description,
+      date: p.date,
+      readTime: p.readTime,
+      content: p.content,
+      tags: p.tags,
+      image: imageSrc,
+    };
+  });
+}
+
+export function getBlogPost(slug: string, lang: Language) {
+  const post = blogData.posts.find(p => 
+    lang === 'sk' ? p.slug === slug : p.enSlug === slug
+  );
+  if (!post) return null;
+  
+  const p = lang === 'sk' ? post.sk : post.en;
+  const imageKey = post.image as keyof typeof IMAGE_ASSETS | undefined;
+  const imageSrc = imageKey && IMAGE_ASSETS[imageKey] ? String(IMAGE_ASSETS[imageKey]) : String(IMAGE_ASSETS.dresses);
+  return {
+    slug: lang === 'sk' ? post.slug : post.enSlug,
+    skSlug: post.slug,
+    enSlug: post.enSlug,
+    title: p.title,
+    excerpt: p.excerpt,
+    description: p.description,
+    date: p.date,
+    readTime: p.readTime,
+    content: p.content,
+    tags: p.tags,
+    image: imageSrc,
+  };
+}
+
+export const BLOG_POSTS = getBlogPosts('sk');

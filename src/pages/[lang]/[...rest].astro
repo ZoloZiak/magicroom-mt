@@ -58,7 +58,7 @@ export async function getStaticPaths() {
 
   for (const post of posts) {
     paths.push({ params: { lang: 'sk', rest: `blog/${post.sk}` }, props: { type: 'post', skSlug: post.sk } });
-    paths.push({ params: { lang: 'en', rest: `blog/${post.en}` }, props: { type: 'post', skSlug: post.sk } });
+    paths.push({ params: { lang: 'en', rest: `blog/${post.en}` }, props: { type: 'post', skSlug: post.en } });
   }
 
   return paths;

@@ -324,6 +324,7 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 | /galeria v navigácii | ✅ DONE |
 | /partneri v navigácii | ✅ DONE |
 | EN blog related links | ✅ DONE (žiadne) |
+| Blog content management | ✅ DONE (presun do JSON + návod pre Natáliu) |
 
 **P2 - Stredná priorita:**
 
@@ -332,6 +333,7 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 | Viac šiat do katalógu | ⏸️ |
 | Skutočné svadobné fotky | ⏸️ |
 | Dress upload mechanism | ⏸️ |
+| Viac blog postov | ⏸️ Čaká na obsah od Natálie |
 
 **P3 - Technický dlh:**
 

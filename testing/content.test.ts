@@ -15,6 +15,9 @@ import {
   CONSIGNMENT_STEPS,
   IMAGE_ASSETS,
   DRESS_CATALOG,
+  getBlogPosts,
+  getBlogPost,
+  BLOG_POSTS,
 } from '@/data/content';
 
 describe('content.ts — Homepage data', () => {
@@ -168,5 +171,57 @@ describe('content.ts — Dress catalog', () => {
     const types = new Set(DRESS_CATALOG.map((d) => d.type));
     expect(types.has('new')).toBe(true);
     expect(types.has('consignment')).toBe(true);
+  });
+});
+
+describe('content.ts — Blog', () => {
+  it('BLOG_POSTS has 3 posts', () => {
+    expect(BLOG_POSTS).toHaveLength(3);
+  });
+
+  it('each post has required SK fields', () => {
+    BLOG_POSTS.forEach((post) => {
+      expect(post.title).toBeTruthy();
+      expect(post.excerpt).toBeTruthy();
+      expect(post.description).toBeTruthy();
+      expect(post.date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(post.readTime).toBeTruthy();
+      expect(post.content).toBeTruthy();
+      expect(post.tags.length).toBeGreaterThan(0);
+      expect(post.image).toBeTruthy();
+    });
+  });
+
+  it('getBlogPosts returns correct count', () => {
+    const skPosts = getBlogPosts('sk');
+    const enPosts = getBlogPosts('en');
+    expect(skPosts).toHaveLength(3);
+    expect(enPosts).toHaveLength(3);
+  });
+
+  it('getBlogPost returns correct SK post', () => {
+    const post = getBlogPost('svadobne-trendy-2026', 'sk');
+    expect(post).not.toBeNull();
+    expect(post?.title).toBe('Svadobné trendy 2026: Čo bude v móde?');
+    expect(post?.slug).toBe('svadobne-trendy-2026');
+  });
+
+  it('getBlogPost returns correct EN post', () => {
+    const post = getBlogPost('wedding-trends-2026', 'en');
+    expect(post).not.toBeNull();
+    expect(post?.title).toBe('Wedding Trends 2026: What Will Be in Fashion?');
+    expect(post?.slug).toBe('wedding-trends-2026');
+  });
+
+  it('getBlogPost returns null for invalid slug', () => {
+    const post = getBlogPost('invalid-slug', 'sk');
+    expect(post).toBeNull();
+  });
+
+  it('posts have skSlug and enSlug for navigation', () => {
+    BLOG_POSTS.forEach((post) => {
+      expect(post.skSlug).toBeTruthy();
+      expect(post.enSlug).toBeTruthy();
+    });
   });
 });

@@ -12,6 +12,7 @@ Vitaj, Natália! Tu nájdeš jednoduché návody, ako sama spravovať obsah svoj
 | **Časté otázky (FAQ)** | Otázky a odpovede pre nevesty | [Návod: FAQ](./faq.md) |
 | **Galéria** | Fotky interiéru a atmosféry salónu | [Návod: Galéria](./galeria.md) |
 | **Dekorácie** | Katalóg dekorácií na prenájom | [Návod: Dekorácie](./decor.md) |
+| **Blog** | Pridávanie článkov, inšpirácií a trendov | [Návod: Blog](./blog.md) |
 
 ---
 

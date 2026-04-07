@@ -1,0 +1,73 @@
+{
+  "posts": [
+    {
+      "slug": "svadobne-trendy-2026",
+      "enSlug": "wedding-trends-2026",
+      "sk": {
+        "title": "Svadobné trendy 2026: Čo bude v móde?",
+        "description": "Objavte najnovšie trendy v svadobnej móde pre rok 2026.",
+        "excerpt": "Objavte najnovšie trendy v svadobnej móde pre rok 2026. Od farieb po štýly — všetko, čo potrebujete vedieť.",
+        "date": "2026-04-01",
+        "readTime": "5 min čítania",
+        "content": "Rok 2026 prináša nové trendy v svadobnej móde, ktoré kombinujú klasiku s modernými prvkami.",
+        "tags": ["trendy", "šaty", "2026"]
+      },
+      "en": {
+        "title": "Wedding Trends 2026: What Will Be in Fashion?",
+        "description": "Discover the latest trends in wedding fashion for 2026.",
+        "excerpt": "Discover the latest trends in wedding fashion for 2026. From colors to styles — everything you need to know.",
+        "date": "2026-04-01",
+        "readTime": "5 min read",
+        "content": "The year 2026 brings new trends in wedding fashion that combine classic with modern elements.",
+        "tags": ["trends", "dresses", "2026"]
+      },
+      "image": "dresses"
+    },
+    {
+      "slug": "ako-zvolit-svadobne-saty",
+      "enSlug": "wedding-dresses-how-to-choose",
+      "sk": {
+        "title": "Ako si vybrať svadobné šaty: Praktický sprievodca",
+        "description": "Naučte sa vybrať dokonalé svadobné šaty.",
+        "excerpt": "Krok za krokom vás prevedieme výberom ideálnych svadobných šiat. Od rozpočtu po štýl a pohodlie.",
+        "date": "2026-03-15",
+        "readTime": "7 min čítania",
+        "content": "Výber svadobných šiat je jeden z najdôležitejších krokov prípravy.",
+        "tags": ["šaty", "výber", "poradenstvo"]
+      },
+      "en": {
+        "title": "How to Choose Wedding Dresses: A Practical Guide",
+        "description": "Learn how to choose the perfect wedding dress.",
+        "excerpt": "Step by step, we guide you through choosing the ideal wedding dress. From budget to style and comfort.",
+        "date": "2026-03-15",
+        "readTime": "7 min read",
+        "content": "Choosing a wedding dress is one of the most important steps of preparation.",
+        "tags": ["dresses", "choice", "advice"]
+      },
+      "image": "founder"
+    },
+    {
+      "slug": "svadobne-dekoracie-na-male-oslavy",
+      "enSlug": "wedding-decorations-small-celebrations",
+      "sk": {
+        "title": "Svadobné dekorácie pre malé oslavy do 50 hostí",
+        "description": "Inšpirácie a tipy na dekorácie pre intimné svadby.",
+        "excerpt": "Inšpirácie a tipy na dekorácie pre intimné svadby. Ako vytvoriť romantickú atmosféru bez zbytočných výdavkov.",
+        "date": "2026-02-28",
+        "readTime": "6 min čítania",
+        "content": "Malé svadby majú svoje nezameniteľné čaro a intýmnu atmosféru.",
+        "tags": ["dekorácie", "malé svadby", "inšpirácie"]
+      },
+      "en": {
+        "title": "Wedding Decorations for Small Celebrations",
+        "description": "Inspiration and tips for decorations for intimate weddings.",
+        "excerpt": "Inspiration and tips for decorations for intimate weddings. How to create a romantic atmosphere without unnecessary expenses.",
+        "date": "2026-02-28",
+        "readTime": "6 min read",
+        "content": "Small weddings have their unmistakable charm and intimate atmosphere.",
+        "tags": ["decorations", "small weddings", "inspiration"]
+      },
+      "image": "decorMain"
+    }
+  ]
+}
