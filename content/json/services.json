@@ -3,20 +3,20 @@
     "packages": [
       {
         "name": "Malá pomoc",
-        "price": "40 €",
+        "price": "39 €",
         "description": "Jasné nasmerovanie a odporúčania pre nevestu na začiatku.",
         "features": ["1 konzultácia (60 min)", "moodboard", "odporúčanie dekorácií"]
       },
       {
         "name": "Svadba základ",
-        "price": "150–200 €",
+        "price": "149–199 €",
         "description": "Najčastejšia voľba — poriadok v prípravách a dodávateľoch.",
         "recommended": true,
         "features": ["2–3 konzultácie", "návrh výzdoby a moodboard", "harmonogram príprav", "odporúčanie dodávateľov"]
       },
       {
         "name": "Kompletná príprava",
-        "price": "200–300 €",
+        "price": "199–299 €",
         "description": "Kompletná príprava a koordinácia detailov.",
         "features": ["3–4 konzultácie", "návrh výzdoby a moodboard", "harmonogram + hry", "obvolanie dodávateľov", "QR RSVP formulár"]
       }
@@ -30,12 +30,12 @@
       {
         "title": "Prenájom inventáru a dekorácií",
         "price": "Cenník v sekcii",
-        "description": "Klubové taniere, chiavari stoličky, okrúhle stoly, svietniky a iný svadobný inventár.",
+        "description": "Zrkadlá, zlaté príbory, zlaté svietniky a iný svadobný inventár.",
         "link": "prenajom-dekoracii"
       },
       {
         "title": "Rozlúčka so slobodou",
-        "price": "od 40 €",
+        "price": "od 39 €",
         "description": "Koncept, program a tipy na aktivity v balíkoch Basic a Premium."
       },
       {
@@ -49,20 +49,10 @@
         "description": "QR formulár a zber odpovedí hostí. Hostia jednoducho naskenujú kód z oznámenia a potvrdia účasť, diéty či ubytovanie. Vy máte všetko v prehľadnej tabuľke bez stresu z obvolávania."
       },
       {
-        "title": "Profesionálne čistenie",
-        "price": "od 25 €",
-        "description": "Zabezpečíme odborné vyčistenie vašich svadobných alebo spoločenských šiat po akcii."
-      },
-      {
         "title": "Komisný predaj šiat",
         "price": "Individuálne",
         "description": "Pomôžeme vám predať vaše svadobné šaty ďalšej neveste — u nás v salóne.",
         "link": "komisny-predaj"
-      },
-      {
-        "title": "Doplnky pre pánov",
-        "price": "od 10 €",
-        "description": "Prenájom a predaj motýlikov, trakov a iných doplnkov pre dokonalý pár."
       }
     ]
   },
@@ -70,20 +60,20 @@
     "packages": [
       {
         "name": "Event Styling",
-        "price": "40 €",
+        "price": "39 €",
         "description": "Perfect for students or guests who need help with their overall event look.",
         "features": ["1 styling session (60 min)", "color palette & accessories", "vendor recommendations"]
       },
       {
         "name": "Event Basic",
-        "price": "150–200 €",
+        "price": "149–199 €",
         "description": "Most popular choice for smaller events, balls and celebrations.",
         "recommended": true,
         "features": ["2–3 planning sessions", "decoration proposal and moodboard", "preparation timeline", "budget optimization tips"]
       },
       {
         "name": "Full Coordination",
-        "price": "200–300 €",
+        "price": "199–299 €",
         "description": "Complete stress-free preparation for your wedding or big event.",
         "features": ["3–4 consultations", "decoration proposal and moodboard", "timeline + entertainment plan", "vendor coordination", "online guest management (RSVP)"]
       }
@@ -97,13 +87,13 @@
       {
         "title": "Rental of Inventory & Decorations",
         "price": "Price list in section",
-        "description": "Club plates, Chiavari chairs, round tables, candle holders and other wedding inventory.",
+        "description": "Mirrors, gold cutlery, gold candle holders, and other wedding inventory.",
         "link": "prenajom-dekoracii"
       },
       {
-        "title": "Student Events & Julebord",
-        "price": "from 40 €",
-        "description": "Planning, program and styling tips for student balls and parties."
+        "title": "Bachelorette Party",
+        "price": "from 39 €",
+        "description": "Concept, program, and activity tips in our Basic and Premium packages."
       },
       {
         "title": "Custom Party Supplies",
@@ -116,20 +106,10 @@
         "description": "QR code on invitations and online form for your guests. They can confirm attendance, diet requirements or accommodation with one click. You get a perfect overview in a table."
       },
       {
-        "title": "Professional Cleaning",
-        "price": "from 25 €",
-        "description": "We provide professional cleaning for your wedding or evening dresses after the event."
-      },
-      {
         "title": "Dress Consignment",
         "price": "Individual",
         "description": "We help you sell your wedding dress to another bride right in our salon.",
         "link": "komisny-predaj"
-      },
-      {
-        "title": "Men's Accessories",
-        "price": "from 10 €",
-        "description": "Rental and sale of bow ties, suspenders and other accessories for a perfect couple."
       }
     ]
   }
