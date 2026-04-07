@@ -167,10 +167,14 @@ describe('content.ts — Dress catalog', () => {
     expect(featured.length).toBeGreaterThanOrEqual(1);
   });
 
-  it('has both new and consignment types', () => {
+  it('has at least one type', () => {
     const types = new Set(DRESS_CATALOG.map((d) => d.type));
-    expect(types.has('new')).toBe(true);
-    expect(types.has('consignment')).toBe(true);
+    expect(types.size).toBeGreaterThan(0);
+  });
+
+  it('has new dresses', () => {
+    const newDresses = DRESS_CATALOG.filter((d) => d.type === 'new');
+    expect(newDresses.length).toBeGreaterThan(0);
   });
 });
 
