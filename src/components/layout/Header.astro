@@ -36,7 +36,7 @@ const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingP
   <nav class="container mx-auto flex h-[4.5rem] items-center justify-between px-4">
     <a href={isEn ? '/en' : '/'} class="group flex items-center gap-3" aria-label="MagicRoom">
       <div class="h-11 w-11 overflow-hidden rounded-full shadow-[var(--shadow-xl)]">
-        <img src={logoImg.src} alt="Logo" class="h-full w-full object-cover" width="44" height="44" />
+        <Image src={logoImg} alt="Logo" class="h-full w-full object-cover" width={44} height={44} />
       </div>
       <div class="hidden lg:block">
         <span class="block font-display text-[1.45rem] leading-none">MagicRoom</span>
@@ -74,7 +74,7 @@ const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingP
   <div id="menu-panel" class="absolute top-0 right-0 h-full w-[300px] bg-background shadow-xl transition-transform duration-300 ease-out overflow-y-auto" style="transform: translateX(100%);">
     <div class="flex items-center justify-between border-b border-border p-5">
       <div class="flex items-center gap-3">
-        <img src={logoImg.src} alt="MagicRoom" class="h-10 w-10 rounded-full object-cover" />
+        <Image src={logoImg} alt="MagicRoom" class="h-10 w-10 rounded-full object-cover" />
         <div>
           <span class="block font-display text-xl font-semibold">MagicRoom</span>
           <span class="block text-[10px] uppercase tracking-[0.28em] text-muted-foreground">bridal concierge • Martin</span>
