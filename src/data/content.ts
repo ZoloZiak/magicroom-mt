@@ -61,17 +61,20 @@ export const IMAGE_URLS = {
 } as const;
 
 // Dynamic asset loaders
-const galleryImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/gallery/*.{jpeg,jpg,png}', { eager: true });
-const dressImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/dresses/*.{jpeg,jpg,png}', { eager: true });
-const decorationImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/decorations/*.{jpeg,jpg,png}', { eager: true });
+const galleryImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/gallery/*.{jpeg,jpg,png,JPG,JPEG,PNG}', { eager: true });
+const dressImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/dresses/*.{jpeg,jpg,png,JPG,JPEG,PNG}', { eager: true });
+const decorationImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/decorations/*.{jpeg,jpg,png,JPG,JPEG,PNG}', { eager: true });
 
 function getDynamicImage(glob: Record<string, any>, filename: string) {
   const match = Object.entries(glob).find(([path]) => {
      const normalizedPath = path.replace(/\\/g, '/');
-     const nameWithoutExt = filename.replace(/\.(jpeg|jpg|png)$/, '');
+     const nameWithoutExt = filename.replace(/\.(jpeg|jpg|png|JPG|JPEG|PNG)$/, '');
      return normalizedPath.endsWith('/' + nameWithoutExt + '.jpg') || 
             normalizedPath.endsWith('/' + nameWithoutExt + '.jpeg') || 
             normalizedPath.endsWith('/' + nameWithoutExt + '.png') ||
+            normalizedPath.endsWith('/' + nameWithoutExt + '.JPG') ||
+            normalizedPath.endsWith('/' + nameWithoutExt + '.JPEG') ||
+            normalizedPath.endsWith('/' + nameWithoutExt + '.PNG') ||
             normalizedPath.endsWith('/' + filename);
   });
   return match ? (match[1] as any).default : null;
