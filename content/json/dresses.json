@@ -53,31 +53,6 @@
       "details": "Čisté línie, nadčasová"
     },
     {
-      "id": "romanticky-zavoj",
-      "name": "Romantický závoj",
-      "description": "Dlhý závoj, jemné zdobenie. Ideálne pre kostol.",
-      "price": 200,
-      "size": "42",
-      "type": "consignment",
-      "status": "available",
-      "color": "biely",
-      "style": "romantický",
-      "featured": false,
-      "details": "Dlhý závoj, jemné zdobenie"
-    },
-    {
-      "id": "minimalistka",
-      "name": "Minimalistka",
-      "description": "Čisté šaty bez zdobenia. Pre moderné nevesty.",
-      "price": 180,
-      "size": "36",
-      "type": "consignment",
-      "status": "reserved",
-      "color": "biela",
-      "style": "minimalistická",
-      "featured": false
-    },
-    {
       "id": "trblietave-saty",
       "name": "Trblietavé svadobné šaty",
       "description": "Nádherné šaty, ktoré zažiaria na každom svetle.",
@@ -115,7 +90,7 @@
     },
     {
       "id": "svadba-saty3",
-      "name": "Svadobné šaty Model 2",
+      "name": "Svadobné šaty Model 3",
       "description": "Tu dopíš popis týchto konkrétnych šiat.",
       "price": 480,
       "size": "36",
@@ -125,5 +100,5 @@
       "style": "boho",
       "featured": false
     }
-    ]
-  }
+  ]
+}
