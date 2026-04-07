@@ -1,6 +1,32 @@
 {
   "dresses": [
     {
+      "id": "elegantna-cipka",
+      "name": "Elegantná čipka",
+      "description": "Čipkovaný vrch, áčková sukňa, jemný ružový tón.",
+      "price": 350,
+      "size": "38",
+      "type": "new",
+      "status": "available",
+      "color": "ružová",
+      "style": "elegantná",
+      "featured": true,
+      "details": "Čipka, áčková sukňa"
+    },
+    {
+      "id": "boho-princezna",
+      "name": "Boho princezná",
+      "description": "Voľné boho šaty s jemným zdobením.",
+      "price": 280,
+      "size": "36",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "boho",
+      "featured": true,
+      "details": "Voľná sukňa, jemné zdobenie"
+    },
+    {
       "id": "fialovy-sen",
       "name": "Fialový sen",
       "description": "Netradičné fialové šaty pre odvážne nevesty.",
@@ -27,6 +53,31 @@
       "details": "Čisté línie, nadčasová"
     },
     {
+      "id": "romanticky-zavoj",
+      "name": "Romantický závoj",
+      "description": "Dlhý závoj, jemné zdobenie. Ideálne pre kostol.",
+      "price": 200,
+      "size": "42",
+      "type": "consignment",
+      "status": "available",
+      "color": "biely",
+      "style": "romantický",
+      "featured": false,
+      "details": "Dlhý závoj, jemné zdobenie"
+    },
+    {
+      "id": "minimalistka",
+      "name": "Minimalistka",
+      "description": "Čisté šaty bez zdobenia. Pre moderné nevesty.",
+      "price": 180,
+      "size": "36",
+      "type": "consignment",
+      "status": "reserved",
+      "color": "biela",
+      "style": "minimalistická",
+      "featured": false
+    },
+    {
       "id": "trblietave-saty",
       "name": "Trblietavé svadobné šaty",
       "description": "Nádherné šaty, ktoré zažiaria na každom svetle.",
@@ -37,42 +88,6 @@
       "color": "biela",
       "style": "princeznovská",
       "featured": true
-    },
-    {
-      "id": "svadba-saty1",
-      "name": "Svadobné šaty Model 1",
-      "description": "Tu dopíš krátky popis šiat, napríklad: Elegantné šaty s dlhou vlečkou.",
-      "price": 450,
-      "size": "38",
-      "type": "new",
-      "status": "available",
-      "color": "biela",
-      "style": "klasická",
-      "featured": false
-    },
-    {
-      "id": "svadba-saty2",
-      "name": "Svadobné šaty Model 2",
-      "description": "Tu dopíš popis týchto konkrétnych šiat.",
-      "price": 480,
-      "size": "36",
-      "type": "new",
-      "status": "available",
-      "color": "krémová",
-      "style": "boho",
-      "featured": false
-    },
-    {
-      "id": "svadba-saty3",
-      "name": "Svadobné šaty Model 2",
-      "description": "Tu dopíš popis týchto konkrétnych šiat.",
-      "price": 480,
-      "size": "36",
-      "type": "new",
-      "status": "available",
-      "color": "krémová",
-      "style": "boho",
-      "featured": false
     }
-    ]
-  }
+  ]
+}
