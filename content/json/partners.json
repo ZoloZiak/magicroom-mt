@@ -1,34 +1,46 @@
 {
   "partners": [
     {
-      "name": "Fotograf Peter Drak",
+      "name": "Fotograf/Fotobúdka Peter Drak",
       "category": "Fotografia",
       "description": "Zachytáva momenty s citom pre detail a prirodzenosť.",
       "link": "https://fotodrak.sk/"
     },
     {
-      "name": "Kameraman",
+      "name": "Kameraman h.r.i.c.k.e.s",
       "category": "Video",
       "description": "Profesionálny záznam vášho dňa plný emócií.",
-      "link": "https://example.sk"
+      "link": "https://www.instagram.com/h.r.i.c.k.e.s/"
     },
     {
       "name": "Starejší",
       "category": "Zábava",
       "description": "Zabezpečenie plynulého priebehu svadby a zábavy.",
-      "link": "https://example.sk"
+      "link": "https://www.facebook.com/profile.php?id=100063528823524"
     },
     {
-      "name": "Krajčírky",
-      "category": "Služby",
-      "description": "Úprava šiat na mieru priamo pre vás.",
-      "link": "https://example.sk"
-    },
-    {
-      "name": "Fotokútik",
+      "name": "DJ Minco",
       "category": "Zábava",
-      "description": "Okamžitá pamiatka pre vás a vašich hostí.",
-      "link": "https://example.sk"
+      "description": "Viac ako 15 rokov skúseností so svadobnou zábavou po celom Slovensku."
+      "link": "https://www.instagram.com/djminco/"
+    },
+    {
+      "name": "DJ Lukáš Matej",
+      "category": "Zábava",
+      "description": "Profesionálna hudobná produkcia a skvelá zábava pre vašu svadobnú noc.",
+      "link": "https://www.djlukasmatej.sk/"
+    },
+     {
+      "name": "DJ Jakub Viktor Dolinaj",
+      "category": "Zábava",
+      "description": "Kvalitná hudba a moderovanie vašej svadby na profesionálnej úrovni."",
+      "link": "https://www.facebook.com/Jakub.DJ.Dolinaj"
+    },
+      {
+      "name": "Profesionálny Barman Miroslav Klačanský",
+      "category": "Zábava",
+      "description": "Prvotriedny barmanský servis, ktorý prinesie chuť luxusu a elegancie na vašu svadbu.",
+      "link": "https://www.instagram.com/miroslavklacansky/"
     }
   ],
   "categories": ["Fotografia", "Video", "Zábava", "Služby", "Catering", "Floristika", "DJ", "Koláče", "Výzdoba"]
