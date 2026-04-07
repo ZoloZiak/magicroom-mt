@@ -34,7 +34,7 @@ const siteInfo = {
   services: [
     {
       name: 'Skúška svadobných šiat',
-      price: '12 €',
+      price: '15 €',
       duration: '60 min',
     },
     {
@@ -43,7 +43,7 @@ const siteInfo = {
     },
     {
       name: 'Spoločenské šaty',
-      priceRange: '12–150 €',
+      priceRange: '15–150 €',
     },
     {
       name: 'Prenájom dekorácií',

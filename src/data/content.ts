@@ -81,13 +81,13 @@ function getDynamicImage(glob: Record<string, any>, filename: string) {
 }
 
 export const HOME_STATS = [
-  { value: '12 €', label: 'skúška svadobných šiat s nápojom v cene' },
+  { value: '15 €', label: 'skúška svadobných šiat s nápojom v cene' },
   { value: '200–700 €', label: 'svadobné šaty (nové aj komis)' },
   { value: 'Martin', label: 'osobný salón v budove Detský sen' },
 ] as const;
 
 export const HOME_STATS_EN = [
-  { value: '12 €', label: 'formal dress fitting with drink included' },
+  { value: '15 €', label: 'formal dress fitting with drink included' },
   { value: '12–150 €', label: 'gala, prom & party dresses' },
   { value: 'Martin', label: 'personal salon in the Detský sen building' },
 ] as const;
@@ -95,7 +95,7 @@ export const HOME_STATS_EN = [
 export const HOME_OFFER_CARDS = [
   {
     title: 'Skúška svadobných šiat',
-    price: '12 € / 60 min',
+    price: '15 € / 60 min',
     description: 'Pokojná skúška s nápojom v cene, priestorom pre dve osoby a časom na výber bez stresu.',
     href: '/kontakt#booking',
     cta: 'Rezervovať termín',
@@ -146,7 +146,7 @@ export const HOME_OFFER_CARDS = [
 export const HOME_OFFER_CARDS_EN = [
   {
     title: 'Formal dress fitting',
-    price: '12 € / 60 min',
+    price: '15 € / 60 min',
     description: 'Calm fitting for your prom, gala or event dress. Drink included.',
     href: '/en/kontakt#booking',
     cta: 'Book a time',

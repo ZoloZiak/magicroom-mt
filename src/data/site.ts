@@ -4,7 +4,7 @@ import { getRelativeHref } from '@/lib/translations';
 export const SITE_URL = 'https://www.magicroom.sk';
 export const SITE_NAME = 'MagicRoom';
 export const DEFAULT_DESCRIPTION =
-  'Malý osobný svadobný salón v Martine. Svadobné šaty 200–700 €, skúška 12 € (v cene nápoj), komis, dekorácie. Ceny vidíte hneď.';
+  'Malý osobný svadobný salón v Martine. Svadobné šaty 200–700 €, skúška 15 € (v cene nápoj), komis, dekorácie. Ceny vidíte hneď.';
 export const DEFAULT_KEYWORDS = 'svadobné šaty, svadobný salón, Martin, Turiec, svadobné šaty Martin, svadobné šaty predaj, skúška svadobných šiat, svadobné dekorácie, komisné svadobné šaty';
 
 export const PHONE_DISPLAY = '+421 950 490 323';
