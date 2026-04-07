@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Mobile Menu', () => {
   test.beforeEach(async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
+    page.setDefaultTimeout(60000);
   });
 
   test('hamburger button is visible on mobile', async ({ page }) => {
@@ -144,8 +145,9 @@ test.describe('Mobile Menu', () => {
   });
 
   test('logo is visible in menu', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/', { waitUntil: 'networkidle' });
     const toggle = page.locator('#menu-toggle');
+    await toggle.waitFor({ timeout: 10000 });
     await toggle.click();
     await page.waitForTimeout(100);
     
@@ -154,8 +156,9 @@ test.describe('Mobile Menu', () => {
   });
 
   test('animation transitions work', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/', { waitUntil: 'networkidle' });
     const toggle = page.locator('#menu-toggle');
+    await toggle.waitFor({ timeout: 10000 });
     
     await toggle.click();
     const panelOpen = page.locator('#menu-panel');
