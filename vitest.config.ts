@@ -6,6 +6,12 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     include: ['testing/**/*.test.{ts,js}'],
+    pool: 'forks',
+    poolOptions: {
+      forks: {
+        singleFork: false,
+      },
+    },
     coverage: {
       provider: 'v8',
       include: ['src/data/**/*.ts', 'src/lib/**/*.ts'],
