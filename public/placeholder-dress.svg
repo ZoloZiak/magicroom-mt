@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none" class="w-full h-full bg-muted rounded-2xl">
+  <rect width="400" height="300" fill="#f5f5f5"/>
+  <path d="M200 80c-16.5 0-30 13.5-30 30v40c0 16.5 13.5 30 30 30s30-13.5 30-30v-40c0-16.5-13.5-30-30-30z" stroke="#9ca3af" stroke-width="2" fill="none"/>
+  <path d="M140 200c0-33.1 26.9-60 60-60s60 26.9 60 60" stroke="#9ca3af" stroke-width="2" fill="none"/>
+  <circle cx="200" cy="100" r="8" fill="#ef4444"/>
+  <text x="200" y="250" text-anchor="middle" fill="#6b7280" font-family="system-ui" font-size="14">Výkričník — chýba obrázok</text>
+</svg>
