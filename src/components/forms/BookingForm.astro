@@ -45,71 +45,80 @@ const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňt
   </div>
 
   <form class="space-y-6" data-booking-form data-ga-category="conversion" data-ga-action="booking_form_submit" data-ga-label="booking_form" novalidate>
-    <div class="grid gap-5 md:grid-cols-2">
-      <div class="space-y-2">
-        <Label for={`${id}-name`}>{labels.name}</Label>
-        <Input className="form-input" id={`${id}-name`} name="name" autocomplete="name" placeholder={labels.namePlaceholder} />
+    <fieldset class="space-y-6 border-0 p-0 m-0">
+      <legend class="sr-only">{labels.reservation}</legend>
+      <div class="grid gap-5 md:grid-cols-2">
+        <div class="space-y-2">
+          <Label for={`${id}-name`}>{labels.name}</Label>
+          <Input className="form-input" id={`${id}-name`} name="name" autocomplete="name" placeholder={labels.namePlaceholder} required aria-required="true" />
+        </div>
+
+        <div class="space-y-2">
+          <Label for={`${id}-phone`}>{labels.phone}</Label>
+          <Input
+            className="form-input"
+            id={`${id}-phone`}
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            placeholder={labels.phonePlaceholder}
+            required
+            aria-required="true"
+          />
+        </div>
+
+        <div class="space-y-2">
+          <Label for={`${id}-email`}>{labels.email}</Label>
+          <Input
+            className="form-input"
+            id={`${id}-email`}
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder={labels.emailPlaceholder}
+            required
+            aria-required="true"
+          />
+        </div>
+
+        <div class="space-y-2">
+          <Label for={`${id}-service`}>{labels.service}</Label>
+          <select
+            id={`${id}-service`}
+            name="service"
+            class="form-input flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            required
+            aria-required="true"
+          >
+            <option value="">{labels.serviceSelect}</option>
+            {labels.serviceOptions.map(opt => (
+              <option value={opt}>{opt}</option>
+            ))}
+          </select>
+        </div>
+
+        <div class="space-y-2">
+          <Label for={`${id}-date`}>{labels.date}</Label>
+          <Input className="form-input" id={`${id}-date`} name="date" type="date" min={new Date().toISOString().split('T')[0]} />
+        </div>
+
+        <div class="space-y-2">
+          <Label for={`${id}-time`}>{labels.time}</Label>
+          <Input className="form-input" id={`${id}-time`} name="time" placeholder={labels.timePlaceholder} />
+        </div>
       </div>
 
       <div class="space-y-2">
-        <Label for={`${id}-phone`}>{labels.phone}</Label>
-        <Input
+        <Label for={`${id}-note`}>{labels.note}</Label>
+        <Textarea
           className="form-input"
-          id={`${id}-phone`}
-          name="phone"
-          type="tel"
-          autocomplete="tel"
-          placeholder={labels.phonePlaceholder}
+          id={`${id}-note`}
+          name="note"
+          rows={4}
+          placeholder={labels.notePlaceholder}
         />
       </div>
-
-      <div class="space-y-2">
-        <Label for={`${id}-email`}>{labels.email}</Label>
-        <Input
-          className="form-input"
-          id={`${id}-email`}
-          name="email"
-          type="email"
-          autocomplete="email"
-          placeholder={labels.emailPlaceholder}
-        />
-      </div>
-
-      <div class="space-y-2">
-        <Label for={`${id}-service`}>{labels.service}</Label>
-        <select
-          id={`${id}-service`}
-          name="service"
-          class="form-input flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-        >
-          <option value="">{labels.serviceSelect}</option>
-          {labels.serviceOptions.map(opt => (
-            <option value={opt}>{opt}</option>
-          ))}
-        </select>
-      </div>
-
-      <div class="space-y-2">
-        <Label for={`${id}-date`}>{labels.date}</Label>
-        <Input className="form-input" id={`${id}-date`} name="date" type="date" min={new Date().toISOString().split('T')[0]} />
-      </div>
-
-      <div class="space-y-2">
-        <Label for={`${id}-time`}>{labels.time}</Label>
-        <Input className="form-input" id={`${id}-time`} name="time" placeholder={labels.timePlaceholder} />
-      </div>
-    </div>
-
-    <div class="space-y-2">
-      <Label for={`${id}-note`}>{labels.note}</Label>
-      <Textarea
-        className="form-input"
-        id={`${id}-note`}
-        name="note"
-        rows={4}
-        placeholder={labels.notePlaceholder}
-      />
-    </div>
+    </fieldset>
 
     <div class="rounded-2xl bg-primary-900 px-5 py-4 text-sm text-white/80">
       <p class="font-medium text-white">{labels.priceInfo}</p>
@@ -156,7 +165,9 @@ const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňt
 
       if (button) {
         button.setAttribute('disabled', 'true');
-        button.innerHTML = `<svg class="mr-2 h-4 w-4 animate-spin inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> ${labels.submitting}`;
+        button.setAttribute('aria-busy', 'true');
+        const originalText = button.textContent;
+        button.innerHTML = `<svg class="mr-2 h-4 w-4 animate-spin inline" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> <span>${labels.submitting}</span>`;
       }
 
       try {
@@ -224,6 +235,7 @@ const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňt
 
       if (button) {
         button.removeAttribute('disabled');
+        button.removeAttribute('aria-busy');
         button.textContent = labels.submit;
       }
     });
