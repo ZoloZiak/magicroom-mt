@@ -44,11 +44,20 @@
 
 ---
 
-## Fotka
+## Fotka (VEĽMI DÔLEŽITÉ!)
 
 1. Choď do `content/images/dresses/`
-2. Nahraj fotku ako `nazov-siat.jpg` (alebo `.png`)
-3. Názov fotky = `id` v JSON súbore.
+2. Nahraj fotku - **názov musí byť rovnaký ako `id` v JSON!**
+3. Príklad: ak je `"id": "moje-saty"`, fotka musí byť `moje-saty.jpg` alebo `moje-saty.png`
+
+**Dôležité:** 
+- ID a názov fotky musia presne sedieť
+- Podporované formáty: `.jpg`, `.jpeg`, `.png` (veľké aj malé písmená)
+- Ak fotka chýba, zobrazí sa biely placeholder
+
+**Aktuálne chýbajúce fotky:**
+- romanticky-zavoj
+- minimalistka
 
 ---
 
