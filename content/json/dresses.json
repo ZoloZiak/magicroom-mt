@@ -40,8 +40,8 @@
     },
     {
       "id": "svadba-saty1",
-      "name": "Svadobné šaty Model 1",
-      "description": "Tu dopíš krátky popis šiat, napríklad: Elegantné šaty s dlhou vlečkou.",
+      "name": "Kráľovská vlečka",
+      "description": "Elegantné šaty s dlhou vlečkou a jemným zdobením.",
       "price": 450,
       "size": "38",
       "type": "new",
@@ -52,26 +52,26 @@
     },
     {
       "id": "svadba-saty2",
-      "name": "Svadobné šaty Model 2",
-      "description": "Tu dopíš popis týchto konkrétnych šiat.",
+      "name": "Jemná zmyselnosť",
+      "description": "Romantické šaty s čipkou a volánovou sukňou.",
       "price": 480,
       "size": "36",
       "type": "new",
       "status": "available",
       "color": "krémová",
-      "style": "boho",
+      "style": "romantická",
       "featured": false
     },
     {
       "id": "svadba-saty3",
-      "name": "Svadobné šaty Model 3",
-      "description": "Tu dopíš popis týchto konkrétnych šiat.",
+      "name": "Jednoduchá krása",
+      "description": "Čistý minimalistický strih s jemným pásom.",
       "price": 480,
       "size": "36",
       "type": "new",
       "status": "available",
-      "color": "krémová",
-      "style": "boho",
+      "color": "biela",
+      "style": "minimalistická",
       "featured": false
     }
   ]
