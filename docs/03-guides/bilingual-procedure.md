@@ -8,90 +8,55 @@ The website targets two audiences:
 1. **Slovak customers** — local market in Martin/Turiec region
 2. **Norwegian students** — international customers studying in Slovakia, targeting via EN version
 
-Every change to the Slovak version MUST be mirrored to the English version.
+Every change to the Slovak version MUST be mirrored to the English version. In the current Astro 6 implementation, this is handled via a dynamic routing system `[lang]`.
+
+## Why Target English?
+
+Based on our **[Research on Norwegian Students](../01-specs/research/norwegian-students.md)**, there is a significant community of international students in Martin (specifically at Jessenius Faculty of Medicine). The English version of the website specifically targets:
+- **Formal Wear:** Proms, Galas, and the traditional "Julebord" (Christmas parties).
+- **Ease of Access:** Providing English-friendly booking via WhatsApp.
 
 ---
 
-## Procedure: Modifying Any Page
+## Procedure: Modifying Content
 
-### Step 1: Identify the File Pair
+### Step 1: Translations File
 
-| Slovak File | English File |
-|-------------|--------------|
-| `src/pages/index.astro` | `src/pages/en/index.astro` |
-| `src/pages/sluzby.astro` | `src/pages/en/sluzby.astro` |
-| `src/pages/o-nas.astro` | `src/pages/en/o-nas.astro` |
-| `src/pages/kontakt.astro` | `src/pages/en/kontakt.astro` |
-| `src/pages/svadobne-saty.astro` | `src/pages/en/svadobne-saty.astro` |
-| `src/pages/komisny-predaj.astro` | `src/pages/en/komisny-predaj.astro` |
-| `src/pages/prenajom-dekoracii.astro` | `src/pages/en/prenajom-dekoracii.astro` |
-| `src/pages/blog/index.astro` | `src/pages/en/blog/index.astro` |
-| `src/pages/blog/svadobne-trendy-2026.astro` | `src/pages/en/blog/wedding-trends-2026.astro` |
+The primary source of text content is now `src/lib/translations.ts`. 
 
-### Step 2: Modify Both Files
+1. Open `src/lib/translations.ts`.
+2. Update the `sk` object for Slovak content.
+3. Update the `en` object for English content.
+4. Ensure both objects have the same keys (enforced by the `Translations` interface).
 
-When editing any Slovak page:
-1. Open both the SK and EN files
-2. Apply the same content changes to EN version
-3. Translate all text content (headings, descriptions, buttons, etc.)
-4. Keep URLs pointing to `/en/*` for internal links
+### Step 2: Dynamic Routing `[lang]`
 
-### Step 3: Update Data Layer
+We use a single template for both languages located in `src/pages/[lang]/`. 
 
-If adding new **content text** (not just code changes):
+- `src/pages/[lang]/index.astro` handles both `/` and `/en`.
+- `src/pages/[lang]/[...rest].astro` handles all other pages (e.g., `/sluzby` and `/en/services`).
 
-**Option A: Use existing `_EN` constants**
-- Edit `src/data/content.ts` — find the corresponding `_EN` constant and update
-- Example: If modifying `SERVICE_PACKAGES`, also update `SERVICE_PACKAGES_EN`
+You rarely need to modify individual files for both languages unless you are adding a completely new page.
 
-**Option B: Create new `_EN` constant if doesn't exist**
+### Step 3: Slug Mapping
+
+If you add a new page, update the slug mapping in `src/lib/i18n.ts`:
+
 ```typescript
-// In src/data/content.ts
-export const MY_FEATURE = [...] // Slovak version
-
-export const MY_FEATURE_EN = [...] // English version
+export const SLUG_MAP: Record<string, string> = {
+  'sluzby': 'services',
+  'kontakt': 'contact',
+  // Add your new page here: 'sk-slug': 'en-slug'
+};
 ```
-
-If changing **navigation or links**:
-- Edit `src/data/site.ts` — update both `NAV_LINKS` and `NAV_LINKS_EN`
-
-### Step 4: Update Components (if needed)
-
-If the page uses Header/Footer:
-- Slovak pages: Use `Header.astro`, `Footer.astro`
-- English pages: Use `HeaderEn.astro`, `FooterEn.astro`
-
-If the page uses BookingForm:
-- Pass `language="sk"` or `language="en"` prop
-
-### Step 5: Verify Build & Tests
-
-```bash
-# Build
-npm run build
-
-# Unit tests
-npm run test
-
-# E2E tests  
-npm run test:e2e
-```
-
-All tests must pass for both SK and EN versions.
 
 ---
 
 ## Adding New Pages
 
-When adding a new page to the Slovak version:
-
-1. Create `src/pages/new-page.astro` (Slovak)
-2. Create `src/pages/en/new-page.astro` (English)
-3. Add navigation link to `site.ts`:
-   - `NAV_LINKS` for Slovak
-   - `NAV_LINKS_EN` for English
-4. Add breadcrumbs to both pages
-5. Run build and tests
+1. Add the new SK slug and its EN translation to `SLUG_MAP` in `src/lib/i18n.ts`.
+2. Add the content to both `sk` and `en` objects in `src/lib/translations.ts`.
+3. If the page requires a custom layout, create a new template in `src/components/templates/`.
 
 ---
 
@@ -126,13 +91,12 @@ Before committing, verify:
 
 | Change Type | Files to Update |
 |-------------|-----------------|
-| Page content | `page.astro` + `en/page.astro` |
-| Navigation links | `site.ts` (NAV_LINKS + NAV_LINKS_EN) |
-| Footer content | `Footer.astro` + `FooterEn.astro` |
-| Header content | `Header.astro` + `HeaderEn.astro` |
-| Booking form | `BookingForm.astro` (language prop) |
-| Data/content text | `content.ts` (+ `_EN` constant) |
-| Contact info | `site.ts` (PHONE_*, EMAIL_*, etc.) |
+| Text content | `src/lib/translations.ts` |
+| URL / Slugs | `src/lib/i18n.ts` |
+| Page structure | `src/pages/[lang]/*` or `src/components/templates/*` |
+| Navigation links | `src/data/site.ts` |
+| Booking form logic | `src/components/forms/BookingForm.astro` |
+| Data/images | `src/data/content.ts` |
 
 ---
 

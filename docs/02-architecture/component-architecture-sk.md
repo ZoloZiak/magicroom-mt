@@ -5,10 +5,11 @@
 ### Voľba: Astro + shadcn/ui
 
 **Odôvodnenie:**
-- Astro = rýchlosť (zero JS predvolene) + SSR keď je potrebné
-- shadcn/ui = overené komponenty + customizácia cez Tailwind
-- Tailwind = štylovanie (už v shadcn)
-- Resend = email pre rezervácie
+- Astro = rýchlosť (zero JS predvolene) + SSR pre API
+- shadcn/ui = overené komponenty + customizácia cez Tailwind v4
+- Tailwind v4 = CSS-first engine, vysoký výkon
+- Resend = mailing servis pre rezervácie
+- Vercel Edge Runtime = minimálna latencia pre API
 
 ### Štruktúra projektu
 
@@ -19,40 +20,33 @@
 │   │   ├── ui/              # shadcn/ui komponenty (vybrané)
 │   │   ├── blocks/          # Sekcie/bloky (Hero, Services, etc.)
 │   │   ├── forms/           # Formuláre (Contact, Reservation)
-│   │   └── layout/          # Navigácia, Footer, Container
+│   │   ├── layout/          # Navigácia, Footer, Container
+│   │   └── templates/       # Šablóny pre i18n
 │   │
 │   ├── layouts/
 │   │   └── Layout.astro
 │   │
 │   ├── pages/
-│   │   ├── index.astro      # Homepage
-│   │   ├── o-nas.astro
-│   │   ├── sluzby.astro
-│   │   ├── komisny-predaj.astro
-│   │   ├── prenajom-dekoracii.astro
-│   │   └── kontakt.astro
+│   │   ├── [lang]/          # Dynamický routing pre SK/EN
+│   │   ├── api/             # Edge API (booking, info)
+│   │   ├── index.astro      # Root redirect na [lang]
+│   │   └── 404.astro
 │   │
 │   ├── lib/
-│   │   ├── supabase.ts      # Supabase client
-│   │   ├── utils.ts         # cn() helper
-│   │   └── validations.ts   # Zod schemas
+│   │   ├── i18n.ts          # i18n logika
+│   │   ├── schemas.ts       # Zod validácie
+│   │   ├── translations.ts  # Preklady
+│   │   └── utils.ts         # cn() helper
 │   │
 │   └── styles/
-│       └── globals.css
+│       └── global.css       # Tailwind v4 main file
+│
+├── content/                 # CRM-like source of truth (JSON, images)
+│   ├── json/                # Dáta (šaty, služby, dekór)
+│   └── tutorials/           # Návody pre správu obsahu
 │
 ├── public/
-│   └── images/
-
-### Optimalizácia obrázkov
-- Astro automaticky lazy-loaduje obrázky (<img loading="lazy">)
-- Formát: WebP s fallbackom na JPEG/PNG
-- Rozmery: max 800px šírka pre galériu, 1200px pre hero
-- Kompresia: 80% kvalita
-│
-├── supabase/
-│   └── migrations/          # Database schema
-│
-└── components.json          # shadcn/ui config
+│   └── assets/              # Fonts, icons
 ```
 
 ---
