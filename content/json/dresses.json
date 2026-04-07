@@ -1,32 +1,6 @@
 {
   "dresses": [
     {
-      "id": "elegantna-cipka",
-      "name": "Elegantná čipka",
-      "description": "Čipkovaný vrch, áčková sukňa, jemný ružový tón.",
-      "price": 350,
-      "size": "38",
-      "type": "new",
-      "status": "available",
-      "color": "ružová",
-      "style": "elegantná",
-      "featured": true,
-      "details": "Čipka, áčková sukňa"
-    },
-    {
-      "id": "boho-princezna",
-      "name": "Boho princezná",
-      "description": "Voľné boho šaty s jemným zdobením.",
-      "price": 280,
-      "size": "36",
-      "type": "new",
-      "status": "available",
-      "color": "biela",
-      "style": "boho",
-      "featured": true,
-      "details": "Voľná sukňa, jemné zdobenie"
-    },
-    {
       "id": "fialovy-sen",
       "name": "Fialový sen",
       "description": "Netradičné fialové šaty pre odvážne nevesty.",
