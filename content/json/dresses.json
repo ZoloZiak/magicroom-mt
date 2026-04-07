@@ -76,18 +76,18 @@
       "color": "biela",
       "style": "minimalistická",
       "featured": false
+    },
+    {
+      "id": "trblietave-saty",
+      "name": "Trblietavé svadobné šaty",
+      "description": "Nádherné šaty, ktoré zažiaria na každom svetle.",
+      "price": 500,
+      "size": "40",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "princeznovská",
+      "featured": true
     }
   ]
-},
-{
-  "id": "trblietave-saty",
-  "name": "Trblietavé svadobné šaty",
-  "description": "Nádherné šaty, ktoré zažiaria na každom svetle.",
-  "price": 500,
-  "size": "40",
-  "type": "new",
-  "status": "available",
-  "color": "biela",
-  "style": "princeznovská",
-  "featured": true
 }
