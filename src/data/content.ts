@@ -403,7 +403,12 @@ export const PARTNERS = partnersData.partners;
 export const PARTNER_CATEGORIES = partnersData.categories;
 
 export const DRESS_CATALOG = dressesData.dresses.map(dress => {
-  const img = getDynamicImage(dressImages, dress.id + '.png');
+  const extensions = ['.png', '.jpg', '.jpeg', '.JPG', '.JPEG', '.PNG'];
+  let img = null;
+  for (const ext of extensions) {
+    img = getDynamicImage(dressImages, dress.id + ext);
+    if (img) break;
+  }
   return {
     ...dress,
     imageAsset: img as ImageMetadata,
