@@ -7,8 +7,7 @@
   },
   "overrides": {
     "path-to-regexp": "^8.0.0",
-    "defu": "^6.1.6",
-    "vite": "^6.0.0"
+    "defu": "^6.1.6"
   },
   "scripts": {
     "dev": "astro dev",
