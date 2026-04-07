@@ -1,5 +1,7 @@
 # MagicRoom — SPEC.md
-## Špecifikácia projektu: Nová stránka AstroJS + shadcn/ui + Supabase
+## Špecifikácia projektu: Astro 6 + Tailwind v4 + Edge API
+
+> **Poznámka k technologickému stacku (Update 2026-04):** Pôvodný plán využitia Supabase bol nahradený statickým generovaním (SSG) s dátami v JSON súboroch pre maximálnu rýchlosť a Edge API trasami pre dynamické funkcie (rezervácie). Styling bol migrovaný na Tailwind v4.
 
 ---
 
