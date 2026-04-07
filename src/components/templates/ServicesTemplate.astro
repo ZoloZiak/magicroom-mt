@@ -73,32 +73,18 @@ const servicesSchema = [
         description: pkg.description,
         price: pkg.price.replace(/[^0-9]/g, ''),
         priceCurrency: 'EUR',
-        availability: 'https://schema.org/InStock',
       },
     })),
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: isEn ? 'Wedding Dress Services' : 'Svadobné služby',
-    description: isEn ? 'Wedding dress fitting and styling services' : 'Skúška a výber svadobných šiat',
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'MagicRoom',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Martin',
-        addressCountry: 'SK',
-      },
-    },
-  },
 ];
+
+const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].imageAsset) : IMAGE_URLS.hero;
 ---
 
 <Layout
   title={t.services.pageTitle}
   description={t.services.pageDescription}
-  image={IMAGE_URLS.dresses}
+  image={servicesOgImage}
   structuredData={servicesSchema}
   breadcrumbs={[
     { name: t.nav.home, url: isEn ? '/en' : '/' },

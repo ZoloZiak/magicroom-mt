@@ -23,6 +23,7 @@ const t = getTranslations(language);
 const isEn = language === 'en';
 
 const dresses = DRESS_CATALOG;
+const firstDressImage = dresses[0]?.imageAsset ? String(dresses[0].imageAsset) : IMAGE_URLS.hero;
 
 const productSchema = dresses.map((dress) => ({
   '@context': 'https://schema.org',
@@ -43,7 +44,7 @@ const productSchema = dresses.map((dress) => ({
 <Layout
   title={t.dresses.pageTitle}
   description={t.dresses.pageDescription}
-  image={IMAGE_URLS.dresses}
+  image={firstDressImage}
   structuredData={productSchema}
   breadcrumbs={[
     { name: t.nav.home, url: isEn ? '/en' : '/' },
