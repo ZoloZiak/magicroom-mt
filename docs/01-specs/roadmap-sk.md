@@ -98,14 +98,14 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 | Task | Odhadovaný čas | Osoba |
 |------|---------------|-------|
 | Projekt Astro + config | 2h | Dev |
-| Tailwind + shadcn setup | 1h | Dev |
+| Tailwind v4 + shadcn setup | 1h | Dev |
 | Layout components | 3h | Dev |
 | Homepage | 4h | Dev |
 | Podstránky (5x) | 6h | Dev |
-| Supabase setup | 2h | Dev |
+| API & Edge (Resend) | 2h | Dev |
 | Kontaktný formulár | 3h | Dev |
 | SEO basics | 2h | Dev |
-| Testovanie | 3h | Dev |
+| Testovanie (Vitest + PW) | 3h | Dev |
 | **Total** | **~26h** | |
 
 ### Fáza 2 — Konverzia
@@ -125,21 +125,21 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 ## 3. Závislosti
 
 ```
-Projekt Astro
+Projekt Astro 6.x
     ↓
-Tailwind + shadcn
+Tailwind v4 + shadcn
     ↓
 Layout (Header, Footer)
     ↓
-Supabase setup
+Edge API setup (Resend)
     ↓
 Stránky (Homepage + 5 podstránok)
     ↓
-Formuláre
+Formuláre (Zod validácia)
     ↓
 SEO + Analytics
     ↓
-Testovanie + Deploy
+Testovanie (Sharding) + Deploy
 ```
 
 ---
@@ -148,10 +148,10 @@ Testovanie + Deploy
 
 | Riziko | Pravdepodobnosť | Vplyv | Mitigácia |
 |--------|-----------------|-------|-----------|
-| Meškanie Supabase | Nízke | Stredné | Fallback: formulár mailto |
-| Problémy s mobilnosťou | Stredné | Vysoké | Testy na skutočných zariadeniach |
+| Meškanie Edge API (Resend) | Nízke | Stredné | Fallback: WhatsApp / direct mail |
+| Problémy s responzivitou | Stredné | Vysoké | Testy na skutočných zariadeniach |
 | Zložitosť shadcn pre dev | Stredné | Nízke | Dokumentácia shadcn |
-| Fotky/assets | Vysoké | Stredné | Placeholder images, stock |
+| Fotky/assets od klienta | Vysoké | Stredné | Placeholder images, stock |
 
 ---
 
@@ -160,15 +160,15 @@ Testovanie + Deploy
 ### MVP považovaný za hotový, keď:
 
 - [x] Všetky podstránky fungujú a sú responzívne
-- [x] Kontaktný formulár posiela email cez Resend
+- [x] Kontaktný formulár posiela email cez Resend (Edge)
 - [x] Navigácia funguje na mobile (hamburger menu)
 - [x] CTA viditeľné na každej podstránke
 - [x] Meta tagy nastavené pre každú stránku
 - [x] Sitemap.xml generovaný automaticky
-- [x] Lighthouse score > 80 (mobile)
+- [x] Lighthouse score > 90 (mobile)
 - [x] Žiadne chyby JavaScript v konzole
-- [x] Odkazy na social media fungujú
-- [x] Google Business Profile založené
+- [x] Odkazy na sociálne siete fungujú
+- [x] Google Business Profile založený
 
 ---
 
@@ -178,22 +178,22 @@ Testovanie + Deploy
 
 | Kategória | Výber | Odôvodnenie |
 |-----------|-------|-------------|
-| Framework | Astro 5.x | Rýchlosť, SSR islands, komunita |
-| UI Library | shadcn/ui | Komponenty, Tailwind, prispôsobenie |
-| Backend | Supabase | PostgreSQL, Auth, Storage, Edge Functions |
-| Styling | Tailwind CSS | Prispôsobenie, shadcn integrácia |
-| Hosting | Vercel | Astro native, CDN, bezplatný tier |
+| Framework | Astro 6.x | Rýchlosť, SSR islands, komunita |
+| UI Library | shadcn/ui | Komponenty, Tailwind v4, prispôsobenie |
+| Backend | Resend + Edge Runtime | Emailing, rýchlosť, bezpečnosť (Vercel) |
+| Styling | Tailwind v4 | CSS-first engine, @tailwindcss/vite |
+| Hosting | Vercel | Astro native, Edge Functions, bezplatný tier |
 | Forms | Astro Actions + Zod | Type-safe, server-side validácia |
-| Analytics | Vercel Analytics / Plausible | Jednoduchosť, súkromie |
+| Analytics | GA4 + Vercel Analytics | Konverzie, jednoduchosť, súkromie |
 
 ### Zvážené alternatívy:
 
 | Kategória | Alternatíva | Prečo nie |
 |-----------|-------------|-----------|
-| CMS | Sanity / Contentful | Overkill pre malú stránku |
-| Form backend | Formspree / Basin | Chceme vlastné dáta v Supabase |
-| Hosting | Netlify | Vercel lepší pre Astro |
-| Analytics | Google Analytics 4 | Cookie banners, súkromie |
+| CMS | Sanity / Contentful | Overkill pre malú stránku, CRM-like /content stačí |
+| Database | Supabase | Nateraz postačuje JSON v /content/ + Resend |
+| Hosting | Netlify | Vercel lepší pre Astro Edge Runtime |
+| Analytics | Plausible / Umami | GA4 už nakonfigurované s konverziami |
 
 ---
 
@@ -205,7 +205,7 @@ Testovanie + Deploy
 |--------|------|---------|
 | Vercel | Hobby | 0€ |
 | Resend | Free tier (100 emails/deň) | 0€ |
-| Supabase (budúcnosť) | Free tier | 0€ |
+| Google Analytics | Free | 0€ |
 | Doména (magicroom.sk) | .sk doména | ~15€/rok |
 | SSL | V cene hostingu | 0€ |
 | **Total** | | **~15€/rok** |
@@ -223,9 +223,9 @@ Testovanie + Deploy
 ## 8. Budúci upgrade — Supabase / insforge.dev
 
 Ak počet rezervácií prekročí možnosti emailu (viac ako ~10/deň), pridáme:
-- **Supabase** alebo **insforge.dev** ako backend pre formulár
+- **Supabase** ako databázu pre uchovávanie rezervácií
 - Dashboard pre Natáliu na správu rezervácií
-- Online kalendár rezervácií
+- Online kalendár rezervácií (napr. Calendly integrácia)
 - Automatické potvrdzovanie termínov
 
 Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
@@ -234,11 +234,8 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 
 ## 9. Ďalšie kroky
 
-1. **Schválenie špecifikácie** — review SPEC.md
-2. **Rozhodnutie: Hosting** — Vercel vs iný
-3. **Supabase project** — založenie a schéma
-4. **Design mockupy** — ak potrebné pred kódovaním
-5. **Začatie Fázy 1** — development
+10. **Založenie produkčných účtov** — Resend, Vercel atď.
+11. **Final audit** — kontrola pred spustením
 
 ---
 
@@ -246,61 +243,37 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 
 ### ✅ HOTOVÉ
 
+| Komponent | Status | Dátum |
+|-----------|--------|-------|
+| Astro 6.x upgrade | ✅ DONE | 2026-04-06 |
+| Tailwind v4 migration | ✅ DONE | 2026-04-06 |
+| Vercel Edge Runtime | ✅ DONE | 2026-04-06 |
+| Zod validation (schemas) | ✅ DONE | 2026-04-06 |
+| CI/CD Optimization (Sharding) | ✅ DONE | 2026-04-06 |
+| Content management decision | ✅ DONE | 2026-04-06 |
+| i18n Consolidation | ✅ DONE | 2026-04-06 |
+| Homepage (SK + EN) | ✅ DONE | 2026-04-03 |
+| Služby, O nás, Kontakt (SK + EN) | ✅ DONE | 2026-04-03 |
+| Svadobné šaty (Katalóg) | ✅ DONE | 2026-04-03 |
+| Blog (SK + EN) | ✅ DONE | 2026-04-03 |
+| Kontaktný formulár (Edge API) | ✅ DONE | 2026-04-06 |
+| WhatsApp FAB | ✅ DONE | |
+| SEO (Hreflang, Schema.org) | ✅ DONE | |
+| Google Business Profile | ✅ DONE | |
+| GA4 Konverzie | ✅ DONE | |
+| E2E & Unit Tests (High coverage) | ✅ DONE | 2026-04-06 |
+| LLM-friendly robots.txt | ✅ DONE | |
+
+### 🇬🇧 ANGLICKÁ VERZIA
+
 | Komponent | Status |
 |-----------|--------|
-| Astro 6.x upgrade | ✅ DONE | 2026-04-06 |
-| Tailwind v4 migration | ✅ DONE | @tailwindcss/vite |
-| Vercel Edge Runtime | ✅ DONE | /api/booking & /api/info |
-| CI/CD Optimization | ✅ DONE | Sharding + Caching |
-| Content management decision | ✅ DONE | Ponechaný /content (CRM-like) |
-| Astro projekt + Tailwind | ✅ DONE |
-| shadcn/ui setup | ✅ DONE |
-| Layout (Header, Footer) | ✅ DONE |
-| Homepage (SK) | ✅ DONE |
-| /o-nas + breadcrumbs | ✅ DONE |
-| /sluzby + breadcrumbs | ✅ DONE |
-| /komisny-predaj | ✅ DONE |
-| /prenajom-dekoracii | ✅ DONE |
-| /kontakt + breadcrumbs | ✅ DONE |
-| /svadobne-saty + breadcrumbs | ✅ DONE |
-| /blog | ✅ DONE |
-| /404 stránka | ✅ DONE |
-| Kontaktný formulár (Resend) | ✅ DONE |
-| WhatsApp FAB | ✅ DONE |
-| SEO (meta, sitemap, Schema.org) | ✅ DONE |
-| Breadcrumbs navigácia | ✅ DONE |
-| Social proof (Google recenzie) | ✅ DONE |
-| Google Analytics 4 | ✅ DONE |
-| GA4 konverzie (phone, email, WhatsApp, form) | ✅ DONE |
-| Google Business Profile | ✅ DONE |
-| E2E tests (121) | ✅ DONE | 2026-04-06 |
-| Unit tests (69) | ✅ DONE | 2026-04-06 |
-| CI workflow | ✅ DONE |
-| Dress catalog CMS (JSON) | ✅ DONE |
-| Mobile menu (clean code) | ✅ DONE | 2026-04-06 |
-| Mobile menu E2E tests (15) | ✅ DONE | 2026-04-06 |
-| DEFAULT_KEYWORDS | ✅ DONE | 2026-04-06 |
-| LLM-friendly robots.txt | ✅ DONE | GPTBot, Claude, etc. |
-
-### 🇬🇧 ANGLICKÁ VERZIA (2026-04-03)
-
-| Komponent | Status | Poznámky |
-|-----------|--------|----------|
-| EN Homepage (/en) | ✅ DONE | Norwegian students targeting |
-| EN /sluzby | ✅ DONE | |
-| EN /o-nas | ✅ DONE | |
-| EN /kontakt | ✅ DONE | |
-| EN /svadobne-saty | ✅ DONE | |
-| EN /komisny-predaj | ✅ DONE | |
-| EN /prenajom-dekoracii | ✅ DONE | |
-| EN /blog | ✅ DONE | |
-| EN blog posts | ✅ DONE | 3 articles |
-| EN Header (HeaderEn.astro) | ✅ DONE | |
-| EN Footer (FooterEn.astro) | ✅ DONE | |
-| LanguageSwitcher | ✅ DONE | SK/EN toggle |
-| EN translations (content.ts) | ✅ DONE | All content |
-| EN data exports (site.ts) | ✅ DONE | NAV_LINKS_EN, etc. |
-| BookingForm multilang | ✅ DONE | language prop |
+| EN Routing ([lang]) | ✅ DONE |
+| EN Translations (site.ts) | ✅ DONE |
+| EN Content (posts, dresses) | ✅ DONE |
+| LanguageSwitcher component | ✅ DONE |
+| EN Header & Footer | ✅ DONE |
+| BookingForm i18n support | ✅ DONE |
 
 ### 🔲 NEROBIŤ (nízka priorita)
 
