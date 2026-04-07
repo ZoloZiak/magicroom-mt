@@ -88,6 +88,18 @@
       "color": "biela",
       "style": "princeznovská",
       "featured": true
+    },
+    {
+      "id": "svadba-saty1",
+      "name": "Svadobné šaty Model 1",
+      "description": "Tu dopíš krátky popis šiat, napríklad: Elegantné šaty s dlhou vlečkou.",
+      "price": 450,
+      "size": "38",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "klasická",
+      "featured": false
     }
-  ]
-}
+    ]
+  }
