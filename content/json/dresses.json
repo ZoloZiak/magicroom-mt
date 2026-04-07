@@ -3,15 +3,15 @@
     {
       "id": "fialovy-sen",
       "name": "Fialová vášeň",
-      "description": "Odvážne fialové šaty s výrazným výstrihom a dlhou vlečkou pre nevesty, ktoré sa neboja vyniknúť.",
+      "description": "Odvážne šaty v jemnom levandulovom odtieni s výrazným výstrihom a dlhou vlečkou pre nevesty, ktoré sa neboja vyniknúť.",
       "price": 450,
       "size": "40",
       "type": "new",
       "status": "available",
-      "color": "fialová",
+      "color": "levandulová",
       "style": "moderná",
       "featured": true,
-      "details": "Výrazná farba, dlhá vlečka"
+      "details": "Jemná levandulová, dlhá vlečka"
     },
     {
       "id": "klasicka-biela",
