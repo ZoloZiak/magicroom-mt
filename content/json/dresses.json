@@ -100,6 +100,30 @@
       "color": "biela",
       "style": "klasická",
       "featured": false
+    },
+    {
+      "id": "svadba-saty2",
+      "name": "Svadobné šaty Model 2",
+      "description": "Tu dopíš popis týchto konkrétnych šiat.",
+      "price": 480,
+      "size": "36",
+      "type": "new",
+      "status": "available",
+      "color": "krémová",
+      "style": "boho",
+      "featured": false
+    },
+    {
+      "id": "svadba-saty3",
+      "name": "Svadobné šaty Model 2",
+      "description": "Tu dopíš popis týchto konkrétnych šiat.",
+      "price": 480,
+      "size": "36",
+      "type": "new",
+      "status": "available",
+      "color": "krémová",
+      "style": "boho",
+      "featured": false
     }
     ]
   }
