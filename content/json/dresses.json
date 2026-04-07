@@ -2,8 +2,8 @@
   "dresses": [
     {
       "id": "fialovy-sen",
-      "name": "Fialový sen",
-      "description": "Netradičné fialové šaty pre odvážne nevesty.",
+      "name": "Fialová vášeň",
+      "description": "Odvážne fialové šaty s výrazným výstrihom a dlhou vlečkou pre nevesty, ktoré sa neboja vyniknúť.",
       "price": 450,
       "size": "40",
       "type": "new",
@@ -11,12 +11,12 @@
       "color": "fialová",
       "style": "moderná",
       "featured": true,
-      "details": "Fialová, netradičné"
+      "details": "Výrazná farba, dlhá vlečka"
     },
     {
       "id": "klasicka-biela",
-      "name": "Klasická biela",
-      "description": "Čisté línie, nadčasová elegancia.",
+      "name": "Nadčasová čistota",
+      "description": "Klasické biele šaty s čistými líniami, jednoduchým strihom a elegantným dizajnom.",
       "price": 550,
       "size": "38",
       "type": "new",
@@ -24,55 +24,59 @@
       "color": "biela",
       "style": "klasická",
       "featured": false,
-      "details": "Čisté línie, nadčasová"
+      "details": "Čisté línie, nadčasový strih"
     },
     {
       "id": "trblietave-saty",
-      "name": "Trblietavé svadobné šaty",
-      "description": "Nádherné šaty, ktoré zažiaria na každom svetle.",
+      "name": "Strieborná rozprávka",
+      "description": "Šaty posypané jemnými flitrami, ktoré sa trbletajú pri každom pohybe ako hviezdy na nebi.",
       "price": 500,
       "size": "40",
       "type": "new",
       "status": "available",
       "color": "biela",
       "style": "princeznovská",
-      "featured": true
+      "featured": true,
+      "details": "Flitre, lesklá tkanina"
     },
     {
       "id": "svadba-saty1",
       "name": "Kráľovská vlečka",
-      "description": "Elegantné šaty s dlhou vlečkou a jemným zdobením.",
+      "description": "Elegantné šaty s dlhou vlečkou a jemným zdobením po celej dĺžke.",
       "price": 450,
       "size": "38",
       "type": "new",
       "status": "available",
       "color": "biela",
       "style": "klasická",
-      "featured": false
+      "featured": false,
+      "details": "Dlhá vlečka, jemné zdobenie"
     },
     {
       "id": "svadba-saty2",
       "name": "Jemná zmyselnosť",
-      "description": "Romantické šaty s čipkou a volánovou sukňou.",
+      "description": "Romantické šaty s čipkou na výstrihu a volánovou sukňou pre nežný vzhľad.",
       "price": 480,
       "size": "36",
       "type": "new",
       "status": "available",
       "color": "krémová",
       "style": "romantická",
-      "featured": false
+      "featured": false,
+      "details": "Čipka, volánová sukňa"
     },
     {
       "id": "svadba-saty3",
       "name": "Jednoduchá krása",
-      "description": "Čistý minimalistický strih s jemným pásom.",
+      "description": "Moderné minimalistické šaty s čistým strihom a jemným saténovým pásom.",
       "price": 480,
       "size": "36",
       "type": "new",
       "status": "available",
       "color": "biela",
       "style": "minimalistická",
-      "featured": false
+      "featured": false,
+      "details": "Čistý strih, saténový pás"
     }
   ]
 }
