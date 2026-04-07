@@ -12,6 +12,8 @@ import ComplaintPolicyTemplate from '@/components/templates/ComplaintPolicyTempl
 import BlogIndexTemplate from '@/components/templates/BlogIndexTemplate.astro';
 import BlogPostTemplate from '@/components/templates/BlogPostTemplate.astro';
 
+import { getBlogPosts } from '@/data/content';
+
 const TEMPLATES = {
   about: AboutTemplate,
   services: ServicesTemplate,
@@ -49,16 +51,15 @@ export async function getStaticPaths() {
   paths.push({ params: { lang: 'sk', rest: 'blog' }, props: { type: 'index' } });
   paths.push({ params: { lang: 'en', rest: 'blog' }, props: { type: 'index' } });
 
-  // Blog posts
-  const posts = [
-    { sk: 'svadobne-trendy-2026', en: 'wedding-trends-2026' },
-    { sk: 'ako-zvolit-svadobne-saty', en: 'wedding-dresses-how-to-choose' },
-    { sk: 'svadobne-dekoracie-na-male-oslavy', en: 'wedding-decorations-small-celebrations' },
-  ];
+  // Blog posts from JSON
+  const skPosts = getBlogPosts('sk');
+  const enPosts = getBlogPosts('en');
 
-  for (const post of posts) {
-    paths.push({ params: { lang: 'sk', rest: `blog/${post.sk}` }, props: { type: 'post', skSlug: post.sk } });
-    paths.push({ params: { lang: 'en', rest: `blog/${post.en}` }, props: { type: 'post', skSlug: post.en } });
+  for (const post of skPosts) {
+    paths.push({ params: { lang: 'sk', rest: `blog/${post.skSlug}` }, props: { type: 'post', skSlug: post.skSlug } });
+  }
+  for (const post of enPosts) {
+    paths.push({ params: { lang: 'en', rest: `blog/${post.enSlug}` }, props: { type: 'post', skSlug: post.enSlug } });
   }
 
   return paths;
