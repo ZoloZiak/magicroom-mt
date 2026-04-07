@@ -18,7 +18,7 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 
 | Komponent | Status | Poznámky |
 |-----------|--------|----------|
-| Astro projekt + Tailwind | DONE | |
+| Astro projekt + Tailwind v4 | DONE | Vite plugin @tailwindcss/vite |
 | shadcn/ui setup | DONE | |
 | Layout (Header, Footer) | DONE | WhatsApp button vždy viditeľný |
 | Homepage | DONE | |
@@ -27,7 +27,7 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 | /komisny-predaj | DONE | |
 | /prenajom-dekoracii | DONE | |
 | /kontakt | DONE | |
-| Kontaktný formulár | DONE | Email cez Resend |
+| Kontaktný formulár | DONE | Email cez Resend (Edge Runtime) |
 | WhatsApp FAB | DONE | Floating button |
 | Blog | DONE | |
 | SEO basics | DONE | Meta tags, sitemap, Schema.org |
@@ -39,6 +39,8 @@ MagicRoom je malý salón s jednou osobou. Stránka má byť jednoduchá, prehľ
 | Jazykové prepínanie (i18n) | ✅ DONE | Consistently using translations.ts |
 | Refaktoring Header/Footer | DONE | Zjednotená logika cez preklady |
 | SEO Hreflang | DONE | Prepojenie SK/EN verzií |
+| API Safety & Edge | ✅ DONE | Zod validácia + Vercel Edge Runtime |
+| CI/CD Optimization | ✅ DONE | Playwright sharding + caching |
 
 ### Fáza 2: Konverzia (1 týždeň)
 
@@ -240,12 +242,17 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 
 ---
 
-## 10. Aktuálny stav (2026-04-03)
+## 10. Aktuálny stav (2026-04-07)
 
 ### ✅ HOTOVÉ
 
 | Komponent | Status |
 |-----------|--------|
+| Astro 6.x upgrade | ✅ DONE | 2026-04-06 |
+| Tailwind v4 migration | ✅ DONE | @tailwindcss/vite |
+| Vercel Edge Runtime | ✅ DONE | /api/booking & /api/info |
+| CI/CD Optimization | ✅ DONE | Sharding + Caching |
+| Content management decision | ✅ DONE | Ponechaný /content (CRM-like) |
 | Astro projekt + Tailwind | ✅ DONE |
 | shadcn/ui setup | ✅ DONE |
 | Layout (Header, Footer) | ✅ DONE |
@@ -371,4 +378,4 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 ---
 
 *Document created: 2026-04-01*
-*Version: 1.3 - 2026-04-06*
+*Version: 1.4 - 2026-04-07*
