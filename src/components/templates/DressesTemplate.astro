@@ -70,17 +70,17 @@ const productSchema = dresses.map((dress) => ({
 
     <section class="py-16 md:py-24 bg-white">
       <div class="container mx-auto px-4">
-        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {dresses.map((dress) => (
-            <div class="group overflow-hidden rounded-[32px] border border-border/50 bg-white transition-all hover:shadow-2xl">
+            <div class="group overflow-hidden rounded-[24px] border border-border/50 bg-white transition-all hover:shadow-xl">
               <div class="relative aspect-[3/4] overflow-hidden bg-white">
                 {dress.imageAsset ? (
                   <Image
                     src={dress.imageAsset}
                     alt={dress.name}
                     class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    width={600}
-                    height={800}
+                    width={400}
+                    height={533}
                   />
                 ) : (
                   <div class="h-full w-full bg-white" />
