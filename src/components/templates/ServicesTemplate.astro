@@ -68,11 +68,14 @@ const servicesSchema = [
       '@type': 'ListItem',
       position: i + 1,
       item: {
-        '@type': 'Offer',
+        '@type': 'Service',
         name: pkg.name,
         description: pkg.description,
-        price: pkg.price.replace(/[^0-9]/g, ''),
-        priceCurrency: 'EUR',
+        offers: {
+          '@type': 'Offer',
+          price: pkg.price.replace(/[^0-9]/g, ''),
+          priceCurrency: 'EUR',
+        },
       },
     })),
   },
