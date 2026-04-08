@@ -398,9 +398,16 @@ export function getGalleryItems(lang: Language) {
     .filter(item => item.src !== null);
 }
 
-export const PARTNERS = partnersData.partners;
+export function getPartners(lang: Language) {
+  return lang === 'sk' ? partnersData.sk.partners : partnersData.en.partners;
+}
 
-export const PARTNER_CATEGORIES = partnersData.categories;
+export function getPartnerCategories(lang: Language) {
+  return partnersData.categories[lang];
+}
+
+export const PARTNERS = getPartners('sk');
+export const PARTNER_CATEGORIES = getPartnerCategories('sk');
 
 export const DRESS_CATALOG = dressesData.dresses.map(dress => {
   const extensions = ['.png', '.jpg', '.jpeg', '.JPG', '.JPEG', '.PNG'];

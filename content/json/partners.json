@@ -1,47 +1,98 @@
 {
-  "partners": [
-    {
-      "name": "Fotograf/Fotobúdka Peter Drak",
-      "category": "Fotografia",
-      "description": "Zachytáva momenty s citom pre detail a prirodzenosť.",
-      "link": "https://fotodrak.sk/"
-    },
-    {
-      "name": "Kameraman h.r.i.c.k.e.s",
-      "category": "Video",
-      "description": "Profesionálny záznam vášho dňa plný emócií.",
-      "link": "https://www.instagram.com/h.r.i.c.k.e.s/"
-    },
-    {
-      "name": "Starejší Vladko",
-      "category": "Zábava",
-      "description": "Zabezpečenie plynulého priebehu svadby a zábavy.",
-      "link": "https://www.facebook.com/profile.php?id=100063528823524"
-    },
-    {
-      "name": "DJ Minco",
-      "category": "Zábava",
-      "description": "Viac ako 15 rokov skúseností so svadobnou zábavou po celom Slovensku.",
-      "link": "https://www.instagram.com/djminco/"
-    },
-    {
-      "name": "DJ Lukáš Matej",
-      "category": "Zábava",
-      "description": "Profesionálna hudobná produkcia a skvelá zábava pre vašu svadobnú noc.",
-      "link": "https://www.djlukasmatej.sk/"
-    },
-     {
-      "name": "DJ Jakub Viktor Dolinaj",
-      "category": "Zábava",
-      "description": "Kvalitná hudba a moderovanie vašej svadby na profesionálnej úrovni.",
-      "link": "https://www.facebook.com/Jakub.DJ.Dolinaj"
-    },
+  "sk": {
+    "partners": [
       {
-      "name": "Profesionálny Barman Miroslav Klačanský",
-      "category": "Zábava",
-      "description": "Prvotriedny barmanský servis, ktorý prinesie chuť luxusu a elegancie na vašu svadbu.",
-      "link": "https://www.instagram.com/miroslavklacansky/"
-    }
-  ],
-  "categories": ["Fotografia", "Video", "Zábava", "Služby", "Catering", "Floristika", "DJ", "Koláče", "Výzdoba"]
+        "name": "Fotograf/Fotobúdka Peter Drak",
+        "category": "Fotografia",
+        "description": "Zachytáva momenty s citom pre detail a prirodzenosť.",
+        "link": "https://fotodrak.sk/"
+      },
+      {
+        "name": "Kameraman h.r.i.c.k.e.s",
+        "category": "Video",
+        "description": "Profesionálny záznam vášho dňa plný emócií.",
+        "link": "https://www.instagram.com/h.r.i.c.k.e.s/"
+      },
+      {
+        "name": "Starejší Vladko",
+        "category": "Zábava",
+        "description": "Zabezpečenie plynulého priebehu svadby a zábavy.",
+        "link": "https://www.facebook.com/profile.php?id=100063528823524"
+      },
+      {
+        "name": "DJ Minco",
+        "category": "Zábava",
+        "description": "Viac ako 15 rokov skúseností so svadobnou zábavou po celom Slovensku.",
+        "link": "https://www.instagram.com/djminco/"
+      },
+      {
+        "name": "DJ Lukáš Matej",
+        "category": "Zábava",
+        "description": "Profesionálna hudobná produkcia a skvelá zábava pre vašu svadobnú noc.",
+        "link": "https://www.djlukasmatej.sk/"
+      },
+      {
+        "name": "DJ Jakub Viktor Dolinaj",
+        "category": "Zábava",
+        "description": "Kvalitná hudba a moderovanie vašej svadby na profesionálnej úrovni.",
+        "link": "https://www.facebook.com/Jakub.DJ.Dolinaj"
+      },
+      {
+        "name": "Profesionálny Barman Miroslav Klačanský",
+        "category": "Zábava",
+        "description": "Prvotriedny barmanský servis, ktorý prinesie chuť luxusu a elegancie na vašu svadbu.",
+        "link": "https://www.instagram.com/miroslavklacansky/"
+      }
+    ]
+  },
+  "en": {
+    "partners": [
+      {
+        "name": "Photographer/Photobooth Peter Drak",
+        "category": "Photography",
+        "description": "Captures moments with a sense for detail and naturalness.",
+        "link": "https://fotodrak.sk/"
+      },
+      {
+        "name": "Videographer h.r.i.c.k.e.s",
+        "category": "Video",
+        "description": "Professional recording of your day full of emotions.",
+        "link": "https://www.instagram.com/h.r.i.c.k.e.s/"
+      },
+      {
+        "name": "Starejší Vladko",
+        "category": "Entertainment",
+        "description": "Ensuring smooth wedding proceedings and entertainment.",
+        "link": "https://www.facebook.com/profile.php?id=100063528823524"
+      },
+      {
+        "name": "DJ Minco",
+        "category": "Entertainment",
+        "description": "More than 15 years of experience with wedding entertainment across Slovakia.",
+        "link": "https://www.instagram.com/djminco/"
+      },
+      {
+        "name": "DJ Lukáš Matej",
+        "category": "Entertainment",
+        "description": "Professional music production and great entertainment for your wedding night.",
+        "link": "https://www.djlukasmatej.sk/"
+      },
+      {
+        "name": "DJ Jakub Viktor Dolinaj",
+        "category": "Entertainment",
+        "description": "Quality music and hosting your wedding at a professional level.",
+        "link": "https://www.facebook.com/Jakub.DJ.Dolinaj"
+      },
+      {
+        "name": "Professional Bartender Miroslav Klačanský",
+        "category": "Entertainment",
+        "description": "First-class bartending service that will bring luxury and elegance to your wedding.",
+        "link": "https://www.instagram.com/miroslavklacansky/"
+      }
+    ]
+  },
+  "categories": {
+    "sk": ["Fotografia", "Video", "Zábava", "Služby", "Catering", "Floristika", "DJ", "Koláče", "Výzdoba"],
+    "en": ["Photography", "Video", "Entertainment", "Services", "Catering", "Floristry", "DJ", "Cakes", "Decorations"]
+  }
 }
