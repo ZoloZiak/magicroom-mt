@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
@@ -53,7 +54,7 @@ const posts = getBlogPosts(language);
           {posts.map((post) => (
             <Card className="blog-card border-0 bg-white shadow-[var(--shadow-soft)] spring-hover rounded-[32px] overflow-hidden">
               <div class="overflow-hidden">
-                <img
+                <Image
                   src={post.image}
                   alt={post.title}
                   class="h-48 w-full object-cover transition-transform duration-300 hover:scale-105"

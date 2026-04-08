@@ -545,7 +545,7 @@ export function getBlogPosts(lang: Language) {
   return blogData.posts.map(post => {
     const p = lang === 'sk' ? post.sk : post.en;
     const imageKey = post.image as keyof typeof IMAGE_ASSETS | undefined;
-    const imageSrc = imageKey && IMAGE_ASSETS[imageKey] ? String(IMAGE_ASSETS[imageKey]) : String(IMAGE_ASSETS.dresses);
+    const imageAsset = imageKey && IMAGE_ASSETS[imageKey] ? IMAGE_ASSETS[imageKey] : IMAGE_ASSETS.dresses;
     return {
       slug: lang === 'sk' ? post.slug : post.enSlug,
       skSlug: post.slug,
@@ -557,7 +557,8 @@ export function getBlogPosts(lang: Language) {
       readTime: p.readTime,
       content: p.content,
       tags: p.tags,
-      image: imageSrc,
+      image: imageAsset,
+      imageSrc: String(imageAsset),
     };
   });
 }
