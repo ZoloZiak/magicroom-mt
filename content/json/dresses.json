@@ -11,7 +11,8 @@
       "color": "levandulová",
       "style": "moderná",
       "featured": true,
-      "details": "Jemná levandulová, dlhá vlečka"
+      "details": "Jemná levandulová, dlhá vlečka",
+      "images": ["fialovy-sen"]
     },
     {
       "id": "klasicka-biela",
@@ -24,7 +25,8 @@
       "color": "biela",
       "style": "klasická",
       "featured": false,
-      "details": "Čisté línie, nadčasový strih"
+      "details": "Čisté línie, nadčasový strih",
+      "images": ["klasicka-biela"]
     },
     {
       "id": "trblietave-saty",
@@ -37,7 +39,8 @@
       "color": "biela",
       "style": "princeznovská",
       "featured": true,
-      "details": "Flitre, lesklá tkanina"
+      "details": "Flitre, lesklá tkanina",
+      "images": ["trblietave-saty"]
     },
     {
       "id": "svadba-saty1",
@@ -50,7 +53,8 @@
       "color": "biela",
       "style": "klasická",
       "featured": false,
-      "details": "Dlhá vlečka, jemné zdobenie"
+      "details": "Dlhá vlečka, jemné zdobenie",
+      "images": ["svadba-saty1"]
     },
     {
       "id": "svadba-saty2",
@@ -63,7 +67,8 @@
       "color": "krémová",
       "style": "romantická",
       "featured": false,
-      "details": "Čipka, volánová sukňa"
+      "details": "Čipka, volánová sukňa",
+      "images": ["svadba-saty2"]
     },
     {
       "id": "svadba-saty3",
@@ -76,7 +81,8 @@
       "color": "biela",
       "style": "minimalistická",
       "featured": false,
-      "details": "Čistý strih, saténový pás"
+      "details": "Čistý strih, saténový pás",
+      "images": ["svadba-saty3"]
     }
   ]
 }

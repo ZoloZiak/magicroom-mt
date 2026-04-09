@@ -7,6 +7,7 @@ import Sparkles from '@/components/layout/Sparkles.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { DressCarousel } from '@/components/ui/dress-carousel';
 import { getBookingPageHref } from '@/data/site';
 import { DRESS_CATALOG, IMAGE_URLS } from '@/data/content';
 import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
@@ -23,7 +24,7 @@ const t = getTranslations(language);
 const isEn = language === 'en';
 
 const dresses = DRESS_CATALOG;
-const firstDressImage = dresses[0]?.imageAsset ? String(dresses[0].imageAsset) : IMAGE_URLS.hero;
+const firstDressImage = dresses[0]?.imageAsset?.src || IMAGE_URLS.hero;
 
 const productSchema = dresses.map((dress) => ({
   '@context': 'https://schema.org',
@@ -75,17 +76,11 @@ const productSchema = dresses.map((dress) => ({
           {dresses.map((dress) => (
             <div class="group overflow-hidden rounded-[24px] border border-border/50 bg-white transition-all hover:shadow-xl">
               <div class="relative aspect-[3/4] overflow-hidden bg-white">
-                {dress.imageAsset ? (
-                  <Image
-                    src={dress.imageAsset}
-                    alt={dress.name}
-                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    width={400}
-                    height={533}
-                  />
-                ) : (
-                  <div class="h-full w-full bg-white" />
-                )}
+                <DressCarousel 
+                  client:load 
+                  images={(dress.images || []).map(img => ({ src: img.src, width: 400, height: 533 }))} 
+                  name={dress.name} 
+                />
                 <div class="absolute right-4 top-4">
                   <Badge variant={dress.status === 'available' ? 'success' : 'outline'} className="backdrop-blur-md">
                     {dress.status === 'available' ? (isEn ? 'Available' : 'Dostupné') : (isEn ? 'Reserved' : 'Rezervované')}

@@ -19,7 +19,8 @@
       "status": "available",
       "color": "biela",
       "style": "elegantná",
-      "featured": true
+      "featured": true,
+      "images": ["nazov-siat"]
     }
   ]
 }
@@ -41,6 +42,7 @@
 | `color` | "biela" | Farba |
 | `style` | "elegantná" | Štýl |
 | `featured` | `true` / `false` | Zobraziť na úvodnej stránke? |
+| `images` | `["nazov-siat"]` | Pole s názvami fotiek (bez prípony) |
 
 ---
 
@@ -58,6 +60,31 @@
 **Aktuálne chýbajúce fotky:**
 - romanticky-zavoj
 - minimalistka
+
+---
+
+## Viac fotiek pre jedny šaty
+
+Ak máš viac fotiek jedných šiat, pridaj ich do poľa `images`:
+
+```json
+{
+  "id": "moje-saty",
+  "name": "Moje šaty",
+  ...
+  "images": ["moje-saty-1", "moje-saty-2", "moje-saty-3"]
+}
+```
+
+Potom nahraj všetky fotky do `content/images/dresses/` s názvami:
+- `moje-saty-1.jpg`
+- `moje-saty-2.jpg`
+- `moje-saty-3.jpg`
+
+**Funkcia:**
+- Pri hoveri na šaty sa zobrazia šípky vľavo/vpravo
+- Šípkami možno prechádzať medzi fotkami
+- Ak je len 1 fotka, šípky sa nezobrazia
 
 ---
 

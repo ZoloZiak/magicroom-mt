@@ -411,14 +411,19 @@ export const PARTNER_CATEGORIES = getPartnerCategories('sk');
 
 export const DRESS_CATALOG = dressesData.dresses.map(dress => {
   const extensions = ['.png', '.jpg', '.jpeg', '.JPG', '.JPEG', '.PNG'];
-  let img = null;
-  for (const ext of extensions) {
-    img = getDynamicImage(dressImages, dress.id + ext);
-    if (img) break;
-  }
+  const imageIds = dress.images || [dress.id];
+  const images = imageIds.map(imgId => {
+    for (const ext of extensions) {
+      const img = getDynamicImage(dressImages, imgId + ext);
+      if (img) return img as ImageMetadata;
+    }
+    return null;
+  }).filter(Boolean);
+  
   return {
     ...dress,
-    imageAsset: img as ImageMetadata,
+    images: images as ImageMetadata[],
+    imageAsset: images[0] as ImageMetadata,
     fallbackImage: WHITE_FALLBACK,
   };
 });
