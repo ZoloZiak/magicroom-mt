@@ -4,7 +4,7 @@ import { readFile } from 'fs/promises';
 import { join } from 'path';
 
 const decorPath = join(process.cwd(), 'content/json/decor.json');
-let decor = { sk: { categories: [], featured: [] }, en: { categories: [], featured: [] } };
+let decor = { sk: { categories: [], policies: [] }, en: { categories: [], policies: [] } };
 
 try {
   const content = await readFile(decorPath, 'utf-8');
@@ -12,33 +12,25 @@ try {
 } catch (e) {
   // File doesn't exist
 }
+
+const allItems = decor.sk.categories?.flatMap((cat: any) => cat.items) || [];
+const featuredCount = allItems.filter((item: any) => item.starred).length;
 ---
 
 <AdminLayout title="Dekorácie">
   <div class="flex items-center justify-between mb-8">
     <h1 class="text-3xl font-bold text-gray-900">🎀 Dekorácie</h1>
-    <button type="button" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-2xl font-medium hover:shadow-lg transition-all">
-      + Pridať položku
-    </button>
-  </div>
-
-  <!-- Featured Items -->
-  <div class="bg-white rounded-3xl shadow-xl border border-pink-100 p-6 mb-8">
-    <h2 class="text-lg font-semibold text-gray-900 mb-4">⭐ Vybrané dekorácie</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {decor.sk.featured?.map((item: any, i: number) => (
-        <div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-4 border border-pink-100">
-          <div class="text-2xl mb-2">{item.icon === 'frame' ? '🖼️' : item.icon === 'utensils' ? '🍰' : item.icon === 'lamp' ? '💡' : '🎁'}</div>
-          <h3 class="font-medium text-gray-900">{item.title}</h3>
-          <p class="text-pink-600 font-bold mt-1">{item.price}</p>
-        </div>
-      ))}
+    <div class="flex items-center gap-4">
+      <span class="text-sm text-gray-500">{featuredCount} vybraných</span>
+      <button type="button" onclick="saveChanges()" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-2xl font-medium hover:shadow-lg transition-all">
+        💾 Uložiť zmeny
+      </button>
     </div>
   </div>
 
   <!-- Categories -->
   <div class="space-y-6">
-    {decor.sk.categories?.map((category: any, i: number) => (
+    {decor.sk.categories?.map((category: any, catIdx: number) => (
       <div class="bg-white rounded-3xl shadow-xl border border-pink-100 overflow-hidden">
         <div class="bg-gradient-to-r from-pink-500 to-purple-500 px-6 py-4">
           <h2 class="text-lg font-semibold text-white">{category.category}</h2>
@@ -47,20 +39,26 @@ try {
           <table class="w-full">
             <thead>
               <tr class="border-b border-gray-200">
+                <th class="text-left py-3 text-sm font-medium text-gray-500">⭐</th>
                 <th class="text-left py-3 text-sm font-medium text-gray-500">Názov</th>
                 <th class="text-right py-3 text-sm font-medium text-gray-500">Cena</th>
-                <th class="text-center py-3 text-sm font-medium text-gray-500">Akcie</th>
               </tr>
             </thead>
             <tbody>
-              {category.items?.map((item: any, j: number) => (
+              {category.items?.map((item: any, itemIdx: number) => (
                 <tr class="border-b border-gray-100 hover:bg-pink-50/30 transition-colors">
+                  <td class="py-3">
+                    <button 
+                      type="button" 
+                      onclick={`toggleStar(${catIdx}, ${itemIdx})`}
+                      class={`text-2xl transition-transform hover:scale-125 ${item.starred ? 'text-yellow-400' : 'text-gray-300'}`}
+                      title={item.starred ? 'Odstrániť z vybraných' : 'Pridať medzi vybrané'}
+                    >
+                      {item.starred ? '⭐' : '☆'}
+                    </button>
+                  </td>
                   <td class="py-3 text-gray-900">{item.name}</td>
                   <td class="py-3 text-right font-medium text-pink-600">{item.price}</td>
-                  <td class="py-3 text-center">
-                    <button type="button" class="p-2 hover:bg-pink-50 rounded-lg transition-colors">✏️</button>
-                    <button type="button" class="p-2 hover:bg-red-50 rounded-lg transition-colors text-red-500">🗑️</button>
-                  </td>
                 </tr>
               ))}
             </tbody>
@@ -79,3 +77,32 @@ try {
     </div>
   )}
 </AdminLayout>
+
+<script define:vars={{ decorData: decor }}>
+  const decor = decorData;
+
+  window.toggleStar = function(catIdx, itemIdx) {
+    const item = decor.sk.categories[catIdx].items[itemIdx];
+    item.starred = !item.starred;
+    window.showToast(item.starred ? 'Pridané medzi vybrané!' : 'Odstránené z vybraných');
+  };
+
+  window.saveChanges = async function() {
+    try {
+      const response = await fetch('/api/admin/save-decor', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(decor)
+      });
+      
+      const result = await response.json();
+      if (result.success) {
+        window.showToast('Zmeny uložené!');
+      } else {
+        window.showToast(result.error || 'Chyba pri ukladaní', 'error');
+      }
+    } catch (err) {
+      window.showToast('Chyba pri ukladaní', 'error');
+    }
+  };
+</script>

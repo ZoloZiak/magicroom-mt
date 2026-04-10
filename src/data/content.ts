@@ -334,7 +334,20 @@ export function getExtraServices(lang: Language) {
 
 export function getDecorFeatured(lang: Language) {
   const data = lang === 'sk' ? decorData.sk : decorData.en;
-  return data.featured;
+  const featured: any[] = [];
+  for (const cat of data.categories) {
+    for (const item of cat.items) {
+      if (item.starred) {
+        const img = item.image ? (getDynamicImage(decorationImages, item.image)) : null;
+        featured.push({
+          ...item,
+          imageAsset: img,
+          fallbackImage: null
+        });
+      }
+    }
+  }
+  return featured;
 }
 
 export function getDecorCategories(lang: Language) {
