@@ -1,17 +1,11 @@
 import type { APIRoute } from 'astro';
 
-export const prerender = false;
-
 const GITHUB_API = 'https://api.github.com';
 const REPO_OWNER = 'ZoloZiak';
 const REPO_NAME = 'magicroom-mt';
 const BRANCH = 'main';
 
-export const POST: APIRoute = async ({ request, cookies }) => {
-  const session = cookies.get('admin-session');
-  if (!session?.value) {
-    return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
-  }
+export const POST: APIRoute = async ({ request }) => {
 
   try {
     const formData = await request.formData();

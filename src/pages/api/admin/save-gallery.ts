@@ -2,15 +2,9 @@ import type { APIRoute } from 'astro';
 import { writeFile } from 'fs/promises';
 import { join } from 'path';
 
-export const prerender = false;
-
 const GALLERY_PATH = join(process.cwd(), 'content/json/gallery.json');
 
-export const POST: APIRoute = async ({ request, cookies }) => {
-  const session = cookies.get('admin-session');
-  if (!session?.value) {
-    return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
-  }
+export const POST: APIRoute = async ({ request }) => {
 
   try {
     const contentType = request.headers.get('content-type') || '';

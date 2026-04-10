@@ -1,16 +1,10 @@
 import type { APIRoute } from 'astro';
-import { readFile, writeFile } from 'fs/promises';
+import { writeFile } from 'fs/promises';
 import { join } from 'path';
-
-export const prerender = false;
 
 const FILES_PATH = join(process.cwd(), 'content/json');
 
-export const POST: APIRoute = async ({ request, cookies, redirect }) => {
-  const session = cookies.get('admin-session');
-  if (!session?.value) {
-    return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
-  }
+export const POST: APIRoute = async ({ request }) => {
 
   try {
     const formData = await request.formData();
