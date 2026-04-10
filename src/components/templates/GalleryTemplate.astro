@@ -1,10 +1,11 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, type ImageMetadata } from 'astro:assets';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import { Badge } from '@/components/ui/badge';
+import { GLightboxGallery } from '@/components/ui/glightbox-gallery';
 import { getGalleryItems, IMAGE_URLS } from '@/data/content';
 import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
 import Layout from '@/layouts/Layout.astro';
@@ -50,20 +51,22 @@ const galleryItems = getGalleryItems(language);
       <div class="container mx-auto px-4">
         <div class="columns-1 gap-6 sm:columns-2 lg:columns-3">
           {galleryItems.map((item, i) => (
-            <div class="mb-6 break-inside-avoid overflow-hidden rounded-[24px] bg-surface transition-all hover:shadow-xl">
-              {item.src && (
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  class="w-full object-cover transition-transform duration-500 hover:scale-105"
-                  width={400}
-                  height={533}
-                />
-              )}
-              <div class="p-4 bg-white">
-                <p class="font-display text-lg">{item.title}</p>
+            <GLightboxGallery client:load images={[{ src: (item.src as ImageMetadata).src, width: 800, height: 1067, alt: item.alt, title: item.title }]}>
+              <div class="mb-6 break-inside-avoid overflow-hidden rounded-[24px] bg-surface transition-all hover:shadow-xl">
+                {item.src && (
+                  <Image
+                    src={item.src as ImageMetadata}
+                    alt={item.alt}
+                    class="w-full object-cover transition-transform duration-500 hover:scale-105"
+                    width={400}
+                    height={533}
+                  />
+                )}
+                <div class="p-4 bg-white">
+                  <p class="font-display text-lg">{item.title}</p>
+                </div>
               </div>
-            </div>
+            </GLightboxGallery>
           ))}
         </div>
       </div>
