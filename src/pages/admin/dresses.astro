@@ -3,13 +3,6 @@ import AdminLayout from '@/layouts/AdminLayout.astro';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 
-export const prerender = false;
-
-const session = Astro.cookies.get('admin-session');
-if (!session?.value) {
-  return Astro.redirect('/admin/login');
-}
-
 // Read dresses data
 const dressesPath = join(process.cwd(), 'content/json/dresses.json');
 let dresses = { dresses: [] };

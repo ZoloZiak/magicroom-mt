@@ -352,5 +352,34 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 
 ---
 
+## 12. Admin Panel (2026-04-10)
+
+### ✅ HOTOVÉ
+
+| Komponent | Status | Poznámky |
+|-----------|--------|----------|
+| Admin login (/admin/login) | ✅ DONE | Heslo: magic2026 |
+| Dashboard s analytikou | ✅ DONE | Rezervácie, WhatsApp, kontakty |
+| Galéria s uploadom | ✅ DONE | Drag & drop, edit, delete |
+| Svadobné šaty management | ✅ DONE | Zoznam šiat z JSON |
+| Blog management | ✅ DONE | Články z JSON |
+| Dekorácie management | ✅ DONE | Výzdoba z JSON |
+| FAQ management | ✅ DONE | FAQ z JSON |
+| Partneri management | ✅ DONE | Partneri z JSON |
+| Obsah (služby) | ✅ DONE | Úprava služieb |
+| Návod pre Natáliu | ✅ DONE | /admin/help |
+| GitHub deploy workflow | ✅ DONE | Vercel automaticky |
+| Vercel secrets配置 | ✅ DONE | Vercel deploy funguje |
+
+### 📝 Poznámky k implementácii
+
+- Všetky admin stránky sú **statické** (prerender = true) - obrázky sa načítavajú z /content/images/
+- JSON súbory sú v `content/json/` - editovateľné cez admin
+- Login chránený heslom (bezpečnostné cookies)
+- GitHub Actions deploy po push na main
+- Testy: 104 unit + E2E
+
+---
+
 *Document created: 2026-04-01*
-*Version: 1.4 - 2026-04-07*
+*Version: 1.5 - 2026-04-10*

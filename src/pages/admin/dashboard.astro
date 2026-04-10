@@ -3,13 +3,6 @@ import AdminLayout from '@/layouts/AdminLayout.astro';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 
-export const prerender = false;
-
-const session = Astro.cookies.get('admin-session');
-if (!session?.value) {
-  return Astro.redirect('/admin/login');
-}
-
 // Read analytics data
 const analyticsPath = join(process.cwd(), 'content/json/analytics.json');
 let analytics = { conversions: [], whatsappClicks: [], bookingSubmissions: [], contactFormSubmissions: [] };
