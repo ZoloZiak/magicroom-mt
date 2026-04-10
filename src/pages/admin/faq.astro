@@ -1,0 +1,106 @@
+---
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
+
+export const prerender = false;
+
+const session = Astro.cookies.get('admin-session');
+if (!session?.value) {
+  return Astro.redirect('/admin/login');
+}
+
+const faqsPath = join(process.cwd(), 'content/json/faqs.json');
+let faqs = { sk: [], en: [] };
+
+try {
+  const content = await readFile(faqsPath, 'utf-8');
+  faqs = JSON.parse(content);
+} catch (e) {
+  // File doesn't exist
+}
+---
+
+<AdminLayout title="FAQ">
+  <div class="flex items-center justify-between mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">❓ FAQ</h1>
+    <button type="button" onclick="document.getElementById('add-modal').classList.remove('hidden')" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-2xl font-medium hover:shadow-lg transition-all">
+      + Pridať otázku
+    </button>
+  </div>
+
+  <!-- Add FAQ Modal -->
+  <div id="add-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-6">
+      <h2 class="text-xl font-semibold text-gray-900 mb-4">Pridať novú FAQ otázku</h2>
+      <form method="POST" action="/api/admin/save-faq" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Otázka (SK)</label>
+          <input type="text" name="questionSk" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="Napríklad: Koľko stojí skúška?" required />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Odpoveď (SK)</label>
+          <textarea name="answerSk" rows="3" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="Odpoveď..." required></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Question (EN)</label>
+          <input type="text" name="questionEn" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="例如: How much does fitting cost?" required />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Answer (EN)</label>
+          <textarea name="answerEn" rows="3" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="Answer..." required></textarea>
+        </div>
+        <div class="flex gap-3 pt-4">
+          <button type="button" onclick="document.getElementById('add-modal').classList.add('hidden')" class="flex-1 px-4 py-3 border border-gray-200 rounded-2xl hover:bg-gray-50 transition-colors">Zrušiť</button>
+          <button type="submit" class="flex-1 bg-gradient-to-r from-pink-500 to-purple-500 text-white px-4 py-3 rounded-2xl font-medium hover:shadow-lg transition-all">Uložiť</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- FAQ List - SK -->
+  <div class="bg-white rounded-3xl shadow-xl border border-pink-100 mb-8">
+    <div class="bg-gradient-to-r from-pink-500 to-purple-500 px-6 py-4 rounded-t-3xl">
+      <h2 class="text-lg font-semibold text-white">Slovak (SK)</h2>
+    </div>
+    <div class="p-6 space-y-4">
+      {faqs.sk.map((faq: any, i: number) => (
+        <div class="border border-gray-100 rounded-2xl p-4 hover:border-pink-200 transition-colors">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <h3 class="font-medium text-gray-900">{faq.question}</h3>
+              <p class="text-gray-600 mt-2">{faq.answer}</p>
+            </div>
+            <div class="flex gap-2">
+              <button type="button" class="p-2 hover:bg-pink-50 rounded-xl transition-colors" title="Upraviť">✏️</button>
+              <button type="button" class="p-2 hover:bg-red-50 rounded-xl transition-colors text-red-500" title="Vymazať">🗑️</button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- FAQ List - EN -->
+  <div class="bg-white rounded-3xl shadow-xl border border-pink-100">
+    <div class="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-4 rounded-t-3xl">
+      <h2 class="text-lg font-semibold text-white">English (EN)</h2>
+    </div>
+    <div class="p-6 space-y-4">
+      {faqs.en.map((faq: any, i: number) => (
+        <div class="border border-gray-100 rounded-2xl p-4 hover:border-pink-200 transition-colors">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <h3 class="font-medium text-gray-900">{faq.question}</h3>
+              <p class="text-gray-600 mt-2">{faq.answer}</p>
+            </div>
+            <div class="flex gap-2">
+              <button type="button" class="p-2 hover:bg-pink-50 rounded-xl transition-colors" title="Upraviť">✏️</button>
+              <button type="button" class="p-2 hover:bg-red-50 rounded-xl transition-colors text-red-500" title="Vymazať">🗑️</button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</AdminLayout>
