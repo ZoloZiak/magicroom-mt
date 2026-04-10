@@ -18,8 +18,82 @@ try {
 <AdminLayout title="Šaty">
   <div class="flex items-center justify-between mb-8">
     <h1 class="text-3xl font-bold text-gray-900">👗 Svadobné šaty</h1>
+    <button type="button" onclick="showAddForm()" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-2xl font-medium hover:shadow-lg transition-all">
+      + Pridať nové šaty
+    </button>
   </div>
 
+  <!-- Add New Dress Form -->
+  <div id="add-dress-form" class="hidden bg-white rounded-3xl shadow-xl border border-pink-100 p-6 mb-8">
+    <h2 class="text-lg font-semibold text-gray-900 mb-4">➕ Nové svadobné šaty</h2>
+    
+    <form id="upload-dress-form" enctype="multipart/form-data" class="space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Názov šiat *</label>
+          <input type="text" id="dress-name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="Napríklad: Romantická princezna" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Cena (€) *</label>
+          <input type="number" id="dress-price" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="450" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Veľkosť</label>
+          <input type="text" id="dress-size" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="38" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Farba</label>
+          <input type="text" id="dress-color" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="biela" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Štýl</label>
+          <input type="text" id="dress-style" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="princeznovská" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Stav</label>
+          <select id="dress-status" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500">
+            <option value="available">Dostupné</option>
+            <option value="reserved">Rezervované</option>
+          </select>
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Popis</label>
+          <textarea id="dress-description" rows="2" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="Krátky popis šiat..."></textarea>
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Detaily</label>
+          <input type="text" id="dress-details" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="Čipka, satén, dlhá vlečka..." />
+        </div>
+      </div>
+
+      <!-- Image Upload -->
+      <div class="border-2 border-dashed border-pink-200 rounded-2xl p-6 text-center hover:border-pink-400 transition-colors cursor-pointer" onclick="document.getElementById('dress-file-input').click()">
+        <input type="file" id="dress-file-input" accept="image/*" class="hidden" onchange="handleDressImageSelect(event)" />
+        <div class="text-3xl mb-2">👗</div>
+        <p class="text-gray-600">Kliknite pre pridávanie obrázka šiat</p>
+        <p class="text-sm text-gray-400 mt-1">PNG, JPG - max 5MB</p>
+      </div>
+      
+      <div id="dress-preview-container" class="hidden">
+        <div class="flex items-center gap-4 p-4 bg-pink-50 rounded-2xl">
+          <img id="dress-preview-image" class="w-20 h-20 object-cover rounded-xl" />
+          <div class="flex-1">
+            <p id="dress-preview-name" class="font-medium text-gray-900"></p>
+          </div>
+          <button type="button" onclick="clearDressPreview()" class="text-red-500 hover:text-red-700">✕</button>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button type="button" onclick="hideAddForm()" class="flex-1 px-4 py-3 border border-gray-200 rounded-2xl hover:bg-gray-50">Zrušiť</button>
+        <button type="submit" class="flex-1 bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 px-6 rounded-2xl font-medium hover:shadow-lg">
+          ➕ Pridať šaty
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Existing Dresses -->
   <form method="POST" action="/api/admin/save-dresses" class="space-y-6">
     <div class="bg-white rounded-xl shadow-sm p-6">
       <h2 class="text-lg font-semibold text-gray-900 mb-4">Zoznam šiat</h2>
@@ -65,15 +139,13 @@ try {
                 <input type="text" name={`dresses[${i}][details]`} value={dress.details || ''} class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
               </div>
             </div>
-            <p class="text-xs text-gray-500 mt-2">ID: {dress.id}</p>
+            <div class="flex items-center justify-between mt-3">
+              <p class="text-xs text-gray-500">ID: {dress.id}</p>
+              <button type="button" onclick={`deleteDress('${dress.id}')`} class="text-red-500 hover:text-red-700 text-sm">🗑️ Vymazať</button>
+            </div>
           </div>
         ))}
       </div>
-    </div>
-
-    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-      <h3 class="font-medium text-blue-900 mb-2">ℹ️ Nahrávanie obrázkov</h3>
-      <p class="text-sm text-blue-700">Obrázky šiat nahrajte do <code class="bg-blue-100 px-2 py-1 rounded">public/images/dresses/</code></p>
     </div>
 
     <button type="submit" class="w-full bg-pink-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-pink-700 transition-colors">
@@ -81,3 +153,116 @@ try {
     </button>
   </form>
 </AdminLayout>
+
+<script define:vars={{ existingDresses: dresses.dresses }}>
+  let selectedDressImage = null;
+
+  window.showAddForm = function() {
+    document.getElementById('add-dress-form').classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  window.hideAddForm = function() {
+    document.getElementById('add-dress-form').classList.add('hidden');
+    clearDressPreview();
+  };
+
+  window.handleDressImageSelect = function(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    
+    selectedDressImage = file;
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('dress-preview-image').src = e.target.result;
+      document.getElementById('dress-preview-name').textContent = file.name;
+      document.getElementById('dress-preview-container').classList.remove('hidden');
+    };
+    reader.readAsDataURL(file);
+  };
+
+  window.clearDressPreview = function() {
+    selectedDressImage = null;
+    document.getElementById('dress-file-input').value = '';
+    document.getElementById('dress-preview-container').classList.add('hidden');
+  };
+
+  // Handle add new dress form
+  document.getElementById('upload-dress-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('dress-name').value;
+    const price = parseInt(document.getElementById('dress-price').value);
+    const size = document.getElementById('dress-size').value;
+    const color = document.getElementById('dress-color').value;
+    const style = document.getElementById('dress-style').value;
+    const status = document.getElementById('dress-status').value;
+    const description = document.getElementById('dress-description').value;
+    const details = document.getElementById('dress-details').value;
+    
+    if (!name || !price) {
+      window.showToast('Názov a cena sú povinné', 'error');
+      return;
+    }
+
+    // Generate ID from name
+    const id = name.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
+
+    const formData = new FormData();
+    formData.append('action', 'add');
+    formData.append('dress[id]', id);
+    formData.append('dress[name]', name);
+    formData.append('dress[price]', price.toString());
+    formData.append('dress[size]', size);
+    formData.append('dress[color]', color);
+    formData.append('dress[style]', style);
+    formData.append('dress[status]', status);
+    formData.append('dress[description]', description);
+    formData.append('dress[details]', details);
+    formData.append('dress[type]', 'new');
+    formData.append('dress[featured]', 'false');
+    if (selectedDressImage) {
+      formData.append('file', selectedDressImage);
+    }
+
+    try {
+      const response = await fetch('/api/admin/save-dresses', {
+        method: 'POST',
+        body: formData
+      });
+      
+      const result = await response.json();
+      if (result.success) {
+        window.showToast('Šaty pridané!');
+        setTimeout(() => window.location.reload(), 1500);
+      } else {
+        window.showToast(result.error || 'Chyba pri pridaní', 'error');
+      }
+    } catch (err) {
+      window.showToast('Chyba pri pridaní', 'error');
+    }
+  });
+
+  window.deleteDress = async function(id) {
+    if (!confirm('Naozaj chcete vymazať tieto šaty?')) return;
+    
+    try {
+      const response = await fetch('/api/admin/save-dresses', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'delete', id: id, dresses: existingDresses.filter((d: any) => d.id !== id) })
+      });
+      
+      const result = await response.json();
+      if (result.success) {
+        window.showToast('Šaty vymazané!');
+        setTimeout(() => window.location.reload(), 1500);
+      } else {
+        window.showToast(result.error || 'Chyba pri mazaní', 'error');
+      }
+    } catch (err) {
+      window.showToast('Chyba pri mazaní', 'error');
+    }
+  };
+</script>
