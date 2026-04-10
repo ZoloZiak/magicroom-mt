@@ -10,7 +10,6 @@ if (!session?.value) {
   return Astro.redirect('/admin/login');
 }
 
-// Read gallery data
 const galleryPath = join(process.cwd(), 'content/json/gallery.json');
 let gallery = { gallery: [] };
 
@@ -25,47 +24,177 @@ try {
 <AdminLayout title="Galéria">
   <div class="flex items-center justify-between mb-8">
     <h1 class="text-3xl font-bold text-gray-900">🖼️ Galéria</h1>
+    <button type="button" onclick="document.getElementById('add-modal').classList.remove('hidden')" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-2xl font-medium hover:shadow-lg transition-all">
+      + Pridať novú fotku
+    </button>
   </div>
 
-  <form method="POST" action="/api/admin/save-gallery" class="space-y-6">
-    <div class="bg-white rounded-xl shadow-sm p-6">
-      <h2 class="text-lg font-semibold text-gray-900 mb-4">Položky galérie</h2>
-      
-      <div class="space-y-4">
-        {gallery.gallery.map((item: any, i: number) => (
-          <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
-            <input type="hidden" name="items[{i}][filename]" value={item.filename} />
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Názov (SK)</label>
-                <input type="text" name={`items[${i}][title]`} value={item.title || ''} class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Názov (EN)</label>
-                <input type="text" name={`items[${i}][titleEn]`} value={item.titleEn || ''} class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
-              </div>
-              <div class="md:col-span-2">
-                <label class="block text-sm font-medium text-gray-700 mb-1">Alt text (SK)</label>
-                <input type="text" name={`items[${i}][alt]`} value={item.alt || ''} class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
-              </div>
-              <div class="md:col-span-2">
-                <label class="block text-sm font-medium text-gray-700 mb-1">Alt text (EN)</label>
-                <input type="text" name={`items[${i}][altEn]`} value={item.altEn || ''} class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
-              </div>
-            </div>
-            <p class="text-xs text-gray-500 mt-2">Súbor: {item.filename}</p>
-          </div>
-        ))}
+  <!-- Upload Section -->
+  <div class="bg-white rounded-3xl shadow-xl border border-pink-100 p-6 mb-8">
+    <h2 class="text-lg font-semibold text-gray-900 mb-4">📤 Nahrať novú fotku</h2>
+    
+    <form id="upload-form" enctype="multipart/form-data" class="space-y-4">
+      <div class="border-2 border-dashed border-pink-200 rounded-2xl p-8 text-center hover:border-pink-400 transition-colors cursor-pointer" onclick="document.getElementById('file-input').click()">
+        <input type="file" id="file-input" name="file" accept="image/*" class="hidden" onchange="handleFileSelect(event)" />
+        <div class="text-4xl mb-2">📷</div>
+        <p class="text-gray-600">Kliknite alebo pretiahnite fotku sem</p>
+        <p class="text-sm text-gray-400 mt-2">PNG, JPG, WebP - max 5MB</p>
       </div>
-    </div>
+      
+      <div id="preview-container" class="hidden">
+        <div class="flex items-center gap-4 p-4 bg-pink-50 rounded-2xl">
+          <img id="preview-image" class="w-24 h-24 object-cover rounded-xl" />
+          <div class="flex-1">
+            <p id="preview-name" class="font-medium text-gray-900"></p>
+            <p id="preview-size" class="text-sm text-gray-500"></p>
+          </div>
+          <button type="button" onclick="clearPreview()" class="text-red-500 hover:text-red-700">✕</button>
+        </div>
+      </div>
 
-    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-      <h3 class="font-medium text-blue-900 mb-2">ℹ️ Nahrávanie obrázkov</h3>
-      <p class="text-sm text-blue-700">Obrázky nahrajte priamo do zložky <code class="bg-blue-100 px-2 py-1 rounded">public/images/gallery/</code> a potom pridajte položku sem.</p>
-    </div>
+      <input type="hidden" name="folder" value="gallery" />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Názov (SK)</label>
+          <input type="text" id="title-sk" name="titleSk" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:bg-white transition-all" placeholder="Napríklad: Ružová elegancia" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Názov (EN)</label>
+          <input type="text" id="title-en" name="titleEn" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:bg-white transition-all" placeholder="Napríklad: Pink elegance" />
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Alt text (SK)</label>
+          <input type="text" id="alt-sk" name="altSk" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:bg-white transition-all" placeholder="Popis obrázka pre SEO" />
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Alt text (EN)</label>
+          <input type="text" id="alt-en" name="altEn" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:bg-white transition-all" placeholder="Image description for SEO" />
+        </div>
+      </div>
 
-    <button type="submit" class="w-full bg-pink-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-pink-700 transition-colors">
-      💾 Uložiť zmeny
-    </button>
-  </form>
+      <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 px-6 rounded-2xl font-medium hover:shadow-lg transition-all">
+        🚀 Nahrať a pridať do galérie
+      </button>
+    </form>
+  </div>
+
+  <!-- Gallery Items -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    {gallery.gallery.map((item: any, i: number) => (
+      <div class="bg-white rounded-2xl shadow-lg border border-pink-100 overflow-hidden group hover:shadow-xl transition-all">
+        <div class="aspect-[3/4] bg-gray-100 relative">
+          <img src={`/images/gallery/${item.filename}`} alt={item.alt} class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+            <button type="button" class="p-2 bg-white rounded-full hover:bg-pink-50 transition-colors" title="Upraviť">✏️</button>
+            <button type="button" class="p-2 bg-white rounded-full hover:bg-red-50 transition-colors text-red-500" title="Vymazať">🗑️</button>
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="font-medium text-gray-900 truncate">{item.title || item.titleEn || 'Bez názvu'}</h3>
+          <p class="text-xs text-gray-500 mt-1 truncate">{item.filename}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Empty state -->
+  {gallery.gallery.length === 0 && (
+    <div class="text-center py-12">
+      <div class="text-6xl mb-4">🖼️</div>
+      <h3 class="text-xl font-semibold text-gray-900 mb-2">Galéria je prázdna</h3>
+      <p class="text-gray-500">Nahrajte prvú fotku do galérie</p>
+    </div>
+  )}
 </AdminLayout>
+
+<script>
+  let selectedFile = null;
+
+  function handleFileSelect(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    
+    selectedFile = file;
+    
+    // Show preview
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('preview-image').src = e.target.result;
+      document.getElementById('preview-name').textContent = file.name;
+      document.getElementById('preview-size').textContent = (file.size / 1024 / 1024).toFixed(2) + ' MB';
+      document.getElementById('preview-container').classList.remove('hidden');
+    };
+    reader.readAsDataURL(file);
+    
+    // Auto-fill title from filename
+    const nameWithoutExt = file.name.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ');
+    document.getElementById('title-sk').value = nameWithoutExt.charAt(0).toUpperCase() + nameWithoutExt.slice(1);
+  }
+
+  function clearPreview() {
+    selectedFile = null;
+    document.getElementById('file-input').value = '';
+    document.getElementById('preview-container').classList.add('hidden');
+  }
+
+  // Handle form submission
+  document.getElementById('upload-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    if (!selectedFile) {
+      window.showToast('Najprv vyberte fotku', 'error');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', selectedFile);
+    formData.append('folder', 'gallery');
+    formData.append('titleSk', document.getElementById('title-sk').value);
+    formData.append('titleEn', document.getElementById('title-en').value);
+    formData.append('altSk', document.getElementById('alt-sk').value);
+    formData.append('altEn', document.getElementById('alt-en').value);
+
+    try {
+      const response = await fetch('/api/admin/upload-gallery-item', {
+        method: 'POST',
+        body: formData
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        window.showToast('Fotka bola pridaná do galérie!');
+        setTimeout(() => window.location.reload(), 1500);
+      } else {
+        window.showToast(result.error || 'Chyba pri nahrávaní', 'error');
+      }
+    } catch (err) {
+      window.showToast('Chyba pri nahrávaní', 'error');
+    }
+  });
+
+  // Drag and drop
+  const dropZone = document.querySelector('.border-dashed');
+  
+  dropZone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    dropZone.classList.add('border-pink-400', 'bg-pink-50');
+  });
+  
+  dropZone.addEventListener('dragleave', () => {
+    dropZone.classList.remove('border-pink-400', 'bg-pink-50');
+  });
+  
+  dropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('border-pink-400', 'bg-pink-50');
+    const file = e.dataTransfer.files[0];
+    if (file && file.type.startsWith('image/')) {
+      const dataTransfer = new DataTransfer();
+      dataTransfer.items.add(file);
+      document.getElementById('file-input').files = dataTransfer.files;
+      handleFileSelect({ target: { files: dataTransfer.files } });
+    }
+  });
+</script>

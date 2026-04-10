@@ -1,0 +1,66 @@
+---
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
+
+export const prerender = false;
+
+const session = Astro.cookies.get('admin-session');
+if (!session?.value) {
+  return Astro.redirect('/admin/login');
+}
+
+const blogPath = join(process.cwd(), 'content/json/blog.json');
+let blog = { posts: [] };
+
+try {
+  const content = await readFile(blogPath, 'utf-8');
+  blog = JSON.parse(content);
+} catch (e) {
+  // File doesn't exist
+}
+---
+
+<AdminLayout title="Blog">
+  <div class="flex items-center justify-between mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">📝 Blog</h1>
+    <button type="button" onclick="document.getElementById('add-modal').classList.remove('hidden')" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-2xl font-medium hover:shadow-lg transition-all">
+      + Nový článok
+    </button>
+  </div>
+
+  <!-- Blog Posts List -->
+  <div class="space-y-4">
+    {blog.posts.map((post: any, i: number) => (
+      <div class="bg-white rounded-2xl shadow-lg border border-pink-100 p-6 hover:shadow-xl transition-all">
+        <div class="flex items-start gap-4">
+          <div class="w-24 h-16 bg-gray-100 rounded-xl overflow-hidden flex-shrink-0">
+            {post.image && <img src={`/images/${post.image}.jpg`} alt="" class="w-full h-full object-cover" />}
+          </div>
+          <div class="flex-1">
+            <h3 class="font-semibold text-lg text-gray-900">{post.sk?.title || post.en?.title}</h3>
+            <p class="text-gray-500 text-sm mt-1">{post.sk?.date} • {post.sk?.readTime}</p>
+            <div class="flex gap-2 mt-2">
+              {post.sk?.tags?.map((tag: string) => (
+                <span class="px-2 py-1 bg-pink-100 text-pink-700 text-xs rounded-full">{tag}</span>
+              ))}
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <button type="button" class="p-2 hover:bg-pink-50 rounded-xl transition-colors" title="Upraviť">✏️</button>
+            <button type="button" class="p-2 hover:bg-red-50 rounded-xl transition-colors text-red-500" title="Vymazať">🗑️</button>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Empty state -->
+  {blog.posts.length === 0 && (
+    <div class="text-center py-12">
+      <div class="text-6xl mb-4">📝</div>
+      <h3 class="text-xl font-semibold text-gray-900 mb-2">Blog je prázdny</h3>
+      <p class="text-gray-500">Napíšte prvý blogový článok</p>
+    </div>
+  )}
+</AdminLayout>

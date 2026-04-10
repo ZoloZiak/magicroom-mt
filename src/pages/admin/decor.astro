@@ -1,0 +1,88 @@
+---
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
+
+export const prerender = false;
+
+const session = Astro.cookies.get('admin-session');
+if (!session?.value) {
+  return Astro.redirect('/admin/login');
+}
+
+const decorPath = join(process.cwd(), 'content/json/decor.json');
+let decor = { sk: { categories: [], featured: [] }, en: { categories: [], featured: [] } };
+
+try {
+  const content = await readFile(decorPath, 'utf-8');
+  decor = JSON.parse(content);
+} catch (e) {
+  // File doesn't exist
+}
+---
+
+<AdminLayout title="Dekorácie">
+  <div class="flex items-center justify-between mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">🎀 Dekorácie</h1>
+    <button type="button" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-2xl font-medium hover:shadow-lg transition-all">
+      + Pridať položku
+    </button>
+  </div>
+
+  <!-- Featured Items -->
+  <div class="bg-white rounded-3xl shadow-xl border border-pink-100 p-6 mb-8">
+    <h2 class="text-lg font-semibold text-gray-900 mb-4">⭐ Vybrané dekorácie</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {decor.sk.featured?.map((item: any, i: number) => (
+        <div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-4 border border-pink-100">
+          <div class="text-2xl mb-2">{item.icon === 'frame' ? '🖼️' : item.icon === 'utensils' ? '🍰' : item.icon === 'lamp' ? '💡' : '🎁'}</div>
+          <h3 class="font-medium text-gray-900">{item.title}</h3>
+          <p class="text-pink-600 font-bold mt-1">{item.price}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Categories -->
+  <div class="space-y-6">
+    {decor.sk.categories?.map((category: any, i: number) => (
+      <div class="bg-white rounded-3xl shadow-xl border border-pink-100 overflow-hidden">
+        <div class="bg-gradient-to-r from-pink-500 to-purple-500 px-6 py-4">
+          <h2 class="text-lg font-semibold text-white">{category.category}</h2>
+        </div>
+        <div class="p-6">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b border-gray-200">
+                <th class="text-left py-3 text-sm font-medium text-gray-500">Názov</th>
+                <th class="text-right py-3 text-sm font-medium text-gray-500">Cena</th>
+                <th class="text-center py-3 text-sm font-medium text-gray-500">Akcie</th>
+              </tr>
+            </thead>
+            <tbody>
+              {category.items?.map((item: any, j: number) => (
+                <tr class="border-b border-gray-100 hover:bg-pink-50/30 transition-colors">
+                  <td class="py-3 text-gray-900">{item.name}</td>
+                  <td class="py-3 text-right font-medium text-pink-600">{item.price}</td>
+                  <td class="py-3 text-center">
+                    <button type="button" class="p-2 hover:bg-pink-50 rounded-lg transition-colors">✏️</button>
+                    <button type="button" class="p-2 hover:bg-red-50 rounded-lg transition-colors text-red-500">🗑️</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Empty state -->
+  {(!decor.sk.categories || decor.sk.categories.length === 0) && (
+    <div class="text-center py-12">
+      <div class="text-6xl mb-4">🎀</div>
+      <h3 class="text-xl font-semibold text-gray-900 mb-2">Žiadne dekorácie</h3>
+      <p class="text-gray-500">Pridajte inventár do prenájmu</p>
+    </div>
+  )}
+</AdminLayout>
