@@ -1,0 +1,145 @@
+---
+import AdminLayout from '@/layouts/AdminLayout.astro';
+---
+
+<AdminLayout title="Návod">
+  <div class="max-w-4xl mx-auto space-y-8">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">📖 Návod pre Natáliu</h1>
+      <p class="text-lg text-gray-600">Ako používať MagicRoom Admin Panel</p>
+    </div>
+
+    <!-- Getting Started -->
+    <div class="bg-white rounded-3xl shadow-xl border border-pink-100 overflow-hidden">
+      <div class="bg-gradient-to-r from-pink-500 to-purple-500 px-6 py-4">
+        <h2 class="text-xl font-semibold text-white">🚀 Začíname</h2>
+      </div>
+      <div class="p-6 space-y-4">
+        <div class="flex gap-4">
+          <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-bold flex-shrink-0">1</div>
+          <div>
+            <h3 class="font-medium text-gray-900">Prihlásenie</h3>
+            <p class="text-gray-600">Choď na <code class="bg-gray-100 px-2 py-1 rounded">/admin/login</code> a zadaj heslo <strong>magic2026</strong></p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-bold flex-shrink-0">2</div>
+          <div>
+            <h3 class="font-medium text-gray-900">Navigácia</h3>
+            <p class="text-gray-600">V hornom menu nájdeš všetky sekcie: Galéria, Šaty, Blog, Dekorácie, FAQ, Partneri</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-bold flex-shrink-0">3</div>
+          <div>
+            <h3 class="font-medium text-gray-900">Ukladanie zmien</h3>
+            <p class="text-gray-600">Po úprave klikni na <strong>Uložiť</strong> — zmena sa automaticky uloží na GitHub a stránka sa prebuduje</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sections Guide -->
+    <div class="bg-white rounded-3xl shadow-xl border border-pink-100 overflow-hidden">
+      <div class="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-4">
+        <h2 class="text-xl font-semibold text-white">📁 Sekcie</h2>
+      </div>
+      <div class="p-6 space-y-6">
+        <div>
+          <h3 class="font-medium text-gray-900 flex items-center gap-2">🖼️ Galéria</h3>
+          <ul class="mt-2 space-y-1 text-gray-600 list-disc list-inside">
+            <li>Nahraj nové fotky drag-and-drop alebo kliknutím</li>
+            <li>Vyplň názov a alt texty pre SEO</li>
+            <li>Klikni na 👁️ pre náhľad na stránke</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-gray-900 flex items-center gap-2">👗 Svadobné šaty</h3>
+          <ul class="mt-2 space-y-1 text-gray-600 list-disc list-inside">
+            <li>Pridávaj alebo upravuj šaty</li>
+            <li>Nastav cenu, veľkosť, stav (dostupné/rezervované)</li>
+            <li>Pridávaj fotografie do <code class="bg-gray-100 px-1 rounded">public/images/dresses/</code></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-gray-900 flex items-center gap-2">📝 Blog</h3>
+          <ul class="mt-2 space-y-1 text-gray-600 list-disc list-inside">
+            <li>Píš nové články</li>
+            <li>Pridávaj titulok, popis, obsah</li>
+            <li>Články sa automaticky zobrazia na <code class="bg-gray-100 px-1 rounded">/blog</code></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-gray-900 flex items-center gap-2">🎀 Dekorácie</h3>
+          <ul class="mt-2 space-y-1 text-gray-600 list-disc list-inside">
+            <li>Spravuj inventár na prenájom</li>
+            <li>Pridávaj kategórie a položky s cenami</li>
+            <li>Zobrazujú sa na stránke <code class="bg-gray-100 px-1 rounded">/prenajom-dekoracii</code></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-gray-900 flex items-center gap-2">❓ FAQ</h3>
+          <ul class="mt-2 space-y-1 text-gray-600 list-disc list-inside">
+            <li>Pridávaj často kladené otázky</li>
+            <li>Otázky a odpovede v slovenčine aj angličtine</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-gray-900 flex items-center gap-2">🤝 Partneri</h3>
+          <ul class="mt-2 space-y-1 text-gray-600 list-disc list-inside">
+            <li>Spravuj zoznam dodávateľov</li>
+            <li>Pridávaj odkazy na web a sociálne siete</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="bg-white rounded-3xl shadow-xl border border-pink-100 overflow-hidden">
+      <div class="bg-gradient-to-r from-pink-500 to-purple-500 px-6 py-4">
+        <h2 class="text-xl font-semibold text-white">💡 Tipy</h2>
+      </div>
+      <div class="p-6 space-y-4">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">📸</span>
+          <div>
+            <h3 class="font-medium text-gray-900">Fotky</h3>
+            <p class="text-gray-600">Obrázky nahrávaj do <code class="bg-gray-100 px-1 rounded">public/images/</code> — automaticky sa nahrajú na stránku</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">⏱️</span>
+          <div>
+            <h3 class="font-medium text-gray-900">Po uložení</h3>
+            <p class="text-gray-600">Stránka sa automaticky rebuildne na Vercel — trvá to 1-2 minúty</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">🔒</span>
+          <div>
+            <h3 class="font-medium text-gray-900">Bezpečnosť</h3>
+            <p class="text-gray-600">Nezdieľaj heslo s nikým — ak ho potrebuješ zmeniť, kontaktuj Zola</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="bg-gradient-to-r from-pink-500 to-purple-500 rounded-3xl p-8 text-white text-center">
+      <h2 class="text-2xl font-bold mb-4">ℹ️ Pomoc</h2>
+      <p class="mb-4">Ak máš otázky alebo problémy:</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="mailto:mt.magicroom@gmail.com" class="bg-white/20 hover:bg-white/30 px-6 py-2 rounded-full transition-colors">📧 Email</a>
+        <a href="tel:+421950490323" class="bg-white/20 hover:bg-white/30 px-6 py-2 rounded-full transition-colors">📞 Zavolaj</a>
+        <a href="https://wa.me/421950490323" target="_blank" class="bg-white/20 hover:bg-white/30 px-6 py-2 rounded-full transition-colors">💬 WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Back to dashboard -->
+    <div class="text-center">
+      <a href="/admin/dashboard" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-2xl font-medium hover:shadow-lg transition-all">
+        ← Späť na Dashboard
+      </a>
+    </div>
+  </div>
+</AdminLayout>
