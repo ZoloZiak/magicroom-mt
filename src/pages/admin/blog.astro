@@ -12,19 +12,66 @@ try {
 } catch (e) {
   // File doesn't exist
 }
+
+const allPosts = blog.posts || [];
 ---
 
 <AdminLayout title="Blog">
   <div class="flex items-center justify-between mb-8">
     <h1 class="text-3xl font-bold text-gray-900">📝 Blog</h1>
-    <button type="button" onclick="document.getElementById('add-modal').classList.remove('hidden')" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-2xl font-medium hover:shadow-lg transition-all">
+    <button type="button" onclick="showAddPostForm()" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-2xl font-medium hover:shadow-lg transition-all">
       + Nový článok
     </button>
   </div>
 
+  <!-- Add New Post Form -->
+  <div id="add-post-form" class="hidden bg-white rounded-3xl shadow-xl border border-pink-100 p-6 mb-8">
+    <h2 class="text-lg font-semibold text-gray-900 mb-4">➕ Nový blogový článok</h2>
+    
+    <form id="new-post-form" class="space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Názov (SK) *</label>
+          <input type="text" id="post-title-sk" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="Napríklad: Ako vybrať svadobné šaty" />
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Názov (EN) *</label>
+          <input type="text" id="post-title-en" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="How to choose wedding dresses" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Slug (URL)</label>
+          <input type="text" id="post-slug" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="ako-vybrat-svadobne-saty" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Dátum</label>
+          <input type="date" id="post-date" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" />
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Popis (SK)</label>
+          <textarea id="post-desc-sk" rows="2" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="Krátky popis pre SEO"></textarea>
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Popis (EN)</label>
+          <textarea id="post-desc-en" rows="2" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="Short description for SEO"></textarea>
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Tagy (oddelené čiarkou)</label>
+          <input type="text" id="post-tags" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-pink-500" placeholder="šaty, svadba, poradenstvo" />
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button type="button" onclick="hideAddPostForm()" class="flex-1 px-4 py-3 border border-gray-200 rounded-2xl hover:bg-gray-50">Zrušiť</button>
+        <button type="submit" class="flex-1 bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 px-6 rounded-2xl font-medium hover:shadow-lg">
+          ➕ Pridať článok
+        </button>
+      </div>
+    </form>
+  </div>
+
   <!-- Blog Posts List -->
   <div class="space-y-4">
-    {blog.posts.map((post: any, i: number) => (
+    {allPosts.map((post: any, i: number) => (
       <div class="bg-white rounded-2xl shadow-lg border border-pink-100 p-6 hover:shadow-xl transition-all">
         <div class="flex items-start gap-4">
           <div class="w-24 h-16 bg-gray-100 rounded-xl overflow-hidden flex-shrink-0">
@@ -41,8 +88,8 @@ try {
           </div>
           <div class="flex gap-2">
             <a href="/blog" target="_blank" class="p-2 hover:bg-pink-50 rounded-xl transition-colors" title="Zobraziť">👁️</a>
-            <button type="button" class="p-2 hover:bg-pink-50 rounded-xl transition-colors" title="Upraviť">✏️</button>
-            <button type="button" class="p-2 hover:bg-red-50 rounded-xl transition-colors text-red-500" title="Vymazať">🗑️</button>
+            <button type="button" onclick={`editPost(${i})`} class="p-2 hover:bg-pink-50 rounded-xl transition-colors" title="Upraviť">✏️</button>
+            <button type="button" onclick={`deletePost('${post.slug}')`} class="p-2 hover:bg-red-50 rounded-xl transition-colors text-red-500" title="Vymazať">🗑️</button>
           </div>
         </div>
       </div>
@@ -50,7 +97,7 @@ try {
   </div>
 
   <!-- Empty state -->
-  {blog.posts.length === 0 && (
+  {allPosts.length === 0 && (
     <div class="text-center py-12">
       <div class="text-6xl mb-4">📝</div>
       <h3 class="text-xl font-semibold text-gray-900 mb-2">Blog je prázdny</h3>
@@ -58,3 +105,114 @@ try {
     </div>
   )}
 </AdminLayout>
+
+<script define:vars={{ posts: allPosts }}>
+  // Set default date to today
+  document.getElementById('post-date').valueAsDate = new Date();
+
+  window.showAddPostForm = function() {
+    document.getElementById('add-post-form').classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  window.hideAddPostForm = function() {
+    document.getElementById('add-post-form').classList.add('hidden');
+  };
+
+  window.editPost = function(index) {
+    const post = posts[index];
+    alert('Funkcia úpravy článku. Aktuálne: ' + post.sk?.title);
+  };
+
+  window.deletePost = async function(slug) {
+    if (!confirm('Naozaj chcete vymazať tento článok?')) return;
+    
+    const newPosts = posts.filter((p: any) => p.slug !== slug);
+    
+    try {
+      const response = await fetch('/api/admin/save-blog', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ posts: newPosts })
+      });
+      
+      const result = await response.json();
+      if (result.success) {
+        window.showToast('Článok vymazaný!');
+        setTimeout(() => window.location.reload(), 1500);
+      } else {
+        window.showToast(result.error || 'Chyba pri mazaní', 'error');
+      }
+    } catch (err) {
+      window.showToast('Chyba pri mazaní', 'error');
+    }
+  };
+
+  // Handle add new post
+  document.getElementById('new-post-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const titleSk = document.getElementById('post-title-sk').value;
+    const titleEn = document.getElementById('post-title-en').value;
+    let slug = document.getElementById('post-slug').value;
+    const date = document.getElementById('post-date').value || new Date().toISOString().split('T')[0];
+    const descSk = document.getElementById('post-desc-sk').value;
+    const descEn = document.getElementById('post-desc-en').value;
+    const tagsStr = document.getElementById('post-tags').value;
+    
+    if (!titleSk || !titleEn) {
+      window.showToast('Názov (SK) a (EN) sú povinné', 'error');
+      return;
+    }
+
+    // Generate slug if not provided
+    if (!slug) {
+      slug = titleSk.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
+    }
+    
+    const enSlug = titleEn.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
+    const tags = tagsStr ? tagsStr.split(',').map(t => t.trim()) : [];
+
+    const newPost = {
+      slug: slug,
+      enSlug: enSlug,
+      sk: {
+        title: titleSk,
+        description: descSk,
+        excerpt: descSk,
+        date: date,
+        readTime: '5 min čítania',
+        content: descSk,
+        tags: tags
+      },
+      en: {
+        title: titleEn,
+        description: descEn,
+        excerpt: descEn,
+        date: date,
+        readTime: '5 min read',
+        content: descEn,
+        tags: tags
+      },
+      image: ''
+    };
+
+    try {
+      const response = await fetch('/api/admin/save-blog', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ posts: [...posts, newPost] })
+      });
+      
+      const result = await response.json();
+      if (result.success) {
+        window.showToast('Článok pridaný!');
+        setTimeout(() => window.location.reload(), 1500);
+      } else {
+        window.showToast(result.error || 'Chyba pri pridaní', 'error');
+      }
+    } catch (err) {
+      window.showToast('Chyba pri pridaní', 'error');
+    }
+  });
+</script>
