@@ -1,0 +1,141 @@
+---
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
+
+export const prerender = false;
+
+const session = Astro.cookies.get('admin-session');
+if (!session?.value) {
+  return Astro.redirect('/admin/login');
+}
+
+// Read services data
+const servicesPath = join(process.cwd(), 'content/json/services.json');
+let services = { sk: { packages: [], extra: [] }, en: { packages: [], extra: [] } };
+
+try {
+  const content = await readFile(servicesPath, 'utf-8');
+  services = JSON.parse(content);
+} catch (e) {
+  // File doesn't exist
+}
+
+const activeTab = Astro.url.searchParams.get('tab') || 'services';
+---
+
+<AdminLayout title="Obsah">
+  <div class="flex items-center justify-between mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">📝 Obsah</h1>
+  </div>
+
+  <!-- Tabs -->
+  <div class="border-b border-gray-200 mb-6">
+    <nav class="flex gap-4">
+      <a href="?tab=services" class:list={["px-4 py-2 border-b-2 font-medium", activeTab === 'services' ? "border-pink-500 text-pink-600" : "border-transparent text-gray-500 hover:text-gray-700"]}>
+        Služby
+      </a>
+      <a href="?tab=contact" class:list={["px-4 py-2 border-b-2 font-medium", activeTab === 'contact' ? "border-pink-500 text-pink-600" : "border-transparent text-gray-500 hover:text-gray-700"]}>
+        Kontakt
+      </a>
+    </nav>
+  </div>
+
+  {activeTab === 'services' && (
+    <form method="POST" action="/api/admin/save-content" class="space-y-6">
+      <input type="hidden" name="file" value="services" />
+      
+      <div class="bg-white rounded-xl shadow-sm p-6">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">Slovak (SK)</h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-medium text-gray-700 mb-2">Balíčky</h3>
+            <div id="sk-packages" class="space-y-4">
+              {services.sk.packages.map((pkg: any, i: number) => (
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                  <input type="hidden" name={`sk_packages[${i}][name]`} value={pkg.name} />
+                  <input type="hidden" name={`sk_packages[${i}][price]`} value={pkg.price} />
+                  <input type="hidden" name={`sk_packages[${i}][description]`} value={pkg.description} />
+                  <input type="hidden" name={`sk_packages[${i}][features]`} value={JSON.stringify(pkg.features)} />
+                  <div class="grid gap-2">
+                    <input type="text" name={`sk_packages[${i}][name]_edit`} value={pkg.name} class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Názov" />
+                    <input type="text" name={`sk_packages[${i}][price]_edit`} value={pkg.price} class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Cena" />
+                    <textarea name={`sk_packages[${i}][description]_edit`} class="w-full px-3 py-2 border border-gray-300 rounded-lg" rows="2">{pkg.description}</textarea>
+                    <input type="text" name={`sk_packages[${i}][features]_edit`} value={pkg.features.join(', ')} class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Funkcie (oddělené čiarkou)" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="font-medium text-gray-700 mb-2">Doplnkové služby</h3>
+            <div id="sk-extra" class="space-y-4">
+              {services.sk.extra.map((item: any, i: number) => (
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                  <input type="hidden" name={`sk_extra[${i}][title]`} value={item.title} />
+                  <input type="hidden" name={`sk_extra[${i}][price]`} value={item.price} />
+                  <input type="hidden" name={`sk_extra[${i}][description]`} value={item.description} />
+                  <div class="grid gap-2">
+                    <input type="text" name={`sk_extra[${i}][title]_edit`} value={item.title} class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Názov" />
+                    <input type="text" name={`sk_extra[${i}][price]_edit`} value={item.price} class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Cena" />
+                    <textarea name={`sk_extra[${i}][description]_edit`} class="w-full px-3 py-2 border border-gray-300 rounded-lg" rows="2">{item.description}</textarea>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-sm p-6">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">English (EN)</h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-medium text-gray-700 mb-2">Packages</h3>
+            <div id="en-packages" class="space-y-4">
+              {services.en.packages.map((pkg: any, i: number) => (
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                  <div class="grid gap-2">
+                    <input type="text" name={`en_packages[${i}][name]_edit`} value={pkg.name} class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Name" />
+                    <input type="text" name={`en_packages[${i}][price]_edit`} value={pkg.price} class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Price" />
+                    <textarea name={`en_packages[${i}][description]_edit`} class="w-full px-3 py-2 border border-gray-300 rounded-lg" rows="2">{pkg.description}</textarea>
+                    <input type="text" name={`en_packages[${i}][features]_edit`} value={pkg.features.join(', ')} class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Features (comma separated)" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="font-medium text-gray-700 mb-2">Extra Services</h3>
+            <div id="en-extra" class="space-y-4">
+              {services.en.extra.map((item: any, i: number) => (
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                  <div class="grid gap-2">
+                    <input type="text" name={`en_extra[${i}][title]_edit`} value={item.title} class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Title" />
+                    <input type="text" name={`en_extra[${i}][price]_edit`} value={item.price} class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Price" />
+                    <textarea name={`en_extra[${i}][description]_edit`} class="w-full px-3 py-2 border border-gray-300 rounded-lg" rows="2">{item.description}</textarea>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <button type="submit" class="w-full bg-pink-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-pink-700 transition-colors">
+        💾 Uložiť zmeny
+      </button>
+    </form>
+  )}
+
+  {activeTab === 'contact' && (
+    <div class="bg-white rounded-xl shadow-sm p-6">
+      <p class="text-gray-500">Kontaktné údaje sa upravujú v JSON súboroch alebo priamo v kóde.</p>
+      <p class="text-sm text-gray-400 mt-2">Súbor: content/json/ alebo src/data/content.ts</p>
+    </div>
+  )}
+</AdminLayout>

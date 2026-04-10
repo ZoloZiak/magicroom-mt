@@ -1,0 +1,71 @@
+---
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
+
+export const prerender = false;
+
+const session = Astro.cookies.get('admin-session');
+if (!session?.value) {
+  return Astro.redirect('/admin/login');
+}
+
+// Read gallery data
+const galleryPath = join(process.cwd(), 'content/json/gallery.json');
+let gallery = { gallery: [] };
+
+try {
+  const content = await readFile(galleryPath, 'utf-8');
+  gallery = JSON.parse(content);
+} catch (e) {
+  // File doesn't exist
+}
+---
+
+<AdminLayout title="Galéria">
+  <div class="flex items-center justify-between mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">🖼️ Galéria</h1>
+  </div>
+
+  <form method="POST" action="/api/admin/save-gallery" class="space-y-6">
+    <div class="bg-white rounded-xl shadow-sm p-6">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Položky galérie</h2>
+      
+      <div class="space-y-4">
+        {gallery.gallery.map((item: any, i: number) => (
+          <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+            <input type="hidden" name="items[{i}][filename]" value={item.filename} />
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Názov (SK)</label>
+                <input type="text" name={`items[${i}][title]`} value={item.title || ''} class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Názov (EN)</label>
+                <input type="text" name={`items[${i}][titleEn]`} value={item.titleEn || ''} class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+              </div>
+              <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Alt text (SK)</label>
+                <input type="text" name={`items[${i}][alt]`} value={item.alt || ''} class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+              </div>
+              <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Alt text (EN)</label>
+                <input type="text" name={`items[${i}][altEn]`} value={item.altEn || ''} class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+              </div>
+            </div>
+            <p class="text-xs text-gray-500 mt-2">Súbor: {item.filename}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <h3 class="font-medium text-blue-900 mb-2">ℹ️ Nahrávanie obrázkov</h3>
+      <p class="text-sm text-blue-700">Obrázky nahrajte priamo do zložky <code class="bg-blue-100 px-2 py-1 rounded">public/images/gallery/</code> a potom pridajte položku sem.</p>
+    </div>
+
+    <button type="submit" class="w-full bg-pink-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-pink-700 transition-colors">
+      💾 Uložiť zmeny
+    </button>
+  </form>
+</AdminLayout>
