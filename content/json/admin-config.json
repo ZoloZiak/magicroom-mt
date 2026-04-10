@@ -1,0 +1,8 @@
+{
+  "admin": {
+    "password": "magic2026"
+  },
+  "analytics": {
+    "conversionsFile": "content/json/analytics.json"
+  }
+}

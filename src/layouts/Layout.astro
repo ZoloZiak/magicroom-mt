@@ -111,6 +111,17 @@ const jsonLd = JSON.stringify([
             value: value
           });
         }
+        // Also track to our analytics
+        if (category === 'conversion' || action.includes('booking') || action.includes('form') || action === 'whatsapp_click') {
+          fetch('/api/admin/analytics', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              type: action.includes('booking') ? 'booking' : action === 'whatsapp_click' ? 'whatsapp_click' : 'conversion',
+              data: { source: label, conversionType: action }
+            })
+          }).catch(() => {});
+        }
       };
 
       // Auto-track clicks on tracked elements

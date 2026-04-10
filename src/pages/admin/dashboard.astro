@@ -1,0 +1,125 @@
+---
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
+
+export const prerender = false;
+
+const session = Astro.cookies.get('admin-session');
+if (!session?.value) {
+  return Astro.redirect('/admin/login');
+}
+
+// Read analytics data
+const analyticsPath = join(process.cwd(), 'content/json/analytics.json');
+let analytics = { conversions: [], whatsappClicks: [], bookingSubmissions: [], contactFormSubmissions: [] };
+
+try {
+  const analyticsContent = await readFile(analyticsPath, 'utf-8');
+  analytics = JSON.parse(analyticsContent);
+} catch (e) {
+  // File doesn't exist yet
+}
+
+// Calculate stats
+const now = new Date();
+const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+const monthAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+
+const todayBookings = analytics.bookingSubmissions.filter((c: any) => new Date(c.timestamp) >= today).length;
+const weekBookings = analytics.bookingSubmissions.filter((c: any) => new Date(c.timestamp) >= weekAgo).length;
+const monthBookings = analytics.bookingSubmissions.filter((c: any) => new Date(c.timestamp) >= monthAgo).length;
+
+const todayWhatsApp = analytics.whatsappClicks.filter((c: any) => new Date(c.timestamp) >= today).length;
+const weekWhatsApp = analytics.whatsappClicks.filter((c: any) => new Date(c.timestamp) >= weekAgo).length;
+const monthWhatsApp = analytics.whatsappClicks.filter((c: any) => new Date(c.timestamp) >= monthAgo).length;
+
+const todayContacts = analytics.contactFormSubmissions.filter((c: any) => new Date(c.timestamp) >= today).length;
+const weekContacts = analytics.contactFormSubmissions.filter((c: any) => new Date(c.timestamp) >= weekAgo).length;
+const monthContacts = analytics.contactFormSubmissions.filter((c: any) => new Date(c.timestamp) >= monthAgo).length;
+
+const recentBookings = (analytics.bookingSubmissions || []).slice(-5).reverse();
+---
+
+<AdminLayout title="Dashboard">
+  <h1 class="text-3xl font-bold text-gray-900 mb-8">📊 Dashboard</h1>
+  
+  <!-- Stats cards -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="bg-white rounded-xl shadow-sm p-6">
+      <p class="text-sm text-gray-500 mb-1">Rezervácie</p>
+      <p class="text-3xl font-bold text-pink-600">{weekBookings}</p>
+      <p class="text-xs text-gray-400 mt-2">za posledný týždeň</p>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm p-6">
+      <p class="text-sm text-gray-500 mb-1">WhatsApp</p>
+      <p class="text-3xl font-bold text-green-600">{weekWhatsApp}</p>
+      <p class="text-xs text-gray-400 mt-2">za posledný týždeň</p>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm p-6">
+      <p class="text-sm text-gray-500 mb-1">Kontakt formulár</p>
+      <p class="text-3xl font-bold text-blue-600">{weekContacts}</p>
+      <p class="text-xs text-gray-400 mt-2">za posledný týždeň</p>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm p-6">
+      <p class="text-sm text-gray-500 mb-1">Celkom konverzií</p>
+      <p class="text-3xl font-bold text-purple-600">{weekBookings + weekWhatsApp + weekContacts}</p>
+      <p class="text-xs text-gray-400 mt-2">za posledný týždeň</p>
+    </div>
+  </div>
+  
+  <!-- Detailed stats -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="bg-white rounded-xl shadow-sm p-6">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Podľa obdobia</h2>
+      <table class="w-full">
+        <thead>
+          <tr class="border-b border-gray-200">
+            <th class="text-left py-3 text-sm font-medium text-gray-500">Obdobie</th>
+            <th class="text-right py-3 text-sm font-medium text-gray-500">Rezervácie</th>
+            <th class="text-right py-3 text-sm font-medium text-gray-500">WhatsApp</th>
+            <th class="text-right py-3 text-sm font-medium text-gray-500">Formulár</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-gray-100">
+            <td class="py-3 text-gray-900">Dnes</td>
+            <td class="py-3 text-right font-medium text-pink-600">{todayBookings}</td>
+            <td class="py-3 text-right font-medium text-green-600">{todayWhatsApp}</td>
+            <td class="py-3 text-right font-medium text-blue-600">{todayContacts}</td>
+          </tr>
+          <tr class="border-b border-gray-100">
+            <td class="py-3 text-gray-900">Týždeň</td>
+            <td class="py-3 text-right font-medium text-pink-600">{weekBookings}</td>
+            <td class="py-3 text-right font-medium text-green-600">{weekWhatsApp}</td>
+            <td class="py-3 text-right font-medium text-blue-600">{weekContacts}</td>
+          </tr>
+          <tr>
+            <td class="py-3 text-gray-900">Mesiac</td>
+            <td class="py-3 text-right font-medium text-pink-600">{monthBookings}</td>
+            <td class="py-3 text-right font-medium text-green-600">{monthWhatsApp}</td>
+            <td class="py-3 text-right font-medium text-blue-600">{monthContacts}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="bg-white rounded-xl shadow-sm p-6">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Posledné aktivity</h2>
+      <div class="space-y-3">
+        {recentBookings.length > 0 ? recentBookings.map((b: any) => (
+          <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+            <span class="text-2xl">📅</span>
+            <div>
+              <p class="text-sm font-medium text-gray-900">{b.name || 'Nová rezervácia'}</p>
+              <p class="text-xs text-gray-500">{new Date(b.timestamp).toLocaleString('sk-SK')}</p>
+            </div>
+          </div>
+        )) : (
+          <p class="text-gray-400 text-sm">Žiadne aktivity</p>
+        )}
+      </div>
+    </div>
+  </div>
+</AdminLayout>
