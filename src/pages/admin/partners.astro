@@ -94,9 +94,11 @@ try {
 <script>
   let partnerCount = 0;
 
-  window.addNewPartner = function() {
+  function addNewPartner() {
     const skContainer = document.getElementById('sk-partners-list');
     const enContainer = document.getElementById('en-partners-list');
+    
+    if (!skContainer || !enContainer) return;
     
     const idx = partnerCount++;
     
@@ -104,7 +106,7 @@ try {
     const skDiv = document.createElement('div');
     skDiv.className = 'border border-gray-200 rounded-lg p-4 bg-gray-50 relative';
     skDiv.innerHTML = `
-      <button type="button" onclick="this.parentElement.remove(); removePartner(${idx})" class="absolute top-2 right-2 text-red-500">🗑️</button>
+      <button type="button" onclick="this.parentElement.remove()" class="absolute top-2 right-2 text-red-500">🗑️</button>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Názov</label>
@@ -151,5 +153,8 @@ try {
       </div>
     `;
     enContainer.appendChild(enDiv);
-  };
+  }
+
+  // Make function available globally
+  (window as any).addNewPartner = addNewPartner;
 </script>

@@ -2,6 +2,7 @@
 import AdminLayout from '@/layouts/AdminLayout.astro';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
+import type { ImageMetadata } from 'astro:assets';
 
 const galleryPath = join(process.cwd(), 'content/json/gallery.json');
 let gallery = { gallery: [] };
@@ -12,14 +13,23 @@ try {
 } catch (e) {
   // File doesn't exist
 }
+
+// Get gallery images for display
+const galleryImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/gallery/*.{jpeg,jpg,png,JPG,JPEG,PNG}', { eager: true });
+
+function getGalleryImageUrl(filename: string): string {
+  const img = galleryImages[`../../content/images/gallery/${filename}`];
+  if (img && img.default) {
+    return (img.default as any).src || `/images/gallery/${filename}`;
+  }
+  return `/images/gallery/${filename}`;
+}
 ---
 
 <AdminLayout title="Galéria">
   <div class="flex items-center justify-between mb-8">
     <h1 class="text-3xl font-bold text-gray-900">🖼️ Galéria</h1>
-    <button type="button" onclick="document.getElementById('add-modal').classList.remove('hidden')" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-2xl font-medium hover:shadow-lg transition-all">
-      + Pridať novú fotku
-    </button>
+    <a href="/galeria" target="_blank" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200">👁️ Náhľad</a>
   </div>
 
   <!-- Upload Section -->
@@ -77,7 +87,7 @@ try {
     {gallery.gallery.map((item: any, i: number) => (
       <div class="bg-white rounded-2xl shadow-lg border border-pink-100 overflow-hidden group hover:shadow-xl transition-all">
         <div class="aspect-[3/4] bg-gray-100 relative">
-          <img src={`/images/gallery/${item.filename}`} alt={item.alt} class="w-full h-full object-cover" />
+          <img src={getGalleryImageUrl(item.filename)} alt={item.alt} class="w-full h-full object-cover" onerror="this.src='/placeholder-dress.svg'" />
           <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
             <a href="/galeria" target="_blank" class="p-2 bg-white rounded-full hover:bg-pink-50 transition-colors" title="Zobraziť na stránke">👁️</a>
             <button type="button" onclick={`openEditModal(${i})`} class="p-2 bg-white rounded-full hover:bg-pink-50 transition-colors" title="Upraviť">✏️</button>
@@ -145,7 +155,6 @@ try {
     
     selectedFile = file;
     
-    // Show preview
     const reader = new FileReader();
     reader.onload = function(e) {
       document.getElementById('preview-image').src = e.target.result;
@@ -155,7 +164,6 @@ try {
     };
     reader.readAsDataURL(file);
     
-    // Auto-fill title from filename
     const nameWithoutExt = file.name.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ');
     document.getElementById('title-sk').value = nameWithoutExt.charAt(0).toUpperCase() + nameWithoutExt.slice(1);
   }
@@ -166,8 +174,8 @@ try {
     document.getElementById('preview-container').classList.add('hidden');
   }
 
-  // Open edit modal
-  window.openEditModal = function(index) {
+  // Expose functions globally for inline onclick handlers
+  (window as any).openEditModal = function(index: number) {
     const item = galleryItems[index];
     document.getElementById('edit-index').value = index;
     document.getElementById('edit-title-sk').value = item.title || '';
@@ -177,12 +185,35 @@ try {
     document.getElementById('edit-modal').classList.remove('hidden');
   };
 
-  window.closeEditModal = function() {
+  (window as any).closeEditModal = function() {
     document.getElementById('edit-modal').classList.add('hidden');
   };
 
+  (window as any).deleteGalleryItem = async function(filename: string) {
+    if (!confirm('Naozaj chcete vymazať túto fotku?')) return;
+    
+    const newItems = galleryItems.filter((item: any) => item.filename !== filename);
+    
+    try {
+      const response = await fetch('/api/admin/save-gallery', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: newItems })
+      });
+      const result = await response.json();
+      if (result.success) {
+        window.showToast('Fotka vymazaná!');
+        setTimeout(() => window.location.reload(), 1500);
+      } else {
+        window.showToast(result.error || 'Chyba pri mazaní', 'error');
+      }
+    } catch (err) {
+      window.showToast('Chyba pri mazaní', 'error');
+    }
+  };
+
   // Handle edit form submission
-  document.getElementById('edit-form').addEventListener('submit', async function(e) {
+  document.getElementById('edit-form')?.addEventListener('submit', async function(e) {
     e.preventDefault();
     const index = parseInt(document.getElementById('edit-index').value);
     const updatedItem = {
@@ -212,30 +243,6 @@ try {
       window.showToast('Chyba pri ukladaní', 'error');
     }
   });
-
-  // Delete gallery item
-  window.deleteGalleryItem = async function(filename) {
-    if (!confirm('Naozaj chcete vymazať túto fotku?')) return;
-    
-    const newItems = galleryItems.filter((item: any) => item.filename !== filename);
-    
-    try {
-      const response = await fetch('/api/admin/save-gallery', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: newItems })
-      });
-      const result = await response.json();
-      if (result.success) {
-        window.showToast('Fotka vymazaná!');
-        setTimeout(() => window.location.reload(), 1500);
-      } else {
-        window.showToast(result.error || 'Chyba pri mazaní', 'error');
-      }
-    } catch (err) {
-      window.showToast('Chyba pri mazaní', 'error');
-    }
-  };
 
   // Handle form submission
   document.getElementById('upload-form').addEventListener('submit', async function(e) {
