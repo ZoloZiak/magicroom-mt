@@ -66,13 +66,45 @@ const recentBookings = (analytics.bookingSubmissions || []).slice(-5).reverse();
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
     <div class="bg-white rounded-xl shadow-sm p-6">
       <h2 class="text-lg font-semibold text-gray-900 mb-4">Podľa obdobia</h2>
-      <table class="w-full">
+      <div class="space-y-4">
+        <!-- Visual bar chart -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600">Dnes</span>
+            <span class="font-medium">{todayBookings + todayWhatsApp + todayContacts} konverzií</span>
+          </div>
+          <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-pink-500 to-purple-500 rounded-full" style={`width: ${Math.min(100, (todayBookings + todayWhatsApp + todayContacts) * 20)}%`}></div>
+          </div>
+        </div>
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600">Týždeň</span>
+            <span class="font-medium">{weekBookings + weekWhatsApp + weekContacts} konverzií</span>
+          </div>
+          <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-pink-500 to-purple-500 rounded-full" style={`width: ${Math.min(100, (weekBookings + weekWhatsApp + weekContacts) * 10)}%`}></div>
+          </div>
+        </div>
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-600">Mesiac</span>
+            <span class="font-medium">{monthBookings + monthWhatsApp + monthContacts} konverzií</span>
+          </div>
+          <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-pink-500 to-purple-500 rounded-full" style={`width: ${Math.min(100, (monthBookings + monthWhatsApp + monthContacts) * 3)}%`}></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Breakdown table -->
+      <table class="w-full mt-6">
         <thead>
           <tr class="border-b border-gray-200">
             <th class="text-left py-3 text-sm font-medium text-gray-500">Obdobie</th>
-            <th class="text-right py-3 text-sm font-medium text-gray-500">Rezervácie</th>
-            <th class="text-right py-3 text-sm font-medium text-gray-500">WhatsApp</th>
-            <th class="text-right py-3 text-sm font-medium text-gray-500">Formulár</th>
+            <th class="text-right py-3 text-sm font-medium text-gray-500">📅</th>
+            <th class="text-right py-3 text-sm font-medium text-gray-500">💬</th>
+            <th class="text-right py-3 text-sm font-medium text-gray-500">📝</th>
           </tr>
         </thead>
         <tbody>

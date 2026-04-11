@@ -377,9 +377,48 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 - JSON súbory sú v `content/json/` - editovateľné cez admin
 - Login chránený heslom (bezpečnostné cookies)
 - GitHub Actions deploy po push na main
-- Testy: 104 unit + E2E
+
+---
+
+## 13. Budúce vylepšenia (20 nápadov)
+
+### 🔧 Funkcie
+
+| Nápad | Priorita | Status |
+|-------|----------|--------|
+| Rezervačný kalendár (výber dátumu a času) | Nízka | ⏳ |
+| Online chat (chatbot pre otázky 24/7) | Nízka | ⏳ |
+| Wishlist šiat (ukladanie obľúbených) | Nízka | ⏳ |
+| Porovnávač šiat (side-by-side) | Nízka | ⏳ |
+| Zákaznícke recenzie na stránke | Stredná | ⏳ |
+| Fotogaléria z svadieb (upload od klientok) | Stredná | ⏳ |
+| Cenová kalkulačka | Nízka | ⏳ |
+| Newsletter (email kurz pre nevesty) | Nízka | ⏳ |
+
+### 🎨 UX/UI (2026-04-10)
+
+| Nápad | Priorita | Status |
+|-------|----------|--------|
+| Lazy loading obrázkov | Stredná | ✅ Astro `Image` automaticky |
+| PWA support | Nízka | ⏭️ Nízka priorita |
+| Tmavý režim | Nízka | ⏭️ Nízka priorita |
+| Animácie pri scrollovaní | Stredná | ⏭️ Môže spomaliť stránku |
+| Väčšie tlačidlá | Nízka | ✅ Button component: `lg: h-12` |
+
+**Poznámka:** CTA tlačidlá majú `hover:-translate-y-0.5` animácie.
+
+### ⚙️ Technické
+
+| Nápad | Priorita | Status |
+|-------|----------|--------|
+| Obnovenie hesla | Nízka | ⏳ |
+| Autosave v admin | Stredná | ⏳ |
+| Multi-image upload (hromadný) | Stredná | ⏳ |
+| Backup JSON (verziovanie) | Nízka | ⏳ |
+| SEO audit (meta optimalizácia) | Stredná | ⏳ |
+| Analytics dashboard grafy | Stredná | ⏳ |
 
 ---
 
 *Document created: 2026-04-01*
-*Version: 1.5 - 2026-04-10*
+*Version: 1.6 - 2026-04-10*
