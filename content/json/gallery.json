@@ -1,49 +1,12 @@
 {
   "gallery": [
     {
-      "filename": "hero.png",
-      "alt": "Interiér MagicRoom v Martine s jemnou svadobnou atmosférou.",
-      "altEn": "MagicRoom interior in Martin with a delicate wedding atmosphere.",
-      "title": "Salón v Martine",
-      "titleEn": "Salon in Martin"
-    },
-    {
-      "filename": "dresses.png",
-      "alt": "Svadobné šaty pripravené na skúšku v MagicRoom.",
-      "altEn": "Wedding dresses ready for fitting at MagicRoom.",
-      "title": "Modely na skúšku",
-      "titleEn": "Models for fitting"
-    },
-    {
-      "filename": "decor-main.jpg",
-      "alt": "Svadobné dekorácie na prenájom od MagicRoom.",
-      "altEn": "Wedding decorations for rent from MagicRoom.",
-      "title": "Výzdoba stolov",
-      "titleEn": "Table decoration"
-    },
-    {
-      "filename": "decor-alt.jpg",
-      "alt": "Detail romantickej svadobnej výzdoby.",
-      "altEn": "Detail of romantic wedding decoration.",
-      "title": "Romantické detaily",
-      "titleEn": "Romantic details"
-    },
-    {
-      "filename": "decor-backdrop.jpg",
-      "alt": "Svadobná kulisa so závesmi a svetielkami.",
-      "altEn": "Wedding backdrop with curtains and lights.",
-      "title": "Kulisa a svetlá",
-      "titleEn": "Backdrop and lights"
-    },
-    {
-      "filename": "decor-details.jpg",
-      "alt": "Handmade svadobné doplnky a smerové šípky.",
-      "altEn": "Handmade wedding accessories and directional arrows.",
-      "title": "Handmade doplnky",
-      "titleEn": "Handmade accessories"
-    },
-    {
       "filename": "pink-dress-1.jpeg",
+      "alt": "Svetloružové spoločenské šaty v detailnom zábere.",
+      "altEn": "Light pink formal dresses in a close-up shot.",
+      "title": "Ružová elegancia",
+      "titleEn": "Pink elegance"
+    },
       "alt": "Svetloružové spoločenské šaty v detailnom zábere.",
       "altEn": "Light pink formal dresses in a close-up shot.",
       "title": "Ružová elegancia",
