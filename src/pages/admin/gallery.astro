@@ -2,7 +2,6 @@
 import AdminLayout from '@/layouts/AdminLayout.astro';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
-import type { ImageMetadata } from 'astro:assets';
 
 const galleryPath = join(process.cwd(), 'content/json/gallery.json');
 let gallery = { gallery: [] };
@@ -14,31 +13,10 @@ try {
   // File doesn't exist
 }
 
-// Get gallery images for display
-const galleryImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/gallery/*.{jpeg,jpg,png,JPG,JPEG,PNG}', { eager: true });
+const GITHUB_RAW = 'https://raw.githubusercontent.com/ZoloZiak/magicroom-mt/main';
 
 function getGalleryImageUrl(filename: string): string {
-  const match = Object.entries(galleryImages).find(([path]) => {
-    const normalizedPath = path.replace(/\\/g, '/');
-    const nameWithoutExt = filename.replace(/\.(jpeg|jpg|png|JPG|JPEG|PNG)$/, '');
-    return normalizedPath.endsWith('/' + nameWithoutExt + '.jpg') || 
-           normalizedPath.endsWith('/' + nameWithoutExt + '.jpeg') || 
-           normalizedPath.endsWith('/' + nameWithoutExt + '.png') ||
-           normalizedPath.endsWith('/' + nameWithoutExt + '.JPG') ||
-           normalizedPath.endsWith('/' + nameWithoutExt + '.JPEG') ||
-           normalizedPath.endsWith('/' + nameWithoutExt + '.PNG') ||
-           normalizedPath.endsWith('/' + filename);
-  });
-  if (match) {
-    const img = match[1] as any;
-    // Return the src from the optimized image
-    const src = img.default?.src;
-    if (src) {
-      return src;
-    }
-  }
-  // Fallback: return empty string (will show placeholder)
-  return '';
+  return `${GITHUB_RAW}/content/images/gallery/${filename}`;
 }
 ---
 
