@@ -18,13 +18,19 @@ try {
 <AdminLayout title="Partneri">
   <div class="flex items-center justify-between mb-8">
     <h1 class="text-3xl font-bold text-gray-900">🤝 Partneri</h1>
+    <div class="flex gap-2">
+      <a href="/partneri" target="_blank" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200">👁️ Náhľad</a>
+      <button type="button" onclick="addNewPartner()" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-2xl font-medium hover:shadow-lg transition-all">
+        + Pridať partnera
+      </button>
+    </div>
   </div>
 
   <form method="POST" action="/api/admin/save-partners" class="space-y-6">
     <div class="bg-white rounded-xl shadow-sm p-6">
       <h2 class="text-lg font-semibold text-gray-900 mb-4">Slovak (SK)</h2>
       
-      <div class="space-y-4">
+      <div class="space-y-4" id="sk-partners-list">
         {partners.sk.partners.map((partner: any, i: number) => (
           <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -53,7 +59,7 @@ try {
     <div class="bg-white rounded-xl shadow-sm p-6">
       <h2 class="text-lg font-semibold text-gray-900 mb-4">English (EN)</h2>
       
-      <div class="space-y-4">
+      <div class="space-y-4" id="en-partners-list">
         {partners.en.partners.map((partner: any, i: number) => (
           <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -84,3 +90,64 @@ try {
     </button>
   </form>
 </AdminLayout>
+
+<script define:vars={{ partners: partners }}>
+  window.addNewPartner = function() {
+    const skContainer = document.querySelector('#sk-partners-list');
+    const enContainer = document.querySelector('#en-partners-list');
+    
+    const newIndex = partners.sk.partners.length;
+    
+    // Add SK partner input
+    const skDiv = document.createElement('div');
+    skDiv.className = 'border border-gray-200 rounded-lg p-4 bg-gray-50 relative';
+    skDiv.innerHTML = \`
+      <button type="button" onclick="this.parentElement.remove()" class="absolute top-2 right-2 text-red-500">🗑️</button>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Názov</label>
+          <input type="text" name="sk_partners[\${newIndex}][name]" class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Nový partner" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Kategoria</label>
+          <input type="text" name="sk_partners[\${newIndex}][category]" class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Fotografia" />
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Popis</label>
+          <textarea name="sk_partners[\${newIndex}][description]" rows="2" class="w-full px-3 py-2 border border-gray-300 rounded-lg"></textarea>
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Odkaz</label>
+          <input type="url" name="sk_partners[\${newIndex}][link]" class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="https://" />
+        </div>
+      </div>
+    \`;
+    skContainer.appendChild(skDiv);
+    
+    // Add EN partner input
+    const enDiv = document.createElement('div');
+    enDiv.className = 'border border-gray-200 rounded-lg p-4 bg-gray-50 relative';
+    enDiv.innerHTML = \`
+      <button type="button" onclick="this.parentElement.remove()" class="absolute top-2 right-2 text-red-500">🗑️</button>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+          <input type="text" name="en_partners[\${newIndex}][name]" class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="New partner" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+          <input type="text" name="en_partners[\${newIndex}][category]" class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Photography" />
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+          <textarea name="en_partners[\${newIndex}][description]" rows="2" class="w-full px-3 py-2 border border-gray-300 rounded-lg"></textarea>
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Link</label>
+          <input type="url" name="en_partners[\${newIndex}][link]" class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="https://" />
+        </div>
+      </div>
+    \`;
+    enContainer.appendChild(enDiv);
+  };
+</script>
