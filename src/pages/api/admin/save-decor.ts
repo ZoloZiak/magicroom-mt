@@ -1,14 +1,61 @@
 import type { APIRoute } from 'astro';
-import { writeFile } from 'fs/promises';
-import { join } from 'path';
 
-const DECOR_PATH = join(process.cwd(), 'content/json/decor.json');
+const GITHUB_API = 'https://api.github.com';
+const REPO_OWNER = 'ZoloZiak';
+const REPO_NAME = 'magicroom-mt';
+const BRANCH = 'main';
+const DECOR_PATH = 'content/json/decor.json';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
+    const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN;
+    
+    if (!GITHUB_TOKEN) {
+      return new Response(JSON.stringify({ error: 'GitHub token not configured' }), { status: 500 });
+    }
+    
     const body = await request.json();
-    await writeFile(DECOR_PATH, JSON.stringify(body, null, 2), 'utf-8');
-
+    
+    // Get current decor.json from GitHub
+    const url = `${GITHUB_API}/repos/${REPO_OWNER}/${REPO_NAME}/contents/${DECOR_PATH}?ref=${BRANCH}`;
+    
+    const getResponse = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github+json'
+      }
+    });
+    
+    let sha = null;
+    
+    if (getResponse.ok) {
+      const data = await getResponse.json();
+      sha = data.sha;
+    }
+    
+    // Save to GitHub
+    const newContent = btoa(unescape(encodeURIComponent(JSON.stringify(body, null, 2))));
+    
+    const updateResponse = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/vnd.github+json'
+      },
+      body: JSON.stringify({
+        message: 'Update decor.json via Admin',
+        content: newContent,
+        branch: BRANCH,
+        sha: sha
+      })
+    });
+    
+    if (!updateResponse.ok) {
+      const error = await updateResponse.json();
+      return new Response(JSON.stringify({ error: error.message }), { status: updateResponse.status });
+    }
+    
     return new Response(JSON.stringify({ success: true, message: 'Uložené!' }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }

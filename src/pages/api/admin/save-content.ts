@@ -1,30 +1,45 @@
 import type { APIRoute } from 'astro';
-import { writeFile } from 'fs/promises';
-import { join } from 'path';
 
-const FILES_PATH = join(process.cwd(), 'content/json');
+const GITHUB_API = 'https://api.github.com';
+const REPO_OWNER = 'ZoloZiak';
+const REPO_NAME = 'magicroom-mt';
+const BRANCH = 'main';
 
 export const POST: APIRoute = async ({ request }) => {
-
   try {
+    const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN;
+    
+    if (!GITHUB_TOKEN) {
+      return new Response(JSON.stringify({ error: 'GitHub token not configured' }), { status: 500 });
+    }
+    
     const formData = await request.formData();
     const fileName = formData.get('file') as string;
     
     if (!fileName) {
       return new Response(JSON.stringify({ error: 'Missing file name' }), { status: 400 });
     }
-
-    const filePath = join(FILES_PATH, `${fileName}.json`);
     
-    // Read current file
+    const filePath = `content/json/${fileName}.json`;
+    const url = `${GITHUB_API}/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}?ref=${BRANCH}`;
+    
+    // Get current file from GitHub
+    const getResponse = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github+json'
+      }
+    });
+    
+    let sha = null;
     let data: any = {};
-    try {
-      const content = await readFile(filePath, 'utf-8');
-      data = JSON.parse(content);
-    } catch (e) {
-      // File doesn't exist
+    
+    if (getResponse.ok) {
+      const fileData = await getResponse.json();
+      sha = fileData.sha;
+      data = JSON.parse(decodeURIComponent(escape(atob(fileData.content))));
     }
-
+    
     // Process form data based on file type
     if (fileName === 'services') {
       // Process SK packages
@@ -88,10 +103,30 @@ export const POST: APIRoute = async ({ request }) => {
         }
       };
     }
-
-    // Save file
-    await writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
-
+    
+    // Save to GitHub
+    const newContent = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+    
+    const updateResponse = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/vnd.github+json'
+      },
+      body: JSON.stringify({
+        message: `Update ${fileName}.json via Admin`,
+        content: newContent,
+        branch: BRANCH,
+        sha: sha
+      })
+    });
+    
+    if (!updateResponse.ok) {
+      const error = await updateResponse.json();
+      return new Response(JSON.stringify({ error: error.message }), { status: updateResponse.status });
+    }
+    
     return new Response(JSON.stringify({ success: true, message: 'Uložené!' }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }

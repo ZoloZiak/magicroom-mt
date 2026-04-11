@@ -1,21 +1,45 @@
 import type { APIRoute } from 'astro';
-import { writeFile } from 'fs/promises';
-import { join } from 'path';
 
-const GALLERY_PATH = join(process.cwd(), 'content/json/gallery.json');
+const GITHUB_API = 'https://api.github.com';
+const REPO_OWNER = 'ZoloZiak';
+const REPO_NAME = 'magicroom-mt';
+const BRANCH = 'main';
+const GALLERY_PATH = 'content/json/gallery.json';
 
 export const POST: APIRoute = async ({ request }) => {
-
   try {
+    const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN;
+    
+    if (!GITHUB_TOKEN) {
+      return new Response(JSON.stringify({ error: 'GitHub token not configured' }), { status: 500 });
+    }
+    
     const contentType = request.headers.get('content-type') || '';
+    
+    // Get current gallery.json from GitHub
+    const url = `${GITHUB_API}/repos/${REPO_OWNER}/${REPO_NAME}/contents/${GALLERY_PATH}?ref=${BRANCH}`;
+    
+    const getResponse = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github+json'
+      }
+    });
+    
+    let sha = null;
+    let currentGallery = { gallery: [] };
+    
+    if (getResponse.ok) {
+      const data = await getResponse.json();
+      sha = data.sha;
+      currentGallery = JSON.parse(decodeURIComponent(escape(atob(data.content))));
+    }
     
     if (contentType.includes('application/json')) {
       const body = await request.json();
-      const items = body.items || [];
-      await writeFile(GALLERY_PATH, JSON.stringify({ gallery: items }, null, 2), 'utf-8');
+      currentGallery.gallery = body.items || [];
     } else {
       const formData = await request.formData();
-      
       const items: any[] = [];
       let i = 0;
       while (formData.has(`items[${i}][filename]`)) {
@@ -28,9 +52,32 @@ export const POST: APIRoute = async ({ request }) => {
         });
         i++;
       }
-      await writeFile(GALLERY_PATH, JSON.stringify({ gallery: items }, null, 2), 'utf-8');
+      currentGallery.gallery = items;
     }
-
+    
+    // Save to GitHub
+    const newContent = btoa(unescape(encodeURIComponent(JSON.stringify(currentGallery, null, 2))));
+    
+    const updateResponse = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/vnd.github+json'
+      },
+      body: JSON.stringify({
+        message: 'Update gallery.json via Admin',
+        content: newContent,
+        branch: BRANCH,
+        sha: sha
+      })
+    });
+    
+    if (!updateResponse.ok) {
+      const error = await updateResponse.json();
+      return new Response(JSON.stringify({ error: error.message }), { status: updateResponse.status });
+    }
+    
     return new Response(JSON.stringify({ success: true, message: 'Uložené!' }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
