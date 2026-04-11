@@ -18,11 +18,27 @@ try {
 const galleryImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/gallery/*.{jpeg,jpg,png,JPG,JPEG,PNG}', { eager: true });
 
 function getGalleryImageUrl(filename: string): string {
-  const img = galleryImages[`../../content/images/gallery/${filename}`];
-  if (img && img.default) {
-    return (img.default as any).src || `/images/gallery/${filename}`;
+  const match = Object.entries(galleryImages).find(([path]) => {
+    const normalizedPath = path.replace(/\\/g, '/');
+    const nameWithoutExt = filename.replace(/\.(jpeg|jpg|png|JPG|JPEG|PNG)$/, '');
+    return normalizedPath.endsWith('/' + nameWithoutExt + '.jpg') || 
+           normalizedPath.endsWith('/' + nameWithoutExt + '.jpeg') || 
+           normalizedPath.endsWith('/' + nameWithoutExt + '.png') ||
+           normalizedPath.endsWith('/' + nameWithoutExt + '.JPG') ||
+           normalizedPath.endsWith('/' + nameWithoutExt + '.JPEG') ||
+           normalizedPath.endsWith('/' + nameWithoutExt + '.PNG') ||
+           normalizedPath.endsWith('/' + filename);
+  });
+  if (match) {
+    const img = match[1] as any;
+    // Return the src from the optimized image
+    const src = img.default?.src;
+    if (src) {
+      return src;
+    }
   }
-  return `/images/gallery/${filename}`;
+  // Fallback: return empty string (will show placeholder)
+  return '';
 }
 ---
 
@@ -84,10 +100,21 @@ function getGalleryImageUrl(filename: string): string {
 
   <!-- Gallery Items -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-    {gallery.gallery.map((item: any, i: number) => (
+    {gallery.gallery.map((item: any, i: number) => {
+      const imgUrl = getGalleryImageUrl(item.filename);
+      return (
       <div class="bg-white rounded-2xl shadow-lg border border-pink-100 overflow-hidden group hover:shadow-xl transition-all">
         <div class="aspect-[3/4] bg-gray-100 relative">
-          <img src={getGalleryImageUrl(item.filename)} alt={item.alt} class="w-full h-full object-cover" onerror="this.src='/placeholder-dress.svg'" />
+          {imgUrl ? (
+            <img src={imgUrl} alt={item.alt} class="w-full h-full object-cover" />
+          ) : (
+            <div class="w-full h-full flex items-center justify-center bg-gray-100 text-gray-400">
+              <div class="text-center">
+                <div class="text-4xl mb-2">🖼️</div>
+                <div class="text-sm">{item.filename}</div>
+              </div>
+            </div>
+          )}
           <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
             <a href="/galeria" target="_blank" class="p-2 bg-white rounded-full hover:bg-pink-50 transition-colors" title="Zobraziť na stránke">👁️</a>
             <button type="button" onclick={`openEditModal(${i})`} class="p-2 bg-white rounded-full hover:bg-pink-50 transition-colors" title="Upraviť">✏️</button>
@@ -99,7 +126,8 @@ function getGalleryImageUrl(filename: string): string {
           <p class="text-xs text-gray-500 mt-1 truncate">{item.filename}</p>
         </div>
       </div>
-    ))}
+      );
+    })}
   </div>
 
   <!-- Empty state -->
