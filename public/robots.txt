@@ -1,24 +1,31 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
 
 # LLM Crawler Rules
 # Allow major AI crawlers to index content for better AI search visibility
 User-agent: GPTBot
 Allow: /
+Disallow: /admin/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /admin/
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /admin/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /admin/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /admin/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /admin/
 
 Sitemap: https://www.magicroom.sk/sitemap-index.xml
