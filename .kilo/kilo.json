@@ -3,5 +3,12 @@
     "README.md",
     "AGENTS.md"
   ],
-  "default_agent": "code"
+  "default_agent": "code",
+  "skills": {
+    "paths": [
+      "./.agents/skills",
+      "./.kilo/skills",
+      "~/.agents/skills"
+    ]
+  }
 }

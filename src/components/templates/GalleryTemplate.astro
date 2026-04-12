@@ -51,7 +51,7 @@ const galleryItems = getGalleryItems(language);
       <div class="container mx-auto px-4">
         <div class="columns-1 gap-6 sm:columns-2 lg:columns-3">
           {galleryItems.map((item, i) => (
-            <GLightboxGallery client:load images={[{ src: (item.src as ImageMetadata).src, width: 800, height: 1067, alt: item.alt, title: item.title }]}>
+            <GLightboxGallery client:visible images={[{ src: (item.src as ImageMetadata).src, width: 800, height: 1067, alt: item.alt, title: item.title }]}>
               <div class="mb-6 break-inside-avoid overflow-hidden rounded-[24px] bg-surface transition-all hover:shadow-xl">
                 {item.src && (
                   <Image

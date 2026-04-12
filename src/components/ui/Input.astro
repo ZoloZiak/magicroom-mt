@@ -1,0 +1,37 @@
+---
+interface Props {
+  type?: 'text' | 'email' | 'tel' | 'password' | 'number' | 'date' | 'time';
+  name: string;
+  placeholder?: string;
+  required?: boolean;
+  disabled?: boolean;
+  value?: string;
+  class?: string;
+  id?: string;
+  [key: string]: any;
+}
+
+const {
+  type = 'text',
+  name,
+  placeholder,
+  required = false,
+  disabled = false,
+  value,
+  class: className = '',
+  ...rest
+} = Astro.props;
+
+const baseClasses = 'flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm';
+---
+
+<input
+  type={type}
+  name={name}
+  placeholder={placeholder}
+  required={required}
+  disabled={disabled}
+  value={value}
+  class:list={[baseClasses, className]}
+  {...rest}
+/>
