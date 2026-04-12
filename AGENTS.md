@@ -33,7 +33,7 @@ MagicRoom is a wedding salon website in Martin, Slovakia. Built with Astro 6.x, 
 
 ## Admin Panel
 - URL: `/admin/login`
-- Password: `magic2026`
+- Password: see `.env` or ask project owner
 
 ## Team
 - **arciarchitekt** — Zolo Žiak, project owner & architect
