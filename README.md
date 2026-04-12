@@ -66,7 +66,7 @@ Všetok obsah, ktorý chceš meniť, sa nachádza v priečinku `content/`.
 - **JSON dáta:** v `content/json/`
 - **Obrázky:** v `content/images/`
 - **Návody:** v `content/tutorials/` (začni súborom `README.md`)
-- **Admin panel:** `/admin/login` — heslo: `magic2026`
+- **Admin panel:** `/admin/login` — heslo v `.env` alebo v AGENTS.md
 
 ## Stack
 

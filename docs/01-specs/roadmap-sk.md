@@ -358,7 +358,7 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 
 | Komponent | Status | Poznámky |
 |-----------|--------|----------|
-| Admin login (/admin/login) | ✅ DONE | Heslo: magic2026 |
+| Admin login (/admin/login) | ✅ DONE | Heslo v env alebo AGENTS.md |
 | Dashboard s analytikou | ✅ DONE | Rezervácie, WhatsApp, kontakty |
 | Galéria s uploadom | ✅ DONE | Drag & drop, edit, delete |
 | Svadobné šaty management | ✅ DONE | Zoznam šiat z JSON |
