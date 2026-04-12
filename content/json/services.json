@@ -57,64 +57,69 @@
       {
         "title": "Výzdoba na kľúč",
         "price": "Individuálne",
-        "description": "Postaráme sa o príjemnú atmosféru vašej svadby či oslavy presne podľa vašich predstáv."",
+        "description": "Postaráme sa o príjemnú atmosféru vašej svadby či oslavy presne podľa vašich predstáv.",
       }
     ]
   },
   "en": {
     "packages": [
       {
-        "name": "Event Styling",
+        "name": "Little Help",
         "price": "39 €",
-        "description": "Perfect for students or guests who need help with their overall event look.",
-        "features": ["1 styling session (60 min)", "color palette & accessories", "vendor recommendations"]
+        "description": "Clear direction and essential recommendations for the bride at the starting line.",
+        "features": ["1 consultation (60 min)", "Moodboard", "Decor recommendations"]
       },
       {
-        "name": "Event Basic",
+        "name": "Wedding Essentials",
         "price": "149–199 €",
-        "description": "Most popular choice for smaller events, balls and celebrations.",
+        "description": "Our most popular choice — bringing order to your preparations and vendors.",
         "recommended": true,
-        "features": ["2–3 planning sessions", "decoration proposal and moodboard", "preparation timeline", "budget optimization tips"]
+        "features": ["2–3 consultations", "Decor design & moodboard", "Preparation timeline", "Vendor recommendations"]
       },
       {
-        "name": "Full Coordination",
+        "name": "Full Preparation",
         "price": "199–299 €",
-        "description": "Complete stress-free preparation for your wedding or big event.",
-        "features": ["3–4 consultations", "decoration proposal and moodboard", "timeline + entertainment plan", "vendor coordination", "online guest management (RSVP)"]
+        "description": "Comprehensive planning and coordination of every detail.",
+        "features": ["3–4 consultations", "Decor design & moodboard", "Schedule + games planning", "Vendor coordination", "QR RSVP form"]
       }
     ],
     "extra": [
       {
         "title": "Individual Consultation",
         "price": "15 € / 60 min",
-        "description": "In person or online — budget, style, tips on how and where to get things efficiently."
+        "description": "In-person or online — budget planning, style advice, and tips on how to get better deals."
       },
       {
-        "title": "Rental of Inventory & Decorations",
-        "price": "Price list in section",
+        "title": "Inventory & Decor Rental",
+        "price": "See price list",
         "description": "Mirrors, gold cutlery, gold candle holders, and other wedding inventory.",
-        "link": "prenajom-dekoracii"
+        "link": "decor-rental"
       },
       {
-        "title": "Bachelorette Party",
+        "title": "Bachelorette Party Planning",
         "price": "from 39 €",
-        "description": "Concept, program, and activity tips in our Basic and Premium packages."
+        "description": "Concept, program ideas, and planning tips."
       },
       {
-        "title": "Custom Party Supplies",
-        "price": "from 5 €",
-        "description": "Personalized glasses, custom t-shirts, and handmade event gifts."
+        "title": "Graphics & Handmade Accessories",
+        "price": "from 15 €",
+        "description": "Invitations, hand-decorated glasses, custom-designed t-shirts, and other gifts."
       },
       {
-        "title": "Online RSVP management",
-        "price": "18 €",
-        "description": "QR code on invitations and online form for your guests. They can confirm attendance, diet requirements or accommodation with one click. You get a perfect overview in a table."
+        "title": "RSVP Online Management",
+        "price": "17.90 €",
+        "description": "QR form and guest response collection. Guests simply scan a code from your invitation to confirm attendance, dietary needs, or accommodation. You get everything in a clear table without the stress of calling everyone."
       },
       {
-        "title": "Dress Consignment",
+        "title": "Wedding Dress Consignment",
         "price": "Individual",
-        "description": "We help you sell your wedding dress to another bride right in our salon.",
-        "link": "komisny-predaj"
+        "description": "We help you sell your wedding dress to another bride right here in our salon.",
+        "link": "consignment-sale"
+      },
+      {
+        "title": "Bespoke Decor & Styling",
+        "price": "Individual pricing",
+        "description": "We will create a stunning atmosphere for your wedding or celebration tailored exactly to your vision."
       }
     ]
   }
