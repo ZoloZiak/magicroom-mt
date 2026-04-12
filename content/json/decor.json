@@ -39,11 +39,11 @@
         "category": "Candy bar a doplnky",
         "items": [
           { "name": "Candy bar balík (kliešte, tácky, schody)", "price": "19.90 €", "starred": true },
-          { "name": "Drevené čísla na stoly 1–10", "price": "5 €", "starred": false },
+          { "name": "Drevené čísla na stoly 1–10", "price": "4.90 €", "starred": false },
           { "name": "Košíky prvej pomoci", "price": "od 2 €", "starred": false },
-          { "name": "Personalizované poháre pre mladomanželov", "price": "od 25 € / pár", "starred": true },
+          { "name": "Personalizované poháre pre mladomanželov", "price": "od 24.90 € / pár", "starred": true },
           { "name": "Personalizované župany", "price": "od 19.90 € / pár", "starred": false },
-          { "name": "Personalizované tričká / nevesta, družička..", "price": "od 15 € / ks", "starred": true },
+          { "name": "Personalizované tričká / nevesta, družička..", "price": "od 14.90 € / ks", "starred": true },
           { "name": "Drevené číslovanie stolov (1-8)", "price": "5.90 € / set", "starred": false },
           { "name": "Svadobné čisto biele podbradníky 2ks (nápis - nevesta/ženích)", "price": "8.90 €", "starred": false }
         ]
@@ -61,7 +61,7 @@
       "Ku každej objednávke sa účtuje vratná záloha podľa hodnoty zapožičaných položiek.",
       "Pri oneskorenom vrátení si účtujeme 20 % z ceny nájmu za každý deň omeškania.",
       "Dekorácie sú určené na opakované používanie, preto prosíme o šetrné zaobchádzanie.",
-      "Text na mieru na zrkadlá/tabule vieme pripraviť za +5 € / položka."
+      "Text na mieru na zrkadlá/tabule vieme pripraviť od 4.90 € / položka."
     ]
   },
   "en": {
@@ -104,11 +104,11 @@
         "category": "Candy Bar and Accessories",
         "items": [
           { "name": "Candy bar package (tongs, trays, display steps)", "price": "19.90 €", "starred": true },
-          { "name": "Wooden table numbers 1–10", "price": "5 €", "starred": false },
+          { "name": "Wooden table numbers 1–10", "price": "4.90 €", "starred": false },
           { "name": "First aid baskets", "price": "from 2 €", "starred": false },
-          { "name": "Personalized glasses for the newlyweds", "price": "from 25 € / pair", "starred": true },
+          { "name": "Personalized glasses for the newlyweds", "price": "from 24.90 € / pair", "starred": true },
           { "name": "Personalized robes", "price": "from 19.90 € / pair", "starred": false },
-          { "name": "Personalized t-shirts / bride, bridesmaid..", "price": "from 15 € / pc", "starred": true },
+          { "name": "Personalized t-shirts / bride, bridesmaid..", "price": "from 14.90 € / pc", "starred": true },
           { "name": "Wooden table numbering (1-8)", "price": "5.90 € / set", "starred": false },
           { "name": "Pure white wedding bibs 2pcs (Bride/Groom inscription)", "price": "8.90 €", "starred": false }
         ]
@@ -126,7 +126,7 @@
       "A refundable deposit is charged for each order based on the value of the rented items.",
       "In case of late return, we charge 20% of the rental price for each day of delay.",
       "Decorations are intended for repeated use, so please handle them with care.",
-      "Custom text for mirrors/boards can be prepared for +5 € / item."
+      "Custom text for mirrors/boards can be prepared from 5 € / item."
     ]
   }
 }
