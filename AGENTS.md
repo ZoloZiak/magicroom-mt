@@ -12,11 +12,11 @@ When opening this project, you MUST execute these steps in order:
 ### Step 1: Read Documentation (CRITICAL) - USE READ TOOL
 You MUST use the `read` tool to load these files (not just assume you know them):
 
-1. **Read `README.md`** — understand project structure
-2. **Read `docs/README.md`** — understand SPECS-DRIVEN hierarchy
-3. **Read `docs/01-specs/SPEC-sk.md`** — design/tech specifications
-4. **Read `docs/01-specs/roadmap-sk.md`** — current implementation status
-5. **Read `docs/04-notes/vulnerabilities.md`** — security alerts
+1. **Read `README.md`** — project overview & structure
+2. **Read `docs/README.md`** — contains full docs hierarchy + source of truth
+3. **Read `docs/01-specs/SPEC-sk.md`** — design & tech specifications
+4. **Read `docs/01-specs/roadmap-sk.md`** — implementation status
+5. **Read `docs/04-notes/vulnerabilities.md`** — security alerts (if any)
 
 ### Step 2: Verify Environment
 1. Check if dev server is running on port 4321
