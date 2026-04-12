@@ -36,7 +36,7 @@
       {
         "title": "Rozlúčka so slobodou",
         "price": "od 39 €",
-        "description": "Koncept, program a tipy na aktivity v balíkoch Basic a Premium."
+        "description": "Koncept, program a tipy."
       },
       {
         "title": "Grafika a handmade doplnky",
@@ -45,7 +45,7 @@
       },
       {
         "title": "RSVP online správa",
-        "price": "18 €",
+        "price": "17.90 €",
         "description": "QR formulár a zber odpovedí hostí. Hostia jednoducho naskenujú kód z oznámenia a potvrdia účasť, diéty či ubytovanie. Vy máte všetko v prehľadnej tabuľke bez stresu z obvolávania."
       },
       {
@@ -53,6 +53,11 @@
         "price": "Individuálne",
         "description": "Pomôžeme vám predať vaše svadobné šaty ďalšej neveste — u nás v salóne.",
         "link": "komisny-predaj"
+      },
+      {
+        "title": "Výzdoba na kľúč",
+        "price": "Individuálne",
+        "description": "Postaráme sa o príjemnú atmosféru vašej svadby či oslavy presne podľa vašich predstáv."",
       }
     ]
   },
