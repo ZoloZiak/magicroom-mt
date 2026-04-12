@@ -7,7 +7,8 @@ import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
 import critters from 'astro-critters';
 import compress from '@playform/compress';
-import path from 'path';
+import partytown from '@astrojs/partytown';
+import path, { join } from 'path';
 
 // https://astro.build/config
 export default defineConfig({
@@ -26,6 +27,10 @@ export default defineConfig({
 
   integrations: [
     react(),
+    partytown({
+      dest: join(process.cwd(), 'dist', '_partytown'),
+      forward: ['dataLayer.push', 'gtag'],
+    }),
     critters(),
     compress({
       HTML: true,

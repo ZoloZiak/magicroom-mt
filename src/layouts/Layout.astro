@@ -77,48 +77,42 @@ const jsonLd = JSON.stringify([
     <meta name="author" content={SITE_NAME} />
     {keywords && <meta name="keywords" content={keywords} />}
     <meta name="generator" content={Astro.generator} />
-    <!-- Google Analytics 4 - Deferred -->
+    <!-- Google Analytics 4 - Partytown -->
+    <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC"></script>
     <script is:inline>
-      const isDev = window.location.hostname === 'localhost' || 
-        window.location.hostname.includes('.local') || 
-        (window.location.hostname.includes('vercel.app') && window.location.hostname.includes('-preview')) ||
-        window.location.search.includes('test=true');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-90JKE6RJNC', { 'send_page_view': false });
+      gtag('event', 'page_view', { page_path: window.location.pathname, page_title: document.title });
       
       window.trackEvent = function(category, action, label, value) {
-        if (typeof gtag === 'function' && !isDev) {
-          gtag('event', action, { event_category: category, event_label: label, value: value });
-        }
-        if (category === 'conversion' || action.includes('booking') || action.includes('form') || action === 'whatsapp_click') {
-          fetch('/api/admin/analytics', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: action.includes('booking') ? 'booking' : action === 'whatsapp_click' ? 'whatsapp_click' : 'conversion', data: { source: label, conversionType: action } }) }).catch(() => {});
-        }
+        window.dataLayer.push({
+          event: action,
+          event_category: category,
+          event_label: label,
+          value: value
+        });
       };
 
-      function loadGA() {
-        if (window.gaLoaded || isDev) return;
-        window.gaLoaded = true;
-        const s = document.createElement('script'); s.src = 'https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC'; s.async = true; document.head.appendChild(s);
-        window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date()); gtag('config', 'G-90JKE6RJNC', { 'send_page_view': false });
-        gtag('event', 'page_view', { page_path: window.location.pathname, page_title: document.title });
+      function handleClick(e) {
+        const target = e.target.closest('[data-ga-category]');
+        if (target) {
+          const category = target.dataset.gaCategory;
+          const action = target.dataset.gaAction || 'click';
+          const label = target.dataset.gaLabel || '';
+          const value = target.dataset.gaValue;
+          trackEvent(category, action, label, value);
+        }
       }
-
-      // Auto-track clicks on tracked elements
-      document.addEventListener('DOMContentLoaded', function() {
-        document.body.addEventListener('click', function(e) {
-          const target = e.target.closest('[data-ga-category]');
-          if (target) {
-            const category = target.dataset.gaCategory;
-            const action = target.dataset.gaAction || 'click';
-            const label = target.dataset.gaLabel || '';
-            const value = target.dataset.gaValue;
-            trackEvent(category, action, label, value);
-          }
+      
+      if (document.body) {
+        document.body.addEventListener('click', handleClick);
+      } else {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.addEventListener('click', handleClick);
         });
-      });
-
-      // Defer GA on interaction
-      ['scroll', 'click', 'touchstart'].forEach(e => document.addEventListener(e, loadGA, { once: true, passive: true }));
-      setTimeout(loadGA, 5000);
+      }
     </script>
     <!-- Google Business Profile verification -->
     <meta name="google-site-verification" content="MERGE_FROM_GOOGLE" />
