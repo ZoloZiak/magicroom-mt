@@ -9,12 +9,14 @@ DO NOT assume or guess project structure — verify from docs.
 
 When opening this project, you MUST execute these steps in order:
 
-### Step 1: Read Documentation (CRITICAL)
-1. **Read `README.md` completely** — understand project structure
+### Step 1: Read Documentation (CRITICAL) - USE READ TOOL
+You MUST use the `read` tool to load these files (not just assume you know them):
+
+1. **Read `README.md`** — understand project structure
 2. **Read `docs/README.md`** — understand SPECS-DRIVEN hierarchy
 3. **Read `docs/01-specs/SPEC-sk.md`** — design/tech specifications
 4. **Read `docs/01-specs/roadmap-sk.md`** — current implementation status
-5. **Check `docs/04-notes/`** — internal notes (vulnerabilities, refactoring)
+5. **Read `docs/04-notes/vulnerabilities.md`** — security alerts
 
 ### Step 2: Verify Environment
 1. Check if dev server is running on port 4321
