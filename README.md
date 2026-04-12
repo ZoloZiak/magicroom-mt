@@ -47,6 +47,7 @@ magicroom-mt/
 │   ├── layouts/                     # Page layouts
 │   ├── lib/                          # Utilities & i18n
 │   └── pages/                        # Astro pages & API
+│       └── admin/                    # 🔧 ADMIN PANEL (/admin/*)
 │
 ├── e2e/                              # 🧪 E2E TESTS (Playwright)
 ├── testing/                          # 🧪 UNIT TESTS (Vitest)
@@ -56,7 +57,6 @@ magicroom-mt/
 ├── .github/workflows/               # 🔄 CI/CD
 │
 ├── AGENTS.md                        # 🤖 AI ASSISTANT INSTRUCTIONS
-├── CLAUDE.md                        # 🤖 CODE INTELLIGENCE (GitNexus)
 └── README.md                        # 📖 THIS FILE
 ```
 
@@ -66,6 +66,7 @@ Všetok obsah, ktorý chceš meniť, sa nachádza v priečinku `content/`.
 - **JSON dáta:** v `content/json/`
 - **Obrázky:** v `content/images/`
 - **Návody:** v `content/tutorials/` (začni súborom `README.md`)
+- **Admin panel:** `/admin/login` — heslo: `magic2026`
 
 ## Stack
 
