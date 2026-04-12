@@ -38,6 +38,9 @@ const alternateLang = language === 'sk' ? 'en' : 'sk';
 const imageUrl = typeof image === 'string' 
   ? (image.startsWith('http') ? image : toAbsoluteUrl(image)) 
   : (image?.src ? toAbsoluteUrl(image.src) : toAbsoluteUrl(DEFAULT_OG_IMAGE));
+
+// LCP preload for homepage
+const isHomepage = Astro.url.pathname === '/' || Astro.url.pathname === '/en';
 const extraSchemas = Array.isArray(structuredData)
   ? structuredData
   : structuredData
@@ -162,6 +165,9 @@ const jsonLd = JSON.stringify([
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://wa.me" />
     <link rel="dns-prefetch" href="https://maps.app.goo.gl" />
+
+    <!-- LCP preload for homepage -->
+    {isHomepage && image && <link rel="preload" as="image" href={imageUrl} fetchpriority="high" />}
 
     <!-- Fonts with display=swap for better performance -->
 
