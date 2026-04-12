@@ -72,8 +72,8 @@
     },
     {
       "id": "svadba-saty3",
-      "name": "Jednoduchá krása",
-      "description": "Moderné minimalistické šaty s čistým strihom a jemným saténovým pásom.",
+      "name": "Ako víla",
+      "description": "Moderné jemné šaty s ľahkým tylom.",
       "price": 480,
       "size": "36",
       "type": "new",
@@ -83,6 +83,19 @@
       "featured": false,
       "details": "Čistý strih, saténový pás",
       "images": ["svadba-saty3"]
-    }
+    },
+    {
+      "id": "Satenovesaty1",
+      "name": "Jednoduchá krása - Prenájom",
+      "description": " Minimalistické šaty s čistým strihom a jemným saténovým pásom na viazanie.",
+      "price": 299,
+      "size": "36-38",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "minimalistická",
+      "featured": false,
+      "details": "Čistý strih, saténový pás",
+      "images": ["Satenovesaty1"]
   ]
 }
