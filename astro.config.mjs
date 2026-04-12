@@ -26,7 +26,7 @@ export default defineConfig({
   },
 
   integrations: [
-    react(),
+    react({ include: ['**/ui/LanguageSwitcher.astro'] }),  // Only hydrate minimal components
     partytown({
       dest: join(process.cwd(), 'dist', '_partytown'),
       forward: ['dataLayer.push', 'gtag'],

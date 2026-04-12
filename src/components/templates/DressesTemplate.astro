@@ -5,9 +5,8 @@ import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import Sparkles from '@/components/layout/Sparkles.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { DressCarousel } from '@/components/ui/dress-carousel';
+import Badge from '@/components/ui/Badge.astro';
+import Button from '@/components/ui/Button.astro';
 import { getBookingPageHref } from '@/data/site';
 import { DRESS_CATALOG, IMAGE_URLS } from '@/data/content';
 import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
@@ -76,11 +75,15 @@ const productSchema = dresses.map((dress) => ({
           {dresses.map((dress) => (
             <div class="group overflow-hidden rounded-[24px] border border-border/50 bg-white transition-all hover:shadow-xl">
               <div class="relative aspect-[3/4] overflow-hidden bg-white">
-                <DressCarousel 
-                  client:visible 
-                  images={(dress.images || []).map(img => ({ src: img.src, width: 400, height: 533 }))} 
-                  name={dress.name} 
-                />
+                {dress.images?.[0] && (
+                  <Image
+                    src={dress.images[0].src}
+                    alt={dress.name}
+                    width={400}
+                    height={533}
+                    class="h-full w-full object-cover"
+                  />
+                )}
                 <div class="absolute right-4 top-4">
                   <Badge variant={dress.status === 'available' ? 'success' : 'outline'} className="backdrop-blur-md">
                     {dress.status === 'available' ? (isEn ? 'Available' : 'Dostupné') : (isEn ? 'Reserved' : 'Rezervované')}
