@@ -6,7 +6,6 @@
         "items": [
           { "name": "Veľké zrkadlo 72 × 163 cm s nápisom „Vitajte na našej svadbe\"", "price": "35 €", "image": "mirrors", "starred": true },
           { "name": "Biele zrkadlo 70 × 90 cm na zasadací poriadok so svetielkami a stojanom", "price": "25 €", "image": "mirrors", "starred": true },
-          { "name": "Zlatý rám na zasadací poriadok (bez výplne)", "price": "15 €", "image": "mirrors", "starred": false },
           { "name": "Rámčeky s textom 10 × 12 cm (12 ks)", "price": "17.90 €", "starred": false },
           { "name": "Drevený stojan na zrkadlo/tabuľu", "price": "10.90 €", "starred": false },
           { "name": "Kovový skladací stojan / cca do 2-3kg", "price": "5.90 €", "starred": false }
@@ -72,7 +71,6 @@
         "items": [
           { "name": "Large mirror 72 × 163 cm with 'Welcome to our wedding' inscription", "price": "35 €", "image": "mirrors", "starred": true },
           { "name": "White mirror 70 × 90 cm for seating chart with fairy lights and stand", "price": "25 €", "image": "mirrors", "starred": true },
-          { "name": "Gold frame for seating chart (without insert)", "price": "15 €", "image": "mirrors", "starred": false },
           { "name": "Small frames with text 10 × 12 cm (12 pcs)", "price": "17.90 €", "starred": false },
           { "name": "Wooden easel/stand for mirror or board", "price": "10.90 €", "starred": false },
           { "name": "Metal folding stand / approx. up to 2-3kg", "price": "5.90 €", "starred": false }
