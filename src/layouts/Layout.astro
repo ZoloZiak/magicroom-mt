@@ -76,53 +76,30 @@ const jsonLd = JSON.stringify([
     <meta name="author" content={SITE_NAME} />
     {keywords && <meta name="keywords" content={keywords} />}
     <meta name="generator" content={Astro.generator} />
-    <!-- Google Analytics 4 -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC"></script>
+    <!-- Google Analytics 4 - Deferred -->
     <script is:inline>
-      // Don't track localhost, .local domains, or CI environments
-      const hostname = window.location.hostname;
-      if (hostname === 'localhost' || 
-          hostname.includes('.local') || 
-          hostname.includes('vercel.app') && hostname.includes('-preview') ||
-          window.location.search.includes('test=true')) {
-        console.log('GA disabled for', hostname);
-        window.gtag = function() { console.log('GA (mock):', arguments); };
-      } else {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-90JKE6RJNC', {
-          'send_page_view': false
-        });
-        
-        // Track first page view manually to avoid double counting
-        gtag('event', 'page_view', {
-          page_path: window.location.pathname,
-          page_title: document.title
-        });
-      }
-
-      // Global tracking helper
+      const isDev = window.location.hostname === 'localhost' || 
+        window.location.hostname.includes('.local') || 
+        (window.location.hostname.includes('vercel.app') && window.location.hostname.includes('-preview')) ||
+        window.location.search.includes('test=true');
+      
       window.trackEvent = function(category, action, label, value) {
-        if (typeof gtag === 'function') {
-          gtag('event', action, {
-            event_category: category,
-            event_label: label,
-            value: value
-          });
+        if (typeof gtag === 'function' && !isDev) {
+          gtag('event', action, { event_category: category, event_label: label, value: value });
         }
-        // Also track to our analytics
         if (category === 'conversion' || action.includes('booking') || action.includes('form') || action === 'whatsapp_click') {
-          fetch('/api/admin/analytics', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              type: action.includes('booking') ? 'booking' : action === 'whatsapp_click' ? 'whatsapp_click' : 'conversion',
-              data: { source: label, conversionType: action }
-            })
-          }).catch(() => {});
+          fetch('/api/admin/analytics', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: action.includes('booking') ? 'booking' : action === 'whatsapp_click' ? 'whatsapp_click' : 'conversion', data: { source: label, conversionType: action } }) }).catch(() => {});
         }
       };
+
+      function loadGA() {
+        if (window.gaLoaded || isDev) return;
+        window.gaLoaded = true;
+        const s = document.createElement('script'); s.src = 'https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC'; s.async = true; document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date()); gtag('config', 'G-90JKE6RJNC', { 'send_page_view': false });
+        gtag('event', 'page_view', { page_path: window.location.pathname, page_title: document.title });
+      }
 
       // Auto-track clicks on tracked elements
       document.addEventListener('DOMContentLoaded', function() {
@@ -137,6 +114,10 @@ const jsonLd = JSON.stringify([
           }
         });
       });
+
+      // Defer GA on interaction
+      ['scroll', 'click', 'touchstart'].forEach(e => document.addEventListener(e, loadGA, { once: true, passive: true }));
+      setTimeout(loadGA, 5000);
     </script>
     <!-- Google Business Profile verification -->
     <meta name="google-site-verification" content="MERGE_FROM_GOOGLE" />

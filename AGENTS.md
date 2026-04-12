@@ -86,9 +86,6 @@ npm run test:e2e  # E2E tests (135)
 - Dress photos + JSON data
 - Salon interior photos for gallery
 
-### ⚠️ Alerts
-- Dependabot: path-to-regexp, defu (High) — see `docs/04-notes/vulnerabilities.md`
-
 ## File Reference (AI specific)
 
 | Path | Description |
@@ -122,6 +119,5 @@ When working on any feature, you MUST check in this order:
 
 ### Summary for User (Required by instructions)
 - **Project:** MagicRoom — wedding salon website (Astro 6.x)
-- **Status:** Specs-driven, breadcrumbs removed, data refactored to JSON.
-- **Vulnerabilities:** path-to-regexp, defu (High)
-- **Memory:** Instructions for Slovak and no Junie attribution updated.
+- **Status:** Dependabot alerts resolved, data in JSON
+- **Memory:** Slovak lang, no Junie attribution

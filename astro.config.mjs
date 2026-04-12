@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
+import critters from 'astro-critters';
+import compress from '@playform/compress';
 import path from 'path';
 
 // https://astro.build/config
@@ -24,6 +26,13 @@ export default defineConfig({
 
   integrations: [
     react(),
+    critters(),
+    compress({
+      HTML: true,
+      CSS: true,
+      JS: true,
+      Image: false,
+    }),
     sitemap({
       serialize(item) {
         if (item.url === 'https://www.magicroom.sk/') {
