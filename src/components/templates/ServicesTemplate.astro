@@ -15,7 +15,7 @@ import { getBookingPageHref, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_URL } from '@/d
 import { getExtraServices, getServicePackages, IMAGE_URLS, DRESS_CATALOG } from '@/data/content';
 import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
 import Layout from '@/layouts/Layout.astro';
-import { ArrowRight, CheckCircle2, ClipboardList, LayoutGrid, Shirt, Sparkles } from 'lucide-react';
+import Icon from '@/components/ui/Icon.astro';
 
 interface Props {
   language: Language;
@@ -36,7 +36,7 @@ const servicePillars = [
     description: isEn ? 'Calm fitting with drink, up to 2 close people.' : 'Pokojná skúška s nápojom v cene, priestorom pre dve blízke osoby a časom porovnať si viac modelov bez stresu.',
     cta: isEn ? 'Book a fitting' : 'Rezervovať skúšku',
     href: getBookingPageHref(language),
-    icon: Shirt,
+    icon: 'Shirt',
   },
   {
     title: isEn ? 'Prom & Gala Dresses' : 'Predaj a výber šiat',
@@ -44,7 +44,7 @@ const servicePillars = [
     description: isEn ? 'High quality dresses at student prices.' : 'Nové modely, dostupné kúsky aj komisný výber pre ženy, ktoré chcú dobrý pocit aj z rozpočtu.',
     cta: isEn ? 'Ask' : 'Napísať o výber',
     href: getBookingPageHref(language),
-    icon: Sparkles,
+    icon: 'Sparkles',
   },
   {
     title: isEn ? 'Event Decorations' : 'Prenájom dekorácií',
@@ -52,7 +52,7 @@ const servicePillars = [
     description: isEn ? 'Mirrors, vases, candlesticks.' : 'Zrkadlá, vázy, svietniky, kulisy aj candy bar doplnky tak, aby ste vedeli zladiť hostinu bez chaosu.',
     cta: isEn ? 'View' : 'Pozrieť dekorácie',
     href: getRelativeHref('prenajom-dekoracii', language),
-    icon: LayoutGrid,
+    icon: 'LayoutGrid',
   },
   {
     title: isEn ? 'Styling Advice' : 'Svadobné poradenstvo',
@@ -60,7 +60,7 @@ const servicePillars = [
     description: isEn ? 'Consultations, moodboards.' : 'Konzultácie, moodboard, harmonogram aj odporúčania dodávateľov podľa toho, koľko pomoci naozaj potrebujete.',
     cta: isEn ? 'View' : 'Pozrieť balíky',
     href: '#baliky',
-    icon: ClipboardList,
+    icon: 'ClipboardList',
   },
 ];
 
@@ -119,7 +119,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
               <Button asChild variant="cta" size="lg" className="sm:min-w-[220px]">
                 <a href={getBookingPageHref(language)}>
                   {t.nav.bookAppointment}
-                  <ArrowRight className="h-5 w-5 ml-2" />
+                  <Icon name="ArrowRight" class="h-5 w-5 ml-2" />
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="sm:min-w-[220px]">
@@ -146,8 +146,8 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
           {servicePillars.map((item, index) => (
             <Card className={`border-0 bg-surface shadow-[var(--shadow-soft)] hover:shadow-xl transition-shadow animate-fade-in-up animate-stagger-${index+1}`}>
               <CardHeader>
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-sm text-primary">
-                  <item.icon className="h-6 w-6" />
+                <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-sm text-primary">
+                  <Icon name={item.icon} class="h-6 w-6" />
                 </div>
                 <CardTitle className="font-display text-2xl">
                   <h3 class="text-2xl">{item.title}</h3>
@@ -159,7 +159,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
                 <Button asChild variant="ghost" className="px-0 text-primary group">
                   <a href={item.href}>
                     {item.cta}
-                    <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
+                    <Icon name="ArrowRight" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
                   </a>
                 </Button>
               </CardContent>
@@ -193,7 +193,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
                   {pkg.features.map((f) => (
                     <li className="flex items-start gap-3 text-sm">
                       <div class="mt-1 shrink-0 rounded-full bg-success/10 p-1 text-success">
-                        <CheckCircle2 className="h-3 w-3" />
+                        <Icon name="CheckCircle2" class="h-3 w-3" />
                       </div>
                       <span class="text-muted-foreground">{f}</span>
                     </li>
@@ -217,12 +217,12 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
             svc.link ? (
               <a href={getRelativeHref(svc.link, language)} class="flex items-start gap-4 rounded-2xl border border-border/50 p-6 transition-all hover:bg-surface hover:shadow-md hover:border-primary/20 group">
                 <div class="mt-1 shrink-0 rounded-full bg-primary/10 p-2 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                  <Sparkles className="h-4 w-4" />
+                  <Icon name="Sparkles" class="h-4 w-4" />
                 </div>
                 <div>
                   <h4 class="font-semibold flex items-center gap-2">
                     {svc.title}
-                    <ArrowRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                    <Icon name="ArrowRight" class="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                   </h4>
                   <p class="text-sm font-medium text-cta">{svc.price}</p>
                   <p class="mt-1 text-sm text-muted-foreground">{svc.description}</p>
@@ -231,7 +231,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
             ) : (
               <div class="flex items-start gap-4 rounded-2xl border border-border/50 p-6 transition-colors hover:bg-surface">
                 <div class="mt-1 shrink-0 rounded-full bg-primary/10 p-2 text-primary">
-                  <Sparkles className="h-4 w-4" />
+                  <Icon name="Sparkles" class="h-4 w-4" />
                 </div>
                 <div>
                   <h4 class="font-semibold">{svc.title}</h4>

@@ -11,7 +11,7 @@ import { getBookingPageHref } from '@/data/site';
 import { DRESS_CATALOG, IMAGE_URLS } from '@/data/content';
 import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
 import Layout from '@/layouts/Layout.astro';
-import { ArrowRight, Heart } from 'lucide-react';
+import Icon from '@/components/ui/Icon.astro';
 
 interface Props {
   language: Language;
@@ -105,7 +105,7 @@ const productSchema = dresses.map((dress) => ({
                   <Button asChild variant="ghost" size="sm" className="group/btn">
                     <a href={getBookingPageHref(language)}>
                       {isEn ? 'Book fitting' : 'Rezervovať skúšku'}
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                      <Icon name="ArrowRight" class="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                     </a>
                   </Button>
                 </div>
@@ -115,7 +115,7 @@ const productSchema = dresses.map((dress) => ({
         </div>
 
         <div class="mt-20 text-center p-12 rounded-[40px] bg-surface border border-dashed border-primary/30">
-           <Heart className="h-10 w-10 text-primary mx-auto mb-6" aria-hidden="true" />
+           <Icon name="Heart" class="h-10 w-10 text-primary mx-auto mb-6" aria-hidden="true" />
            <h3 class="font-display text-3xl mb-4">{isEn ? 'Want to sell your dress?' : 'Chcete u nás predať svoje šaty?'}</h3>
            <p class="mb-8 text-muted-foreground">{isEn ? 'We accept dresses in consignment.' : 'Ponúknite svoje svadobné šaty ďalším nevestám cez náš komisný predaj.'}</p>
            <Button asChild variant="outline">

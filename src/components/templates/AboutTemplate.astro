@@ -14,7 +14,7 @@ import { getBookingPageHref, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_URL } from '@/d
 import { getFounderStory, getGalleryItems, getHomeStats, getTrustReasons, IMAGE_ASSETS, IMAGE_URLS } from '@/data/content';
 import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
 import Layout from '@/layouts/Layout.astro';
-import { ArrowRight, CheckCircle2, Heart, Phone, Sparkles as SparklesIcon, Users } from 'lucide-react';
+import Icon from '@/components/ui/Icon.astro';
 
 interface Props {
   language: Language;
@@ -35,17 +35,17 @@ const operatingPrinciples = [
   {
     title: isEn ? 'Personal care' : 'Osobná starostlivosť namiesto chaosu',
     description: isEn ? 'Calm and clear contact.' : 'Každý kontakt s MagicRoom má byť pokojný, jasný a ľudský — od prvej správy až po finálne detaily.',
-    icon: Heart,
+    icon: 'Heart',
   },
   {
     title: isEn ? 'Up to 50 guests' : 'Svadby a oslavy do 50 hostí',
     description: isEn ? 'Quality and personal approach.' : 'Vedome pracujeme v rozsahu, kde vieme udržať kvalitu, dohľad nad detailmi a osobný prístup Natálie.',
-    icon: Users,
+    icon: 'Users',
   },
   {
     title: isEn ? 'Practical help' : 'Praktická pomoc s krásnym výsledkom',
     description: isEn ? 'Save time and enjoy.' : 'Šaty, dekorácie aj poradenstvo majú pomôcť ušetriť čas a spraviť deň harmonickejším, nie komplikovanejším.',
-    icon: SparklesIcon,
+    icon: 'Sparkles',
   },
 ];
 ---
@@ -95,7 +95,7 @@ const operatingPrinciples = [
               <Button asChild variant="cta" size="lg" className="sm:min-w-[220px]">
                 <a href={getBookingPageHref(language)}>
                   {t.nav.bookAppointment}
-                  <ArrowRight className="h-5 w-5 ml-2" />
+                  <Icon name="ArrowRight" class="h-5 w-5 ml-2" />
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="sm:min-w-[220px]">
@@ -140,8 +140,8 @@ const operatingPrinciples = [
         <div class="grid gap-6 md:grid-cols-3">
           {operatingPrinciples.map((item, index) => (
             <div class={`rounded-2xl border border-border/70 bg-white p-6 shadow-[var(--shadow-soft)] animate-fade-in-up animate-stagger-${index+1}`}>
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                <item.icon className="h-5 w-5 text-primary" />
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                <Icon name={item.icon} class="h-5 w-5 text-primary" />
               </div>
               <h3 className="mt-5 text-xl font-semibold">{item.title}</h3>
               <p className="mt-3 text-base text-muted-foreground">{item.description}</p>
@@ -162,7 +162,7 @@ const operatingPrinciples = [
               {TRUST_REASONS.map((reason) => (
                 <div class="rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors hover:bg-white/10">
                   <div class="flex items-start gap-3 text-accent">
-                    <CheckCircle2 className="h-4 w-4 mt-1" />
+                    <Icon name="CheckCircle2" class="h-4 w-4 mt-1" />
                     <div>
                       <h3 class="text-lg font-semibold text-white">{reason.title}</h3>
                       <p class="mt-2 text-sm text-white/70">{reason.description}</p>
@@ -176,7 +176,7 @@ const operatingPrinciples = [
           <Card className="border border-white/10 bg-white/5 p-6 text-white backdrop-blur-sm">
             <CardContent className="space-y-4 pt-4">
               <div className="flex items-center gap-3 text-accent">
-                <Phone className="h-4 w-4" />
+                <Icon name="Phone" class="h-4 w-4" />
                 <span className="text-sm uppercase tracking-widest">{isEn ? 'Phone' : 'Telefón'}</span>
               </div>
               <p className="text-2xl font-semibold">{PHONE_DISPLAY}</p>

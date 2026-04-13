@@ -14,7 +14,7 @@ import CardTitle from '@/components/ui/CardTitle.astro';
 import { IMAGE_ASSETS, getBlogPosts } from '@/data/content';
 import { getTranslations, type Language } from '@/lib/translations';
 import Layout from '@/layouts/Layout.astro';
-import { ArrowRight, Calendar, Clock } from 'lucide-react';
+import Icon from '@/components/ui/Icon.astro';
 
 interface Props {
   language: Language;
@@ -66,9 +66,9 @@ const posts = getBlogPosts(language);
               </div>
               <CardHeader>
                 <div class="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                  <Calendar className="h-4 w-4" />
+                  <Icon name="Calendar" class="h-4 w-4" />
                   <span>{new Date(post.date).toLocaleDateString(isEn ? 'en-US' : 'sk-SK')}</span>
-                  <Clock className="h-4 w-4 ml-2" />
+                  <Icon name="Clock3" class="h-4 w-4 ml-2" />
                   <span>{post.readTime}</span>
                 </div>
                 <CardTitle className="font-display text-xl line-clamp-2">{post.title}</CardTitle>
@@ -83,7 +83,7 @@ const posts = getBlogPosts(language);
                 <Button asChild variant="ghost" className="px-0 text-primary hover:text-cta group">
                   <a href={isEn ? `/en/blog/${post.slug}` : `/blog/${post.slug}`}>
                     {isEn ? 'Read article' : 'Čítať článok'}
-                    <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
+                    <Icon name="ArrowRight" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
                   </a>
                 </Button>
               </CardContent>

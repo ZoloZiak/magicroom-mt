@@ -40,7 +40,7 @@ import {
 import { getTranslations } from '@/lib/translations';
 import type { Language } from '@/lib/i18n';
 import Layout from '@/layouts/Layout.astro';
-import { ArrowRight, CheckCircle2, Clock3, MapPin, Phone, Sparkles as SparklesIcon } from 'lucide-react';
+import Icon from '@/components/ui/Icon.astro';
 
 const { lang } = Astro.params;
 const language = lang as Language;
@@ -95,7 +95,7 @@ const howToSchema = {
               <Button asChild variant="cta" size="lg" className="hero-button interactive-ripple sm:min-w-[220px]">
                 <a href={getBookingPageHref(language)} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label={language === 'sk' ? "hero_cta" : "hero_cta_en"}>
                   {t.home.ctaBook}
-                  <ArrowRight className="icon-morph slovak-heart h-5 w-5" />
+                  <Icon name="ArrowRight" class="icon-morph slovak-heart h-5 w-5" />
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="hero-button sm:min-w-[220px]">
@@ -129,14 +129,14 @@ const howToSchema = {
             <div class="mt-5 grid gap-4 sm:grid-cols-2">
               <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" data-ga-label={language === 'sk' ? "hero_phone" : "hero_phone_en"} class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
                 <div class="flex items-center gap-3 text-primary">
-                  <Phone className="h-4 w-4" />
+                  <Icon name="Phone" class="h-4 w-4" />
                   <span class="text-sm uppercase tracking-[0.2em]">{language === 'sk' ? 'Telefón' : 'Phone'}</span>
                 </div>
                 <p class="mt-3 font-semibold text-foreground">{PHONE_DISPLAY}</p>
               </a>
               <a href={MAP_URL} target="_blank" rel="noopener noreferrer" data-ga-category="engagement" data-ga-action="map_click" data-ga-label={language === 'sk' ? "hero_map" : "hero_map_en"} class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
                 <div class="flex items-center gap-3 text-primary">
-                  <MapPin className="h-4 w-4" />
+                  <Icon name="MapPin" class="h-4 w-4" />
                   <span class="text-sm uppercase tracking-[0.2em]">{language === 'sk' ? 'Adresa' : 'Address'}</span>
                 </div>
                 <p class="mt-3 font-semibold text-foreground">{ADDRESS_LABEL}</p>
@@ -165,7 +165,7 @@ const howToSchema = {
             <Card className={`group border-border/50 bg-white/50 transition-all duration-300 hover:border-primary/30 hover:bg-white hover:shadow-xl animate-fade-in-up animate-stagger-${i + 1}`}>
               <CardHeader>
                 <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
-                  <SparklesIcon className="h-6 w-6" />
+                  <Icon name="Sparkles" class="h-6 w-6" />
                 </div>
                 <CardTitle className="font-display text-2xl">{card.title}</CardTitle>
                 <CardDescription className="text-cta font-medium">{card.price}</CardDescription>
@@ -175,7 +175,7 @@ const howToSchema = {
                 <Button asChild variant="ghost" className="group/btn w-full justify-between hover:bg-primary hover:text-white">
                   <a href={card.href}>
                     {card.cta}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                    <Icon name="ArrowRight" class="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </a>
                 </Button>
               </CardContent>
@@ -199,7 +199,7 @@ const howToSchema = {
               {TRUST_REASONS.map((reason) => (
                 <div class="flex gap-5 group">
                   <div class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-accent transition-colors group-hover:bg-accent group-hover:text-white">
-                    <CheckCircle2 className="h-5 w-5" />
+                    <Icon name="CheckCircle2" class="h-5 w-5" />
                   </div>
                   <div>
                     <h3 class="text-xl font-semibold text-white">{reason.title}</h3>

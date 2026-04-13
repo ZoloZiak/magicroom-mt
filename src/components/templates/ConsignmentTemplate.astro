@@ -10,7 +10,7 @@ import { getBookingPageHref, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
 import { getConsignmentBenefits, getConsignmentConditions, getConsignmentSteps, IMAGE_ASSETS, IMAGE_URLS, DRESS_CATALOG } from '@/data/content';
 import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
 import Layout from '@/layouts/Layout.astro';
-import { ArrowRight, CheckCircle2, Heart } from 'lucide-react';
+import Icon from '@/components/ui/Icon.astro';
 
 interface Props {
   language: Language;
@@ -71,7 +71,7 @@ const consignmentOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0
               <Button asChild variant="cta" size="lg">
                 <a href={getBookingPageHref(language)}>
                   {isEn ? 'Contact us' : 'Dohodnúť si termín'}
-                  <ArrowRight className="h-5 w-5 ml-2" />
+                  <Icon name="ArrowRight" class="h-5 w-5 ml-2" />
                 </a>
               </Button>
             </div>
@@ -117,7 +117,7 @@ const consignmentOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0
               {CONSIGNMENT_BENEFITS.map((benefit) => (
                 <div class="flex gap-4 p-6 rounded-2xl bg-white shadow-sm border border-border/50">
                   <div class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <CheckCircle2 className="h-4 w-4" />
+                    <Icon name="CheckCircle2" class="h-4 w-4" />
                   </div>
                   <p class="text-lg leading-relaxed">{benefit}</p>
                 </div>
@@ -136,7 +136,7 @@ const consignmentOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0
     <section class="py-20 md:py-28 bg-white">
       <div class="container mx-auto px-4 max-w-4xl">
         <div class="text-center mb-12">
-          <Heart className="h-10 w-10 text-primary mx-auto mb-4" />
+          <Icon name="Heart" class="h-10 w-10 text-primary mx-auto mb-4" />
           <h2 class="font-display text-4xl">{isEn ? 'Conditions' : 'Podmienky prijatia'}</h2>
         </div>
         <div class="grid gap-4 sm:grid-cols-2">

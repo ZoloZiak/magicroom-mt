@@ -5,11 +5,13 @@ import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import Badge from '@/components/ui/Badge.astro';
 import Button from '@/components/ui/Button.astro';
-import { Card, CardContent, CardTitle } from '@/components/ui/card';
+import Card from '@/components/ui/Card.astro';
+import CardContent from '@/components/ui/CardContent.astro';
+import CardTitle from '@/components/ui/CardTitle.astro';
 import { getPartners, getPartnerCategories, IMAGE_URLS } from '@/data/content';
 import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
 import Layout from '@/layouts/Layout.astro';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import Icon from '@/components/ui/Icon.astro';
 
 interface Props {
   language: Language;
@@ -69,7 +71,7 @@ const categories = getPartnerCategories(language);
                    <Button asChild variant="ghost" size="sm" className="px-0 group">
                       <a href={partner.link} target="_blank" rel="noopener noreferrer">
                          {isEn ? 'View work' : 'Pozrieť prácu'}
-                         <ExternalLink className="ml-2 h-4 w-4" />
+                         <Icon name="ExternalLink" class="ml-2 h-4 w-4" />
                       </a>
                    </Button>
                    <span class="text-xs text-muted-foreground italic">Martin & okolie</span>

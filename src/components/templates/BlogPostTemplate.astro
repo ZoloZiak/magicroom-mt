@@ -14,7 +14,7 @@ import { getBookingPageHref, PHONE_DISPLAY, PHONE_HREF, toAbsoluteUrl } from '@/
 import { IMAGE_ASSETS, IMAGE_URLS, getBlogPost, getBlogPosts } from '@/data/content';
 import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
 import Layout from '@/layouts/Layout.astro';
-import { ArrowRight, Calendar, Clock, Phone } from 'lucide-react';
+import Icon from '@/components/ui/Icon.astro';
 
 interface Props {
   language: Language;
@@ -82,11 +82,11 @@ const articleSchema = {
           <h1 class="font-display text-4xl text-foreground md:text-5xl">{post.title}</h1>
           <div class="mt-4 flex items-center gap-4 text-muted-foreground text-sm">
             <div class="flex items-center gap-2">
-              <Calendar className="h-4 w-4" />
+              <Icon name="Calendar" class="h-4 w-4" />
               <span>{new Date(post.date).toLocaleDateString(isEn ? 'en-US' : 'sk-SK')}</span>
             </div>
             <div class="flex items-center gap-2">
-              <Clock className="h-4 w-4" />
+              <Icon name="Clock3" class="h-4 w-4" />
               <span>{post.readTime}</span>
             </div>
           </div>
@@ -108,12 +108,12 @@ const articleSchema = {
             <Button asChild variant="cta" size="lg">
               <a href={getBookingPageHref(language)}>
                 {t.nav.bookAppointment}
-                <ArrowRight className="h-4 w-4 ml-2" />
+                <Icon name="ArrowRight" class="h-4 w-4 ml-2" />
               </a>
             </Button>
             <Button asChild variant="outline" size="lg">
               <a href={PHONE_HREF}>
-                <Phone className="h-4 w-4 mr-2" />
+                <Icon name="Phone" class="h-4 w-4 mr-2" />
                 {PHONE_DISPLAY}
               </a>
             </Button>

@@ -13,7 +13,7 @@ import { ADDRESS_LABEL, EMAIL, EMAIL_HREF, MAP_URL, PHONE_DISPLAY, PHONE_HREF, W
 import { getContactActions, getContactFaqs, IMAGE_URLS } from '@/data/content';
 import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
 import Layout from '@/layouts/Layout.astro';
-import { Mail, MapPin, MessageCircle, Phone, ArrowRight } from 'lucide-react';
+import Icon from '@/components/ui/Icon.astro';
 
 interface Props {
   language: Language;
@@ -26,12 +26,6 @@ const isEn = language === 'en';
 
 const contactFaqs = getContactFaqs(language);
 const contactActions = getContactActions(language);
-
-const contactIcons = {
-  Phone: Phone,
-  MessageCircle: MessageCircle,
-  Mail: Mail,
-};
 
 const faqSchema = contactFaqs.length > 0 ? [{
   '@context': 'https://schema.org',
@@ -73,28 +67,28 @@ const faqSchema = contactFaqs.length > 0 ? [{
         <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
             <div class="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mx-auto mb-4">
-               <Phone className="h-6 w-6" />
+               <Icon name="Phone" class="h-6 w-6" />
             </div>
             <h3 class="font-bold mb-1">{isEn ? 'Call us' : 'Zavolajte nám'}</h3>
             <p class="text-sm text-muted-foreground">{PHONE_DISPLAY}</p>
           </a>
           <a href={WHATSAPP_URL} data-ga-category="contact" data-ga-action="whatsapp_click" class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
             <div class="h-12 w-12 rounded-2xl bg-success/10 flex items-center justify-center text-success mx-auto mb-4">
-               <MessageCircle className="h-6 w-6" />
+               <Icon name="MessageCircle" class="h-6 w-6" />
             </div>
             <h3 class="font-bold mb-1">WhatsApp</h3>
             <p class="text-sm text-muted-foreground">{isEn ? 'Quick chat' : 'Rýchla správa'}</p>
           </a>
           <a href={EMAIL_HREF} data-ga-category="contact" data-ga-action="email_click" class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
             <div class="h-12 w-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mx-auto mb-4">
-               <Mail className="h-6 w-6" />
+               <Icon name="Mail" class="h-6 w-6" />
             </div>
             <h3 class="font-bold mb-1">{isEn ? 'Email us' : 'Napíšte nám'}</h3>
             <p class="text-sm text-muted-foreground">{EMAIL}</p>
           </a>
           <a href={MAP_URL} target="_blank" rel="noopener noreferrer" data-ga-category="contact" data-ga-action="map_click" class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
             <div class="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mx-auto mb-4">
-               <MapPin className="h-6 w-6" />
+               <Icon name="MapPin" class="h-6 w-6" />
             </div>
             <h3 class="font-bold mb-1">{isEn ? 'Visit us' : 'Príďte k nám'}</h3>
             <p class="text-sm text-muted-foreground">Martin, SK</p>
@@ -131,7 +125,7 @@ const faqSchema = contactFaqs.length > 0 ? [{
                   <h4 class="font-semibold mb-2">{t.common.directionsText}</h4>
                   <p class="text-sm text-muted-foreground mb-4">{ADDRESS_LABEL}</p>
                   <a href={MAP_URL} target="_blank" rel="noopener noreferrer" class="text-primary font-medium flex items-center gap-2 hover:underline">
-                     {t.common.openMap} <ArrowRight className="h-4 w-4" />
+                     {t.common.openMap} <Icon name="ArrowRight" class="h-4 w-4" />
                   </a>
                </div>
             </div>

@@ -6,7 +6,7 @@ import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import Button from '@/components/ui/Button.astro';
 import Layout from '@/layouts/Layout.astro';
 import type { Language } from '@/lib/i18n';
-import { Home } from 'lucide-react';
+import Icon from '@/components/ui/Icon.astro';
 
 const language: Language = 'sk';
 
@@ -29,7 +29,7 @@ const backLink = Astro.url.searchParams.get('from') || '/';
         <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Button asChild size="lg">
             <a href="/">
-              <Home className="mr-2 h-4 w-4" />
+              <Icon name="Home" class="mr-2 h-4 w-4" />
               Späť na hlavnú stránku
             </a>
           </Button>
