@@ -81,6 +81,9 @@ const consignmentOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0
               src={IMAGE_ASSETS.hero}
               alt="Dresses"
               class="w-full rounded-[32px] object-cover shadow-2xl"
+              widths={[240, 480]}
+              sizes="(max-width: 480px) 240px, 480px"
+              loading="lazy"
             />
           </div>
         </div>

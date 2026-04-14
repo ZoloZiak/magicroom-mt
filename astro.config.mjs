@@ -14,6 +14,10 @@ export default defineConfig({
   output: 'static',
   adapter: vercel(),
 
+  image: {
+    service: { entrypoint: 'astro/assets/services/sharp' }
+  },
+
   vite: {
     plugins: [tailwindcss()],
     resolve: {
