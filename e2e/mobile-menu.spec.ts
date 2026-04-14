@@ -17,7 +17,7 @@ test.describe('Mobile Menu', () => {
   test('menu is hidden initially', async ({ page }) => {
     await page.goto('/');
     const menu = page.locator('#mobile-menu');
-    await expect(menu).toHaveAttribute('style', /visibility: hidden/);
+    await expect(menu).toHaveAttribute('style', /visibility:\s*hidden/);
   });
 
   test('opens menu on hamburger click', async ({ page }) => {
