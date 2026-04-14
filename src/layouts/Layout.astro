@@ -80,9 +80,9 @@ const jsonLd = JSON.stringify([
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin />
-    <!-- GA - deferred -->
-    <script defer data-src="https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC"></script>
-    <script defer>
+    <!-- GA -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC"></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
