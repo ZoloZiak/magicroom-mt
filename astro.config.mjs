@@ -2,13 +2,11 @@
 import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
-import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
 import critters from 'astro-critters';
 import compress from '@playform/compress';
-import partytown from '@astrojs/partytown';
-import path, { join } from 'path';
+import path from 'path';
 
 // https://astro.build/config
 export default defineConfig({
@@ -26,10 +24,6 @@ export default defineConfig({
   },
 
   integrations: [
-    partytown({
-      dest: join(process.cwd(), 'dist', '_partytown'),
-      forward: ['dataLayer.push', 'gtag'],
-    }),
     critters(),
     compress({
       HTML: true,

@@ -77,16 +77,37 @@ const jsonLd = JSON.stringify([
     <meta name="author" content={SITE_NAME} />
     {keywords && <meta name="keywords" content={keywords} />}
     <meta name="generator" content={Astro.generator} />
-    <!-- Google Analytics 4 - Partytown -->
-    <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC"></script>
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Google Analytics 4 - Lazy Load on Interaction -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-90JKE6RJNC', { 'send_page_view': false });
-      gtag('event', 'page_view', { page_path: window.location.pathname, page_title: document.title });
+      
+      // Lazy load GA only after user interaction
+      let gaLoaded = false;
+      function loadGA() {
+        if (gaLoaded) return;
+        gaLoaded = true;
+        gtag('event', 'page_view', { page_path: window.location.pathname, page_title: document.title });
+        var script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC';
+        script.async = true;
+        document.head.appendChild(script);
+      }
+      
+      // Load on first interaction
+      ['click', 'scroll', 'touchstart'].forEach(event => {
+        document.addEventListener(event, function() {
+          loadGA();
+        }, { once: true });
+      });
       
       window.trackEvent = function(category, action, label, value) {
+        loadGA();
         window.dataLayer.push({
           event: action,
           event_category: category,
@@ -106,13 +127,7 @@ const jsonLd = JSON.stringify([
         }
       }
       
-      if (document.body) {
-        document.body.addEventListener('click', handleClick);
-      } else {
-        document.addEventListener('DOMContentLoaded', function() {
-          document.body.addEventListener('click', handleClick);
-        });
-      }
+      document.body.addEventListener('click', handleClick);
     </script>
     <!-- Google Business Profile verification -->
     <meta name="google-site-verification" content="MERGE_FROM_GOOGLE" />
