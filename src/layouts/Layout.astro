@@ -77,66 +77,23 @@ const jsonLd = JSON.stringify([
     <meta name="author" content={SITE_NAME} />
     {keywords && <meta name="keywords" content={keywords} />}
     <meta name="generator" content={Astro.generator} />
-    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin />
-    <!-- Google Analytics 4 - Lazy Load on Interaction -->
-    <script is:inline>
+    <!-- GA - deferred -->
+    <script defer data-src="https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC"></script>
+    <script defer>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-90JKE6RJNC', { 'send_page_view': false });
-      
-      // Lazy load GA only after user interaction
-      let gaLoaded = false;
-      function loadGA() {
-        if (gaLoaded) return;
-        gaLoaded = true;
-        gtag('event', 'page_view', { page_path: window.location.pathname, page_title: document.title });
-        var script = document.createElement('script');
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC';
-        script.async = true;
-        document.head.appendChild(script);
-      }
-      
-      // Load on first interaction
-      ['click', 'scroll', 'touchstart'].forEach(event => {
-        document.addEventListener(event, function() {
-          loadGA();
-        }, { once: true });
+      gtag('config', 'G-90JKE6RJNC');
+      window.trackEvent = function(c,a,l,v) { gtag('event',a,{event_category:c,event_label:l,value:v}); };
+      document.addEventListener('click', e => {
+        const t = e.target.closest('[data-ga-category]');
+        if(t) trackEvent(t.dataset.gaCategory, t.dataset.gaAction||'click', t.dataset.gaLabel, t.dataset.gaValue);
       });
-      
-      window.trackEvent = function(category, action, label, value) {
-        loadGA();
-        window.dataLayer.push({
-          event: action,
-          event_category: category,
-          event_label: label,
-          value: value
-        });
-      };
-
-      function handleClick(e) {
-        const target = e.target.closest('[data-ga-category]');
-        if (target) {
-          const category = target.dataset.gaCategory;
-          const action = target.dataset.gaAction || 'click';
-          const label = target.dataset.gaLabel || '';
-          const value = target.dataset.gaValue;
-          trackEvent(category, action, label, value);
-        }
-      }
-      
-      document.body.addEventListener('click', handleClick);
     </script>
-    <!-- Google Business Profile verification -->
     <meta name="google-site-verification" content="MERGE_FROM_GOOGLE" />
-    <meta name="DC.title" content={title} />
-    <meta name="DC.description" content={description} />
-    <meta name="DC.publisher" content={SITE_NAME} />
-    <meta name="DC.creator" content="Natália Ondrejková" />
-    <meta name="DC.language" content="sk-SK" />
-    <meta name="DC.type" content={type} />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang={language} href={canonicalUrl} />
     <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />
@@ -167,11 +124,7 @@ const jsonLd = JSON.stringify([
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
     <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MagicRoom hľadanie" />
     <link rel="manifest" href="/site.webmanifest" />
-
-    <!-- Preconnect to external origins -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://wa.me" />
-    <link rel="dns-prefetch" href="https://maps.app.goo.gl" />
 
     <!-- Fonts with display=swap for better performance -->
 
