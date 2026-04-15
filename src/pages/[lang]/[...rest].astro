@@ -3,6 +3,7 @@ import type { Language } from '@/lib/i18n';
 import AboutTemplate from '@/components/templates/AboutTemplate.astro';
 import ServicesTemplate from '@/components/templates/ServicesTemplate.astro';
 import DressesTemplate from '@/components/templates/DressesTemplate.astro';
+import FormalDressesTemplate from '@/components/templates/FormalDressesTemplate.astro';
 import GalleryTemplate from '@/components/templates/GalleryTemplate.astro';
 import ConsignmentTemplate from '@/components/templates/ConsignmentTemplate.astro';
 import DecorationsTemplate from '@/components/templates/DecorationsTemplate.astro';
@@ -18,6 +19,7 @@ const TEMPLATES = {
   about: AboutTemplate,
   services: ServicesTemplate,
   dresses: DressesTemplate,
+  formalDresses: FormalDressesTemplate,
   gallery: GalleryTemplate,
   consignment: ConsignmentTemplate,
   decorations: DecorationsTemplate,
@@ -31,6 +33,7 @@ export async function getStaticPaths() {
     { sk: 'o-nas', en: 'about', template: 'about' },
     { sk: 'sluzby', en: 'services', template: 'services' },
     { sk: 'svadobne-saty', en: 'dresses', template: 'dresses' },
+    { sk: 'spolocenske-saty', en: 'formal-dresses', template: 'formalDresses' },
     { sk: 'galeria', en: 'galeria', template: 'gallery' },
     { sk: 'komisny-predaj', en: 'consignment', template: 'consignment' },
     { sk: 'prenajom-dekoracii', en: 'decorations', template: 'decorations' },
