@@ -1,7 +1,7 @@
 {
   "dresses": [
      {
-      "id": "Satenovesaty1",
+      "id": "saten-saty-01",
       "name": "Jednoduchá krása (Prenájom)",
       "description": "Minimalistické šaty s čistým strihom a jemným saténovým pásom na viazanie.",
       "price": 299,
@@ -13,7 +13,7 @@
       "style": "minimalistická",
       "featured": false,
       "details": "Čistý strih, saténový pás",
-      "images": ["Satenovesaty1"]
+      "images": ["saten-saty-01"]
     },
     {
       "id": "fialovy-sen",
