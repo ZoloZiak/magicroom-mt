@@ -206,7 +206,7 @@ describe('content.ts — Blog', () => {
   it('getBlogPost returns correct SK post', () => {
     const post = getBlogPost('svadobne-trendy-2026', 'sk');
     expect(post).not.toBeNull();
-    expect(post?.title).toBe('Svadobné trendy 2026: Čo bude v móde?');
+    expect(post?.title).toBe('Svadobné trendy 2026: Keď sa autentickosť stretne s udržateľným luxusom');
     expect(post?.slug).toBe('svadobne-trendy-2026');
   });
 
