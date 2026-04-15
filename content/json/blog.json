@@ -47,26 +47,29 @@
       "image": "founder"
     },
     {
-      "slug": "svadobne-dekoracie-na-male-oslavy",
-      "enSlug": "wedding-decorations-small-celebrations",
-      "sk": {
-        "title": "Svadobné dekorácie pre malé oslavy do 50 hostí",
-        "description": "Inšpirácie a tipy na dekorácie pre intimné svadby.",
-        "excerpt": "Inšpirácie a tipy na dekorácie pre intimné svadby. Ako vytvoriť romantickú atmosféru bez zbytočných výdavkov.",
-        "date": "2026-02-28",
-        "readTime": "6 min čítania",
-        "content": "Malé svadby majú svoje nezameniteľné čaro a intýmnu atmosféru.",
-        "tags": ["dekorácie", "malé svadby", "inšpirácie"]
-      },
-      "en": {
-        "title": "Wedding Decorations for Small Celebrations",
-        "description": "Inspiration and tips for decorations for intimate weddings.",
-        "excerpt": "Inspiration and tips for decorations for intimate weddings. How to create a romantic atmosphere without unnecessary expenses.",
-        "date": "2026-02-28",
-        "readTime": "6 min read",
-        "content": "Small weddings have their unmistakable charm and intimate atmosphere.",
-        "tags": ["decorations", "small weddings", "inspiration"]
-      },
+      {
+  "slug": "svadobne-dekoracie-na-male-oslavy",
+  "enSlug": "wedding-decorations-small-celebrations",
+  "sk": {
+    "title": "Svadobné dekorácie pre malé oslavy do 50 hostí",
+    "description": "Inšpirácie a tipy na dekorácie pre intímne svadby.",
+    "excerpt": "Ako vytvoriť romantickú atmosféru bez zbytočných výdavkov? Malá svadba ponúka možnosti, ktoré si pri veľkej nemôžete dovoliť.",
+    "date": "2026-04-15",
+    "readTime": "6 min čítania",
+    "content": "Malé svadby majú svoje nezameniteľné čaro. Nižší počet hostí vám otvára dvere k detailom, ktoré by pri stovke ľudí boli finančne či logisticky nerealizovateľné. Tu je návod, ako vyťažiť z malej oslavy maximum:\n\n1. JEDEN DLHÝ 'KRÁĽOVSKÝ' STÔL\nNamiesto rozdeľovania hostí k viacerým okrúhlym stolom zvoľte jeden spoločný dlhý stôl. Vytvorí to pocit veľkej rodinnej večere. Stredom stola veďte bohatú girlandu z eukalyptu alebo sezónnych kvetov, doplnenú o vysoké sviečky v rôznych výškach.\n\n2. SVETELNÝ DIZAJN\nPri menších priestoroch robia svetlá zázraky. Použite svetelné reťaze s väčšími žiarovkami (tzv. festoon lights) alebo stovky drobných LED svetielok na strope. Vytvoria 'hviezdne nebo', ktoré okamžite zmení atmosféru na magickú.\n\n3. PERSONALIZOVANÉ DETAILY\nKeď máte do 50 hostí, môžete si dovoliť osobnejší prístup. Ručne písané menovky na prírodnom kameni, vetvička bylinky na každom servítku alebo malé darčeky pripravené na mieru pre každého hosťa urobia obrovský dojem.\n\n4. NETRADIČNÉ PRIESTORY\nMalá svadba nepotrebuje obrovskú sálu. Využite čaro záhrady, terasy vašej obľúbenej reštaurácie alebo dokonca štýlovej stodoly. Dekorácie prispôsobte prostrediu – ak ste vonku, stavte na prírodné materiály ako drevo, ľan a sklo.\n\n5. KVETINOVÝ MINIMALIZMUS\nNamiesto obrovských kytíc zvoľte menšie vázičky s rôznymi druhmi kvetov rozložené po celej dĺžke stola. Pôsobí to moderne, vzdušne a navyše to hosťom neprekáža vo výhľade pri rozhovore.\n\nZÁVER\nKrása malej svadby tkvie v detailoch a blízkosti. Sústreďte sa na to, aby sa hostia cítili pohodlne a obklopení láskou.",
+    "tags": ["dekorácie", "malé-svadby", "inšpirácie"]
+  },
+  "en": {
+    "title": "Wedding Decorations for Small Celebrations",
+    "description": "Inspiration and tips for decorations for intimate weddings.",
+    "excerpt": "How to create a romantic atmosphere without unnecessary expenses? A small wedding offers possibilities that a large one simply can't.",
+    "date": "2026-04-15",
+    "readTime": "6 min read",
+    "content": "Small weddings have an unmistakable charm. Fewer guests open the door to details that would be financially or logistically impossible with a hundred people. Here is how to make the most of your intimate celebration:\n\n1. ONE LONG 'ROYAL' TABLE\nInstead of splitting guests across multiple round tables, opt for one shared long table. It creates the feeling of a big family dinner. Run a lush garland of eucalyptus or seasonal flowers down the center, complemented by tall candles at different heights.\n\n2. LIGHTING DESIGN\nIn smaller spaces, lights work wonders. Use string lights with larger bulbs (festoon lights) or hundreds of tiny LED lights on the ceiling to create a 'starry sky' that instantly turns the atmosphere magical.\n\n3. PERSONALIZED DETAILS\nWith under 50 guests, you can afford a more personal approach. Hand-written name tags on natural stones, a sprig of herbs on every napkin, or small tailor-made gifts for every guest will make a huge impression.\n\n4. UNCONVENTIONAL VENUES\nA small wedding doesn't need a huge hall. Use the charm of a garden, the terrace of your favorite restaurant, or even a stylish barn. Adapt the decorations to the environment – if you are outdoors, go for natural materials like wood, linen, and glass.\n\n5. FLORAL MINIMALISM\nInstead of massive bouquets, choose smaller vases with various flower types spread across the table. It looks modern, airy, and doesn't block the guests' view during conversation.\n\nCONCLUSION\nThe beauty of a small wedding lies in the details and closeness. Focus on making your guests feel comfortable and surrounded by love.",
+    "tags": ["decorations", "small-weddings", "inspiration"]
+  },
+  "image": "decorMain"
+}
       "image": "decorMain"
     }
   ]
