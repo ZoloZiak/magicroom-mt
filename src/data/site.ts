@@ -59,7 +59,34 @@ export const NAV_LINKS_EN = [
   { href: '/en/contact', label: 'Contact' },
 ] as const;
 
-export function getNavLinks(lang: Language) {
+export function getHeaderNavLinks(lang: Language) {
+  if (lang === 'sk') {
+    return [
+      { href: '/o-nas', label: 'O nás' },
+      { href: '/sluzby', label: 'Služby' },
+      { href: '/svadobne-saty', label: 'Svadobné' },
+      { href: '/spolocenske-saty', label: 'Spoločenské' },
+      { href: '/galeria', label: 'Galéria' },
+      { href: '/komisny-predaj', label: 'Komisný predaj' },
+      { href: '/prenajom-dekoracii', label: 'Dekorácie' },
+      { href: '/partneri', label: 'Partneri' },
+      { href: '/kontakt', label: 'Kontakt' },
+    ];
+  }
+  return [
+    { href: '/en/about', label: 'About' },
+    { href: '/en/services', label: 'Services' },
+    { href: '/en/dresses', label: 'Wedding' },
+    { href: '/en/formal-dresses', label: 'Formal' },
+    { href: '/en/galeria', label: 'Gallery' },
+    { href: '/en/consignment', label: 'Consignment' },
+    { href: '/en/decorations', label: 'Decorations' },
+    { href: '/en/partners', label: 'Partners' },
+    { href: '/en/contact', label: 'Contact' },
+  ];
+}
+
+export function getFooterNavLinks(lang: Language) {
   if (lang === 'sk') {
     return [
       { href: '/o-nas', label: 'O nás' },
@@ -87,6 +114,8 @@ export function getNavLinks(lang: Language) {
     { href: '/en/contact', label: 'Contact' },
   ];
 }
+
+export const getNavLinks = getFooterNavLinks;
 
 export function getSocialLinks(lang: Language) {
   return [

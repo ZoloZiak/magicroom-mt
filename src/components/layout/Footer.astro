@@ -8,7 +8,7 @@ import {
   MAP_URL,
   PHONE_DISPLAY,
   PHONE_HREF,
-  getNavLinks,
+  getFooterNavLinks,
   getSocialLinks,
   getBookingPageHref,
 } from '@/data/site';
@@ -25,7 +25,7 @@ const t = getTranslations(language);
 const currentPath = Astro.url.pathname;
 const isEn = language === 'en';
 
-const navLinks = getNavLinks(language);
+const navLinks = getFooterNavLinks(language);
 const socialLinks = getSocialLinks(language);
 const bookingPageHref = getBookingPageHref(language);
 const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingPageHref;

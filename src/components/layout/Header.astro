@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Button from '@/components/ui/Button.astro';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher.astro';
-import { getBookingPageHref, getNavLinks, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
+import { getBookingPageHref, getHeaderNavLinks, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
 import { getTranslations, type Language } from '@/lib/translations';
 import logoImg from '@/../content/images/systemassets/logo.png';
 
@@ -16,7 +16,7 @@ const t = getTranslations(language);
 const currentPath = Astro.url.pathname;
 const isEn = language === 'en';
 
-const navLinks = getNavLinks(language);
+const navLinks = getHeaderNavLinks(language);
 const bookingPageHref = getBookingPageHref(language);
 const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingPageHref;
 ---
