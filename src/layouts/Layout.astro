@@ -77,6 +77,11 @@ const jsonLd = JSON.stringify([
     <meta name="author" content={SITE_NAME} />
     {keywords && <meta name="keywords" content={keywords} />}
     <meta name="generator" content={Astro.generator} />
+    <!-- Dublin Core -->
+    <meta name="DC.title" content={title} />
+    <meta name="DC.description" content={description} />
+    <meta name="DC.publisher" content={SITE_NAME} />
+    <meta name="DC.language" content={language === 'en' ? 'en-US' : 'sk-SK'} />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin />
