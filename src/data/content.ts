@@ -441,6 +441,9 @@ export const DRESS_CATALOG = dressesData.dresses.map(dress => {
   };
 });
 
+export const WEDDING_DRESSES = DRESS_CATALOG.filter(d => d.category === 'wedding');
+export const FORMAL_DRESSES = DRESS_CATALOG.filter(d => d.category === 'formal');
+
 export const CONSIGNMENT_STEPS = [
   'Šaty nám zveríte čisté a vopred pošlete fotografie.',
   'Spoločne sa dohodne cena, ktorú chcete za šaty získať.',

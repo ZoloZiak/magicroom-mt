@@ -64,7 +64,8 @@ export function getNavLinks(lang: Language) {
     return [
       { href: '/o-nas', label: 'O nás' },
       { href: '/sluzby', label: 'Služby' },
-      { href: '/svadobne-saty', label: 'Šaty' },
+      { href: '/svadobne-saty', label: 'Svadobné' },
+      { href: '/spolocenske-saty', label: 'Spoločenské' },
       { href: '/galeria', label: 'Galéria' },
       { href: '/blog', label: 'Blog' },
       { href: '/komisny-predaj', label: 'Komisný predaj' },
@@ -76,7 +77,8 @@ export function getNavLinks(lang: Language) {
   return [
     { href: '/en/about', label: 'About' },
     { href: '/en/services', label: 'Services' },
-    { href: '/en/dresses', label: 'Dresses' },
+    { href: '/en/dresses', label: 'Wedding' },
+    { href: '/en/formal-dresses', label: 'Formal' },
     { href: '/en/galeria', label: 'Gallery' },
     { href: '/en/blog', label: 'Blog' },
     { href: '/en/consignment', label: 'Consignment' },

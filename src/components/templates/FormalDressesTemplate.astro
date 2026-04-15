@@ -1,0 +1,131 @@
+---
+import { Image } from 'astro:assets';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import ScrollToTop from '@/components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
+import Badge from '@/components/ui/Badge.astro';
+import Button from '@/components/ui/Button.astro';
+import { getBookingPageHref } from '@/data/site';
+import { FORMAL_DRESSES, IMAGE_URLS } from '@/data/content';
+import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/ui/Icon.astro';
+
+interface Props {
+  language: Language;
+  skSlug: string;
+}
+
+const { language, skSlug } = Astro.props;
+const t = getTranslations(language);
+const isEn = language === 'en';
+
+const dresses = FORMAL_DRESSES;
+const firstDressImage = dresses[0]?.imageAsset?.src || IMAGE_URLS.hero;
+
+const productSchema = dresses.map((dress) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: dress.name,
+  description: dress.description,
+  offers: {
+    '@type': 'Offer',
+    price: dress.price,
+    priceCurrency: 'EUR',
+    availability: dress.status === 'available' 
+      ? 'https://schema.org/InStock' 
+      : 'https://schema.org/SoldOut',
+  },
+}));
+---
+
+<Layout
+  title={t.formal.pageTitle}
+  description={t.formal.pageDescription}
+  image={firstDressImage}
+  structuredData={productSchema}
+  breadcrumbs={[
+    { name: t.nav.home, url: isEn ? '/en' : '/' },
+    { name: t.nav.formal, url: getRelativeHref(skSlug, language) },
+  ]}
+  language={language}
+>
+  <Header language={language} />
+
+  <main class="flex-1">
+    <section class="bg-surface py-12 md:py-20">
+      <div class="container mx-auto px-4 text-center">
+        <Badge variant="secondary" className="mb-4">
+          {t.formal.heroBadge}
+        </Badge>
+        <h1 class="font-display text-4xl md:text-6xl mb-6">
+          {t.formal.heroTitle}
+        </h1>
+        <p class="max-w-2xl mx-auto text-lg text-muted-foreground">
+          {t.formal.heroDescription}
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {dresses.map((dress) => (
+            <div class="group overflow-hidden rounded-[24px] border border-border/50 bg-white transition-all hover:shadow-xl">
+              <div class="relative aspect-[3/4] overflow-hidden bg-white">
+                {dress.images?.[0] && (
+                  <Image
+                    src={dress.images[0].src}
+                    alt={dress.name}
+                    width={400}
+                    height={533}
+                    class="h-full w-full object-cover"
+                  />
+                )}
+                <div class="absolute right-4 top-4">
+                  <Badge variant={dress.status === 'available' ? 'success' : 'outline'} className="backdrop-blur-md">
+                    {dress.status === 'available' ? (isEn ? 'Available' : 'Dostupné') : (isEn ? 'Reserved' : 'Rezervované')}
+                  </Badge>
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h2 class="font-display text-2xl">{dress.name}</h2>
+                    <p class="mt-1 text-sm text-muted-foreground">{dress.description}</p>
+                  </div>
+                  <p class="text-xl font-bold text-cta">{dress.price} €</p>
+                </div>
+                <div class="mt-6 flex items-center justify-between border-t border-border/50 pt-4">
+                  <span class="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+                    {isEn ? 'Size' : 'Veľkosť'} {dress.size}
+                  </span>
+                  <Button asChild variant="ghost" size="sm" className="group/btn">
+                    <a href={getBookingPageHref(language)}>
+                      {isEn ? 'Book fitting' : 'Rezervovať skúšku'}
+                      <Icon name="ArrowRight" class="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-20 text-center p-12 rounded-[40px] bg-surface border border-dashed border-primary/30">
+           <Icon name="Sparkles" class="h-10 w-10 text-primary mx-auto mb-6" aria-hidden="true" />
+           <h3 class="font-display text-3xl mb-4">{isEn ? 'Looking for wedding dresses?' : 'Hľadáte svadobné šaty?'}</h3>
+           <p class="mb-8 text-muted-foreground">{isEn ? 'We also have a beautiful collection of wedding dresses.' : 'V našej ponuke nájdete aj krásnu kolekciu svadobných šiat.'}</p>
+           <Button asChild variant="outline">
+              <a href={getRelativeHref('svadobne-saty', language)}>{t.nav.dresses}</a>
+           </Button>
+        </div>
+      </div>
+    </section>
+
+    <Footer language={language} />
+    <WhatsAppFAB />
+    <ScrollToTop />
+  </main>
+</Layout>

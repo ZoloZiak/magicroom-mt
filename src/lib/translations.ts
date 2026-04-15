@@ -156,7 +156,8 @@ const sk: Translations = {
     home: 'Domov',
     about: 'O nás',
     services: 'Služby',
-    dresses: 'Šaty',
+    dresses: 'Svadobné šaty',
+    formal: 'Spoločenské šaty',
     blog: 'Blog',
     consignment: 'Komisný predaj',
     decorations: 'Dekorácie',
@@ -241,7 +242,14 @@ const sk: Translations = {
     heroBadge: 'Svadobné šaty • Martin',
     heroTitle: 'Svadobné šaty, ktoré si zamilujete',
     heroDescription: 'Prezrite si našu kolekciu svadobných šiat. Každý model je jedinečný a pripravený na vašu skúšku.',
-  },
+  };
+  formal: {
+    pageTitle: 'Spoločenské šaty — Elegantné šaty na plesy a večierky | MagicRoom Martin',
+    pageDescription: 'Kolekcia spoločenských šiat na plesy, večierky a slávnostné príležitosti. Šaty pre odvážne aj elegantné ženy.',
+    heroBadge: 'Spoločenské šaty • Martin',
+    heroTitle: 'Spoločenské šaty pre výnimočné príležitosti',
+    heroDescription: 'Od gala večerov po prom — nájdite šaty, ktoré vám pristanú a dodajú sebavedomie.',
+  };
   consignment: {
     pageTitle: 'Komisný predaj svadobných šiat — MagicRoom Martin',
     pageDescription: 'Predajte svoje svadobné šaty ďalším nevestám. Jednoduchý proces, férové podmienky.',
@@ -327,7 +335,8 @@ const en: Translations = {
     home: 'Home',
     about: 'About',
     services: 'Services',
-    dresses: 'Dresses',
+    dresses: 'Wedding dresses',
+    formal: 'Formal dresses',
     blog: 'Blog',
     consignment: 'Consignment',
     decorations: 'Decorations',
@@ -412,7 +421,14 @@ const en: Translations = {
     heroBadge: 'Wedding dresses • Martin',
     heroTitle: 'Wedding dresses you will love',
     heroDescription: 'Browse our collection of wedding dresses. Each model is unique and ready for your fitting.',
-  },
+  };
+  formal: {
+    pageTitle: 'Formal & Evening Dresses — Elegance for Every Occasion | MagicRoom Martin',
+    pageDescription: 'Collection of formal dresses for proms, galas and special occasions. Dresses for bold and elegant women.',
+    heroBadge: 'Formal dresses • Martin',
+    heroTitle: 'Formal dresses for special occasions',
+    heroDescription: 'From prom to gala — find the dress that suits you and adds confidence.',
+  };
   consignment: {
     pageTitle: 'Consignment — Sell Your Wedding Dress | MagicRoom Martin',
     pageDescription: 'Sell your wedding dress to other brides. Simple process, fair terms.',

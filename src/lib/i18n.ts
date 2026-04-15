@@ -7,6 +7,7 @@ export const SLUG_MAP: Record<string, string> = {
   'o-nas': 'about',
   'sluzby': 'services',
   'svadobne-saty': 'dresses',
+  'spolocenske-saty': 'formal-dresses',
   'galeria': 'galeria',
   'komisny-predaj': 'consignment',
   'prenajom-dekoracii': 'decorations',
