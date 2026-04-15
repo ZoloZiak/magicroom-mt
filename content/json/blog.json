@@ -22,27 +22,27 @@
       "tags": ["trends", "wedding", "2026"]
       "image": "dresses"
     },
-    {
-      "slug": "ako-zvolit-svadobne-saty",
-      "enSlug": "wedding-dresses-how-to-choose",
-      "sk": {
-        "title": "Ako si vybrať svadobné šaty: Praktický sprievodca",
-        "description": "Naučte sa vybrať dokonalé svadobné šaty.",
-        "excerpt": "Krok za krokom vás prevedieme výberom ideálnych svadobných šiat. Od rozpočtu po štýl a pohodlie.",
-        "date": "2026-03-15",
-        "readTime": "7 min čítania",
-        "content": "Výber svadobných šiat je jeden z najdôležitejších krokov prípravy.",
-        "tags": ["šaty", "výber", "poradenstvo"]
-      },
-      "en": {
-        "title": "How to Choose Wedding Dresses: A Practical Guide",
-        "description": "Learn how to choose the perfect wedding dress.",
-        "excerpt": "Step by step, we guide you through choosing the ideal wedding dress. From budget to style and comfort.",
-        "date": "2026-03-15",
-        "readTime": "7 min read",
-        "content": "Choosing a wedding dress is one of the most important steps of preparation.",
-        "tags": ["dresses", "choice", "advice"]
-      },
+   {
+  "slug": "ako-si-vybrat-svadobne-saty",
+  "enSlug": "how-to-choose-a-wedding-dress",
+  "sk": {
+    "title": "Ako si vybrať svadobné šaty: Praktický sprievodca",
+    "description": "Všetko, čo potrebujete vedieť o výbere dokonalých svadobných šiat.",
+    "excerpt": "Hľadanie tých pravých šiat môže byť stresujúce. S naším sprievodcom však tento proces zvládnete s prehľadom a radosťou.",
+    "date": "2026-04-15",
+    "readTime": "6 min čítania",
+    "content": "Výber svadobných šiat je pre mnohé nevesty najemotívnejšou časťou plánovania. Tu je váš praktický plán, ako nájsť tie pravé bez zbytočného stresu:\n\n1. STANOVTE SI ROZPOČET\nSkôr než vkročíte do salónu, určte si jasnú sumu. Nezabudnite započítať aj náklady na úpravy, závoj, spodnú bielizeň a doplnky. Ušetríte si sklamanie z vyskúšania šiat, ktoré sú mimo vašich možností.\n\n2. SPOZNAJTE SVOJ ŠTÝL A TYP POSTAVY\nČi už ide o strih 'morská panna', princeznovské šaty alebo minimalistické 'A-čko', každý strih zvýrazní niečo iné. Skúšajte rôzne siluety, aj tie, o ktorých ste si mysleli, že vám nebudú sedieť – často zostanete milo prekvapená.\n\n3. PLÁNUJTE DOPREDU\nIdeálny čas na objednanie šiat je 6 až 9 mesiacov pred svadbou. Výroba a následné krajčírske úpravy si vyžadujú čas. Ak máte menej času, hľadajte salóny s ponukou 'ready-to-wear' alebo výpredajové kúsky.\n\n4. MENEJ JE VIAC (PRI DOPROVODE)\nVziať so sebou celú rodinu a všetky družičky znie ako zábava, no príliš veľa názorov môže zahltiť váš vlastný pocit. Vezmite si 1-2 osoby, ktorým stopercentne dôverujete a ktoré poznajú váš vkus.\n\n5. KOMFORT JE KĽÚČOVÝ\nV šatách strávite viac ako 12 hodín. Skúste si v nich v salóne sadnúť, urobiť pár tanečných krokov a zdvihnúť ruky. Krása by nemala znamenať, že sa nebudete môcť nadýchnuť alebo najesť.\n\nZÁVER\nPočúvajte svoju intuíciu. Tie správne šaty sú tie, v ktorých sa cítite ako najkrajšia verzia samej seba, bez ohľadu na aktuálne trendy.",
+    "tags": ["rady", "nevesta", "svadobne-saty"]
+  },
+  "en": {
+    "title": "How to Choose a Wedding Dress: A Practical Guide",
+    "description": "Everything you need to know about finding your perfect wedding gown.",
+    "excerpt": "Finding 'the' dress can be overwhelming. Our guide will help you navigate the process with ease and joy.",
+    "date": "2026-04-15",
+    "readTime": "6 min read",
+    "content": "Choosing a wedding dress is often the most emotional part of planning. Here is your practical roadmap to finding the one without the stress:\n\n1. SET A BUDGET\nBefore entering a boutique, define a clear limit. Don't forget to include costs for alterations, veil, undergarments, and accessories. This prevents the heartbreak of falling for a dress that is out of reach.\n\n2. KNOW YOUR STYLE AND BODY TYPE\nWhether it's a mermaid tail, ball gown, or minimalist A-line, every silhouette highlights different features. Try various styles, even ones you thought wouldn't suit you – you might be pleasantly surprised.\n\n3. PLAN AHEAD\nThe ideal time to order a dress is 6 to 9 months before the wedding. Production and final tailoring takes time. If you have a shorter timeline, look for 'ready-to-wear' options or floor samples.\n\n4. LESS IS MORE (GUESTS)\nBringing your entire family might sound fun, but too many opinions can drown out your own voice. Bring 1-2 people you trust completely who understand your personal style.\n\n5. COMFORT IS KEY\nYou will spend over 12 hours in this dress. Try sitting down, dancing a bit, and lifting your arms during the fitting. Beauty shouldn't mean you can't breathe or enjoy the food.\n\nCONCLUSION\nTrust your intuition. The right dress is the one that makes you feel like the most beautiful version of yourself, regardless of current trends.",
+    "tags": ["tips", "bride", "wedding-dress"]
+  },
       "image": "founder"
     },
     {
