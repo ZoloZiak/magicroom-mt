@@ -1,20 +1,5 @@
 {
   "dresses": [
-     {
-      "id": "saten-saty-01",
-      "name": "Jednoduchá krása (Prenájom)",
-      "description": "Minimalistické šaty s čistým strihom a jemným saténovým pásom na viazanie.",
-      "price": 299,
-      "size": "36-38",
-      "category": "wedding",
-      "type": "rental",
-      "status": "available",
-      "color": "biela",
-      "style": "minimalistická",
-      "featured": false,
-      "details": "Čistý strih, saténový pás",
-      "images": ["saten-saty-01"]
-    },
     {
       "id": "fialovy-sen",
       "name": "Ako princezná",
@@ -119,6 +104,21 @@
       "featured": false,
       "details": "Ľahký tyl, moderný strih",
       "images": ["svadba-saty3"]
+    },
+       {
+      "id": "saten-saty-01",
+      "name": "Jednoduchá krása (Prenájom)",
+      "description": "Minimalistické šaty s čistým strihom a jemným saténovým pásom na viazanie.",
+      "price": 299,
+      "size": "36-38",
+      "category": "wedding",
+      "type": "rental",
+      "status": "available",
+      "color": "biela",
+      "style": "minimalistická",
+      "featured": false,
+      "details": "Čistý strih, saténový pás",
+      "images": ["saten-saty-01"]
     },
     {
       "id": "formal-zlata-01",
