@@ -1,6 +1,17 @@
-# Svadobné šaty — ako pridať/upraviť
+# Šaty — ako pridať/upraviť
 
 🔗 **Otvoriť:** `content/json/dresses.json`
+
+---
+
+## Dva typy šiat
+
+Na webe sú **dve kategórie šiat**:
+
+| Kategória | URL (SK) | URL (EN) |
+|-----------|----------|----------|
+| Svadobné | `/svadobne-saty` | `/dresses` |
+| Spoločenské | `/spolocenske-saty` | `/formal-dresses` |
 
 ---
 
@@ -20,6 +31,7 @@
       "color": "biela",
       "style": "elegantná",
       "featured": true,
+      "category": "wedding",
       "images": ["nazov-siat"]
     }
   ]
@@ -42,7 +54,41 @@
 | `color` | "biela" | Farba |
 | `style` | "elegantná" | Štýl |
 | `featured` | `true` / `false` | Zobraziť na úvodnej stránke? |
+| `category` | `"wedding"` alebo `"formal"` | **KATEGÓRIA — povinné!** |
 | `images` | `["nazov-siat"]` | Pole s názvami fotiek (bez prípony) |
+
+---
+
+## Kategória — DÔLEŽITÉ!
+
+Po pridaní novej stránky pre spoločenské šaty **musíš** pridať pole `category`:
+
+| Kategória | Hodnota | Zobrazí sa na stránke |
+|-----------|---------|----------------------|
+| Svadobné šaty | `"wedding"` | `/svadobne-saty` |
+| Spoločenské šaty | `"formal"` | `/spolocenske-saty` |
+
+**Príklad pre spoločenské šaty:**
+
+```json
+{
+  "id": "ruzova-stuzkova",
+  "name": "Ružová stužková",
+  "description": "Elegantné šaty na stužkovú",
+  "price": 89,
+  "size": "36",
+  "type": "new",
+  "status": "available",
+  "color": "ružová",
+  "style": "elegantná",
+  "featured": true,
+  "category": "formal",
+  "images": ["ruzova-stuzkova"]
+}
+```
+
+**Ak pole `category` chýba:**
+- Šaty sa zobrazia ako svadobné (predvolené `"wedding"`)
 
 ---
 

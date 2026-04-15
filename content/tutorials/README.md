@@ -6,7 +6,8 @@ Vitaj, Natália! Tu nájdeš jednoduché návody, ako sama spravovať obsah svoj
 
 | Obsah | Čo to zahŕňa | Odkaz na návod |
 | :--- | :--- | :--- |
-| **Svadobné šaty** | Pridávanie, mazanie a úprava cien/popisov šiat | [Návod: Šaty](./saty.md) |
+| **Svadobné šaty** | Šaty na svadbu | [Návod: Šaty](./saty.md) |
+| **Spoločenské šaty** | Šaty na stužkovú, ples, gala | [Návod: Šaty](./saty.md) |
 | **Služby a ceny** | Cenník skúšok, balíky služieb a extra služby | [Návod: Služby](./sluzby.md) |
 | **Partneri** | Zoznam odporúčaných vizážistiek, fotografov a pod. | [Návod: Partneri](./partneri.md) |
 | **Časté otázky (FAQ)** | Otázky a odpovede pre nevesty | [Návod: FAQ](./faq.md) |
