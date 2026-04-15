@@ -1,19 +1,49 @@
 {
   "dresses": [
+     {
+      "id": "Satenovesaty1",
+      "name": "Jednoduchá krása (Prenájom)",
+      "description": "Minimalistické šaty s čistým strihom a jemným saténovým pásom na viazanie.",
+      "price": 299,
+      "size": "36-38",
+      "category": "wedding",
+      "type": "rental",
+      "status": "available",
+      "color": "biela",
+      "style": "minimalistická",
+      "featured": false,
+      "details": "Čistý strih, saténový pás",
+      "images": ["Satenovesaty1"]
+    },
     {
       "id": "fialovy-sen",
       "name": "Ako princezná",
-      "description": "Odvážne šaty v jemnom levandulovom odtieni s výrazným výstrihom a dlhou vlečkou pre nevesty, ktoré sa neboja vyniknúť.",
+      "description": "Odvážne šaty v tmavšom ivory odtieni s výrazným výstrihom a dlhou vlečkou pre nevesty, ktoré sa neboja vyniknúť.",
       "price": 599,
       "size": "40",
       "category": "wedding",
       "type": "new",
       "status": "available",
-      "color": "levandulová",
+      "color": "ivory",
       "style": "moderná",
       "featured": true,
-      "details": "Jemné krémové šaty s dlhou vlečkou a kamienkami",
+      "details": "Krémové šaty s dlhou vlečkou a kamienkami",
       "images": ["fialovy-sen"]
+    },
+    {
+      "id": "wedding-01",
+      "name": "Ethereal Bloom: Rozprávkové svadobné šaty(PRENÁJOM)",
+      "description": "Romantické svadobné šaty s čipkovaným živôtikom, iluzórnymi rukávmi a bohatou tylovou sukňou pre rozprávkový vzhľad.",
+      "price": 299,
+      "size": "38",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "moderná",
+      "featured": true,
+      "details": "Biele šaty s 3/4 rukávom a čipkou",
+      "images": ["wedding-01"]
     },
     {
       "id": "klasicka-biela",
@@ -33,7 +63,7 @@
     {
       "id": "trblietave-saty",
       "name": "Strieborná rozprávka",
-      "description": "Šaty posypané jemnými flitrami, ktoré sa trbletajú pri každom pohybe ako hviezdy na nebi.",
+      "description": "Šaty posypané trblietkami, ktoré sa trblietajú pri každom pohybe ako hviezdy na nebi.",
       "price": 499,
       "size": "36",
       "category": "wedding",
@@ -77,7 +107,7 @@
     },
     {
       "id": "svadba-saty3",
-      "name": "Ako víla",
+      "name": "Jemná ženskosť",
       "description": "Moderné jemné šaty s ľahkým tylom pre éterický vzhľad.",
       "price": 599,
       "size": "44",
@@ -89,21 +119,6 @@
       "featured": false,
       "details": "Ľahký tyl, moderný strih",
       "images": ["svadba-saty3"]
-    },
-    {
-      "id": "Satenovesaty1",
-      "name": "Jednoduchá krása (Prenájom)",
-      "description": "Minimalistické šaty s čistým strihom a jemným saténovým pásom na viazanie.",
-      "price": 299,
-      "size": "36-38",
-      "category": "wedding",
-      "type": "rental",
-      "status": "available",
-      "color": "biela",
-      "style": "minimalistická",
-      "featured": false,
-      "details": "Čistý strih, saténový pás",
-      "images": ["Satenovesaty1"]
     },
     {
       "id": "formal-zlata-01",
