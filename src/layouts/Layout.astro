@@ -90,22 +90,32 @@ const jsonLd = JSON.stringify([
     <link rel="preload" href="/assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin />
     <!-- GA - loaded via DOM after page is fully loaded (non-blocking) -->
     <script>
+      // Make trackEvent available immediately (but GA loads async)
+      window.trackEvent = function(c,a,l,v) {
+        console.log('trackEvent:',c,a,l,v);
+      };
+      
       window.addEventListener('DOMContentLoaded', function() {
         var script = document.createElement('script');
         script.src = 'https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC';
         script.async = true;
+        script.onload = function() {
+          // Replace with real GA trackEvent after load
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-90JKE6RJNC');
+          window.trackEvent = function(c,a,l,v) {
+            gtag('event', a || 'click', {event_category: c, event_label: l, value: v});
+          };
+        };
         document.head.appendChild(script);
-        
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', 'G-90JKE6RJNC');
         
         // GA event tracking
         document.addEventListener('click', function(e) {
           var t = e.target.closest('[data-ga-category]');
-          if(t) gtag('event', t.dataset.gaAction || 'click', {
+          if(t && window.gtag) window.gtag('event', t.dataset.gaAction || 'click', {
             event_category: t.dataset.gaCategory,
             event_label: t.dataset.gaLabel,
             value: t.dataset.gaValue
