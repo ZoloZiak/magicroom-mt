@@ -82,12 +82,15 @@ const jsonLd = JSON.stringify([
     <meta name="DC.description" content={description} />
     <meta name="DC.publisher" content={SITE_NAME} />
     <meta name="DC.language" content={language === 'en' ? 'en-US' : 'sk-SK'} />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin />
-    <!-- GA -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC"></script>
-    <script is:inline>
+    <!-- GA - deferred for performance -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC"></script>
+<script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -97,6 +100,8 @@ const jsonLd = JSON.stringify([
         const t = e.target.closest('[data-ga-category]');
         if(t) trackEvent(t.dataset.gaCategory, t.dataset.gaAction||'click', t.dataset.gaLabel, t.dataset.gaValue);
       });
+      // Defer tracking setup slightly for faster LCP
+      setTimeout(() => { window.trackEvent = window.trackEvent || ((c,a,l,v) => {}); }, 1);
     </script>
     <meta name="google-site-verification" content="MERGE_FROM_GOOGLE" />
     <link rel="canonical" href={canonicalUrl} />
