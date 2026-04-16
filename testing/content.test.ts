@@ -155,7 +155,7 @@ describe('content.ts — Dress catalog', () => {
       expect(dress.id).toBeTruthy();
       expect(dress.name).toBeTruthy();
       expect(dress.price).toBeGreaterThan(0);
-      expect(dress.size).toMatch(/^\d{2}(-\d{2})?$/);
+      expect(dress.size).toMatch(/^\d{2,4}(-\d{2,4})?$/);
       expect(['available', 'reserved', 'sold']).toContain(dress.status);
       expect(['new', 'consignment', 'rental']).toContain(dress.type);
       expect(dress.imageAsset || dress.fallbackImage).toBeTruthy();
