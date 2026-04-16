@@ -7,7 +7,7 @@ import {
   WHATSAPP_URL,
 } from '@/data/site';
 
-import heroImage from '../../content/images/systemassets/hero.png';
+import heroImage from '../../content/images/systemassets/hero-sm.webp';
 import dressesImage from '../../content/images/systemassets/dresses.png';
 import founderImage from '../../content/images/systemassets/founder.png';
 import decorMainImage from '../../content/images/systemassets/decor-main.jpg';
