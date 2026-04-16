@@ -1,11 +1,14 @@
 import type { APIRoute } from 'astro';
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
-import { v4 as uuidv4 } from 'uuid';
 
 export const prerender = false;
 
 const ANALYTICS_PATH = join(process.cwd(), 'content/json/analytics.json');
+
+function simpleId() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 11);
+}
 
 async function loadAnalytics() {
   try {
@@ -31,7 +34,7 @@ export const POST: APIRoute = async ({ request }) => {
     switch (type) {
       case 'whatsapp_click':
         analytics.whatsappClicks.push({
-          id: uuidv4(),
+          id: simpleId(),
           timestamp,
           url: eventData?.url || ''
         });
@@ -39,7 +42,7 @@ export const POST: APIRoute = async ({ request }) => {
         
       case 'booking':
         analytics.bookingSubmissions.push({
-          id: uuidv4(),
+          id: simpleId(),
           timestamp,
           name: eventData?.name || '',
           phone: eventData?.phone || '',
@@ -50,7 +53,7 @@ export const POST: APIRoute = async ({ request }) => {
         
       case 'contact_form':
         analytics.contactFormSubmissions.push({
-          id: uuidv4(),
+          id: simpleId(),
           timestamp,
           name: eventData?.name || '',
           email: eventData?.email || '',
@@ -60,7 +63,7 @@ export const POST: APIRoute = async ({ request }) => {
         
       case 'conversion':
         analytics.conversions.push({
-          id: uuidv4(),
+          id: simpleId(),
           timestamp,
           source: eventData?.source || 'unknown',
           type: eventData?.conversionType || 'form'
