@@ -88,19 +88,22 @@ const jsonLd = JSON.stringify([
 <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin />
-    <!-- GA - loaded via DOM after page is fully loaded (non-blocking) -->
+    <!-- GA - lazy loaded only when user scrolls or clicks (for performance) -->
     <script>
-      // Make trackEvent available immediately (but GA loads async)
+      // Make trackEvent available immediately 
       window.trackEvent = function(c,a,l,v) {
         console.log('trackEvent:',c,a,l,v);
       };
       
-      window.addEventListener('DOMContentLoaded', function() {
+      var gaLoaded = false;
+      function loadGA() {
+        if (gaLoaded) return;
+        gaLoaded = true;
+        
         var script = document.createElement('script');
         script.src = 'https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC';
         script.async = true;
         script.onload = function() {
-          // Replace with real GA trackEvent after load
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           window.gtag = gtag;
@@ -111,17 +114,12 @@ const jsonLd = JSON.stringify([
           };
         };
         document.head.appendChild(script);
-        
-        // GA event tracking
-        document.addEventListener('click', function(e) {
-          var t = e.target.closest('[data-ga-category]');
-          if(t && window.gtag) window.gtag('event', t.dataset.gaAction || 'click', {
-            event_category: t.dataset.gaCategory,
-            event_label: t.dataset.gaLabel,
-            value: t.dataset.gaValue
-          });
-        });
-      });
+      };
+      
+      // Load GA only on first user interaction or after 5 seconds
+      window.addEventListener('scroll', loadGA, { once: true });
+      window.addEventListener('click', loadGA, { once: true });
+      setTimeout(loadGA, 5000);
     </script>
     <meta name="google-site-verification" content="MERGE_FROM_GOOGLE" />
     <link rel="canonical" href={canonicalUrl} />
