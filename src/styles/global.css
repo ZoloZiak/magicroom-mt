@@ -368,3 +368,17 @@ a:focus-visible {
   outline: 2px solid var(--color-ring);
   outline-offset: 2px;
 }
+
+/* Accessibility: Minimum tap target size (48x48px) */
+.tap-target {
+  min-height: 48px;
+  min-width: 48px;
+}
+
+/* Ensure proper spacing between adjacent tap targets */
+.tap-target + .tap-target,
+a + a,
+button + button {
+  margin-left: 8px;
+  margin-top: 8px;
+}
