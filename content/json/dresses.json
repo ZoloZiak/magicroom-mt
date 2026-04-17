@@ -211,19 +211,19 @@
       "images": ["formal-cervena-01"]
     },
      {
-      "id": "formal-cervena-01",
-      "name": "Ohnivá červená",
-      "description": "Krásne červené šaty s véčkovým výstrihom a rozparkom",
-      "price": 72.90,
-      "size": "40",
+      "id": "formal-modre-01",
+      "name": "Kráľovsky modrá 'Sapphire Muse'",
+      "description": "Očarujúce šaty v intenzívnom kráľovsky modrom odtieni. Bohatá tylová sukňa je jemne posiata trblietkami, ktoré vytvárajú efekt hviezdnej oblohy. Šaty majú rozparok a sú na viazanie",
+      "price": 129,
+      "size": "38",
       "category": "formal",
       "type": "new",
       "status": "available",
-      "color": "červená",
-      "style": "klasická",
+      "color": "modrá",
+      "style": "plesové",
       "featured": false,
-      "details": "Čipka, perličky",
-      "images": ["formal-cervena-01"]
+      "details": "korzet, trblietky",
+      "images": ["formal-modre-01"]
     },
     {
       "id": "formal-zelena-01",
