@@ -17,9 +17,9 @@
     },
     {
       "id": "wedding-01",
-      "name": "Ethereal Bloom: Rozprávkové svadobné šaty(PRENÁJOM)",
+      "name": "Ethereal Bloom: Rozprávkové svadobné šaty",
       "description": "Romantické svadobné šaty s čipkovaným živôtikom, iluzórnymi rukávmi a bohatou tylovou sukňou pre rozprávkový vzhľad.",
-      "price": 299,
+      "price": 399,
       "size": "38",
       "category": "wedding",
       "type": "new",
@@ -106,7 +106,7 @@
       "images": ["svadba-saty3"]
     },
        {
-      "id": ""wedding-04",
+      "id": "wedding-04",
       "name": "Jednoduchá krása (Prenájom)",
       "description": "Minimalistické šaty s čistým strihom a jemným saténovým pásom na viazanie.",
       "price": 299,
