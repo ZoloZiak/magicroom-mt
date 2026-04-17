@@ -106,7 +106,7 @@
       "images": ["svadba-saty3"]
     },
        {
-      "id": "saten-saty-01",
+      "id": ""wedding-04",
       "name": "Jednoduchá krása (Prenájom)",
       "description": "Minimalistické šaty s čistým strihom a jemným saténovým pásom na viazanie.",
       "price": 299,
@@ -118,7 +118,7 @@
       "style": "minimalistická",
       "featured": false,
       "details": "Čistý strih, saténový pás",
-      "images": ["saten-saty-01"]
+      "images": ["wedding-04"]
     },
     {
       "id": "formal-zlata-01",
@@ -139,7 +139,7 @@
       "id": "formal-glitre-01",
       "name": "Noir Glamour: Flitrové večerné šaty",
       "description": "Dramatické a neodolateľné večerné šaty, celé posiate trblietavými flitrami. Vyznačujú sa odvážnym rozparkom na stehne pre dotyk moderného luxusu. Ideálne pre ženy, ktoré chcú zažiariť.",
-      "price": 69.90,
+      "price": 59.90,
       "size": "40",
       "category": "formal",
       "type": "new",
@@ -182,8 +182,8 @@
     },
      {
       "id": "formal-gatsby-01",
-      "name": "Čierne strapcové 'Flapper' šaty",
-      "description": "Elegantné koktejlové šaty v štýle 20. rokov (Gatsby style). Šaty sú zdobené viacerými vrstvami jemných čiernych strapcov s trblietavým efektom.",
+      "name": "Strapcové 'Flapper' šaty",
+      "description": "Elegantné šaty v štýle 20. rokov (Gatsby style). Šaty sú zdobené viacerými vrstvami jemných čiernych strapcov s trblietavým silver efektom.",
       "price": 34.90,
       "size": "38",
       "category": "formal",
@@ -196,6 +196,21 @@
       "images": ["formal-gatsby-01"]
     },
     {
+      "id": "formal-cervena-01",
+      "name": "Ohnivá červená",
+      "description": "Krásne červené šaty s véčkovým výstrihom a rozparkom",
+      "price": 72.90,
+      "size": "40",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "červená",
+      "style": "klasická",
+      "featured": false,
+      "details": "Čipka, perličky",
+      "images": ["formal-cervena-01"]
+    },
+     {
       "id": "formal-cervena-01",
       "name": "Ohnivá červená",
       "description": "Krásne červené šaty s véčkovým výstrihom a rozparkom",
