@@ -76,6 +76,21 @@
       "images": ["svadba-saty1"]
     },
     {
+      "id": "svadba-07",
+      "name": "Svadobná róba Eternal Ivory Grace(PRENÁJOM)",
+      "description": "Tieto šaty z hodvábneho saténu zaujmú ikonickými rukávmi a zvýšeným golierom, ktorý zvýrazňuje líniu krku. Čistú siluetu dopĺňa bohatá sukňa, vytvárajúc dojem nadčasovej noblesy.",
+      "price": 449,
+      "size": "34-38",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "ivory",
+      "style": "moderná",
+      "featured": true,
+        "details": "Ivory, korzetové",
+      "images": ["svadba-07"]
+    },
+    {
       "id": "svadba-saty2",
       "name": "Jemná zmyselnosť",
       "description": "Romantické šaty na jedno rameno s dlhým rukávom pre nežný vzhľad.",
