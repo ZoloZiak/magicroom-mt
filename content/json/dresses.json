@@ -181,7 +181,7 @@
       "images": ["formal-orandzova-01"]
     },
      {
-      "id": "formal-caca-01",
+      "id": "formal-gatsby-01",
       "name": "Čierne strapcové 'Flapper' šaty",
       "description": "Elegantné koktejlové šaty v štýle 20. rokov (Gatsby style). Šaty sú zdobené viacerými vrstvami jemných čiernych strapcov s trblietavým efektom.",
       "price": 34.90,
@@ -193,7 +193,7 @@
       "style": "Art Deco",
       "featured": true,
       "details": "strapce, trblietky",
-      "images": ["formal-caca-01"]
+      "images": ["formal-gatsby-01"]
     },
     {
       "id": "formal-cervena-01",
