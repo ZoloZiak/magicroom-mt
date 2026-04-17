@@ -396,3 +396,8 @@ button + button {
   margin-left: 8px;
   margin-top: 8px;
 }
+
+/* Hero image placeholder - instant visible before image loads */
+.hero-placeholder {
+  background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+}

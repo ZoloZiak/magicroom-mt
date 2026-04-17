@@ -95,7 +95,7 @@ const howToSchema = {
           </div>
 
           <div class="relative">
-<div class="photo-card-lg">
+<div class="photo-card-lg [&_img]:opacity-0 transition-opacity duration-500">
               <Image
                 src={IMAGE_ASSETS.hero}
                 alt="MagicRoom interior"
@@ -103,8 +103,9 @@ const howToSchema = {
                 width="1200"
                 height="900"
                 loading="eager"
-                decoding="async"
+                onload="this.classList.remove('[&_img]:opacity-0')"
               />
+              <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 -z-10 rounded-[24px]" aria-hidden="true"></div>
             </div>
 
             <div class="mt-5 grid gap-4 sm:grid-cols-2">
