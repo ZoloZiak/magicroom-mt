@@ -93,8 +93,8 @@ const articleSchema = {
         </div>
 
         <div class="prose prose-lg max-w-none bg-white p-8 md:p-12 rounded-[32px] shadow-sm border border-border/50">
-          {post.content.split('\\n\\n').map((paragraph: string) => (
-            <p class="text-xl leading-relaxed mb-6">{paragraph}</p>
+          {post.content.split('\\n').map((paragraph: string, i: number) => (
+            paragraph.trim() && <p class="text-xl leading-relaxed mb-6">{paragraph.trim()}</p>
           ))}
         </div>
 
