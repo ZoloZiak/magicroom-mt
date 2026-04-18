@@ -88,8 +88,8 @@
     {
       "id": "popolnocne-01",
       "name": "Popolnočné MIDI trblietavé šaty(PRENÁJOM)",
-      "name_en": "Glittery Midi Bridal Dress",
-      "description": "Elegantné krátke svadobné šaty s bohatou trblietavou tylovou sukňou.",
+      "name_en": "Glittery Midi Bridal Dress/rent",
+      "description": "Elegantné krátke svadobné šaty s bohatou trblietavou tylovou sukňou na prenájom.",
       "description_en": "Elegant short wedding dress featuring a sparkling tulle midi skirt.",
       "price": 79,
       "size": "36-38",
@@ -97,9 +97,9 @@
       "type": "new",
       "status": "available",
       "color": "biela",
-      "style": "popolnočné",
+      "style": "svadobné",
       "featured": true,
-      "details": "trblietky",
+      "details": "trblietky, midi",
       "images": ["popolnocne-01"]
     },
     {
