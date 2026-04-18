@@ -281,7 +281,7 @@
       "id": "formal-modra-05",
       "name": "Midnight Blue Symphony",
       "description": "Sýty modrý odtieň podčiarkuje sebavedomie, zatiaľ čo kvalitné spracovanie zabezpečuje maximálny komfort počas celého nosenia.",
-      "price": 69.90,
+      "price": 64.90,
       "size": "38",
       "category": "formal",
       "type": "new",
@@ -308,6 +308,21 @@
       "featured": false,
       "details": "čipka, vzdušnosť",
       "images": ["formal-orandzova-01"]
+    },
+    {
+      "id": "formal-silver-02",
+      "name": "Strieborná žiara",
+      "description": "Šaty s flitrami, odhaleným chrbtom a rafinovaným rázporkom pre nezabudnuteľný večer.",
+      "price": 54.90,
+      "size": "36",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "strieborná",
+      "style": "party",
+      "featured": true,
+      "details": "flitre",
+      "images": ["formal-silver-02"]
     },
     {
       "id": "formal-modra-03",
