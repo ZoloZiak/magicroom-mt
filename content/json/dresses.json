@@ -182,7 +182,7 @@
     },
     {
       "id": "formal-detske-01",
-      "name": "Trblietavé šaty pre malé princezné(PRENÁJOM)",
+      "name": "Pre malé princezné(PRENÁJOM)",
       "description": "Očarujúce duo detských šiat v neodolateľnom trblietavom ružovom prevedení.V dvoch veľkostiach 80-86 a 98-104",
       "price": 49,
       "size": "80-104",
@@ -269,6 +269,21 @@
       "featured": false,
       "details": "Čipka, perličky",
       "images": ["formal-cervena-01"]
+    },
+    {
+      "id": "formal-zelena-03",
+      "name": "Zelené šaty s prestrihnutými rukávmi",
+      "description": "Elegantné dlhé šaty v sýtej zelenkavej farbe zaujmú originálnymi prestrihmi na rukávoch a hlbokým véčkovým výstrihom.",
+      "price": 42.90,
+      "size": "40",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "zelené",
+      "style": "večerné",
+      "featured": false,
+      "details": "dlhe, spoločenské",
+      "images": ["formal-zelena-03"]
     },
     {
       "id": "formal-redvelvet-01",
