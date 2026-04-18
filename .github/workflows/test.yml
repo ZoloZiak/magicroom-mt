@@ -49,7 +49,7 @@ jobs:
       - name: be-a11y Accessibility Checker
         uses: be-lenka/be-a11y@v2.2.9
         with:
-          dir: 'dist'
+          url: 'http://localhost:4321'
 
   e2e:
     runs-on: ubuntu-latest
