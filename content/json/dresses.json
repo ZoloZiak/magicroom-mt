@@ -17,6 +17,23 @@
       "details": "Krémové šaty s dlhou vlečkou a kamienkami",
       "images": ["fialovy-sen"]
     },
+     {
+      "id": "svadba-09",
+      "name": "Kráľovské čipkované šaty s vlečkou",
+      "name_en": "Royal Lace Gown with Long Train",
+      "description": "Luxusné svadobné šaty s kvetinovou čipkou, dychberúcou dlhou vlečkou, ktorá dodáva vzhľadu kráľovský nádych.",
+      "description_en": "Luxurious wedding dress featuring floral lace and a breathtaking long train for a royal aesthetic.",
+      "price": 699,
+      "size": "44-50",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "ivory",
+      "style": "svadobné",
+      "featured": true,
+      "details": "Krémové šaty s dlhou vlečkou a čipkou",
+      "images": ["svadba-09"]
+    },
 {
       "id": "wedding-01",
       "name": "Ethereal Bloom: Rozprávkové svadobné šaty",
