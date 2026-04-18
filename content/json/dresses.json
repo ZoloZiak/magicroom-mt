@@ -102,6 +102,23 @@
       "details": "Dlhá vlečka, jemné zdobenie",
       "images": ["svadba-saty1"]
     },
+     {
+      "id": "svadba-06",
+      "name": "Čipkované svadobné šaty s kvetinovým vzorom",
+      "name_en": "Lace Wedding Dress with Floral Pattern",
+      "description": "Očarujúce svadobné šaty s prekrásnou kvetinovou čipkou a elegantným strihom a vlečkou.",
+      "description_en": "Charming wedding gown featuring exquisite floral lace, an elegant silhouette and a train.",
+      "price": 499,
+      "size": "38-40",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "princezná",
+      "featured": false,
+      "details": "Dlhá vlečka, kvety",
+      "images": ["svadba-06"]
+    },
     {
       "id": "svadba-07",
       "name": "Svadobná róba Eternal Ivory Grace(PRENÁJOM)",
