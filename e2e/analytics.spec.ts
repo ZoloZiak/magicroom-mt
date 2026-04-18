@@ -64,7 +64,6 @@ test.describe('GA4 Tracking', () => {
   });
 
   test('trackEvent is called on phone link click', async ({ page }) => {
-    const trackedEvents: string[] = [];
     await page.goto('/');
     
     await page.evaluate(() => {
@@ -74,10 +73,14 @@ test.describe('GA4 Tracking', () => {
       };
     });
 
-    await page.click('a[href^="tel:"]');
+    // Click header phone link specifically
+    await page.click('header a[href^="tel:"]');
+    
+    await page.waitForTimeout(100);
     
     const events = await page.evaluate(() => (window as any).__testEvents);
     expect(events).toBeDefined();
+    expect(events?.length).toBeGreaterThan(0);
   });
 
   test('header has tracking on phone link', async ({ page }) => {
