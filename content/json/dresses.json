@@ -184,6 +184,21 @@
       "images": ["formal-zlata-01"]
     },
     {
+      "id": "formal-modra-04",
+      "name": "Metallic šaty s puf rukávmi",
+      "description": "Šaty z vysoko lesklého metalického materiálu v žiarivej modrej farbe. Model má elegantný štvorcový výstrih, trendy krátke puf rukávy a zvodný vysoký rázporok na stehne.",
+      "price": 32.90,
+      "size": "36",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "modré",
+      "style": "spoločenské",
+      "featured": false,
+      "details": "flitrovane",
+      "images": ["formal-modra-04"]
+    },
+    {
       "id": "formal-glitre-01",
       "name": "Noir Glamour: Flitrové večerné šaty",
       "name_en": "Noir Glamour: Sequin Evening Gown",
@@ -261,6 +276,21 @@
       "featured": false,
       "details": "flitrovane",
       "images": ["formal-cervena-03"]
+    },
+     {
+      "id": "formal-modra-05",
+      "name": "Midnight Blue Symphony",
+      "description": "Sýty modrý odtieň podčiarkuje sebavedomie, zatiaľ čo kvalitné spracovanie zabezpečuje maximálny komfort počas celého nosenia.",
+      "price": 69.90,
+      "size": "38",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "modré",
+      "style": "plesové",
+      "featured": false,
+      "details": "korzetové",
+      "images": ["formal-modra-05"]
     },
     {
       "id": "formal-orandzova-01",
