@@ -226,19 +226,34 @@
       "images": ["formal-cervena-01"]
     },
     {
-      "id": "formal-cervena-01",
-      "name": "Ohnivá červená",
-      "description": "Krásne červené šaty s véčkovým výstrihom a rozparkom",
-      "price": 72.90,
+      "id": "formal-redvelvet-01",
+      "name": "Večerné šaty Aura v burgundskej farbe",
+      "description": "Elegantné spoločenské šaty vo vínovom odtieni, zdobené jemným trblietaním. Šaty disponujú vkusným véčkovým výstrihom s prekladaným efektom.",
+      "price": 57.90,
       "size": "40",
       "category": "formal",
       "type": "new",
       "status": "available",
-      "color": "červená",
-      "style": "klasická",
+      "color": "burgundy",
+      "style": "večerné",
       "featured": false,
-      "details": "Čipka, perličky",
-      "images": ["formal-cervena-01"]
+      "details": "trblietky",
+      "images": ["formal-redvelvet-01"]
+    },
+    {
+      "id": "formal-white-01",
+      "name": "Elegantné mini šaty s perličkami a dlhým rukávom",
+      "description": "Štýlové biele mini šaty s priliehavým strihom, zdobené jemnými perličkami. Šaty majú dlhé rukávy s rozparkami.",
+      "price": 24.90,
+      "size": "36",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "mini",
+      "featured": false,
+      "details": "perličky",
+      "images": ["formal-white-01"]
     },
      {
       "id": "formal-modre-01",
