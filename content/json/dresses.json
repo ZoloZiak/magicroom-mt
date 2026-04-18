@@ -264,6 +264,21 @@
       "details": "čipka, vzdušnosť",
       "images": ["formal-orandzova-01"]
     },
+    {
+      "id": "formal-modra-03",
+      "name": "Trblietavé tmavomodré maxi šaty",
+      "description": "Dlhé spoločenské strečové šaty v sýtej tmavomodrej farbe s jemnými trblietkami, zavinovacím V-výstrihom, naberanými rukávmi.",
+      "price": 77.90,
+      "size": "40",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "tmavomodra",
+      "style": "plesové",
+      "featured": true,
+      "details": "trblietky",
+      "images": ["formal-modra-03"]
+    },
      {
       "id": "formal-gatsby-01",
       "name": "Strapcové 'Flapper' šaty",
