@@ -86,6 +86,23 @@
       "images": ["klasicka-biela"]
     },
     {
+      "id": "popolnocne-01",
+      "name": "Popolnočné MIDI trblietavé šaty(PRENÁJOM)",
+      "name_en": "Glittery Midi Bridal Dress",
+      "description": "Elegantné krátke svadobné šaty s bohatou trblietavou tylovou sukňou.",
+      "description_en": "Elegant short wedding dress featuring a sparkling tulle midi skirt.",
+      "price": 79,
+      "size": "36-38",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "popolnočné",
+      "featured": true,
+      "details": "trblietky",
+      "images": ["popolnocne-01"]
+    },
+    {
       "id": "trblietave-saty",
       "name": "Strieborná rozprávka",
       "name_en": "Silver Fairytale",
