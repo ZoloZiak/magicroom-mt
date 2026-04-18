@@ -152,6 +152,23 @@
       "images": ["svadba-saty2"]
     },
     {
+      "id": "svadobne-08",
+      "name": "Romantické svadobné šaty",
+      "name_en": "Romantic wedding dress",
+      "description": "Úchvatné svadobné šaty s detailne vypracovaným čipkovaným vrchom, hlbokým výstrihom v tvare V a bohatou tylovou sukňou pre rozprávkový vzhľad.",
+      "description_en": "Stunning wedding dress featuring an intricate lace top with a deep V-neckline and a voluminous tulle skirt for a fairytale look.",
+      "price": 489,
+      "size": "34-36",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "svadobné",
+      "featured": true,
+        "details": "čipka",
+      "images": ["svadobne-08"]
+    },
+    {
       "id": "svadba-saty3",
       "name": "Jemná ženskosť",
       "name_en": "Soft Femininity",
