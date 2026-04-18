@@ -77,13 +77,13 @@ function getDynamicImage(glob: Record<string, { default: ImageMetadata }>, filen
 
 export const HOME_STATS = [
   { value: '15 €', label: 'skúška svadobných šiat s nápojom v cene' },
-  { value: '60+', label: 'svadobné šaty (nové aj komis)' },
+  { value: '100-700 €', label: 'svadobné šaty (nové aj komis)' },
   { value: 'Martin', label: 'osobný salón v budove Detský sen' },
 ] as const;
 
 export const HOME_STATS_EN = [
   { value: '15 €', label: 'formal dress fitting with drink included' },
-  { value: '60+', label: 'gala, prom & Julebord dresses' },
+  { value: '100-700 €', label: 'wedding dresses (new & consignment)' },
   { value: 'Martin', label: 'personal salon in the Detský sen building' },
 ] as const;
 
