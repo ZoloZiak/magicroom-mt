@@ -35,6 +35,23 @@
       "images": ["wedding-01"]
     },
     {
+      "id": "svadba-005",
+      "name": "Nevesta v kvetinových šatách",
+      "name_en": "Bride in flowers dress",
+      "description": "Čipkované svadobné šaty s obrovskou vlečkou s kvetinovým vzorom, padnutými rukávmi a hlbokým výstrihom.",
+      "description_en": "Lace wedding dress with a massive train featuring a floral pattern, off-the-shoulder sleeves, and a deep neckline.",
+      "price": 599,
+      "size": "40",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "princezná",
+      "featured": true,
+      "details": "Biele šaty s 3/4 rukávom a čipkou",
+      "images": ["svadba-005"]
+    },
+    {
       "id": "klasicka-biela",
       "name": "Nadčasová čistota",
       "name_en": "Timeless Purity",
@@ -185,8 +202,10 @@
     },
     {
       "id": "formal-modra-04",
-      "name": "Metallic šaty s puf rukávmi",
+      "name": "Metallic dress with puff sleeves",
+      "name_en": "Stunning Sequin Gown",
       "description": "Šaty z vysoko lesklého metalického materiálu v žiarivej modrej farbe. Model má elegantný štvorcový výstrih, trendy krátke puf rukávy a zvodný vysoký rázporok na stehne.",
+      "description_en": "A gown crafted from high-shine metallic material in a vibrant blue hue. The model features an elegant square neckline, trendy short puff sleeves, and a seductive high thigh slit.",
       "price": 32.90,
       "size": "36",
       "category": "formal",
@@ -235,7 +254,9 @@
        {
       "id": "formal-modre-001",
       "name": "Royal Blue elegancia",
-      "description": " Očarujúce dlhé šaty v intenzívnej kráľovsky modrej farbe. Vrchný diel s jemným véčkovým výstrihom dokonale prilieha k postave, zatiaľ čo bohatá, skladaná sukňa vytvára luxusný efekt.",
+      "name_en": "Royal Blue elegance",
+      "description": "Očarujúce dlhé šaty v intenzívnej kráľovsky modrej farbe. Vrchný diel s jemným véčkovým výstrihom dokonale prilieha k postave, zatiaľ čo bohatá, skladaná sukňa vytvára luxusný efekt.",
+      "description_en": "Charming long dress in an intense royal blue color. The bodice with a delicate V-neck perfectly fits the figure, while the rich, pleated skirt creates a luxurious effect.",
       "price": 48.90,
       "size": "36",
       "category": "formal",
@@ -250,7 +271,9 @@
      {
       "id": "formal-silver-001",
       "name": "Trblietavé večerné šaty s naberaným detailom – Anthracite Sparkle",
+      "name_en": "Shimmering evening gown with gathered detail – Anthracite Sparkle",
       "description": "Celoflitrové šaty v tmavosivom metalickom odtieni, ktoré sú stvorené pre výnimočné spoločenské udalosti. Šaty majú priliehavý strih s dlhými rukávmi a sofistikovaným naberaním v oblasti pása.",
+      "description_en": "All-sequin dress in a dark grey metallic shade, made for special social occasions. The gown features a form-fitting cut with long sleeves and sophisticated gathering at the waist."
       "price": 57.90,
       "size": "48",
       "category": "formal",
@@ -265,7 +288,9 @@
       {
       "id": "formal-cervena-03",
       "name": "Asymetrické flitrové šaty Morská panna",
+      "name_en": "Asymmetric Mermaid Sequin Gown",
       "description": "Očarujúce šaty v žiarivej červenej farbe, ktoré sú pokryté trblietavými flitrami. Šaty majú zvodný strih mermaid, ktorý dokonale kopíruje a zvýrazňuje ženskú siluetu.",
+      "description_en": "A mesmerizing dress in vibrant red, covered in shimmering sequins. The dress features a seductive mermaid cut that perfectly contours and highlights the female silhouette.",
       "price": 99,
       "size": "32-34",
       "category": "formal",
@@ -280,7 +305,9 @@
      {
       "id": "formal-modra-05",
       "name": "Midnight Blue Symphony",
+      "name_en": "Midnight Blue Symphony",
       "description": "Sýty modrý odtieň podčiarkuje sebavedomie, zatiaľ čo kvalitné spracovanie zabezpečuje maximálny komfort počas celého nosenia.",
+      "description_en": "A rich blue hue underscores confidence, while quality craftsmanship ensures maximum comfort throughout the wear.",
       "price": 64.90,
       "size": "38",
       "category": "formal",
@@ -312,7 +339,9 @@
     {
       "id": "formal-silver-02",
       "name": "Strieborná žiara",
+      "name_en": "Silver dress",
       "description": "Šaty s flitrami, odhaleným chrbtom a rafinovaným rázporkom pre nezabudnuteľný večer.",
+      "description_en": "Sequined dress with an open back and a sophisticated slit for an unforgettable evening.",
       "price": 54.90,
       "size": "36",
       "category": "formal",
@@ -327,7 +356,9 @@
     {
       "id": "formal-modra-03",
       "name": "Trblietavé tmavomodré maxi šaty",
+      "name_en": "Glitter dark-blue maxi dress",
       "description": "Dlhé spoločenské strečové šaty v sýtej tmavomodrej farbe s jemnými trblietkami, zavinovacím V-výstrihom, naberanými rukávmi.",
+      "description_en": "A long formal stretch dress in a rich deep blue hue with subtle glitter, a wrap V-neckline, and ruched sleeves.",
       "price": 77.90,
       "size": "40",
       "category": "formal",
@@ -342,7 +373,9 @@
      {
       "id": "formal-gatsby-01",
       "name": "Strapcové 'Flapper' šaty",
+      "name_en": "Flapper dress",
       "description": "Elegantné šaty v štýle 20. rokov (Gatsby style). Šaty sú zdobené viacerými vrstvami jemných čiernych strapcov s trblietavým silver efektom.",
+      "description": "Elegant 1920s-style gown (Gatsby style). The dress is adorned with multiple layers of delicate black fringe with a shimmering silver effect.",
       "price": 36.90,
       "size": "38",
       "category": "formal",
@@ -374,7 +407,9 @@
     {
       "id": "formal-zelena-03",
       "name": "Zelené šaty s prestrihnutými rukávmi",
+      "name_en": "Green dress with cut sleeves",
       "description": "Elegantné dlhé šaty v sýtej zelenkavej farbe zaujmú originálnymi prestrihmi na rukávoch a hlbokým véčkovým výstrihom.",
+       "description_en": "An elegant long gown in a rich green hue stands out with its original sleeve cut-outs and a deep V-neckline.",
       "price": 42.90,
       "size": "40",
       "category": "formal",
@@ -389,7 +424,9 @@
     {
       "id": "formal-redvelvet-01",
       "name": "Večerné šaty Aura v burgundskej farbe",
+      "name_en": "Night dress Aura burgundy",
       "description": "Elegantné spoločenské šaty vo vínovom odtieni, zdobené jemným trblietaním. Šaty disponujú vkusným véčkovým výstrihom s prekladaným efektom.",
+      "description_en": "Elegant formal gown in a wine shade, adorned with subtle shimmer. The dress features a tasteful V-neckline with a crossover effect.",
       "price": 57.90,
       "size": "40",
       "category": "formal",
@@ -404,7 +441,9 @@
     {
       "id": "formal-white-01",
       "name": "Elegantné mini šaty s perličkami a dlhým rukávom",
+      "name_en": "Elegant pearl-embellished mini dress with long sleeves",
       "description": "Štýlové biele mini šaty s priliehavým strihom, zdobené jemnými perličkami. Šaty majú dlhé rukávy s rozparkami.",
+      "description_en": "Stylish white mini dress with a form-fitting cut, adorned with delicate pearls. The dress has long sleeves with slits.",
       "price": 24.90,
       "size": "36",
       "category": "formal",
