@@ -17,13 +17,13 @@
       "details": "Krémové šaty s dlhou vlečkou a kamienkami",
       "images": ["fialovy-sen"]
     },
-    {
+{
       "id": "wedding-01",
-      "name": "Ethereal Bloom: Rozprávkové svadobné šaty(PRENÁJOM)",
-      "name_en": "Ethereal Bloom: Fairytale Wedding Dress (RENTAL)",
+      "name": "Ethereal Bloom: Rozprávkové svadobné šaty",
+      "name_en": "Ethereal Bloom: Fairytale Wedding Dress",
       "description": "Romantické svadobné šaty s čipkovaným živôtikom, iluzórnymi rukávmi a bohatou tylovou sukňou pre rozprávkový vzhľad.",
       "description_en": "Romantic wedding dress with lace bodice, illusion sleeves, and voluminous tulle skirt for a fairytale look.",
-      "price": 299,
+      "price": 399,
       "size": "38",
       "category": "wedding",
       "type": "new",
@@ -86,6 +86,21 @@
       "images": ["svadba-saty1"]
     },
     {
+      "id": "svadba-07",
+      "name": "Svadobná róba Eternal Ivory Grace(PRENÁJOM)",
+      "description": "Tieto šaty z hodvábneho saténu zaujmú ikonickými rukávmi a zvýšeným golierom, ktorý zvýrazňuje líniu krku. Čistú siluetu dopĺňa bohatá sukňa, vytvárajúc dojem nadčasovej noblesy.",
+      "price": 449,
+      "size": "34-38",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "ivory",
+      "style": "moderná",
+      "featured": true,
+        "details": "Ivory, korzetové",
+      "images": ["svadba-07"]
+    },
+    {
       "id": "svadba-saty2",
       "name": "Jemná zmyselnosť",
       "name_en": "Soft Sensuality",
@@ -120,7 +135,7 @@
       "images": ["svadba-saty3"]
     },
        {
-      "id": "saten-saty-01",
+      "id": "wedding-04",
       "name": "Jednoduchá krása (Prenájom)",
       "name_en": "Simple Beauty (Rental)",
       "description": "Minimalistické šaty s čistým strihom a jemným saténovým pásom na viazanie.",
@@ -134,15 +149,34 @@
       "style": "minimalistická",
       "featured": false,
       "details": "Čistý strih, saténový pás",
-      "images": ["saten-saty-01"]
+      "images": ["wedding-04"]
+    },
+       {
+      "id": "formal-modre-01",
+      "name": "Kráľovsky modrá 'Sapphire Muse'",
+      "description": "Očarujúce šaty v intenzívnom kráľovsky modrom odtieni. Bohatá tylová sukňa je jemne posiata trblietkami, ktoré vytvárajú efekt hviezdnej oblohy. Šaty majú rozparok a sú na viazanie",
+      "price": 129,
+      "size": "38",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "modrá",
+      "style": "plesové",
+      "featured": false,
+      "details": "korzet, trblietky",
+      "images": ["formal-modre-01"]
     },
     {
       "id": "formal-zlata-01",
       "name": "Úchvatné flitrované šaty",
       "name_en": "Stunning Sequin Gown",
       "description": "Exkluzívne flitrované šaty v zlatej farbe s jedným dlhým rukávom. ",
+<<<<<<< HEAD
       "description_en": "Exclusive gold sequin gown featuring a stylish single long sleeve.",
       "price": 59.90,
+=======
+      "price": 48.90,
+>>>>>>> 10449bc094ab12263efff75877298d3b65928eb0
       "size": "36-38",
       "category": "formal",
       "type": "new",
@@ -158,8 +192,12 @@
       "name": "Noir Glamour: Flitrové večerné šaty",
       "name_en": "Noir Glamour: Sequin Evening Gown",
       "description": "Dramatické a neodolateľné večerné šaty, celé posiate trblietavými flitrami. Vyznačujú sa odvážnym rozparkom na stehne pre dotyk moderného luxusu. Ideálne pre ženy, ktoré chcú zažiariť.",
+<<<<<<< HEAD
       "description_en": "Dramatic and irresistible evening gown covered in shimmering sequins. Features a bold thigh-high slit for a touch of modern luxury. Perfect for those who want to shine.",
       "price": 69.90,
+=======
+      "price": 54.90,
+>>>>>>> 10449bc094ab12263efff75877298d3b65928eb0
       "size": "40",
       "category": "formal",
       "type": "new",
@@ -172,8 +210,12 @@
     },
     {
       "id": "formal-detske-01",
+<<<<<<< HEAD
       "name": "Trblietavé šaty pre malé princezné(PRENÁJOM)",
       "name_en": "Sparkly Dresses for Little Princesses (RENTAL)",
+=======
+      "name": "Pre malé princezné(PRENÁJOM)",
+>>>>>>> 10449bc094ab12263efff75877298d3b65928eb0
       "description": "Očarujúce duo detských šiat v neodolateľnom trblietavom ružovom prevedení.V dvoch veľkostiach 80-86 a 98-104",
       "description_en": "Charming duo of children's dresses in irresistible sparkling pink. Available in sizes 80-86 and 98-104.",
       "price": 49,
@@ -187,13 +229,47 @@
       "details": "Trblietky po celom povrchu",
       "images": ["formal-detske-01"]
     },
+       {
+      "id": "formal-modre-001",
+      "name": "Royal Blue elegancia",
+      "description": " Očarujúce dlhé šaty v intenzívnej kráľovsky modrej farbe. Vrchný diel s jemným véčkovým výstrihom dokonale prilieha k postave, zatiaľ čo bohatá, skladaná sukňa vytvára luxusný efekt.",
+      "price": 48.90,
+      "size": "36",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "modrá",
+      "style": "plesové",
+      "featured": false,
+      "details": "dlhe,jednoduche",
+      "images": ["formal-modre-001"]
+    },
+     {
+      "id": "formal-silver-001",
+      "name": "Trblietavé večerné šaty s naberaným detailom – Anthracite Sparkle",
+      "description": "Celoflitrové šaty v tmavosivom metalickom odtieni, ktoré sú stvorené pre výnimočné spoločenské udalosti. Šaty majú priliehavý strih s dlhými rukávmi a sofistikovaným naberaním v oblasti pása.",
+      "price": 57.90,
+      "size": "48",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "silver",
+      "style": "plesové",
+      "featured": false,
+      "details": "flitrovane",
+      "images": ["formal-silver-001"]
+    },
     {
       "id": "formal-orandzova-01",
       "name": "Marhuľová múza",
       "name_en": "Apricot Muse",
       "description": "Jemné marhuľové šaty s detailne vypracovanou čipkou v hornej časti, ktoré vyžarujú romantiku a ženskú nehu.",
+<<<<<<< HEAD
       "description_en": "Soft apricot dress with intricate lace detailing on top, radiating romance and feminine tenderness.",
       "price": 32.90,
+=======
+      "price": 35.90,
+>>>>>>> 10449bc094ab12263efff75877298d3b65928eb0
       "size": "34",
       "category": "formal",
       "type": "new",
@@ -204,8 +280,23 @@
       "details": "čipka, vzdušnosť",
       "images": ["formal-orandzova-01"]
     },
+     {
+      "id": "formal-gatsby-01",
+      "name": "Strapcové 'Flapper' šaty",
+      "description": "Elegantné šaty v štýle 20. rokov (Gatsby style). Šaty sú zdobené viacerými vrstvami jemných čiernych strapcov s trblietavým silver efektom.",
+      "price": 36.90,
+      "size": "38",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "čierna",
+      "style": "Art Deco",
+      "featured": true,
+      "details": "strapce, trblietky",
+      "images": ["formal-gatsby-01"]
+    },
     {
-      "id": "formal-cervena-01",
+      "id": "formal-cervena-0",
       "name": "Ohnivá červená",
       "name_en": "Fiery Red",
       "description": "Krásne červené šaty s véčkovým výstrihom a rozparkom",
@@ -222,12 +313,61 @@
       "images": ["formal-cervena-01"]
     },
     {
+      "id": "formal-zelena-03",
+      "name": "Zelené šaty s prestrihnutými rukávmi",
+      "description": "Elegantné dlhé šaty v sýtej zelenkavej farbe zaujmú originálnymi prestrihmi na rukávoch a hlbokým véčkovým výstrihom.",
+      "price": 42.90,
+      "size": "40",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "zelené",
+      "style": "večerné",
+      "featured": false,
+      "details": "dlhe, spoločenské",
+      "images": ["formal-zelena-03"]
+    },
+    {
+      "id": "formal-redvelvet-01",
+      "name": "Večerné šaty Aura v burgundskej farbe",
+      "description": "Elegantné spoločenské šaty vo vínovom odtieni, zdobené jemným trblietaním. Šaty disponujú vkusným véčkovým výstrihom s prekladaným efektom.",
+      "price": 57.90,
+      "size": "40",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "burgundy",
+      "style": "večerné",
+      "featured": false,
+      "details": "trblietky",
+      "images": ["formal-redvelvet-01"]
+    },
+    {
+      "id": "formal-white-01",
+      "name": "Elegantné mini šaty s perličkami a dlhým rukávom",
+      "description": "Štýlové biele mini šaty s priliehavým strihom, zdobené jemnými perličkami. Šaty majú dlhé rukávy s rozparkami.",
+      "price": 24.90,
+      "size": "36",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "mini",
+      "featured": false,
+      "details": "perličky",
+      "images": ["formal-white-01"]
+    },
+    {
       "id": "formal-zelena-01",
       "name": "Smaragdová krása",
       "name_en": "Emerald Beauty",
       "description": "Šaty v elegantnej smaragdovej farbe s čipkovanými vrchom.",
+<<<<<<< HEAD
       "description_en": "Gown in an elegant emerald color with a delicate lace bodice.",
       "price": 62.90,
+=======
+      "price": 64.90,
+>>>>>>> 10449bc094ab12263efff75877298d3b65928eb0
       "size": "38",
       "category": "formal",
       "type": "new",
