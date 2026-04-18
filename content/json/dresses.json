@@ -247,6 +247,21 @@
       "details": "flitrovane",
       "images": ["formal-silver-001"]
     },
+      {
+      "id": "formal-cervena-03",
+      "name": "Asymetrické flitrové šaty Morská panna",
+      "description": "Očarujúce šaty v žiarivej červenej farbe, ktoré sú pokryté trblietavými flitrami. Šaty majú zvodný strih mermaid, ktorý dokonale kopíruje a zvýrazňuje ženskú siluetu.",
+      "price": 99,
+      "size": "32-34",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "červená",
+      "style": "plesové",
+      "featured": false,
+      "details": "flitrovane",
+      "images": ["formal-cervena-03"]
+    },
     {
       "id": "formal-orandzova-01",
       "name": "Marhuľová múza",
