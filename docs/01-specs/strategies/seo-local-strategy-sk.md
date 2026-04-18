@@ -61,7 +61,7 @@
 
 <!-- Služby -->
 <title>Služby a cenník — MagicRoom Martin</title>
-<meta name="description" content="Služby MagicRoom: skúška šiat 12€ (v cene nápoj), svadobné šaty 200-700€, spoločenské šaty 12-150€, prenájom dekorácií. Martin a okolie." />
+<meta name="description" content="Služby MagicRoom: skúška šiat 15€ (v cene nápoj), svadobné šaty 100-700€, spoločenské šaty 15-150€, prenájom dekorácií. Martin a okolie." />
 
 <!-- Dekorácie -->
 <title>Prenájom svadobných dekorácií Martin — MagicRoom</title>

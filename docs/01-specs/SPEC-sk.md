@@ -96,7 +96,7 @@ CTA:            #FF69B4  (Barbie Pink — výzva k akcii)
    - Hero fotka: Natália v salóne, útulné prostredie, nie veľký luxusný priestor
 
 2. **Transparentné ceny bar** (hneď pod hero — kľúčový USP)
-   - „Skúška šiat 12€ (v cene nápoj) · Svadobné šaty 200-700€ · Spoločenské šaty 12-150€"
+   - „Skúška šiat 15€ (v cene nápoj) · Svadobné šaty 100-700€ · Spoločenské šaty 15-150€"
    - „Ceny vidíte hneď — žiadne skryté poplatky, žiadne prekvapenia"
 
 3. **Služby Preview** (3-stĺpcový grid)
