@@ -135,6 +135,21 @@
       "details": "Čistý strih, saténový pás",
       "images": ["wedding-04"]
     },
+       {
+      "id": "formal-modre-01",
+      "name": "Kráľovsky modrá 'Sapphire Muse'",
+      "description": "Očarujúce šaty v intenzívnom kráľovsky modrom odtieni. Bohatá tylová sukňa je jemne posiata trblietkami, ktoré vytvárajú efekt hviezdnej oblohy. Šaty majú rozparok a sú na viazanie",
+      "price": 129,
+      "size": "38",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "modrá",
+      "style": "plesové",
+      "featured": false,
+      "details": "korzet, trblietky",
+      "images": ["formal-modre-01"]
+    },
     {
       "id": "formal-zlata-01",
       "name": "Úchvatné flitrované šaty",
@@ -179,6 +194,36 @@
       "featured": true,
       "details": "Trblietky po celom povrchu",
       "images": ["formal-detske-01"]
+    },
+       {
+      "id": "formal-modre-02",
+      "name": "Royal Blue elegancia",
+      "description": " Očarujúce dlhé šaty v intenzívnej kráľovsky modrej farbe. Vrchný diel s jemným véčkovým výstrihom dokonale prilieha k postave, zatiaľ čo bohatá, skladaná sukňa vytvára luxusný efekt.",
+      "price": 48.90,
+      "size": "36",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "modrá",
+      "style": "plesové",
+      "featured": false,
+      "details": "dlhe,jednoduche",
+      "images": ["formal-modre-02"]
+    },
+     {
+      "id": "formal-silver-02",
+      "name": "Trblietavé večerné šaty s naberaným detailom – Anthracite Sparkle",
+      "description": "Celoflitrové šaty v tmavosivom metalickom odtieni, ktoré sú stvorené pre výnimočné spoločenské udalosti. Šaty majú priliehavý strih s dlhými rukávmi a sofistikovaným naberaním v oblasti pása.",
+      "price": 57.90,
+      "size": "48",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "silver",
+      "style": "plesové",
+      "featured": false,
+      "details": "flitrovane",
+      "images": ["formal-silver-02"]
     },
     {
       "id": "formal-orandzova-01",
@@ -254,21 +299,6 @@
       "featured": false,
       "details": "perličky",
       "images": ["formal-white-01"]
-    },
-     {
-      "id": "formal-modre-01",
-      "name": "Kráľovsky modrá 'Sapphire Muse'",
-      "description": "Očarujúce šaty v intenzívnom kráľovsky modrom odtieni. Bohatá tylová sukňa je jemne posiata trblietkami, ktoré vytvárajú efekt hviezdnej oblohy. Šaty majú rozparok a sú na viazanie",
-      "price": 129,
-      "size": "38",
-      "category": "formal",
-      "type": "new",
-      "status": "available",
-      "color": "modrá",
-      "style": "plesové",
-      "featured": false,
-      "details": "korzet, trblietky",
-      "images": ["formal-modre-01"]
     },
     {
       "id": "formal-zelena-01",
