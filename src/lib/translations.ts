@@ -7,6 +7,7 @@ export interface Translations {
     about: string;
     services: string;
     dresses: string;
+    formal: string;
     blog: string;
     consignment: string;
     decorations: string;
@@ -27,12 +28,15 @@ export interface Translations {
     whyTitle: string;
     whySubtitle: string;
     processTitle: string;
+    processSubtitle: string;
+    processNote: string;
     founderLabel: string;
     blogTitle: string;
     blogSubtitle: string;
     blogCta: string;
     bookingTitle: string;
     bookingSubtitle: string;
+    bookingNote: string;
   };
   common: {
     phone: string;
@@ -61,6 +65,13 @@ export interface Translations {
     heroBadge: string;
     heroTitle: string;
     heroDescription: string;
+    statusAvailable: string;
+    statusReserved: string;
+    sizeLabel: string;
+    rentalLabel: string;
+    bookFitting: string;
+    consignmentTitle: string;
+    consignmentText: string;
   };
   consignment: {
     pageTitle: string;
@@ -75,6 +86,12 @@ export interface Translations {
     heroBadge: string;
     heroTitle: string;
     heroDescription: string;
+    featuredTitle: string;
+    catalogTitle: string;
+    photoNote: string;
+    policiesTitle: string;
+    customRequest: string;
+    contactCta: string;
   };
   gallery: {
     pageTitle: string;
@@ -104,6 +121,20 @@ export interface Translations {
     nextStepsTitle: string;
     nextStepsDesc1: string;
     nextStepsDesc2: string;
+  };
+  about: {
+    pageTitle: string;
+    pageDescription: string;
+    heroBadge: string;
+    heroTitle: string;
+    heroDescription: string;
+    storyTitle: string;
+    storyQuote: string;
+    storyText1: string;
+    storyText2: string;
+    principlesTitle: string;
+    principlesSubtitle: string;
+    callFounder: string;
   };
   bookingForm: {
     reservation: string;
@@ -178,12 +209,15 @@ const sk: Translations = {
     whyTitle: 'Prečo si nevesty v Martine vyberajú práve nás',
     whySubtitle: 'Osobný kontakt, jasné ceny a pokojná atmosféra.',
     processTitle: 'Ako si u nás rezervovať termín',
+    processSubtitle: 'Jednoduchý proces',
+    processNote: 'Na rezervácie a dopyty odpovedáme spravidla do 24 hodín. Ak je to súrne, zavolajte nám.',
     founderLabel: 'S kým sa v salóne stretnete',
-    blogTitle: 'Svadobné inšpirácie a rady z Martina',
-    blogSubtitle: 'Praktické tipy na výber šiat, koordináciu dňa a trendy v dekoráciách priamo z našej praxe.',
+    blogTitle: 'Blog a inšpirácie',
+    blogSubtitle: 'Praktické rady a inšpirácie, ktoré vám ušetria čas pri plánovaní vašej vysnívanej svadby.',
     blogCta: 'Viac na blogu',
-    bookingTitle: 'Vyberte si termín, ktorý vám vyhovuje',
+    bookingTitle: 'Rezervácia termínu',
     bookingSubtitle: 'Skúška trvá hodinu, stojí 15 € a v cene je aj malé občerstvenie.',
+    bookingNote: 'Ak už riešite konkrétnu predstavu o výzdobe alebo svadobnej konzultácii, napíšte nám to rovno do správy.',
   },
   common: {
     phone: 'Telefón',
@@ -223,7 +257,7 @@ const sk: Translations = {
   },
   services: {
     pageTitle: 'Služby a cenník — Svadobné šaty, dekorácie, poradenstvo | MagicRoom Martin',
-    pageDescription: 'Služby MagicRoom: skúška svadobných šiat od 15 €, výzdoba svadieb, svadobné poradenstvo. Cenová ponuka a.objednávanie.',
+    pageDescription: 'Služby MagicRoom: skúška svadobných šiat od 15 €, výzdoba svadieb, svadobné poradenstvo. Cenová ponuka a objednávanie.',
     heroBadge: 'Služby • cenník • Martin',
     heroTitle: 'Služby navrhnuté tak, aby ste nestrácali čas.',
     heroDescription: 'Každá karta nižšie je reálna časť ponuky MagicRoom — bez zbytočných fráz, s cenami a ďalším krokom, ktorý dáva zmysel.',
@@ -235,6 +269,14 @@ const sk: Translations = {
     pageDescription: 'MagicRoom je svadobný salón v Martine, ktorý prevádzkuje Natália Ondrejková. Personalizovaný prístup a skúsenosti.',
     heroBadge: 'O nás • MagicRoom Martin',
     heroTitle: 'Za MagicRoom stojí Natália',
+    heroDescription: 'MagicRoom nevznikol ako anonymný salón. Vznikol ako odpoveď na to, koľko stresu vie priniesť zháňanie šiat, výzdoby a drobných rozhodnutí, ktoré spolu majú vytvoriť jeden dôležitý deň.',
+    storyTitle: 'S kým sa v salóne stretnete',
+    storyQuote: 'Každá žena si zaslúži moment, keď sa cíti výnimočne.',
+    storyText1: 'Ahoj, volám sa Natália. MagicRoom vznikol, keď som si pripravovala vlastnú svadbu a zistila, koľko času zhltne zháňanie šiat, výzdoby a detailov.',
+    storyText2: 'Chcela som miesto, kde ženy nájdu všetko pokope — šaty, dekorácie aj férovú radu bez stresu a preplácania.',
+    principlesTitle: 'Princípy MagicRoom',
+    principlesSubtitle: 'Na čom nám záleží',
+    callFounder: 'Zavolať Natálii',
   },
   dresses: {
     pageTitle: 'Svadobné šaty — Katalóg šiat v MagicRoom Martin',
@@ -242,6 +284,13 @@ const sk: Translations = {
     heroBadge: 'Svadobné šaty • Martin',
     heroTitle: 'Svadobné šaty, ktoré si zamilujete',
     heroDescription: 'Prezrite si našu kolekciu svadobných šiat. Každý model je jedinečný a pripravený na vašu skúšku.',
+    statusAvailable: 'Dostupné',
+    statusReserved: 'Rezervované',
+    sizeLabel: 'Veľkosť',
+    rentalLabel: 'Požičovné',
+    bookFitting: 'Rezervovať skúšku',
+    consignmentTitle: 'Chcete u nás predať svoje šaty?',
+    consignmentText: 'Ponúknite svoje svadobné šaty ďalším nevestám cez náš komisný predaj. Dáme im druhý život a vy získate časť investície späť.',
   },
   formal: {
     pageTitle: 'Spoločenské šaty — Elegantné šaty na plesy a večierky | MagicRoom Martin',
@@ -263,6 +312,12 @@ const sk: Translations = {
     heroBadge: 'Dekorácie • Martin',
     heroTitle: 'Dekorácie, ktoré vytvárajú atmosféru',
     heroDescription: 'Od ariek po stolové dekorácie — všetko potrebné pre váš svadobný deň na jednom mieste.',
+    featuredTitle: 'Obľúbené kúsky',
+    catalogTitle: 'Katalóg dekorácií',
+    photoNote: 'Kliknutím na položky so symbolom obrázka zobrazíte fotografiu.',
+    policiesTitle: 'Pravidlá prenájmu',
+    customRequest: 'Potrebujete individuálnu cenovú ponuku alebo pomoc s inštaláciou?',
+    contactCta: 'Napísať dopyt',
   },
   gallery: {
     pageTitle: 'Galéria — Svadobný salón MagicRoom Martin',
@@ -356,13 +411,16 @@ const en: Translations = {
     servicesSubtitle: 'From prom dresses to complete event decorations, we provide everything you need with transparent pricing.',
     whyTitle: 'Why international students choose MagicRoom',
     whySubtitle: 'Personal approach, fair prices and English-friendly service.',
-    processTitle: 'Book your fitting in simple steps',
+    processTitle: 'How to book your appointment',
+    processSubtitle: 'Simple process',
+    processNote: 'We usually respond to bookings and inquiries within 24 hours. If it\'s urgent, please call us.',
     founderLabel: 'Meet the person behind MagicRoom',
-    blogTitle: 'Event styling tips and inspiration',
-    blogSubtitle: 'Read about the latest formal wear trends and practical advice for your celebrations in Martin.',
-    blogCta: 'Go to blog',
-    bookingTitle: 'Choose a time for your fitting',
+    blogTitle: 'Blog and inspiration',
+    blogSubtitle: 'Practical tips and inspiration to save you time planning your dream wedding or celebration.',
+    blogCta: 'More on blog',
+    bookingTitle: 'Book your appointment',
     bookingSubtitle: 'Fitting takes 60 minutes, costs 15 € and includes a small refreshment.',
+    bookingNote: 'If you already have a specific idea about decorations or wedding consultation, feel free to write it directly in the message.',
   },
   common: {
     phone: 'Phone',
@@ -414,6 +472,14 @@ const en: Translations = {
     pageDescription: 'MagicRoom is a wedding salon in Martin run by Natália Ondrejková. Personalized approach and experience.',
     heroBadge: 'About • MagicRoom Martin',
     heroTitle: 'Behind MagicRoom is Natália',
+    heroDescription: 'MagicRoom was not born as an anonymous salon. It was created as an answer to the stress involved in finding dresses, decorations, and the small decisions that create one big day.',
+    storyTitle: 'Meet the person behind the salon',
+    storyQuote: 'Every woman deserves a moment where she feels special.',
+    storyText1: 'Hi, my name is Natália. MagicRoom was born when I was preparing my own wedding and realized how much time is consumed by searching for dresses and decorations.',
+    storyText2: 'I wanted a place where women could find everything together — dresses, decorations, and fair advice without stress and overpaying.',
+    principlesTitle: 'MagicRoom Principles',
+    principlesSubtitle: 'What matters to us',
+    callFounder: 'Call Natália',
   },
   dresses: {
     pageTitle: 'Wedding Dresses — Catalog at MagicRoom Martin',
@@ -421,6 +487,13 @@ const en: Translations = {
     heroBadge: 'Wedding dresses • Martin',
     heroTitle: 'Wedding dresses you will love',
     heroDescription: 'Browse our collection of wedding dresses. Each model is unique and ready for your fitting.',
+    statusAvailable: 'Available',
+    statusReserved: 'Reserved',
+    sizeLabel: 'Size',
+    rentalLabel: 'Rental fee',
+    bookFitting: 'Book fitting',
+    consignmentTitle: 'Want to sell your dress?',
+    consignmentText: 'Offer your wedding dress to other brides through our consignment sale. Give it a second life and get part of your investment back.',
   },
   formal: {
     pageTitle: 'Formal & Evening Dresses — Elegance for Every Occasion | MagicRoom Martin',
@@ -442,6 +515,12 @@ const en: Translations = {
     heroBadge: 'Decorations • Martin',
     heroTitle: 'Decorations that create atmosphere',
     heroDescription: 'From arches to table centerpieces — everything you need for your wedding day in one place.',
+    featuredTitle: 'Featured items',
+    catalogTitle: 'Decoration catalog',
+    photoNote: 'Click on items with the image symbol to view the photo.',
+    policiesTitle: 'Rental rules',
+    customRequest: 'Need a custom quote or help with installation?',
+    contactCta: 'Inquire now',
   },
   gallery: {
     pageTitle: 'Gallery — MagicRoom Wedding Salon Martin',

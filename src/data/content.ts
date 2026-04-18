@@ -54,41 +54,36 @@ export const IMAGE_URLS = {
   founder: founderImage.src,
   decorMain: decorMainImage.src,
   decorAlt: decorAltImage.src,
-  decorBackdrop: decorBackdrop.src,
-  decorDetails: decorDetails.src,
   map: mapImage.src,
   logo: logoImage.src,
 } as const;
 
-// Dynamic asset loaders
-const galleryImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/gallery/*.{jpeg,jpg,png,JPG,JPEG,PNG}', { eager: true });
-const dressImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/dresses/*.{jpeg,jpg,png,JPG,JPEG,PNG}', { eager: true });
-const decorationImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/decorations/*.{jpeg,jpg,png,JPG,JPEG,PNG}', { eager: true });
+const galleryImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/gallery/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', {
+  eager: true,
+});
 
-function getDynamicImage(glob: Record<string, any>, filename: string) {
-  const match = Object.entries(glob).find(([path]) => {
-     const normalizedPath = path.replace(/\\/g, '/');
-     const nameWithoutExt = filename.replace(/\.(jpeg|jpg|png|JPG|JPEG|PNG)$/, '');
-     return normalizedPath.endsWith('/' + nameWithoutExt + '.jpg') || 
-            normalizedPath.endsWith('/' + nameWithoutExt + '.jpeg') || 
-            normalizedPath.endsWith('/' + nameWithoutExt + '.png') ||
-            normalizedPath.endsWith('/' + nameWithoutExt + '.JPG') ||
-            normalizedPath.endsWith('/' + nameWithoutExt + '.JPEG') ||
-            normalizedPath.endsWith('/' + nameWithoutExt + '.PNG') ||
-            normalizedPath.endsWith('/' + filename);
-  });
-  return match ? (match[1] as any).default : null;
+const dressImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/dresses/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', {
+  eager: true,
+});
+
+function getDynamicImage(glob: Record<string, { default: ImageMetadata }>, filename: string) {
+  for (const path in glob) {
+    if (path.endsWith(filename)) {
+      return glob[path].default;
+    }
+  }
+  return null;
 }
 
 export const HOME_STATS = [
   { value: '15 €', label: 'skúška svadobných šiat s nápojom v cene' },
-  { value: '200–700 €', label: 'svadobné šaty (nové aj komis)' },
+  { value: '60+', label: 'svadobné šaty (nové aj komis)' },
   { value: 'Martin', label: 'osobný salón v budove Detský sen' },
 ] as const;
 
 export const HOME_STATS_EN = [
   { value: '15 €', label: 'formal dress fitting with drink included' },
-  { value: '12–150 €', label: 'gala, prom & party dresses' },
+  { value: '60+', label: 'gala, prom & Julebord dresses' },
   { value: 'Martin', label: 'personal salon in the Detský sen building' },
 ] as const;
 
@@ -99,31 +94,31 @@ export const HOME_OFFER_CARDS = [
     description: 'Pokojná skúška s nápojom v cene, priestorom pre dve osoby a časom na výber bez stresu.',
     href: '/kontakt#booking',
     cta: 'Rezervovať termín',
-    icon: 'shirt',
+    icon: 'Shirt',
   },
   {
     title: 'Svadobné šaty',
-    price: '200–700 €',
+    price: 'od 100 €',
     description: 'Nové modely aj komis za férové ceny — vidíte ich ešte pred návštevou salónu.',
-    href: '/sluzby',
-    cta: 'Pozrieť služby',
-    icon: 'sparkles',
+    href: '/svadobne-saty',
+    cta: 'Pozrieť katalóg',
+    icon: 'Sparkles',
   },
   {
     title: 'Spoločenské šaty',
-    price: '12–150 €',
+    price: 'od 30 €',
     description: 'Šaty na stužkovú, ples, oslavu alebo akúkoľvek príležitosť.',
-    href: '/sluzby',
-    cta: 'Pozrieť služby',
-    icon: 'sparkles',
+    href: '/spolocenske-saty',
+    cta: 'Ponuka šiat',
+    icon: 'Sparkles',
   },
   {
-    title: 'Výzdoba svadieb a osláv',
-    price: 'od 100 €',
-    description: 'Kompletná výzdoba na kľúč — svadby, oslavy, eventy.',
+    title: 'Výzdoba a inventár',
+    price: 'od 0,50 € / ks',
+    description: 'Zrkadlá, zlaté príbory, vázy a kompletné kulisy. Všetko, čo potrebujete na zladenie vašej hostiny.',
     href: '/prenajom-dekoracii',
     cta: 'Katalóg dekorácií',
-    icon: 'layout',
+    icon: 'LayoutGrid',
   },
   {
     title: 'Custom doplnky',
@@ -131,15 +126,15 @@ export const HOME_OFFER_CARDS = [
     description: 'Personalizované poháre, tričká, župany a ďalšie handmade detaily.',
     href: '/sluzby',
     cta: 'Pozrieť doplnky',
-    icon: 'gift',
+    icon: 'Gift',
   },
   {
     title: 'Poradenstvo a organizácia',
-    price: 'od 15 €',
+    price: 'od 40 €',
     description: 'Od malej pomoci po kompletnú prípravu svadby, RSVP a grafiku.',
     href: '/sluzby',
     cta: 'Pozrieť balíky',
-    icon: 'clipboard',
+    icon: 'ClipboardList',
   },
 ] as const;
 
@@ -148,104 +143,64 @@ export const HOME_OFFER_CARDS_EN = [
     title: 'Formal dress fitting',
     price: '15 € / 60 min',
     description: 'Calm fitting for your prom, gala or event dress. Drink included.',
-    href: '/en/kontakt#booking',
+    href: '/en/contact#booking',
     cta: 'Book a time',
-    icon: 'shirt',
-  },
-  {
-    title: 'Prom & Gala dresses',
-    price: '12–150 €',
-    description: 'Perfect for Julebord, student balls or graduation. Quality dresses at student-friendly prices.',
-    href: '/en/sluzby',
-    cta: 'View collection',
-    icon: 'sparkles',
+    icon: 'Shirt',
   },
   {
     title: 'Wedding dresses',
-    price: '200–700 €',
+    price: 'from 100 €',
     description: 'New models and consignment at fair prices. See them before visiting.',
-    href: '/en/sluzby',
-    cta: 'View services',
-    icon: 'sparkles',
+    href: '/en/wedding-dresses',
+    cta: 'View collection',
+    icon: 'Sparkles',
+  },
+  {
+    title: 'Formal dresses',
+    price: 'from 30 €',
+    description: 'Perfect for Julebord, student balls or graduation. Quality dresses at student-friendly prices.',
+    href: '/en/formal-dresses',
+    cta: 'View collection',
+    icon: 'Sparkles',
   },
   {
     title: 'Event decorations',
     price: 'from 0.50 €',
     description: 'Rent mirrors, vases, or let us handle the complete setup for your party.',
-    href: '/en/prenajom-dekoracii',
+    href: '/en/decor-rental',
     cta: 'Decorations catalog',
-    icon: 'layout',
+    icon: 'LayoutGrid',
   },
   {
     title: 'Custom accessories',
     price: 'from 5 €',
     description: 'Personalized glasses, t-shirts, robes and other handmade details.',
-    href: '/en/sluzby',
+    href: '/en/services',
     cta: 'View accessories',
-    icon: 'sparkles',
+    icon: 'Sparkles',
   },
   {
     title: 'Wedding planning',
     price: 'from 200 €',
     description: 'From moodboard to RSVP — solutions that save time and stress.',
-    href: '/en/sluzby',
+    href: '/en/services',
     cta: 'View services',
-    icon: 'clipboard',
-  },
-  {
-    title: 'Bridal consultation',
-    price: '40 € / 60 min',
-    description: 'Calm advice on dress, style and wedding details.',
-    href: '/en/kontakt#booking',
-    cta: 'Book consultation',
-    icon: 'message',
-  },
-  {
-    title: 'Consignment sale',
-    price: 'from 50 €',
-    description: 'Give your wedding dress a second life. We help with the whole process.',
-    href: '/en/komisny-predaj',
-    cta: 'More info',
-    icon: 'refresh',
+    icon: 'ClipboardList',
   },
 ] as const;
 
 export const TRUST_REASONS = [
-  {
-    title: 'Transparentné ceny',
-    description: 'Všetky ceny šiat aj služieb nájdete priamo na webe. Žiadne skryté poplatky.',
-  },
-  {
-    title: 'Stretnutie s Natáliou',
-    description: 'V salóne sa stretnete priamo s majiteľkou, ktorá vám poradí z vlastnej skúsenosti.',
-  },
-  {
-    title: 'Lokalita Martin - Sever',
-    description: 'Pohodlný prístup v budove Detský sen s možnosťou parkovania v blízkosti.',
-  },
-  {
-    title: 'Všetko na jednom mieste',
-    description: 'Od šiat cez doplnky až po kompletnú výzdobu sály. Šetríme váš čas aj energiu.',
-  },
+  { title: 'Osobný prístup', description: 'Natália sa vám venuje osobne, aby ste našli presne to, čo hľadáte.' },
+  { title: 'Transparentné ceny', description: 'Žiadne skryté poplatky. Ceny šiat a služieb poznáte vopred.' },
+  { title: 'Pokojná atmosféra', description: 'Skúška u nás nie je stres, ale zážitok v príjemnom prostredí.' },
+  { title: 'Všetko na jednom mieste', description: 'Šaty, výzdoba aj rady dodávateľov pod jednou strechou.' },
 ] as const;
 
 export const TRUST_REASONS_EN = [
-  {
-    title: 'Transparent pricing',
-    description: 'No hidden fees. Student-friendly prices for gala and prom dresses.',
-  },
-  {
-    title: 'Personal approach',
-    description: 'Not an anonymous store. Natália will help you find the dress that fits your style.',
-  },
-  {
-    title: 'Perfect for international students',
-    description: 'English speaking service, close to medical faculties, and much cheaper than in Norway.',
-  },
-  {
-    title: 'Everything for your event',
-    description: 'Dresses, accessories and decorations in one cozy place in Martin.',
-  },
+  { title: 'Personal approach', description: 'Natalia personally attends to you to find exactly what you are looking for.' },
+  { title: 'Transparent pricing', description: 'No hidden fees. Dress and service prices are known upfront.' },
+  { title: 'Calm atmosphere', description: 'A fitting with us is not a stress, but an experience in a pleasant environment.' },
+  { title: 'All in one place', description: 'Dresses, decorations, and vendor advice under one roof.' },
 ] as const;
 
 export const BOOKING_FEATURES = [
@@ -262,9 +217,9 @@ export const PROCESS_STEPS = [
 ] as const;
 
 export const PROCESS_STEPS_EN = [
-  'Choose your favorite dresses from our online gallery.',
-  'Book a fitting via the form or WhatsApp (we speak English).',
-  'Visit our salon in Martin, enjoy a drink, and find your perfect dress.',
+  'Book your fitting via the form or WhatsApp.',
+  'We get back to you within 24 hours to confirm.',
+  'Visit our salon, enjoy a drink, and find your perfect dress.',
 ] as const;
 
 export const FOUNDER_STORY = {
@@ -276,31 +231,12 @@ export const FOUNDER_STORY = {
 } as const;
 
 export const FOUNDER_STORY_EN = {
-  quote: 'Every woman deserves a moment when she feels extraordinary.',
+  quote: 'Every woman deserves a moment where she feels special.',
   paragraphs: [
-    "Hi, I'm Natália. MagicRoom was born when I was planning my own wedding and realized how much time finding dresses, decorations and details takes.",
-    'I wanted a place where women find everything together — dresses, decorations and fair advice without stress and overpaying.',
+    'Hi, my name is Natalia. MagicRoom was born when I was preparing my own wedding and realized how much time is consumed by searching for dresses and decorations.',
+    'I wanted a place where women could find everything together — dresses, decorations, and fair advice without stress and overpaying.',
   ],
 } as const;
-
-const ASSET_IMAGE_MAP: Record<string, string> = {
-  hero: heroImage.src,
-  dresses: dressesImage.src,
-  decorMain: decorMainImage.src,
-  decorAlt: decorAltImage.src,
-  decorBackdrop: decorBackdrop.src,
-  decorDetails: decorDetails.src,
-};
-
-function getImageAsset(filename: string): string {
-  if (!filename) return IMAGE_ASSETS.satyRuzove1;
-  if (filename.startsWith('/')) return filename;
-  return `/${filename}`;
-}
-
-function getAssetImage(key: string): string {
-  return ASSET_IMAGE_MAP[key] || IMAGE_ASSETS.satyRuzove1;
-}
 
 export function getHomeStats(lang: Language) {
   return lang === 'sk' ? HOME_STATS : HOME_STATS_EN;
@@ -334,33 +270,25 @@ export function getExtraServices(lang: Language) {
 
 export function getDecorFeatured(lang: Language) {
   const data = lang === 'sk' ? decorData.sk : decorData.en;
-  const featured: any[] = [];
-  for (const cat of data.categories) {
-    for (const item of cat.items) {
-      if (item.starred) {
-        const img = item.image ? (getDynamicImage(decorationImages, item.image)) : null;
-        featured.push({
-          ...item,
-          imageAsset: img,
-          fallbackImage: null
-        });
-      }
-    }
-  }
-  return featured;
+  return data.categories.flatMap(cat => cat.items).filter(item => item.starred);
 }
 
 export function getDecorCategories(lang: Language) {
   const data = lang === 'sk' ? decorData.sk : decorData.en;
+  
   return data.categories.map(cat => ({
     ...cat,
     items: cat.items.map(item => {
-       const img = item.image ? (getDynamicImage(decorationImages, item.image)) : null;
-       return {
-          ...item,
-          imageAsset: img,
-          fallbackImage: null
-       };
+      let imageAsset = null;
+      if (item.image) {
+        imageAsset = getDynamicImage(galleryImages, item.image + '.jpg') || 
+                     getDynamicImage(galleryImages, item.image + '.png');
+      }
+      return {
+        ...item,
+        imageAsset: imageAsset as ImageMetadata | null,
+        fallbackImage: WHITE_FALLBACK,
+      };
     })
   }));
 }
@@ -370,16 +298,32 @@ export function getDecorPolicies(lang: Language) {
   return data.policies;
 }
 
-export function getConsignmentSteps(lang: Language) {
-  return lang === 'sk' ? CONSIGNMENT_STEPS : CONSIGNMENT_STEPS_EN;
-}
+const CONTACT_ACTIONS = [
+  { icon: 'Phone', label: 'Zavolať Natálii', value: PHONE_DISPLAY, href: PHONE_HREF, primary: true },
+  { icon: 'MessageCircle', label: 'Napísať cez WhatsApp', value: 'Rýchla odpoveď', href: WHATSAPP_URL, primary: false },
+  { icon: 'Mail', label: 'Poslať email', value: EMAIL, href: EMAIL_HREF, primary: false },
+];
 
-export function getConsignmentBenefits(lang: Language) {
-  return lang === 'sk' ? CONSIGNMENT_BENEFITS : CONSIGNMENT_BENEFITS_EN;
-}
+const CONTACT_ACTIONS_EN = [
+  { icon: 'Phone', label: 'Call Natalia', value: PHONE_DISPLAY, href: PHONE_HREF, primary: true },
+  { icon: 'MessageCircle', label: 'WhatsApp Us', value: 'Quick response', href: WHATSAPP_URL, primary: false },
+  { icon: 'Mail', label: 'Send an email', value: EMAIL, href: EMAIL_HREF, primary: false },
+];
+
+const CONSIGNMENT_CONDITIONS_SK = [
+  'Šaty musia byť profesionálne vyčistené a bez poškodení.',
+  'Prijímame modely nie staršie ako 3 roky.',
+  'Provízia salónu je stanovená fixne pri podpise zmluvy.',
+];
+
+const CONSIGNMENT_CONDITIONS_EN = [
+  'Dresses must be professionally cleaned and without damage.',
+  'We accept models not older than 3 years.',
+  'The salon commission is fixed upon signing the contract.',
+];
 
 export function getConsignmentConditions(lang: Language) {
-  return lang === 'sk' ? CONSIGNMENT_CONDITIONS : CONSIGNMENT_CONDITIONS_EN;
+  return lang === 'sk' ? CONSIGNMENT_CONDITIONS_SK : CONSIGNMENT_CONDITIONS_EN;
 }
 
 export function getContactFaqs(lang: Language) {
@@ -422,159 +366,64 @@ export function getPartnerCategories(lang: Language) {
 export const PARTNERS = getPartners('sk');
 export const PARTNER_CATEGORIES = getPartnerCategories('sk');
 
-export const DRESS_CATALOG = dressesData.dresses.map(dress => {
-  const extensions = ['.png', '.jpg', '.jpeg', '.JPG', '.JPEG', '.PNG'];
-  const imageIds = dress.images || [dress.id];
-  const images = imageIds.map(imgId => {
-    for (const ext of extensions) {
-      const img = getDynamicImage(dressImages, imgId + ext);
-      if (img) return img as ImageMetadata;
-    }
-    return null;
-  }).filter(Boolean);
-  
-  return {
-    ...dress,
-    images: images as ImageMetadata[],
-    imageAsset: images[0] as ImageMetadata,
-    fallbackImage: WHITE_FALLBACK,
-  };
-});
+export function getDressCatalog(lang: Language) {
+  return dressesData.dresses.map(dress => {
+    const extensions = ['.png', '.jpg', '.jpeg', '.JPG', '.JPEG', '.PNG'];
+    const imageIds = dress.images || [dress.id];
+    const images = imageIds.map(imgId => {
+      for (const ext of extensions) {
+        const img = getDynamicImage(dressImages, imgId + ext);
+        if (img) return img as ImageMetadata;
+      }
+      return null;
+    }).filter(Boolean);
+    
+    return {
+      ...dress,
+      name: lang === 'sk' ? dress.name : (dress.name_en || dress.name),
+      description: lang === 'sk' ? dress.description : (dress.description_en || dress.description),
+      images: images as ImageMetadata[],
+      imageAsset: images[0] as ImageMetadata,
+      fallbackImage: WHITE_FALLBACK,
+    };
+  });
+}
 
-export const WEDDING_DRESSES = DRESS_CATALOG.filter(d => d.category === 'wedding');
-export const FORMAL_DRESSES = DRESS_CATALOG.filter(d => d.category === 'formal');
+export function getWeddingDresses(lang: Language) {
+  return getDressCatalog(lang).filter(d => d.category === 'wedding');
+}
+
+export function getFormalDresses(lang: Language) {
+  return getDressCatalog(lang).filter(d => d.category === 'formal');
+}
+
+export const DRESS_CATALOG = getDressCatalog('sk');
+export const WEDDING_DRESSES = getWeddingDresses('sk');
+export const FORMAL_DRESSES = getFormalDresses('sk');
 
 export const CONSIGNMENT_STEPS = [
   'Šaty nám zveríte čisté a vopred pošlete fotografie.',
   'Spoločne sa dohodne cena, ktorú chcete za šaty získať.',
   'MagicRoom šaty vystaví, propaguje a komunikuje so záujemkyňami.',
-  'Peniaze vám pošleme do 7 dní od predaja.',
+  'Po predaji vám vyplatíme dohodnutú sumu.',
 ] as const;
 
-export const CONSIGNMENT_STEPS_EN = [
-  'You entrust us clean dresses and send photos in advance.',
-  'We agree together on the price you want to get for the dresses.',
-  'MagicRoom displays, promotes and communicates with interested brides.',
-  'We send the money to you within 7 days after the sale.',
-] as const;
-
-export const CONSIGNMENT_BENEFITS = [
-  'Druhý život pre vaše šaty bez riešenia inzercie a správ.',
-  'Majiteľka určuje svoju cenu, provízia sa k nej pripočítava zvlášť.',
-  'Ak sa šaty nepredajú, vrátia sa v pôvodnom stave alebo sa predĺži zmluva.',
-] as const;
-
-export const CONSIGNMENT_BENEFITS_EN = [
-  "Second life for your dresses without dealing with ads and messages.",
-  "The owner sets their own price, our commission is added separately.",
-  "If the dresses don't sell, they return in original condition or we extend the contract.",
-] as const;
-
-export const CONSIGNMENT_CONDITIONS = [
-  {
-    title: 'Šaty musia byť vyčistené',
-    description: 'Ak prídu znečistené alebo poškodené, vrátime ich späť majiteľke ešte pred zaradením do ponuky.',
-  },
-  {
-    title: 'Cenu určujete vy',
-    description: 'Cenu, ktorú chcete za šaty dostať, nemeníme. Naša provízia sa k nej pripočítava samostatne.',
-  },
-  {
-    title: 'Vyplácanie do 7 dní',
-    description: 'Po predaji vám pošleme peniaze do 7 dní na účet alebo podľa dohody.',
-  },
-  {
-    title: 'Zmluva na niekoľko mesiacov',
-    description: 'Ak sa šaty nepredajú, vrátime ich v pôvodnom stave alebo sa spoločne dohodneme na predĺžení.',
-  },
-] as const;
-
-export const CONSIGNMENT_CONDITIONS_EN = [
-  {
-    title: 'Dresses must be clean',
-    description: 'If they arrive dirty or damaged, we return them to the owner before listing.',
-  },
-  {
-    title: 'You set the price',
-    description: "We don't change the price you want for the dresses. Our commission is added separately.",
-  },
-  {
-    title: 'Payment within 7 days',
-    description: 'After the sale, we send the money to your account within 7 days or by agreement.',
-  },
-  {
-    title: 'Contract for several months',
-    description: "If the dresses don't sell, we return them in original condition or agree on extension.",
-  },
-] as const;
-
-export const CONTACT_ACTIONS = [
-  {
-    title: 'Zavolajte nám',
-    description: 'Najrýchlejší spôsob, ak chcete termín doriešiť hneď.',
-    href: PHONE_HREF,
-    label: PHONE_DISPLAY,
-  },
-  {
-    title: 'Napíšte na WhatsApp',
-    description: 'Krátka správa stačí — odpovieme vám čo najskôr.',
-    href: WHATSAPP_URL,
-    label: 'WhatsApp rezervácia',
-  },
-  {
-    title: 'Pošlite email',
-    description: 'Ak vám viac vyhovuje pokojný dopyt s detailami, napíšte nám email.',
-    href: EMAIL_HREF,
-    label: EMAIL,
-  },
-  {
-    title: 'Nájdete nás v Martine',
-    description: 'Jilemnického 4015/43, Martin - Sever / Záturčie (budova Detský sen, prízemie). Kliknutím otvoríte mapu.',
-    href: MAP_URL,
-    label: 'Otvoriť mapu',
-  },
-] as const;
-
-export const CONTACT_ACTIONS_EN = [
-  {
-    title: 'Call us',
-    description: 'The fastest way if you want to sort out an appointment right now.',
-    href: PHONE_HREF,
-    label: PHONE_DISPLAY,
-  },
-  {
-    title: 'Write on WhatsApp',
-    description: "A short message is enough — we'll reply as soon as possible.",
-    href: WHATSAPP_URL,
-    label: 'WhatsApp booking',
-  },
-  {
-    title: 'Send an email',
-    description: 'If you prefer a calm inquiry with details, write us an email.',
-    href: EMAIL_HREF,
-    label: EMAIL,
-  },
-  {
-    title: 'Find us in Martin',
-    description: 'Jilemnického 4015/43, Martin - Sever / Záturčie (Detský sen building, ground floor). Click to open the map.',
-    href: MAP_URL,
-    label: 'Open map',
-  },
-] as const;
-
-export const SERVICE_PACKAGES = getServicePackages('sk');
-export const EXTRA_SERVICES = getExtraServices('sk');
-export const DECOR_CATEGORIES = getDecorCategories('sk');
-export const DECOR_POLICIES = getDecorPolicies('sk');
-export const CONTACT_FAQS = getContactFaqs('sk');
-export const GALLERY_ITEMS = getGalleryItems('sk');
+export function getConsignmentSteps(lang: Language) {
+  const en = [
+    'You entrust us with clean dresses and send photos in advance.',
+    'Together we agree on the price you want to get for the dress.',
+    'MagicRoom displays, promotes, and communicates with interested parties.',
+    'After the sale, we pay you the agreed amount.',
+  ];
+  return lang === 'sk' ? CONSIGNMENT_STEPS : en;
+}
 
 export function getBlogPosts(lang: Language) {
-  return blogData.posts.map(post => {
+  const data = blogData.posts;
+  return data.map(post => {
     const p = lang === 'sk' ? post.sk : post.en;
-    const imageKey = post.image as keyof typeof IMAGE_ASSETS | undefined;
-    const imageAsset = imageKey && IMAGE_ASSETS[imageKey] ? IMAGE_ASSETS[imageKey] : IMAGE_ASSETS.dresses;
     return {
+      ...post,
       slug: lang === 'sk' ? post.slug : post.enSlug,
       skSlug: post.slug,
       enSlug: post.enSlug,
@@ -585,22 +434,20 @@ export function getBlogPosts(lang: Language) {
       readTime: p.readTime,
       content: p.content,
       tags: p.tags,
-      image: imageAsset,
-      imageSrc: String(imageAsset),
+      image: post.image,
     };
   });
 }
 
 export function getBlogPost(slug: string, lang: Language) {
-  const post = blogData.posts.find(p => 
+  const post = blogData.posts.find(p =>
     lang === 'sk' ? p.slug === slug : p.enSlug === slug
   );
   if (!post) return null;
-  
+
   const p = lang === 'sk' ? post.sk : post.en;
-  const imageKey = post.image as keyof typeof IMAGE_ASSETS | undefined;
-  const imageSrc = imageKey && IMAGE_ASSETS[imageKey] ? String(IMAGE_ASSETS[imageKey]) : String(IMAGE_ASSETS.dresses);
   return {
+    ...post,
     slug: lang === 'sk' ? post.slug : post.enSlug,
     skSlug: post.slug,
     enSlug: post.enSlug,
@@ -611,8 +458,14 @@ export function getBlogPost(slug: string, lang: Language) {
     readTime: p.readTime,
     content: p.content,
     tags: p.tags,
-    image: imageSrc,
+    image: post.image,
   };
 }
 
 export const BLOG_POSTS = getBlogPosts('sk');
+export const SERVICE_PACKAGES = getServicePackages('sk');
+export const EXTRA_SERVICES = getExtraServices('sk');
+export const DECOR_CATEGORIES = getDecorCategories('sk');
+export const DECOR_POLICIES = getDecorPolicies('sk');
+export const CONTACT_FAQS = getContactFaqs('sk');
+export const GALLERY_ITEMS = getGalleryItems('sk');

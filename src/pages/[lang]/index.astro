@@ -55,7 +55,7 @@ const FOUNDER_STORY = getFounderStory(language);
 const howToSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
-  name: language === 'sk' ? 'Ako rezervovať skúšku svadobných šiat v MagicRoom' : 'How to book a wedding dress fitting at MagicRoom',
+  name: t.home.processTitle,
   step: PROCESS_STEPS.map((step, i) => ({
     '@type': 'HowToStep',
     position: i + 1,
@@ -66,9 +66,9 @@ const howToSchema = {
 ---
 
 <Layout
-  title={language === 'sk' ? "MagicRoom — svadobné šaty, dekorácie a bridal concierge v Martine" : "MagicRoom — formal dresses, prom wear and event styling in Martin"}
-  description={language === 'sk' ? "MagicRoom je lokálny svadobný salón v Martine. Skúška svadobných šiat od 15 €, výzdoba svadieb a osláv, svadobné poradenstvo a pokojný osobný prístup." : "MagicRoom is your local salon in Martin for prom, gala and formal dresses. Dress fitting from 15 €, event decorations, styling advice and English speaking service for international students."}
-  keywords={language === 'sk' ? "svadobne saty, dekoracie, martin, bridal concierge, svadobne poradenstvo, komisny predaj" : "prom dresses, gala dresses, formal wear, selskapskjoler, ballkjoler, martin, event styling, graduation dresses"}
+  title={t.home.heroTitle}
+  description={language === 'sk' ? "MagicRoom je lokálny svadobný salón v Martine. Skúška svadobných šiat od 15 €, výzdoba svadieb a osláv, svadobné poradenstvo." : "MagicRoom is your local salon in Martin for prom, gala and formal dresses. Dress fitting from 15 €, event decorations, styling advice."}
+  keywords={language === 'sk' ? "svadobne saty, dekoracie, martin, bridal concierge" : "prom dresses, gala dresses, formal wear, martin, event styling"}
   image={IMAGE_URLS.hero}
   structuredData={howToSchema}
   language={language}
@@ -93,13 +93,13 @@ const howToSchema = {
 
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button asChild variant="cta" size="lg" className="hero-button interactive-ripple sm:min-w-[220px]">
-                <a href={getBookingPageHref(language)} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label={language === 'sk' ? "hero_cta" : "hero_cta_en"}>
+                <a href={getBookingPageHref(language)} data-ga-category="conversion" data-ga-action="book_appointment_click">
                   {t.home.ctaBook}
                   <Icon name="ArrowRight" class="icon-morph slovak-heart h-5 w-5" />
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="hero-button sm:min-w-[220px]">
-                <a href={language === 'sk' ? "/sluzby" : "/en/services"} data-ga-category="engagement" data-ga-action="navigation_click" data-ga-label={language === 'sk' ? "hero_services" : "hero_services_en"}>{t.home.ctaServices}</a>
+                <a href={language === 'sk' ? "/sluzby" : "/en/services"}>{t.home.ctaServices}</a>
               </Button>
             </div>
 
@@ -114,34 +114,32 @@ const howToSchema = {
           </div>
 
           <div class="relative">
-<div class="photo-card-lg [&_img]:opacity-0 transition-opacity duration-500">
+            <div class="photo-card-lg">
               <Image
                 src={IMAGE_ASSETS.hero}
-                alt="MagicRoom wedding salon interior"
-                class="hero parallax-float tatry-mountain h-full max-h-[640px] w-full rounded-[24px] object-cover"
-                width="1200"
-                height="900"
+                alt="MagicRoom interior"
+                class="hero h-full max-h-[640px] w-full rounded-[24px] object-cover"
+                width={1200}
+                height={900}
                 loading="eager"
-                onload="this.classList.remove('[&_img]:opacity-0')"
               />
               <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 -z-10 rounded-[24px]" aria-hidden="true"></div>
             </div>
-            </div>
 
             <div class="mt-5 grid gap-4 sm:grid-cols-2">
-              <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" data-ga-label={language === 'sk' ? "hero_phone" : "hero_phone_en"} class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
+              <a href={PHONE_HREF} class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
                 <div class="flex items-center gap-3 text-primary">
                   <Icon name="Phone" class="h-4 w-4" />
-                  <span class="text-sm uppercase tracking-[0.2em]">{language === 'sk' ? 'Telefón' : 'Phone'}</span>
+                  <span class="text-sm uppercase tracking-[0.2em]">{t.common.phone}</span>
                 </div>
                 <p class="mt-3 font-semibold text-foreground">{PHONE_DISPLAY}</p>
               </a>
-              <a href={MAP_URL} target="_blank" rel="noopener noreferrer" data-ga-category="engagement" data-ga-action="map_click" data-ga-label={language === 'sk' ? "hero_map" : "hero_map_en"} class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
+              <a href={MAP_URL} target="_blank" rel="noopener noreferrer" class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
                 <div class="flex items-center gap-3 text-primary">
                   <Icon name="MapPin" class="h-4 w-4" />
-                  <span class="text-sm uppercase tracking-[0.2em]">{language === 'sk' ? 'Adresa' : 'Address'}</span>
+                  <span class="text-sm uppercase tracking-[0.2em]">{t.common.address}</span>
                 </div>
-                <p class="mt-3 font-semibold text-foreground">{ADDRESS_LABEL}</p>
+                <p class="mt-3 text-sm leading-6 text-foreground">{ADDRESS_LABEL}</p>
               </a>
             </div>
           </div>
@@ -215,11 +213,8 @@ const howToSchema = {
           <div class="photo-card-lg animate-fade-in-right">
             <Image
               src={IMAGE_ASSETS.hero}
-              alt={language === 'sk' ? "Svadobné šaty v salóne MagicRoom v Martine. Široký výber a pokojné prostredie." : "Wedding dresses in the MagicRoom salon in Martin."}
+              alt="MagicRoom salon"
               class="w-full rounded-[32px] object-cover"
-              widths={[400, 800, 1200]}
-              sizes="(max-width: 768px) 100vw, 800px"
-              loading="lazy"
             />
           </div>
         </div>
@@ -227,41 +222,6 @@ const howToSchema = {
     </section>
 
     <section class="bg-surface py-20 md:py-28">
-      <div class="container mx-auto px-4">
-        <div class="grid gap-16 lg:grid-cols-2 lg:items-center">
-          <div class="photo-card">
-            <Image
-              src={IMAGE_ASSETS.founder}
-              alt={language === 'sk' ? "Natália Ondrejková, zakladateľka svadobného salónu MagicRoom v Martine." : "Natália Ondrejková, founder of MagicRoom wedding salon in Martin."}
-              class="w-full rounded-[24px] object-cover"
-            />
-          </div>
-          <div class="max-w-xl">
-            <p class="section-kicker">{t.home.founderLabel}</p>
-            <h2 class="mt-4 font-display text-4xl leading-tight md:text-5xl">
-              {language === 'sk' ? 'Miesto, kde svadobné detaily dávajú zmysel.' : 'A place where wedding details make sense.'}
-            </h2>
-            <div class="mt-8 space-y-6 text-lg leading-8 text-muted-foreground">
-              <p>
-                {FOUNDER_STORY.paragraphs[0]}
-              </p>
-              <p>
-                {FOUNDER_STORY.paragraphs[1]}
-              </p>
-            </div>
-            <div class="mt-10 flex items-center gap-4 border-l-2 border-accent pl-6 italic text-foreground">
-              <p class="text-xl font-display">
-                „{FOUNDER_STORY.quote}“
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <DecorativeDivider variant="ornamental" />
-
-    <section class="bg-white py-20 md:py-28">
       <div class="container mx-auto px-4 text-center">
         <h2 class="font-display text-4xl leading-tight md:text-5xl lg:text-6xl">
           {t.home.processTitle}
@@ -285,18 +245,46 @@ const howToSchema = {
       </div>
     </section>
 
+    <section class="bg-white py-12 md:py-16 border-t border-border/50">
+      <div class="container mx-auto px-4">
+        <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div>
+            <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{t.home.blogTitle}</p>
+            <h2 class="mt-3 font-display text-3xl text-foreground md:text-4xl">{t.home.blogSubtitle}</h2>
+            <p class="mt-4 text-base leading-7 text-muted-foreground">
+              {t.common.footerDescription}
+            </p>
+            <div class="mt-8">
+              <Button asChild variant="outline" size="lg">
+                <a href={language === 'sk' ? "/blog" : "/en/blog"}>
+                  {t.home.blogCta}
+                  <Icon name="ArrowRight" class="h-4 w-4 ml-2" />
+                </a>
+              </Button>
+            </div>
+          </div>
+          <div class="photo-card hidden lg:block">
+            <img
+              src={IMAGE_URLS.decorMain}
+              alt="Blog inspirations"
+              class="w-full rounded-[24px] object-cover max-h-[400px]"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="relative bg-surface py-24 md:py-32" id="booking">
-      <Sparkles count={8} />
       <div class="container relative mx-auto px-4">
         <div class="mx-auto max-w-4xl text-center">
           <Badge variant="secondary" className="mb-6 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">
-            {language === 'sk' ? 'Rezervácia termínu' : 'Book an appointment'}
+            {t.home.bookingTitle}
           </Badge>
           <h2 class="font-display text-4xl leading-tight text-foreground md:text-5xl lg:text-7xl">
             {t.home.bookingTitle}
           </h2>
           <p class="mt-6 text-xl text-muted-foreground">
-            {t.home.bookingSubtitle}
+            {t.home.bookingSubtitle} {t.home.bookingNote}
           </p>
 
           <div class="mt-14 luxury-panel p-6 md:p-12 bg-white">
@@ -305,9 +293,9 @@ const howToSchema = {
         </div>
       </div>
     </section>
-
-    <Footer language={language} />
-    <WhatsAppFAB />
-    <ScrollToTop />
   </main>
+
+  <Footer language={language} />
+  <WhatsAppFAB />
+  <ScrollToTop />
 </Layout>

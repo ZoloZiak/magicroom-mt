@@ -27,6 +27,30 @@ jobs:
       - run: npm test
       - run: npm run build
 
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-dist
+          path: dist/
+          retention-days: 1
+
+  a11y:
+    needs: unit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-dist
+          path: dist/
+
+      - name: be-a11y Accessibility Checker
+        uses: be-lenka/be-a11y@v2.2.9
+        with:
+          dir: 'dist'
+
   e2e:
     runs-on: ubuntu-latest
     strategy:

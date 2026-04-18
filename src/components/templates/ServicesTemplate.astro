@@ -110,10 +110,10 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
               {t.services.heroBadge}
             </Badge>
             <h1 class="font-display text-[2.9rem] leading-tight text-foreground md:text-6xl animate-fade-in-up animate-stagger-2">
-              {isEn ? 'Clear offer for your event.' : 'Služby navrhnuté tak, aby ste nestrácali čas.'}
+              {t.services.heroTitle}
             </h1>
             <p class="mt-6 text-lg leading-8 text-muted-foreground animate-fade-in-up animate-stagger-3">
-              {isEn ? 'Occasion wear services that make sense.' : 'Každá karta nižšie je reálna časť ponuky MagicRoom — bez zbytočných fráz, s cenami a ďalším krokom.'}
+              {t.services.heroDescription}
             </p>
             <div class="mt-8 flex flex-col gap-4 sm:flex-row animate-fade-in-up animate-stagger-4">
               <Button asChild variant="cta" size="lg" className="sm:min-w-[220px]">
@@ -123,7 +123,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="sm:min-w-[220px]">
-                <a href={isEn ? WHATSAPP_URL : PHONE_HREF}>{isEn ? 'WhatsApp' : `Zavolať ${PHONE_DISPLAY}`}</a>
+                <a href={isEn ? WHATSAPP_URL : PHONE_HREF}>{isEn ? 'WhatsApp' : `${t.common.callNow} ${PHONE_DISPLAY}`}</a>
               </Button>
             </div>
           </div>
@@ -139,8 +139,8 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
     <section class="py-16 md:py-24 bg-white">
       <div class="container mx-auto px-4">
         <div class="mb-12">
-          <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{isEn ? 'What we offer' : 'Štyri piliere služieb'}</p>
-          <h2 class="mt-3 font-display text-4xl">{isEn ? 'Four services.' : 'Všetko na jednom mieste.'}</h2>
+          <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{t.home.servicesSubtitle.split('—')[0]}</p>
+          <h2 class="mt-3 font-display text-4xl">{t.home.servicesTitle}</h2>
         </div>
         <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {servicePillars.map((item, index) => (
@@ -172,8 +172,8 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
     <section id="baliky" class="bg-surface py-20 md:py-28">
       <div class="container mx-auto px-4">
         <div class="mx-auto mb-16 max-w-3xl text-center">
-          <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{isEn ? 'Planning packages' : 'Balíky svadobného poradenstva'}</p>
-          <h2 className="mt-3 font-display text-4xl md:text-5xl">{isEn ? 'Choose level of help.' : 'Pomôžeme vám s prípravami.'}</h2>
+          <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{t.contact.fittingNote}</p>
+          <h2 className="mt-3 font-display text-4xl md:text-5xl">{t.home.bookingTitle}</h2>
         </div>
         <div class="grid gap-8 lg:grid-cols-3">
           {SERVICE_PACKAGES.map((pkg, index) => (
@@ -200,7 +200,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
                   ))}
                 </ul>
                 <Button asChild className="mt-auto w-full" variant={pkg.recommended ? 'cta' : 'outline'}>
-                  <a href={getBookingPageHref(language)}>{isEn ? 'Explore' : 'Zistiť viac o balíku'}</a>
+                  <a href={getBookingPageHref(language)}>{t.common.learnMore}</a>
                 </Button>
               </CardContent>
             </Card>

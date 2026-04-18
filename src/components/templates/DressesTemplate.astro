@@ -8,7 +8,7 @@ import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import Badge from '@/components/ui/Badge.astro';
 import Button from '@/components/ui/Button.astro';
 import { getBookingPageHref } from '@/data/site';
-import { WEDDING_DRESSES, IMAGE_URLS } from '@/data/content';
+import { getWeddingDresses, IMAGE_URLS } from '@/data/content';
 import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
 import Layout from '@/layouts/Layout.astro';
 import Icon from '@/components/ui/Icon.astro';
@@ -22,7 +22,7 @@ const { language, skSlug } = Astro.props;
 const t = getTranslations(language);
 const isEn = language === 'en';
 
-const dresses = WEDDING_DRESSES;
+const dresses = getWeddingDresses(language);
 const firstDressImage = dresses[0]?.imageAsset?.src || IMAGE_URLS.hero;
 
 const productSchema = dresses.map((dress) => ({
@@ -86,7 +86,7 @@ const productSchema = dresses.map((dress) => ({
                 )}
                 <div class="absolute right-4 top-4">
                   <Badge variant={dress.status === 'available' ? 'success' : 'outline'} className="backdrop-blur-md">
-                    {dress.status === 'available' ? (isEn ? 'Available' : 'Dostupné') : (isEn ? 'Reserved' : 'Rezervované')}
+                    {dress.status === 'available' ? t.dresses.statusAvailable : t.dresses.statusReserved}
                   </Badge>
                 </div>
               </div>
@@ -100,11 +100,11 @@ const productSchema = dresses.map((dress) => ({
                 </div>
                 <div class="mt-6 flex items-center justify-between border-t border-border/50 pt-4">
                   <span class="text-sm font-medium uppercase tracking-widest text-muted-foreground">
-                    {isEn ? 'Size' : 'Veľkosť'} {dress.size}
+                    {t.dresses.sizeLabel} {dress.size}
                   </span>
                   <Button asChild variant="ghost" size="sm" className="group/btn">
                     <a href={getBookingPageHref(language)}>
-                      {isEn ? 'Book fitting' : 'Rezervovať skúšku'}
+                      {t.dresses.bookFitting}
                       <Icon name="ArrowRight" class="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                     </a>
                   </Button>
@@ -116,8 +116,8 @@ const productSchema = dresses.map((dress) => ({
 
         <div class="mt-20 text-center p-12 rounded-[40px] bg-surface border border-dashed border-primary/30">
            <Icon name="Heart" class="h-10 w-10 text-primary mx-auto mb-6" aria-hidden="true" />
-           <h3 class="font-display text-3xl mb-4">{isEn ? 'Want to sell your dress?' : 'Chcete u nás predať svoje šaty?'}</h3>
-           <p class="mb-8 text-muted-foreground">{isEn ? 'We accept dresses in consignment.' : 'Ponúknite svoje svadobné šaty ďalším nevestám cez náš komisný predaj.'}</p>
+           <h3 class="font-display text-3xl mb-4">{t.dresses.consignmentTitle}</h3>
+           <p class="mb-8 text-muted-foreground">{t.dresses.consignmentText}</p>
            <Button asChild variant="outline">
               <a href={getRelativeHref('komisny-predaj', language)}>{t.nav.consignment}</a>
            </Button>

@@ -68,7 +68,7 @@ const DECOR_POLICIES = getDecorPolicies(language);
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button asChild variant="cta" size="lg">
                 <a href={getBookingPageHref(language)}>
-                  {isEn ? 'Inquire decorations' : 'Dopyt na výzdobu'}
+                  {t.decorations.contactCta}
                   <Icon name="ArrowRight" class="h-5 w-5 ml-2" />
                 </a>
               </Button>
@@ -84,7 +84,7 @@ const DECOR_POLICIES = getDecorPolicies(language);
     <section class="py-20 md:py-28 bg-white">
       <div class="container mx-auto px-4">
         <div class="mb-12">
-          <h2 class="font-display text-4xl">{isEn ? 'Featured items' : 'Obľúbené kúsky'}</h2>
+          <h2 class="font-display text-4xl">{t.decorations.featuredTitle}</h2>
         </div>
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {DECOR_FEATURED.map((item) => (
@@ -104,11 +104,9 @@ const DECOR_POLICIES = getDecorPolicies(language);
 
     <section class="bg-surface py-20 md:py-28">
       <div class="container mx-auto px-4">
-        <h2 class="font-display text-4xl mb-4 text-center">{isEn ? 'Decoration categories' : 'Čo všetko u nás nájdete'}</h2>
+        <h2 class="font-display text-4xl mb-4 text-center">{t.decorations.catalogTitle}</h2>
         <p class="text-center text-muted-foreground mb-12 italic">
-          {isEn ? 'Click on items with ' : 'Kliknutím na položky s '}
-          <Icon name="ImageIcon" class="inline-block h-4 w-4 mx-1" />
-          {isEn ? ' to see the photo.' : ' zobrazíte fotografiu.'}
+          {t.decorations.photoNote}
         </p>
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {DECOR_CATEGORIES.map((cat) => (
@@ -180,7 +178,7 @@ const DECOR_POLICIES = getDecorPolicies(language);
     <section class="py-20 md:py-28 bg-white">
       <div class="container mx-auto px-4 max-w-3xl">
         <div class="text-center mb-12">
-          <h2 class="font-display text-4xl">{isEn ? 'Rental conditions' : 'Pravidlá prenájmu'}</h2>
+          <h2 class="font-display text-4xl">{t.decorations.policiesTitle}</h2>
         </div>
         <div class="space-y-4">
           {DECOR_POLICIES.map((policy) => (
@@ -191,9 +189,9 @@ const DECOR_POLICIES = getDecorPolicies(language);
           ))}
         </div>
         <div class="mt-12 p-8 rounded-[32px] bg-primary-900 text-white text-center">
-          <p class="text-lg mb-6">{isEn ? 'Need a custom decoration or help with setup?' : 'Potrebujete individuálnu cenovú ponuku alebo pomoc s inštaláciou?'}</p>
+          <p class="text-lg mb-6">{t.decorations.customRequest}</p>
           <Button asChild variant="secondary" size="lg">
-            <a href={getBookingPageHref(language)}>{isEn ? 'Contact us' : 'Napísať dopyt'}</a>
+            <a href={getBookingPageHref(language)}>{t.decorations.contactCta}</a>
           </Button>
         </div>
       </div>

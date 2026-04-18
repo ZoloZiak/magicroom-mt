@@ -17,7 +17,6 @@ import CardHeader from '@/components/ui/CardHeader.astro'
 import CardTitle from '@/components/ui/CardTitle.astro';
 import { ADDRESS_LABEL, MAP_URL, PHONE_DISPLAY, PHONE_HREF } from '@/data/site';
 import {
-  FOUNDER_STORY,
   HOME_OFFER_CARDS,
   HOME_STATS,
   IMAGE_ASSETS,
@@ -95,7 +94,7 @@ const howToSchema = {
           </div>
 
           <div class="relative">
-<div class="photo-card-lg [&_img]:opacity-0 transition-opacity duration-500">
+            <div class="photo-card-lg">
               <Image
                 src={IMAGE_ASSETS.hero}
                 alt="MagicRoom interior"
@@ -103,7 +102,6 @@ const howToSchema = {
                 width="1200"
                 height="900"
                 loading="eager"
-                onload="this.classList.remove('[&_img]:opacity-0')"
               />
               <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 -z-10 rounded-[24px]" aria-hidden="true"></div>
             </div>
@@ -112,14 +110,14 @@ const howToSchema = {
               <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" data-ga-label="hero_phone" class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
                 <div class="flex items-center gap-3 text-primary">
                   <Icon name="Phone" class="h-4 w-4" />
-                  <span class="text-sm uppercase tracking-[0.2em]">Telefón</span>
+                  <span class="text-sm uppercase tracking-[0.2em]">{t.common.phone}</span>
                 </div>
                 <p class="mt-3 font-semibold text-foreground">{PHONE_DISPLAY}</p>
               </a>
               <a href={MAP_URL} target="_blank" rel="noopener noreferrer" data-ga-category="external" data-ga-action="map_click" data-ga-label="hero_map" class="rounded-2xl border border-border/70 bg-white px-5 py-4 shadow-sm spring-hover">
                 <div class="flex items-center gap-3 text-primary">
                   <Icon name="MapPin" class="h-4 w-4" />
-                  <span class="text-sm uppercase tracking-[0.2em]">Adresa</span>
+                  <span class="text-sm uppercase tracking-[0.2em]">{t.common.address}</span>
                 </div>
                 <p class="mt-3 text-sm leading-6 text-foreground">{ADDRESS_LABEL}</p>
               </a>
@@ -133,7 +131,7 @@ const howToSchema = {
       <div class="container mx-auto px-4">
         <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{t.home.servicesSubtitle.split('—')[0]}</p>
+            <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{t.nav.services}</p>
             <h2 class="mt-3 font-display text-4xl text-foreground md:text-5xl">{t.home.servicesTitle}</h2>
           </div>
           <p class="max-w-xl text-base leading-7 text-muted-foreground">
@@ -185,7 +183,7 @@ const howToSchema = {
                     </div>
                     <div>
                       <h3 class="text-lg font-semibold text-white">{reason.title}</h3>
-                      <p class="mt-2 text-sm leading-6 text-white/70">{reason.description}</p>
+                      <p class="mt-2 text-sm text-white/70">{reason.description}</p>
                     </div>
                   </div>
                 </div>
@@ -194,7 +192,7 @@ const howToSchema = {
           </div>
 
           <div class="rounded-[30px] border border-border/70 bg-white p-6 shadow-[var(--shadow-soft)] md:p-10">
-            <p class="text-sm uppercase tracking-[0.24em] text-primary/70">Jednoduchý proces</p>
+            <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{t.home.processSubtitle}</p>
             <h2 class="mt-4 font-display text-4xl text-foreground">{t.home.processTitle}</h2>
             <div class="mt-8 space-y-5">
               {PROCESS_STEPS.map((step, index) => (
@@ -210,43 +208,9 @@ const howToSchema = {
             <div class="mt-8 rounded-2xl border border-border/70 px-5 py-4">
               <div class="flex items-center gap-3 text-primary">
                 <Icon name="Clock3" class="h-4 w-4" />
-                <span class="text-sm uppercase tracking-[0.16em]">Rýchla odpoveď</span>
+                <span class="text-sm uppercase tracking-[0.16em]">{t.contact.replyNote}</span>
               </div>
-              <p class="mt-3 text-sm leading-6 text-muted-foreground">Na rezervácie a dopyty odpovedáme spravidla do 24 hodín. Ak je to súrne, zavolajte nám.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-surface py-12 md:py-16">
-      <div class="container mx-auto px-4">
-        <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-          <div class="photo-card max-w-md mx-auto lg:mx-0">
-            <Image
-              src={IMAGE_ASSETS.founder}
-              alt="Natália Ondrejková, zakladateľka svadobného salónu MagicRoom v Martine."
-              class="w-full rounded-[24px] bg-surface object-contain"
-              loading="lazy"
-            />
-          </div>
-
-          <div class="max-w-2xl">
-            <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{t.home.founderLabel}</p>
-            <blockquote class="mt-4 font-display text-3xl italic leading-tight text-foreground md:text-4xl">
-              „{FOUNDER_STORY.quote}“
-            </blockquote>
-            <p class="mt-6 text-base leading-7 text-muted-foreground">
-              {FOUNDER_STORY.paragraphs[0]}
-              {FOUNDER_STORY.paragraphs[1]}
-            </p>
-            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button asChild variant="cta" size="lg">
-                <a href="/o-nas">Spoznať náš príbeh</a>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <a href="#booking">Prejsť k rezervácii</a>
-              </Button>
+              <p class="mt-3 text-sm leading-6 text-muted-foreground">{t.home.processNote}</p>
             </div>
           </div>
         </div>
@@ -260,7 +224,7 @@ const howToSchema = {
             <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{t.home.blogTitle}</p>
             <h2 class="mt-3 font-display text-3xl text-foreground md:text-4xl">{t.home.blogSubtitle}</h2>
             <p class="mt-4 text-base leading-7 text-muted-foreground">
-              Svadba nie je len o šatách, ale o stovkách malých rozhodnutí. Na našom blogu nájdete praktické rady, ktoré vám ušetria čas pri plánovaní a pomôžu vybrať štýl, ktorý vám naozaj sedí.
+              {t.common.footerDescription}
             </p>
             <div class="mt-8">
               <Button asChild variant="outline" size="lg">
@@ -285,10 +249,10 @@ const howToSchema = {
     <section class="py-16 md:py-20">
       <div class="container mx-auto px-4">
         <div class="mx-auto mb-10 max-w-3xl text-center">
-          <p class="text-sm uppercase tracking-[0.24em] text-primary/70">Rezervácia termínu</p>
+          <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{t.home.bookingTitle}</p>
           <h2 class="mt-3 font-display text-4xl text-foreground md:text-5xl">{t.home.bookingTitle}</h2>
           <p class="mt-4 text-base leading-7 text-muted-foreground">
-            {t.home.bookingSubtitle} Ak už riešite konkrétnu predstavu o výzdobe alebo svadobnej konzultácii, napíšte nám to rovno do správy.
+            {t.home.bookingSubtitle} {t.home.bookingNote}
           </p>
         </div>
 

@@ -7,7 +7,7 @@ import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import Badge from '@/components/ui/Badge.astro';
 import Button from '@/components/ui/Button.astro';
 import { getBookingPageHref } from '@/data/site';
-import { FORMAL_DRESSES, IMAGE_URLS } from '@/data/content';
+import { getFormalDresses, IMAGE_URLS } from '@/data/content';
 import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
 import Layout from '@/layouts/Layout.astro';
 import Icon from '@/components/ui/Icon.astro';
@@ -21,7 +21,7 @@ const { language, skSlug } = Astro.props;
 const t = getTranslations(language);
 const isEn = language === 'en';
 
-const dresses = FORMAL_DRESSES;
+const dresses = getFormalDresses(language);
 const firstDressImage = dresses[0]?.imageAsset?.src || IMAGE_URLS.hero;
 
 const productSchema = dresses.map((dress) => ({
@@ -85,7 +85,7 @@ const productSchema = dresses.map((dress) => ({
                 )}
                 <div class="absolute right-4 top-4">
                   <Badge variant={dress.status === 'available' ? 'success' : 'outline'} className="backdrop-blur-md">
-                    {dress.status === 'available' ? (isEn ? 'Available' : 'Dostupné') : (isEn ? 'Reserved' : 'Rezervované')}
+                    {dress.status === 'available' ? t.dresses.statusAvailable : t.dresses.statusReserved}
                   </Badge>
                 </div>
               </div>
@@ -99,11 +99,11 @@ const productSchema = dresses.map((dress) => ({
                 </div>
                 <div class="mt-6 flex items-center justify-between border-t border-border/50 pt-4">
                   <span class="text-sm font-medium uppercase tracking-widest text-muted-foreground">
-                    {isEn ? 'Size' : 'Veľkosť'} {dress.size}
+                    {t.dresses.sizeLabel} {dress.size}
                   </span>
                   <Button asChild variant="ghost" size="sm" className="group/btn">
                     <a href={getBookingPageHref(language)}>
-                      {isEn ? 'Book fitting' : 'Rezervovať skúšku'}
+                      {t.dresses.bookFitting}
                       <Icon name="ArrowRight" class="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                     </a>
                   </Button>
