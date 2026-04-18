@@ -408,6 +408,23 @@ export const CONSIGNMENT_STEPS = [
   'Po predaji vám vyplatíme dohodnutú sumu.',
 ] as const;
 
+export const CONSIGNMENT_BENEFITS = [
+  'Získate peniaze za šaty, ktoré už nenosíte.',
+  'Pomáhate inej neveste ušetriť.',
+  'Šaty získajú nový život.',
+  'Bez starostí - my sa postaráme o predaj.',
+] as const;
+
+export function getConsignmentBenefits(lang: Language) {
+  const en = [
+    'You get money for dresses you no longer wear.',
+    'You help another bride save.',
+    'Dresses get a new life.',
+    'No worries - we take care of the sale.',
+  ];
+  return lang === 'sk' ? CONSIGNMENT_BENEFITS : en;
+}
+
 export function getConsignmentSteps(lang: Language) {
   const en = [
     'You entrust us with clean dresses and send photos in advance.',
@@ -422,6 +439,7 @@ export function getBlogPosts(lang: Language) {
   const data = blogData.posts;
   return data.map(post => {
     const p = lang === 'sk' ? post.sk : post.en;
+    const img = post.image ? getDynamicImage(dressImages, post.image) : null;
     return {
       ...post,
       slug: lang === 'sk' ? post.slug : post.enSlug,
@@ -434,7 +452,7 @@ export function getBlogPosts(lang: Language) {
       readTime: p.readTime,
       content: p.content,
       tags: p.tags,
-      image: post.image,
+      image: img || IMAGE_ASSETS.hero,
     };
   });
 }
@@ -446,6 +464,7 @@ export function getBlogPost(slug: string, lang: Language) {
   if (!post) return null;
 
   const p = lang === 'sk' ? post.sk : post.en;
+  const img = post.image ? getDynamicImage(dressImages, post.image) : null;
   return {
     ...post,
     slug: lang === 'sk' ? post.slug : post.enSlug,
@@ -458,7 +477,7 @@ export function getBlogPost(slug: string, lang: Language) {
     readTime: p.readTime,
     content: p.content,
     tags: p.tags,
-    image: post.image,
+    image: img || IMAGE_ASSETS.hero,
   };
 }
 

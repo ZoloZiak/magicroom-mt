@@ -170,13 +170,9 @@
       "id": "formal-zlata-01",
       "name": "Úchvatné flitrované šaty",
       "name_en": "Stunning Sequin Gown",
-      "description": "Exkluzívne flitrované šaty v zlatej farbe s jedným dlhým rukávom. ",
-<<<<<<< HEAD
+      "description": "Exkluzívne flitrované šaty v zlatej farbe s jedným dlhým rukávom.",
       "description_en": "Exclusive gold sequin gown featuring a stylish single long sleeve.",
-      "price": 59.90,
-=======
       "price": 48.90,
->>>>>>> 10449bc094ab12263efff75877298d3b65928eb0
       "size": "36-38",
       "category": "formal",
       "type": "new",
@@ -192,12 +188,8 @@
       "name": "Noir Glamour: Flitrové večerné šaty",
       "name_en": "Noir Glamour: Sequin Evening Gown",
       "description": "Dramatické a neodolateľné večerné šaty, celé posiate trblietavými flitrami. Vyznačujú sa odvážnym rozparkom na stehne pre dotyk moderného luxusu. Ideálne pre ženy, ktoré chcú zažiariť.",
-<<<<<<< HEAD
       "description_en": "Dramatic and irresistible evening gown covered in shimmering sequins. Features a bold thigh-high slit for a touch of modern luxury. Perfect for those who want to shine.",
-      "price": 69.90,
-=======
       "price": 54.90,
->>>>>>> 10449bc094ab12263efff75877298d3b65928eb0
       "size": "40",
       "category": "formal",
       "type": "new",
@@ -210,12 +202,8 @@
     },
     {
       "id": "formal-detske-01",
-<<<<<<< HEAD
-      "name": "Trblietavé šaty pre malé princezné(PRENÁJOM)",
-      "name_en": "Sparkly Dresses for Little Princesses (RENTAL)",
-=======
-      "name": "Pre malé princezné(PRENÁJOM)",
->>>>>>> 10449bc094ab12263efff75877298d3b65928eb0
+      "name": "Pre malé princezné",
+      "name_en": "Sparkly Dresses for Little Princesses",
       "description": "Očarujúce duo detských šiat v neodolateľnom trblietavom ružovom prevedení.V dvoch veľkostiach 80-86 a 98-104",
       "description_en": "Charming duo of children's dresses in irresistible sparkling pink. Available in sizes 80-86 and 98-104.",
       "price": 49,
@@ -264,12 +252,8 @@
       "name": "Marhuľová múza",
       "name_en": "Apricot Muse",
       "description": "Jemné marhuľové šaty s detailne vypracovanou čipkou v hornej časti, ktoré vyžarujú romantiku a ženskú nehu.",
-<<<<<<< HEAD
       "description_en": "Soft apricot dress with intricate lace detailing on top, radiating romance and feminine tenderness.",
       "price": 32.90,
-=======
-      "price": 35.90,
->>>>>>> 10449bc094ab12263efff75877298d3b65928eb0
       "size": "34",
       "category": "formal",
       "type": "new",
@@ -362,12 +346,8 @@
       "name": "Smaragdová krása",
       "name_en": "Emerald Beauty",
       "description": "Šaty v elegantnej smaragdovej farbe s čipkovanými vrchom.",
-<<<<<<< HEAD
       "description_en": "Gown in an elegant emerald color with a delicate lace bodice.",
       "price": 62.90,
-=======
-      "price": 64.90,
->>>>>>> 10449bc094ab12263efff75877298d3b65928eb0
       "size": "38",
       "category": "formal",
       "type": "new",
