@@ -17,6 +17,8 @@ import decorBackdrop from '../../content/images/systemassets/decor-backdrop.jpg'
 import decorDetails from '../../content/images/systemassets/decor-details.jpg';
 import graphicsImage from '../../content/images/systemassets/graphics.png';
 import glassesImage from '../../content/images/systemassets/glasses.png';
+import logoImage from '../../content/images/systemassets/logo.png';
+import founderAvatarImage from '../../content/images/systemassets/founder-avatar.png';
 
 import type { Language } from '@/lib/i18n';
 
@@ -35,7 +37,7 @@ export const IMAGE_ASSETS = {
   hero: heroImage,
   dresses: dressesImage,
   founder: founderImage,
-  founderAvatar: founderImage,
+  founderAvatar: founderAvatarImage,
   decorMain: decorMainImage,
   decorAlt: decorAltImage,
   decorBackdrop: decorBackdrop,
@@ -43,7 +45,7 @@ export const IMAGE_ASSETS = {
   graphics: graphicsImage,
   glasses: glassesImage,
   map: mapImage,
-  logo: heroImage,
+  logo: logoImage,
 } as const;
 
 export const IMAGE_URLS = {
@@ -53,7 +55,7 @@ export const IMAGE_URLS = {
   decorMain: decorMainImage.src,
   decorAlt: decorAltImage.src,
   map: mapImage.src,
-  logo: heroImage.src,
+  logo: logoImage.src,
 } as const;
 
 const galleryImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/gallery/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', {
