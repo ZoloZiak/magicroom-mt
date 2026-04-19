@@ -18,6 +18,23 @@
       "images": ["svadobne-00"]
     },
      {
+      "id": "svadba-13",
+      "name": "Žiarivá romanca",
+      "name_en": "Radiant Romance",
+      "description": "Svadobné šaty pre plnšie tvary s bohato zdobeným čipkovaným a hlbokým výstrihom. Trblietavá tylová sukňa s jemným leskom a zvýraznený pás vytvárajú dokonalú postavu presýpacích hodín.",
+      "description_en": "Plus-size wedding gown featuring a richly decorated lace and a deep V-neckline. The shimmering tulle skirt with a subtle glow and emphasized waistline create a perfect hourglass silhouette.",
+      "price": 299,
+      "size": "46-50",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "ivory",
+      "style": "svadobné",
+      "featured": true,
+      "details": "trblietavé",
+      "images": ["svadba-13"]
+    },
+     {
       "id": "svadba-09",
       "name": "Kráľovské čipkované šaty s vlečkou",
       "name_en": "Royal Lace Gown with Long Train",
