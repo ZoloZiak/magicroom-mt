@@ -106,7 +106,7 @@ export const HOME_OFFER_CARDS = [
   },
   {
     title: 'Spoločenské šaty',
-    price: 'od 30 €',
+    price: 'od 15 €',
     description: 'Šaty na stužkovú, ples, oslavu alebo akúkoľvek príležitosť.',
     href: '/spolocenske-saty',
     cta: 'Ponuka šiat',
