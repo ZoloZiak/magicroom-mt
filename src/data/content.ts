@@ -337,7 +337,7 @@ export function getContactActions(lang: Language) {
 
 export function getGalleryItems(lang: Language) {
   return galleryData.gallery
-    .filter(item => !['hero.png', 'dresses.png', 'decor-main.jpg', 'decor-alt.jpg', 'decor-backdrop.jpg', 'decor-details.jpg'].includes(item.filename))
+    .filter(item => !['hero.png', 'dresses.png', 'decor-main.jpg', 'decor-alt.jpg', 'decor-backdrop.jpg', 'decor-details.jpg', 'logo.png', 'logo.jpeg'].includes(item.filename))
     .map(item => {
       let filename = item.filename;
       if (filename.includes('saly-ruzove')) {
