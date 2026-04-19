@@ -1,7 +1,7 @@
 {
   "dresses": [
     {
-      "id": "fialovy-sen",
+      "id": "svadobne-00",
       "name": "Ako princezná",
       "name_en": "Like a Princess",
       "description": "Odvážne šaty v tmavšom ivory odtieni s výrazným výstrihom a dlhou vlečkou pre nevesty, ktoré sa neboja vyniknúť.",
@@ -15,7 +15,7 @@
       "style": "moderná",
       "featured": true,
       "details": "Krémové šaty s dlhou vlečkou a kamienkami",
-      "images": ["fialovy-sen"]
+      "images": ["svadobne-00"]
     },
      {
       "id": "svadba-09",
