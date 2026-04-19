@@ -171,7 +171,7 @@
       "images": ["svadba-saty1"]
     },
      {
-      "id": "svadba-06",
+      "id": "svadobne-cipka-03",
       "name": "Čipkované svadobné šaty s kvetinovým vzorom",
       "name_en": "Lace Wedding Dress with Floral Pattern",
       "description": "Očarujúce svadobné šaty s prekrásnou kvetinovou čipkou a elegantným strihom a vlečkou.",
@@ -185,7 +185,7 @@
       "style": "princezná",
       "featured": false,
       "details": "Dlhá vlečka, kvety",
-      "images": ["svadba-06"]
+      "images": ["svadobne-cipka-03"]
     },
     {
       "id": "svadba-07",
