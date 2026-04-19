@@ -120,7 +120,7 @@
       "images": ["svadobne-12"]
     },
       {
-      "id": "svadobne-14",
+      "id": "svadba-14",
       "name": "Kvetinová neha",
       "name_en": "Floral Tenderness",
       "description": "Očarujúce svadobné šaty s bohato vyšívaným čipkovaným vzorom s dlhými transparentnými rukávmi. Hlboký výstrih v tvare V plynule prechádza do bohatej, vrstvenej tylovej sukne.",
@@ -134,10 +134,10 @@
       "style": "svadobné",
       "featured": true,
       "details": "čipka, rukávy",
-      "images": ["svadobne-14"]
+      "images": ["svadba-14"]
     },
       {
-      "id": "svadobne-15",
+      "id": "svadba-15",
       "name": "Hviezdny prach",
       "name_en": "Stardust",
       "description": "Luxusné svadobné šaty s dlhými rukávmi a výrazným trblietavým vzorom pripomínajúcim jemné vetvičky. Tylová sukňa s jemným strieborným leskom.",
@@ -151,7 +151,7 @@
       "style": "svadobné",
       "featured": true,
       "details": "čipka, rukávy",
-      "images": ["svadobne-15"]
+      "images": ["svadba-15"]
     },
     {
       "id": "klasicka-biela",
