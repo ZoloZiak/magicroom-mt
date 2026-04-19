@@ -99,7 +99,7 @@ export const HOME_OFFER_CARDS = [
   {
     title: 'Svadobné šaty',
     price: 'od 100 €',
-    description: 'Nové modely aj komis za férové ceny — vidíte ich ešte pred návštevou salónu.',
+    description: 'Nové modely aj komis za férové ceny.',
     href: '/svadobne-saty',
     cta: 'Pozrieť katalóg',
     icon: 'Sparkles',
