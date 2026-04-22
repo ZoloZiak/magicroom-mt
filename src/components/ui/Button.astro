@@ -45,7 +45,6 @@ const baseClasses = 'inline-flex items-center justify-center gap-2 whitespace-no
     href={disabled ? undefined : href}
     class:list={[baseClasses, variants[variant], sizes[size], className]}
     aria-disabled={disabled}
-    style="margin-top: 0 !important;" 
     {...rest}
   >
     <slot />
@@ -55,7 +54,6 @@ const baseClasses = 'inline-flex items-center justify-center gap-2 whitespace-no
     type={type}
     disabled={disabled}
     class:list={[baseClasses, variants[variant], sizes[size], className]}
-    style="margin-top: 0 !important;"
     {...rest}
   >
     <slot />
