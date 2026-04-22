@@ -17,7 +17,7 @@ jobs:
           node-version: 24
       - run: npm install
       - run: npm run build
-      - uses: amondnet/vercel-action@v49
+      - uses: amondnet/vercel-action@v42
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
