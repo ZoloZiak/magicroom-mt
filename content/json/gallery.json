@@ -1,7 +1,11 @@
 {
   "gallery": [
     {
-      "filename": "pink-dress-1.jpeg"
+      "filename": "pink-dress-1.jpeg",
+      "alt": "",
+      "altEn": "",
+      "title": "",
+      "titleEn": ""
     },
     {
       "filename": "pink-dress-2.jpeg",
