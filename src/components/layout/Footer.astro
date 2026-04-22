@@ -42,11 +42,26 @@ const gaLabelSuffix = isEn ? '_en' : '';
         </p>
 
         <div class="mb-6 flex flex-wrap items-center gap-3">
-          <Button asChild variant="secondary" size="sm">
-            <a href={bookingHref} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label={`footer_cta${gaLabelSuffix}`}>{t.nav.bookAppointment}</a>
+          <Button 
+            variant="secondary" 
+            size="sm" 
+            href={bookingHref} 
+            data-ga-category="conversion" 
+            data-ga-action="book_appointment_click" 
+            data-ga-label={`footer_cta${gaLabelSuffix}`}
+          >
+            {t.nav.bookAppointment}
           </Button>
-          <Button asChild variant="outline" size="sm" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
-            <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" data-ga-label={`footer_phone${gaLabelSuffix}`}>{t.common.callNow}</a>
+          <Button 
+            variant="outline" 
+            size="sm" 
+            href={PHONE_HREF}
+            className="border-white/30 text-white hover:bg-white/10 hover:text-white" 
+            data-ga-category="contact" 
+            data-ga-action="phone_click" 
+            data-ga-label={`footer_phone${gaLabelSuffix}`}
+          >
+            {t.common.callNow}
           </Button>
         </div>
 
