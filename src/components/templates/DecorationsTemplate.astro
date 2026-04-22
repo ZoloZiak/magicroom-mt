@@ -65,12 +65,10 @@ const DECOR_POLICIES = getDecorPolicies(language);
             <p class="mt-6 text-lg leading-8 text-muted-foreground md:text-xl">
               {t.decorations.heroDescription}
             </p>
-            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button asChild variant="cta" size="lg">
-                <a href={getBookingPageHref(language)}>
-                  {t.decorations.contactCta}
-                  <Icon name="ArrowRight" class="h-5 w-5 ml-2" />
-                </a>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row items-center">
+              <Button variant="cta" size="lg" href={getBookingPageHref(language)}>
+                {t.decorations.contactCta}
+                <Icon name="ArrowRight" class="h-5 w-5 ml-2" />
               </Button>
             </div>
           </div>
@@ -190,8 +188,8 @@ const DECOR_POLICIES = getDecorPolicies(language);
         </div>
         <div class="mt-12 p-8 rounded-[32px] bg-primary-900 text-white text-center">
           <p class="text-lg mb-6">{t.decorations.customRequest}</p>
-          <Button asChild variant="secondary" size="lg">
-            <a href={getBookingPageHref(language)}>{t.decorations.contactCta}</a>
+          <Button variant="secondary" size="lg" href={getBookingPageHref(language)}>
+            {t.decorations.contactCta}
           </Button>
         </div>
       </div>

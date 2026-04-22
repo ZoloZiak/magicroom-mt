@@ -85,12 +85,10 @@ const operatingPrinciples = [
               </blockquote>
             </div>
 
-            <div class="mt-8 flex flex-col gap-4 sm:flex-row animate-fade-in-up animate-stagger-5">
-              <Button asChild variant="cta" size="lg" className="sm:min-w-[220px]">
-                <a href={getBookingPageHref(language)}>
-                  {t.nav.bookAppointment}
-                  <Icon name="ArrowRight" class="h-5 w-5 ml-2" />
-                </a>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row items-center animate-fade-in-up animate-stagger-5">
+              <Button variant="cta" size="lg" className="sm:min-w-[220px]" href={getBookingPageHref(language)}>
+                {t.nav.bookAppointment}
+                <Icon name="ArrowRight" class="h-5 w-5 ml-2" />
               </Button>
             </div>
 
@@ -128,8 +126,8 @@ const operatingPrinciples = [
               <p>{t.about.storyText2}</p>
             </div>
             <div class="mt-10">
-              <Button asChild variant="outline" size="lg">
-                <a href="#booking">{t.home.bookingTitle}</a>
+              <Button variant="outline" size="lg" href="#booking">
+                {t.home.bookingTitle}
               </Button>
             </div>
           </div>
@@ -189,8 +187,8 @@ const operatingPrinciples = [
               </div>
               <p className="text-2xl font-semibold">{PHONE_DISPLAY}</p>
               <p class="text-sm text-white/60">{t.common.replyNote}</p>
-              <Button asChild variant="cta" size="lg" className="w-full">
-                <a href={PHONE_HREF}>{t.about.callFounder}</a>
+              <Button variant="cta" size="lg" className="w-full" href={PHONE_HREF}>
+                {t.about.callFounder}
               </Button>
             </CardContent>
           </Card>

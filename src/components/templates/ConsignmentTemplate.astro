@@ -67,12 +67,10 @@ const consignmentOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0
             <p class="mt-6 text-lg leading-8 text-white/70 md:text-xl">
               {t.consignment.heroDescription}
             </p>
-            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button asChild variant="cta" size="lg">
-                <a href={getBookingPageHref(language)}>
-                  {isEn ? 'Contact us' : 'Dohodnúť si termín'}
-                  <Icon name="ArrowRight" class="h-5 w-5 ml-2" />
-                </a>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row items-center">
+              <Button variant="cta" size="lg" href={getBookingPageHref(language)}>
+                {isEn ? 'Contact us' : 'Dohodnúť si termín'}
+                <Icon name="ArrowRight" class="h-5 w-5 ml-2" />
               </Button>
             </div>
           </div>
@@ -153,8 +151,8 @@ const consignmentOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0
           <p class="text-lg font-medium text-cta">
             {isEn ? 'Ready to give your dresses a second life?' : 'Máte šaty, ktoré si zaslúžia ďalšiu nevestu?'}
           </p>
-          <Button asChild variant="cta" size="lg" className="mt-6">
-            <a href={getBookingPageHref(language)}>{isEn ? 'Contact us' : 'Dohodnúť si termín'}</a>
+          <Button variant="cta" size="lg" className="mt-6" href={getBookingPageHref(language)}>
+            {isEn ? 'Contact us' : 'Dohodnúť si termín'}
           </Button>
         </div>
       </div>

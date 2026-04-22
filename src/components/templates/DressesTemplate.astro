@@ -102,11 +102,9 @@ const productSchema = dresses.map((dress) => ({
                   <span class="text-sm font-medium uppercase tracking-widest text-muted-foreground">
                     {t.dresses.sizeLabel} {dress.size}
                   </span>
-                  <Button asChild variant="ghost" size="sm" className="group/btn">
-                    <a href={getBookingPageHref(language)}>
-                      {t.dresses.bookFitting}
-                      <Icon name="ArrowRight" class="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                    </a>
+                  <Button variant="ghost" size="sm" className="group/btn" href={getBookingPageHref(language)}>
+                    {t.dresses.bookFitting}
+                    <Icon name="ArrowRight" class="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </Button>
                 </div>
               </div>
@@ -118,8 +116,8 @@ const productSchema = dresses.map((dress) => ({
            <Icon name="Heart" class="h-10 w-10 text-primary mx-auto mb-6" aria-hidden="true" />
            <h3 class="font-display text-3xl mb-4">{t.dresses.consignmentTitle}</h3>
            <p class="mb-8 text-muted-foreground">{t.dresses.consignmentText}</p>
-           <Button asChild variant="outline">
-              <a href={getRelativeHref('komisny-predaj', language)}>{t.nav.consignment}</a>
+           <Button variant="outline" href={getRelativeHref('komisny-predaj', language)}>
+              {t.nav.consignment}
            </Button>
         </div>
       </div>

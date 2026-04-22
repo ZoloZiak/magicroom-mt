@@ -115,15 +115,13 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
             <p class="mt-6 text-lg leading-8 text-muted-foreground animate-fade-in-up animate-stagger-3">
               {t.services.heroDescription}
             </p>
-            <div class="mt-8 flex flex-col gap-4 sm:flex-row animate-fade-in-up animate-stagger-4">
-              <Button asChild variant="cta" size="lg" className="sm:min-w-[220px]">
-                <a href={getBookingPageHref(language)}>
-                  {t.nav.bookAppointment}
-                  <Icon name="ArrowRight" class="h-5 w-5 ml-2" />
-                </a>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row items-center animate-fade-in-up animate-stagger-4">
+              <Button variant="cta" size="lg" className="sm:min-w-[220px]" href={getBookingPageHref(language)}>
+                {t.nav.bookAppointment}
+                <Icon name="ArrowRight" class="h-5 w-5 ml-2" />
               </Button>
-              <Button asChild variant="outline" size="lg" className="sm:min-w-[220px]">
-                <a href={isEn ? WHATSAPP_URL : PHONE_HREF}>{isEn ? 'WhatsApp' : `${t.common.callNow} ${PHONE_DISPLAY}`}</a>
+              <Button variant="outline" size="lg" className="sm:min-w-[220px]" href={isEn ? WHATSAPP_URL : PHONE_HREF}>
+                {isEn ? 'WhatsApp' : `${t.common.callNow} ${PHONE_DISPLAY}`}
               </Button>
             </div>
           </div>
@@ -156,11 +154,9 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
                 <CardDescription className="pt-2">{item.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <Button asChild variant="ghost" className="px-0 text-primary group">
-                  <a href={item.href}>
-                    {item.cta}
-                    <Icon name="ArrowRight" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
-                  </a>
+                <Button variant="ghost" className="px-0 text-primary group" href={item.href}>
+                  {item.cta}
+                  <Icon name="ArrowRight" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
               </CardContent>
             </Card>
@@ -199,8 +195,12 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
                     </li>
                   ))}
                 </ul>
-                <Button asChild className="mt-auto w-full" variant={pkg.recommended ? 'cta' : 'outline'}>
-                  <a href={getBookingPageHref(language)}>{t.common.learnMore}</a>
+                <Button 
+                  className="mt-auto w-full" 
+                  variant={pkg.recommended ? 'cta' : 'outline'}
+                  href={getBookingPageHref(language)}
+                >
+                  {t.common.learnMore}
                 </Button>
               </CardContent>
             </Card>

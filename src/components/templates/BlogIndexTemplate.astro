@@ -80,11 +80,9 @@ const posts = getBlogPosts(language);
                     <Badge variant="outline" className="text-xs">{tag}</Badge>
                   ))}
                 </div>
-                <Button asChild variant="ghost" className="px-0 text-primary hover:text-cta group">
-                  <a href={isEn ? `/en/blog/${post.slug}` : `/blog/${post.slug}`}>
-                    {isEn ? 'Read article' : 'Čítať článok'}
-                    <Icon name="ArrowRight" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
-                  </a>
+                <Button variant="ghost" className="px-0 text-primary hover:text-cta group" href={isEn ? `/en/blog/${post.slug}` : `/blog/${post.slug}`}>
+                  {isEn ? 'Read article' : 'Čítať článok'}
+                  <Icon name="ArrowRight" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
               </CardContent>
             </Card>

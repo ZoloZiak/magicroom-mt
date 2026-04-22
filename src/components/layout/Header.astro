@@ -56,8 +56,15 @@ const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingP
 
     <div class="hidden items-center gap-4 md:flex">
       <LanguageSwitcher currentLanguage={language} />
-      <Button asChild variant="cta" size="sm">
-        <a href={bookingHref} data-ga-category="conversion" data-ga-action="book_appointment_click" data-ga-label="header_cta">{t.nav.bookAppointment}</a>
+      <Button 
+        variant="cta" 
+        size="sm" 
+        href={bookingHref} 
+        data-ga-category="conversion" 
+        data-ga-action="book_appointment_click" 
+        data-ga-label="header_cta"
+      >
+        {t.nav.bookAppointment}
       </Button>
     </div>
 

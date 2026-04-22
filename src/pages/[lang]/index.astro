@@ -91,15 +91,25 @@ const howToSchema = {
               {t.home.heroDescription}
             </p>
 
-            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button asChild variant="cta" size="lg" className="hero-button interactive-ripple sm:min-w-[220px]">
-                <a href={getBookingPageHref(language)} data-ga-category="conversion" data-ga-action="book_appointment_click">
-                  {t.home.ctaBook}
-                  <Icon name="ArrowRight" class="icon-morph slovak-heart h-5 w-5" />
-                </a>
+            <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row">
+              <Button 
+                variant="cta" 
+                size="lg" 
+                href={getBookingPageHref(language)} 
+                className="hero-button interactive-ripple sm:min-w-[220px]"
+                data-ga-category="conversion" 
+                data-ga-action="book_appointment_click"
+              >
+                {t.home.ctaBook}
+                <Icon name="ArrowRight" class="icon-morph slovak-heart h-5 w-5" />
               </Button>
-              <Button asChild variant="outline" size="lg" className="hero-button sm:min-w-[220px]">
-                <a href={language === 'sk' ? "/sluzby" : "/en/services"}>{t.home.ctaServices}</a>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                href={language === 'sk' ? "/sluzby" : "/en/services"}
+                className="hero-button sm:min-w-[220px]"
+              >
+                {t.home.ctaServices}
               </Button>
             </div>
 
