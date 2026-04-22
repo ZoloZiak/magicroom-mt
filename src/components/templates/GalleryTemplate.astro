@@ -46,9 +46,15 @@ const galleryItems = getGalleryItems(language);
 
     <section class="py-16 md:py-24 bg-white">
       <div class="container mx-auto px-4">
-        <div class="columns-1 gap-6 sm:columns-2 lg:columns-3">
+        <div id="gallery-grid" class="columns-1 gap-6 sm:columns-2 lg:columns-3">
           {galleryItems.map((item, i) => (
-            <a href={(item.src as ImageMetadata)?.src} data-pswp-width="800" data-pswp-height="1067" class="mb-6 break-inside-avoid overflow-hidden rounded-[24px] bg-surface transition-all hover:shadow-xl block">
+            <a 
+              href={(item.src as ImageMetadata)?.src} 
+              data-pswp-width={(item.src as ImageMetadata)?.width || "800"} 
+              data-pswp-height={(item.src as ImageMetadata)?.height || "1200"} 
+              target="_blank"
+              class="mb-6 break-inside-avoid overflow-hidden rounded-[24px] bg-surface transition-all hover:shadow-xl block border border-border/50"
+            >
               {item.src && (
                 <Image
                   src={item.src as ImageMetadata}
@@ -72,3 +78,34 @@ const galleryItems = getGalleryItems(language);
     <ScrollToTop />
   </main>
 </Layout>
+
+<script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+  import 'photoswipe/style.css';
+
+  const initLightbox = () => {
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#gallery-grid',
+      children: 'a',
+      pswpModule: () => import('photoswipe'),
+      // Optimalizácia pre mobilné zariadenia
+      padding: { top: 20, bottom: 20, left: 10, right: 10 },
+      showHideAnimationType: 'zoom'
+    });
+    lightbox.init();
+  };
+
+  // Inicializácia pri načítaní a pri navigácii (ak by sme mali View Transitions)
+  initLightbox();
+  document.addEventListener('astro:page-load', initLightbox);
+</script>
+
+<style is:global>
+  /* Úprava PhotoSwipe štýlov pre MagicRoom estetiku */
+  .pswp {
+    --pswp-bg: rgba(42, 26, 36, 0.95); /* Naša foreground farba s opacity */
+  }
+  .pswp__img {
+    border-radius: 8px;
+  }
+</style>
