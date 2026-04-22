@@ -37,7 +37,7 @@ const sizes = {
   icon: 'w-10 min-w-[48px] min-h-[48px]',
 };
 
-const baseClasses = 'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer tap-target';
+const baseClasses = 'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer';
 ---
 
 {href ? (
@@ -45,6 +45,7 @@ const baseClasses = 'inline-flex items-center justify-center gap-2 whitespace-no
     href={disabled ? undefined : href}
     class:list={[baseClasses, variants[variant], sizes[size], className]}
     aria-disabled={disabled}
+    style="margin-top: 0 !important;" 
     {...rest}
   >
     <slot />
@@ -54,6 +55,7 @@ const baseClasses = 'inline-flex items-center justify-center gap-2 whitespace-no
     type={type}
     disabled={disabled}
     class:list={[baseClasses, variants[variant], sizes[size], className]}
+    style="margin-top: 0 !important;"
     {...rest}
   >
     <slot />
