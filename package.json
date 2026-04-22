@@ -9,7 +9,8 @@
     "path-to-regexp": "^8.0.0",
     "defu": "^6.1.6",
     "vite": "^7",
-    "fast-xml-parser": "^5.7.0"
+    "fast-xml-parser": "^5.7.0",
+    "follow-redirects": "^1.16.0"
   },
   "scripts": {
     "dev": "astro dev",
