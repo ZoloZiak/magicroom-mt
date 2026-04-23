@@ -65,28 +65,28 @@ const faqSchema = contactFaqs.length > 0 ? [{
         </div>
 
         <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
+          <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" class="p-6 rounded-3xl bg-card border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
             <div class="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mx-auto mb-4">
                <Icon name="Phone" class="h-6 w-6" />
             </div>
             <h3 class="font-bold mb-1">{isEn ? 'Call us' : 'Zavolajte nám'}</h3>
             <p class="text-sm text-muted-foreground">{PHONE_DISPLAY}</p>
           </a>
-          <a href={WHATSAPP_URL} data-ga-category="contact" data-ga-action="whatsapp_click" class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
+          <a href={WHATSAPP_URL} data-ga-category="contact" data-ga-action="whatsapp_click" class="p-6 rounded-3xl bg-card border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
             <div class="h-12 w-12 rounded-2xl bg-success/10 flex items-center justify-center text-success mx-auto mb-4">
                <Icon name="MessageCircle" class="h-6 w-6" />
             </div>
             <h3 class="font-bold mb-1">WhatsApp</h3>
             <p class="text-sm text-muted-foreground">{isEn ? 'Quick chat' : 'Rýchla správa'}</p>
           </a>
-          <a href={EMAIL_HREF} data-ga-category="contact" data-ga-action="email_click" class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
+          <a href={EMAIL_HREF} data-ga-category="contact" data-ga-action="email_click" class="p-6 rounded-3xl bg-card border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
             <div class="h-12 w-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mx-auto mb-4">
                <Icon name="Mail" class="h-6 w-6" />
             </div>
             <h3 class="font-bold mb-1">{isEn ? 'Email us' : 'Napíšte nám'}</h3>
             <p class="text-sm text-muted-foreground">{EMAIL}</p>
           </a>
-          <a href={MAP_URL} target="_blank" rel="noopener noreferrer" data-ga-category="contact" data-ga-action="map_click" class="p-6 rounded-3xl bg-white border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
+          <a href={MAP_URL} target="_blank" rel="noopener noreferrer" data-ga-category="contact" data-ga-action="map_click" class="p-6 rounded-3xl bg-card border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
             <div class="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mx-auto mb-4">
                <Icon name="MapPin" class="h-6 w-6" />
             </div>
@@ -99,7 +99,7 @@ const faqSchema = contactFaqs.length > 0 ? [{
 
     <DecorativeDivider variant="ornamental" />
 
-    <section class="py-20 md:py-28 bg-white" id="booking">
+    <section class="py-20 md:py-28 bg-background" id="booking">
       <div class="container mx-auto px-4">
         <div class="grid gap-16 lg:grid-cols-2">
           <div>
@@ -131,7 +131,7 @@ const faqSchema = contactFaqs.length > 0 ? [{
             </div>
           </div>
           
-          <div class="luxury-panel p-6 md:p-10 bg-white">
+          <div class="luxury-panel p-6 md:p-10 bg-card">
             <BookingForm language={language} />
           </div>
         </div>
@@ -144,7 +144,7 @@ const faqSchema = contactFaqs.length > 0 ? [{
           <h2 class="font-display text-4xl mb-12 text-center">{isEn ? 'Common questions' : 'Časté otázky'}</h2>
           <div class="space-y-4">
             {contactFaqs.map((faq) => (
-              <details class="group rounded-2xl bg-white border border-border/50 p-6 transition-all open:shadow-md">
+              <details class="group rounded-2xl bg-card border border-border/50 p-6 transition-all open:shadow-md">
                 <summary class="flex cursor-pointer items-center justify-between font-bold list-none">
                   {faq.question}
                   <span class="transition-transform group-open:rotate-180">

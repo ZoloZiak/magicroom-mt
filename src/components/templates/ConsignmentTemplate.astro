@@ -58,7 +58,7 @@ const consignmentOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0
       <div class="container relative mx-auto px-4">
         <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div class="max-w-2xl">
-            <Badge variant="secondary" className="mb-5 bg-white/10 text-accent border-white/20">
+            <Badge variant="secondary" className="mb-5 bg-card/10 text-accent border-accent/20">
               {t.consignment.heroBadge}
             </Badge>
             <h1 class="font-display text-[2.9rem] leading-tight md:text-6xl">
@@ -88,7 +88,7 @@ const consignmentOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0
       </div>
     </section>
 
-    <section class="py-20 md:py-28 bg-white">
+    <section class="py-20 md:py-28 bg-background">
       <div class="container mx-auto px-4">
         <div class="mx-auto max-w-3xl text-center mb-16">
           <h2 class="font-display text-4xl md:text-5xl">{isEn ? 'How it works' : 'Ako prebieha komis'}</h2>
@@ -116,7 +116,7 @@ const consignmentOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0
             <h2 class="font-display text-4xl mb-8">{isEn ? 'Why sell with us' : 'Výhody pre vás'}</h2>
             <div class="grid gap-6">
               {CONSIGNMENT_BENEFITS.map((benefit) => (
-                <div class="flex gap-4 p-6 rounded-2xl bg-white shadow-sm border border-border/50">
+                <div class="flex gap-4 p-6 rounded-2xl bg-card shadow-sm border border-border/50">
                   <div class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Icon name="CheckCircle2" class="h-4 w-4" />
                   </div>
@@ -134,7 +134,7 @@ const consignmentOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0
       </div>
     </section>
 
-    <section class="py-20 md:py-28 bg-white">
+    <section class="py-20 md:py-28 bg-background">
       <div class="container mx-auto px-4 max-w-4xl">
         <div class="text-center mb-12">
           <Icon name="Heart" class="h-10 w-10 text-primary mx-auto mb-4" />

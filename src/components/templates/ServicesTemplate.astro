@@ -134,7 +134,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
 
     <DecorativeDivider variant="floral" />
 
-    <section class="py-16 md:py-24 bg-white">
+    <section class="py-16 md:py-24 bg-background">
       <div class="container mx-auto px-4">
         <div class="mb-12">
           <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{t.home.servicesSubtitle.split('—')[0]}</p>
@@ -144,7 +144,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
           {servicePillars.map((item, index) => (
             <Card className={`border-0 bg-surface shadow-[var(--shadow-soft)] hover:shadow-xl transition-shadow animate-fade-in-up animate-stagger-${index+1}`}>
               <CardHeader>
-                <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-sm text-primary">
+                <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-card shadow-sm text-primary">
                   <Icon name={item.icon} class="h-6 w-6" />
                 </div>
                 <CardTitle className="font-display text-2xl">
@@ -173,7 +173,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
         </div>
         <div class="grid gap-8 lg:grid-cols-3">
           {SERVICE_PACKAGES.map((pkg, index) => (
-            <Card className={`bg-white shadow-lg border-0 flex flex-col ${pkg.recommended ? 'ring-2 ring-cta relative' : ''} animate-fade-in-up animate-stagger-${index+1}`}>
+            <Card className={`bg-card shadow-lg border-0 flex flex-col ${pkg.recommended ? 'ring-2 ring-cta relative' : ''} animate-fade-in-up animate-stagger-${index+1}`}>
               {pkg.recommended && (
                 <div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-cta px-4 py-1 text-[11px] font-bold uppercase tracking-widest text-white">
                   {isEn ? 'Most popular' : 'Najobľúbenejší'}
@@ -209,7 +209,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
       </div>
     </section>
 
-    <section class="bg-white py-16 md:py-20">
+    <section class="bg-background py-16 md:py-20">
       <div class="container mx-auto px-4">
         <h3 class="mb-10 font-display text-3xl">{isEn ? 'Extra services' : 'Doplnkové služby'}</h3>
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

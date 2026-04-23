@@ -56,7 +56,7 @@ const gaLabelSuffix = isEn ? '_en' : '';
             variant="outline" 
             size="sm" 
             href={PHONE_HREF}
-            class="border-white text-white hover:bg-white hover:text-primary-900" 
+            class="border-accent/40 text-white hover:bg-accent hover:text-primary-900" 
             data-ga-category="contact" 
             data-ga-action="phone_click" 
             data-ga-label={`footer_phone${gaLabelSuffix}`}
@@ -74,7 +74,7 @@ const gaLabelSuffix = isEn ? '_en' : '';
               data-ga-category="external"
               data-ga-action="social_click"
               data-ga-label={`footer_${item.label.toLowerCase().replace(/[^a-z]/g, '_')}${gaLabelSuffix}`}
-              class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition-colors hover:border-white/20 hover:text-accent"
+              class="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-2 text-sm text-white/80 transition-colors hover:border-accent/40 hover:text-accent"
               aria-label={item.label}
             >
               {item.label === 'Facebook' ? (
@@ -100,9 +100,9 @@ const gaLabelSuffix = isEn ? '_en' : '';
             data-ga-category="contact"
             data-ga-action="email_click"
             data-ga-label={`footer_email${gaLabelSuffix}`}
-            class="flex flex-col items-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-5 py-4 text-center transition-colors hover:border-white/40 hover:bg-white/10"
+            class="flex flex-col items-center gap-2 rounded-2xl border border-accent/20 bg-accent/5 px-5 py-4 text-center transition-colors hover:border-accent/40 hover:bg-accent/10"
           >
-            <Icon name="Mail" class="h-6 w-6" />
+            <Icon name="Mail" class="h-6 w-6 text-accent" />
             <span class="text-sm">{EMAIL}</span>
           </a>
           <a
@@ -110,9 +110,9 @@ const gaLabelSuffix = isEn ? '_en' : '';
             data-ga-category="contact"
             data-ga-action="phone_click"
             data-ga-label={`footer_phone_card${gaLabelSuffix}`}
-            class="flex flex-col items-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-5 py-4 text-center transition-colors hover:border-white/40 hover:bg-white/10"
+            class="flex flex-col items-center gap-2 rounded-2xl border border-accent/20 bg-accent/5 px-5 py-4 text-center transition-colors hover:border-accent/40 hover:bg-accent/10"
           >
-            <Icon name="Phone" class="h-6 w-6" />
+            <Icon name="Phone" class="h-6 w-6 text-accent" />
             <span class="text-sm">{PHONE_DISPLAY}</span>
           </a>
         </div>

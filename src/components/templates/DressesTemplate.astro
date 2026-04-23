@@ -69,12 +69,12 @@ const productSchema = dresses.map((dress) => ({
       </div>
     </section>
 
-    <section class="py-16 md:py-24 bg-white">
+    <section class="py-16 md:py-24 bg-background">
       <div class="container mx-auto px-4">
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {dresses.map((dress) => (
-            <div class="group overflow-hidden rounded-[24px] border border-border/50 bg-white transition-all hover:shadow-xl">
-              <div class="relative aspect-[3/4] overflow-hidden bg-white">
+            <div class="group overflow-hidden rounded-[24px] border border-border/50 bg-card transition-all hover:shadow-xl">
+              <div class="relative aspect-[3/4] overflow-hidden bg-card">
                 {dress.images?.[0] && (
                   <Image
                     src={dress.images[0].src}

@@ -56,7 +56,7 @@ const posts = getBlogPosts(language);
 
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
-            <Card className="blog-card border-0 bg-white shadow-[var(--shadow-soft)] spring-hover rounded-[32px] overflow-hidden">
+            <Card className="blog-card border-0 bg-card shadow-[var(--shadow-soft)] spring-hover rounded-[32px] overflow-hidden">
               <div class="overflow-hidden">
                 <Image
                   src={post.image}

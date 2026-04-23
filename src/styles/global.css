@@ -222,15 +222,15 @@
 
   /* Panel & Card components */
   .luxury-panel {
-    @apply rounded-[32px] border border-white/60 bg-white/90 shadow-[var(--shadow-medium)] backdrop-blur;
+    @apply rounded-[32px] border border-border/40 bg-card/90 shadow-[var(--shadow-medium)] backdrop-blur;
   }
 
   .photo-card {
-    @apply overflow-hidden rounded-[32px] border border-white/60 bg-white p-3 shadow-[var(--shadow-xl)];
+    @apply overflow-hidden rounded-[32px] border border-border/40 bg-card p-3 shadow-[var(--shadow-xl)];
   }
 
   .photo-card-lg {
-    @apply overflow-hidden rounded-[32px] border border-white/60 bg-white p-3 shadow-[var(--shadow-card-lg)];
+    @apply overflow-hidden rounded-[32px] border border-border/40 bg-card p-3 shadow-[var(--shadow-card-lg)];
   }
 
   /* Spring link underline */
