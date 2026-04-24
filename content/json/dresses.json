@@ -406,8 +406,8 @@
     },
     {
       "id": "formal-modra-04",
-      "name": "Metallic dress with puff sleeves",
-      "name_en": "Stunning Sequin Gown",
+      "name": "Metalické modré šaty",
+      "name_en": "Metallic dress with puff sleeves",
       "description": "Šaty z vysoko lesklého metalického materiálu v žiarivej modrej farbe. Model má elegantný štvorcový výstrih, trendy krátke puf rukávy a zvodný vysoký rázporok na stehne.",
       "description_en": "A gown crafted from high-shine metallic material in a vibrant blue hue. The model features an elegant square neckline, trendy short puff sleeves, and a seductive high thigh slit.",
       "price": 32.90,
@@ -643,21 +643,21 @@
       "images": ["formal-cervena-01"]
     },
     {
-      "id": "formal-caca-01",
-      "name": "Púdrová elegancia",
-      "name_en": "Powder Elegance",
-      "description": "Jemné spoločenské šaty v púdrovej ružovej s bohatým zdobením.",
-      "description_en": "Delicate formal gown in powder pink with rich embellishments.",
-      "price": 89.90,
-      "size": "38",
+      "id": "formal-modra-10",
+      "name": "Modrá trblietavá elegancia",
+      "name_en": "Blue Gliterry Elegance",
+      "description": "Jemné spoločenské šaty v modrej farbe s jemnými trblietkami.",
+      "description_en": "Soft dark blue dress with soft gliterry.",
+      "price": 69.90,
+      "size": "40",
       "category": "formal",
       "type": "new",
       "status": "available",
-      "color": "púdrová",
-      "style": "elegantná",
+      "color": "modrá",
+      "style": "spoločenské",
       "featured": false,
-      "details": "čipka, tyl",
-      "images": ["formal-caca-01"]
+      "details": "trblietky",
+      "images": ["formal-modra-10"]
     },
     {
       "id": "formal-zelena-01",
