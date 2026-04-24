@@ -56,7 +56,7 @@ const categories = getPartnerCategories(language);
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {partners.map((partner) => (
             <Card className="flex flex-col border-border/50 bg-card hover:border-primary/50 transition-all hover:shadow-xl rounded-[24px]">
-              <CardContent className="pt-6 flex-1 flex flex-col">
+              <div class="p-8 flex-1 flex flex-col">
                 <div class="flex items-center gap-4 mb-4">
                   <div class="h-12 w-12 rounded-full bg-primary/5 flex items-center justify-center text-primary font-display text-xl uppercase">
                     {partner.name[0]}
@@ -74,7 +74,7 @@ const categories = getPartnerCategories(language);
                    </Button>
                    <span class="text-xs text-muted-foreground italic">Martin & okolie</span>
                 </div>
-              </CardContent>
+              </div>
             </Card>
           ))}
         </div>
