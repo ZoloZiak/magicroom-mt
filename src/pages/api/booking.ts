@@ -49,27 +49,35 @@ export const POST: APIRoute = async ({ request }) => {
       ${phone ? `<p><strong>Telefón:</strong> ${phone}</p>` : ''}
       ${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}
       ${service ? `<p><strong>Služba:</strong> ${service}</p>` : ''}
-      ${dateLine ? `<p>${dateLine}</p>` : ''}
-      ${timeLine ? `<p>${timeLine}</p>` : ''}
-      ${noteLine ? `<p>${noteLine}</p>` : ''}
+      ${date ? `<p><strong>Dátum:</strong> ${date}</p>` : ''}
+      ${time ? `<p><strong>Čas:</strong> ${time}</p>` : ''}
+      ${note ? `<p><strong>Poznámka:</strong> ${note}</p>` : ''}
       <p style="margin-top:16px;color:#666;font-size:13px;">Odoslané z magicroom.sk</p>
     `;
 
-    await resend.emails.send({
-      from: 'MagicRoom Rezervácie <rezervacie@magicroom.sk>',
+    const { error: sendError } = await resend.emails.send({
+      from: 'MagicRoom <rezervacie@magicroom.sk>',
       to: ['mt.magicroom@gmail.com'],
       replyTo: email,
-      subject: `Nová rezervácia: ${name} — ${service}`,
+      subject: `Rezervácia: ${name} — ${service}`,
       html,
       text: `Nová rezervácia z magicroom.sk\n\nMeno: ${name}\nTelefón: ${phone}\nEmail: ${email}\nSlužba: ${service}${dateLine}${timeLine}${noteLine}`,
     });
 
+    if (sendError) {
+      console.error('Resend error:', sendError);
+      return new Response(
+        JSON.stringify({ error: 'E-mail sa nepodarilo odoslať. Skúste WhatsApp alebo nám zavolajte.' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
     return new Response(
-      JSON.stringify({ success: true, message: 'Rezervácia bola odoslaná. Ozveme sa vám do 24 hodín.' }),
+      JSON.stringify({ success: true, message: 'Rezervácia bola odoslaná.' }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
   } catch (error) {
-    console.error('Booking API error:', error);
+    console.error('Booking API critical error:', error);
     return new Response(
       JSON.stringify({ error: 'Niečo sa pokazilo. Skúste to znova alebo nám zavolajte.' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }

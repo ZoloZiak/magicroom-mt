@@ -71,20 +71,28 @@ const productSchema = dresses.map((dress) => ({
 
     <section class="py-16 md:py-24 bg-background">
       <div class="container mx-auto px-4">
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div id="dresses-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {dresses.map((dress) => (
             <div class="group overflow-hidden rounded-[24px] border border-border/50 bg-card transition-all hover:shadow-xl">
               <div class="relative aspect-[3/4] overflow-hidden bg-card">
                 {dress.images?.[0] && (
-                  <Image
-                    src={dress.images[0].src}
-                    alt={dress.name}
-                    width={400}
-                    height={533}
-                    class="h-full w-full object-cover"
-                  />
+                  <a 
+                    href={dress.images[0].src.src} 
+                    data-pswp-width={dress.images[0].src.width} 
+                    data-pswp-height={dress.images[0].src.height} 
+                    target="_blank"
+                    class="block h-full w-full cursor-zoom-in"
+                  >
+                    <Image
+                      src={dress.images[0].src}
+                      alt={dress.name}
+                      width={400}
+                      height={533}
+                      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </a>
                 )}
-                <div class="absolute right-4 top-4">
+                <div class="absolute right-4 top-4 pointer-events-none">
                   <Badge variant={dress.status === 'available' ? 'success' : 'outline'} className="backdrop-blur-md">
                     {dress.status === 'available' ? t.dresses.statusAvailable : t.dresses.statusReserved}
                   </Badge>
@@ -128,3 +136,31 @@ const productSchema = dresses.map((dress) => ({
     <ScrollToTop />
   </main>
 </Layout>
+
+<script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+  import 'photoswipe/style.css';
+
+  const initLightbox = () => {
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#dresses-grid',
+      children: 'a',
+      pswpModule: () => import('photoswipe'),
+      padding: { top: 20, bottom: 20, left: 10, right: 10 },
+      showHideAnimationType: 'zoom'
+    });
+    lightbox.init();
+  };
+
+  initLightbox();
+  document.addEventListener('astro:page-load', initLightbox);
+</script>
+
+<style is:global>
+  .pswp {
+    --pswp-bg: rgba(42, 26, 36, 0.95);
+  }
+  .pswp__img {
+    border-radius: 8px;
+  }
+</style>

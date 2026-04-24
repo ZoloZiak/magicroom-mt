@@ -5,8 +5,8 @@ export const bookingFormSchema = z.object({
   phone: z.string().min(10, 'Telefón musí mať aspoň 10 znakov'),
   email: z.string().email('Neplatný email'),
   service: z.string().min(1, 'Vyberte službu'),
-  date: z.string().min(1, 'Vyberte dátum'),
-  time: z.string().min(1, 'Vyberte čas'),
+  date: z.string().optional(),
+  time: z.string().optional(),
   note: z.string().optional(),
 });
 

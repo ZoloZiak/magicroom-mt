@@ -64,6 +64,12 @@ const consignmentOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0
             <h1 class="font-display text-[2.9rem] leading-tight md:text-6xl">
               {t.consignment.heroTitle}
             </h1>
+            
+            <div class="mt-6 inline-flex items-center gap-2 rounded-full bg-cta px-4 py-2 text-sm font-bold uppercase tracking-wider text-white shadow-lg animate-pulse">
+              <Icon name="AlertCircle" class="h-4 w-4" />
+              {isEn ? 'Capacity full — currently not accepting dresses' : 'Kapacita plná — šaty momentálne neprijímame'}
+            </div>
+
             <p class="mt-6 text-lg leading-8 text-white/70 md:text-xl">
               {t.consignment.heroDescription}
             </p>
@@ -111,24 +117,17 @@ const consignmentOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0
 
     <section class="bg-surface py-20 md:py-28">
       <div class="container mx-auto px-4">
-        <div class="grid gap-16 lg:grid-cols-2 lg:items-center">
-          <div class="order-2 lg:order-1">
-            <h2 class="font-display text-4xl mb-8">{isEn ? 'Why sell with us' : 'Výhody pre vás'}</h2>
-            <div class="grid gap-6">
-              {CONSIGNMENT_BENEFITS.map((benefit) => (
-                <div class="flex gap-4 p-6 rounded-2xl bg-card shadow-sm border border-border/50">
-                  <div class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Icon name="CheckCircle2" class="h-4 w-4" />
-                  </div>
-                  <p class="text-lg leading-relaxed">{benefit}</p>
+        <div class="mx-auto max-w-4xl">
+          <h2 class="font-display text-4xl mb-12 text-center">{isEn ? 'Why sell with us' : 'Výhody pre vás'}</h2>
+          <div class="grid gap-6 md:grid-cols-2">
+            {CONSIGNMENT_BENEFITS.map((benefit) => (
+              <div class="flex gap-4 p-6 rounded-2xl bg-card shadow-sm border border-border/50">
+                <div class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <Icon name="CheckCircle2" class="h-4 w-4" />
                 </div>
-              ))}
-            </div>
-          </div>
-          <div class="order-1 lg:order-2">
-            <div class="photo-card">
-              <Image src={IMAGE_ASSETS.founderAvatar} alt="Natalia" class="rounded-3xl w-full" />
-            </div>
+                <p class="text-lg leading-relaxed">{benefit}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
