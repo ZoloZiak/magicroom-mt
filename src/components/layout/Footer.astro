@@ -76,7 +76,7 @@ const gaLabelSuffix = isEn ? '_en' : '';
               data-ga-action="social_click"
               data-ga-label={`footer_${item.label.toLowerCase().replace(/[^a-z]/g, '_')}${gaLabelSuffix}`}
               class="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-2 text-sm text-white/80 transition-colors hover:border-accent/40 hover:text-accent"
-              aria-label={item.label}
+              aria-label={`${item.label} (${isEn ? 'opens in a new tab' : 'otvorí sa v novom okne'})`}
             >
               {item.label === 'Facebook' ? (
                 <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -125,6 +125,7 @@ const gaLabelSuffix = isEn ? '_en' : '';
           data-ga-action="map_click"
           data-ga-label={`footer_map${gaLabelSuffix}`}
           class="mt-4 flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"
+          aria-label={`${ADDRESS_LABEL} (${isEn ? 'opens in a new tab' : 'otvorí sa v novom okne'})`}
         >
           <Icon name="MapPin" class="h-4 w-4 shrink-0" />
           <span>{ADDRESS_LABEL}</span>
