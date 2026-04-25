@@ -281,8 +281,14 @@ export function getDecorCategories(lang: Language) {
     items: cat.items.map(item => {
       let imageAsset = null;
       if (item.image) {
-        imageAsset = getDynamicImage(galleryImages, item.image + '.jpg') || 
-                     getDynamicImage(galleryImages, item.image + '.png');
+        const extensions = ['.jpg', '.jpeg', '.png', '.webp', '.JPG', '.JPEG', '.PNG', '.WEBP'];
+        for (const ext of extensions) {
+          const img = getDynamicImage(galleryImages, item.image + ext);
+          if (img) {
+            imageAsset = img;
+            break;
+          }
+        }
       }
       return {
         ...item,
