@@ -86,7 +86,7 @@ const faqSchema = contactFaqs.length > 0 ? [{
             <h3 class="font-bold mb-1">{isEn ? 'Email us' : 'Napíšte nám'}</h3>
             <p class="text-sm text-muted-foreground">{EMAIL}</p>
           </a>
-          <a href={MAP_URL} target="_blank" rel="noopener noreferrer" data-ga-category="contact" data-ga-action="map_click" class="p-6 rounded-3xl bg-card border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center">
+          <a href={MAP_URL} target="_blank" rel="noopener noreferrer" data-ga-category="contact" data-ga-action="map_click" class="p-6 rounded-3xl bg-card border border-border/50 hover:border-primary/50 transition-all hover:shadow-xl text-center" aria-label={`${ADDRESS_LABEL} (${isEn ? 'opens in a new tab' : 'otvorí sa v novom okne'})`}>
             <div class="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mx-auto mb-4">
                <Icon name="MapPin" class="h-6 w-6" />
             </div>
@@ -124,7 +124,7 @@ const faqSchema = contactFaqs.length > 0 ? [{
                <div class="p-6 rounded-3xl bg-surface">
                   <h4 class="font-semibold mb-2">{t.common.directionsText}</h4>
                   <p class="text-sm text-muted-foreground mb-4">{ADDRESS_LABEL}</p>
-                  <a href={MAP_URL} target="_blank" rel="noopener noreferrer" class="text-primary font-medium flex items-center gap-2 hover:underline">
+                  <a href={MAP_URL} target="_blank" rel="noopener noreferrer" class="text-primary font-medium flex items-center gap-2 hover:underline" aria-label={`${ADDRESS_LABEL} (${isEn ? 'opens in a new tab' : 'otvorí sa v novom okne'})`}>
                      {t.common.openMap} <Icon name="ArrowRight" class="h-4 w-4" />
                   </a>
                </div>

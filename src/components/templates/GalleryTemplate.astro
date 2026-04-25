@@ -54,6 +54,7 @@ const galleryItems = getGalleryItems(language);
               data-pswp-height={(item.src as ImageMetadata)?.height || "1200"} 
               target="_blank"
               class="mb-6 break-inside-avoid overflow-hidden rounded-[24px] bg-surface transition-all hover:shadow-xl block border border-border/50"
+              aria-label={`${item.alt} (${language === 'en' ? 'opens in a new tab' : 'otvorí sa v novom okne'})`}
             >
               {item.src && (
                 <Image
