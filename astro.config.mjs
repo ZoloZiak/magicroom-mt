@@ -10,7 +10,11 @@ import path from 'path';
 export default defineConfig({
   site: 'https://www.magicroom.sk',
   output: 'static',
-  adapter: vercel(),
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
 
   image: {
     service: { entrypoint: 'astro/assets/services/sharp' }
