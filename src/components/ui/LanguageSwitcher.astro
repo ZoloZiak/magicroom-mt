@@ -15,7 +15,7 @@ const targetPath = getAlternateLanguageUrl(Astro.url, currentLanguage);
 <a
   href={targetPath}
   class="language-switcher inline-flex items-center gap-1 rounded-full border border-border/70 bg-white/80 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:border-primary/50 hover:bg-white hover:text-foreground"
-  aria-label={`Switch to ${nextLanguage === 'en' ? 'English' : 'Slovak'}`}
+  aria-label={`Switch to ${nextLanguage === 'en' ? 'English' : 'Slovak'} (stays on same page)`}
 >
   <span class="opacity-50">{currentLanguage.toUpperCase()}</span>
   <span class="text-[10px] text-primary">/</span>

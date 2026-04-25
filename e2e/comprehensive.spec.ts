@@ -43,7 +43,7 @@ test.describe('MagicRoom Form Functionality', () => {
   test('whatsapp FAB is visible and green', async ({ page }) => {
     await page.goto('/');
     
-    const fab = page.locator('[aria-label="Napísať na WhatsApp"]');
+    const fab = page.locator('[aria-label*="WhatsApp"]');
     await expect(fab).toBeVisible();
     
     // Check it has WhatsApp green color

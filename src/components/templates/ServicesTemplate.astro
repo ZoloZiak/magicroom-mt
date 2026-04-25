@@ -154,9 +154,11 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
                 <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-card shadow-sm text-primary">
                   <Icon name={item.icon} class="h-6 w-6" />
                 </div>
-                <CardTitle className="font-display text-2xl">
-                  <h3 class="text-2xl">{item.title}</h3>
-                </CardTitle>
+                {item.title && (
+                  <CardTitle className="font-display text-2xl">
+                    {item.title}
+                  </CardTitle>
+                )}
                 <p className="pt-2 text-sm font-semibold uppercase text-cta">{item.price}</p>
                 <CardDescription className="pt-2">{item.description}</CardDescription>
               </CardHeader>

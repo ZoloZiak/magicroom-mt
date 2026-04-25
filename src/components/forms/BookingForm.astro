@@ -50,7 +50,7 @@ const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňt
       <div class="grid gap-5 md:grid-cols-2">
         <div class="space-y-2">
           <Label for={`${id}-name`}>{labels.name}</Label>
-          <Input className="form-input" id={`${id}-name`} name="name" autocomplete="name" placeholder={labels.namePlaceholder} required aria-required="true" />
+          <Input className="form-input" id={`${id}-name`} name="name" autocomplete="name" placeholder={labels.namePlaceholder} required aria-required="true" aria-label={labels.name} />
         </div>
 
         <div class="space-y-2">
@@ -64,6 +64,7 @@ const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňt
             placeholder={labels.phonePlaceholder}
             required
             aria-required="true"
+            aria-label={labels.phone}
           />
         </div>
 
@@ -78,6 +79,7 @@ const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňt
             placeholder={labels.emailPlaceholder}
             required
             aria-required="true"
+            aria-label={labels.email}
           />
         </div>
 
@@ -89,6 +91,7 @@ const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňt
             class="form-input flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
             required
             aria-required="true"
+            aria-label={labels.service}
           >
             <option value="">{labels.serviceSelect}</option>
             {labels.serviceOptions.map(opt => (
@@ -99,12 +102,12 @@ const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňt
 
         <div class="space-y-2">
           <Label for={`${id}-date`}>{labels.date}</Label>
-          <Input className="form-input" id={`${id}-date`} name="date" type="date" min={new Date().toISOString().split('T')[0]} />
+          <Input className="form-input" id={`${id}-date`} name="date" type="date" min={new Date().toISOString().split('T')[0]} aria-label={labels.date} />
         </div>
 
         <div class="space-y-2">
           <Label for={`${id}-time`}>{labels.time}</Label>
-          <Input className="form-input" id={`${id}-time`} name="time" placeholder={labels.timePlaceholder} />
+          <Input className="form-input" id={`${id}-time`} name="time" placeholder={labels.timePlaceholder} aria-label={labels.time} />
         </div>
       </div>
 
@@ -116,6 +119,7 @@ const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňt
           name="note"
           rows={4}
           placeholder={labels.notePlaceholder}
+          aria-label={labels.note}
         />
       </div>
     </fieldset>

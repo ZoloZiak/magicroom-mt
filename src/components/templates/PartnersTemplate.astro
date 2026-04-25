@@ -62,7 +62,7 @@ const categories = getPartnerCategories(language);
                     {partner.name[0]}
                   </div>
                   <div>
-                    <CardTitle className="font-display text-2xl">{partner.name}</CardTitle>
+                    {partner.name && <CardTitle className="font-display text-2xl">{partner.name}</CardTitle>}
                     <p class="text-sm text-cta font-medium uppercase tracking-wider">{partner.category}</p>
                   </div>
                 </div>
