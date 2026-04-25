@@ -113,7 +113,7 @@ const DECOR_POLICIES = getDecorPolicies(language);
               <div class="space-y-4">
                 {cat.items.map((item) => (
                   <li class="rounded-xl transition-colors group/item">
-                    {item.imageAsset || item.fallbackImage ? (
+                    {item.imageAsset ? (
                       <details class="decor-item-details">
                         <summary class="cursor-pointer list-none">
                           <div class="flex flex-col gap-1 p-3 rounded-xl hover:bg-surface transition-colors">
@@ -132,21 +132,13 @@ const DECOR_POLICIES = getDecorPolicies(language);
                         </summary>
                         <div class="px-3 pb-4">
                           <div class="mt-2 overflow-hidden rounded-lg aspect-[16/9] bg-surface relative shadow-inner">
-                            {item.imageAsset ? (
-                              <Image 
-                                src={item.imageAsset} 
-                                alt={item.name}
-                                class="w-full h-full object-cover"
-                                width={800}
-                                height={450}
-                              />
-                            ) : (
-                               <img 
-                                 src={item.fallbackImage} 
-                                 alt={item.name} 
-                                 class="w-full h-full object-cover opacity-50" 
-                               />
-                            )}
+                            <Image 
+                              src={item.imageAsset} 
+                              alt={item.name}
+                              class="w-full h-full object-cover"
+                              width={800}
+                              height={450}
+                            />
                           </div>
                         </div>
                       </details>

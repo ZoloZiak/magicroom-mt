@@ -46,7 +46,7 @@ const galleryItems = getGalleryItems(language);
 
     <section class="py-16 md:py-24 bg-background">
       <div class="container mx-auto px-4">
-        <div id="gallery-grid" class="columns-1 gap-6 sm:columns-2 lg:columns-3">
+        <div id="gallery-grid" class="columns-1 gap-6 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
           {galleryItems.map((item, i) => (
             <a 
               href={(item.src as ImageMetadata)?.src} 

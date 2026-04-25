@@ -160,38 +160,29 @@ const operatingPrinciples = [
     <section class="bg-primary-900 py-20 text-white relative overflow-hidden">
       <div class="absolute top-0 right-0 w-1/4 h-full bg-accent/5 blur-3xl"></div>
       <div class="container relative mx-auto px-4">
-        <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div class="rounded-[30px] bg-accent/5 px-6 py-8 md:px-10 md:py-12 border border-accent/20">
+        <div class="mx-auto max-w-4xl rounded-[30px] bg-accent/5 px-6 py-8 md:px-10 md:py-12 border border-accent/20">
+          <div class="text-center mb-10">
             <p class="text-sm uppercase tracking-[0.24em] text-accent">{t.home.whySubtitle}</p>
-            <h2 class="mt-4 font-display text-4xl">{t.home.whyTitle}</h2>
-            <div class="mt-10 grid gap-5 md:grid-cols-2">
-              {TRUST_REASONS.map((reason) => (
-                <div class="rounded-2xl border border-accent/10 bg-accent/5 p-5 transition-colors hover:bg-accent/10">
-                  <div class="flex items-start gap-3 text-accent">
-                    <Icon name="CheckCircle2" class="h-4 w-4 mt-1" />
-                    <div>
-                      {reason.title && <h3 class="text-lg font-semibold text-white">{reason.title}</h3>}
-                      <p class="mt-2 text-sm text-white/70">{reason.description}</p>
-                    </div>
+            <h2 class="mt-4 font-display text-4xl md:text-5xl">{t.home.whyTitle}</h2>
+          </div>
+          <div class="grid gap-5 md:grid-cols-2">
+            {TRUST_REASONS.map((reason) => (
+              <div class="rounded-2xl border border-accent/10 bg-accent/5 p-5 transition-colors hover:bg-accent/10">
+                <div class="flex items-start gap-3 text-accent">
+                  <Icon name="CheckCircle2" class="h-4 w-4 mt-1" />
+                  <div>
+                    {reason.title && <h3 class="text-lg font-semibold text-white">{reason.title}</h3>}
+                    <p class="mt-2 text-sm text-white/70">{reason.description}</p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-          
-          <Card className="border border-accent/20 bg-accent/5 p-6 text-white backdrop-blur-sm shadow-none">
-            <CardContent className="space-y-4 pt-4">
-              <div className="flex items-center gap-3 text-accent">
-                <Icon name="Phone" class="h-4 w-4" />
-                <span className="text-sm uppercase tracking-widest">{t.common.phone}</span>
               </div>
-              <p className="text-2xl font-semibold">{PHONE_DISPLAY}</p>
-              <p class="text-sm text-white/60">{t.common.replyNote}</p>
-              <Button variant="cta" size="lg" className="w-full" href={PHONE_HREF}>
-                {t.about.callFounder}
-              </Button>
-            </CardContent>
-          </Card>
+            ))}
+          </div>
+          <div class="mt-12 text-center">
+             <Button variant="secondary" size="lg" href={getBookingPageHref(language)}>
+                {t.nav.bookAppointment}
+             </Button>
+          </div>
         </div>
       </div>
     </section>

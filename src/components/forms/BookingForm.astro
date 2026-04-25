@@ -184,11 +184,21 @@ const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňt
         const result = await response.json();
 
         if (response.ok && result.success) {
+          // Hide fields and show success message
+          const fieldset = form.querySelector('fieldset');
+          const footerActions = form.querySelector('.flex.flex-col.gap-4');
+          const infoBox = form.querySelector('.mt-8.rounded-2xl');
+          
+          if (fieldset) fieldset.style.display = 'none';
+          if (footerActions) footerActions.style.display = 'none';
+          if (infoBox) infoBox.style.display = 'none';
+
           if (status) {
             status.classList.remove('hidden');
             status.classList.remove('border-destructive/30', 'bg-destructive/10');
-            status.classList.add('border-success/30', 'bg-success/10');
-            status.textContent = labels.success;
+            status.classList.add('border-success/30', 'bg-success/10', 'p-8', 'text-center', 'text-lg');
+            status.innerHTML = `<div class="mb-4 text-3xl">✅</div> <div>${labels.success}</div>`;
+            status.scrollIntoView({ behavior: 'smooth', block: 'center' });
           }
 
           // Track successful booking form submission
@@ -213,27 +223,18 @@ const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňt
             url.searchParams.set('text', lines.join('\n'));
             whatsappLink.href = url.toString();
             whatsappSection?.classList.remove('hidden');
+            whatsappSection?.classList.add('flex', 'justify-center', 'mt-6');
           }
-
-          form.querySelectorAll('input, select, textarea').forEach((el) => {
-            if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) {
-              el.value = '';
-            }
-          });
         } else {
-          if (status) {
-            status.classList.remove('hidden');
-            status.classList.remove('border-success/30', 'bg-success/10');
-            status.classList.add('border-destructive/30', 'bg-destructive/10');
-            status.textContent = labels.error;
-          }
+          throw new Error(result.error || labels.error);
         }
-      } catch {
+      } catch (err) {
+        console.error('Form error:', err);
         if (status) {
           status.classList.remove('hidden');
           status.classList.remove('border-success/30', 'bg-success/10');
           status.classList.add('border-destructive/30', 'bg-destructive/10');
-          status.textContent = labels.networkError;
+          status.textContent = err instanceof Error ? err.message : labels.networkError;
         }
       }
 
