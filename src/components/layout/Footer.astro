@@ -42,24 +42,24 @@ const gaLabelSuffix = isEn ? '_en' : '';
         </p>
 
         <div class="mb-6 flex flex-wrap items-center gap-3">
-          <Button 
-            variant="secondary" 
-            size="sm" 
-            href={bookingHref} 
-            class="font-bold shadow-md hover:bg-white"
-            data-ga-category="conversion" 
-            data-ga-action="book_appointment_click" 
+          <Button
+            variant="secondary"
+            size="sm"
+            href={bookingHref}
+            class="font-bold shadow-md hover:bg-secondary/90 hover:shadow-lg"
+            data-ga-category="conversion"
+            data-ga-action="book_appointment_click"
             data-ga-label={`footer_cta${gaLabelSuffix}`}
           >
             {t.nav.bookAppointment}
           </Button>
-          <Button 
-            variant="outline" 
-            size="sm" 
+          <Button
+            variant="outline"
+            size="sm"
             href={PHONE_HREF}
-            class="border-white/60 text-white hover:bg-white hover:text-primary-900 shadow-sm" 
-            data-ga-category="contact" 
-            data-ga-action="phone_click" 
+            class="border-accent/60 text-accent hover:bg-accent/20 hover:border-accent hover:text-accent-foreground shadow-sm"
+            data-ga-category="contact"
+            data-ga-action="phone_click"
             data-ga-label={`footer_phone${gaLabelSuffix}`}
           >
             {t.common.callNow}
@@ -75,7 +75,7 @@ const gaLabelSuffix = isEn ? '_en' : '';
               data-ga-category="external"
               data-ga-action="social_click"
               data-ga-label={`footer_${item.label.toLowerCase().replace(/[^a-z]/g, '_')}${gaLabelSuffix}`}
-              class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/15 px-4 py-2 text-sm text-white transition-all hover:bg-accent/25 hover:border-accent/50 shadow-sm"
+              class="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-2 text-sm text-accent transition-all hover:bg-accent/20 hover:border-accent hover:text-accent-foreground shadow-sm"
               aria-label={`${item.label} (${isEn ? 'opens in a new tab' : 'otvorí sa v novom okne'})`}
             >
               {item.label === 'Facebook' ? (
@@ -95,13 +95,13 @@ const gaLabelSuffix = isEn ? '_en' : '';
 
       <div>
         <h4 class="mb-4 font-semibold">{t.nav.contact}</h4>
-        <div class="flex flex-col gap-3">
+         <div class="flex flex-col gap-3">
           <a
             href={EMAIL_HREF}
             data-ga-category="contact"
             data-ga-action="email_click"
             data-ga-label={`footer_email${gaLabelSuffix}`}
-            class="flex flex-col items-center gap-2 rounded-2xl border border-accent/30 bg-accent/15 px-5 py-4 text-center transition-all hover:border-accent/50 hover:bg-accent/25 text-white shadow-sm"
+            class="flex flex-col items-center gap-2 rounded-2xl border border-accent/40 bg-accent/10 px-5 py-4 text-center transition-all hover:border-accent hover:bg-accent/20 text-white shadow-sm"
           >
             <Icon name="Mail" class="h-6 w-6 text-accent" />
             <span class="text-sm font-medium">{EMAIL}</span>
@@ -111,7 +111,7 @@ const gaLabelSuffix = isEn ? '_en' : '';
             data-ga-category="contact"
             data-ga-action="phone_click"
             data-ga-label={`footer_phone_card${gaLabelSuffix}`}
-            class="flex flex-col items-center gap-2 rounded-2xl border border-accent/30 bg-accent/15 px-5 py-4 text-center transition-all hover:border-accent/50 hover:bg-accent/25 text-white shadow-sm"
+            class="flex flex-col items-center gap-2 rounded-2xl border border-accent/40 bg-accent/10 px-5 py-4 text-center transition-all hover:border-accent hover:bg-accent/20 text-white shadow-sm"
           >
             <Icon name="Phone" class="h-6 w-6 text-accent" />
             <span class="text-sm font-medium">{PHONE_DISPLAY}</span>
