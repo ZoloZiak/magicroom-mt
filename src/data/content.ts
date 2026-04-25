@@ -495,5 +495,3 @@ export const DECOR_CATEGORIES = getDecorCategories('sk');
 export const DECOR_POLICIES = getDecorPolicies('sk');
 export const CONTACT_FAQS = getContactFaqs('sk');
 export const GALLERY_ITEMS = getGalleryItems('sk');
-const CONTACT_FAQS = getContactFaqs('sk');
-export const GALLERY_ITEMS = getGalleryItems('sk');
