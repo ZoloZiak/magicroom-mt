@@ -82,8 +82,6 @@ const productSchema = dresses.map((dress) => ({
                   class="block h-full w-full cursor-zoom-in"
                   aria-label={`${dress.name} (${isEn ? 'opens in a new tab' : 'otvorí sa v novom okne'})`}
                 >
-                    aria-label={`${dress.name} (${isEn ? 'opens in a new tab' : 'otvorí sa v novom okne'})`}
-                  >
                     <Image
                       src={dress.images[0]}
                       alt={dress.name}
@@ -92,7 +90,6 @@ const productSchema = dresses.map((dress) => ({
                       class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
                     />
                   </a>
-                )}
                 <div class="absolute right-4 top-4 pointer-events-none">
                   <Badge variant={dress.status === 'available' ? 'success' : 'outline'} className="backdrop-blur-md">
                     {dress.status === 'available' ? t.dresses.statusAvailable : t.dresses.statusReserved}
