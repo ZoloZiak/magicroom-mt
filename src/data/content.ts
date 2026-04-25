@@ -66,6 +66,10 @@ const dressImages = import.meta.glob<{ default: ImageMetadata }>('../../content/
   eager: true,
 });
 
+const decorImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/decorations/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', {
+  eager: true,
+});
+
 function getDynamicImage(glob: Record<string, { default: ImageMetadata }>, filename: string) {
   for (const path in glob) {
     if (path.endsWith(filename)) {
