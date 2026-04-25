@@ -8,7 +8,7 @@ import { Resend } from 'resend';
 import { bookingFormSchema } from '@/lib/schemas';
 
 export const prerender = false;
-export const runtime = 'edge';
+// export const runtime = 'edge';  // disabled: Resend SDK compatibility
 
 const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
 
