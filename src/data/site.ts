@@ -76,8 +76,8 @@ export function getHeaderNavLinks(lang: Language) {
   return [
     { href: '/en/about', label: 'About' },
     { href: '/en/services', label: 'Services' },
-    { href: '/en/dresses', label: 'Wedding' },
     { href: '/en/formal-dresses', label: 'Formal' },
+    { href: '/en/dresses', label: 'Wedding' },
     { href: '/en/galeria', label: 'Gallery' },
     { href: '/en/consignment', label: 'Consignment' },
     { href: '/en/decorations', label: 'Decorations' },
@@ -104,8 +104,8 @@ export function getFooterNavLinks(lang: Language) {
   return [
     { href: '/en/about', label: 'About' },
     { href: '/en/services', label: 'Services' },
-    { href: '/en/dresses', label: 'Wedding' },
     { href: '/en/formal-dresses', label: 'Formal' },
+    { href: '/en/dresses', label: 'Wedding' },
     { href: '/en/galeria', label: 'Gallery' },
     { href: '/en/blog', label: 'Blog' },
     { href: '/en/consignment', label: 'Consignment' },

@@ -86,9 +86,9 @@ export const HOME_STATS = [
 ] as const;
 
 export const HOME_STATS_EN = [
-  { value: '15 €', label: 'formal dress fitting with drink included' },
-  { value: '100-700 €', label: 'wedding dresses (new & consignment)' },
-  { value: 'Martin', label: 'personal salon in the Detský sen building' },
+  { value: 'from 30 €', label: 'formal & evening dresses for your events' },
+  { value: '15 €', label: 'private dress fitting with drink included' },
+  { value: 'Martin', label: 'boutique salon in the Detský sen building' },
 ] as const;
 
 export const HOME_OFFER_CARDS = [
@@ -144,6 +144,14 @@ export const HOME_OFFER_CARDS = [
 
 export const HOME_OFFER_CARDS_EN = [
   {
+    title: 'Formal dresses',
+    price: 'from 30 €',
+    description: 'Perfect for student balls, prom or gala events. Quality dresses at student-friendly prices.',
+    href: '/en/formal-dresses',
+    cta: 'View collection',
+    icon: 'Sparkles',
+  },
+  {
     title: 'Formal dress fitting',
     price: '15 € / 60 min',
     description: 'Calm fitting for your prom, gala or event dress. Drink included.',
@@ -160,18 +168,10 @@ export const HOME_OFFER_CARDS_EN = [
     icon: 'Sparkles',
   },
   {
-    title: 'Formal dresses',
-    price: 'from 30 €',
-    description: 'Perfect for Julebord, student balls or graduation. Quality dresses at student-friendly prices.',
-    href: '/en/formal-dresses',
-    cta: 'View collection',
-    icon: 'Sparkles',
-  },
-  {
     title: 'Event decorations',
     price: 'from 0.50 €',
     description: 'Rent mirrors, vases, or let us handle the complete setup for your party.',
-    href: '/en/decor-rental',
+    href: '/en/decorations',
     cta: 'Decorations catalog',
     icon: 'LayoutGrid',
   },

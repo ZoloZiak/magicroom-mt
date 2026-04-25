@@ -68,8 +68,7 @@ const categories = getPartnerCategories(language);
                 </div>
                 <p class="text-muted-foreground mb-6 flex-1">{partner.description}</p>
                 <div class="mt-auto pt-4 border-t border-border/50 flex items-center justify-between">
-                   <Button variant="ghost" size="sm" className="px-0 group" href={partner.link} target="_blank" rel="noopener noreferrer">
-                      {isEn ? 'View work' : 'Pozrieť prácu'}
+                   <Button variant="ghost" size="sm" className="px-0 group" href={partner.link} target="_blank" rel="noopener noreferrer" aria-label={`${partner.name} (${isEn ? 'opens in a new tab' : 'otvorí sa v novom okne'})`}>                      {isEn ? 'View work' : 'Pozrieť prácu'}
                       <Icon name="ExternalLink" class="ml-2 h-4 w-4" />
                    </Button>
                    <span class="text-xs text-muted-foreground italic">Martin & okolie</span>
