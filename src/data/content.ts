@@ -283,7 +283,8 @@ export function getDecorCategories(lang: Language) {
       if (item.image) {
         const extensions = ['.jpg', '.jpeg', '.png', '.webp', '.JPG', '.JPEG', '.PNG', '.WEBP'];
         for (const ext of extensions) {
-          const img = getDynamicImage(galleryImages, item.image + ext);
+          const img = getDynamicImage(decorImages, item.image + ext) || 
+                     getDynamicImage(galleryImages, item.image + ext);
           if (img) {
             imageAsset = img;
             break;
@@ -493,4 +494,6 @@ export const EXTRA_SERVICES = getExtraServices('sk');
 export const DECOR_CATEGORIES = getDecorCategories('sk');
 export const DECOR_POLICIES = getDecorPolicies('sk');
 export const CONTACT_FAQS = getContactFaqs('sk');
+export const GALLERY_ITEMS = getGalleryItems('sk');
+const CONTACT_FAQS = getContactFaqs('sk');
 export const GALLERY_ITEMS = getGalleryItems('sk');

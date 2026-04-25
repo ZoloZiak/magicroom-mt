@@ -5,55 +5,58 @@
         "category": "Zrkadlá a uvítanie",
         "items": [
           { "name": "Veľké zrkadlo 72 × 163 cm s nápisom „Vitajte na našej svadbe\"", "price": "35 €", "image": "mirrors", "starred": true },
-          { "name": "Biele zrkadlo 70 × 90 cm na zasadací poriadok so svetielkami a stojanom", "price": "25 €", "image": "mirrors", "starred": true },
-          { "name": "Rámčeky s textom 10 × 12 cm (12 ks)", "price": "17.90 €", "starred": false },
-          { "name": "Drevený stojan na zrkadlo/tabuľu", "price": "10.90 €", "starred": false },
-          { "name": "Kovový skladací stojan / cca do 2-3kg", "price": "5.90 €", "starred": false }
+          { "name": "Biele zrkadlo 70 × 90 cm na zasadací poriadok so svetielkami a stojanom", "price": "25 €", "image": "mirrors", "starred": false },
+          { "name": "Zlatý rám na zasadací poriadok (bez výplne)", "price": "15 €", "image": "mirrors", "starred": false },
+          { "name": "Rámčeky s textom 10 × 12 cm (12 ks)", "price": "18 €", "starred": false },
+          { "name": "Drevený stojan (štafle) na zrkadlo/tabuľu", "price": "10 €", "starred": false }
         ]
       },
       {
-        "category": "Iné",
+        "category": "Stolovanie a textil",
         "items": [
-          { "name": "Zlatý príbor (3-dielny set 70ks)", "price": "1 € / set", "image": "dark-detail-2", "starred": true },
+          { "name": "Klubové dekoračné taniere (zlaté/sklenené)", "price": "od 1,50 € / ks", "image": "tableware", "starred": false },
+          { "name": "Zlatý príbor (4-dielny set)", "price": "1 € / set", "image": "tableware", "starred": true },
           { "name": "Látkové obrúsky (rôzne farby)", "price": "od 0,40 € / ks", "starred": false },
-          { "name": "Umelé vázy zlaté + umelé kvety (4ks)", "price": "19.90 € / 4 ks", "starred": false },
-          { "name": "Tácka na svadobné prstienky s drevenou krabičkou", "price": "7.90 € / set", "starred": false },
-          { "name": "Svadobný smetár a metlička", "price": "4.90 € / set", "starred": false }
+          { "name": "Šifónové štóly na stred stola", "price": "3,50 € / ks", "starred": false },
+          { "name": "Okrúhle obrusy (biely satén/mat)", "price": "10 € / ks", "starred": false }
         ]
       },
       {
         "category": "Vázy a svietniky",
         "items": [
-          { "name": "Tenké zlaté svietniky / 18ks ", "price": "1.70 € / ks", "starred": false },
-          { "name": "Sklenené vázy rôznych tvarov ", "price": "od 0,60 € / ks", "starred": false }
+          { "name": "Vysoké zlaté svietniky (5-ramenné)", "price": "8 € / ks", "starred": false },
+          { "name": "Zlaté valcové svietniky (set 3 ks)", "price": "5 €", "starred": false },
+          { "name": "Sklenené vázy rôznych tvarov", "price": "od 0,60 € / ks", "starred": false },
+          { "name": "Plávajúce sviečky v skle (set 3 ks)", "price": "4 €", "starred": false },
+          { "name": "Lucerny (biele/strieborné/drevené)", "price": "od 3 € / ks", "starred": false }
         ]
       },
       {
         "category": "Slávnostné sedenie",
         "items": [
-          { "name": "Návleky na stoličky (univerzálne biele)", "price": "1,10 € / ks", "starred": false },
-          { "name": "Mašle na stoličky (šifón/satén/jutovina)", "price": "od 0,50 € / ks", "starred": false }
+          { "name": "Chiavari stoličky (biele/zlaté)", "price": "od 3,50 € / ks", "starred": false },
+          { "name": "Návleky na stoličky (univerzálne biele)", "price": "1,20 € / ks", "starred": false },
+          { "name": "Mašle na stoličky (šifón/satén/jutovina)", "price": "od 0,50 € / ks", "starred": false },
+          { "name": "Okrúhle stoly (pre 8-10 osôb)", "price": "15 € / ks", "starred": false }
         ]
       },
       {
         "category": "Candy bar a doplnky",
         "items": [
-          { "name": "Candy bar balík (kliešte, tácky, schody)", "price": "19.90 €", "starred": true },
-          { "name": "Drevené čísla na stoly 1–10", "price": "4.90 €", "starred": false },
-          { "name": "Košíky prvej pomoci", "price": "od 2 €", "starred": false },
-          { "name": "Personalizované poháre pre mladomanželov", "price": "od 24.90 € / pár", "starred": true },
-          { "name": "Personalizované župany", "price": "od 19.90 € / pár", "starred": false },
-          { "name": "Personalizované tričká / nevesta, družička..", "price": "od 14.90 € / ks", "starred": true },
-          { "name": "Drevené číslovanie stolov (1-8)", "price": "5.90 € / set", "starred": false },
-          { "name": "Svadobné čisto biele podbradníky 2ks (nápis - nevesta/ženích)", "price": "8.90 €", "starred": false }
+          { "name": "Candy bar balík (podnosy, kliešte, nádoby)", "price": "20 €", "starred": true },
+          { "name": "Drevené čísla na stoly 1–10", "price": "5 €", "starred": false },
+          { "name": "Košíky na výslužky/program", "price": "od 2 €", "starred": false },
+          { "name": "Personalizované poháre pre mladomanželov", "price": "od 15 € / pár", "starred": false }
         ]
       },
       {
         "category": "Kulisy a fotokútik",
         "items": [
           { "name": "Svadobná kulisa so závesmi a svetielkami (3 m)", "price": "35 €", "image": "wedding-backdrop", "starred": true },
-          { "name": "Rekvizity do fotokútika na objednávku (set)", "price": "18.90 €", "starred": false },
-          { "name": "Zapichovacie drevené šípky „Svadba\"", "price": "24.90 €", "image": "wedding-arrows", "starred": false }
+          { "name": "Kruhový kovový oblúk (priemer 2 m)", "price": "30 €", "starred": false },
+          { "name": "Fotostena (kvetinová/trblietavá)", "price": "od 50 €", "starred": false },
+          { "name": "Rekvizity do fotokútika (set)", "price": "10 €", "starred": false },
+          { "name": "Zapichovacie drevené šípky „Svadba\"", "price": "25 €", "image": "wedding-arrows", "starred": false }
         ]
       }
     ],
@@ -61,72 +64,75 @@
       "Ku každej objednávke sa účtuje vratná záloha podľa hodnoty zapožičaných položiek.",
       "Pri oneskorenom vrátení si účtujeme 20 % z ceny nájmu za každý deň omeškania.",
       "Dekorácie sú určené na opakované používanie, preto prosíme o šetrné zaobchádzanie.",
-      "Text na mieru na zrkadlá/tabule vieme pripraviť od 4.90 € / položka."
+      "Text na mieru na zrkadlá/tabule vieme pripraviť za +5 € / položka."
     ]
   },
   "en": {
     "categories": [
       {
-        "category": "Mirrors and Welcome Signs",
+        "category": "Mirrors & Welcome",
         "items": [
-          { "name": "Large mirror 72 × 163 cm with 'Welcome to our wedding' inscription", "price": "35 €", "image": "mirrors", "starred": true },
-          { "name": "White mirror 70 × 90 cm for seating chart with fairy lights and stand", "price": "25 €", "image": "mirrors", "starred": true },
-          { "name": "Small frames with text 10 × 12 cm (12 pcs)", "price": "17.90 €", "starred": false },
-          { "name": "Wooden easel/stand for mirror or board", "price": "10.90 €", "starred": false },
-          { "name": "Metal folding stand / approx. up to 2-3kg", "price": "5.90 €", "starred": false }
+          { "name": "Large mirror 72 × 163 cm with \"Welcome to Our Wedding\" text", "price": "35 €", "image": "mirrors", "starred": true },
+          { "name": "White mirror 70 × 90 cm for seating chart with fairy lights and stand", "price": "25 €", "image": "mirrors", "starred": false },
+          { "name": "Gold frame for seating chart (frame only)", "price": "15 €", "image": "mirrors", "starred": false },
+          { "name": "Text frames 10 × 12 cm (12 pcs)", "price": "18 €", "starred": false },
+          { "name": "Wooden easel for mirror/board", "price": "10 €", "starred": false }
         ]
       },
       {
-        "category": "Other",
+        "category": "Dining & Textiles",
         "items": [
-          { "name": "Gold cutlery (3-piece set, 70 sets)", "price": "1 € / set", "image": "tableware", "starred": true },
+          { "name": "Charger plates (gold/glass)", "price": "from 1.50 € / pc", "image": "tableware", "starred": false },
+          { "name": "Gold cutlery (4-piece set)", "price": "1 € / set", "image": "tableware", "starred": true },
           { "name": "Fabric napkins (various colors)", "price": "from 0.40 € / pc", "starred": false },
-          { "name": "Gold decorative vases + artificial flowers (4pcs)", "price": "19.90 € / 4 pcs", "starred": false },
-          { "name": "Wedding ring tray with wooden box", "price": "7.90 € / set", "starred": false },
-          { "name": "Wedding dustpan and brush set", "price": "4.90 € / set", "starred": false }
+          { "name": "Chiffon table runners", "price": "3.50 € / pc", "starred": false },
+          { "name": "Round tablecloths (white satin/matte)", "price": "10 € / pc", "starred": false }
         ]
       },
       {
-        "category": "Vases and Candle Holders",
+        "category": "Vases & Candelabras",
         "items": [
-          { "name": "Slim gold candle holders / 18pcs", "price": "1.70 € / pc", "starred": false },
-          { "name": "Glass vases of various shapes", "price": "from 0.60 € / pc", "starred": false }
+          { "name": "Tall gold candelabras (5-arm)", "price": "8 € / pc", "starred": false },
+          { "name": "Gold cylinder candle holders (set of 3)", "price": "5 €", "starred": false },
+          { "name": "Glass vases of various shapes", "price": "from 0.60 € / pc", "starred": false },
+          { "name": "Floating candles in glass (set of 3)", "price": "4 €", "starred": false },
+          { "name": "Lanterns (white/silver/wooden)", "price": "from 3 € / pc", "starred": false }
         ]
       },
       {
-        "category": "Ceremonial Seating",
+        "category": "Seating",
         "items": [
-          { "name": "Chair covers (universal white)", "price": "1.10 € / pc", "starred": false },
-          { "name": "Chair bows (chiffon/satin/burlap)", "price": "from 0.50 € / pc", "starred": false }
+          { "name": "Chiavari chairs (white/gold)", "price": "from 3.50 € / pc", "starred": false },
+          { "name": "Chair covers (universal white)", "price": "1.20 € / pc", "starred": false },
+          { "name": "Chair bows (chiffon/satin/jute)", "price": "from 0.50 € / pc", "starred": false },
+          { "name": "Round tables (for 8-10 people)", "price": "15 € / pc", "starred": false }
         ]
       },
       {
-        "category": "Candy Bar and Accessories",
+        "category": "Candy Bar & Accessories",
         "items": [
-          { "name": "Candy bar package (tongs, trays, display steps)", "price": "19.90 €", "starred": true },
-          { "name": "Wooden table numbers 1–10", "price": "4.90 €", "starred": false },
-          { "name": "First aid baskets", "price": "from 2 €", "starred": false },
-          { "name": "Personalized glasses for the newlyweds", "price": "from 24.90 € / pair", "starred": true },
-          { "name": "Personalized robes", "price": "from 19.90 € / pair", "starred": false },
-          { "name": "Personalized t-shirts / bride, bridesmaid..", "price": "from 14.90 € / pc", "starred": true },
-          { "name": "Wooden table numbering (1-8)", "price": "5.90 € / set", "starred": false },
-          { "name": "Pure white wedding bibs 2pcs (Bride/Groom inscription)", "price": "8.90 €", "starred": false }
+          { "name": "Candy bar package (trays, tongs, jars)", "price": "20 €", "starred": true },
+          { "name": "Wooden table numbers 1–10", "price": "5 €", "starred": false },
+          { "name": "Gift/program baskets", "price": "from 2 €", "starred": false },
+          { "name": "Personalized glasses for newlyweds", "price": "from 15 € / pair", "starred": false }
         ]
       },
       {
-        "category": "Backdrops and Photo Booth",
+        "category": "Backdrops & Photo Booth",
         "items": [
-          { "name": "Wedding backdrop with curtains and fairy lights (3 m)", "price": "35 €", "image": "wedding-backdrop", "starred": true },
-          { "name": "Photo booth props made to order (set)", "price": "18.90 €", "starred": false },
-          { "name": "Wooden 'Wedding' directional arrows", "price": "24.90 €", "image": "wedding-arrows", "starred": false }
+          { "name": "Wedding backdrop with drapes and fairy lights (3 m)", "price": "35 €", "image": "wedding-backdrop", "starred": true },
+          { "name": "Circular metal arch (2 m diameter)", "price": "30 €", "starred": false },
+          { "name": "Photo wall (floral/shimmer)", "price": "from 50 €", "starred": false },
+          { "name": "Photo booth props (set)", "price": "10 €", "starred": false },
+          { "name": "Wooden decorative arrows \"Wedding\"", "price": "25 €", "image": "wedding-arrows", "starred": false }
         ]
       }
     ],
     "policies": [
-      "A refundable deposit is charged for each order based on the value of the rented items.",
-      "In case of late return, we charge 20% of the rental price for each day of delay.",
-      "Decorations are intended for repeated use, so please handle them with care.",
-      "Custom text for mirrors/boards can be prepared from 4.90 € / item."
+      "A refundable deposit is charged based on the value of borrowed items.",
+      "For late returns, we charge 20% of the rental price per day of delay.",
+      "Decorations are intended for repeated use, so please handle them carefully.",
+      "Custom text for mirrors/boards can be prepared for +5 € / item."
     ]
   }
 }
