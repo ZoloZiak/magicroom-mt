@@ -110,7 +110,7 @@ const DECOR_POLICIES = getDecorPolicies(language);
           {DECOR_CATEGORIES.map((cat) => (
             <div class="bg-card p-8 rounded-[32px] shadow-sm border border-border/50 h-full">
               {cat.category && <h3 class="text-xl font-bold mb-4">{cat.category}</h3>}
-              <div class="space-y-4">
+              <ul class="space-y-4">
                 {cat.items.map((item) => (
                   <li class="rounded-xl transition-colors group/item">
                     {item.imageAsset ? (
