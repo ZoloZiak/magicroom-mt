@@ -133,7 +133,7 @@ const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňt
       <p class="text-sm leading-6 text-muted-foreground">
         {labels.altContact}
         <a href={PHONE_HREF} data-ga-category="contact" data-ga-action="phone_click" data-ga-label={`booking_form_alt_phone_${language}`} class="font-semibold text-primary underline-offset-4 hover:underline"> {labels.phoneLabel}</a>,
-        <a href={WHATSAPP_URL} data-ga-category="contact" data-ga-action="whatsapp_click" data-ga-label={`booking_form_alt_whatsapp_${language}`} class="font-semibold text-primary underline-offset-4 hover:underline" target="_blank" rel="noopener noreferrer"> {labels.whatsappLabel}</a>
+        <a href={WHATSAPP_URL} data-ga-category="contact" data-ga-action="whatsapp_click" data-ga-label={`booking_form_alt_whatsapp_${language}`} class="font-semibold text-primary underline-offset-4 hover:underline" target="_blank" rel="noopener noreferrer" aria-label={`${labels.whatsappLabel} (otvorí sa v novom okne)`}> {labels.whatsappLabel}</a>
         {isEn ? ' or ' : ' alebo '}
         <a href={EMAIL_HREF} data-ga-category="contact" data-ga-action="email_click" data-ga-label={`booking_form_alt_email_${language}`} class="font-semibold text-primary underline-offset-4 hover:underline"> {labels.emailLabel} {EMAIL}</a>.
       </p>
@@ -143,106 +143,108 @@ const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňt
       </Button>
     </div>
 
-    <p class="hidden rounded-2xl border border-success/30 bg-success/10 px-4 py-3 text-sm text-foreground" data-booking-status aria-live="polite"></p>
-    <div class="hidden" data-booking-whatsapp>
-      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" data-ga-category="contact" data-ga-action="whatsapp_click" data-ga-label={`booking_form_whatsapp_success_${language}`} class="inline-flex items-center gap-2 rounded-2xl bg-[#25D366] px-5 py-3 text-sm font-medium text-white hover:bg-[#20BD5A]">
+    <div class="hidden rounded-2xl border border-success/30 bg-success/10 px-4 py-8 text-center" data-booking-status aria-live="polite"></div>
+    <div class="hidden justify-center mt-6" data-booking-whatsapp>
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" data-ga-category="contact" data-ga-action="whatsapp_click" data-ga-label={`booking_form_whatsapp_success_${language}`} class="inline-flex items-center gap-2 rounded-2xl bg-[#25D366] px-8 py-4 text-base font-bold text-white hover:bg-[#20BD5A] shadow-lg transition-transform hover:-translate-y-1" aria-label={`${labels.successWhatsapp} (otvorí sa v novom okne)`}>
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         {labels.successWhatsapp}
       </a>
     </div>
   </form>
 </section>
 
-<script>
-  const forms = document.querySelectorAll('[data-booking-form]');
+<script is:inline define:vars={{ labels, language, WHATSAPP_BASE_URL }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const forms = document.querySelectorAll('[data-booking-form]');
 
-  forms.forEach((form) => {
-    const status = form.querySelector('[data-booking-status]');
-    const button = form.querySelector('button[type="submit"]');
-    const whatsappSection = form.querySelector('[data-booking-whatsapp]');
-    const whatsappLink = whatsappSection?.querySelector('a');
+    forms.forEach((form) => {
+      const status = form.querySelector('[data-booking-status]');
+      const button = form.querySelector('button[type="submit"]');
+      const whatsappSection = form.querySelector('[data-booking-whatsapp]');
+      const whatsappLink = whatsappSection?.querySelector('a');
 
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-      const formData = new FormData(form);
-      const entries = Object.fromEntries(formData.entries());
+        const formData = new FormData(form);
+        const entries = Object.fromEntries(formData.entries());
 
-      if (button) {
-        button.setAttribute('disabled', 'true');
-        button.setAttribute('aria-busy', 'true');
-        const originalText = button.textContent;
-        button.innerHTML = `<svg class="mr-2 h-4 w-4 animate-spin inline" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> <span>${labels.submitting}</span>`;
-      }
+        if (button) {
+          button.setAttribute('disabled', 'true');
+          button.setAttribute('aria-busy', 'true');
+          button.innerHTML = `<svg class="mr-2 h-4 w-4 animate-spin inline" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> <span>${labels.submitting}</span>`;
+        }
 
-      try {
-        const response = await fetch('/api/booking', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(entries),
-        });
+        try {
+          const response = await fetch('/api/booking', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(entries),
+          });
 
-        const result = await response.json();
+          const result = await response.json();
 
-        if (response.ok && result.success) {
-          // Hide fields and show success message
-          const fieldset = form.querySelector('fieldset');
-          const footerActions = form.querySelector('.flex.flex-col.gap-4');
-          const infoBox = form.querySelector('.mt-8.rounded-2xl');
-          
-          if (fieldset) fieldset.style.display = 'none';
-          if (footerActions) footerActions.style.display = 'none';
-          if (infoBox) infoBox.style.display = 'none';
+          if (response.ok && result.success) {
+            // Hide fields and show success message
+            const fieldset = form.querySelector('fieldset');
+            const footerActions = form.querySelector('.flex.flex-col.gap-4');
+            const infoBox = form.querySelector('.mt-8.rounded-2xl');
+            
+            if (fieldset) fieldset.style.display = 'none';
+            if (footerActions) footerActions.style.display = 'none';
+            if (infoBox) infoBox.style.display = 'none';
 
+            if (status) {
+              status.classList.remove('hidden');
+              status.classList.remove('border-destructive/30', 'bg-destructive/10');
+              status.classList.add('border-success/30', 'bg-success/10');
+              status.innerHTML = `<div class="mb-4 text-3xl">✅</div> <div class="text-xl font-bold">${labels.success}</div>`;
+              status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            // Track successful booking form submission
+            if (typeof window.trackEvent === 'function') {
+              window.trackEvent('conversion', 'booking_form_success', `booking_submitted_${language}`, 1);
+            }
+
+            const lines = [
+              labels.whatsappLines.intro,
+              '',
+              `${labels.whatsappLines.name}: ${entries.name ?? ''}`,
+              `${labels.whatsappLines.phone}: ${entries.phone ?? ''}`,
+              `${labels.whatsappLines.email}: ${entries.email ?? ''}`,
+              `${labels.whatsappLines.interest}: ${entries.service ?? ''}`,
+            ];
+            if (entries.date) lines.push(`${labels.whatsappLines.date}: ${entries.date}`);
+            if (entries.time) lines.push(`${labels.whatsappLines.time}: ${entries.time}`);
+            if (entries.note) lines.push(`${labels.whatsappLines.note}: ${entries.note}`);
+
+            if (whatsappLink) {
+              const url = new URL(WHATSAPP_BASE_URL);
+              url.searchParams.set('text', lines.join('\n'));
+              whatsappLink.href = url.toString();
+              whatsappSection?.classList.remove('hidden');
+              whatsappSection?.classList.add('flex');
+            }
+          } else {
+            throw new Error(result.error || labels.error);
+          }
+        } catch (err) {
+          console.error('Form error:', err);
           if (status) {
             status.classList.remove('hidden');
-            status.classList.remove('border-destructive/30', 'bg-destructive/10');
-            status.classList.add('border-success/30', 'bg-success/10', 'p-8', 'text-center', 'text-lg');
-            status.innerHTML = `<div class="mb-4 text-3xl">✅</div> <div>${labels.success}</div>`;
-            status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            status.classList.remove('border-success/30', 'bg-success/10');
+            status.classList.add('border-destructive/30', 'bg-destructive/10', 'p-4');
+            status.textContent = err.message || labels.networkError;
           }
-
-          // Track successful booking form submission
-          if (typeof window.trackEvent === 'function') {
-            window.trackEvent('conversion', 'booking_form_success', `booking_submitted_${language}`, 1);
+        } finally {
+          if (button) {
+            button.removeAttribute('disabled');
+            button.removeAttribute('aria-busy');
+            button.textContent = labels.submit;
           }
-
-          const lines = [
-            labels.whatsappLines.intro,
-            '',
-            `${labels.whatsappLines.name}: ${entries.name ?? ''}`,
-            `${labels.whatsappLines.phone}: ${entries.phone ?? ''}`,
-            `${labels.whatsappLines.email}: ${entries.email ?? ''}`,
-            `${labels.whatsappLines.interest}: ${entries.service ?? ''}`,
-          ];
-          if (entries.date) lines.push(`${labels.whatsappLines.date}: ${entries.date}`);
-          if (entries.time) lines.push(`${labels.whatsappLines.time}: ${entries.time}`);
-          if (entries.note) lines.push(`${labels.whatsappLines.note}: ${entries.note}`);
-
-          if (whatsappLink) {
-            const url = new URL(WHATSAPP_BASE_URL);
-            url.searchParams.set('text', lines.join('\n'));
-            whatsappLink.href = url.toString();
-            whatsappSection?.classList.remove('hidden');
-            whatsappSection?.classList.add('flex', 'justify-center', 'mt-6');
-          }
-        } else {
-          throw new Error(result.error || labels.error);
         }
-      } catch (err) {
-        console.error('Form error:', err);
-        if (status) {
-          status.classList.remove('hidden');
-          status.classList.remove('border-success/30', 'bg-success/10');
-          status.classList.add('border-destructive/30', 'bg-destructive/10');
-          status.textContent = err instanceof Error ? err.message : labels.networkError;
-        }
-      }
-
-      if (button) {
-        button.removeAttribute('disabled');
-        button.removeAttribute('aria-busy');
-        button.textContent = labels.submit;
-      }
+      });
     });
   });
 </script>
