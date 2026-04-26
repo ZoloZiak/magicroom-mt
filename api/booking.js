@@ -1,4 +1,12 @@
+import { Resend } from 'resend';
+
+/**
+ * Native Vercel Serverless Function
+ * Handles booking form submissions via Resend API.
+ * This bypasses Astro routing to ensure 100% stability for POST requests on Vercel.
+ */
 export default async function handler(req, res) {
+  // Set CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -8,14 +16,19 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
+  if (req.method !== 'POST') {
+    return res.status(405).json({ success: false, error: 'Method not allowed' });
+  }
+
   try {
-    const data = req.body;
-    const { name, phone, email, service, date, time, note } = data;
+    const { name, phone, email, service, date, time, note } = req.body;
     const apiKey = process.env.RESEND_API_KEY;
 
     if (!apiKey) {
-      return res.status(200).json({ success: false, error: 'API key missing' });
+      return res.status(503).json({ success: false, error: 'Email service configuration missing' });
     }
+
+    const resend = new Resend(apiKey);
 
     const html = `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 12px; background-color: #fff;">
@@ -35,30 +48,23 @@ export default async function handler(req, res) {
       </div>
     `;
 
-    const resendResponse = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
-      },
-      body: JSON.stringify({
-        from: 'MagicRoom <rezervacie@magicroom.sk>',
-        to: 'mt.magicroom@gmail.com',
-        reply_to: email,
-        subject: `Rezervácia: ${name} (${service})`,
-        html
-      })
+    const { data, error } = await resend.emails.send({
+      from: 'MagicRoom <rezervacie@magicroom.sk>',
+      to: ['mt.magicroom@gmail.com'],
+      reply_to: email,
+      subject: `Rezervácia: ${name} (${service})`,
+      html
     });
 
-    const resendResult = await resendResponse.json();
-
-    if (!resendResponse.ok) {
-      return res.status(200).json({ success: false, error: resendResult.message });
+    if (error) {
+      console.error('Resend error:', error);
+      return res.status(500).json({ success: false, error: error.message });
     }
 
-    return res.status(200).json({ success: true, id: resendResult.id });
+    return res.status(200).json({ success: true, id: data?.id });
 
   } catch (err) {
-    return res.status(200).json({ success: false, error: err.message });
+    console.error('API critical error:', err);
+    return res.status(500).json({ success: false, error: 'Internal server error' });
   }
 }
