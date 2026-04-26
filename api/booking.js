@@ -1,7 +1,7 @@
-const { Resend } = require('resend');
+import { Resend } from 'resend';
 
-module.exports = async (req, res) => {
-  // CORS hlavičky
+export default async function handler(req, res) {
+  // CORS hlavičky pre istotu
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
@@ -24,24 +24,27 @@ module.exports = async (req, res) => {
     const apiKey = process.env.RESEND_API_KEY;
 
     if (!apiKey) {
-      return res.status(503).json({ error: 'Email configuration missing on server' });
+      console.error('API Error: RESEND_API_KEY is missing');
+      return res.status(503).json({ error: 'Konfigurácia emailov na serveri chýba.' });
     }
 
     const resend = new Resend(apiKey);
 
     const html = `
-      <div style="font-family: sans-serif; padding: 20px;">
-        <h2>Nová rezervácia (Vercel Native API)</h2>
+      <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+        <h2 style="color: #c08497;">Nová rezervácia — magicroom.sk</h2>
         <p><strong>Meno:</strong> ${name}</p>
         <p><strong>Telefón:</strong> ${phone}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Služba:</strong> ${service}</p>
         <p><strong>Dátum/Čas:</strong> ${date || '-'} / ${time || '-'}</p>
         <p><strong>Poznámka:</strong> ${note || '-'}</p>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
+        <p style="color: #888; font-size: 12px;">Odoslané z natívnej Vercel funkcie</p>
       </div>
     `;
 
-    const result = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: 'MagicRoom <rezervacie@magicroom.sk>',
       to: ['mt.magicroom@gmail.com'],
       replyTo: email,
@@ -49,12 +52,14 @@ module.exports = async (req, res) => {
       html,
     });
 
-    if (result.error) {
-      return res.status(500).json({ error: result.error.message });
+    if (error) {
+      console.error('Resend error:', error);
+      return res.status(500).json({ error: error.message });
     }
 
     return res.status(200).json({ success: true });
-  } catch (error) {
-    return res.status(500).json({ error: error.message });
+  } catch (err) {
+    console.error('Critical error:', err);
+    return res.status(500).json({ error: err.message });
   }
-};
+}
