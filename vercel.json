@@ -1,0 +1,15 @@
+{
+  "rewrites": [
+    { "source": "/o-nas", "destination": "/sk/o-nas" },
+    { "source": "/sluzby", "destination": "/sk/sluzby" },
+    { "source": "/svadobne-saty", "destination": "/sk/svadobne-saty" },
+    { "source": "/spolocenske-saty", "destination": "/sk/spolocenske-saty" },
+    { "source": "/galeria", "destination": "/sk/galeria" },
+    { "source": "/blog", "destination": "/sk/blog" },
+    { "source": "/blog/:slug", "destination": "/sk/blog/:slug" },
+    { "source": "/komisny-predaj", "destination": "/sk/komisny-predaj" },
+    { "source": "/prenajom-dekoracii", "destination": "/sk/prenajom-dekoracii" },
+    { "source": "/partneri", "destination": "/sk/partneri" },
+    { "source": "/kontakt", "destination": "/sk/kontakt" }
+  ]
+}
