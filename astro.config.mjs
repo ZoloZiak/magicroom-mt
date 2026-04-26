@@ -9,7 +9,7 @@ import path from 'path';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.magicroom.sk',
-  output: 'server',
+  output: 'static',
   adapter: vercel(),
 
   image: {
