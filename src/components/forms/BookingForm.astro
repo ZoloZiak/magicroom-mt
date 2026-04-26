@@ -176,7 +176,7 @@ const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňt
         }
 
         try {
-          const response = await fetch('/api/booking', {
+          const response = await fetch('/api/booking.json', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(entries),
