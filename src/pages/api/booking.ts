@@ -1,85 +1,97 @@
 /**
  * API Endpoint: /api/booking
  * Handles POST requests for salon bookings via Resend email service.
- * Used for integrations where standard form actions are not applicable.
  */
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 import { bookingFormSchema } from '@/lib/schemas';
 
 export const prerender = false;
-// export const runtime = 'edge';  // disabled: Resend SDK compatibility
-
-const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
 
 export const POST: APIRoute = async ({ request }) => {
   try {
-    const data = await request.json();
+    // 1. Log request start
+    console.log('Booking API: Received request');
 
-    // Zod validation
-    const result = bookingFormSchema.safeParse(data);
-    if (!result.success) {
-      const errors = result.error.flatten().fieldErrors;
+    // 2. Safely parse JSON
+    let data;
+    try {
+      data = await request.json();
+    } catch (e) {
+      console.error('Booking API: Failed to parse JSON', e);
       return new Response(
-        JSON.stringify({ error: errors.name?.[0] || errors.phone?.[0] || errors.email?.[0] || 'Neplatné údaje' }),
+        JSON.stringify({ error: 'Neplatný formát dát (JSON error)' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    // Check if API key is configured
-    if (!RESEND_API_KEY) {
-      console.error('RESEND_API_KEY not configured');
+    // 3. Zod validation
+    const result = bookingFormSchema.safeParse(data);
+    if (!result.success) {
+      const errors = result.error.flatten().fieldErrors;
+      const firstError = Object.values(errors).flat()[0] || 'Neplatné údaje';
       return new Response(
-        JSON.stringify({ error: 'Email služba nie je nakonfigurovaná. Zavolajte nám na +421 950 490 323.' }),
+        JSON.stringify({ error: firstError }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // 4. Check for API key (using both import.meta.env and process.env for max compatibility)
+    const apiKey = import.meta.env.RESEND_API_KEY || (process && process.env ? process.env.RESEND_API_KEY : undefined);
+    
+    if (!apiKey || apiKey === 're_...') {
+      console.error('Booking API: RESEND_API_KEY is missing or placeholder');
+      return new Response(
+        JSON.stringify({ error: 'Email služba nie je nakonfigurovaná. Kontaktujte nás telefonicky.' }),
         { status: 503, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    const resend = new Resend(RESEND_API_KEY);
-
+    // 5. Initialize Resend and send
+    const resend = new Resend(apiKey);
     const { name, phone, email, service, date, time, note } = data;
 
-    const dateLine = date ? `\nPreferovaný dátum: ${date}` : '';
-    const timeLine = time ? `\nPreferovaný čas: ${time}` : '';
-    const noteLine = note ? `\nPoznámka: ${note}` : '';
-
     const html = `
-      <h2>Nová správa z magicroom.sk</h2>
-      ${name ? `<p><strong>Meno:</strong> ${name}</p>` : ''}
-      ${phone ? `<p><strong>Telefón:</strong> ${phone}</p>` : ''}
-      ${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}
-      ${service ? `<p><strong>Služba:</strong> ${service}</p>` : ''}
-      ${date ? `<p><strong>Dátum:</strong> ${date}</p>` : ''}
-      ${time ? `<p><strong>Čas:</strong> ${time}</p>` : ''}
-      ${note ? `<p><strong>Poznámka:</strong> ${note}</p>` : ''}
-      <p style="margin-top:16px;color:#666;font-size:13px;">Odoslané z magicroom.sk</p>
+      <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+        <h2 style="color: #c08497; border-bottom: 2px solid #f9f4f5; padding-bottom: 10px;">Nová rezervácia — magicroom.sk</h2>
+        <p><strong>Meno:</strong> ${name}</p>
+        <p><strong>Telefón:</strong> ${phone}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Služba:</strong> ${service}</p>
+        ${date ? `<p><strong>Dátum:</strong> ${date}</p>` : ''}
+        ${time ? `<p><strong>Čas:</strong> ${time}</p>` : ''}
+        ${note ? `<p><strong>Poznámka:</strong> ${note}</p>` : ''}
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
+        <p style="color: #888; font-size: 12px; text-align: center;">Odoslané z rezervačného systému magicroom.sk</p>
+      </div>
     `;
 
-    const { error: sendError } = await resend.emails.send({
+    const { data: sendData, error: sendError } = await resend.emails.send({
       from: 'MagicRoom <rezervacie@magicroom.sk>',
       to: ['mt.magicroom@gmail.com'],
       replyTo: email,
       subject: `Rezervácia: ${name} — ${service}`,
       html,
-      text: `Nová rezervácia z magicroom.sk\n\nMeno: ${name}\nTelefón: ${phone}\nEmail: ${email}\nSlužba: ${service}${dateLine}${timeLine}${noteLine}`,
     });
 
     if (sendError) {
-      console.error('Resend error:', sendError);
+      console.error('Booking API: Resend error:', sendError);
       return new Response(
-        JSON.stringify({ error: 'E-mail sa nepodarilo odoslať. Skúste WhatsApp alebo nám zavolajte.' }),
+        JSON.stringify({ error: 'Chyba pri odosielaní emailu. Skúste WhatsApp.' }),
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
+    console.log('Booking API: Success!', sendData?.id);
     return new Response(
-      JSON.stringify({ success: true, message: 'Rezervácia bola odoslaná.' }),
+      JSON.stringify({ success: true, message: 'Rezervácia odoslaná' }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
+
   } catch (error) {
-    console.error('Booking API critical error:', error);
+    console.error('Booking API: Critical failure:', error);
     return new Response(
-      JSON.stringify({ error: 'Niečo sa pokazilo. Skúste to znova alebo nám zavolajte.' }),
+      JSON.stringify({ error: 'Interná chyba servera. Skúste nám zavolať.' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }
