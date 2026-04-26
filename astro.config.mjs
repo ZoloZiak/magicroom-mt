@@ -12,21 +12,6 @@ export default defineConfig({
   output: 'static',
   adapter: vercel(),
 
-  redirects: {
-    '/': '/sk/',
-    '/o-nas': '/sk/o-nas',
-    '/sluzby': '/sk/sluzby',
-    '/svadobne-saty': '/sk/svadobne-saty',
-    '/spolocenske-saty': '/sk/spolocenske-saty',
-    '/galeria': '/sk/galeria',
-    '/blog': '/sk/blog',
-    '/blog/:slug': '/sk/blog/:slug',
-    '/komisny-predaj': '/sk/komisny-predaj',
-    '/prenajom-dekoracii': '/sk/prenajom-dekoracii',
-    '/partneri': '/sk/partneri',
-    '/kontakt': '/sk/kontakt',
-  },
-
   image: {
     service: { entrypoint: 'astro/assets/services/sharp' }
   },
