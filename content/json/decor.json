@@ -30,7 +30,7 @@
         "category": "Slávnostné sedenie",
         "items": [
           { "name": "Návleky na stoličky (univerzálne biele)", "price": "1,10 € / ks", "starred": false },
-          { "name": "Mašle na stoličky (šifón/satén/jutovina)", "price": "od 0,50 € / ks", "starred": false },
+          { "name": "Mašle na stoličky", "price": "od 0,50 € / ks", "starred": false },
           { "name": "Okrúhle(pre 8-10 osôb)/Recepčné stoly", "price": "15-25 € / ks", "starred": false }
         ]
       },
