@@ -21,7 +21,7 @@
       {
         "category": "Vázy a svietniky",
         "items": [
-          { "name": "Zlaté svietniky (18 ks)", "price": "5 €", "starred": false },
+          { "name": "Zlaté svietniky (18 ks)", "price": "1,80 € / pc", "starred": false },
           { "name": "Sklenené vázy rôznych tvarov", "price": "od 0,60 € / ks", "starred": false },
           { "name": "Plávajúce sviečky v skle ", "price": "od 0,50 € / ks", "starred": false }
         ]
@@ -83,7 +83,7 @@
       {
         "category": "Vases & Candelabras",
         "items": [
-          { "name": "Gold candle holders (18)", "price": "5 €", "starred": false },
+          { "name": "Gold candle holders (18)", "price": "1.80 € / pc", "starred": false },
           { "name": "Glass vases of various shapes", "price": "from 0.60 € / pc", "starred": false },
           { "name": "Floating candles in glass", "price": "from 0-50€ / pc", "starred": false }
         ]
