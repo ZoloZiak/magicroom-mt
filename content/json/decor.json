@@ -48,7 +48,6 @@
         "category": "Kulisy a fotokútik",
         "items": [
           { "name": "Svadobná kulisa so závesmi a svetielkami (2-3 m)", "price": "35 €", "image": "wedding-backdrop", "starred": true },
-          { "name": "Kruhový kovový oblúk (priemer 2 m)", "price": "30 €", "starred": false },
           { "name": "Rekvizity do fotokútika (set na objednávku)", "price": "od 19.90 €", "starred": false },
           { "name": "Zapichovacie drevené šípky „Svadba, Svadba, Nevesta, Ženích/ 4ks set", "price": "24.90 €", "image": "wedding-arrows", "starred": false }
         ]
