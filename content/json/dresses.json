@@ -677,6 +677,23 @@
       "images": ["formal-marhula-02"]
     },
     {
+      "id": "formal-modra-20",
+      "name": "Ohnivá červená",
+      "name_en": "Fiery Red",
+      "description": "Krásne červené šaty s véčkovým výstrihom a rozparkom",
+      "description_en": "Beautiful red dress with a V-neckline and a side slit.",
+      "price": 72.90,
+      "size": "40",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "červená",
+      "style": "klasická",
+      "featured": false,
+      "details": "Čipka, perličky",
+      "images": ["formal-modra-20"]
+    },
+    {
       "id": "formal-cervena-01",
       "name": "Ohnivá červená",
       "name_en": "Fiery Red",
