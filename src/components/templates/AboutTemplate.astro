@@ -3,9 +3,7 @@ import { Image } from 'astro:assets';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
-import Sparkles from '@/components/layout/Sparkles.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
-import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
 import Badge from '@/components/ui/Badge.astro';
 import Button from '@/components/ui/Button.astro';
 import Card from '@/components/ui/Card.astro'
@@ -44,7 +42,7 @@ const operatingPrinciples = [
   {
     title: isEn ? 'Practical help' : 'Praktická pomoc s krásnym výsledkom',
     description: isEn ? 'Save time and enjoy.' : 'Šaty, dekorácie aj poradenstvo majú pomôcť ušetriť čas a spraviť deň harmonickejším, nie komplikovanejším.',
-    icon: 'Sparkles',
+    icon: 'Star',
   },
 ];
 ---
@@ -63,7 +61,6 @@ const operatingPrinciples = [
 
   <main class="flex-1">
     <section class="relative overflow-hidden bg-[linear-gradient(180deg,var(--color-gradient-start)_0%,var(--color-gradient-end)_100%)] pt-12 pb-16 md:pt-20 md:pb-24">
-      <Sparkles count={6} />
       <div class="container mx-auto px-4">
         <div class="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-center">
           <div class="max-w-2xl">
@@ -135,7 +132,7 @@ const operatingPrinciples = [
       </div>
     </section>
 
-    <DecorativeDivider variant="floral" />
+    <div class="border-t border-border/40"></div>
 
     <section class="bg-surface py-16 md:py-24">
       <div class="container mx-auto px-4">
@@ -158,7 +155,6 @@ const operatingPrinciples = [
     </section>
 
     <section class="bg-primary-900 py-20 text-white relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-1/4 h-full bg-accent/5 blur-3xl"></div>
       <div class="container relative mx-auto px-4">
         <div class="mx-auto max-w-4xl rounded-[30px] bg-accent/5 px-6 py-8 md:px-10 md:py-12 border border-accent/20">
           <div class="text-center mb-10">

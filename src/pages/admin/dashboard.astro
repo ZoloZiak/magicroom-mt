@@ -69,7 +69,7 @@ const recentBookings = (analytics.bookingSubmissions || []).slice(-5).reverse();
             <span class="font-medium">{todayBookings + todayWhatsApp + todayContacts} konverzií</span>
           </div>
           <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-            <div class="h-full bg-gradient-to-r from-pink-500 to-purple-500 rounded-full" style={`width: ${Math.min(100, (todayBookings + todayWhatsApp + todayContacts) * 20)}%`}></div>
+            <div class="h-full bg-pink-500 rounded-full" style={`width: ${Math.min(100, (todayBookings + todayWhatsApp + todayContacts) * 20)}%`}></div>
           </div>
         </div>
         <div class="space-y-2">
@@ -78,7 +78,7 @@ const recentBookings = (analytics.bookingSubmissions || []).slice(-5).reverse();
             <span class="font-medium">{weekBookings + weekWhatsApp + weekContacts} konverzií</span>
           </div>
           <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-            <div class="h-full bg-gradient-to-r from-pink-500 to-purple-500 rounded-full" style={`width: ${Math.min(100, (weekBookings + weekWhatsApp + weekContacts) * 10)}%`}></div>
+            <div class="h-full bg-pink-500 rounded-full" style={`width: ${Math.min(100, (weekBookings + weekWhatsApp + weekContacts) * 10)}%`}></div>
           </div>
         </div>
         <div class="space-y-2">
@@ -87,7 +87,7 @@ const recentBookings = (analytics.bookingSubmissions || []).slice(-5).reverse();
             <span class="font-medium">{monthBookings + monthWhatsApp + monthContacts} konverzií</span>
           </div>
           <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-            <div class="h-full bg-gradient-to-r from-pink-500 to-purple-500 rounded-full" style={`width: ${Math.min(100, (monthBookings + monthWhatsApp + monthContacts) * 3)}%`}></div>
+            <div class="h-full bg-pink-500 rounded-full" style={`width: ${Math.min(100, (monthBookings + monthWhatsApp + monthContacts) * 3)}%`}></div>
           </div>
         </div>
       </div>

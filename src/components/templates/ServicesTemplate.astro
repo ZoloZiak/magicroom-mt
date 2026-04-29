@@ -4,7 +4,6 @@ import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
-import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
 import Badge from '@/components/ui/Badge.astro';
 import Button from '@/components/ui/Button.astro';
 import Card from '@/components/ui/Card.astro'
@@ -45,7 +44,7 @@ const servicePillars = [
     description: isEn ? 'High quality dresses at student prices.' : 'Nové modely, dostupné kúsky aj komisný výber pre ženy, ktoré chcú dobrý pocit aj z rozpočtu.',
     cta: isEn ? 'Ask' : 'Napísať o výber',
     href: getBookingPageHref(language),
-    icon: 'Sparkles',
+    icon: 'Star',
   },
   {
     title: isEn ? 'Event Decorations' : 'Prenájom dekorácií',
@@ -103,7 +102,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
   <Header language={language} />
 
   <main class="flex-1">
-    <section class="bg-[linear-gradient(180deg,var(--color-gradient-start)_0%,var(--color-gradient-end)_100%)] py-16 md:py-20">
+    <section class="bg-surface py-16 md:py-20">
       <div class="container mx-auto px-4">
         <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div class="max-w-2xl">
@@ -139,7 +138,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
       </div>
     </section>
 
-    <DecorativeDivider variant="floral" />
+    <div class="border-t border-border/40"></div>
 
     <section class="py-16 md:py-24 bg-background">
       <div class="container mx-auto px-4">
@@ -152,7 +151,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
             <Card class={`border-0 bg-surface shadow-[var(--shadow-soft)] hover:shadow-xl transition-shadow animate-fade-in-up animate-stagger-${index+1}`}>
               <CardHeader>
                 <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-card shadow-sm text-primary">
-                  <Icon name={item.icon} class="h-6 w-6" />
+                  <Icon name={item.icon as any} class="h-6 w-6" />
                 </div>
                 {item.title && (
                   <CardTitle class="font-display text-2xl">
@@ -226,7 +225,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
             svc.link ? (
               <a href={getRelativeHref(svc.link, language)} class="flex items-start gap-4 rounded-2xl border border-border/50 p-6 transition-all hover:bg-surface hover:shadow-md hover:border-primary/20 group">
                 <div class="mt-1 shrink-0 rounded-full bg-primary/10 p-2 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                  <Icon name="Sparkles" class="h-4 w-4" />
+                  <Icon name="Star" class="h-4 w-4" />
                 </div>
                 <div>
                   <h4 class="font-semibold flex items-center gap-2">
@@ -240,7 +239,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
             ) : (
               <div class="flex items-start gap-4 rounded-2xl border border-border/50 p-6 transition-colors hover:bg-surface">
                 <div class="mt-1 shrink-0 rounded-full bg-primary/10 p-2 text-primary">
-                  <Icon name="Sparkles" class="h-4 w-4" />
+                  <Icon name="Star" class="h-4 w-4" />
                 </div>
                 <div>
                   <h4 class="font-semibold">{svc.title}</h4>

@@ -1,11 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import BookingForm from '@/components/forms/BookingForm.astro';
-import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
-import Sparkles from '@/components/layout/Sparkles.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
 import Badge from '@/components/ui/Badge.astro';
 import Button from '@/components/ui/Button.astro';
@@ -64,8 +62,7 @@ const howToSchema = {
   <Header language={language} />
 
   <main class="flex-1">
-    <section class="relative overflow-hidden bg-[linear-gradient(180deg,var(--color-gradient-start)_0%,var(--color-gradient-end)_100%)] pt-20">
-      <Sparkles count={6} />
+    <section class="relative overflow-hidden bg-surface pt-20">
       <div class="container mx-auto px-4 pb-14 pt-8 md:pb-24 md:pt-10">
         <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div class="max-w-2xl">
@@ -107,7 +104,6 @@ const howToSchema = {
                 height="900"
                 loading="eager"
               />
-              <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 -z-10 rounded-[24px]" aria-hidden="true"></div>
             </div>
 
             <div class="mt-5 grid gap-4 sm:grid-cols-2">
@@ -172,7 +168,7 @@ const howToSchema = {
       </div>
     </section>
 
-    <DecorativeDivider variant="floral" />
+    <div class="border-t border-border/40"></div>
 
     <section class="py-16 md:py-20 bg-background">
       <div class="container mx-auto px-4">

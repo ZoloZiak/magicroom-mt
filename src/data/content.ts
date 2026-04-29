@@ -99,7 +99,7 @@ export const HOME_OFFER_CARDS = [
     description: 'Nové modely aj komis za férové ceny.',
     href: '/svadobne-saty',
     cta: 'Pozrieť katalóg',
-    icon: 'Sparkles',
+    icon: 'Star',
   },
   {
     title: 'Spoločenské šaty',
@@ -107,7 +107,7 @@ export const HOME_OFFER_CARDS = [
     description: 'Šaty na stužkovú, ples, oslavu alebo akúkoľvek príležitosť.',
     href: '/spolocenske-saty',
     cta: 'Ponuka šiat',
-    icon: 'Sparkles',
+    icon: 'Star',
   },
   {
     title: 'Výzdoba a inventár',
@@ -142,7 +142,7 @@ export const HOME_OFFER_CARDS_EN = [
     description: 'Perfect for student balls, prom or gala events. Quality dresses at student-friendly prices.',
     href: '/en/formal-dresses',
     cta: 'View collection',
-    icon: 'Sparkles',
+    icon: 'Star',
   },
   {
     title: 'Formal dress fitting',
@@ -158,7 +158,7 @@ export const HOME_OFFER_CARDS_EN = [
     description: 'New models and consignment at fair prices. See them before visiting.',
     href: '/en/wedding-dresses',
     cta: 'View collection',
-    icon: 'Sparkles',
+    icon: 'Star',
   },
   {
     title: 'Event decorations',
@@ -174,7 +174,7 @@ export const HOME_OFFER_CARDS_EN = [
     description: 'Personalized glasses, t-shirts, robes and other handmade details.',
     href: '/en/services',
     cta: 'View accessories',
-    icon: 'Sparkles',
+    icon: 'Star',
   },
   {
     title: 'Wedding planning',

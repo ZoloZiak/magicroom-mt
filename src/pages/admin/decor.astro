@@ -23,7 +23,7 @@ const featuredCount = allItems.filter((item: any) => item.starred).length;
     <h1 class="text-3xl font-bold text-gray-900">🎀 Dekorácie</h1>
     <div class="flex items-center gap-4">
       <span class="text-sm text-gray-500">{featuredCount} vybraných</span>
-      <button type="button" onclick="saveChanges()" class="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-2xl font-medium hover:shadow-lg transition-all">
+      <button type="button" onclick="saveChanges()" class="bg-pink-500 text-white px-6 py-3 rounded-2xl font-medium hover:shadow-lg transition-all">
         💾 Uložiť zmeny
       </button>
     </div>
@@ -33,7 +33,7 @@ const featuredCount = allItems.filter((item: any) => item.starred).length;
   <div class="space-y-6">
     {decor.sk.categories?.map((category: any, catIdx: number) => (
       <div class="bg-white rounded-3xl shadow-xl border border-pink-100 overflow-hidden">
-        <div class="bg-gradient-to-r from-pink-500 to-purple-500 px-6 py-4">
+        <div class="bg-pink-500 px-6 py-4">
           <h2 class="text-lg font-semibold text-white">{category.category}</h2>
         </div>
         <div class="p-6">

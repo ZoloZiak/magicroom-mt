@@ -71,8 +71,6 @@
   font-style: italic;
 }
 
-
-
 /* MagicRoom Design Tokens */
 @theme {
   /* Typography */
@@ -87,7 +85,7 @@
   --color-popover: #FDFBF9;
   --color-popover-foreground: #2A1A24;
   --color-primary: #FF69B4;
-  --color-mobile-bar: #FF69B4; /* Synced with theme-color meta in Layout.astro */
+  --color-mobile-bar: #FF69B4;
   --color-primary-foreground: #FFFFFF;
   --color-secondary: #FFE0F0;
   --color-secondary-foreground: #2A1A24;
@@ -106,18 +104,10 @@
   --color-cta-hover: #E05595;
   --color-success: #7A9E7E;
   --color-surface: #F7F3EF;
-  --color-gradient-start: #fbf5f1;
-  --color-gradient-end: #fffdfb;
 
   /* Primary shades for dark sections */
   --color-primary-900: #E05595;
   --color-primary-950: #C04080;
-
-  /* Z-index layers */
-  --z-dropdown: 40;
-  --z-sticky: 50;
-  --z-overlay: 9998;
-  --z-modal: 9999;
 
   /* Shadows — pink tones */
   --shadow-soft: 0 20px 60px rgba(255, 105, 180, 0.12);
@@ -127,15 +117,6 @@
   --shadow-sm: 0 10px 40px rgba(194, 16, 110, 0.05);
   --shadow-xl: 0 24px 70px rgba(194, 16, 110, 0.10);
   --shadow-2xl: 0 30px 80px rgba(194, 16, 110, 0.12);
-  --shadow-panel: 0 22px 60px rgba(150, 12, 86, 0.18);
-  --shadow-avatar: 0 12px 32px rgba(194, 16, 110, 0.15);
-  --shadow-card-lg: 0 30px 80px rgba(194, 16, 110, 0.14);
-
-  /* Radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
 }
 
 @layer base {
@@ -146,13 +127,11 @@
   html {
     @apply bg-background;
     scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    background-image:
-      radial-gradient(circle at top, rgba(255,20,147,0.08), transparent 28%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(253, 251, 249, 0.96));
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
@@ -160,69 +139,15 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
   }
-
-  a {
-    @apply transition-colors duration-300;
-  }
-
-  /* Performance optimizations for animations */
-  .spring-hover,
-  .animate-fade-in-up,
-  .service-card,
-  .hero-badge,
-  .hero-title,
-  .hero-description,
-  .hero-button {
-    will-change: transform, opacity, box-shadow;
-  }
-
-  ::selection {
-    background: rgba(201, 168, 108, 0.28);
-    color: #2d2421;
-  }
-}
-
-/* Custom scrollbar - use CSS variables */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-surface);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-cta);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-cta-hover);
-}
-
-/* Firefox scrollbar */
-* {
-  scrollbar-color: var(--color-cta) var(--color-surface);
 }
 
 @layer components {
-  /* Section styles */
   .section-kicker {
     @apply text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/70;
   }
 
-  .section-title {
-    @apply font-display text-[2.35rem] leading-tight text-foreground md:text-5xl;
-  }
-
-  .editorial-copy {
-    @apply text-[15px] leading-7 text-muted-foreground md:text-base md:leading-8;
-  }
-
-  /* Panel & Card components */
   .luxury-panel {
-    @apply rounded-[32px] border border-border/40 bg-card/90 shadow-[var(--shadow-medium)] backdrop-blur;
+    @apply rounded-[32px] border border-border/40 bg-card shadow-[var(--shadow-soft)];
   }
 
   .photo-card {
@@ -230,26 +155,11 @@
   }
 
   .photo-card-lg {
-    @apply overflow-hidden rounded-[32px] border border-border/40 bg-card p-3 shadow-[var(--shadow-card-lg)];
-  }
-
-  /* Spring link underline */
-  .spring-link {
-    @apply relative text-sm font-medium tracking-[0.08em] after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:origin-left after:bg-cta;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.25s ease;
-  }
-
-  .spring-link:hover {
-    transform: scaleX(1);
+    @apply overflow-hidden rounded-[32px] border border-border/40 bg-card p-3 shadow-[var(--shadow-2xl)];
   }
 }
 
 @layer utilities {
-  .soft-wash {
-    background-image: linear-gradient(180deg, rgba(251, 245, 241, 0.95), rgba(255, 253, 251, 0.92));
-  }
-
-  /* Entrance Animations */
   .animate-fade-in-up {
     animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
@@ -273,123 +183,31 @@
 }
 
 @keyframes slideInRight {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
 }
 
-@keyframes slideOutRight {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
-
-/* Respect reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  .animate-fade-in-up {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-
-
-}
-
-/* Smooth scroll offset for sticky header */
-html {
-  scroll-padding-top: 5.5rem;
-}
-
-/* Sparkle animation */
-@keyframes sparkle {
-  0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
-  50% { opacity: 1; transform: scale(1) rotate(180deg); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-.sparkle {
-  animation: sparkle 2s ease-in-out infinite;
-}
-
-.sparkle-delayed {
-  animation: sparkle 2s ease-in-out 0.7s infinite;
-}
-
-.sparkle-slow {
-  animation: sparkle 3s ease-in-out 1.4s infinite;
-}
-
-.float {
-  animation: float 4s ease-in-out infinite;
-}
-
-.float-delayed {
-  animation: float 4s ease-in-out 1.5s infinite;
-}
-
-/* Shimmer text effect */
-.shimmer-text {
-  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 50%, var(--color-primary) 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 4s linear infinite;
-}
-
-/* Romantic soft glow behind elements */
 .glow-rose {
-  box-shadow: 0 0 40px rgba(255,20,147,0.10), 0 0 80px rgba(255,20,147,0.04);
+  box-shadow: 0 0 40px rgba(255,105,180,0.15);
 }
 
-/* Section kicker — small uppercase label */
-.section-kicker {
-  @apply text-[11px] uppercase tracking-[0.28em] text-primary/70;
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Focus visible styles for keyboard navigation */
-:focus-visible {
-  outline: 2px solid var(--color-ring);
-  outline-offset: 2px;
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-cta);
   border-radius: 4px;
-}
-
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--color-ring);
-  outline-offset: 2px;
-}
-
-/* Accessibility: Minimum tap target size (48x48px) */
-.tap-target {
-  min-height: 48px;
-  min-width: 48px;
-}
-
-/* Hero image placeholder - instant visible before image loads */
-.hero-placeholder {
-  background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
 }

@@ -3,9 +3,7 @@ import BookingForm from '@/components/forms/BookingForm.astro';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
-import Sparkles from '@/components/layout/Sparkles.astro';
 import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
-import DecorativeDivider from '@/components/layout/DecorativeDivider.astro';
 import Badge from '@/components/ui/Badge.astro';
 import Card from '@/components/ui/Card.astro'
 import CardContent from '@/components/ui/CardContent.astro';
@@ -56,7 +54,6 @@ const faqSchema = contactFaqs.length > 0 ? [{
 
   <main class="flex-1">
     <section class="bg-surface py-12 md:py-20 relative overflow-hidden">
-      <Sparkles count={6} />
       <div class="container mx-auto px-4 relative">
         <div class="mx-auto max-w-3xl text-center">
           <Badge variant="secondary" class="mb-4">{t.contact.heroBadge}</Badge>
@@ -97,7 +94,7 @@ const faqSchema = contactFaqs.length > 0 ? [{
       </div>
     </section>
 
-    <DecorativeDivider variant="floral" />
+    <div class="border-t border-border/40"></div>
 
     <section class="py-20 md:py-28 bg-background" id="booking">
       <div class="container mx-auto px-4">
