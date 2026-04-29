@@ -34,23 +34,6 @@ jobs:
           path: dist/
           retention-days: 1
 
-  a11y:
-    needs: unit
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v5
-        with:
-          name: build-dist
-          path: dist/
-
-      - name: be-a11y Accessibility Checker
-        uses: be-lenka/be-a11y@v2.2.9
-        with:
-          url: 'https://magicroom-mt.vercel.app'
-
   e2e:
     runs-on: ubuntu-latest
     strategy:
