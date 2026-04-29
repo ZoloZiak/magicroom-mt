@@ -455,6 +455,23 @@
       "details": "korzet",
       "images": ["formal-modra-06"]
     },
+     {
+      "id": "formal-ruzova-03",
+      "name": "Krátke cyklamenové šaty",
+      "name_en": "Short pink dress",
+      "description": "Tieto elegantné šaty po kolená sú ušité z lesklého saténu, ktorý krásne zvýrazňuje ženskú siluetu.",
+      "description_en": "These elegant knee-length dresses are crafted from glossy satin that beautifully highlights the female silhouette.",
+      "price": 34.90,
+      "size": "42",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "modré",
+      "style": "spoločenské",
+      "featured": false,
+      "details": "flitrovane",
+      "images": ["formal-ruzova-03"]
+    },
     {
       "id": "formal-modra-04",
       "name": "Metalické modré šaty",
