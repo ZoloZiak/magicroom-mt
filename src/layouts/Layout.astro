@@ -124,7 +124,9 @@ const jsonLd = JSON.stringify([
       setTimeout(loadGA, 5000);
       */
     </script>
-    <meta name="google-site-verification" content="MERGE_FROM_GOOGLE" />
+    {import.meta.env.GOOGLE_SITE_VERIFICATION && (
+      <meta name="google-site-verification" content={import.meta.env.GOOGLE_SITE_VERIFICATION} />
+    )}
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang={language} href={canonicalUrl} />
     <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />

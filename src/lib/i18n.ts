@@ -31,6 +31,8 @@ export function getLanguageFromUrl(url: URL): Language {
 
 export function getAlternateLanguageUrl(url: URL, currentLanguage: Language): string {
   let pathname = url.pathname;
+  const hash = url.hash || '';
+  const search = url.search || '';
   
   // Normalizácia pathname - odstránenie /sk prefixu ak existuje
   if (pathname.startsWith('/sk/')) {
@@ -43,30 +45,35 @@ export function getAlternateLanguageUrl(url: URL, currentLanguage: Language): st
 
   if (currentLanguage === 'sk') {
     // SK -> EN
-    if (parts.length === 0) return '/en';
-    const skSlug = parts[0];
-    const enSlug = SLUG_MAP[skSlug] || skSlug;
+    if (parts.length === 0) return `/en${search}${hash}`;
     
     // Špeciálny prípad pre blog príspevky (blog/slug)
-    if (parts.length > 1 && skSlug === 'blog') {
-      return `/en/blog/${parts[1]}${url.hash}`;
+    if (parts[0] === 'blog') {
+      return `/en/blog/${parts.slice(1).join('/')}${search}${hash}`;
     }
+
+    // Mapovanie hlavného slugu
+    const skSlug = parts[0];
+    const enSlug = SLUG_MAP[skSlug] || skSlug;
+    const remainingParts = parts.slice(1).join('/');
     
-    return `/en/${enSlug}${url.hash}`;
+    return `/en/${enSlug}${remainingParts ? '/' + remainingParts : ''}${search}${hash}`;
   } else {
     // EN -> SK
     // /en -> /
-    // /en/about -> /o-nas
-    if (parts.length <= 1) return '/';
+    if (parts.length <= 1) return `/${search}${hash}`;
+    
     const enSlug = parts[1];
-    const skSlug = REVERSE_SLUG_MAP[enSlug] || enSlug;
     
     // Špeciálny prípad pre blog príspevky
-    if (parts.length > 2 && enSlug === 'blog') {
-       return `/blog/${parts[2]}${url.hash}`;
+    if (enSlug === 'blog') {
+       return `/blog/${parts.slice(2).join('/')}${search}${hash}`;
     }
+
+    const skSlug = REVERSE_SLUG_MAP[enSlug] || enSlug;
+    const remainingParts = parts.slice(2).join('/');
     
-    return `/${skSlug}${url.hash}`;
+    return `/${skSlug}${remainingParts ? '/' + remainingParts : ''}${search}${hash}`;
   }
 }
 
