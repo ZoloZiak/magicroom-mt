@@ -159,7 +159,7 @@ const productSchema = dresses.map((dress) => ({
     
     lightbox = new PhotoSwipeLightbox({
       gallery: '#dresses-grid',
-      children: 'a',
+      children: 'a[data-pswp-width]',
       pswpModule: () => import('photoswipe'),
       padding: { top: 20, bottom: 20, left: 10, right: 10 },
       showHideAnimationType: 'zoom'
