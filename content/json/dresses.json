@@ -398,10 +398,10 @@
       "category": "formal",
       "type": "new",
       "status": "available",
-      "color": "biela",
+      "color": "ružová",
       "style": "elegantná",
       "featured": true,
-      "details": "kleopatra",
+      "details": "flitre",
       "images": ["formal-pink-003"]
     },
     {
@@ -500,10 +500,10 @@
       "category": "formal",
       "type": "new",
       "status": "available",
-      "color": "modré",
+      "color": "ružová",
       "style": "spoločenské",
       "featured": false,
-      "details": "flitrovane",
+      "details": "krátke",
       "images": ["formal-ruzova-03"]
     },
     {
