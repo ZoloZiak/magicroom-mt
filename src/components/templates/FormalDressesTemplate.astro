@@ -108,7 +108,7 @@ const productSchema = dresses.map((dress) => ({
                   <span class="text-sm font-medium uppercase tracking-widest text-muted-foreground">
                     {t.dresses.sizeLabel} {dress.size}
                   </span>
-                  <Button variant="cta" size="sm" class="group/btn" href={isEn ? '/en/contact#booking' : '/kontakt#booking'}>
+                  <Button variant="ghost" size="sm" class="group/btn text-muted-foreground hover:text-primary" href={isEn ? '/en/contact#booking' : '/kontakt#booking'}>
                     {t.dresses.bookFitting}
                     <Icon name="ArrowRight" class="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </Button>
