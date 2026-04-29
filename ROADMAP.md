@@ -116,6 +116,7 @@ Tu sú konkrétne detaily, ktoré netreba znova hľadať:
 - [x] **Task 1.3:** Delete `content/json/admin-config.json` and refactor `src/pages/api/admin/login.ts`.
 - [x] **Task 1.4:** Remove `blurhash` from `package.json` and run `npm install`.
 - [x] **Task 1.5:** Remove dead CSS classes (`slovak-seasons`, `folk-pattern`, `slovak-heart`) from `src/components/templates/HomeTemplate.astro`.
+- [x] **Task 1.6:** Refactor `src/pages/api/admin/save-content.ts` to use ENV variables.
 
 ### Phase 2: Core Logic & Infrastructure
 - [x] **Task 2.1:** Create `src/pages/api/booking.ts` using Resend.

@@ -1,34 +1,14 @@
 import type { APIRoute } from 'astro';
-import { readFile, writeFile } from 'fs/promises';
-import { join } from 'path';
+import { getAnalytics, saveAnalytics, simpleId } from '@/lib/storage';
 
 export const prerender = false;
-
-const ANALYTICS_PATH = join(process.cwd(), 'content/json/analytics.json');
-
-function simpleId() {
-  return Date.now().toString(36) + Math.random().toString(36).slice(2, 11);
-}
-
-async function loadAnalytics() {
-  try {
-    const content = await readFile(ANALYTICS_PATH, 'utf-8');
-    return JSON.parse(content);
-  } catch {
-    return { conversions: [], whatsappClicks: [], bookingSubmissions: [], contactFormSubmissions: [] };
-  }
-}
-
-async function saveAnalytics(data: any) {
-  await writeFile(ANALYTICS_PATH, JSON.stringify(data, null, 2), 'utf-8');
-}
 
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
     const { type, data: eventData } = body;
     
-    const analytics = await loadAnalytics();
+    const analytics = await getAnalytics();
     const timestamp = new Date().toISOString();
     
     switch (type) {
@@ -71,6 +51,12 @@ export const POST: APIRoute = async ({ request }) => {
         break;
     }
     
+    // Limits: Keep only last 1000 events per category to avoid KV size limits
+    analytics.whatsappClicks = analytics.whatsappClicks.slice(-1000);
+    analytics.bookingSubmissions = analytics.bookingSubmissions.slice(-1000);
+    analytics.contactFormSubmissions = analytics.contactFormSubmissions.slice(-1000);
+    analytics.conversions = analytics.conversions.slice(-1000);
+
     await saveAnalytics(analytics);
     
     return new Response(JSON.stringify({ success: true }), {
@@ -87,7 +73,7 @@ export const POST: APIRoute = async ({ request }) => {
 };
 
 export const GET: APIRoute = async () => {
-  const analytics = await loadAnalytics();
+  const analytics = await getAnalytics();
   return new Response(JSON.stringify(analytics), {
     status: 200,
     headers: { 'Content-Type': 'application/json' }

@@ -2,8 +2,8 @@ import type { APIRoute } from 'astro';
 
 import { methodNotAllowed } from '@/lib/api';
 const GITHUB_API = 'https://api.github.com';
-const REPO_OWNER = 'ZoloZiak';
-const REPO_NAME = 'magicroom-mt';
+const REPO_OWNER = import.meta.env.GITHUB_REPO_OWNER || process.env.GITHUB_REPO_OWNER || 'ZoloZiak';
+const REPO_NAME = import.meta.env.GITHUB_REPO_NAME || process.env.GITHUB_REPO_NAME || 'magicroom-mt';
 const BRANCH = 'main';
 
 export const POST: APIRoute = async ({ request }) => {

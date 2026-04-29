@@ -1,19 +1,11 @@
-export const prerender = false;
 ---
 import AdminLayout from '@/layouts/AdminLayout.astro';
-import { readFile } from 'fs/promises';
-import { join } from 'path';
+import { getAnalytics } from '@/lib/storage';
 
-// Read analytics data
-const analyticsPath = join(process.cwd(), 'content/json/analytics.json');
-let analytics = { conversions: [], whatsappClicks: [], bookingSubmissions: [], contactFormSubmissions: [] };
+export const prerender = false;
 
-try {
-  const analyticsContent = await readFile(analyticsPath, 'utf-8');
-  analytics = JSON.parse(analyticsContent);
-} catch (e) {
-  // File doesn't exist yet
-}
+// Read analytics data using the new storage utility
+const analytics = await getAnalytics();
 
 // Calculate stats
 const now = new Date();
@@ -21,17 +13,17 @@ const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
 const monthAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
 
-const todayBookings = analytics.bookingSubmissions.filter((c: any) => new Date(c.timestamp) >= today).length;
-const weekBookings = analytics.bookingSubmissions.filter((c: any) => new Date(c.timestamp) >= weekAgo).length;
-const monthBookings = analytics.bookingSubmissions.filter((c: any) => new Date(c.timestamp) >= monthAgo).length;
+const todayBookings = (analytics.bookingSubmissions || []).filter((c: any) => new Date(c.timestamp) >= today).length;
+const weekBookings = (analytics.bookingSubmissions || []).filter((c: any) => new Date(c.timestamp) >= weekAgo).length;
+const monthBookings = (analytics.bookingSubmissions || []).filter((c: any) => new Date(c.timestamp) >= monthAgo).length;
 
-const todayWhatsApp = analytics.whatsappClicks.filter((c: any) => new Date(c.timestamp) >= today).length;
-const weekWhatsApp = analytics.whatsappClicks.filter((c: any) => new Date(c.timestamp) >= weekAgo).length;
-const monthWhatsApp = analytics.whatsappClicks.filter((c: any) => new Date(c.timestamp) >= monthAgo).length;
+const todayWhatsApp = (analytics.whatsappClicks || []).filter((c: any) => new Date(c.timestamp) >= today).length;
+const weekWhatsApp = (analytics.whatsappClicks || []).filter((c: any) => new Date(c.timestamp) >= weekAgo).length;
+const monthWhatsApp = (analytics.whatsappClicks || []).filter((c: any) => new Date(c.timestamp) >= monthAgo).length;
 
-const todayContacts = analytics.contactFormSubmissions.filter((c: any) => new Date(c.timestamp) >= today).length;
-const weekContacts = analytics.contactFormSubmissions.filter((c: any) => new Date(c.timestamp) >= weekAgo).length;
-const monthContacts = analytics.contactFormSubmissions.filter((c: any) => new Date(c.timestamp) >= monthAgo).length;
+const todayContacts = (analytics.contactFormSubmissions || []).filter((c: any) => new Date(c.timestamp) >= today).length;
+const weekContacts = (analytics.contactFormSubmissions || []).filter((c: any) => new Date(c.timestamp) >= weekAgo).length;
+const monthContacts = (analytics.contactFormSubmissions || []).filter((c: any) => new Date(c.timestamp) >= monthAgo).length;
 
 const recentBookings = (analytics.bookingSubmissions || []).slice(-5).reverse();
 ---
@@ -41,22 +33,24 @@ const recentBookings = (analytics.bookingSubmissions || []).slice(-5).reverse();
   
   <!-- Stats cards -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-    <div class="bg-white rounded-xl shadow-sm p-6">
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-pink-50">
       <p class="text-sm text-gray-500 mb-1">Rezervácie</p>
       <p class="text-3xl font-bold text-pink-600">{weekBookings}</p>
-      <p class="text-xs text-gray-400 mt-2">za posledný týždeň</p>
+      <div class="flex items-center gap-1 mt-2">
+         <span class="text-xs text-gray-400">za posledný týždeň</span>
+      </div>
     </div>
-    <div class="bg-white rounded-xl shadow-sm p-6">
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-pink-50">
       <p class="text-sm text-gray-500 mb-1">WhatsApp</p>
       <p class="text-3xl font-bold text-green-600">{weekWhatsApp}</p>
       <p class="text-xs text-gray-400 mt-2">za posledný týždeň</p>
     </div>
-    <div class="bg-white rounded-xl shadow-sm p-6">
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-pink-50">
       <p class="text-sm text-gray-500 mb-1">Kontakt formulár</p>
       <p class="text-3xl font-bold text-blue-600">{weekContacts}</p>
       <p class="text-xs text-gray-400 mt-2">za posledný týždeň</p>
     </div>
-    <div class="bg-white rounded-xl shadow-sm p-6">
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-pink-50">
       <p class="text-sm text-gray-500 mb-1">Celkom konverzií</p>
       <p class="text-3xl font-bold text-purple-600">{weekBookings + weekWhatsApp + weekContacts}</p>
       <p class="text-xs text-gray-400 mt-2">za posledný týždeň</p>
@@ -65,7 +59,7 @@ const recentBookings = (analytics.bookingSubmissions || []).slice(-5).reverse();
   
   <!-- Detailed stats -->
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-    <div class="bg-white rounded-xl shadow-sm p-6">
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-pink-50">
       <h2 class="text-lg font-semibold text-gray-900 mb-4">Podľa obdobia</h2>
       <div class="space-y-4">
         <!-- Visual bar chart -->
@@ -131,7 +125,7 @@ const recentBookings = (analytics.bookingSubmissions || []).slice(-5).reverse();
       </table>
     </div>
     
-    <div class="bg-white rounded-xl shadow-sm p-6">
+    <div class="bg-white rounded-xl shadow-sm p-6 border border-pink-50">
       <h2 class="text-lg font-semibold text-gray-900 mb-4">Posledné aktivity</h2>
       <div class="space-y-3">
         {recentBookings.length > 0 ? recentBookings.map((b: any) => (

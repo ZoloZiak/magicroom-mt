@@ -1,0 +1,995 @@
+
+> magicroom@0.0.1 dev
+> astro dev
+
+[vite] connected.
+[2m23:58:42[22m [34m[types][39m Generated [2m1ms[22m
+[33m[1m23:58:42[22m [WARN] [content][39m Content config not loaded
+[2m23:58:42[22m [34m[vite][39m Re-optimizing dependencies because vite config has changed
+[42m[1m astro [22m[49m [32mv6.1.9[39m [2mready in[22m 3086 [2mms[22m
+[2m┃[22m Local    [36mhttp://localhost:4321/[39m
+[2m┃[22m Network  [2muse --host to expose[22m
+[2m23:58:42[22m [32mwatching for file changes...[39m
+[2m23:58:58[22m [34m[200][39m / [2m159ms[22m
+[2m23:58:58[22m [34m[200][39m / [2m160ms[22m
+[2m23:58:58[22m [34m[200][39m / [2m162ms[22m
+[2m23:58:59[22m [34m[200][39m /_image [2m237ms[22m
+[2m23:59:00[22m [34m[200][39m /_image [2m342ms[22m
+[2m23:59:00[22m [34m[200][39m /_image [2m348ms[22m
+[2m23:59:00[22m [34m[200][39m /_image [2m364ms[22m
+[2m23:59:00[22m [34m[200][39m /_image [2m365ms[22m
+[2m23:59:00[22m [34m[200][39m /_image [2m499ms[22m
+[2m23:59:00[22m [34m[200][39m /_image [2m624ms[22m
+[2m23:59:00[22m [34m[200][39m /_image [2m633ms[22m
+[2m23:59:00[22m [34m[200][39m /_image [2m663ms[22m
+[2m23:59:00[22m [34m[vite][39m [32m✨ new dependencies optimized: [33mastro/runtime/client/dev-toolbar/entrypoint.js[32m[39m
+[2m23:59:00[22m [34m[vite][39m [32m✨ optimized dependencies changed. reloading[39m
+[2m23:59:00[22m [34m[200][39m /_image [2m699ms[22m
+[2m23:59:00[22m [34m[200][39m /_image [2m701ms[22m
+[2m23:59:00[22m [34m[200][39m / [2m16ms[22m
+[2m23:59:00[22m [34m[200][39m / [2m18ms[22m
+[2m23:59:00[22m [34m[200][39m / [2m15ms[22m
+[2m23:59:00[22m [34m[200][39m /_image [2m788ms[22m
+[2m23:59:01[22m [34m[200][39m /_image [2m767ms[22m
+[33m[1m23:59:01[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/kontakt`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:02[22m [33m[404][39m /kontakt [2m107ms[22m
+[2m23:59:02[22m [34m[200][39m /_image [2m41ms[22m
+[2m23:59:02[22m [34m[200][39m / [2m15ms[22m
+[2m23:59:03[22m [34m[200][39m /_image [2m867ms[22m
+[2m23:59:03[22m [34m[200][39m /admin/login [2m64ms[22m
+[2m23:59:03[22m [34m[200][39m /_image [2m668ms[22m
+[2m23:59:03[22m [34m[200][39m /_image [2m713ms[22m
+[2m23:59:03[22m [34m[200][39m /_image [2m824ms[22m
+[2m23:59:04[22m [34m[200][39m /_image [2m1484ms[22m
+[2m23:59:04[22m [34m[200][39m /admin/dashboard [2m50ms[22m
+[2m23:59:05[22m [34m[200][39m /admin/gallery [2m582ms[22m
+[2m23:59:05[22m [34m[200][39m /admin/dresses [2m157ms[22m
+[2m23:59:05[22m [34m[200][39m /admin/blog [2m134ms[22m
+[33m[1m23:59:05[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/images/dresses.jpg`.
+
+Possible dynamic routes being matched: src/pages/[lang]/[...rest].astro.
+[2m23:59:05[22m [33m[404][39m /images/dresses.jpg [2m6ms[22m
+[33m[1m23:59:05[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/images/founder.jpg`.
+
+Possible dynamic routes being matched: src/pages/[lang]/[...rest].astro.
+[2m23:59:05[22m [33m[404][39m /images/founder.jpg [2m8ms[22m
+[33m[1m23:59:05[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/images/decorMain.jpg`.
+
+Possible dynamic routes being matched: src/pages/[lang]/[...rest].astro.
+[2m23:59:05[22m [33m[404][39m /images/decorMain.jpg [2m12ms[22m
+[33m[1m23:59:05[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/images/dresses.jpg`.
+
+Possible dynamic routes being matched: src/pages/[lang]/[...rest].astro.
+[2m23:59:05[22m [33m[404][39m /images/dresses.jpg [2m8ms[22m
+[33m[1m23:59:05[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/images/founder.jpg`.
+
+Possible dynamic routes being matched: src/pages/[lang]/[...rest].astro.
+[2m23:59:05[22m [33m[404][39m /images/founder.jpg [2m7ms[22m
+[33m[1m23:59:05[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/images/decorMain.jpg`.
+
+Possible dynamic routes being matched: src/pages/[lang]/[...rest].astro.
+[2m23:59:05[22m [33m[404][39m /images/decorMain.jpg [2m6ms[22m
+[2m23:59:06[22m [34m[200][39m /admin/decor [2m67ms[22m
+[2m23:59:06[22m [34m[200][39m /admin/faq [2m40ms[22m
+[2m23:59:06[22m [34m[200][39m /admin/partners [2m34ms[22m
+[2m23:59:06[22m [34m[200][39m /admin/content [2m42ms[22m
+[2m23:59:07[22m [34m[200][39m /admin/help [2m48ms[22m
+[2m23:59:07[22m [34m[200][39m /admin/gallery [2m8ms[22m
+[2m23:59:07[22m [34m[200][39m /admin/gallery [2m6ms[22m
+[2m23:59:08[22m [34m[200][39m / [2m7ms[22m
+[2m23:59:08[22m [34m[200][39m /_image [2m73ms[22m
+[2m23:59:08[22m [34m[200][39m /_image [2m30ms[22m
+[2m23:59:08[22m [34m[200][39m /_image [2m47ms[22m
+[2m23:59:08[22m [34m[200][39m /_image [2m218ms[22m
+[2m23:59:09[22m [34m[200][39m / [2m8ms[22m
+[2m23:59:10[22m [34m[200][39m /_image [2m67ms[22m
+[2m23:59:10[22m [34m[200][39m /_image [2m29ms[22m
+[2m23:59:10[22m [34m[200][39m /_image [2m50ms[22m
+[2m23:59:10[22m [34m[200][39m /_image [2m223ms[22m
+[2m23:59:11[22m [34m[200][39m / [2m9ms[22m
+[2m23:59:11[22m [34m[200][39m /_image [2m89ms[22m
+[2m23:59:12[22m [34m[200][39m /_image [2m36ms[22m
+[2m23:59:12[22m [34m[200][39m /_image [2m53ms[22m
+[2m23:59:12[22m [34m[200][39m /_image [2m226ms[22m
+[2m23:59:12[22m [34m[200][39m / [2m21ms[22m
+[2m23:59:12[22m [34m[200][39m /_image [2m90ms[22m
+[2m23:59:12[22m [34m[200][39m /_image [2m31ms[22m
+[2m23:59:12[22m [34m[200][39m /_image [2m66ms[22m
+[2m23:59:12[22m [34m[200][39m /_image [2m255ms[22m
+[2m23:59:13[22m [34m[200][39m / [2m10ms[22m
+[2m23:59:13[22m [34m[200][39m /_image [2m85ms[22m
+[2m23:59:13[22m [34m[200][39m /_image [2m25ms[22m
+[2m23:59:13[22m [34m[200][39m /_image [2m63ms[22m
+[2m23:59:13[22m [34m[200][39m /_image [2m245ms[22m
+[2m23:59:13[22m [34m[200][39m / [2m8ms[22m
+[2m23:59:14[22m [34m[200][39m /_image [2m69ms[22m
+[2m23:59:14[22m [34m[200][39m /_image [2m25ms[22m
+[2m23:59:14[22m [34m[200][39m /_image [2m53ms[22m
+[2m23:59:14[22m [34m[200][39m /_image [2m248ms[22m
+[2m23:59:14[22m [34m[200][39m / [2m7ms[22m
+[2m23:59:14[22m [34m[200][39m /_image [2m79ms[22m
+[2m23:59:15[22m [34m[200][39m /_image [2m28ms[22m
+[2m23:59:15[22m [34m[200][39m /_image [2m65ms[22m
+[2m23:59:15[22m [34m[200][39m /_image [2m240ms[22m
+[2m23:59:15[22m [34m[200][39m / [2m13ms[22m
+[2m23:59:15[22m [34m[200][39m /_image [2m90ms[22m
+[2m23:59:15[22m [34m[200][39m /_image [2m40ms[22m
+[2m23:59:15[22m [34m[200][39m /_image [2m86ms[22m
+[2m23:59:16[22m [34m[200][39m /_image [2m269ms[22m
+[2m23:59:16[22m [34m[200][39m / [2m9ms[22m
+[2m23:59:16[22m [34m[200][39m / [2m11ms[22m
+[2m23:59:16[22m [34m[200][39m /_image [2m97ms[22m
+[2m23:59:16[22m [34m[200][39m /_image [2m32ms[22m
+[2m23:59:16[22m [34m[200][39m /_image [2m132ms[22m
+[2m23:59:16[22m [34m[200][39m /_image [2m110ms[22m
+[2m23:59:16[22m [34m[200][39m / [2m13ms[22m
+[2m23:59:16[22m [34m[200][39m /_image [2m44ms[22m
+[2m23:59:16[22m [34m[200][39m /_image [2m88ms[22m
+[2m23:59:16[22m [34m[200][39m /_image [2m111ms[22m
+[2m23:59:16[22m [34m[200][39m /_image [2m34ms[22m
+[2m23:59:16[22m [34m[200][39m /_image [2m411ms[22m
+[2m23:59:16[22m [34m[200][39m /_image [2m79ms[22m
+[2m23:59:16[22m [34m[200][39m /_image [2m415ms[22m
+[2m23:59:17[22m [34m[200][39m /_image [2m322ms[22m
+[33m[1m23:59:17[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/kontakt`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:17[22m [33m[404][39m /kontakt [2m13ms[22m
+[2m23:59:17[22m [34m[200][39m / [2m11ms[22m
+[2m23:59:17[22m [34m[200][39m /_image [2m26ms[22m
+[2m23:59:17[22m [34m[200][39m /_image [2m103ms[22m
+[2m23:59:17[22m [34m[200][39m /_image [2m24ms[22m
+[33m[1m23:59:17[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/kontakt`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:17[22m [33m[404][39m /kontakt [2m7ms[22m
+[2m23:59:17[22m [34m[200][39m /_image [2m92ms[22m
+[2m23:59:17[22m [34m[200][39m /_image [2m328ms[22m
+[2m23:59:18[22m [34m[200][39m /_image [2m30ms[22m
+[2m23:59:18[22m [34m[200][39m /_image [2m285ms[22m
+[2m23:59:18[22m [34m[200][39m /_image [2m226ms[22m
+[2m23:59:18[22m [34m[200][39m /admin/gallery [2m4ms[22m
+[2m23:59:19[22m [34m[200][39m / [2m9ms[22m
+[2m23:59:19[22m [34m[200][39m / [2m11ms[22m
+[2m23:59:19[22m [34m[200][39m /_image [2m131ms[22m
+[2m23:59:19[22m [34m[200][39m /_image [2m150ms[22m
+[2m23:59:19[22m [34m[200][39m /_image [2m73ms[22m
+[2m23:59:19[22m [34m[200][39m /_image [2m92ms[22m
+[2m23:59:19[22m [34m[200][39m /_image [2m180ms[22m
+[2m23:59:19[22m [34m[200][39m /_image [2m177ms[22m
+[2m23:59:19[22m [34m[200][39m /_image [2m461ms[22m
+[2m23:59:19[22m [34m[200][39m /_image [2m437ms[22m
+[2m23:59:20[22m [34m[200][39m / [2m9ms[22m
+[2m23:59:20[22m [34m[200][39m / [2m21ms[22m
+[2m23:59:20[22m [34m[200][39m /_image [2m166ms[22m
+[2m23:59:20[22m [34m[200][39m /_image [2m227ms[22m
+[2m23:59:20[22m [34m[200][39m /_image [2m78ms[22m
+[2m23:59:20[22m [34m[200][39m /_image [2m114ms[22m
+[2m23:59:20[22m [34m[200][39m /_image [2m167ms[22m
+[33m[1m23:59:20[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/o-nas`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:21[22m [33m[404][39m /o-nas [2m15ms[22m
+[2m23:59:21[22m [34m[200][39m /_image [2m558ms[22m
+[33m[1m23:59:21[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/sluzby`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:21[22m [33m[404][39m /sluzby [2m9ms[22m
+[2m23:59:21[22m [34m[200][39m /_image [2m545ms[22m
+[33m[1m23:59:21[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/svadobne-saty`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:21[22m [33m[404][39m /svadobne-saty [2m8ms[22m
+[33m[1m23:59:21[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/kontakt`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:21[22m [33m[404][39m /kontakt [2m10ms[22m
+[33m[1m23:59:21[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/kontakt`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:21[22m [33m[404][39m /kontakt [2m10ms[22m
+[2m23:59:21[22m [34m[200][39m /_image [2m476ms[22m
+[2m23:59:21[22m [34m[200][39m / [2m20ms[22m
+[2m23:59:21[22m [34m[200][39m /_image [2m442ms[22m
+[33m[1m23:59:21[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/komisny-predaj`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:21[22m [33m[404][39m /komisny-predaj [2m6ms[22m
+[2m23:59:21[22m [34m[200][39m /_image [2m130ms[22m
+[2m23:59:21[22m [34m[200][39m /_image [2m516ms[22m
+[33m[1m23:59:21[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/prenajom-dekoracii`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:22[22m [33m[404][39m /prenajom-dekoracii [2m11ms[22m
+[2m23:59:22[22m [34m[200][39m /_image [2m571ms[22m
+[2m23:59:22[22m [34m[200][39m /_image [2m160ms[22m
+[2m23:59:22[22m [34m[200][39m /_image [2m261ms[22m
+[2m23:59:22[22m [34m[200][39m /_image [2m562ms[22m
+[2m23:59:22[22m [34m[200][39m /_image [2m268ms[22m
+[2m23:59:22[22m [34m[200][39m /_image [2m635ms[22m
+[33m[1m23:59:22[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/o-nas`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:22[22m [33m[404][39m /o-nas [2m9ms[22m
+[2m23:59:22[22m [34m[200][39m /_image [2m508ms[22m
+[33m[1m23:59:22[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/sluzby`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:22[22m [33m[404][39m /sluzby [2m7ms[22m
+[2m23:59:22[22m [34m[200][39m /_image [2m577ms[22m
+[2m23:59:22[22m [34m[200][39m / [2m8ms[22m
+[2m23:59:22[22m [34m[200][39m /_image [2m304ms[22m
+[2m23:59:23[22m [34m[200][39m /_image [2m121ms[22m
+[2m23:59:23[22m [34m[200][39m /_image [2m351ms[22m
+[2m23:59:23[22m [34m[200][39m /_image [2m42ms[22m
+[2m23:59:23[22m [34m[200][39m /_image [2m67ms[22m
+[33m[1m23:59:23[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/o-nas`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:23[22m [33m[404][39m /o-nas [2m8ms[22m
+[2m23:59:23[22m [34m[200][39m / [2m12ms[22m
+[2m23:59:23[22m [34m[200][39m /_image [2m343ms[22m
+[33m[1m23:59:23[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/sluzby`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:23[22m [33m[404][39m /sluzby [2m7ms[22m
+[33m[1m23:59:23[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/kontakt`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:23[22m [33m[404][39m /kontakt [2m7ms[22m
+[2m23:59:23[22m [34m[200][39m /_image [2m165ms[22m
+[2m23:59:23[22m [34m[200][39m /_image [2m63ms[22m
+[2m23:59:23[22m [34m[200][39m /_image [2m452ms[22m
+[2m23:59:23[22m [34m[200][39m /_image [2m85ms[22m
+[2m23:59:23[22m [34m[200][39m /_image [2m460ms[22m
+[2m23:59:24[22m [34m[200][39m /_image [2m390ms[22m
+[2m23:59:24[22m [34m[200][39m /_image [2m354ms[22m
+[2m23:59:24[22m [34m[200][39m / [2m5ms[22m
+[2m23:59:24[22m [34m[200][39m /_image [2m67ms[22m
+[2m23:59:24[22m [34m[200][39m / [2m14ms[22m
+[2m23:59:24[22m [34m[200][39m /_image [2m36ms[22m
+[2m23:59:24[22m [34m[200][39m /_image [2m69ms[22m
+[2m23:59:24[22m [34m[200][39m /_image [2m119ms[22m
+[2m23:59:24[22m [34m[200][39m /_image [2m32ms[22m
+[2m23:59:24[22m [34m[200][39m /_image [2m69ms[22m
+[2m23:59:25[22m [34m[200][39m /_image [2m359ms[22m
+[2m23:59:25[22m [34m[200][39m /_image [2m290ms[22m
+[2m23:59:25[22m [34m[200][39m / [2m8ms[22m
+[2m23:59:25[22m [34m[200][39m /_image [2m69ms[22m
+[2m23:59:25[22m [34m[200][39m /_image [2m28ms[22m
+[33m[1m23:59:25[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/kontakt`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:25[22m [33m[404][39m /kontakt [2m7ms[22m
+[2m23:59:25[22m [34m[200][39m /_image [2m80ms[22m
+[2m23:59:25[22m [34m[200][39m /_image [2m33ms[22m
+[2m23:59:25[22m [34m[200][39m /_image [2m311ms[22m
+[2m23:59:26[22m [34m[200][39m /_image [2m267ms[22m
+[2m23:59:26[22m [34m[200][39m /rss.xml [2m7ms[22m
+[2m23:59:27[22m [34m[200][39m / [2m7ms[22m
+[2m23:59:27[22m [34m[200][39m /_image [2m95ms[22m
+[2m23:59:27[22m [34m[200][39m /_image [2m23ms[22m
+[2m23:59:27[22m [34m[200][39m /_image [2m71ms[22m
+[2m23:59:27[22m [34m[200][39m /_image [2m355ms[22m
+[2m23:59:27[22m [34m[200][39m /api/info [2m1ms[22m
+[2m23:59:28[22m [34m[200][39m /api/info [2m1ms[22m
+[2m23:59:28[22m [34m[200][39m /rss.xml [2m2ms[22m
+[2m23:59:28[22m [34m[200][39m / [2m13ms[22m
+[2m23:59:29[22m [34m[200][39m /_image [2m194ms[22m
+[2m23:59:29[22m [34m[200][39m /_image [2m48ms[22m
+[2m23:59:29[22m [34m[200][39m /_image [2m104ms[22m
+[2m23:59:29[22m [34m[200][39m / [2m10ms[22m
+[2m23:59:29[22m [34m[200][39m /_image [2m389ms[22m
+[2m23:59:29[22m [34m[200][39m /_image [2m132ms[22m
+[2m23:59:29[22m [34m[200][39m /_image [2m64ms[22m
+[2m23:59:29[22m [34m[200][39m /_image [2m89ms[22m
+[2m23:59:29[22m [34m[200][39m /_image [2m284ms[22m
+[2m23:59:30[22m [34m[200][39m /en [2m59ms[22m
+[33m[1m23:59:30[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/o-nas`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:30[22m [33m[404][39m /o-nas [2m16ms[22m
+[2m23:59:30[22m [34m[200][39m /_image [2m83ms[22m
+[2m23:59:30[22m [34m[200][39m /_image [2m386ms[22m
+[2m23:59:30[22m [34m[200][39m /en/about [2m94ms[22m
+[2m23:59:31[22m [34m[200][39m /en/about [2m25ms[22m
+[2m23:59:31[22m [34m[200][39m /_image [2m238ms[22m
+[2m23:59:31[22m [34m[200][39m /_image [2m91ms[22m
+[2m23:59:31[22m [34m[200][39m /_image [2m308ms[22m
+[33m[1m23:59:31[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/o-nas`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:31[22m [33m[404][39m /o-nas [2m28ms[22m
+[2m23:59:32[22m [34m[200][39m /_image [2m550ms[22m
+[33m[1m23:59:32[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/sluzby`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:32[22m [33m[404][39m /sluzby [2m15ms[22m
+[2m23:59:32[22m [34m[200][39m /_image [2m51ms[22m
+[2m23:59:32[22m [34m[200][39m /_image [2m552ms[22m
+[2m23:59:32[22m [34m[200][39m /en [2m15ms[22m
+[2m23:59:32[22m [34m[200][39m /en/services [2m36ms[22m
+[2m23:59:33[22m [34m[200][39m /_image [2m176ms[22m
+[2m23:59:33[22m [34m[200][39m /_image [2m494ms[22m
+[2m23:59:33[22m [34m[200][39m /_image [2m207ms[22m
+[2m23:59:33[22m [34m[200][39m /_image [2m302ms[22m
+[2m23:59:33[22m [34m[200][39m / [2m30ms[22m
+[2m23:59:33[22m [34m[200][39m /_image [2m546ms[22m
+[2m23:59:34[22m [34m[200][39m /_image [2m948ms[22m
+[2m23:59:34[22m [34m[200][39m /_image [2m896ms[22m
+[2m23:59:34[22m [34m[200][39m /en/services [2m30ms[22m
+[2m23:59:34[22m [34m[200][39m /_image [2m631ms[22m
+[2m23:59:34[22m [34m[200][39m /_image [2m127ms[22m
+[33m[1m23:59:34[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/sluzby`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:34[22m [33m[404][39m /sluzby [2m9ms[22m
+[2m23:59:34[22m [34m[200][39m /en/dresses [2m47ms[22m
+[2m23:59:34[22m [34m[200][39m /_image [2m402ms[22m
+[2m23:59:34[22m [34m[200][39m /_image [2m513ms[22m
+[2m23:59:35[22m [34m[200][39m /_image [2m59ms[22m
+[2m23:59:35[22m [34m[200][39m /_image [2m285ms[22m
+[2m23:59:35[22m [34m[200][39m /_image [2m603ms[22m
+[2m23:59:35[22m [34m[200][39m /_image [2m350ms[22m
+[2m23:59:35[22m [34m[200][39m /_image [2m555ms[22m
+[2m23:59:35[22m [34m[200][39m /_image [2m532ms[22m
+[2m23:59:35[22m [34m[200][39m /_image [2m650ms[22m
+[2m23:59:35[22m [34m[200][39m /_image [2m333ms[22m
+[2m23:59:36[22m [34m[200][39m /_image [2m301ms[22m
+[2m23:59:36[22m [34m[200][39m /_image [2m363ms[22m
+[2m23:59:36[22m [34m[vite][39m [32m✨ new dependencies optimized: [33mphotoswipe/lightbox, photoswipe[32m[39m
+[2m23:59:36[22m [34m[vite][39m [32m✨ optimized dependencies changed. reloading[39m
+[2m23:59:36[22m [34m[200][39m /_image [2m330ms[22m
+[2m23:59:36[22m [34m[200][39m /en/dresses [2m31ms[22m
+[2m23:59:36[22m [34m[200][39m /_image [2m289ms[22m
+[2m23:59:36[22m [34m[200][39m /_image [2m354ms[22m
+[2m23:59:36[22m [34m[200][39m /_image [2m808ms[22m
+[2m23:59:36[22m [34m[200][39m /_image [2m638ms[22m
+[2m23:59:36[22m [34m[200][39m /_image [2m662ms[22m
+[33m[1m23:59:36[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/kontakt`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:36[22m [33m[404][39m /kontakt [2m6ms[22m
+[2m23:59:37[22m [34m[200][39m /_image [2m314ms[22m
+[2m23:59:37[22m [34m[200][39m /_image [2m374ms[22m
+[2m23:59:37[22m [34m[200][39m /_image [2m461ms[22m
+[2m23:59:37[22m [34m[200][39m /_image [2m502ms[22m
+[2m23:59:37[22m [34m[200][39m /_image [2m651ms[22m
+[33m[1m23:59:37[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/svadobne-saty`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:37[22m [33m[404][39m /svadobne-saty [2m30ms[22m
+[2m23:59:37[22m [34m[200][39m /_image [2m770ms[22m
+[2m23:59:37[22m [34m[200][39m /_image [2m601ms[22m
+[2m23:59:37[22m [34m[200][39m /_image [2m555ms[22m
+[2m23:59:37[22m [34m[200][39m /_image [2m483ms[22m
+[2m23:59:37[22m [34m[200][39m /_image [2m517ms[22m
+[33m[1m23:59:38[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/svadobne-saty`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:38[22m [33m[404][39m /svadobne-saty [2m17ms[22m
+[2m23:59:38[22m [34m[200][39m /_image [2m385ms[22m
+[2m23:59:38[22m [34m[200][39m /_image [2m580ms[22m
+[2m23:59:38[22m [34m[200][39m /_image [2m65ms[22m
+[2m23:59:38[22m [34m[200][39m /en/dresses [2m30ms[22m
+[2m23:59:38[22m [34m[200][39m /_image [2m507ms[22m
+[2m23:59:39[22m [34m[200][39m /_image [2m241ms[22m
+[2m23:59:39[22m [34m[200][39m /_image [2m318ms[22m
+[2m23:59:39[22m [34m[200][39m /_image [2m466ms[22m
+[2m23:59:39[22m [34m[200][39m /_image [2m593ms[22m
+[2m23:59:39[22m [34m[200][39m /_image [2m637ms[22m
+[2m23:59:39[22m [34m[200][39m /_image [2m440ms[22m
+[2m23:59:39[22m [34m[200][39m /_image [2m498ms[22m
+[2m23:59:39[22m [34m[200][39m /_image [2m385ms[22m
+[2m23:59:39[22m [34m[200][39m /_image [2m538ms[22m
+[2m23:59:40[22m [34m[200][39m /en/blog [2m17ms[22m
+[33m[1m23:59:40[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/galeria`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:40[22m [33m[404][39m /galeria [2m11ms[22m
+[2m23:59:40[22m [34m[200][39m /_image [2m42ms[22m
+[33m[1m23:59:40[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/blog`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:40[22m [33m[404][39m /blog [2m13ms[22m
+[2m23:59:40[22m [34m[200][39m /_image [2m82ms[22m
+[2m23:59:40[22m [34m[200][39m /_image [2m273ms[22m
+[2m23:59:40[22m [34m[200][39m /_image [2m631ms[22m
+[2m23:59:41[22m [34m[200][39m /en/galeria [2m81ms[22m
+[2m23:59:41[22m [34m[200][39m /_image [2m823ms[22m
+[2m23:59:41[22m [34m[200][39m /_image [2m753ms[22m
+[2m23:59:41[22m [34m[200][39m /_image [2m240ms[22m
+[2m23:59:41[22m [34m[200][39m /_image [2m248ms[22m
+[2m23:59:41[22m [34m[200][39m /_image [2m284ms[22m
+[2m23:59:41[22m [34m[200][39m /_image [2m356ms[22m
+[2m23:59:41[22m [34m[200][39m /_image [2m399ms[22m
+[2m23:59:41[22m [34m[200][39m /_image [2m290ms[22m
+[2m23:59:42[22m [34m[200][39m /_image [2m743ms[22m
+[2m23:59:42[22m [34m[200][39m /_image [2m409ms[22m
+[2m23:59:42[22m [34m[200][39m /_image [2m447ms[22m
+[2m23:59:42[22m [34m[200][39m /_image [2m349ms[22m
+[2m23:59:42[22m [34m[200][39m /_image [2m281ms[22m
+[2m23:59:42[22m [34m[200][39m /_image [2m304ms[22m
+[2m23:59:42[22m [34m[200][39m /en/galeria [2m66ms[22m
+[33m[1m23:59:42[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/komisny-predaj`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:42[22m [33m[404][39m /komisny-predaj [2m20ms[22m
+[33m[1m23:59:43[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/blog`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:43[22m [33m[404][39m /blog [2m29ms[22m
+[2m23:59:43[22m [34m[200][39m /_image [2m144ms[22m
+[2m23:59:43[22m [34m[200][39m /_image [2m121ms[22m
+[2m23:59:43[22m [34m[200][39m /_image [2m249ms[22m
+[2m23:59:43[22m [34m[200][39m /_image [2m320ms[22m
+[2m23:59:43[22m [34m[200][39m /_image [2m326ms[22m
+[2m23:59:43[22m [34m[200][39m /_image [2m468ms[22m
+[2m23:59:44[22m [34m[200][39m /en/consignment [2m69ms[22m
+[2m23:59:44[22m [34m[200][39m /_image [2m817ms[22m
+[2m23:59:44[22m [34m[200][39m /_image [2m668ms[22m
+[2m23:59:44[22m [34m[200][39m /_image [2m499ms[22m
+[2m23:59:44[22m [34m[200][39m /_image [2m580ms[22m
+[2m23:59:44[22m [34m[200][39m /_image [2m830ms[22m
+[2m23:59:44[22m [34m[200][39m /_image [2m572ms[22m
+[2m23:59:44[22m [34m[200][39m /_image [2m1087ms[22m
+[33m[1m23:59:44[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/galeria`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:44[22m [33m[404][39m /galeria [2m27ms[22m
+[2m23:59:44[22m [34m[200][39m /_image [2m1029ms[22m
+[2m23:59:44[22m [34m[200][39m /_image [2m770ms[22m
+[2m23:59:44[22m [34m[200][39m /_image [2m704ms[22m
+[2m23:59:45[22m [34m[200][39m /en/blog [2m67ms[22m
+[2m23:59:45[22m [34m[200][39m /_image [2m651ms[22m
+[2m23:59:45[22m [34m[200][39m /_image [2m878ms[22m
+[2m23:59:45[22m [34m[200][39m /_image [2m751ms[22m
+[2m23:59:45[22m [34m[200][39m /_image [2m604ms[22m
+[2m23:59:45[22m [34m[200][39m /_image [2m1603ms[22m
+[2m23:59:45[22m [34m[200][39m /_image [2m375ms[22m
+[33m[1m23:59:45[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/prenajom-dekoracii`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:45[22m [33m[404][39m /prenajom-dekoracii [2m8ms[22m
+[2m23:59:45[22m [34m[200][39m /_image [2m1277ms[22m
+[2m23:59:45[22m [34m[200][39m /_image [2m591ms[22m
+[2m23:59:45[22m [34m[200][39m /_image [2m31ms[22m
+[2m23:59:46[22m [34m[200][39m /en/decorations [2m19ms[22m
+[2m23:59:46[22m [34m[200][39m /_image [2m292ms[22m
+[2m23:59:46[22m [34m[200][39m /_image [2m58ms[22m
+[2m23:59:46[22m [34m[200][39m /_image [2m294ms[22m
+[2m23:59:46[22m [34m[200][39m /_image [2m521ms[22m
+[33m[1m23:59:46[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/prenajom-dekoracii`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:46[22m [33m[404][39m /prenajom-dekoracii [2m7ms[22m
+[2m23:59:47[22m [34m[200][39m /en/consignment [2m15ms[22m
+[2m23:59:47[22m [34m[200][39m /en/decorations [2m57ms[22m
+[2m23:59:47[22m [34m[200][39m /_image [2m242ms[22m
+[33m[1m23:59:47[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/komisny-predaj`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:48[22m [33m[404][39m /komisny-predaj [2m53ms[22m
+[2m23:59:48[22m [34m[200][39m /_image [2m626ms[22m
+[2m23:59:48[22m [34m[200][39m /_image [2m434ms[22m
+[2m23:59:48[22m [34m[200][39m /_image [2m985ms[22m
+[2m23:59:48[22m [34m[200][39m /_image [2m565ms[22m
+[33m[1m23:59:48[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/partneri`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:48[22m [33m[404][39m /partneri [2m10ms[22m
+[2m23:59:49[22m [34m[200][39m /_image [2m42ms[22m
+[2m23:59:49[22m [34m[200][39m /en/partners [2m149ms[22m
+[2m23:59:50[22m [34m[200][39m /_image [2m853ms[22m
+[2m23:59:50[22m [34m[200][39m /_image [2m421ms[22m
+[2m23:59:50[22m [34m[200][39m / [2m13ms[22m
+[2m23:59:50[22m [34m[200][39m /_image [2m120ms[22m
+[2m23:59:50[22m [34m[200][39m /_image [2m46ms[22m
+[2m23:59:51[22m [34m[200][39m /_image [2m402ms[22m
+[2m23:59:51[22m [34m[200][39m / [2m9ms[22m
+[2m23:59:51[22m [34m[200][39m /_image [2m62ms[22m
+[2m23:59:52[22m [34m[200][39m /_image [2m359ms[22m
+[2m23:59:52[22m [34m[200][39m /_image [2m435ms[22m
+[33m[1m23:59:52[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/kontakt`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:52[22m [33m[404][39m /kontakt [2m8ms[22m
+[2m23:59:52[22m [34m[200][39m /en/partners [2m12ms[22m
+[2m23:59:52[22m [34m[200][39m /_image [2m31ms[22m
+[2m23:59:52[22m [34m[200][39m /en/contact [2m29ms[22m
+[2m23:59:52[22m [34m[200][39m / [2m15ms[22m
+[2m23:59:52[22m [34m[200][39m /_image [2m78ms[22m
+[2m23:59:52[22m [34m[200][39m /en/contact [2m29ms[22m
+[33m[1m23:59:53[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/partneri`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:53[22m [33m[404][39m /partneri [2m13ms[22m
+[2m23:59:53[22m [34m[200][39m /_image [2m392ms[22m
+[2m23:59:53[22m [34m[200][39m /_image [2m789ms[22m
+[33m[1m23:59:53[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/kontakt`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m23:59:53[22m [33m[404][39m /kontakt [2m18ms[22m
+[2m23:59:53[22m [34m[200][39m /_image [2m835ms[22m
+[2m23:59:53[22m [34m[200][39m /_image [2m308ms[22m
+[2m23:59:54[22m [34m[200][39m /_image [2m1045ms[22m
+[2m23:59:54[22m [34m[200][39m /_image [2m731ms[22m
+[2m23:59:54[22m [34m[200][39m /_image [2m848ms[22m
+[2m23:59:54[22m [34m[200][39m /_image [2m936ms[22m
+[2m23:59:54[22m [34m[200][39m /_image [2m960ms[22m
+[2m23:59:54[22m [34m[200][39m / [2m14ms[22m
+[2m23:59:54[22m [34m[200][39m /_image [2m782ms[22m
+[2m23:59:54[22m [34m[200][39m / [2m14ms[22m
+[2m23:59:54[22m [34m[200][39m /_image [2m148ms[22m
+[2m23:59:54[22m [34m[200][39m /_image [2m47ms[22m
+[2m23:59:54[22m [34m[200][39m /_image [2m136ms[22m
+[2m23:59:54[22m [34m[200][39m /_image [2m55ms[22m
+[2m23:59:55[22m [34m[200][39m /_image [2m469ms[22m
+[2m23:59:55[22m [34m[200][39m /_image [2m432ms[22m
+[2m23:59:56[22m [34m[200][39m / [2m8ms[22m
+[2m23:59:56[22m [34m[200][39m /_image [2m100ms[22m
+[2m23:59:56[22m [34m[200][39m /_image [2m30ms[22m
+[2m23:59:56[22m [34m[200][39m / [2m17ms[22m
+[2m23:59:56[22m [34m[200][39m /_image [2m180ms[22m
+[2m23:59:56[22m [34m[200][39m /_image [2m115ms[22m
+[2m23:59:56[22m [34m[200][39m /_image [2m491ms[22m
+[2m23:59:57[22m [34m[200][39m /_image [2m420ms[22m
+[2m23:59:57[22m [34m[200][39m / [2m38ms[22m
+[2m23:59:57[22m [34m[200][39m /_image [2m121ms[22m
+[2m23:59:57[22m [34m[200][39m /_image [2m28ms[22m
+[2m23:59:57[22m [34m[200][39m / [2m6ms[22m
+[2m23:59:57[22m [34m[200][39m / [2m10ms[22m
+[2m23:59:57[22m [34m[200][39m /_image [2m139ms[22m
+[2m23:59:57[22m [34m[200][39m / [2m32ms[22m
+[2m23:59:57[22m [34m[200][39m /_image [2m425ms[22m
+[2m23:59:58[22m [34m[200][39m /_image [2m141ms[22m
+[2m23:59:58[22m [34m[200][39m /_image [2m317ms[22m
+[2m23:59:58[22m [34m[200][39m /_image [2m114ms[22m
+[2m23:59:58[22m [34m[200][39m /_image [2m103ms[22m
+[2m23:59:58[22m [34m[200][39m /_image [2m270ms[22m
+[2m23:59:58[22m [34m[200][39m /_image [2m876ms[22m
+[2m23:59:58[22m [34m[200][39m /_image [2m715ms[22m
+[2m23:59:58[22m [34m[200][39m /_image [2m653ms[22m
+[2m23:59:59[22m [34m[200][39m / [2m10ms[22m
+[2m23:59:59[22m [34m[200][39m / [2m15ms[22m
+[2m23:59:59[22m [34m[200][39m / [2m17ms[22m
+[2m23:59:59[22m [34m[200][39m /_image [2m161ms[22m
+[2m23:59:59[22m [34m[200][39m / [2m15ms[22m
+[2m23:59:59[22m [34m[200][39m /_image [2m144ms[22m
+[2m23:59:59[22m [34m[200][39m /_image [2m215ms[22m
+[2m23:59:59[22m [34m[200][39m /_image [2m82ms[22m
+[2m00:00:00[22m [34m[200][39m /_image [2m228ms[22m
+[2m00:00:00[22m [34m[200][39m /_image [2m479ms[22m
+[2m00:00:00[22m [34m[200][39m /_image [2m873ms[22m
+[2m00:00:00[22m [34m[200][39m /_image [2m803ms[22m
+[2m00:00:00[22m [34m[200][39m /_image [2m307ms[22m
+[2m00:00:00[22m [34m[200][39m /_image [2m388ms[22m
+[2m00:00:00[22m [34m[200][39m /_image [2m375ms[22m
+[2m00:00:00[22m [34m[200][39m /_image [2m756ms[22m
+[2m00:00:00[22m [34m[200][39m /_image [2m536ms[22m
+[2m00:00:01[22m [34m[200][39m / [2m5ms[22m
+[2m00:00:01[22m [34m[200][39m /_image [2m90ms[22m
+[2m00:00:01[22m [34m[200][39m /_image [2m30ms[22m
+[2m00:00:01[22m [34m[200][39m /_image [2m128ms[22m
+[2m00:00:01[22m [34m[200][39m /_image [2m421ms[22m
+[2m00:00:01[22m [34m[200][39m / [2m6ms[22m
+[2m00:00:02[22m [34m[200][39m /_image [2m103ms[22m
+[2m00:00:02[22m [34m[200][39m / [2m10ms[22m
+[2m00:00:02[22m [34m[200][39m /_image [2m69ms[22m
+[2m00:00:02[22m [34m[200][39m /_image [2m71ms[22m
+[2m00:00:02[22m [34m[200][39m /_image [2m108ms[22m
+[2m00:00:02[22m [34m[200][39m /_image [2m30ms[22m
+[2m00:00:02[22m [34m[200][39m /_image [2m69ms[22m
+[2m00:00:02[22m [34m[200][39m / [2m11ms[22m
+[2m00:00:02[22m [34m[200][39m /_image [2m334ms[22m
+[2m00:00:02[22m [34m[200][39m /_image [2m122ms[22m
+[2m00:00:02[22m [34m[200][39m /_image [2m350ms[22m
+[2m00:00:02[22m [34m[200][39m /_image [2m38ms[22m
+[2m00:00:02[22m [34m[200][39m /_image [2m76ms[22m
+[2m00:00:03[22m [34m[200][39m /_image [2m249ms[22m
+[2m00:00:03[22m [34m[200][39m / [2m8ms[22m
+[2m00:00:03[22m [34m[200][39m /_image [2m119ms[22m
+[2m00:00:03[22m [34m[200][39m /_image [2m43ms[22m
+[2m00:00:03[22m [34m[200][39m /_image [2m94ms[22m
+[2m00:00:03[22m [34m[200][39m /_image [2m370ms[22m
+[33m[1m00:00:03[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/o-nas`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:03[22m [33m[404][39m /o-nas [2m6ms[22m
+[2m00:00:04[22m [34m[200][39m /_image [2m26ms[22m
+[33m[1m00:00:04[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/o-nas`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:04[22m [33m[404][39m /o-nas [2m7ms[22m
+[33m[1m00:00:04[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/o-nas`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:04[22m [33m[404][39m /o-nas [2m8ms[22m
+[2m00:00:04[22m [34m[200][39m /_image [2m59ms[22m
+[2m00:00:04[22m [34m[200][39m /_image [2m73ms[22m
+[2m00:00:04[22m [34m[200][39m /_image [2m526ms[22m
+[2m00:00:04[22m [34m[200][39m /_image [2m423ms[22m
+[2m00:00:04[22m [34m[200][39m /_image [2m374ms[22m
+[33m[1m00:00:05[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/sluzby`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:05[22m [33m[404][39m /sluzby [2m4ms[22m
+[2m00:00:05[22m [34m[200][39m /_image [2m28ms[22m
+[2m00:00:05[22m [34m[200][39m /_image [2m336ms[22m
+[33m[1m00:00:05[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/sluzby`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:05[22m [33m[404][39m /sluzby [2m4ms[22m
+[2m00:00:06[22m [34m[200][39m /_image [2m27ms[22m
+[33m[1m00:00:06[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/svadobne-saty`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:06[22m [33m[404][39m /svadobne-saty [2m8ms[22m
+[2m00:00:06[22m [34m[200][39m /_image [2m43ms[22m
+[2m00:00:06[22m [34m[200][39m /_image [2m409ms[22m
+[33m[1m00:00:06[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/svadobne-saty`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:06[22m [33m[404][39m /svadobne-saty [2m14ms[22m
+[2m00:00:06[22m [34m[200][39m /_image [2m435ms[22m
+[33m[1m00:00:06[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/svadobne-saty`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:06[22m [33m[404][39m /svadobne-saty [2m7ms[22m
+[2m00:00:06[22m [34m[200][39m /_image [2m44ms[22m
+[33m[1m00:00:07[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/sluzby`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:07[22m [33m[404][39m /sluzby [2m6ms[22m
+[2m00:00:07[22m [34m[200][39m /_image [2m46ms[22m
+[2m00:00:07[22m [34m[200][39m /_image [2m39ms[22m
+[2m00:00:07[22m [34m[200][39m /_image [2m472ms[22m
+[2m00:00:07[22m [34m[200][39m /_image [2m436ms[22m
+[2m00:00:07[22m [34m[200][39m /_image [2m375ms[22m
+[33m[1m00:00:07[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/galeria`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:07[22m [33m[404][39m /galeria [2m7ms[22m
+[2m00:00:08[22m [34m[200][39m /_image [2m34ms[22m
+[2m00:00:08[22m [34m[200][39m /_image [2m336ms[22m
+[33m[1m00:00:08[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/blog`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:08[22m [33m[404][39m /blog [2m5ms[22m
+[2m00:00:08[22m [34m[200][39m /_image [2m40ms[22m
+[2m00:00:09[22m [34m[200][39m /_image [2m418ms[22m
+[33m[1m00:00:09[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/blog`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:09[22m [33m[404][39m /blog [2m6ms[22m
+[2m00:00:09[22m [34m[200][39m /_image [2m34ms[22m
+[33m[1m00:00:09[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/galeria`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:09[22m [33m[404][39m /galeria [2m10ms[22m
+[2m00:00:10[22m [34m[200][39m /_image [2m52ms[22m
+[2m00:00:10[22m [34m[200][39m /_image [2m493ms[22m
+[2m00:00:10[22m [34m[200][39m /_image [2m433ms[22m
+[33m[1m00:00:10[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/galeria`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:10[22m [33m[404][39m /galeria [2m5ms[22m
+[2m00:00:11[22m [34m[200][39m /_image [2m52ms[22m
+[2m00:00:11[22m [34m[200][39m /_image [2m391ms[22m
+[33m[1m00:00:11[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/komisny-predaj`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:11[22m [33m[404][39m /komisny-predaj [2m8ms[22m
+[33m[1m00:00:11[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/komisny-predaj`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:11[22m [33m[404][39m /komisny-predaj [2m10ms[22m
+[2m00:00:11[22m [34m[200][39m /_image [2m59ms[22m
+[2m00:00:11[22m [34m[200][39m /_image [2m101ms[22m
+[2m00:00:12[22m [34m[200][39m /_image [2m483ms[22m
+[2m00:00:12[22m [34m[200][39m /_image [2m467ms[22m
+[33m[1m00:00:12[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/blog`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:12[22m [33m[404][39m /blog [2m4ms[22m
+[33m[1m00:00:12[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/prenajom-dekoracii`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:12[22m [33m[404][39m /prenajom-dekoracii [2m11ms[22m
+[2m00:00:12[22m [34m[200][39m /_image [2m42ms[22m
+[2m00:00:13[22m [34m[200][39m /_image [2m124ms[22m
+[2m00:00:13[22m [34m[200][39m /_image [2m552ms[22m
+[2m00:00:13[22m [34m[200][39m /_image [2m513ms[22m
+[33m[1m00:00:13[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/komisny-predaj`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:13[22m [33m[404][39m /komisny-predaj [2m4ms[22m
+[33m[1m00:00:13[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/prenajom-dekoracii`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:13[22m [33m[404][39m /prenajom-dekoracii [2m6ms[22m
+[33m[1m00:00:13[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/prenajom-dekoracii`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:13[22m [33m[404][39m /prenajom-dekoracii [2m8ms[22m
+[2m00:00:13[22m [34m[200][39m /_image [2m66ms[22m
+[2m00:00:13[22m [34m[200][39m /_image [2m45ms[22m
+[2m00:00:14[22m [34m[200][39m /_image [2m57ms[22m
+[2m00:00:14[22m [34m[200][39m /_image [2m571ms[22m
+[2m00:00:14[22m [34m[200][39m /_image [2m481ms[22m
+[2m00:00:14[22m [34m[200][39m /_image [2m456ms[22m
+[33m[1m00:00:14[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/partneri`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:14[22m [33m[404][39m /partneri [2m5ms[22m
+[2m00:00:14[22m [34m[200][39m /_image [2m33ms[22m
+[2m00:00:15[22m [34m[200][39m /_image [2m307ms[22m
+[33m[1m00:00:15[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/kontakt`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:15[22m [33m[404][39m /kontakt [2m6ms[22m
+[2m00:00:15[22m [34m[200][39m /_image [2m64ms[22m
+[33m[1m00:00:16[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/partneri`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:16[22m [33m[404][39m /partneri [2m7ms[22m
+[2m00:00:16[22m [34m[200][39m /_image [2m387ms[22m
+[33m[1m00:00:16[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/kontakt`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:16[22m [33m[404][39m /kontakt [2m17ms[22m
+[2m00:00:16[22m [34m[200][39m /_image [2m63ms[22m
+[2m00:00:16[22m [34m[200][39m /_image [2m104ms[22m
+[2m00:00:17[22m [34m[200][39m /_image [2m570ms[22m
+[33m[1m00:00:17[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/partneri`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:17[22m [33m[404][39m /partneri [2m7ms[22m
+[2m00:00:17[22m [34m[200][39m /_image [2m420ms[22m
+[2m00:00:17[22m [34m[200][39m /_image [2m31ms[22m
+[2m00:00:17[22m [34m[200][39m /_image [2m314ms[22m
+[2m00:00:17[22m [34m[200][39m /en [2m9ms[22m
+[2m00:00:18[22m [34m[200][39m /_image [2m95ms[22m
+[2m00:00:18[22m [34m[200][39m /_image [2m33ms[22m
+[2m00:00:18[22m [34m[200][39m /_image [2m83ms[22m
+[2m00:00:18[22m [34m[200][39m /en [2m10ms[22m
+[2m00:00:18[22m [34m[200][39m /_image [2m142ms[22m
+[2m00:00:18[22m [34m[200][39m /_image [2m440ms[22m
+[2m00:00:18[22m [34m[200][39m /_image [2m49ms[22m
+[2m00:00:18[22m [34m[200][39m /_image [2m88ms[22m
+[2m00:00:19[22m [34m[200][39m /_image [2m522ms[22m
+[33m[1m00:00:19[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/kontakt`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:19[22m [33m[404][39m /kontakt [2m17ms[22m
+[2m00:00:19[22m [34m[200][39m /en/about [2m33ms[22m
+[2m00:00:19[22m [34m[200][39m /_image [2m61ms[22m
+[2m00:00:19[22m [34m[200][39m /_image [2m34ms[22m
+[2m00:00:19[22m [34m[200][39m /_image [2m229ms[22m
+[2m00:00:19[22m [34m[200][39m /en/about [2m22ms[22m
+[2m00:00:19[22m [34m[200][39m /en [2m25ms[22m
+[2m00:00:20[22m [34m[200][39m /_image [2m538ms[22m
+[2m00:00:20[22m [34m[200][39m /_image [2m246ms[22m
+[2m00:00:20[22m [34m[200][39m /_image [2m104ms[22m
+[2m00:00:20[22m [34m[200][39m /_image [2m88ms[22m
+[2m00:00:20[22m [34m[200][39m /_image [2m637ms[22m
+[2m00:00:20[22m [34m[200][39m /_image [2m345ms[22m
+[2m00:00:20[22m [34m[200][39m /_image [2m185ms[22m
+[2m00:00:20[22m [34m[200][39m /en/services [2m19ms[22m
+[2m00:00:20[22m [34m[200][39m /en/about [2m31ms[22m
+[2m00:00:20[22m [34m[200][39m /_image [2m588ms[22m
+[2m00:00:21[22m [34m[200][39m /_image [2m717ms[22m
+[2m00:00:21[22m [34m[200][39m /_image [2m132ms[22m
+[2m00:00:21[22m [34m[200][39m /_image [2m103ms[22m
+[2m00:00:21[22m [34m[200][39m /_image [2m437ms[22m
+[2m00:00:21[22m [34m[200][39m /en/services [2m28ms[22m
+[2m00:00:21[22m [34m[200][39m /_image [2m487ms[22m
+[2m00:00:21[22m [34m[200][39m /_image [2m593ms[22m
+[2m00:00:21[22m [34m[200][39m /_image [2m634ms[22m
+[2m00:00:21[22m [34m[200][39m /en/services [2m27ms[22m
+[2m00:00:21[22m [34m[200][39m /_image [2m115ms[22m
+[2m00:00:21[22m [34m[200][39m /en/dresses [2m30ms[22m
+[2m00:00:22[22m [34m[200][39m /_image [2m119ms[22m
+[2m00:00:22[22m [34m[200][39m /_image [2m496ms[22m
+[2m00:00:22[22m [34m[200][39m /_image [2m555ms[22m
+[2m00:00:22[22m [34m[200][39m /_image [2m145ms[22m
+[2m00:00:22[22m [34m[200][39m /en/dresses [2m73ms[22m
+[2m00:00:22[22m [34m[200][39m /_image [2m337ms[22m
+[2m00:00:22[22m [34m[200][39m /_image [2m534ms[22m
+[2m00:00:22[22m [34m[200][39m /_image [2m602ms[22m
+[2m00:00:22[22m [34m[200][39m /_image [2m637ms[22m
+[2m00:00:22[22m [34m[200][39m /_image [2m555ms[22m
+[2m00:00:22[22m [34m[200][39m /_image [2m105ms[22m
+[2m00:00:22[22m [34m[200][39m /en/dresses [2m48ms[22m
+[2m00:00:22[22m [34m[200][39m /_image [2m835ms[22m
+[2m00:00:23[22m [34m[200][39m /en/galeria [2m30ms[22m
+[2m00:00:23[22m [34m[200][39m /_image [2m752ms[22m
+[2m00:00:23[22m [34m[200][39m /_image [2m846ms[22m
+[2m00:00:23[22m [34m[200][39m /_image [2m375ms[22m
+[2m00:00:23[22m [34m[200][39m /_image [2m486ms[22m
+[2m00:00:23[22m [34m[200][39m /_image [2m573ms[22m
+[2m00:00:23[22m [34m[200][39m /_image [2m1020ms[22m
+[2m00:00:23[22m [34m[200][39m /en/galeria [2m84ms[22m
+[2m00:00:23[22m [34m[200][39m /_image [2m1105ms[22m
+[2m00:00:23[22m [34m[200][39m /_image [2m910ms[22m
+[2m00:00:24[22m [34m[200][39m /_image [2m761ms[22m
+[2m00:00:24[22m [34m[200][39m /_image [2m344ms[22m
+[2m00:00:24[22m [34m[200][39m /_image [2m442ms[22m
+[2m00:00:24[22m [34m[200][39m /_image [2m479ms[22m
+[2m00:00:24[22m [34m[200][39m /_image [2m708ms[22m
+[2m00:00:24[22m [34m[200][39m /_image [2m914ms[22m
+[2m00:00:24[22m [34m[200][39m /_image [2m528ms[22m
+[2m00:00:24[22m [34m[200][39m /_image [2m671ms[22m
+[2m00:00:24[22m [34m[200][39m /_image [2m667ms[22m
+[2m00:00:24[22m [34m[200][39m /_image [2m927ms[22m
+[2m00:00:24[22m [34m[200][39m /_image [2m896ms[22m
+[2m00:00:24[22m [34m[200][39m /_image [2m1254ms[22m
+[2m00:00:25[22m [34m[200][39m /_image [2m1186ms[22m
+[2m00:00:25[22m [34m[200][39m /_image [2m1361ms[22m
+[2m00:00:25[22m [34m[200][39m /_image [2m1117ms[22m
+[2m00:00:25[22m [34m[200][39m /_image [2m1229ms[22m
+[2m00:00:25[22m [34m[200][39m /_image [2m1488ms[22m
+[2m00:00:25[22m [34m[200][39m /_image [2m1337ms[22m
+[2m00:00:25[22m [34m[200][39m /_image [2m1220ms[22m
+[2m00:00:25[22m [34m[200][39m /_image [2m1426ms[22m
+[2m00:00:25[22m [34m[200][39m /_image [2m1035ms[22m
+[2m00:00:25[22m [34m[200][39m /_image [2m1278ms[22m
+[2m00:00:25[22m [34m[200][39m /en/galeria [2m41ms[22m
+[2m00:00:25[22m [34m[200][39m /en/blog [2m46ms[22m
+[2m00:00:25[22m [34m[200][39m /_image [2m1211ms[22m
+[2m00:00:25[22m [34m[200][39m /_image [2m1560ms[22m
+[2m00:00:25[22m [34m[200][39m /_image [2m1515ms[22m
+[2m00:00:25[22m [34m[200][39m /_image [2m1506ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m1559ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m1242ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m1565ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m1544ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m1390ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m1298ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m1568ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m1406ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m1806ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m1407ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m1192ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m752ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m1461ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m1366ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m1708ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m735ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m728ms[22m
+[2m00:00:26[22m [34m[200][39m /_image [2m927ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m1112ms[22m
+[2m00:00:27[22m [34m[200][39m /en/blog [2m18ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m1352ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m780ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m772ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m719ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m1050ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m969ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m919ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m837ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m1000ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m1064ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m928ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m1096ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m896ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m649ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m828ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m601ms[22m
+[2m00:00:27[22m [34m[200][39m /_image [2m654ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m391ms[22m
+[2m00:00:28[22m [34m[200][39m /en/blog [2m52ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m803ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m465ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m1308ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m523ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m476ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m477ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m586ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m393ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m324ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m428ms[22m
+[2m00:00:28[22m [34m[200][39m /en/consignment [2m23ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m919ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m412ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m185ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m355ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m363ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m351ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m333ms[22m
+[2m00:00:28[22m [34m[200][39m /_image [2m343ms[22m
+[2m00:00:29[22m [34m[200][39m /_image [2m374ms[22m
+[2m00:00:29[22m [34m[200][39m /_image [2m470ms[22m
+[2m00:00:29[22m [34m[200][39m /_image [2m338ms[22m
+[2m00:00:29[22m [34m[200][39m /_image [2m396ms[22m
+[2m00:00:29[22m [34m[200][39m /_image [2m533ms[22m
+[2m00:00:29[22m [34m[200][39m /_image [2m366ms[22m
+[2m00:00:29[22m [34m[200][39m /_image [2m258ms[22m
+[2m00:00:29[22m [34m[200][39m /en/consignment [2m32ms[22m
+[2m00:00:29[22m [34m[200][39m /_image [2m853ms[22m
+[2m00:00:29[22m [34m[200][39m /_image [2m293ms[22m
+[2m00:00:29[22m [34m[200][39m /_image [2m62ms[22m
+[2m00:00:29[22m [34m[200][39m /_image [2m70ms[22m
+[2m00:00:29[22m [34m[200][39m /_image [2m786ms[22m
+[2m00:00:29[22m [34m[200][39m /en/consignment [2m18ms[22m
+[2m00:00:30[22m [34m[200][39m /_image [2m393ms[22m
+[2m00:00:30[22m [34m[200][39m /en/decorations [2m11ms[22m
+[2m00:00:30[22m [34m[200][39m /_image [2m57ms[22m
+[2m00:00:30[22m [34m[200][39m /_image [2m67ms[22m
+[2m00:00:30[22m [34m[200][39m /_image [2m71ms[22m
+[2m00:00:30[22m [34m[200][39m /_image [2m340ms[22m
+[2m00:00:30[22m [34m[200][39m /_image [2m706ms[22m
+[2m00:00:31[22m [34m[200][39m /en/decorations [2m17ms[22m
+[2m00:00:31[22m [34m[200][39m /_image [2m697ms[22m
+[2m00:00:31[22m [34m[200][39m /_image [2m31ms[22m
+[2m00:00:31[22m [34m[200][39m /en/partners [2m37ms[22m
+[2m00:00:31[22m [34m[200][39m /en/decorations [2m24ms[22m
+[2m00:00:31[22m [34m[200][39m /en/partners [2m21ms[22m
+[2m00:00:31[22m [34m[200][39m /_image [2m257ms[22m
+[2m00:00:31[22m [34m[200][39m /_image [2m96ms[22m
+[2m00:00:31[22m [34m[200][39m /_image [2m222ms[22m
+[2m00:00:31[22m [34m[200][39m /_image [2m184ms[22m
+[2m00:00:32[22m [34m[200][39m /_image [2m816ms[22m
+[2m00:00:32[22m [34m[200][39m /_image [2m518ms[22m
+[2m00:00:32[22m [34m[200][39m /_image [2m630ms[22m
+[2m00:00:32[22m [34m[200][39m /_image [2m624ms[22m
+[2m00:00:32[22m [34m[200][39m /_image [2m685ms[22m
+[2m00:00:32[22m [34m[200][39m /en/partners [2m13ms[22m
+[2m00:00:32[22m [34m[200][39m /en/contact [2m9ms[22m
+[2m00:00:32[22m [34m[200][39m /_image [2m42ms[22m
+[2m00:00:32[22m [34m[200][39m /_image [2m57ms[22m
+[2m00:00:33[22m [34m[200][39m /_image [2m503ms[22m
+[2m00:00:33[22m [34m[200][39m /_image [2m439ms[22m
+[2m00:00:33[22m [34m[200][39m /en/contact [2m8ms[22m
+[2m00:00:33[22m [34m[200][39m /en/contact [2m10ms[22m
+[2m00:00:33[22m [34m[200][39m / [2m11ms[22m
+[2m00:00:33[22m [34m[200][39m /en [2m12ms[22m
+[2m00:00:33[22m [34m[200][39m /_image [2m76ms[22m
+[2m00:00:33[22m [34m[200][39m /_image [2m97ms[22m
+[2m00:00:34[22m [34m[200][39m /_image [2m390ms[22m
+[2m00:00:34[22m [34m[200][39m /_image [2m313ms[22m
+[2m00:00:34[22m [34m[200][39m /_image [2m333ms[22m
+[2m00:00:34[22m [34m[200][39m /_image [2m292ms[22m
+[2m00:00:34[22m [34m[200][39m /_image [2m306ms[22m
+[2m00:00:34[22m [34m[200][39m /_image [2m796ms[22m
+[2m00:00:34[22m [34m[200][39m /_image [2m685ms[22m
+[2m00:00:34[22m [34m[200][39m /_image [2m917ms[22m
+[2m00:00:34[22m [34m[200][39m /_image [2m879ms[22m
+[2m00:00:34[22m [34m[200][39m /_image [2m803ms[22m
+[2m00:00:34[22m [34m[200][39m / [2m9ms[22m
+[33m[1m00:00:34[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/sitemap-0.xml`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:34[22m [33m[404][39m /sitemap-0.xml [2m7ms[22m
+[2m00:00:35[22m [34m[200][39m /_image [2m118ms[22m
+[2m00:00:35[22m [34m[200][39m /_image [2m36ms[22m
+[2m00:00:35[22m [34m[200][39m / [2m26ms[22m
+[2m00:00:35[22m [34m[200][39m /_image [2m131ms[22m
+[2m00:00:35[22m [34m[200][39m /_image [2m163ms[22m
+[2m00:00:35[22m [34m[200][39m /_image [2m49ms[22m
+[2m00:00:35[22m [34m[200][39m /_image [2m472ms[22m
+[2m00:00:35[22m [34m[200][39m /_image [2m93ms[22m
+[2m00:00:35[22m [34m[200][39m / [2m12ms[22m
+[33m[1m00:00:35[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/svadobne-saty`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:35[22m [33m[404][39m /svadobne-saty [2m10ms[22m
+[2m00:00:35[22m [34m[200][39m /_image [2m425ms[22m
+[2m00:00:36[22m [34m[200][39m /_image [2m231ms[22m
+[33m[1m00:00:36[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/sluzby`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:36[22m [33m[404][39m /sluzby [2m18ms[22m
+[2m00:00:36[22m [34m[200][39m /_image [2m118ms[22m
+[2m00:00:36[22m [34m[200][39m /_image [2m175ms[22m
+[2m00:00:36[22m [34m[200][39m /_image [2m190ms[22m
+[2m00:00:36[22m [34m[200][39m /_image [2m56ms[22m
+[33m[1m00:00:36[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/kontakt`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro, src/pages/[lang]/[...rest].astro.
+[2m00:00:36[22m [33m[404][39m /kontakt [2m15ms[22m
+[2m00:00:36[22m [34m[200][39m /_image [2m618ms[22m
+[2m00:00:36[22m [34m[200][39m /_image [2m688ms[22m
+[2m00:00:36[22m [34m[200][39m /_image [2m42ms[22m

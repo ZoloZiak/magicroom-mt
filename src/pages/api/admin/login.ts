@@ -1,10 +1,6 @@
 import type { APIRoute } from 'astro';
-import { readFile } from 'fs/promises';
-import { join } from 'path';
 
 export const prerender = false;
-
-const CONFIG_PATH = join(process.cwd(), 'content/json/admin-config.json');
 
 export const GET: APIRoute = async ({ cookies, redirect }) => {
   const session = cookies.get('admin-session');
@@ -25,16 +21,15 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
       return redirect('/admin/login?error=Chýba heslo');
     }
     
-    const configPath = join(process.cwd(), 'content/json/admin-config.json');
-    const configContent = await readFile(configPath, 'utf-8');
-    const config = JSON.parse(configContent);
+    // Heslo z environmentálnej premennej
+    const adminPassword = import.meta.env.ADMIN_PASSWORD || process.env.ADMIN_PASSWORD;
     
-    if (password === config.admin?.password) {
+    if (password === adminPassword) {
       cookies.set('admin-session', 'authenticated', {
         path: '/',
         httpOnly: true,
         maxAge: 60 * 60 * 24, // 24 hours
-        sameSite: 'strict',
+        sameSite: 'lax', // Zmenené zo strict na lax pre lepšiu kompatibilitu pri redirectoch
       });
       
       return redirect('/admin/dashboard');
