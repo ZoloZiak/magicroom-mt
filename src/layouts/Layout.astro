@@ -12,7 +12,7 @@ import { getAlternateLanguageUrl, type Language } from '@/lib/i18n';
 interface Props {
   title: string;
   description?: string;
-  image?: string;
+  image?: any; // Changed from string to any to support ImageMetadata or string
   keywords?: string;
   type?: 'website' | 'article';
   noindex?: boolean;
@@ -36,9 +36,14 @@ const {
 const canonicalUrl = toAbsoluteUrl(Astro.url.pathname);
 const alternateUrl = toAbsoluteUrl(getAlternateLanguageUrl(Astro.url, language));
 const alternateLang = language === 'sk' ? 'en' : 'sk';
-const imageUrl = typeof image === 'string' 
-  ? (image.startsWith('http') ? image : toAbsoluteUrl(image)) 
-  : (image?.src ? toAbsoluteUrl(image.src) : toAbsoluteUrl(DEFAULT_OG_IMAGE));
+
+// Safe image URL derivation
+let imageUrl = toAbsoluteUrl(DEFAULT_OG_IMAGE);
+if (typeof image === 'string') {
+  imageUrl = image.startsWith('http') ? image : toAbsoluteUrl(image);
+} else if (image && typeof image === 'object' && 'src' in image) {
+  imageUrl = toAbsoluteUrl(image.src);
+}
 
 const extraSchemas = Array.isArray(structuredData)
   ? structuredData
@@ -46,7 +51,6 @@ const extraSchemas = Array.isArray(structuredData)
     ? [structuredData]
     : [];
 
-// Build breadcrumb schema if provided
 const breadcrumbSchema = breadcrumbs.length > 0
   ? [{
       '@context': 'https://schema.org',
@@ -78,28 +82,24 @@ const jsonLd = JSON.stringify([
     <meta name="author" content={SITE_NAME} />
     {keywords && <meta name="keywords" content={keywords} />}
     <meta name="generator" content={Astro.generator} />
-    <!-- Dublin Core -->
     <meta name="DC.title" content={title} />
     <meta name="DC.description" content={description} />
     <meta name="DC.publisher" content={SITE_NAME} />
     <meta name="DC.language" content={language === 'en' ? 'en-US' : 'sk-SK'} />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <!-- Zatiaľ vypnuté pre lepší výkon (používame Vercel Analytics)
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-    <link rel="preload" href="/assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/satoshi-500.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/dm-sans-400.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/dm-sans-500.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/dm-sans-600.woff2" as="font" type="font/woff2" crossorigin />
-    <!-- GA - lazy loaded only when user scrolls or clicks (for performance) -->
-    <script>
-      // Make trackEvent available immediately 
+    -->
+    <script is:inline>
+      // Bezpečná mock funkcia pre existujúce tlačidlá, kým je GA vypnuté
       window.trackEvent = function(c,a,l,v) {
-        console.log('trackEvent:',c,a,l,v);
+        // console.log('trackEvent:',c,a,l,v);
       };
       
+      /* 
+      // GA Lazy Loading - Zakomentované kvôli výkonu
       var gaLoaded = false;
       function loadGA() {
         if (gaLoaded) return;
@@ -110,21 +110,18 @@ const jsonLd = JSON.stringify([
         script.async = true;
         script.onload = function() {
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          function gtag(){window.dataLayer.push(arguments);}
           window.gtag = gtag;
           gtag('js', new Date());
           gtag('config', 'G-90JKE6RJNC');
-          window.trackEvent = function(c,a,l,v) {
-            gtag('event', a || 'click', {event_category: c, event_label: l, value: v});
-          };
         };
         document.head.appendChild(script);
       };
       
-      // Load GA only on first user interaction or after 5 seconds
       window.addEventListener('scroll', loadGA, { once: true });
       window.addEventListener('click', loadGA, { once: true });
       setTimeout(loadGA, 5000);
+      */
     </script>
     <meta name="google-site-verification" content="MERGE_FROM_GOOGLE" />
     <link rel="canonical" href={canonicalUrl} />
@@ -132,7 +129,6 @@ const jsonLd = JSON.stringify([
     <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />
     <link rel="alternate" hreflang="x-default" href={toAbsoluteUrl('/')} />
 
-    <!-- Open Graph -->
     <meta property="og:type" content={type} />
     <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:locale" content={language === 'sk' ? 'sk_SK' : 'en_US'} />
@@ -144,14 +140,12 @@ const jsonLd = JSON.stringify([
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={title} />
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
     <meta name="twitter:image:alt" content={title} />
 
-    <!-- Favicon & Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
@@ -159,9 +153,6 @@ const jsonLd = JSON.stringify([
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="dns-prefetch" href="https://wa.me" />
 
-    <!-- Fonts with display=swap for better performance -->
-
-    <!-- Structured Data -->
     <script type="application/ld+json" set:html={jsonLd}></script>
 
     <title>{title}</title>
@@ -171,6 +162,16 @@ const jsonLd = JSON.stringify([
     <slot />
   </body>
 </html>
+
+<script>
+  declare global {
+    interface Window {
+      trackEvent: (category: string, action: string, label?: string, value?: number) => void;
+      dataLayer: any[];
+      gtag: (...args: any[]) => void;
+    }
+  }
+</script>
 
 <style is:global>
   @import '../styles/global.css';

@@ -22,7 +22,7 @@ const t = getTranslations(language);
 const isEn = language === 'en';
 
 const DECOR_FEATURED = getDecorFeatured(language);
-const DECOR_CATEGORIES = getDecorCategories(language);
+const DECOR_CATEGORIES = await getDecorCategories(language);
 const DECOR_POLICIES = getDecorPolicies(language);
 ---
 
@@ -56,7 +56,7 @@ const DECOR_POLICIES = getDecorPolicies(language);
       <div class="container relative mx-auto px-4">
         <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div class="max-w-2xl">
-            <Badge variant="secondary" className="mb-5">
+            <Badge variant="secondary" class="mb-5">
               {t.decorations.heroBadge}
             </Badge>
             <h1 class="font-display text-[2.9rem] leading-tight md:text-6xl">

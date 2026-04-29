@@ -1,5 +1,7 @@
-import type { Language } from './i18n';
+import type { Language as Lang } from './i18n';
 import { SLUG_MAP, REVERSE_SLUG_MAP } from './i18n';
+
+export type Language = Lang;
 
 export interface Translations {
   nav: {
@@ -59,6 +61,15 @@ export interface Translations {
     complaintPolicy: string;
     directionsText: string;
   };
+  services: {
+    pageTitle: string;
+    pageDescription: string;
+    heroBadge: string;
+    heroTitle: string;
+    heroDescription: string;
+    bookingTitle: string;
+    bookingDescription: string;
+  };
   dresses: {
     pageTitle: string;
     pageDescription: string;
@@ -72,6 +83,13 @@ export interface Translations {
     bookFitting: string;
     consignmentTitle: string;
     consignmentText: string;
+  };
+  formal: {
+    pageTitle: string;
+    pageDescription: string;
+    heroBadge: string;
+    heroTitle: string;
+    heroDescription: string;
   };
   consignment: {
     pageTitle: string;
@@ -236,9 +254,18 @@ const sk: Translations = {
     fittingPrice: '15 € / 60 min',
     logoSubtext: 'bridal concierge • Martin',
     footerDescription: 'Boutique svadobný salón v Martine pre nevesty, ktoré chcú šaty, dekorácie a pokojné poradenstvo bez chaosu.',
-    copyrightText: `© ${new Date().getFullYear()} MagicRoom. Všetky práva vyhradené.`,
+    copyrightText: '© 2026 MagicRoom. Všetky práva vyhradené.',
     complaintPolicy: 'Reklamačný poriadok',
     directionsText: 'Ako sa k nám dostať',
+  },
+  services: {
+    pageTitle: 'Služby a cenník — Svadobné šaty, dekorácie, poradenstvo | MagicRoom Martin',
+    pageDescription: 'Služby MagicRoom: skúška svadobných šiat od 15 €, výzdoba svadieb, svadobné poradenstvo. Cenová ponuka a objednávanie.',
+    heroBadge: 'Služby • cenník • Martin',
+    heroTitle: 'Služby navrhnuté tak, aby ste nestrácali čas.',
+    heroDescription: 'Každá karta nižšie je reálna časť ponuky MagicRoom — bez zbytočných fráz, s cenami a ďalším krokom, ktorý dáva zmysel.',
+    bookingTitle: 'Rezervácia skúšky alebo dopyt na dekorácie',
+    bookingDescription: 'Vyplňte pár detailov a ozveme sa vám s ponukou alebo potvrdením termínu.',
   },
   contact: {
     pageTitle: 'Kontakt a rezervácia skúšky šiat — MagicRoom Martin',
@@ -252,17 +279,8 @@ const sk: Translations = {
     bookingTitle: 'Zarezervujte si skúšku alebo pošlite dopyt bez zbytočného čakania',
     bookingDescription: 'Vyplňte pár detailov a pripravíme vám WhatsApp správu, ktorú si pred odoslaním ešte skontrolujete.',
     nextStepsTitle: 'Najprv správa, potom potvrdenie termínu.',
-    nextStepsDesc1: 'Po odoslaní formulára sa otvorí pripravená WhatsApp správa. Môžete ju doplniť alebo upraviť podľa seba.',
+    nextStepsDesc1: 'Po odoslaní formulára sa otvorí pripravedá WhatsApp správa. Môžete ju doplniť alebo upraviť podľa seba.',
     nextStepsDesc2: 'Keď nám správa príde, ozveme sa vám s potvrdením termínu alebo s doplňujúcou otázkou.',
-  },
-  services: {
-    pageTitle: 'Služby a cenník — Svadobné šaty, dekorácie, poradenstvo | MagicRoom Martin',
-    pageDescription: 'Služby MagicRoom: skúška svadobných šiat od 15 €, výzdoba svadieb, svadobné poradenstvo. Cenová ponuka a objednávanie.',
-    heroBadge: 'Služby • cenník • Martin',
-    heroTitle: 'Služby navrhnuté tak, aby ste nestrácali čas.',
-    heroDescription: 'Každá karta nižšie je reálna časť ponuky MagicRoom — bez zbytočných fráz, s cenami a ďalším krokom, ktorý dáva zmysel.',
-    bookingTitle: 'Rezervácia skúšky alebo dopyt na dekorácie',
-    bookingDescription: 'Vyplňte pár detailov a ozveme sa vám s ponukou alebo potvrdením termínu.',
   },
   about: {
     pageTitle: 'O nás — Svadobný salón MagicRoom v Martine | Natália Ondrejková',
@@ -439,9 +457,18 @@ const en: Translations = {
     fittingPrice: '15 € / 60 min',
     logoSubtext: 'bridal concierge • Martin',
     footerDescription: 'Boutique wedding salon in Martin for brides who want dresses, decorations and calm consulting without chaos.',
-    copyrightText: `© ${new Date().getFullYear()} MagicRoom. All rights reserved.`,
+    copyrightText: '© 2026 MagicRoom. All rights reserved.',
     complaintPolicy: 'Complaint Policy',
     directionsText: 'How to get here',
+  },
+  services: {
+    pageTitle: 'Occasion Wear Services & Prices — Prom & Gala Dresses | MagicRoom Martin',
+    pageDescription: 'MagicRoom services: formal dress fitting from 15 €, event decorations, styling advice. Transparent pricing for students and guests.',
+    heroBadge: 'Services • prices • Martin',
+    heroTitle: 'Occasion wear services designed for your big events.',
+    heroDescription: 'Whether it is Julebord, a student ball, or graduation, we have the right dress and accessories with transparent pricing.',
+    bookingTitle: 'Book a fitting or query about decorations',
+    bookingDescription: 'Fill in a few details and we will get back to you with a quote or time confirmation.',
   },
   contact: {
     pageTitle: 'Occasion Wear & Formal Dress Fitting — MagicRoom Martin',
@@ -457,15 +484,6 @@ const en: Translations = {
     nextStepsTitle: 'First a message, then a time confirmation.',
     nextStepsDesc1: 'After submitting the form, a prepared WhatsApp message will open. You can add to it or edit it as you like.',
     nextStepsDesc2: 'When we receive your message, we will get back to you with a time confirmation or a follow-up question.',
-  },
-  services: {
-    pageTitle: 'Occasion Wear Services & Prices — Prom & Gala Dresses | MagicRoom Martin',
-    pageDescription: 'MagicRoom services: formal dress fitting from 15 €, event decorations, styling advice. Transparent pricing for students and guests.',
-    heroBadge: 'Services • prices • Martin',
-    heroTitle: 'Occasion wear services designed for your big events.',
-    heroDescription: 'Whether it is Julebord, a student ball, or graduation, we have the right dress and accessories with transparent pricing.',
-    bookingTitle: 'Book a fitting or query about decorations',
-    bookingDescription: 'Fill in a few details and we will get back to you with a quote or time confirmation.',
   },
   about: {
     pageTitle: 'About — Wedding salon MagicRoom in Martin | Natália Ondrejková',

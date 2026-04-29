@@ -41,7 +41,7 @@ const categories = getPartnerCategories(language);
   <main class="flex-1">
     <section class="py-12 md:py-20 bg-surface">
       <div class="container mx-auto px-4 text-center">
-        <Badge variant="secondary" className="mb-4">{isEn ? 'Recommended' : 'Odporúčame'}</Badge>
+        <Badge variant="secondary" class="mb-4">{isEn ? 'Recommended' : 'Odporúčame'}</Badge>
         <h1 class="font-display text-4xl md:text-6xl mb-6">
           {isEn ? 'Wedding Partners' : 'Svadobní partneri'}
         </h1>
@@ -55,20 +55,20 @@ const categories = getPartnerCategories(language);
       <div class="container mx-auto px-4">
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {partners.map((partner) => (
-            <Card className="flex flex-col border-border/50 bg-card hover:border-primary/50 transition-all hover:shadow-xl rounded-[24px]">
+            <Card class="flex flex-col border-border/50 bg-card hover:border-primary/50 transition-all hover:shadow-xl rounded-[24px]">
               <div class="p-8 flex-1 flex flex-col">
                 <div class="flex items-center gap-4 mb-4">
                   <div class="h-12 w-12 rounded-full bg-primary/5 flex items-center justify-center text-primary font-display text-xl uppercase">
                     {partner.name[0]}
                   </div>
                   <div>
-                    {partner.name && <CardTitle className="font-display text-2xl">{partner.name}</CardTitle>}
+                    {partner.name && <CardTitle class="font-display text-2xl">{partner.name}</CardTitle>}
                     <p class="text-sm text-cta font-medium uppercase tracking-wider">{partner.category}</p>
                   </div>
                 </div>
                 <p class="text-muted-foreground mb-6 flex-1">{partner.description}</p>
                 <div class="mt-auto pt-4 border-t border-border/50 flex items-center justify-between">
-                   <Button variant="ghost" size="sm" className="px-0 group" href={partner.link} target="_blank" rel="noopener noreferrer" aria-label={`${partner.name} (${isEn ? 'opens in a new tab' : 'otvorí sa v novom okne'})`}>                      {isEn ? 'View work' : 'Pozrieť prácu'}
+                   <Button variant="ghost" size="sm" class="px-0 group" href={partner.link} target="_blank" rel="noopener noreferrer" aria-label={`${partner.name} (${isEn ? 'opens in a new tab' : 'otvorí sa v novom okne'})`}>                      {isEn ? 'View work' : 'Pozrieť prácu'}
                       <Icon name="ExternalLink" class="ml-2 h-4 w-4" />
                    </Button>
                    <span class="text-xs text-muted-foreground italic">Martin & okolie</span>

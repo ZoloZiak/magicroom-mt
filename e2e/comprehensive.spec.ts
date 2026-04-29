@@ -113,7 +113,9 @@ test.describe('MagicRoom SEO', () => {
       const desc = page.locator('meta[name="description"]');
       const content = await desc.getAttribute('content');
       expect(content).toBeTruthy();
-      expect(content.length).toBeGreaterThan(20);
+      if (content) {
+        expect(content.length).toBeGreaterThan(20);
+      }
     }
   });
 

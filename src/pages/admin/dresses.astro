@@ -255,7 +255,7 @@ try {
       const response = await fetch('/api/admin/save-dresses', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'delete', id: id, dresses: existingDresses.filter((d: any) => d.id !== id) })
+        body: JSON.stringify({ action: 'delete', id: id, dresses: existingDresses.filter((d) => d.id !== id) })
       });
       
       const result = await response.json();

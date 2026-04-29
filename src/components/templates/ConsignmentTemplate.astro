@@ -58,7 +58,7 @@ const consignmentOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0
       <div class="container relative mx-auto px-4">
         <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div class="max-w-2xl">
-            <Badge variant="secondary" className="mb-5 bg-card/10 text-accent border-accent/20">
+            <Badge variant="secondary" class="mb-5 bg-card/10 text-accent border-accent/20">
               {t.consignment.heroBadge}
             </Badge>
             <h1 class="font-display text-[2.9rem] leading-tight md:text-6xl">
@@ -150,7 +150,7 @@ const consignmentOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0
           <p class="text-lg font-medium text-cta">
             {isEn ? 'Ready to give your dresses a second life?' : 'Máte šaty, ktoré si zaslúžia ďalšiu nevestu?'}
           </p>
-          <Button variant="cta" size="lg" className="mt-6" href={getBookingPageHref(language)}>
+          <Button variant="cta" size="lg" class="mt-6" href={getBookingPageHref(language)}>
             {isEn ? 'Contact us' : 'Dohodnúť si termín'}
           </Button>
         </div>

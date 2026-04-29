@@ -24,13 +24,13 @@ const { language } = Astro.props;
 const t = getTranslations(language);
 const isEn = language === 'en';
 
-const posts = getBlogPosts(language);
+const posts = await getBlogPosts(language);
 ---
 
 <Layout
   title={isEn ? "Wedding Blog MagicRoom — Tips, Inspiration & Trends" : "Svadobný blog MagicRoom — Tipy, inšpirácie a trendy"}
   description={isEn ? "Read our articles about wedding dresses, decorations, advice and latest trends." : "Čítajte naše články o svadobných šatách, dekoráciách, poradenstve a najnovších trendov."}
-  image={IMAGE_ASSETS.hero}
+  image={IMAGE_ASSETS.hero.src}
   breadcrumbs={[
     { name: t.nav.home, url: isEn ? '/en' : '/' },
     { name: t.nav.blog, url: isEn ? '/en/blog' : '/blog' },
@@ -43,7 +43,7 @@ const posts = getBlogPosts(language);
     <section class="bg-surface py-16 md:py-20">
       <div class="container mx-auto px-4">
         <div class="mb-12 text-center">
-          <Badge variant="secondary" className="mb-4 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">
+          <Badge variant="secondary" class="mb-4 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">
             {isEn ? 'Wedding Blog' : 'Svadobný blog'}
           </Badge>
           <h1 class="font-display text-4xl text-foreground md:text-5xl">
@@ -56,7 +56,7 @@ const posts = getBlogPosts(language);
 
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
-            <Card className="blog-card border-0 bg-card shadow-[var(--shadow-soft)] spring-hover rounded-[32px] overflow-hidden">
+            <Card class="blog-card border-0 bg-card shadow-[var(--shadow-soft)] spring-hover rounded-[32px] overflow-hidden">
               <div class="overflow-hidden">
                 <Image
                   src={post.image}
@@ -71,16 +71,16 @@ const posts = getBlogPosts(language);
                   <Icon name="Clock3" class="h-4 w-4 ml-2" />
                   <span>{post.readTime}</span>
                 </div>
-                <CardTitle className="font-display text-xl line-clamp-2">{post.title}</CardTitle>
-                <CardDescription className="line-clamp-3">{post.excerpt}</CardDescription>
+                <CardTitle class="font-display text-xl line-clamp-2">{post.title}</CardTitle>
+                <CardDescription class="line-clamp-3">{post.excerpt}</CardDescription>
               </CardHeader>
               <CardContent>
                 <div class="flex flex-wrap gap-2 mb-4">
                   {post.tags.map((tag) => (
-                    <Badge variant="outline" className="text-xs">{tag}</Badge>
+                    <Badge variant="outline" class="text-xs">{tag}</Badge>
                   ))}
                 </div>
-                <Button variant="ghost" className="px-0 text-primary hover:text-cta group" href={isEn ? `/en/blog/${post.slug}` : `/blog/${post.slug}`}>
+                <Button variant="ghost" class="px-0 text-primary hover:text-cta group" href={isEn ? `/en/blog/${post.slug}` : `/blog/${post.slug}`}>
                   {isEn ? 'Read article' : 'Čítať článok'}
                   <Icon name="ArrowRight" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>

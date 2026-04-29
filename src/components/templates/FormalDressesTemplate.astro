@@ -21,7 +21,7 @@ const { language, skSlug } = Astro.props;
 const t = getTranslations(language);
 const isEn = language === 'en';
 
-const dresses = getFormalDresses(language);
+const dresses = await getFormalDresses(language);
 const firstDressImage = dresses[0]?.imageAsset?.src || IMAGE_URLS.hero;
 
 const productSchema = dresses.map((dress) => ({
@@ -56,7 +56,7 @@ const productSchema = dresses.map((dress) => ({
   <main class="flex-1">
     <section class="bg-surface py-12 md:py-20">
       <div class="container mx-auto px-4 text-center">
-        <Badge variant="secondary" className="mb-4">
+        <Badge variant="secondary" class="mb-4">
           {t.formal.heroBadge}
         </Badge>
         <h1 class="font-display text-4xl md:text-6xl mb-6">
@@ -91,7 +91,7 @@ const productSchema = dresses.map((dress) => ({
                     />
                   </a>
                 <div class="absolute right-4 top-4 pointer-events-none">
-                  <Badge variant={dress.status === 'available' ? 'success' : 'outline'} className="backdrop-blur-md">
+                  <Badge variant={dress.status === 'available' ? 'success' : 'outline'} class="backdrop-blur-md">
                     {dress.status === 'available' ? t.dresses.statusAvailable : t.dresses.statusReserved}
                   </Badge>
                 </div>
@@ -108,7 +108,7 @@ const productSchema = dresses.map((dress) => ({
                   <span class="text-sm font-medium uppercase tracking-widest text-muted-foreground">
                     {t.dresses.sizeLabel} {dress.size}
                   </span>
-                  <Button variant="ghost" size="sm" className="group/btn" href={getBookingPageHref(language)}>
+                  <Button variant="ghost" size="sm" class="group/btn" href={getBookingPageHref(language)}>
                     {t.dresses.bookFitting}
                     <Icon name="ArrowRight" class="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </Button>

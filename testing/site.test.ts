@@ -137,13 +137,13 @@ describe('site.ts — Schema.org', () => {
 
   it('LocalBusiness has Martin as areaServed', () => {
     const schemas = getBaseSchemas('https://example.com', 'https://example.com/logo.png');
-    const business = schemas[2];
+    const business = schemas[2] as any;
     expect(business.areaServed.name).toBe('Martin');
   });
 
   it('Organization includes Natália as founder', () => {
     const schemas = getBaseSchemas('https://example.com', 'https://example.com/logo.png');
-    const org = schemas[1];
+    const org = schemas[1] as any;
     expect(org.founder.name).toBe('Natália Ondrejková');
   });
 });

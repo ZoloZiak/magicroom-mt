@@ -27,7 +27,7 @@ export const POST: APIRoute = async ({ request }) => {
     });
     
     let sha = null;
-    let currentData = { dresses: [] };
+    let currentData: any = { dresses: [] };
     
     if (getResponse.ok) {
       const data = await getResponse.json();

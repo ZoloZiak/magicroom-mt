@@ -11,13 +11,13 @@ export default defineConfig({
   expect: {
     timeout: 10000,
   },
-  use: {
-    baseURL: process.env.BASE_URL || 'https://magicroom-mt.vercel.app',
-    trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
-    actionTimeout: 15000,
-    navigationTimeout: 30000,
-  },
+   use: {
+     baseURL: process.env.BASE_URL || 'http://localhost:4321',
+     trace: 'on-first-retry',
+     screenshot: 'only-on-failure',
+     actionTimeout: 15000,
+     navigationTimeout: 30000,
+   },
   projects: [
     {
       name: 'chromium',

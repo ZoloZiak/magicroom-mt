@@ -196,29 +196,29 @@ describe('content.ts — Blog', () => {
     });
   });
 
-  it('getBlogPosts returns correct count', () => {
-    const skPosts = getBlogPosts('sk');
-    const enPosts = getBlogPosts('en');
+  it('getBlogPosts returns correct count', async () => {
+    const skPosts = await getBlogPosts('sk');
+    const enPosts = await getBlogPosts('en');
     expect(skPosts).toHaveLength(3);
     expect(enPosts).toHaveLength(3);
   });
 
-  it('getBlogPost returns correct SK post', () => {
-    const post = getBlogPost('svadobne-trendy-2026', 'sk');
+  it('getBlogPost returns correct SK post', async () => {
+    const post = await getBlogPost('svadobne-trendy-2026', 'sk');
     expect(post).not.toBeNull();
     expect(post?.title).toBe('Svadobné trendy 2026: Keď sa autentickosť stretne s udržateľným luxusom');
     expect(post?.slug).toBe('svadobne-trendy-2026');
   });
 
-  it('getBlogPost returns correct EN post', () => {
-    const post = getBlogPost('wedding-trends-2026', 'en');
+  it('getBlogPost returns correct EN post', async () => {
+    const post = await getBlogPost('wedding-trends-2026', 'en');
     expect(post).not.toBeNull();
     expect(post?.title).toBe('Wedding Trends 2026: What Will Be in Fashion?');
     expect(post?.slug).toBe('wedding-trends-2026');
   });
 
-  it('getBlogPost returns null for invalid slug', () => {
-    const post = getBlogPost('invalid-slug', 'sk');
+  it('getBlogPost returns null for invalid slug', async () => {
+    const post = await getBlogPost('invalid-slug', 'sk');
     expect(post).toBeNull();
   });
 

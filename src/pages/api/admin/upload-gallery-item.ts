@@ -74,14 +74,13 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
     let sha = null;
-    let currentGallery = { gallery: [] };
-    
+    let currentGallery: any = { gallery: [] };
+
     if (galleryResponse.ok) {
       const galleryData = await galleryResponse.json();
       sha = galleryData.sha;
       currentGallery = JSON.parse(decodeURIComponent(escape(atob(galleryData.content))));
     }
-
     // Add new item
     const newItem = {
       filename: filename,

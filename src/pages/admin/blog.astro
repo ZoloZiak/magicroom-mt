@@ -128,7 +128,7 @@ const allPosts = blog.posts || [];
   window.deletePost = async function(slug) {
     if (!confirm('Naozaj chcete vymazať tento článok?')) return;
     
-    const newPosts = posts.filter((p: any) => p.slug !== slug);
+    const newPosts = posts.filter((p) => p.slug !== slug);
     
     try {
       const response = await fetch('/api/admin/save-blog', {

@@ -107,7 +107,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
       <div class="container mx-auto px-4">
         <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div class="max-w-2xl">
-            <Badge variant="secondary" className="mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em] animate-fade-in-up animate-stagger-1">
+            <Badge variant="secondary" class="mb-5 px-4 py-1 text-[11px] uppercase tracking-[0.28em] animate-fade-in-up animate-stagger-1">
               {t.services.heroBadge}
             </Badge>
             <h1 class="font-display text-[2.9rem] leading-tight text-foreground md:text-6xl animate-fade-in-up animate-stagger-2">
@@ -117,11 +117,11 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
               {t.services.heroDescription}
             </p>
             <div class="mt-8 flex flex-col gap-4 sm:flex-row items-center animate-fade-in-up animate-stagger-4">
-              <Button variant="cta" size="lg" className="sm:min-w-[220px]" href={getBookingPageHref(language)}>
+              <Button variant="cta" size="lg" class="sm:min-w-[220px]" href={getBookingPageHref(language)}>
                 {t.nav.bookAppointment}
                 <Icon name="ArrowRight" class="h-5 w-5 ml-2" />
               </Button>
-              <Button variant="outline" size="lg" className="sm:min-w-[220px]" href={isEn ? WHATSAPP_URL : PHONE_HREF}>
+              <Button variant="outline" size="lg" class="sm:min-w-[220px]" href={isEn ? WHATSAPP_URL : PHONE_HREF}>
                 {isEn ? 'WhatsApp' : `${t.common.callNow} ${PHONE_DISPLAY}`}
               </Button>
             </div>
@@ -149,21 +149,21 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
         </div>
         <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {servicePillars.map((item, index) => (
-            <Card className={`border-0 bg-surface shadow-[var(--shadow-soft)] hover:shadow-xl transition-shadow animate-fade-in-up animate-stagger-${index+1}`}>
+            <Card class={`border-0 bg-surface shadow-[var(--shadow-soft)] hover:shadow-xl transition-shadow animate-fade-in-up animate-stagger-${index+1}`}>
               <CardHeader>
                 <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-card shadow-sm text-primary">
                   <Icon name={item.icon} class="h-6 w-6" />
                 </div>
                 {item.title && (
-                  <CardTitle className="font-display text-2xl">
+                  <CardTitle class="font-display text-2xl">
                     {item.title}
                   </CardTitle>
                 )}
-                <p className="pt-2 text-sm font-semibold uppercase text-cta">{item.price}</p>
-                <CardDescription className="pt-2">{item.description}</CardDescription>
+                <p class="pt-2 text-sm font-semibold uppercase text-cta">{item.price}</p>
+                <CardDescription class="pt-2">{item.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="ghost" className="px-0 text-primary group" href={item.href}>
+                <Button variant="ghost" class="px-0 text-primary group" href={item.href}>
                   {item.cta}
                   <Icon name="ArrowRight" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
@@ -178,25 +178,25 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
       <div class="container mx-auto px-4">
         <div class="mx-auto mb-16 max-w-3xl text-center">
           <p class="text-sm uppercase tracking-[0.24em] text-primary/70">{t.contact.fittingNote}</p>
-          <h2 className="mt-3 font-display text-4xl md:text-5xl">{t.home.bookingTitle}</h2>
+          <h2 class="mt-3 font-display text-4xl md:text-5xl">{t.home.bookingTitle}</h2>
         </div>
         <div class="grid gap-8 lg:grid-cols-3">
           {SERVICE_PACKAGES.map((pkg, index) => (
-            <Card className={`bg-card shadow-lg border-0 flex flex-col ${pkg.recommended ? 'ring-2 ring-cta relative' : ''} animate-fade-in-up animate-stagger-${index+1}`}>
+            <Card class={`bg-card shadow-lg border-0 flex flex-col ${pkg.recommended ? 'ring-2 ring-cta relative' : ''} animate-fade-in-up animate-stagger-${index+1}`}>
               {pkg.recommended && (
                 <div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-cta px-4 py-1 text-[11px] font-bold uppercase tracking-widest text-white">
                   {isEn ? 'Most popular' : 'Najobľúbenejší'}
                 </div>
               )}
-              <CardHeader className="text-center">
-                <CardTitle className="font-display text-3xl">{pkg.name}</CardTitle>
+              <CardHeader class="text-center">
+                <CardTitle class="font-display text-3xl">{pkg.name}</CardTitle>
                 <p class="text-2xl font-semibold text-cta mt-2">{pkg.price}</p>
-                <CardDescription className="mt-2">{pkg.description}</CardDescription>
+                <CardDescription class="mt-2">{pkg.description}</CardDescription>
               </CardHeader>
-              <CardContent className="flex-1">
-                <ul className="space-y-4 mb-8">
+              <CardContent class="flex-1">
+                <ul class="space-y-4 mb-8">
                   {pkg.features.map((f) => (
-                    <li className="flex items-start gap-3 text-sm">
+                    <li class="flex items-start gap-3 text-sm">
                       <div class="mt-1 shrink-0 rounded-full bg-success/10 p-1 text-success">
                         <Icon name="CheckCircle2" class="h-3 w-3" />
                       </div>
@@ -205,7 +205,7 @@ const servicesOgImage = DRESS_CATALOG[0]?.imageAsset ? String(DRESS_CATALOG[0].i
                   ))}
                 </ul>
                 <Button 
-                  className="mt-auto w-full" 
+                  class="mt-auto w-full" 
                   variant={pkg.recommended ? 'cta' : 'outline'}
                   href={getBookingPageHref(language)}
                 >

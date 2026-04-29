@@ -56,8 +56,8 @@ export async function getStaticPaths() {
   paths.push({ params: { lang: 'en', rest: 'blog' }, props: { type: 'index' } });
 
   // Blog posts from JSON
-  const skPosts = getBlogPosts('sk');
-  const enPosts = getBlogPosts('en');
+  const skPosts = await getBlogPosts('sk');
+  const enPosts = await getBlogPosts('en');
 
   for (const post of skPosts) {
     paths.push({ params: { lang: 'sk', rest: `blog/${post.skSlug}` }, props: { type: 'post', skSlug: post.skSlug } });
@@ -79,10 +79,10 @@ const skSlug = props.skSlug || rest;
 {type === 'index' ? (
   <BlogIndexTemplate language={language} />
 ) : type === 'post' ? (
-  <BlogPostTemplate language={language} skSlug={blogSkSlug} />
+  <BlogPostTemplate language={language} skSlug={blogSkSlug as string} />
 ) : (
   (() => {
     const Component = TEMPLATES[template as keyof typeof TEMPLATES];
-    return <Component language={language} skSlug={skSlug} />;
+    return <Component language={language} skSlug={skSlug as string} />;
   })()
 )}

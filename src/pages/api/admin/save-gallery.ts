@@ -28,7 +28,7 @@ export const POST: APIRoute = async ({ request }) => {
     });
     
     let sha = null;
-    let currentGallery = { gallery: [] };
+    let currentGallery: any = { gallery: [] };
     
     if (getResponse.ok) {
       const data = await getResponse.json();

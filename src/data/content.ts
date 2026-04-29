@@ -30,7 +30,6 @@ import decorData from '../../content/json/decor.json';
 import galleryData from '../../content/json/gallery.json';
 import blogData from '../../content/json/blog.json';
 
-// White pixel fallback (1x1 white PNG)
 export const WHITE_FALLBACK = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=";
 
 export const IMAGE_ASSETS = {
@@ -58,22 +57,16 @@ export const IMAGE_URLS = {
   logo: logoImage.src,
 } as const;
 
-const galleryImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/gallery/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', {
-  eager: true,
-});
+const galleryImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/gallery/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}');
+const dressImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/dresses/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}');
+const decorImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/decorations/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}');
 
-const dressImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/dresses/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', {
-  eager: true,
-});
-
-const decorImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/decorations/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', {
-  eager: true,
-});
-
-function getDynamicImage(glob: Record<string, { default: ImageMetadata }>, filename: string) {
+async function getDynamicImage(glob: Record<string, () => Promise<{ default: ImageMetadata }>>, filename: string): Promise<ImageMetadata | null> {
+  const normalizedFilename = filename.toLowerCase();
   for (const path in glob) {
-    if (path.endsWith(filename)) {
-      return glob[path].default;
+    if (path.toLowerCase().endsWith(normalizedFilename)) {
+      const module = await glob[path]();
+      return module.default;
     }
   }
   return null;
@@ -230,7 +223,7 @@ export const FOUNDER_STORY = {
   quote: 'Každá žena si zaslúži moment, keď sa cíti výnimočne.',
   paragraphs: [
     'Ahoj, volám sa Natália. MagicRoom vznikol, keď som si pripravovala vlastnú svadbu a zistila, koľko času zhltne zháňanie šiat, výzdoby a detailov.',
-    'Chcela som miesto, kde ženy nájdu všetko pokope — šaty, dekorácie aj férovú radu bez stresu a preplácania.',
+    'Chcela som miesto, kde ženy nájdu všetko pokope — šaty, dekorácie aj férovú radu bez stresu and preplácania.',
   ],
 } as const;
 
@@ -277,18 +270,18 @@ export function getDecorFeatured(lang: Language) {
   return data.categories.flatMap(cat => cat.items).filter(item => item.starred);
 }
 
-export function getDecorCategories(lang: Language) {
+export async function getDecorCategories(lang: Language) {
   const data = lang === 'sk' ? decorData.sk : decorData.en;
   
-  return data.categories.map(cat => ({
+  return Promise.all(data.categories.map(async (cat) => ({
     ...cat,
-    items: cat.items.map(item => {
-      let imageAsset = null;
+    items: await Promise.all(cat.items.map(async (item) => {
+      let imageAsset: ImageMetadata | null = null;
       if (item.image) {
         const extensions = ['.jpg', '.jpeg', '.png', '.webp', '.JPG', '.JPEG', '.PNG', '.WEBP'];
         for (const ext of extensions) {
-          const img = getDynamicImage(decorImages, item.image + ext) || 
-                     getDynamicImage(galleryImages, item.image + ext);
+          const img = await getDynamicImage(decorImages as any, item.image + ext) || 
+                     await getDynamicImage(galleryImages as any, item.image + ext);
           if (img) {
             imageAsset = img;
             break;
@@ -297,11 +290,11 @@ export function getDecorCategories(lang: Language) {
       }
       return {
         ...item,
-        imageAsset: imageAsset as ImageMetadata | null,
+        imageAsset,
         fallbackImage: WHITE_FALLBACK,
       };
-    })
-  }));
+    }))
+  })));
 }
 
 export function getDecorPolicies(lang: Language) {
@@ -346,71 +339,74 @@ export function getContactActions(lang: Language) {
   return lang === 'sk' ? CONTACT_ACTIONS : CONTACT_ACTIONS_EN;
 }
 
-export function getGalleryItems(lang: Language) {
-  return galleryData.gallery
+export async function getGalleryItems(lang: Language) {
+  const items = await Promise.all(galleryData.gallery
     .filter(item => !['hero.png', 'dresses.png', 'decor-main.jpg', 'decor-alt.jpg', 'decor-backdrop.jpg', 'decor-details.jpg', 'logo.png', 'logo.jpeg'].includes(item.filename))
-    .map(item => {
+    .map(async (item) => {
       let filename = item.filename;
       if (filename.includes('saly-ruzove')) {
          filename = filename.replace('saly-ruzove', 'saty-ruzove');
       }
       
-      const img = getDynamicImage(galleryImages, filename);
+      const img = await getDynamicImage(galleryImages as any, filename);
       
+      if (!img) return null;
+
       return {
-        src: img as ImageMetadata,
+        src: img,
         alt: lang === 'sk' ? item.alt : item.altEn,
         title: lang === 'sk' ? item.title : item.titleEn,
       };
-    })
-    .filter(item => item.src !== null);
+    }));
+    
+  return items.filter((item): item is NonNullable<typeof item> => item !== null);
 }
 
 export function getPartners(lang: Language) {
-  return lang === 'sk' ? partnersData.sk.partners : partnersData.en.partners;
+  const data = lang === 'sk' ? partnersData.sk : partnersData.en;
+  return data.partners;
 }
 
 export function getPartnerCategories(lang: Language) {
-  return partnersData.categories[lang];
+  return (partnersData as any).categories[lang];
 }
 
-export const PARTNERS = getPartners('sk');
-export const PARTNER_CATEGORIES = getPartnerCategories('sk');
-
-export function getDressCatalog(lang: Language) {
-  return dressesData.dresses.map(dress => {
+export async function getDressCatalog(lang: Language) {
+  return Promise.all(dressesData.dresses.map(async (dress) => {
     const extensions = ['.png', '.jpg', '.jpeg', '.JPG', '.JPEG', '.PNG'];
     const imageIds = dress.images || [dress.id];
-    const images = imageIds.map(imgId => {
+    const images: ImageMetadata[] = [];
+    
+    for (const imgId of imageIds) {
       for (const ext of extensions) {
-        const img = getDynamicImage(dressImages, imgId + ext);
-        if (img) return img as ImageMetadata;
+        const img = await getDynamicImage(dressImages as any, imgId + ext);
+        if (img) {
+          images.push(img);
+          break;
+        }
       }
-      return null;
-    }).filter(Boolean);
+    }
     
     return {
       ...dress,
-      name: lang === 'sk' ? dress.name : (dress.name_en || dress.name),
-      description: lang === 'sk' ? dress.description : (dress.description_en || dress.description),
-      images: images as ImageMetadata[],
-      imageAsset: images[0] as ImageMetadata,
+      name: lang === 'sk' ? dress.name : ((dress as any).name_en || dress.name),
+      description: lang === 'sk' ? dress.description : ((dress as any).description_en || dress.description),
+      images: images,
+      imageAsset: images[0] || null,
       fallbackImage: WHITE_FALLBACK,
     };
-  });
+  }));
 }
 
-export function getWeddingDresses(lang: Language) {
-  return getDressCatalog(lang).filter(d => d.category === 'wedding');
+export async function getWeddingDresses(lang: Language) {
+  const catalog = await getDressCatalog(lang);
+  return catalog.filter(d => d.category === 'wedding');
 }
 
-export function getFormalDresses(lang: Language) {
-  return getDressCatalog(lang).filter(d => d.category === 'formal');
+export async function getFormalDresses(lang: Language) {
+  const catalog = await getDressCatalog(lang);
+  return catalog.filter(d => d.category === 'formal');
 }
-
-export const DRESS_CATALOG = getDressCatalog('sk');
-export const WEDDING_DRESSES = getWeddingDresses('sk');
-export const FORMAL_DRESSES = getFormalDresses('sk');
 
 export const CONSIGNMENT_STEPS = [
   'Šaty nám zveríte čisté a vopred pošlete fotografie.',
@@ -446,11 +442,11 @@ export function getConsignmentSteps(lang: Language) {
   return lang === 'sk' ? CONSIGNMENT_STEPS : en;
 }
 
-export function getBlogPosts(lang: Language) {
+export async function getBlogPosts(lang: Language) {
   const data = blogData.posts;
-  return data.map(post => {
+  return Promise.all(data.map(async (post) => {
     const p = lang === 'sk' ? post.sk : post.en;
-    const img = post.image ? getDynamicImage(dressImages, post.image) : null;
+    const img = post.image ? await getDynamicImage(dressImages as any, post.image) : null;
     return {
       ...post,
       slug: lang === 'sk' ? post.slug : post.enSlug,
@@ -464,18 +460,20 @@ export function getBlogPosts(lang: Language) {
       content: p.content,
       tags: p.tags,
       image: img || IMAGE_ASSETS.hero,
+      sk: post.sk,
+      en: post.en
     };
-  });
+  }));
 }
 
-export function getBlogPost(slug: string, lang: Language) {
+export async function getBlogPost(slug: string, lang: Language) {
   const post = blogData.posts.find(p =>
     lang === 'sk' ? p.slug === slug : p.enSlug === slug
   );
   if (!post) return null;
 
   const p = lang === 'sk' ? post.sk : post.en;
-  const img = post.image ? getDynamicImage(dressImages, post.image) : null;
+  const img = post.image ? await getDynamicImage(dressImages as any, post.image) : null;
   return {
     ...post,
     slug: lang === 'sk' ? post.slug : post.enSlug,
@@ -489,13 +487,21 @@ export function getBlogPost(slug: string, lang: Language) {
     content: p.content,
     tags: p.tags,
     image: img || IMAGE_ASSETS.hero,
+    sk: post.sk,
+    en: post.en
   };
 }
 
-export const BLOG_POSTS = getBlogPosts('sk');
+// Restore top-level constants for tests (pre-loaded with SK data)
+export const GALLERY_ITEMS = await getGalleryItems('sk');
 export const SERVICE_PACKAGES = getServicePackages('sk');
 export const EXTRA_SERVICES = getExtraServices('sk');
-export const DECOR_CATEGORIES = getDecorCategories('sk');
+export const DECOR_CATEGORIES = await getDecorCategories('sk');
 export const DECOR_POLICIES = getDecorPolicies('sk');
 export const CONTACT_FAQS = getContactFaqs('sk');
-export const GALLERY_ITEMS = getGalleryItems('sk');
+export const DRESS_CATALOG = await getDressCatalog('sk');
+export const BLOG_POSTS = await getBlogPosts('sk');
+export const WEDDING_DRESSES = await getWeddingDresses('sk');
+export const FORMAL_DRESSES = await getFormalDresses('sk');
+export const PARTNERS = getPartners('sk');
+export const PARTNER_CATEGORIES = getPartnerCategories('sk');

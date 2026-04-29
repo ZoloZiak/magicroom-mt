@@ -32,8 +32,8 @@ function getGalleryImageUrl(filename: string): string {
     <h2 class="text-lg font-semibold text-gray-900 mb-4">📤 Nahrať novú fotku</h2>
     
     <form id="upload-form" enctype="multipart/form-data" class="space-y-4">
-      <div class="border-2 border-dashed border-pink-200 rounded-2xl p-8 text-center hover:border-pink-400 transition-colors cursor-pointer" onclick="document.getElementById('file-input').click()">
-        <input type="file" id="file-input" name="file" accept="image/*" class="hidden" onchange="handleFileSelect(event)" />
+      <div id="drop-zone" class="border-2 border-dashed border-pink-200 rounded-2xl p-8 text-center hover:border-pink-400 transition-colors cursor-pointer">
+        <input type="file" id="file-input" name="file" accept="image/*" class="hidden" />
         <div class="text-4xl mb-2">📷</div>
         <p class="text-gray-600">Kliknite alebo pretiahnite fotku sem</p>
         <p class="text-sm text-gray-400 mt-2">PNG, JPG, WebP - max 5MB</p>
@@ -46,7 +46,7 @@ function getGalleryImageUrl(filename: string): string {
             <p id="preview-name" class="font-medium text-gray-900"></p>
             <p id="preview-size" class="text-sm text-gray-500"></p>
           </div>
-          <button type="button" onclick="clearPreview()" class="text-red-500 hover:text-red-700">✕</button>
+          <button type="button" id="clear-preview-btn" class="text-red-500 hover:text-red-700">✕</button>
         </div>
       </div>
 
@@ -96,8 +96,8 @@ function getGalleryImageUrl(filename: string): string {
           )}
           <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
             <a href="/galeria" target="_blank" class="p-2 bg-white rounded-full hover:bg-pink-50 transition-colors" title="Zobraziť na stránke">👁️</a>
-            <button type="button" onclick={`openEditModal(${i})`} class="p-2 bg-white rounded-full hover:bg-pink-50 transition-colors" title="Upraviť">✏️</button>
-            <button type="button" onclick={`deleteGalleryItem('${item.filename}')`} class="p-2 bg-white rounded-full hover:bg-red-50 transition-colors text-red-500" title="Vymazať">🗑️</button>
+            <button type="button" class="open-edit-btn p-2 bg-white rounded-full hover:bg-pink-50 transition-colors" data-index={i} title="Upraviť">✏️</button>
+            <button type="button" class="delete-btn p-2 bg-white rounded-full hover:bg-red-50 transition-colors text-red-500" data-filename={item.filename} title="Vymazať">🗑️</button>
           </div>
         </div>
         <div class="p-4">
@@ -121,7 +121,7 @@ function getGalleryImageUrl(filename: string): string {
 
 <!-- Edit Modal -->
 <div id="edit-modal" class="fixed inset-0 z-50 hidden">
-  <div class="absolute inset-0 bg-black/50" onclick="closeEditModal()"></div>
+  <div id="modal-backdrop" class="absolute inset-0 bg-black/50"></div>
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-3xl p-6 w-full max-w-md">
     <h2 class="text-xl font-bold mb-4">Upraviť fotku</h2>
     <form id="edit-form">
@@ -145,7 +145,7 @@ function getGalleryImageUrl(filename: string): string {
         </div>
       </div>
       <div class="flex gap-3 mt-6">
-        <button type="button" onclick="closeEditModal()" class="flex-1 px-4 py-2 border rounded-lg hover:bg-gray-50">Zrušiť</button>
+        <button type="button" id="close-modal-btn" class="flex-1 px-4 py-2 border rounded-lg hover:bg-gray-50">Zrušiť</button>
         <button type="submit" class="flex-1 px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600">Uložiť</button>
       </div>
     </form>
@@ -153,82 +153,111 @@ function getGalleryImageUrl(filename: string): string {
 </div>
 
 <script>
+  // @ts-ignore
   const galleryItems = JSON.parse('{JSON.stringify(gallery.gallery)}'.replace(/&quot;/g, '"'));
-  let selectedFile = null;
+  let selectedFile: File | null = null;
 
-  function handleFileSelect(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-    
+  const fileInput = document.getElementById('file-input') as HTMLInputElement | null;
+  const previewImage = document.getElementById('preview-image') as HTMLImageElement | null;
+  const previewName = document.getElementById('preview-name') as HTMLElement | null;
+  const previewSize = document.getElementById('preview-size') as HTMLElement | null;
+  const previewContainer = document.getElementById('preview-container') as HTMLElement | null;
+  const titleSkInput = document.getElementById('title-sk') as HTMLInputElement | null;
+  const dropZone = document.getElementById('drop-zone') as HTMLElement | null;
+
+  function handleFileSelect(file: File) {
     selectedFile = file;
     
     const reader = new FileReader();
     reader.onload = function(e) {
-      document.getElementById('preview-image').src = e.target.result;
-      document.getElementById('preview-name').textContent = file.name;
-      document.getElementById('preview-size').textContent = (file.size / 1024 / 1024).toFixed(2) + ' MB';
-      document.getElementById('preview-container').classList.remove('hidden');
+      if (previewImage && e.target?.result) {
+        previewImage.src = e.target.result as string;
+      }
+      if (previewName) previewName.textContent = file.name;
+      if (previewSize) previewSize.textContent = (file.size / 1024 / 1024).toFixed(2) + ' MB';
+      if (previewContainer) previewContainer.classList.remove('hidden');
     };
     reader.readAsDataURL(file);
     
     const nameWithoutExt = file.name.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ');
-    document.getElementById('title-sk').value = nameWithoutExt.charAt(0).toUpperCase() + nameWithoutExt.slice(1);
-  }
-
-  function clearPreview() {
-    selectedFile = null;
-    document.getElementById('file-input').value = '';
-    document.getElementById('preview-container').classList.add('hidden');
-  }
-
-  // Expose functions globally for inline onclick handlers
-  (window as any).openEditModal = function(index: number) {
-    const item = galleryItems[index];
-    document.getElementById('edit-index').value = index;
-    document.getElementById('edit-title-sk').value = item.title || '';
-    document.getElementById('edit-title-en').value = item.titleEn || '';
-    document.getElementById('edit-alt-sk').value = item.alt || '';
-    document.getElementById('edit-alt-en').value = item.altEn || '';
-    document.getElementById('edit-modal').classList.remove('hidden');
-  };
-
-  (window as any).closeEditModal = function() {
-    document.getElementById('edit-modal').classList.add('hidden');
-  };
-
-  (window as any).deleteGalleryItem = async function(filename: string) {
-    if (!confirm('Naozaj chcete vymazať túto fotku?')) return;
-    
-    const newItems = galleryItems.filter((item: any) => item.filename !== filename);
-    
-    try {
-      const response = await fetch('/api/admin/save-gallery', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: newItems })
-      });
-      const result = await response.json();
-      if (result.success) {
-        window.showToast('Fotka vymazaná!');
-        setTimeout(() => window.location.reload(), 1500);
-      } else {
-        window.showToast(result.error || 'Chyba pri mazaní', 'error');
-      }
-    } catch (err) {
-      window.showToast('Chyba pri mazaní', 'error');
+    if (titleSkInput) {
+      titleSkInput.value = nameWithoutExt.charAt(0).toUpperCase() + nameWithoutExt.slice(1);
     }
-  };
+  }
 
-  // Handle edit form submission
+  dropZone?.addEventListener('click', () => fileInput?.click());
+
+  fileInput?.addEventListener('change', (e) => {
+    const file = (e.target as HTMLInputElement).files?.[0];
+    if (file) handleFileSelect(file);
+  });
+
+  document.getElementById('clear-preview-btn')?.addEventListener('click', () => {
+    selectedFile = null;
+    if (fileInput) fileInput.value = '';
+    if (previewContainer) previewContainer.classList.add('hidden');
+  });
+
+  // Edit Modal logic
+  const editModal = document.getElementById('edit-modal');
+  const editIndexInput = document.getElementById('edit-index') as HTMLInputElement;
+  const editTitleSk = document.getElementById('edit-title-sk') as HTMLInputElement;
+  const editTitleEn = document.getElementById('edit-title-en') as HTMLInputElement;
+  const editAltSk = document.getElementById('edit-alt-sk') as HTMLInputElement;
+  const editAltEn = document.getElementById('edit-alt-en') as HTMLInputElement;
+
+  document.querySelectorAll('.open-edit-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const index = parseInt((e.currentTarget as HTMLElement).dataset.index || '0');
+      const item = galleryItems[index];
+      if (editIndexInput) editIndexInput.value = index.toString();
+      if (editTitleSk) editTitleSk.value = item.title || '';
+      if (editTitleEn) editTitleEn.value = item.titleEn || '';
+      if (editAltSk) editAltSk.value = item.alt || '';
+      if (editAltEn) editAltEn.value = item.altEn || '';
+      editModal?.classList.remove('hidden');
+    });
+  });
+
+  const closeModal = () => editModal?.classList.add('hidden');
+  document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
+  document.getElementById('modal-backdrop')?.addEventListener('click', closeModal);
+
+  // Delete logic
+  document.querySelectorAll('.delete-btn').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      const filename = (e.currentTarget as HTMLElement).dataset.filename;
+      if (!confirm('Naozaj chcete vymazať túto fotku?')) return;
+      
+      const newItems = galleryItems.filter((item: any) => item.filename !== filename);
+      
+      try {
+        const response = await fetch('/api/admin/save-gallery', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: newItems })
+        });
+        const result = await response.json();
+        if (result.success) {
+          (window as any).showToast('Fotka vymazaná!');
+          setTimeout(() => window.location.reload(), 1500);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    });
+  });
+
+  // Handle forms
   document.getElementById('edit-form')?.addEventListener('submit', async function(e) {
     e.preventDefault();
-    const index = parseInt(document.getElementById('edit-index').value);
+    const index = parseInt(editIndexInput.value);
     const updatedItem = {
       ...galleryItems[index],
-      title: document.getElementById('edit-title-sk').value,
-      titleEn: document.getElementById('edit-title-en').value,
-      alt: document.getElementById('edit-alt-sk').value,
-      altEn: document.getElementById('edit-alt-en').value,
+      title: editTitleSk.value,
+      titleEn: editTitleEn.value,
+      alt: editAltSk.value,
+      altEn: editAltEn.value,
     };
     
     galleryItems[index] = updatedItem;
@@ -241,73 +270,57 @@ function getGalleryImageUrl(filename: string): string {
       });
       const result = await response.json();
       if (result.success) {
-        window.showToast('Zmeny uložené!');
+        (window as any).showToast('Zmeny uložené!');
         setTimeout(() => window.location.reload(), 1500);
-      } else {
-        window.showToast(result.error || 'Chyba pri ukladaní', 'error');
       }
     } catch (err) {
-      window.showToast('Chyba pri ukladaní', 'error');
+      console.error(err);
     }
   });
 
-  // Handle form submission
-  document.getElementById('upload-form').addEventListener('submit', async function(e) {
+  document.getElementById('upload-form')?.addEventListener('submit', async function(e) {
     e.preventDefault();
-    
-    if (!selectedFile) {
-      window.showToast('Najprv vyberte fotku', 'error');
-      return;
-    }
+    if (!selectedFile) return;
 
     const formData = new FormData();
     formData.append('file', selectedFile);
     formData.append('folder', 'gallery');
-    formData.append('titleSk', document.getElementById('title-sk').value);
-    formData.append('titleEn', document.getElementById('title-en').value);
-    formData.append('altSk', document.getElementById('alt-sk').value);
-    formData.append('altEn', document.getElementById('alt-en').value);
+    formData.append('titleSk', (document.getElementById('title-sk') as HTMLInputElement).value);
+    formData.append('titleEn', (document.getElementById('title-en') as HTMLInputElement).value);
+    formData.append('altSk', (document.getElementById('alt-sk') as HTMLInputElement).value);
+    formData.append('altEn', (document.getElementById('alt-en') as HTMLInputElement).value);
 
     try {
       const response = await fetch('/api/admin/upload-gallery-item', {
         method: 'POST',
         body: formData
       });
-      
       const result = await response.json();
-      
       if (result.success) {
-        window.showToast('Fotka bola pridaná do galérie!');
+        (window as any).showToast('Fotka bola pridaná do galérie!');
         setTimeout(() => window.location.reload(), 1500);
-      } else {
-        window.showToast(result.error || 'Chyba pri nahrávaní', 'error');
       }
     } catch (err) {
-      window.showToast('Chyba pri nahrávaní', 'error');
+      console.error(err);
     }
   });
 
   // Drag and drop
-  const dropZone = document.querySelector('.border-dashed');
-  
-  dropZone.addEventListener('dragover', (e) => {
+  dropZone?.addEventListener('dragover', (e) => {
     e.preventDefault();
     dropZone.classList.add('border-pink-400', 'bg-pink-50');
   });
   
-  dropZone.addEventListener('dragleave', () => {
+  dropZone?.addEventListener('dragleave', () => {
     dropZone.classList.remove('border-pink-400', 'bg-pink-50');
   });
   
-  dropZone.addEventListener('drop', (e) => {
+  dropZone?.addEventListener('drop', (e) => {
     e.preventDefault();
     dropZone.classList.remove('border-pink-400', 'bg-pink-50');
-    const file = e.dataTransfer.files[0];
+    const file = e.dataTransfer?.files[0];
     if (file && file.type.startsWith('image/')) {
-      const dataTransfer = new DataTransfer();
-      dataTransfer.items.add(file);
-      document.getElementById('file-input').files = dataTransfer.files;
-      handleFileSelect({ target: { files: dataTransfer.files } });
+      handleFileSelect(file);
     }
   });
 </script>
