@@ -1,5 +1,5 @@
 import type { Language } from '@/lib/i18n';
-import { getRelativeHref } from '@/lib/translations';
+import { getRelativeHref } from '@/lib/i18n';
 
 export const SITE_URL = 'https://www.magicroom.sk';
 export const SITE_NAME = 'MagicRoom';
@@ -35,30 +35,6 @@ export function buildWhatsAppUrl(message: string) {
 
 export const WHATSAPP_URL = buildWhatsAppUrl(WHATSAPP_MESSAGE);
 
-export const NAV_LINKS = [
-  { href: '/o-nas', label: 'O nás' },
-  { href: '/sluzby', label: 'Služby' },
-  { href: '/svadobne-saty', label: 'Šaty' },
-  { href: '/galeria', label: 'Galéria' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/komisny-predaj', label: 'Komisný predaj' },
-  { href: '/prenajom-dekoracii', label: 'Dekorácie' },
-  { href: '/partneri', label: 'Partneri' },
-  { href: '/kontakt', label: 'Kontakt' },
-] as const;
-
-export const NAV_LINKS_EN = [
-  { href: '/en/about', label: 'About' },
-  { href: '/en/services', label: 'Services' },
-  { href: '/en/dresses', label: 'Dresses' },
-  { href: '/en/galeria', label: 'Gallery' },
-  { href: '/en/blog', label: 'Blog' },
-  { href: '/en/consignment', label: 'Consignment' },
-  { href: '/en/decorations', label: 'Decorations' },
-  { href: '/en/partners', label: 'Partners' },
-  { href: '/en/contact', label: 'Contact' },
-] as const;
-
 export function getHeaderNavLinks(lang: Language) {
   if (lang === 'sk') {
     return [
@@ -87,35 +63,12 @@ export function getHeaderNavLinks(lang: Language) {
 }
 
 export function getFooterNavLinks(lang: Language) {
+  const links = getHeaderNavLinks(lang);
   if (lang === 'sk') {
-    return [
-      { href: '/o-nas', label: 'O nás' },
-      { href: '/sluzby', label: 'Služby' },
-      { href: '/svadobne-saty', label: 'Svadobné' },
-      { href: '/spolocenske-saty', label: 'Spoločenské' },
-      { href: '/galeria', label: 'Galéria' },
-      { href: '/blog', label: 'Blog' },
-      { href: '/komisny-predaj', label: 'Komisný predaj' },
-      { href: '/prenajom-dekoracii', label: 'Dekorácie' },
-      { href: '/partneri', label: 'Partneri' },
-      { href: '/kontakt', label: 'Kontakt' },
-    ];
+     return [...links.slice(0, 5), { href: '/blog', label: 'Blog' }, ...links.slice(5)];
   }
-  return [
-    { href: '/en/about', label: 'About' },
-    { href: '/en/services', label: 'Services' },
-    { href: '/en/formal-dresses', label: 'Formal' },
-    { href: '/en/dresses', label: 'Wedding' },
-    { href: '/en/galeria', label: 'Gallery' },
-    { href: '/en/blog', label: 'Blog' },
-    { href: '/en/consignment', label: 'Consignment' },
-    { href: '/en/decorations', label: 'Decorations' },
-    { href: '/en/partners', label: 'Partners' },
-    { href: '/en/contact', label: 'Contact' },
-  ];
+  return [...links.slice(0, 5), { href: '/en/blog', label: 'Blog' }, ...links.slice(5)];
 }
-
-export const getNavLinks = getFooterNavLinks;
 
 export function getSocialLinks(lang: Language) {
   return [
@@ -129,13 +82,6 @@ export function getBookingPageHref(lang: Language) {
   return getRelativeHref('kontakt', lang) + '#booking';
 }
 
-export const BOOKING_PAGE_HREF = getBookingPageHref('sk');
-
-export const SOCIAL_LINKS = getSocialLinks('sk');
-
-export function getResponsePromise(lang: Language) {
-  return lang === 'sk' ? 'Ozveme sa vám do 24 hodín.' : "We'll get back to you within 24 hours.";
-}
 export const COPYRIGHT_YEAR = new Date().getFullYear();
 
 export const DEFAULT_OG_IMAGE = '/favicon.ico';

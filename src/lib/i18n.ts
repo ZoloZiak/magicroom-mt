@@ -29,6 +29,27 @@ export function getLanguageFromUrl(url: URL): Language {
   return 'sk';
 }
 
+/**
+ * Returns translated href for a given SK slug and target language
+ */
+export function getRelativeHref(skSlug: string, lang: Language): string {
+  if (lang === 'sk') {
+    return skSlug === 'index' ? '/' : `/${skSlug}`;
+  }
+  
+  const enSlug = skSlug === 'index' ? '' : (SLUG_MAP[skSlug] || skSlug);
+  return enSlug === '' ? '/en' : `/en/${enSlug}`;
+}
+
+/**
+ * Returns SK slug for a given potentially translated slug and language
+ */
+export function getSkSlug(slug: string | undefined, lang: Language): string {
+  if (!slug || slug === 'index') return 'index';
+  if (lang === 'sk') return slug;
+  return REVERSE_SLUG_MAP[slug] || slug;
+}
+
 export function getAlternateLanguageUrl(url: URL, currentLanguage: Language): string {
   let pathname = url.pathname;
   const hash = url.hash || '';

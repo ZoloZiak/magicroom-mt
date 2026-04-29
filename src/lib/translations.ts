@@ -611,24 +611,3 @@ export const translations: Record<Language, Translations> = { sk, en };
 export function getTranslations(language: Language): Translations {
   return translations[language];
 }
-
-/**
- * Returns translated href for a given SK slug and target language
- */
-export function getRelativeHref(skSlug: string, lang: Language): string {
-  if (lang === 'sk') {
-    return skSlug === 'index' ? '/' : `/${skSlug}`;
-  }
-  
-  const enSlug = skSlug === 'index' ? '' : (SLUG_MAP[skSlug] || skSlug);
-  return enSlug === '' ? '/en' : `/en/${enSlug}`;
-}
-
-/**
- * Returns SK slug for a given potentially translated slug and language
- */
-export function getSkSlug(slug: string | undefined, lang: Language): string {
-  if (!slug || slug === 'index') return 'index';
-  if (lang === 'sk') return slug;
-  return REVERSE_SLUG_MAP[slug] || slug;
-}

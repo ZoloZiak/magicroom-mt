@@ -89,40 +89,9 @@ const jsonLd = JSON.stringify([
     <meta name="DC.language" content={language === 'en' ? 'en-US' : 'sk-SK'} />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    <!-- Zatiaľ vypnuté pre lepší výkon (používame Vercel Analytics)
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-    -->
     <script is:inline>
-      // Bezpečná mock funkcia pre existujúce tlačidlá, kým je GA vypnuté
-      window.trackEvent = function(c,a,l,v) {
-        // console.log('trackEvent:',c,a,l,v);
-      };
-      
-      /* 
-      // GA Lazy Loading - Zakomentované kvôli výkonu
-      var gaLoaded = false;
-      function loadGA() {
-        if (gaLoaded) return;
-        gaLoaded = true;
-        
-        var script = document.createElement('script');
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-90JKE6RJNC';
-        script.async = true;
-        script.onload = function() {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          window.gtag = gtag;
-          gtag('js', new Date());
-          gtag('config', 'G-90JKE6RJNC');
-        };
-        document.head.appendChild(script);
-      };
-      
-      window.addEventListener('scroll', loadGA, { once: true });
-      window.addEventListener('click', loadGA, { once: true });
-      setTimeout(loadGA, 5000);
-      */
+      // Safe mock for trackEvent while GA is disabled (using Vercel Analytics instead)
+      window.trackEvent = function() {};
     </script>
     {import.meta.env.GOOGLE_SITE_VERIFICATION && (
       <meta name="google-site-verification" content={import.meta.env.GOOGLE_SITE_VERIFICATION} />
