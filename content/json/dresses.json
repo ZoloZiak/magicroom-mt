@@ -354,6 +354,23 @@
       "images": ["formal-modre-01"]
     },
     {
+      "id": "formal-detske-01",
+      "name": "Pre malé princezné",
+      "name_en": "Sparkly Dresses for Little Princesses",
+      "description": "Očarujúce duo detských šiat v neodolateľnom trblietavom ružovom prevedení.V dvoch veľkostiach 80-86 a 98-104",
+      "description_en": "Charming duo of children's dresses in irresistible sparkling pink. Available in sizes 80-86 and 98-104.",
+      "price": 49,
+      "size": "80-104",
+      "category": "formal",
+      "type": "rental",
+      "status": "available",
+      "color": "ružová",
+      "style": "princezná",
+      "featured": true,
+      "details": "Trblietky po celom povrchu",
+      "images": ["formal-detske-01"]
+    },
+    {
       "id": "formal-zlata-01",
       "name": "Úchvatné flitrované šaty",
       "name_en": "Stunning Sequin Gown",
@@ -369,23 +386,6 @@
       "featured": true,
       "details": "Flitre, jeden rukáv",
       "images": ["formal-zlata-01"]
-    },
-        {
-      "id": "formal-kleopatra-01",
-      "name": "Biela róba v štýle gréckej bohyne",
-      "name_en": "White Greek Goddess Style",
-      "description": "Elegantné biele dlhé šaty s hlbokým výstrihom a dekoratívnym zlatým reťazovým zdobením.",
-      "description_en": "Elegant white floor-length dress with a deep V-neckline and decorative gold chain-link.",
-      "price": 84.90,
-      "size": "34-36",
-      "category": "formal",
-      "type": "new",
-      "status": "available",
-      "color": "biela",
-      "style": "elegantná",
-      "featured": true,
-      "details": "kleopatra",
-      "images": ["formal-kleopatra-01"]
     },
         {
       "id": "formal-pink-003",
@@ -438,6 +438,23 @@
       "details": "korzet",
       "images": ["formal-zelena-06"]
     },
+         {
+      "id": "formal-kleopatra-01",
+      "name": "Biela róba v štýle gréckej bohyne",
+      "name_en": "White Greek Goddess Style",
+      "description": "Elegantné biele dlhé šaty s hlbokým výstrihom a dekoratívnym zlatým reťazovým zdobením.",
+      "description_en": "Elegant white floor-length dress with a deep V-neckline and decorative gold chain-link.",
+      "price": 84.90,
+      "size": "34-36",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "elegantná",
+      "featured": true,
+      "details": "kleopatra",
+      "images": ["formal-kleopatra-01"]
+    },
         {
       "id": "formal-modra-06",
       "name": "Plesová kráľovná(prenájom)",
@@ -454,6 +471,23 @@
       "featured": false,
       "details": "korzet",
       "images": ["formal-modra-06"]
+    },
+       {
+      "id": "formal-tmavomodra-03",
+      "name": "Elegantné tmavomodré šaty s čipkou",
+      "name_en": "Elegant Navy Blue Lace Dress",
+      "description": "Tieto spoločenské šaty kombinujú jemný čipkovaný vrch so zlatým pretkávaním a ľahkú vrstvenú sukňu s decentným volánom.",
+      "description_en": "This formal dress combines a delicate gold-threaded lace top with a lightweight layered skirt and subtle ruffle detail.",
+      "price": 33.90,
+      "size": "44-46",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "modra",
+      "style": "elegantná",
+      "featured": true,
+      "details": "čipka, krátke",
+      "images": ["formal-tmavomodra-03"]
     },
      {
       "id": "formal-ruzova-03",
@@ -505,23 +539,6 @@
       "featured": true,
       "details": "glitrované, obtiahnuté",
       "images": ["formal-glitre-01"]
-    },
-    {
-      "id": "formal-detske-01",
-      "name": "Pre malé princezné",
-      "name_en": "Sparkly Dresses for Little Princesses",
-      "description": "Očarujúce duo detských šiat v neodolateľnom trblietavom ružovom prevedení.V dvoch veľkostiach 80-86 a 98-104",
-      "description_en": "Charming duo of children's dresses in irresistible sparkling pink. Available in sizes 80-86 and 98-104.",
-      "price": 49,
-      "size": "80-104",
-      "category": "formal",
-      "type": "rental",
-      "status": "available",
-      "color": "ružová",
-      "style": "princezná",
-      "featured": true,
-      "details": "Trblietky po celom povrchu",
-      "images": ["formal-detske-01"]
     },
        {
       "id": "formal-modre-001",
