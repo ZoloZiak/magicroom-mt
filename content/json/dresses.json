@@ -341,7 +341,7 @@
        {
       "id": "formal-modre-01",
       "name": "Kráľovsky modrá s korzetom",
-      "name_en": "King blue with corset"  
+      "name_en": "King blue with corset",  
       "description": "Očarujúce šaty v intenzívnom kráľovsky modrom odtieni. Bohatá tylová sukňa je jemne posiata trblietkami, ktoré vytvárajú efekt hviezdnej oblohy. Šaty majú rozparok a sú na viazanie",
       "price": 129,
       "size": "38",
@@ -763,7 +763,7 @@
       "images": ["formal-modra-10"]
     },
     {
-      "id": "formal-zelena-01",
+      "id": "formal-zelena-03",
       "name": "Zelené šaty s prestrihnutými rukávmi",
       "name_en": "Green dress with cut sleeves",
       "description": "Elegantné dlhé šaty v sýtej zelenkavej farbe zaujmú originálnymi prestrihmi na rukávoch a hlbokým véčkovým výstrihom.",
@@ -816,7 +816,7 @@
     {
       "id": "formal-zelena-01",
       "name": "Smaragdová krása",
-      "name_en": "Emerald Beauty",
+      "name_en": "Smaragd Beauty",
       "description": "Šaty v elegantnej smaragdovej farbe s čipkovanými vrchom.",
       "description_en": "Gown in an elegant emerald color with a delicate lace bodice.",
       "price": 62.90,
@@ -827,8 +827,8 @@
       "color": "zelená",
       "style": "elegantná",
       "featured": false,
-      "details": "Čipkované rukávy, korzet",
+      "details": "Čipkované rukávy",
       "images": ["formal-zelena-01"]
     }
   ]
-}
+
