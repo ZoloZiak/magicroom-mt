@@ -43,8 +43,11 @@ export async function getAnalytics(): Promise<AnalyticsData> {
 }
 
 export async function saveAnalytics(data: AnalyticsData): Promise<void> {
-  // Use Vercel KV in production if configured
-  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+  // Use Vercel KV or Upstash in production if configured
+  const url = process.env.KV_REST_API_URL || process.env.UPSTASH_KV_REST_API_URL || process.env.uptash_KV_REST_API_URL;
+  const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_KV_REST_API_TOKEN || process.env.uptash_KV_REST_API_TOKEN;
+
+  if (url && token) {
     try {
       await kv.set(KV_KEY, data);
       return;
