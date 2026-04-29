@@ -520,7 +520,7 @@
       "color": "modré",
       "style": "spoločenské",
       "featured": false,
-      "details": "flitrovane",
+      "details": "metalické",
       "images": ["formal-modra-04"]
     },
     {
@@ -741,7 +741,7 @@
       "color": "červená",
       "style": "klasická",
       "featured": false,
-      "details": "Čipka, perličky",
+      "details": "Čipka",
       "images": ["formal-cervena-01"]
     },
     {
@@ -823,7 +823,7 @@
       "category": "formal",
       "type": "new",
       "status": "available",
-      "color": "smaragdová",
+      "color": "zelená",
       "style": "elegantná",
       "featured": false,
       "details": "Čipkované rukávy, korzet",
