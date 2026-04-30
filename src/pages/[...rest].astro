@@ -45,41 +45,42 @@ export async function getStaticPaths() {
   
   const paths = [];
   
-  // Main pages (both SK and EN)
+  // Main pages
   for (const page of pageSlugs) {
-    paths.push({ params: { lang: 'sk', rest: page.sk }, props: { template: page.template, skSlug: page.sk } });
-    paths.push({ params: { lang: 'en', rest: page.en }, props: { template: page.template, skSlug: page.sk } });
+    // SK at root
+    paths.push({ params: { rest: page.sk }, props: { lang: 'sk', template: page.template, skSlug: page.sk } });
+    // EN at /en/...
+    paths.push({ params: { rest: `en/${page.en}` }, props: { lang: 'en', template: page.template, skSlug: page.sk } });
   }
   
   // Blog index
-  paths.push({ params: { lang: 'sk', rest: 'blog' }, props: { type: 'index' } });
-  paths.push({ params: { lang: 'en', rest: 'blog' }, props: { type: 'index' } });
+  paths.push({ params: { rest: 'blog' }, props: { lang: 'sk', type: 'index' } });
+  paths.push({ params: { rest: 'en/blog' }, props: { lang: 'en', type: 'index' } });
 
   // Blog posts from JSON
   const skPosts = await getBlogPosts('sk');
   const enPosts = await getBlogPosts('en');
 
   for (const post of skPosts) {
-    paths.push({ params: { lang: 'sk', rest: `blog/${post.skSlug}` }, props: { type: 'post', skSlug: post.skSlug } });
+    paths.push({ params: { rest: `blog/${post.skSlug}` }, props: { lang: 'sk', type: 'post', postSlug: post.skSlug } });
   }
   for (const post of enPosts) {
-    paths.push({ params: { lang: 'en', rest: `blog/${post.enSlug}` }, props: { type: 'post', skSlug: post.enSlug } });
+    paths.push({ params: { rest: `en/blog/${post.enSlug}` }, props: { lang: 'en', type: 'post', postSlug: post.enSlug } });
   }
 
   return paths;
 }
 
-const { lang, rest } = Astro.params;
+const { rest } = Astro.params;
+const { lang, template, type, postSlug } = Astro.props;
 const language = lang as Language;
-const props = Astro.props;
-const { template, type, skSlug: blogSkSlug } = props;
-const skSlug = props.skSlug || rest;
+const skSlug = Astro.props.skSlug || rest;
 ---
 
 {type === 'index' ? (
   <BlogIndexTemplate language={language} />
 ) : type === 'post' ? (
-  <BlogPostTemplate language={language} skSlug={blogSkSlug as string} />
+  <BlogPostTemplate language={language} postSlug={postSlug as string} />
 ) : (
   (() => {
     const Component = TEMPLATES[template as keyof typeof TEMPLATES];

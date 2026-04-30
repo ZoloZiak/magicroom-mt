@@ -3,15 +3,7 @@ export const prerender = true;
 import HomeTemplate from '@/components/templates/HomeTemplate.astro';
 import type { Language } from '@/lib/i18n';
 
-export function getStaticPaths() {
-  return [
-    { params: { lang: 'sk' } },
-    { params: { lang: 'en' } },
-  ];
-}
-
-const { lang } = Astro.params;
-const language = lang as Language;
+const language: Language = 'en';
 ---
 
 <HomeTemplate language={language} />

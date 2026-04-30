@@ -18,16 +18,16 @@ import Icon from '@/components/ui/Icon.astro';
 
 interface Props {
   language: Language;
-  skSlug: string;
+  postSlug: string;
 }
 
-const { language, skSlug } = Astro.props;
+const { language, postSlug } = Astro.props;
 const t = getTranslations(language);
 const isEn = language === 'en';
 
-const post = await getBlogPost(skSlug, isEn ? 'en' : 'sk');
+const post = await getBlogPost(postSlug, isEn ? 'en' : 'sk');
 if (!post) {
-  throw new Error(`Blog post not found: ${skSlug}`);
+  throw new Error(`Blog post not found: ${postSlug}`);
 }
 
 const allPosts = await getBlogPosts(isEn ? 'en' : 'sk');
