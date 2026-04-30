@@ -6,8 +6,8 @@ import {
   EMAIL_HREF,
   ADDRESS,
   ADDRESS_LABEL,
-  NAV_LINKS,
-  SOCIAL_LINKS,
+  getHeaderNavLinks,
+  getSocialLinks,
   WHATSAPP_BASE_URL,
   buildWhatsAppUrl,
   toAbsoluteUrl,
@@ -16,7 +16,7 @@ import {
   SITE_NAME,
   DEFAULT_DESCRIPTION,
   DEFAULT_KEYWORDS,
-  BOOKING_PAGE_HREF,
+  getBookingPageHref,
   COPYRIGHT_YEAR,
 } from '@/data/site';
 
@@ -57,6 +57,8 @@ describe('site.ts — Contact info', () => {
 });
 
 describe('site.ts — Navigation', () => {
+  const NAV_LINKS = getHeaderNavLinks('sk');
+
   it('has 9 navigation links', () => {
     expect(NAV_LINKS).toHaveLength(9);
   });
@@ -74,11 +76,13 @@ describe('site.ts — Navigation', () => {
     expect(hrefs).toContain('/sluzby');
     expect(hrefs).toContain('/svadobne-saty');
     expect(hrefs).toContain('/kontakt');
-    expect(hrefs).toContain('/blog');
+    expect(hrefs).toContain('/galeria');
   });
 });
 
 describe('site.ts — Social links', () => {
+  const SOCIAL_LINKS = getSocialLinks('sk');
+
   it('has Facebook and Instagram', () => {
     const labels = SOCIAL_LINKS.map((s) => s.label);
     expect(labels).toContain('Facebook');
@@ -122,7 +126,7 @@ describe('site.ts — Utilities', () => {
   });
 
   it('booking page href points to contact', () => {
-    expect(BOOKING_PAGE_HREF).toBe('/kontakt#booking');
+    expect(getBookingPageHref('sk')).toBe('/kontakt#booking');
   });
 });
 
