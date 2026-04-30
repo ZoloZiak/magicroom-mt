@@ -98,12 +98,59 @@ const productSchema = dresses.map((dress) => ({
               </div>
               <div class="flex flex-1 flex-col p-6">
                 <div class="flex items-start justify-between">
-                  <div>
+                  <div class="flex-1">
                     <h2 class="font-display text-2xl">{dress.name}</h2>
-                    <p class="mt-1 text-sm text-muted-foreground">{dress.description}</p>
+                    <div class="description-container relative">
+                      <p class="description-text mt-1 text-sm text-muted-foreground line-clamp-2 transition-all duration-300 ease-in-out">
+                        {dress.description}
+                      </p>
+                      <button 
+                        class="expand-btn group/expand mt-1 inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-primary/70 hover:text-primary transition-colors focus:outline-none"
+                        aria-expanded="false"
+                      >
+                        <span class="btn-text">{isEn ? 'Read More' : 'Viac info'}</span>
+                        <Icon name="ChevronDown" class="h-3 w-3 transition-transform duration-300 group-[.active]/expand:rotate-180" />
+                      </button>
+                    </div>
                   </div>
                   <p class="text-xl font-bold text-cta shrink-0 ml-2">{dress.price} €</p>
                 </div>
+
+                <script>
+                  function setupExpandButtons() {
+                    const buttons = document.querySelectorAll('.expand-btn');
+                    buttons.forEach(btn => {
+                      btn.addEventListener('click', (e) => {
+                        const target = e.currentTarget as HTMLElement;
+                        const container = target.closest('.description-container');
+                        const text = container?.querySelector('.description-text');
+                        const btnText = target.querySelector('.btn-text');
+                        const isEn = document.documentElement.lang === 'en';
+                        
+                        if (text && btnText) {
+                          const isExpanded = text.classList.contains('line-clamp-none');
+                          
+                          if (isExpanded) {
+                            text.classList.remove('line-clamp-none');
+                            text.classList.add('line-clamp-2');
+                            btnText.textContent = isEn ? 'Read More' : 'Viac info';
+                            target.classList.remove('active');
+                            target.setAttribute('aria-expanded', 'false');
+                          } else {
+                            text.classList.remove('line-clamp-2');
+                            text.classList.add('line-clamp-none');
+                            btnText.textContent = isEn ? 'Show Less' : 'Menej';
+                            target.classList.add('active');
+                            target.setAttribute('aria-expanded', 'true');
+                          }
+                        }
+                      });
+                    });
+                  }
+
+                  setupExpandButtons();
+                  document.addEventListener('astro:after-swap', setupExpandButtons);
+                </script>
                 <div class="mt-auto flex items-center justify-between border-t border-border/50 pt-4">
                   <span class="text-sm font-medium uppercase tracking-widest text-muted-foreground">
                     {t.dresses.sizeLabel} {dress.size}
