@@ -54,7 +54,7 @@ const howToSchema = {
 <Layout
   title={isEn ? "MagicRoom — wedding dresses, decor and bridal concierge" : "MagicRoom — svadobné šaty, dekorácie a bridal concierge v Martine"}
   description={isEn ? "MagicRoom is a boutique wedding salon in Martin. Fittings from 15€, event styling and personal bridal assistance." : "MagicRoom je lokálny svadobný salón v Martine. Skúška svadobných šiat od 15 €, výzdoba svadieb a osláv, svadobné poradenstvo a pokojný osobný prístup."}
-  keywords="svadobne saty, dekoracie, martin, bridal concierge, svadobne poradenstvo"
+  keywords={isEn ? "wedding dresses, decorations, Martin Slovakia, bridal concierge, wedding consulting" : "svadobne saty, dekoracie, martin, bridal concierge, svadobne poradenstvo"}
   image={IMAGE_URLS.hero}
   structuredData={howToSchema}
   language={language}
@@ -147,7 +147,7 @@ const howToSchema = {
                   {index === 0 && <Badge variant="cta">{isEn ? 'Most popular' : 'Najčastejší prvý krok'}</Badge>}
                 </div>
                 {item.title && (
-                  <CardTitle class="font-display text-2xl">
+                  <CardTitle class="font-display text-2xl min-h-[4rem] flex items-center">
                     {item.title}
                   </CardTitle>
                 )}
