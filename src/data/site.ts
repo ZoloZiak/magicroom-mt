@@ -5,7 +5,11 @@ export const SITE_URL = 'https://www.magicroom.sk';
 export const SITE_NAME = 'MagicRoom';
 export const DEFAULT_DESCRIPTION =
   'Malý osobný svadobný salón v Martine. Svadobné šaty 200–700 €, skúška 15 € (v cene nápoj), komis, dekorácie. Ceny vidíte hneď.';
+export const DEFAULT_DESCRIPTION_EN =
+  'Boutique wedding salon in Martin, Slovakia. Dresses 200–700 €, fitting 15 € (refreshments included), consignment, decorations. Transparent pricing.';
+
 export const DEFAULT_KEYWORDS = 'svadobné šaty, svadobný salón, Martin, Turiec, svadobné šaty Martin, svadobné šaty predaj, skúška svadobných šiat, svadobné dekorácie, komisné svadobné šaty';
+export const DEFAULT_KEYWORDS_EN = 'wedding dresses, wedding salon, Martin Slovakia, wedding dress rental, dress fitting, wedding decorations, consignment wedding dresses';
 
 export const PHONE_DISPLAY = '+421 950 490 323';
 export const PHONE_HREF = 'tel:+421950490323';
