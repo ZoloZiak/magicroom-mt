@@ -1,5 +1,6 @@
 ---
-import { Image, type ImageMetadata } from 'astro:assets';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import ScrollToTop from '@/components/layout/ScrollToTop.astro';
@@ -18,7 +19,7 @@ const { language, skSlug } = Astro.props;
 const t = getTranslations(language);
 const isEn = language === 'en';
 
-const galleryItems = await await getGalleryItems(language);
+const galleryItems = await getGalleryItems(language);
 ---
 
 <Layout

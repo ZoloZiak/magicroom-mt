@@ -1,7 +1,8 @@
 import type { Language as Lang } from './i18n';
-import { SLUG_MAP, REVERSE_SLUG_MAP } from './i18n';
+import { SLUG_MAP, REVERSE_SLUG_MAP, getRelativeHref } from './i18n';
 
 export type Language = Lang;
+export { getRelativeHref };
 
 export interface Translations {
   nav: {
@@ -13,6 +14,8 @@ export interface Translations {
     blog: string;
     consignment: string;
     decorations: string;
+    gallery: string;
+    partners: string;
     contact: string;
     bookAppointment: string;
   };
@@ -210,7 +213,10 @@ const sk: Translations = {
     blog: 'Blog',
     consignment: 'Komisný predaj',
     decorations: 'Dekorácie',
+    gallery: 'Galéria',
+    partners: 'Partneri',
     contact: 'Kontakt',
+
     bookAppointment: 'Zarezervuj skúšku',
   },
   home: {
@@ -413,6 +419,8 @@ const en: Translations = {
     blog: 'Blog',
     consignment: 'Consignment',
     decorations: 'Decorations',
+    gallery: 'Gallery',
+    partners: 'Partners',
     contact: 'Contact',
     bookAppointment: 'Book fitting',
   },
