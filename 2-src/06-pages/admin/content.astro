@@ -5,7 +5,7 @@ import { readFile } from 'fs/promises';
 import { join } from 'path';
 
 // Read services data
-const servicesPath = join(process.cwd(), 'content/json/services.json');
+const servicesPath = join(process.cwd(), '1-content/02-json/services.json');
 let services = { sk: { packages: [], extra: [] }, en: { packages: [], extra: [] } };
 
 try {
@@ -129,7 +129,7 @@ const activeTab = Astro.url.searchParams.get('tab') || 'services';
   {activeTab === 'contact' && (
     <div class="bg-white rounded-xl shadow-sm p-6">
       <p class="text-gray-500">Kontaktné údaje sa upravujú v JSON súboroch alebo priamo v kóde.</p>
-      <p class="text-sm text-gray-400 mt-2">Súbor: content/json/ alebo src/data/content.ts</p>
+      <p class="text-sm text-gray-400 mt-2">Súbor: 1-content/02-json/ alebo src/data/content.ts</p>
     </div>
   )}
 </AdminLayout>

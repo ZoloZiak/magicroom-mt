@@ -4,7 +4,7 @@ import AdminLayout from '@/04-layouts/AdminLayout.astro';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 
-const decorPath = join(process.cwd(), 'content/json/decor.json');
+const decorPath = join(process.cwd(), '1-content/02-json/decor.json');
 let decor = { sk: { categories: [], policies: [] }, en: { categories: [], policies: [] } };
 
 try {

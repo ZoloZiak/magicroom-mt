@@ -4,7 +4,7 @@ import AdminLayout from '@/04-layouts/AdminLayout.astro';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 
-const galleryPath = join(process.cwd(), 'content/json/gallery.json');
+const galleryPath = join(process.cwd(), '1-content/02-json/gallery.json');
 let gallery = { gallery: [] };
 
 try {
@@ -17,7 +17,7 @@ try {
 const GITHUB_RAW = 'https://raw.githubusercontent.com/ZoloZiak/magicroom-mt/main';
 
 function getGalleryImageUrl(filename: string): string {
-  return `${GITHUB_RAW}/content/images/gallery/${filename}`;
+  return `${GITHUB_RAW}/1-content/01-images/gallery/${filename}`;
 }
 ---
 

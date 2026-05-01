@@ -25,7 +25,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // Get current faqs.json
-    const faqsPath = 'content/json/faqs.json';
+    const faqsPath = '1-content/02-json/faqs.json';
     const url = `${GITHUB_API}/repos/${REPO_OWNER}/${REPO_NAME}/contents/${faqsPath}?ref=${BRANCH}`;
     
     const response = await fetch(url, {

@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
 import path from 'path';
+import pages from 'astro-pages';
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,6 +29,9 @@ export default defineConfig({
   },
 
   integrations: [
+    pages({
+      dir: '06-pages'
+    }),
     sitemap({
       serialize(item) {
         if (item.url === 'https://www.magicroom.sk/') {

@@ -5,7 +5,7 @@ const GITHUB_API = 'https://api.github.com';
 const REPO_OWNER = 'ZoloZiak';
 const REPO_NAME = 'magicroom-mt';
 const BRANCH = 'main';
-const DRESSES_PATH = 'content/json/dresses.json';
+const DRESSES_PATH = '1-content/02-json/dresses.json';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -73,7 +73,7 @@ export const POST: APIRoute = async ({ request }) => {
           const arrayBuffer = await file.arrayBuffer();
           const base64 = btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)));
           const filename = `${newDress.id}.jpg`;
-          const filePath = `content/images/dresses/${filename}`;
+          const filePath = `1-content/01-images/dresses/${filename}`;
           
           const imageUrl = `${GITHUB_API}/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}`;
           

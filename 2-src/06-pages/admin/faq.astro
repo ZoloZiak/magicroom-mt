@@ -4,7 +4,7 @@ import AdminLayout from '@/04-layouts/AdminLayout.astro';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 
-const faqsPath = join(process.cwd(), 'content/json/faqs.json');
+const faqsPath = join(process.cwd(), '1-content/02-json/faqs.json');
 let faqs = { sk: [], en: [] };
 
 try {

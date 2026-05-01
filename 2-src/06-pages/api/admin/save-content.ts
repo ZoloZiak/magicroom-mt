@@ -21,7 +21,7 @@ export const POST: APIRoute = async ({ request }) => {
       return new Response(JSON.stringify({ error: 'Missing file name' }), { status: 400 });
     }
     
-    const filePath = `content/json/${fileName}.json`;
+    const filePath = `1-content/02-json/${fileName}.json`;
     const url = `${GITHUB_API}/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}?ref=${BRANCH}`;
     
     // Get current file from GitHub

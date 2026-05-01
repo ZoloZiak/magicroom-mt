@@ -4,7 +4,7 @@ import AdminLayout from '@/04-layouts/AdminLayout.astro';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 
-const blogPath = join(process.cwd(), 'content/json/blog.json');
+const blogPath = join(process.cwd(), '1-content/02-json/blog.json');
 let blog = { posts: [] };
 
 try {

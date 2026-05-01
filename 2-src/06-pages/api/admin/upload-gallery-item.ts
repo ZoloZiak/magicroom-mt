@@ -62,7 +62,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // Now update gallery.json
-    const galleryPath = 'content/json/gallery.json';
+    const galleryPath = '1-content/02-json/gallery.json';
     const galleryUrl = `${GITHUB_API}/repos/${REPO_OWNER}/${REPO_NAME}/contents/${galleryPath}?ref=${BRANCH}`;
     
     // Get current gallery.json

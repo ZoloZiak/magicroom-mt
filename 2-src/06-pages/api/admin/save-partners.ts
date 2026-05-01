@@ -5,7 +5,7 @@ const GITHUB_API = 'https://api.github.com';
 const REPO_OWNER = 'ZoloZiak';
 const REPO_NAME = 'magicroom-mt';
 const BRANCH = 'main';
-const PARTNERS_PATH = 'content/json/partners.json';
+const PARTNERS_PATH = '1-content/02-json/partners.json';
 
 export const POST: APIRoute = async ({ request }) => {
   try {

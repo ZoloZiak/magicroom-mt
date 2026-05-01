@@ -2,7 +2,7 @@ import { kv } from '@vercel/kv';
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
 
-const ANALYTICS_PATH = join(process.cwd(), 'content/json/analytics.json');
+const ANALYTICS_PATH = join(process.cwd(), '1-content/02-json/analytics.json');
 const KV_KEY = 'magicroom_analytics';
 
 export interface AnalyticsData {

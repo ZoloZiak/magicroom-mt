@@ -5,7 +5,7 @@ import { readFile } from 'fs/promises';
 import { join } from 'path';
 
 // Read partners data
-const partnersPath = join(process.cwd(), 'content/json/partners.json');
+const partnersPath = join(process.cwd(), '1-content/02-json/partners.json');
 let partners = { sk: { partners: [] }, en: { partners: [] }, categories: { sk: [], en: [] } };
 
 try {
