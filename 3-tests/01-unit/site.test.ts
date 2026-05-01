@@ -18,7 +18,7 @@ import {
   DEFAULT_KEYWORDS,
   getBookingPageHref,
   COPYRIGHT_YEAR,
-} from '@/data/site';
+} from '@/03-data/site';
 
 describe('site.ts — Contact info', () => {
   it('has valid Slovak phone number', () => {

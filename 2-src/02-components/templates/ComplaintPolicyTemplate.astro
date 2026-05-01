@@ -1,12 +1,12 @@
 ---
-import Footer from '@/components/layout/Footer.astro';
-import Header from '@/components/layout/Header.astro';
-import ScrollToTop from '@/components/layout/ScrollToTop.astro';
-import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
-import Badge from '@/components/ui/Badge.astro';
-import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
-import Layout from '@/layouts/Layout.astro';
-import { IMAGE_URLS } from '@/data/content';
+import Footer from '@/02-components/layout/Footer.astro';
+import Header from '@/02-components/layout/Header.astro';
+import ScrollToTop from '@/02-components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/02-components/layout/WhatsAppFAB.astro';
+import Badge from '@/02-components/ui/Badge.astro';
+import { getTranslations, getRelativeHref, type Language } from '@/05-lib/translations';
+import Layout from '@/04-layouts/Layout.astro';
+import { IMAGE_URLS } from '@/03-data/content';
 
 interface Props {
   language: Language;

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getAlternateLanguageUrl, SLUG_MAP, REVERSE_SLUG_MAP } from '@/lib/i18n';
+import { getAlternateLanguageUrl, SLUG_MAP, REVERSE_SLUG_MAP } from '@/05-lib/i18n';
 
 describe('i18n.ts — Language switching logic', () => {
   it('correctly switches from SK to EN on root', () => {

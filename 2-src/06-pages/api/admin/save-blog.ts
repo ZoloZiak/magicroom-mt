@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-import { methodNotAllowed } from '@/lib/api';
+import { methodNotAllowed } from '@/05-lib/api';
 const GITHUB_API = 'https://api.github.com';
 const REPO_OWNER = 'ZoloZiak';
 const REPO_NAME = 'magicroom-mt';

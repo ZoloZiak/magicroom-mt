@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { getAnalytics, saveAnalytics, simpleId } from '@/lib/storage';
+import { getAnalytics, saveAnalytics, simpleId } from '@/05-lib/storage';
 
 export const prerender = false;
 

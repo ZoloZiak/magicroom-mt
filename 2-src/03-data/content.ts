@@ -5,7 +5,7 @@ import {
   PHONE_DISPLAY,
   PHONE_HREF,
   WHATSAPP_URL,
-} from '@/data/site';
+} from '@/03-data/site';
 
 import heroImage from '../../1-content/01-images/systemassets/hero-sm.webp';
 import dressesImage from '../../1-content/01-images/systemassets/dresses.png';
@@ -20,7 +20,7 @@ import glassesImage from '../../1-content/01-images/systemassets/glasses.png';
 import logoImage from '../../1-content/01-images/systemassets/logo.png';
 import founderAvatarImage from '../../1-content/01-images/systemassets/founder-avatar.png';
 
-import type { Language } from '@/lib/i18n';
+import type { Language } from '@/05-lib/i18n';
 
 import servicesData from '../../1-content/02-json/services.json';
 import dressesData from '../../1-content/02-json/dresses.json';

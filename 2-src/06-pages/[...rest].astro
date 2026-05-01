@@ -1,20 +1,20 @@
 ---
 export const prerender = true;
-import type { Language } from '@/lib/i18n';
-import AboutTemplate from '@/components/templates/AboutTemplate.astro';
-import ServicesTemplate from '@/components/templates/ServicesTemplate.astro';
-import DressesTemplate from '@/components/templates/DressesTemplate.astro';
-import FormalDressesTemplate from '@/components/templates/FormalDressesTemplate.astro';
-import GalleryTemplate from '@/components/templates/GalleryTemplate.astro';
-import ConsignmentTemplate from '@/components/templates/ConsignmentTemplate.astro';
-import DecorationsTemplate from '@/components/templates/DecorationsTemplate.astro';
-import PartnersTemplate from '@/components/templates/PartnersTemplate.astro';
-import ContactTemplate from '@/components/templates/ContactTemplate.astro';
-import ComplaintPolicyTemplate from '@/components/templates/ComplaintPolicyTemplate.astro';
-import BlogIndexTemplate from '@/components/templates/BlogIndexTemplate.astro';
-import BlogPostTemplate from '@/components/templates/BlogPostTemplate.astro';
+import type { Language } from '@/05-lib/i18n';
+import AboutTemplate from '@/02-components/templates/AboutTemplate.astro';
+import ServicesTemplate from '@/02-components/templates/ServicesTemplate.astro';
+import DressesTemplate from '@/02-components/templates/DressesTemplate.astro';
+import FormalDressesTemplate from '@/02-components/templates/FormalDressesTemplate.astro';
+import GalleryTemplate from '@/02-components/templates/GalleryTemplate.astro';
+import ConsignmentTemplate from '@/02-components/templates/ConsignmentTemplate.astro';
+import DecorationsTemplate from '@/02-components/templates/DecorationsTemplate.astro';
+import PartnersTemplate from '@/02-components/templates/PartnersTemplate.astro';
+import ContactTemplate from '@/02-components/templates/ContactTemplate.astro';
+import ComplaintPolicyTemplate from '@/02-components/templates/ComplaintPolicyTemplate.astro';
+import BlogIndexTemplate from '@/02-components/templates/BlogIndexTemplate.astro';
+import BlogPostTemplate from '@/02-components/templates/BlogPostTemplate.astro';
 
-import { getBlogPosts } from '@/data/content';
+import { getBlogPosts } from '@/03-data/content';
 
 const TEMPLATES = {
   about: AboutTemplate,

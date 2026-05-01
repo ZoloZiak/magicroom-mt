@@ -1,5 +1,5 @@
-import type { Language } from '@/lib/i18n';
-import { getRelativeHref } from '@/lib/i18n';
+import type { Language } from '@/05-lib/i18n';
+import { getRelativeHref } from '@/05-lib/i18n';
 
 export const SITE_URL = 'https://www.magicroom.sk';
 export const SITE_NAME = 'MagicRoom';

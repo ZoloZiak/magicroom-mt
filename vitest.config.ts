@@ -5,7 +5,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'node',
-    include: ['testing/**/*.test.{ts,js}'],
+    include: ['3-tests/01-unit/**/*.test.{ts,js}'],
     pool: 'forks',
     poolOptions: {
       forks: {
@@ -14,13 +14,13 @@ export default defineConfig({
     },
     coverage: {
       provider: 'v8',
-      include: ['src/data/**/*.ts', 'src/lib/**/*.ts'],
+      include: ['2-src/03-data/**/*.ts', '2-src/05-lib/**/*.ts'],
       reporter: ['text', 'json-summary'],
     },
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, './2-src'),
     },
   },
 });

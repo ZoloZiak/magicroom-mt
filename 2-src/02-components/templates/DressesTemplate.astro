@@ -1,16 +1,16 @@
 ---
 import { Image } from 'astro:assets';
-import Footer from '@/components/layout/Footer.astro';
-import Header from '@/components/layout/Header.astro';
-import ScrollToTop from '@/components/layout/ScrollToTop.astro';
-import WhatsAppFAB from '@/components/layout/WhatsAppFAB.astro';
-import Badge from '@/components/ui/Badge.astro';
-import Button from '@/components/ui/Button.astro';
-import { getBookingPageHref } from '@/data/site';
-import { getWeddingDresses, IMAGE_URLS } from '@/data/content';
-import { getTranslations, getRelativeHref, type Language } from '@/lib/translations';
-import Layout from '@/layouts/Layout.astro';
-import Icon from '@/components/ui/Icon.astro';
+import Footer from '@/02-components/layout/Footer.astro';
+import Header from '@/02-components/layout/Header.astro';
+import ScrollToTop from '@/02-components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/02-components/layout/WhatsAppFAB.astro';
+import Badge from '@/02-components/ui/Badge.astro';
+import Button from '@/02-components/ui/Button.astro';
+import { getBookingPageHref } from '@/03-data/site';
+import { getWeddingDresses, IMAGE_URLS } from '@/03-data/content';
+import { getTranslations, getRelativeHref, type Language } from '@/05-lib/translations';
+import Layout from '@/04-layouts/Layout.astro';
+import Icon from '@/02-components/ui/Icon.astro';
 
 interface Props {
   language: Language;

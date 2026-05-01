@@ -10,8 +10,8 @@ import {
   SITE_NAME,
   getBaseSchemas,
   toAbsoluteUrl,
-} from '@/data/site';
-import { getAlternateLanguageUrl, type Language } from '@/lib/i18n';
+} from '@/03-data/site';
+import { getAlternateLanguageUrl, type Language } from '@/05-lib/i18n';
 
 interface Props {
   title: string;
@@ -152,5 +152,5 @@ const jsonLd = JSON.stringify([
 </script>
 
 <style is:global>
-  @import '../styles/global.css';
+  @import '../07-styles/global.css';
 </style>

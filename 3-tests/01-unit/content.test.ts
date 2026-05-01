@@ -18,7 +18,7 @@ import {
   getBlogPosts,
   getBlogPost,
   BLOG_POSTS,
-} from '@/data/content';
+} from '@/03-data/content';
 
 describe('content.ts — Homepage data', () => {
   it('HOME_STATS has 3 items', () => {

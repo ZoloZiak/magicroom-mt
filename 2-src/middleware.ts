@@ -1,5 +1,5 @@
 import { defineMiddleware } from 'astro:middleware';
-import { SLUG_MAP } from './lib/i18n';
+import { SLUG_MAP } from './05-lib/i18n';
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const { url, cookies, redirect } = context;
