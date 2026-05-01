@@ -11,6 +11,8 @@ export default defineConfig({
   site: 'https://www.magicroom.sk',
   output: 'static',
   adapter: vercel(),
+  srcDir: './2-src',
+  publicDir: './3-public',
 
   image: {
     service: { entrypoint: 'astro/assets/services/sharp' }
@@ -20,7 +22,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
     resolve: {
       alias: {
-        '@': path.resolve('./src'),
+        '@': path.resolve('./2-src'),
       },
     },
   },

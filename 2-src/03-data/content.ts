@@ -7,28 +7,28 @@ import {
   WHATSAPP_URL,
 } from '@/data/site';
 
-import heroImage from '../../content/images/systemassets/hero-sm.webp';
-import dressesImage from '../../content/images/systemassets/dresses.png';
-import founderImage from '../../content/images/systemassets/founder.png';
-import decorMainImage from '../../content/images/systemassets/decor-main.jpg';
-import decorAltImage from '../../content/images/systemassets/decor-alt.jpg';
-import mapImage from '../../content/images/systemassets/map.png';
-import decorBackdrop from '../../content/images/systemassets/decor-backdrop.jpg';
-import decorDetails from '../../content/images/systemassets/decor-details.jpg';
-import graphicsImage from '../../content/images/systemassets/graphics.png';
-import glassesImage from '../../content/images/systemassets/glasses.png';
-import logoImage from '../../content/images/systemassets/logo.png';
-import founderAvatarImage from '../../content/images/systemassets/founder-avatar.png';
+import heroImage from '../../1-content/01-images/systemassets/hero-sm.webp';
+import dressesImage from '../../1-content/01-images/systemassets/dresses.png';
+import founderImage from '../../1-content/01-images/systemassets/founder.png';
+import decorMainImage from '../../1-content/01-images/systemassets/decor-main.jpg';
+import decorAltImage from '../../1-content/01-images/systemassets/decor-alt.jpg';
+import mapImage from '../../1-content/01-images/systemassets/map.png';
+import decorBackdrop from '../../1-content/01-images/systemassets/decor-backdrop.jpg';
+import decorDetails from '../../1-content/01-images/systemassets/decor-details.jpg';
+import graphicsImage from '../../1-content/01-images/systemassets/graphics.png';
+import glassesImage from '../../1-content/01-images/systemassets/glasses.png';
+import logoImage from '../../1-content/01-images/systemassets/logo.png';
+import founderAvatarImage from '../../1-content/01-images/systemassets/founder-avatar.png';
 
 import type { Language } from '@/lib/i18n';
 
-import servicesData from '../../content/json/services.json';
-import dressesData from '../../content/json/dresses.json';
-import partnersData from '../../content/json/partners.json';
-import faqsData from '../../content/json/faqs.json';
-import decorData from '../../content/json/decor.json';
-import galleryData from '../../content/json/gallery.json';
-import blogData from '../../content/json/blog.json';
+import servicesData from '../../1-content/02-json/services.json';
+import dressesData from '../../1-content/02-json/dresses.json';
+import partnersData from '../../1-content/02-json/partners.json';
+import faqsData from '../../1-content/02-json/faqs.json';
+import decorData from '../../1-content/02-json/decor.json';
+import galleryData from '../../1-content/02-json/gallery.json';
+import blogData from '../../1-content/02-json/blog.json';
 
 export const WHITE_FALLBACK = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=";
 
@@ -57,9 +57,9 @@ export const IMAGE_URLS = {
   logo: logoImage.src,
 } as const;
 
-const galleryImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/gallery/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}');
-const dressImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/dresses/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}');
-const decorImages = import.meta.glob<{ default: ImageMetadata }>('../../content/images/decorations/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}');
+const galleryImages = import.meta.glob<{ default: ImageMetadata }>('../../1-content/01-images/gallery/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}');
+const dressImages = import.meta.glob<{ default: ImageMetadata }>('../../1-content/01-images/dresses/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}');
+const decorImages = import.meta.glob<{ default: ImageMetadata }>('../../1-content/01-images/decorations/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}');
 
 async function getDynamicImage(glob: Record<string, () => Promise<{ default: ImageMetadata }>>, filename: string): Promise<ImageMetadata | null> {
   const normalizedFilename = filename.toLowerCase();
