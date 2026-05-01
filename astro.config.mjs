@@ -12,7 +12,7 @@ export default defineConfig({
   output: 'static',
   adapter: vercel(),
   srcDir: './2-src',
-  publicDir: './3-public',
+  publicDir: './1-content/00-static',
 
   image: {
     service: { entrypoint: 'astro/assets/services/sharp' }
