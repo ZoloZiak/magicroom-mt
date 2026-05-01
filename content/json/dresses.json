@@ -120,23 +120,6 @@
       "images": ["svadobne-12"]
     },
       {
-      "id": "svadba-16",
-      "name": "Kvetinová neha",
-      "name_en": "Floral Tenderness",
-      "description": "Očarujúce svadobné šaty s bohato vyšívaným čipkovaným vzorom s dlhými transparentnými rukávmi. Hlboký výstrih v tvare V plynule prechádza do bohatej, vrstvenej tylovej sukne.",
-      "description_en": "Enchanting wedding dress featuring a richly embroidered lace pattern and long sheer sleeves. The deep V-neckline flows seamlessly into a voluminous, layered tulle skirt.",
-      "price": 439,
-      "size": "36",
-      "category": "wedding",
-      "type": "new",
-      "status": "available",
-      "color": "biela",
-      "style": "svadobné",
-      "featured": true,
-      "details": "čipka, rukávy",
-      "images": ["svadba-16"]
-    },
-      {
       "id": "svadba-15",
       "name": "Hviezdny prach",
       "name_en": "Stardust",
@@ -288,6 +271,23 @@
       "featured": false,
       "details": "satén, vlečka",
       "images": ["svadba-saten-02"]
+    },
+    {
+      "id": "svadba-16",
+      "name": "Kvetinová neha",
+      "name_en": "Floral Tenderness",
+      "description": "Očarujúce svadobné šaty s bohato vyšívaným čipkovaným vzorom s dlhými transparentnými rukávmi. Hlboký výstrih v tvare V plynule prechádza do bohatej, vrstvenej tylovej sukne.",
+      "description_en": "Enchanting wedding dress featuring a richly embroidered lace pattern and long sheer sleeves. The deep V-neckline flows seamlessly into a voluminous, layered tulle skirt.",
+      "price": 439,
+      "size": "36",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "svadobné",
+      "featured": true,
+      "details": "čipka, rukávy",
+      "images": ["svadba-16"]
     },
     {
       "id": "svadobne-08",
