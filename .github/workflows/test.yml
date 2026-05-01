@@ -2,9 +2,9 @@ name: Tests
 
 on:
   push:
-    branches: [main]
+    branches: [main, refactor]
   pull_request:
-    branches: [main]
+    branches: [main, refactor]
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
