@@ -33,6 +33,7 @@ export default defineConfig({
       dir: '06-pages'
     }),
     sitemap({
+      filter: (page) => !page.includes('/admin') && !page.includes('/api') && !page.includes('/sk/'),
       serialize(item) {
         if (item.url === 'https://www.magicroom.sk/') {
           item.priority = 1.0;

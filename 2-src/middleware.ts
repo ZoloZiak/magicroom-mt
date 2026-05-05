@@ -14,18 +14,18 @@ export const onRequest = defineMiddleware(async (context, next) => {
     }
   }
 
-  // 2. I18n Redirects for root-level slugs (e.g., /o-nas -> /sk/o-nas)
-  // This ensures E2E tests and legacy links work
-  const rootSlugs = Object.keys(SLUG_MAP);
+  // 2. I18n Legacy Redirects (if any are still needed, but remove the /sk prefixing)
+  // We want to avoid redirecting /o-nas to /sk/o-nas as /o-nas is the primary URL
   const pathPart = pathname.split('/').filter(Boolean)[0];
 
-  if (rootSlugs.includes(pathPart) && !pathname.startsWith('/sk/') && !pathname.startsWith('/en/')) {
-     return redirect(`/sk${pathname}${url.search}${url.hash}`);
+  // Special case: if someone visits /sk/..., redirect them to root or let it be?
+  // Let's redirect /sk/slug to /slug for clean SEO
+  if (pathname.startsWith('/sk/')) {
+     const newPath = pathname.replace('/sk/', '/');
+     return redirect(`${newPath}${url.search}${url.hash}`);
   }
-
-  // Special case for root /blog
-  if (pathPart === 'blog' && !pathname.startsWith('/sk/') && !pathname.startsWith('/en/')) {
-     return redirect(`/sk${pathname}${url.search}${url.hash}`);
+  if (pathname === '/sk') {
+     return redirect(`/${url.search}${url.hash}`);
   }
 
   return next();

@@ -1,7 +1,6 @@
 ---
 export const prerender = true;
 import type { Language } from '@/05-lib/i18n';
-import AboutTemplate from '@/02-components/templates/AboutTemplate.astro';
 import ServicesTemplate from '@/02-components/templates/ServicesTemplate.astro';
 import DressesTemplate from '@/02-components/templates/DressesTemplate.astro';
 import FormalDressesTemplate from '@/02-components/templates/FormalDressesTemplate.astro';
@@ -13,10 +12,13 @@ import ContactTemplate from '@/02-components/templates/ContactTemplate.astro';
 import ComplaintPolicyTemplate from '@/02-components/templates/ComplaintPolicyTemplate.astro';
 import BlogIndexTemplate from '@/02-components/templates/BlogIndexTemplate.astro';
 import BlogPostTemplate from '@/02-components/templates/BlogPostTemplate.astro';
+import HomeTemplate from '@/02-components/templates/HomeTemplate.astro';
+import AboutTemplate from '@/02-components/templates/AboutTemplate.astro';
 
 import { getBlogPosts } from '@/03-data/content';
 
 const TEMPLATES = {
+  home: HomeTemplate,
   about: AboutTemplate,
   services: ServicesTemplate,
   dresses: DressesTemplate,
@@ -52,6 +54,9 @@ export async function getStaticPaths() {
     // EN at /en/...
     paths.push({ params: { rest: `en/${page.en}` }, props: { lang: 'en', template: page.template, skSlug: page.sk } });
   }
+
+  // EN homepage
+  paths.push({ params: { rest: 'en' }, props: { lang: 'en', template: 'home', skSlug: 'index' } });
   
   // Blog index
   paths.push({ params: { rest: 'blog' }, props: { lang: 'sk', type: 'index' } });
@@ -62,25 +67,25 @@ export async function getStaticPaths() {
   const enPosts = await getBlogPosts('en');
 
   for (const post of skPosts) {
-    paths.push({ params: { rest: `blog/${post.skSlug}` }, props: { lang: 'sk', type: 'post', postSlug: post.skSlug } });
+    paths.push({ params: { rest: `blog/${post.skSlug}` }, props: { lang: 'sk', type: 'post', skSlug: post.skSlug } });
   }
   for (const post of enPosts) {
-    paths.push({ params: { rest: `en/blog/${post.enSlug}` }, props: { lang: 'en', type: 'post', postSlug: post.enSlug } });
+    paths.push({ params: { rest: `en/blog/${post.enSlug}` }, props: { lang: 'en', type: 'post', skSlug: post.enSlug } });
   }
 
   return paths;
 }
 
 const { rest } = Astro.params;
-const { lang, template, type, postSlug } = Astro.props;
+const { lang, template, type, skSlug: blogSkSlug } = Astro.props;
 const language = lang as Language;
-const skSlug = Astro.props.skSlug || rest;
+const skSlug = blogSkSlug || rest;
 ---
 
 {type === 'index' ? (
   <BlogIndexTemplate language={language} />
 ) : type === 'post' ? (
-  <BlogPostTemplate language={language} postSlug={postSlug as string} />
+  <BlogPostTemplate language={language} skSlug={blogSkSlug as string} />
 ) : (
   (() => {
     const Component = TEMPLATES[template as keyof typeof TEMPLATES];
