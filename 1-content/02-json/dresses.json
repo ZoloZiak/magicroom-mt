@@ -571,25 +571,6 @@
       ]
     },
     {
-      "id": "formal-modra-04",
-      "name": "Azúrová Noc",
-      "name_en": "Azure Night Gown",
-      "description": "Tieto elegantné večerné šaty sú vyrobené z luxusného lesklého materiálu v žiarivej tyrkysovej modrej farbe, ktorá nádherne objíma postavu. Majú moderný hranatý výstrih a objemné naberané rukávy, ktoré dodávajú šmrnc a sofistikovanosť. Puzdrový strih zdôrazňuje ženskú siluetu, zatiaľ čo vysoký rozparok na stehne pridáva dotyk zmyselnosti a elegancie. Ideálne na gala večery a špeciálne príležitosti.",
-      "description_en": "This elegant evening gown is crafted from a luxurious, shimmering fabric in a vibrant turquoise-blue color, beautifully hugging the figure. It features a modern square neckline and voluminous puffed sleeves that add flair and sophistication. The sheath silhouette accentuates the feminine form, while a high thigh slit provides a touch of sensuality and elegance. Ideal for gala events and special occasions.",
-      "price": 27.9,
-      "size": "36",
-      "category": "formal",
-      "type": "new",
-      "status": "available",
-      "color": "Tyrkysová modrá",
-      "style": "Moderná",
-      "featured": false,
-      "details": "Naberané rukávy, hranatý výstrih, vysoký rozparok, lesklý materiál",
-      "images": [
-        "formal-modra-04"
-      ]
-    },
-    {
       "id": "formal-glitre-01",
       "name": "Čierny Flitrový Sen",
       "name_en": "Black Sequin Dream",
