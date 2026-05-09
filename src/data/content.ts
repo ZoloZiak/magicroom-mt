@@ -87,7 +87,7 @@ export const HOME_STATS_EN = [
 export const HOME_OFFER_CARDS = [
   {
     title: 'Skúška svadobných šiat',
-    price: '15 € / 60 min',
+    price: '15 € / neobmedzene',
     description: 'Pokojná skúška s nápojom v cene, priestorom pre dve osoby a časom na výber bez stresu.',
     href: '/kontakt#booking',
     cta: 'Rezervovať termín',
@@ -201,7 +201,7 @@ export const TRUST_REASONS_EN = [
 ] as const;
 
 export const BOOKING_FEATURES = [
-  '60 minút v príjemnej atmosfére',
+  'Súkromie a čas na výber v príjemnej atmosfére',
   'pohárik prosecca, nealka alebo kávy v cene',
   'skúška svadobných šiat pre max. 2 osoby',
   'fotenie počas skúšky bez limitu',

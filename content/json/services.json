@@ -5,7 +5,7 @@
         "name": "Malá pomoc",
         "price": "39 €",
         "description": "Jasné nasmerovanie a odporúčania pre nevestu na začiatku.",
-        "features": ["1 konzultácia (60 min)", "moodboard", "odporúčanie dekorácií"]
+        "features": ["1 konzultácia (neobmedzene)", "moodboard", "odporúčanie dekorácií"]
       },
       {
         "name": "Svadba základ",
@@ -24,7 +24,7 @@
     "extra": [
       {
         "title": "Individuálna konzultácia",
-        "price": "15 € / 60 min",
+        "price": "15 € / neobmedzene",
         "description": "Osobne alebo online — rozpočet, štýl, rady „ako a kde“ vybaviť veci výhodnejšie."
       },
       {
@@ -67,7 +67,7 @@
         "name": "Little Help",
         "price": "39 €",
         "description": "Clear direction and essential recommendations for the bride at the starting line.",
-        "features": ["1 consultation (60 min)", "Moodboard", "Decor recommendations"]
+        "features": ["1 consultation (unlimited)", "Moodboard", "Decor recommendations"]
       },
       {
         "name": "Wedding Essentials",
@@ -86,7 +86,7 @@
     "extra": [
       {
         "title": "Individual Consultation",
-        "price": "15 € / 60 min",
+        "price": "15 € / unlimited",
         "description": "In-person or online — budget planning, style advice, and tips on how to get better deals."
       },
       {
