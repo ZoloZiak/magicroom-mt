@@ -1,0 +1,98 @@
+---
+import { Image } from 'astro:assets';
+import Footer from '@/02-components/layout/Footer.astro';
+import Header from '@/02-components/layout/Header.astro';
+import ScrollToTop from '@/02-components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/02-components/layout/WhatsAppFAB.astro';
+import Badge from '@/02-components/ui/Badge.astro';
+import Button from '@/02-components/ui/Button.astro';
+import Card from '@/02-components/ui/Card.astro'
+import CardContent from '@/02-components/ui/CardContent.astro'
+import CardDescription from '@/02-components/ui/CardDescription.astro'
+import CardHeader from '@/02-components/ui/CardHeader.astro'
+import CardTitle from '@/02-components/ui/CardTitle.astro';
+import { IMAGE_ASSETS, getBlogPosts } from '@/03-data/content';
+import { getTranslations, type Language } from '@/05-lib/translations';
+import Layout from '@/04-layouts/Layout.astro';
+import Icon from '@/02-components/ui/Icon.astro';
+
+interface Props {
+  language: Language;
+}
+
+const { language } = Astro.props;
+const t = getTranslations(language);
+const isEn = language === 'en';
+
+const posts = await getBlogPosts(language);
+---
+
+<Layout
+  title={isEn ? "Wedding Blog MagicRoom — Tips, Inspiration & Trends" : "Svadobný blog MagicRoom — Tipy, inšpirácie a trendy"}
+  description={isEn ? "Read our articles about wedding dresses, decorations, advice and latest trends." : "Čítajte naše články o svadobných šatách, dekoráciách, poradenstve a najnovších trendov."}
+  image={IMAGE_ASSETS.hero.src}
+  breadcrumbs={[
+    { name: t.nav.home, url: isEn ? '/en' : '/' },
+    { name: t.nav.blog, url: isEn ? '/en/blog' : '/blog' },
+  ]}
+  language={language}
+>
+  <Header language={language} />
+
+  <main class="flex-1">
+    <section class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4">
+        <div class="mb-12 text-center">
+          <Badge variant="secondary" class="mb-4 px-4 py-1 text-[11px] uppercase tracking-[0.28em]">
+            {isEn ? 'Wedding Blog' : 'Svadobný blog'}
+          </Badge>
+          <h1 class="font-display text-4xl text-foreground md:text-5xl">
+            {isEn ? 'Tips, Inspiration & Trends for Your Wedding' : 'Tipy, inšpirácie a trendy pre vašu svadbu'}
+          </h1>
+          <p class="mt-4 max-w-2xl mx-auto text-base leading-7 text-muted-foreground">
+            {isEn ? 'Practical advice, latest trends and personal experience from organizing weddings.' : 'Praktické rady, najnovšie trendy a osobné skúsenosti z organizácie svadieb.'}
+          </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => (
+            <Card class="blog-card border-0 bg-card shadow-[var(--shadow-soft)] spring-hover rounded-[32px] overflow-hidden">
+              <div class="overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  class="h-48 w-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <CardHeader>
+                <div class="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                  <Icon name="Calendar" class="h-4 w-4" />
+                  <span>{new Date(post.date).toLocaleDateString(isEn ? 'en-US' : 'sk-SK')}</span>
+                  <Icon name="Clock3" class="h-4 w-4 ml-2" />
+                  <span>{post.readTime}</span>
+                </div>
+                <CardTitle class="font-display text-xl line-clamp-2">{post.title}</CardTitle>
+                <CardDescription class="line-clamp-3">{post.excerpt}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {post.tags.map((tag) => (
+                    <Badge variant="outline" class="text-xs">{tag}</Badge>
+                  ))}
+                </div>
+                <Button variant="ghost" class="px-0 text-primary hover:text-cta group" href={isEn ? `/en/blog/${post.slug}` : `/blog/${post.slug}`}>
+                  {isEn ? 'Read article' : 'Čítať článok'}
+                  <Icon name="ArrowRight" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer language={language} />
+  <WhatsAppFAB />
+  <ScrollToTop />
+</Layout>

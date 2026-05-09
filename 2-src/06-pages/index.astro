@@ -1,0 +1,9 @@
+---
+export const prerender = true;
+import HomeTemplate from '@/02-components/templates/HomeTemplate.astro';
+import type { Language } from '@/05-lib/i18n';
+
+const language: Language = 'sk';
+---
+
+<HomeTemplate language={language} />

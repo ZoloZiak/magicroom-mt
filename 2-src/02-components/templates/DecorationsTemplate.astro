@@ -1,0 +1,191 @@
+---
+import { Image } from 'astro:assets';
+import Footer from '@/02-components/layout/Footer.astro';
+import Header from '@/02-components/layout/Header.astro';
+import ScrollToTop from '@/02-components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/02-components/layout/WhatsAppFAB.astro';
+import Badge from '@/02-components/ui/Badge.astro';
+import Button from '@/02-components/ui/Button.astro';
+import { getBookingPageHref } from '@/03-data/site';
+import { getDecorCategories, getDecorFeatured, getDecorPolicies, IMAGE_ASSETS, IMAGE_URLS } from '@/03-data/content';
+import { getTranslations, getRelativeHref, type Language } from '@/05-lib/translations';
+import Layout from '@/04-layouts/Layout.astro';
+import Icon from '@/02-components/ui/Icon.astro';
+
+interface Props {
+  language: Language;
+  skSlug: string;
+}
+
+const { language, skSlug } = Astro.props;
+const t = getTranslations(language);
+const isEn = language === 'en';
+
+const DECOR_FEATURED = getDecorFeatured(language);
+const DECOR_CATEGORIES = await getDecorCategories(language);
+const DECOR_POLICIES = getDecorPolicies(language);
+---
+
+<Layout
+  title={t.decorations.pageTitle}
+  description={t.decorations.pageDescription}
+  image={IMAGE_URLS.decorMain}
+  breadcrumbs={[
+    { name: t.nav.home, url: isEn ? '/en' : '/' },
+    { name: t.nav.decorations, url: getRelativeHref(skSlug, language) },
+  ]}
+  language={language}
+>
+  <style is:global>
+    /* Styling for the interactive decoration items */
+    .decor-item-details[open] .decor-item-icon {
+      transform: rotate(180deg);
+    }
+    .decor-item-details summary::-webkit-details-marker {
+      display: none;
+    }
+    .decor-item-details summary {
+      list-style: none;
+    }
+  </style>
+
+  <Header language={language} />
+
+  <main class="flex-1">
+    <section class="relative overflow-hidden bg-surface py-16 md:py-24">
+      <div class="container relative mx-auto px-4">
+        <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div class="max-w-2xl">
+            <Badge variant="secondary" class="mb-5">
+              {t.decorations.heroBadge}
+            </Badge>
+            <h1 class="font-display text-[2.9rem] leading-tight md:text-6xl">
+              {t.decorations.heroTitle}
+            </h1>
+            <p class="mt-6 text-lg leading-8 text-muted-foreground md:text-xl">
+              {t.decorations.heroDescription}
+            </p>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row items-center">
+              <Button variant="cta" size="lg" href={getBookingPageHref(language)}>
+                {t.decorations.contactCta}
+                <Icon name="ArrowRight" class="h-5 w-5 ml-2" />
+              </Button>
+            </div>
+          </div>
+          <div class="photo-card-lg">
+            <Image src={IMAGE_ASSETS.decorMain} alt="Decorations" class="rounded-3xl shadow-xl w-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-28 bg-background">
+      <div class="container mx-auto px-4">
+        <div class="mb-12">
+          <h2 class="font-display text-4xl">{t.decorations.featuredTitle}</h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {DECOR_FEATURED.map((item) => (
+            <div class="p-6 rounded-2xl border border-border bg-surface flex items-center justify-between group hover:border-primary/50 transition-colors">
+              <div class="flex items-center gap-4">
+                <div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                   <Icon name="Star" class="h-5 w-5" />
+                </div>
+                <span class="font-medium">{item.name}</span>
+              </div>
+              <span class="font-semibold text-cta">{item.price}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-20 md:py-28">
+      <div class="container mx-auto px-4">
+        <h2 class="font-display text-4xl mb-4 text-center">{t.decorations.catalogTitle}</h2>
+        <p class="text-center text-muted-foreground mb-12 italic">
+          {t.decorations.photoNote}
+        </p>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {DECOR_CATEGORIES.map((cat) => (
+            <div class="bg-card p-8 rounded-[32px] shadow-sm border border-border/50 h-full">
+              {cat.category && <h3 class="text-xl font-bold mb-4">{cat.category}</h3>}
+              <ul class="space-y-4">
+                {cat.items.map((item) => (
+                  <li class="rounded-xl transition-colors group/item">
+                    {item.imageAsset ? (
+                      <details class="decor-item-details">
+                        <summary class="cursor-pointer list-none">
+                          <div class="flex flex-col gap-1 p-3 rounded-xl hover:bg-surface transition-colors">
+                            <div class="flex items-center justify-between gap-2 text-muted-foreground italic">
+                              <div class="flex items-center gap-2">
+                                <div class="h-1 w-1 rounded-full bg-primary/40"></div>
+                                <span class="text-foreground/90 not-italic font-medium">{item.name}</span>
+                                <Icon name="ImageIcon" class="h-3.5 w-3.5 text-primary/60 opacity-0 group-hover/item:opacity-100 transition-opacity" />
+                              </div>
+                              <div class="flex items-center gap-2">
+                                <span class="text-cta font-semibold whitespace-nowrap">{item.price}</span>
+                                <Icon name="ChevronDown" class="h-4 w-4 text-muted-foreground/40 decor-item-icon transition-transform duration-300" />
+                              </div>
+                            </div>
+                          </div>
+                        </summary>
+                        <div class="px-3 pb-4">
+                          <div class="mt-2 overflow-hidden rounded-lg aspect-[16/9] bg-surface relative shadow-inner">
+                            <Image 
+                              src={item.imageAsset} 
+                              alt={item.name}
+                              class="w-full h-full object-cover"
+                              width={800}
+                              height={450}
+                            />
+                          </div>
+                        </div>
+                      </details>
+                    ) : (
+                      <div class="flex flex-col gap-1 p-3">
+                        <div class="flex items-center justify-between gap-2 text-muted-foreground italic">
+                          <div class="flex items-center gap-2">
+                            <div class="h-1 w-1 rounded-full bg-primary/40"></div>
+                            <span class="text-foreground/90 not-italic font-medium">{item.name}</span>
+                          </div>
+                          <span class="text-cta font-semibold whitespace-nowrap">{item.price}</span>
+                        </div>
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-28 bg-background">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-4xl">{t.decorations.policiesTitle}</h2>
+        </div>
+        <div class="space-y-4">
+          {DECOR_POLICIES.map((policy) => (
+            <div class="flex gap-4 p-5 rounded-2xl bg-surface border border-border/50">
+               <Icon name="CheckCircle2" class="h-5 w-5 text-primary mt-1 shrink-0" />
+               <p>{policy}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mt-12 p-8 rounded-[32px] bg-primary-900 text-white text-center">
+          <p class="text-lg mb-6">{t.decorations.customRequest}</p>
+          <Button variant="secondary" size="lg" href={getBookingPageHref(language)}>
+            {t.decorations.contactCta}
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    <Footer language={language} />
+    <WhatsAppFAB />
+    <ScrollToTop />
+  </main>
+</Layout>

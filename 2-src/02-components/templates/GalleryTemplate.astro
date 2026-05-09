@@ -1,0 +1,107 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Footer from '@/02-components/layout/Footer.astro';
+import Header from '@/02-components/layout/Header.astro';
+import ScrollToTop from '@/02-components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/02-components/layout/WhatsAppFAB.astro';
+import Badge from '@/02-components/ui/Badge.astro';
+import { getGalleryItems, IMAGE_URLS } from '@/03-data/content';
+import { getTranslations, getRelativeHref, type Language } from '@/05-lib/translations';
+import Layout from '@/04-layouts/Layout.astro';
+
+interface Props {
+  language: Language;
+  skSlug: string;
+}
+
+const { language, skSlug } = Astro.props;
+const t = getTranslations(language);
+const isEn = language === 'en';
+
+const galleryItems = await getGalleryItems(language);
+---
+
+<Layout
+  title={isEn ? "Gallery — MagicRoom Martin" : "Galéria salónu a našej práce — MagicRoom Martin"}
+  description={isEn ? "MagicRoom salon and decorations gallery." : "Pozrite si priestory nášho salónu v Martine a ukážky svadobnej výzdoby, ktorú sme realizovali."}
+  image={IMAGE_URLS.hero}
+  breadcrumbs={[
+    { name: t.nav.home, url: isEn ? '/en' : '/' },
+    { name: t.nav.gallery, url: getRelativeHref(skSlug, language) },
+  ]}
+  language={language}
+>
+  <Header language={language} />
+
+  <main class="flex-1">
+    <section class="py-12 md:py-20 bg-surface">
+      <div class="container mx-auto px-4 text-center">
+        <Badge variant="secondary" class="mb-4">MagicRoom Martin</Badge>
+        <h1 class="font-display text-4xl md:text-6xl mb-6">
+          {isEn ? 'Atmosphere & Details' : 'Atmosféra a detaily'}
+        </h1>
+
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-background">
+      <div class="container mx-auto px-4">
+        <div id="gallery-grid" class="columns-1 gap-6 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
+          {galleryItems.map((item) => (
+            <a 
+              href={(item.src as ImageMetadata)?.src} 
+              data-pswp-width={(item.src as ImageMetadata)?.width || "800"} 
+              data-pswp-height={(item.src as ImageMetadata)?.height || "1200"} 
+              target="_blank"
+              class="mb-6 break-inside-avoid overflow-hidden rounded-[24px] bg-surface transition-all hover:shadow-xl block border border-border/50"
+              aria-label={`${item.alt} (${language === 'en' ? 'opens in a new tab' : 'otvorí sa v novom okne'})`}
+            >
+              {item.src && (
+                <Image
+                  src={item.src as ImageMetadata}
+                  alt={item.alt}
+                  class="w-full object-cover transition-transform duration-500 hover:scale-105"
+                  width={400}
+                  height={533}
+                />
+              )}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <Footer language={language} />
+    <WhatsAppFAB />
+    <ScrollToTop />
+  </main>
+</Layout>
+
+<script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+  import 'photoswipe/style.css';
+
+  const initLightbox = () => {
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#gallery-grid',
+      children: 'a',
+      pswpModule: () => import('photoswipe'),
+      padding: { top: 20, bottom: 20, left: 10, right: 10 },
+      showHideAnimationType: 'zoom'
+    });
+    lightbox.init();
+  };
+
+  initLightbox();
+  document.addEventListener('astro:page-load', initLightbox);
+</script>
+
+<style is:global>
+  .pswp {
+    --pswp-bg: rgba(42, 26, 36, 0.95);
+  }
+  .pswp__img {
+    border-radius: 8px;
+  }
+</style>

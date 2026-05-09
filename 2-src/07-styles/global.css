@@ -1,0 +1,213 @@
+@import "tailwindcss";
+/* Local Fonts - use optional for faster rendering */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: optional;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi-500.woff2') format('woff2');
+  font-weight: 500;
+  font-display: optional;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/satoshi-700.woff2') format('woff2');
+  font-weight: 700;
+  font-display: optional;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/dm-sans-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: optional;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/dm-sans-500.woff2') format('woff2');
+  font-weight: 500;
+  font-display: optional;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/dm-sans-600.woff2') format('woff2');
+  font-weight: 600;
+  font-display: optional;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/dm-sans-500.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/dm-sans-600.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/dm-sans-700.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/dm-sans-400i.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+
+/* MagicRoom Design Tokens */
+@theme {
+  /* Typography */
+  --font-display: "Satoshi", system-ui, sans-serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+
+  /* Colors - shadcn compatible */
+  --color-background: #FDFBF9;
+  --color-foreground: #2A1A24;
+  --color-card: #FDFBF9;
+  --color-card-foreground: #2A1A24;
+  --color-popover: #FDFBF9;
+  --color-popover-foreground: #2A1A24;
+  --color-primary: #FF69B4;
+  --color-mobile-bar: #FF69B4;
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: #FFE0F0;
+  --color-secondary-foreground: #2A1A24;
+  --color-muted: #F7F3EF;
+  --color-muted-foreground: #886078;
+  --color-accent: #C9A86C;
+  --color-accent-foreground: #2A1A24;
+  --color-destructive: #D9444A;
+  --color-destructive-foreground: #FDFBF9;
+  --color-border: #FFD0E8;
+  --color-input: #FFD0E8;
+  --color-ring: #FF69B4;
+
+  /* Custom MagicRoom Colors */
+  --color-cta: #FF69B4;
+  --color-cta-hover: #E05595;
+  --color-success: #7A9E7E;
+  --color-surface: #F7F3EF;
+
+  /* Primary shades for dark sections */
+  --color-primary-900: #E05595;
+  --color-primary-950: #C04080;
+
+  /* Shadows — pink tones */
+  --shadow-soft: 0 20px 60px rgba(255, 105, 180, 0.12);
+  --shadow-medium: 0 24px 80px rgba(255, 105, 180, 0.14);
+  --shadow-heavy: 0 30px 80px rgba(255, 105, 180, 0.16);
+  --shadow-dark: 0 26px 80px rgba(224, 85, 149, 0.2);
+  --shadow-sm: 0 10px 40px rgba(194, 16, 110, 0.05);
+  --shadow-xl: 0 24px 70px rgba(194, 16, 110, 0.10);
+  --shadow-2xl: 0 30px 80px rgba(194, 16, 110, 0.12);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply bg-background;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .section-kicker {
+    @apply text-[11px] font-semibold uppercase tracking-[0.28em] text-primary/70;
+  }
+
+  .luxury-panel {
+    @apply rounded-[32px] border border-border/40 bg-card shadow-[var(--shadow-soft)];
+  }
+
+  .photo-card {
+    @apply overflow-hidden rounded-[32px] border border-border/40 bg-card p-3 shadow-[var(--shadow-xl)];
+  }
+
+  .photo-card-lg {
+    @apply overflow-hidden rounded-[32px] border border-border/40 bg-card p-3 shadow-[var(--shadow-2xl)];
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-stagger-1 { animation-delay: 100ms; }
+  .animate-stagger-2 { animation-delay: 200ms; }
+  .animate-stagger-3 { animation-delay: 300ms; }
+  .animate-stagger-4 { animation-delay: 400ms; }
+  .animate-stagger-5 { animation-delay: 500ms; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.glow-rose {
+  box-shadow: 0 0 40px rgba(255,105,180,0.15);
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-cta);
+  border-radius: 4px;
+}

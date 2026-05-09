@@ -5,12 +5,15 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
 import path from 'path';
+import pages from 'astro-pages';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.magicroom.sk',
   output: 'static',
   adapter: vercel(),
+  srcDir: './2-src',
+  publicDir: './1-content/00-static',
 
   image: {
     service: { entrypoint: 'astro/assets/services/sharp' }
@@ -20,13 +23,17 @@ export default defineConfig({
     plugins: [tailwindcss()],
     resolve: {
       alias: {
-        '@': path.resolve('./src'),
+        '@': path.resolve('./2-src'),
       },
     },
   },
 
   integrations: [
+    pages({
+      dir: '06-pages'
+    }),
     sitemap({
+      filter: (page) => !page.includes('/admin') && !page.includes('/api') && !page.includes('/sk/'),
       serialize(item) {
         if (item.url === 'https://www.magicroom.sk/') {
           item.priority = 1.0;

@@ -1,0 +1,142 @@
+---
+import Footer from '@/02-components/layout/Footer.astro';
+import Header from '@/02-components/layout/Header.astro';
+import ScrollToTop from '@/02-components/layout/ScrollToTop.astro';
+import WhatsAppFAB from '@/02-components/layout/WhatsAppFAB.astro';
+import Badge from '@/02-components/ui/Badge.astro';
+import Button from '@/02-components/ui/Button.astro';
+import Card from '@/02-components/ui/Card.astro'
+import CardContent from '@/02-components/ui/CardContent.astro'
+import CardDescription from '@/02-components/ui/CardDescription.astro'
+import CardHeader from '@/02-components/ui/CardHeader.astro'
+import CardTitle from '@/02-components/ui/CardTitle.astro';
+import { getBookingPageHref, PHONE_DISPLAY, PHONE_HREF, toAbsoluteUrl } from '@/03-data/site';
+import { IMAGE_ASSETS, IMAGE_URLS, getBlogPost, getBlogPosts } from '@/03-data/content';
+import { getTranslations, getRelativeHref, type Language } from '@/05-lib/translations';
+import Layout from '@/04-layouts/Layout.astro';
+import Icon from '@/02-components/ui/Icon.astro';
+
+interface Props {
+  language: Language;
+  skSlug: string;
+}
+
+const { language, skSlug } = Astro.props;
+const t = getTranslations(language);
+const isEn = language === 'en';
+
+const post = await getBlogPost(skSlug, isEn ? 'en' : 'sk');
+if (!post) {
+  throw new Error(`Blog post not found: ${skSlug}`);
+}
+
+const allPosts = await getBlogPosts(isEn ? 'en' : 'sk');
+const relatedPosts = allPosts.filter(p => p.slug !== post.slug).slice(0, 2).map(p => ({
+  slug: isEn ? p.slug : (p as any).skSlug || p.slug,
+  title: p.title,
+  image: p.image,
+}));
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.title,
+  description: post.description,
+  image: post.image.src,
+  datePublished: post.date,
+  author: {
+    '@type': 'Person',
+    name: 'Natália Ondrejková',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'MagicRoom',
+    logo: {
+      '@type': 'ImageObject',
+      url: toAbsoluteUrl('/favicon.svg'),
+    },
+  },
+};
+---
+
+<Layout
+  title={`${post.title} | MagicRoom Blog`}
+  description={post.description}
+  type="article"
+  image={post.image.src}
+  breadcrumbs={[
+    { name: t.nav.home, url: isEn ? '/en' : '/' },
+    { name: t.nav.blog, url: isEn ? '/en/blog' : '/blog' },
+    { name: post.title, url: '#' },
+  ]}
+  language={language}
+  structuredData={articleSchema}
+>
+  <Header language={language} />
+
+  <main class="flex-1">
+    <article class="bg-surface py-16 md:py-20">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <div class="mb-8">
+          <Badge variant="secondary" class="mb-4">Blog</Badge>
+          <h1 class="font-display text-4xl text-foreground md:text-5xl">{post.title}</h1>
+          <div class="mt-4 flex items-center gap-4 text-muted-foreground text-sm">
+            <div class="flex items-center gap-2">
+              <Icon name="Calendar" class="h-4 w-4" />
+              <span>{new Date(post.date).toLocaleDateString(isEn ? 'en-US' : 'sk-SK')}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Icon name="Clock3" class="h-4 w-4" />
+              <span>{post.readTime}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="prose prose-lg max-w-none bg-card p-8 md:p-12 rounded-[32px] shadow-sm border border-border/50">
+          {post.content.split('\\n').map((paragraph: string) => (
+            paragraph.trim() && <p class="text-xl leading-relaxed mb-6">{paragraph.trim()}</p>
+          ))}
+        </div>
+
+        <div class="mt-12 rounded-[32px] border border-border/70 bg-card p-8 md:p-12">
+          <h3 class="font-display text-2xl mb-4">{isEn ? 'Have Questions?' : 'Máte otázky?'}</h3>
+          <p class="text-muted-foreground mb-8">
+            {isEn ? "At MagicRoom, we'll help you find everything for your perfect day." : 'V MagicRoom vám pomôžeme nájsť šaty, dekorácie aj pokojný prístup.'}
+          </p>
+          <div class="flex flex-col gap-4 sm:flex-row items-center">
+            <Button variant="cta" size="lg" href={getBookingPageHref(language)}>
+              {t.nav.bookAppointment}
+              <Icon name="ArrowRight" class="h-4 w-4 ml-2" />
+            </Button>
+            <Button variant="outline" size="lg" href={PHONE_HREF}>
+              <Icon name="Phone" class="h-4 w-4 mr-2" />
+              {PHONE_DISPLAY}
+            </Button>
+          </div>
+        </div>
+
+        <div class="mt-20">
+          <h3 class="font-display text-2xl mb-8">{isEn ? 'Related Articles' : 'Súvisiace články'}</h3>
+          <div class="grid gap-6 md:grid-cols-2">
+            {relatedPosts.map((p) => (
+              <a href={isEn ? `/en/blog/${p.slug}` : `/blog/${p.slug}`} class="group">
+                <Card class="border-0 bg-card shadow-sm overflow-hidden transition-all hover:shadow-xl rounded-2xl">
+                  <div class="h-32 overflow-hidden">
+                    <img src={p.image.src} alt={p.title} class="w-full h-full object-cover transition-transform group-hover:scale-105" />
+                  </div>
+                  <CardHeader class="p-4">
+                    <CardTitle class="font-display text-lg group-hover:text-primary transition-colors">{p.title}</CardTitle>
+                  </CardHeader>
+                </Card>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer language={language} />
+  <WhatsAppFAB />
+  <ScrollToTop />
+</Layout>
