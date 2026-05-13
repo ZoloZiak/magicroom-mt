@@ -267,6 +267,25 @@
       ]
     },
     {
+      "id": "wedding23",
+      "name": "Svadobná róba s jemnými rukávmi",
+      "name_en": "Wedding gown with delicate sleeves",
+      "description": "Tieto svadobné šaty sú stvorené pre nevestu, ktorá chce spojiť moderný štýl s čistou romantikou. Výrazné šifónové rukávy dodávajú celému looku éterický nádych.",
+      "description_en": "These wedding dresses are crafted for the bride who wishes to blend modern style with pure romance. The striking chiffon sleeves lend an ethereal touch to the entire look.",
+      "price": 560,
+      "size": "40-42",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "romantická",
+      "featured": false,
+      "details": "padavé rukáve, jemnosť",
+      "images": [
+        "wedding23"
+      ]
+    },
+    {
       "id": "svadba-07",
       "name": "Nebeská kráľovná saténu",
       "name_en": "Celestial Satin Queen",
