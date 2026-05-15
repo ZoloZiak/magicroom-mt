@@ -267,6 +267,25 @@
       ]
     },
     {
+      "id": "wedding23",
+      "name": "Svadobná róba s jemnými rukávmi",
+      "name_en": "Wedding gown with delicate sleeves",
+      "description": "Tieto svadobné šaty sú stvorené pre nevestu, ktorá chce spojiť moderný štýl s čistou romantikou. Výrazné šifónové rukávy dodávajú celému looku éterický nádych.",
+      "description_en": "These wedding dresses are crafted for the bride who wishes to blend modern style with pure romance. The striking chiffon sleeves lend an ethereal touch to the entire look.",
+      "price": 560,
+      "size": "40-42",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "biela",
+      "style": "romantická",
+      "featured": false,
+      "details": "padavé rukáve, jemnosť",
+      "images": [
+        "wedding23"
+      ]
+    },
+    {
       "id": "svadba-07",
       "name": "Nebeská kráľovná saténu",
       "name_en": "Celestial Satin Queen",
@@ -384,8 +403,8 @@
       "id": "formal-modre-01",
       "name": "Hviezdna Kráľovná",
       "name_en": "Stardust Empress Gown",
-      "description": "Tieto veľkolepé šaty sú zhotovené z kráľovskej modrej látky, kombinujúcej štruktúrovaný korzetový živôtik zo saténu s viditeľnými výstužami a rozsiahlu sukňu z trblietavého tylu. Živôtik má jemne tvarovaný výstrih odhaľujúci ramená a je doplnený o naberané, volánikové rukávy z tylu, ktoré pridávajú romantický a hravý dotyk. Objemná sukňa, zložená z mnohých vrstiev tylu posypaného trblietkami, vytvára pri každom pohybe efekt hviezdneho prachu. Celkový dojem je majestátny, očarujúci a ideálny na ples alebo akúkoľvek slávnostnú príležitosť, kde chcete zažiariť.",
-      "description_en": "This magnificent gown is crafted from royal blue fabric, combining a structured satin corset bodice with visible boning and an extensive skirt of shimmering tulle. The bodice features a gently curved, off-the-shoulder neckline and is complemented by puffy, ruffled tulle sleeves that add a romantic and playful touch. The voluminous skirt, composed of many layers of glitter-dusted tulle, creates a stardust effect with every movement. The overall impression is majestic, enchanting, and ideal for a ball or any festive occasion where you wish to shine.",
+      "description": "Tieto veľkolepé šaty sú zhotovené z kráľovskej modrej látky, kombinujúcej korzet zo saténu s viditeľnými výstužami a rozsiahlu sukňu z trblietavého tylu. Živôtik má jemne tvarovaný výstrih odhaľujúci ramená a je doplnený o naberané, volánikové rukávy z tylu, ktoré pridávajú romantický a hravý dotyk. Objemná sukňa, zložená z mnohých vrstiev tylu posypaného trblietkami, vytvára pri každom pohybe efekt hviezdneho prachu. Celkový dojem je majestátny, očarujúci a ideálny na ples alebo akúkoľvek slávnostnú príležitosť, kde chcete zažiariť.",
+      "description_en": "This magnificent gown is crafted from royal blue fabric, combining a satin corset bodice with visible boning and an extensive skirt of shimmering tulle. The bodice features a gently curved, off-the-shoulder neckline and is complemented by puffy, ruffled tulle sleeves that add a romantic and playful touch. The voluminous skirt, composed of many layers of glitter-dusted tulle, creates a stardust effect with every movement. The overall impression is majestic, enchanting, and ideal for a ball or any festive occasion where you wish to shine.",
       "price": 129,
       "size": "38",
       "category": "formal",
@@ -394,9 +413,47 @@
       "color": "Kráľovská modrá",
       "style": "Princezná, plesové šaty",
       "featured": false,
-      "details": "Korzetový živôtik, odhalené ramená, naberané tylové rukávy, trblietavý tyl, objemná sukňa",
+      "details": "odhalené ramená, naberané tylové rukávy, trblietavý tyl, objemná sukňa",
       "images": [
         "formal-modre-01"
+      ]
+    },
+    {
+      "id": "formal-zlate-06",
+      "name": "Zlatá symfónia",
+      "name_en": "Golden Symphony",
+      "description": "Tieto luxusné priliehavé šaty na jedno rameno vynikajú precíznym riasením a dramatickou vlečkou, ktorá zvýrazňuje ženskú siluetu.",
+      "description_en": "This luxurious one-shoulder bodycon dress features precise draping and a dramatic sash that beautifully accentuates the feminine silhouette.",
+      "price": 34.90,
+      "size": "38",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "zlatá",
+      "style": "spoločenské šaty",
+      "featured": false,
+      "details": "riasené šaty, obtiahnuté",
+      "images": [
+        "formal-zlate-06"
+      ]
+    },
+     {
+      "id": "formal-fialove-07",
+      "name": "Levanduľový sen",
+      "name_en": "Lavender Dream",
+      "description": "Tieto elegantné saténové šaty v jemnom fialovom odtieni očaria svojím rafinovaným strihom s vysokým rozparkom.",
+      "description_en": "These elegant satin dresses in a soft purple hue enchant with their sophisticated high-slit design.",
+      "price": 34.90,
+      "size": "38",
+      "category": "formal",
+      "type": "new",
+      "status": "available",
+      "color": "fialová",
+      "style": "spoločenské šaty",
+      "featured": false,
+      "details": "s rozparkom",
+      "images": [
+        "formal-fialove-07"
       ]
     },
     {
