@@ -1,6 +1,13 @@
 {
   "gallery": [
     {
+      "filename": "trickonevesta.png",
+      "alt": "Biele tričko s nápisom Nevesta, ideálne na predsvadobné prípravy.",
+      "altEn": "White t-shirt with Nevesta text, perfect for pre-wedding preparations.",
+      "title": "Tričko pre nevestu",
+      "titleEn": "Bride T-shirt"
+    },
+    {
       "filename": "zupan1.jpg",
       "alt": "Svadobný župan s nápisom Nevesta v salóne MagicRoom.",
       "altEn": "Wedding robe with 'Nevesta' text in the MagicRoom salon.",
@@ -118,13 +125,6 @@
       "altEn": "Detailed interior shot of a wedding and formal dress salon. To the right, a long white lace wedding gown with a train is displayed on a mannequin, standing in front of a large window. A garland of black and hot pink triangular flags hangs in front of the dress. To the left, on a dark gray wall, are shelves and pink boxes with a black-and-white checkered pattern. On the top box are a pair of nude high heels with a decorative buckle, below them are hot pink shoes, and on the bottom box are black Mary Jane-style heels with a strap across the instep. A black shelving unit on the far left displays a pink balloon and various accessories like jewelry, small baskets, and wooden decorations with text. A neon pink flamingo-like light is visible on the wall in the back right. The floor is covered with a light brown carpet.",
       "title": "Svadobná Inšpirácia: Elegancia a Farba",
       "titleEn": "Bridal Boutique: Elegant & Vibrant"
-    },
-    {
-      "filename": "interior-warm-7.jpeg",
-      "alt": "Tri usmievavé ženy, pravdepodobne personál, stoja vedľa seba v modernom svadobnom a spoločenskom salóne. Žena vľavo má dlhé hnedé vlasy, béžový rebrovaný sveter, sivé nohavice a drží pohár s ružovým nápojom. Stredná žena má čierne vlasy s ofinou, biely top bez ramienok, čiernu mini-sukňu a čierne pančuchy. Žena vpravo má blond vlasy, čierny rolák, čierne kožené nohavice, čierno-bielu srsť s leopardím vzorom a výraznú fuksiovo ružovú stuhu na opasku. V pozadí sú ružové balóniky, čierno-ružová vlajková girlanda, svadobné šaty na figuríne, neónové svetlo a ružové vysoké podpätky na šachovnicovej krabici.",
-      "altEn": "Three smiling women, likely staff members, stand side-by-side in a modern wedding and formal dress salon. The woman on the left has long brown hair, wears a beige ribbed sweater and grey trousers, and holds a pink-tinted glass. The middle woman has black hair with bangs, wears a white off-shoulder top, a black mini-skirt, and black tights. The woman on the right has blonde hair, wears a black turtleneck, black leather-look trousers, a black and white dalmatian print blazer, and a vibrant fuchsia pink ribbon tied to her belt. The background features pink balloons, black and pink triangular bunting, a wedding dress on a mannequin, neon lights, and fuchsia high heels on a checkered box.",
-      "title": "Tím svadobného butiku",
-      "titleEn": "Wedding Dress Salon Team"
     },
     {
       "filename": "interior-cold-1.jpeg",
