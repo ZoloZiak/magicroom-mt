@@ -46,6 +46,7 @@ export const IMAGE_ASSETS = {
   glasses: glassesImage,
   map: mapImage,
   logo: logoImage,
+  services: servicesImage,
 } as const;
 
 export const IMAGE_URLS = {
