@@ -106,3 +106,4 @@ npm run test:e2e      # E2E tests (156)
 ## Contact
 
 info@magicroom.sk · +421 950 490 323
+<!-- trigger build -->
