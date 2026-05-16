@@ -1,6 +1,13 @@
 {
   "gallery": [
     {
+      "filename": "pohare.png",
+      "alt": "Detailný záber na slávnostne pripravené poháre v svadobnom salóne MagicRoom.",
+      "altEn": "Close-up shot of festively prepared glasses in the MagicRoom wedding salon.",
+      "title": "Slávnostný prípitok",
+      "titleEn": "Festive Toast"
+    },
+    {
       "filename": "vesiaky.png",
       "alt": "Detailný záber na zlaté vešiaky v svadobnom salóne MagicRoom.",
       "altEn": "Close-up shot of golden hangers in the MagicRoom wedding salon.",
