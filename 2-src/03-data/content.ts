@@ -19,6 +19,7 @@ import graphicsImage from '../../1-content/01-images/systemassets/graphics.png';
 import glassesImage from '../../1-content/01-images/systemassets/glasses.png';
 import logoImage from '../../1-content/01-images/systemassets/logo.png';
 import founderAvatarImage from '../../1-content/01-images/systemassets/founder-avatar.png';
+import servicesImage from '../../1-content/01-images/systemassets/3products.png';
 
 import type { Language } from '@/05-lib/i18n';
 
