@@ -1,6 +1,20 @@
 {
   "gallery": [
     {
+      "filename": "zupan1.jpg",
+      "alt": "Svadobný župan s nápisom Nevesta v salóne MagicRoom.",
+      "altEn": "Wedding robe with 'Nevesta' text in the MagicRoom salon.",
+      "title": "župan Nevesta",
+      "titleEn": "Bride Robe"
+    },
+    {
+      "filename": "zupan2.jpg",
+      "alt": "Svadobný župan s nápisom Nevesta v salóne MagicRoom.",
+      "altEn": "Wedding robe with 'Nevesta' text in the MagicRoom salon.",
+      "title": "župan Nevesta",
+      "titleEn": "Bride Robe"
+    },
+    {
       "filename": "pohare.png",
       "alt": "Detailný záber na slávnostne pripravené poháre v svadobnom salóne MagicRoom.",
       "altEn": "Close-up shot of festively prepared glasses in the MagicRoom wedding salon.",
