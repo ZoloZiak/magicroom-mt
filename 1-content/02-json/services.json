@@ -58,6 +58,11 @@
         "title": "Výzdoba na kľúč",
         "price": "Individuálne",
         "description": "Postaráme sa o príjemnú atmosféru vašej svadby či oslavy presne podľa vašich predstáv."
+      },
+      {
+        "title": "Maľovanie na tvár",
+        "price": "Individuálne / na akciu",
+        "description": "Pre tých najmenších! V slnečnom počasí maľujeme aj pred predajňou, alebo si nás môžete objednať na vašu oslavu či akciu."
       }
     ]
   },
@@ -120,6 +125,11 @@
         "title": "Bespoke Decor & Styling",
         "price": "Individual pricing",
         "description": "We will create a stunning atmosphere for your wedding or celebration tailored exactly to your vision."
+      },
+      {
+        "title": "Face Painting",
+        "price": "Individual / per event",
+        "description": "For the little ones! On sunny days, we paint right in front of our shop, or you can book us for your private party or event."
       }
     ]
   }
