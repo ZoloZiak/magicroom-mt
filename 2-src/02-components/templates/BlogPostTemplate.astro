@@ -93,9 +93,12 @@ const articleSchema = {
         </div>
 
         <div class="prose prose-lg max-w-none bg-card p-8 md:p-12 rounded-[32px] shadow-sm border border-border/50">
-          {post.content.split('\\n').map((paragraph: string) => (
-            paragraph.trim() && <p class="text-xl leading-relaxed mb-6">{paragraph.trim()}</p>
-          ))}
+          {post.content.split(/\n\n+/).map((paragraph: string) => {
+            if (!paragraph.trim()) return null;
+            // Handle bold text **bold** -> <strong>bold</strong>
+            const formattedContent = paragraph.trim().replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            return <p class="text-xl leading-relaxed mb-6" set:html={formattedContent.replace(/\n/g, '<br />')} />;
+          })}
         </div>
 
         <div class="mt-12 rounded-[32px] border border-border/70 bg-card p-8 md:p-12">
