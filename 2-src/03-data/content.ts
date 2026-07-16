@@ -129,7 +129,7 @@ export const HOME_OFFER_CARDS = [
   },
   {
     title: 'Poradenstvo a organizácia',
-    price: 'od 40 €',
+    price: 'od 39 €',
     description: 'Od malej pomoci po kompletnú prípravu svadby, RSVP a grafiku.',
     href: '/sluzby',
     cta: 'Pozrieť balíky',
@@ -140,7 +140,7 @@ export const HOME_OFFER_CARDS = [
 export const HOME_OFFER_CARDS_EN = [
   {
     title: 'Formal dresses',
-    price: 'from 30 €',
+    price: 'from 15 €',
     description: 'Perfect for student balls, prom or gala events. Quality dresses at student-friendly prices.',
     href: '/en/formal-dresses',
     cta: 'View collection',
@@ -148,7 +148,7 @@ export const HOME_OFFER_CARDS_EN = [
   },
   {
     title: 'Formal dress fitting',
-    price: '15 € / 60 min',
+    price: '0 € ',
     description: 'Calm fitting for your prom, gala or event dress. Drink included.',
     href: '/en/contact#booking',
     cta: 'Book a time',
@@ -180,7 +180,7 @@ export const HOME_OFFER_CARDS_EN = [
   },
   {
     title: 'Wedding planning',
-    price: 'from 200 €',
+    price: 'from 39 €',
     description: 'From moodboard to RSVP — solutions that save time and stress.',
     href: '/en/services',
     cta: 'View services',
@@ -205,8 +205,9 @@ export const TRUST_REASONS_EN = [
 export const BOOKING_FEATURES = [
   'Súkromie a čas na výber v príjemnej atmosfére',
   'pohárik prosecca, nealka alebo kávy v cene',
-  'skúška svadobných šiat pre max. 2 osoby',
+  'skúška svadobných šiat pre max. 3 osoby/vrátane nevesty',
   'fotenie počas skúšky bez limitu',
+  'poplatok je účtovaný iba v prípade, ak si šaty u nás nevyberiete',
 ] as const;
 
 export const PROCESS_STEPS = [
@@ -225,7 +226,7 @@ export const FOUNDER_STORY = {
   quote: 'Každá žena si zaslúži moment, keď sa cíti výnimočne.',
   paragraphs: [
     'Ahoj, volám sa Natália. MagicRoom vznikol, keď som si pripravovala vlastnú svadbu a zistila, koľko času zhltne zháňanie šiat, výzdoby a detailov.',
-    'Chcela som miesto, kde ženy nájdu všetko pokope — šaty, dekorácie aj férovú radu bez stresu and preplácania.',
+    'Chcela som miesto, kde ženy nájdu všetko pokope — šaty, dekorácie aj férové ceny.',
   ],
 } as const;
 
@@ -233,7 +234,7 @@ export const FOUNDER_STORY_EN = {
   quote: 'Every woman deserves a moment where she feels special.',
   paragraphs: [
     'Hi, my name is Natalia. MagicRoom was born when I was preparing my own wedding and realized how much time is consumed by searching for dresses and decorations.',
-    'I wanted a place where women could find everything together — dresses, decorations, and fair advice without stress and overpaying.',
+    'I wanted a place where women could find everything together — dresses, decorations, and fair prices.',
   ],
 } as const;
 
@@ -319,13 +320,13 @@ const CONTACT_ACTIONS_EN = [
 const CONSIGNMENT_CONDITIONS_SK = [
   'Šaty musia byť profesionálne vyčistené a bez poškodení.',
   'Prijímame modely nie staršie ako 3 roky.',
-  'Provízia salónu je stanovená fixne pri podpise zmluvy.',
+  'Provízia salónu sa pripočítava ku vašej zvolenej čiastke.',
 ];
 
 const CONSIGNMENT_CONDITIONS_EN = [
   'Dresses must be professionally cleaned and without damage.',
   'We accept models not older than 3 years.',
-  'The salon commission is fixed upon signing the contract.',
+  'The salon commission will be added to your selected amount',
 ];
 
 export function getConsignmentConditions(lang: Language) {
