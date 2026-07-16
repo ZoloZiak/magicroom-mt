@@ -90,7 +90,7 @@ export const HOME_OFFER_CARDS = [
   {
     title: 'Skúška svadobných šiat',
     price: '15 € / neobmedzene',
-    description: 'Pokojná skúška s nápojom v cene, priestorom pre dve osoby a časom na výber bez stresu.',
+    description: 'Pokojná skúška s nápojom v cene, pre 3 osoby/vrátane nevesty',
     href: '/kontakt#booking',
     cta: 'Rezervovať termín',
     icon: 'Shirt',
@@ -140,7 +140,7 @@ export const HOME_OFFER_CARDS = [
 export const HOME_OFFER_CARDS_EN = [
   {
     title: 'Formal dresses',
-    price: 'from 15 €',
+    price: '0 €',
     description: 'Perfect for student balls, prom or gala events. Quality dresses at student-friendly prices.',
     href: '/en/formal-dresses',
     cta: 'View collection',
