@@ -19,25 +19,6 @@
         "svadobne-00"
       ]
     },
-     {
-      "id": "trblietave-svadba-28",
-      "name": "Svadobné šaty Elizabeth",
-      "name_en": "Wedding dress Elizabeth",
-      "description": "Romantické svadobné šaty v princeznovskom strihu s jemnou čipkou a trblietavým tylom.",
-      "description_en": "Romantic princess-style wedding dress featuring delicate lace details and shimmering tulle.",
-      "price": 429,
-      "size": "38-40",
-      "category": "wedding",
-      "type": "new",
-      "status": "available",
-      "color": "White",
-      "style": "čipka,romantická, moderná",
-      "featured": true,
-      "details": "Čipka, s rukávom krátkym",
-      "images": [
-        "trblietave-svadba-28"
-      ]
-    },
     {
       "id": "saten-svadba-20",
       "name": "Svadobné šaty Grace",
@@ -153,6 +134,25 @@
       ]
     },
     {
+      "id": "trblietave-svadba-28",
+      "name": "Svadobné šaty Elizabeth",
+      "name_en": "Wedding dress Elizabeth",
+      "description": "Romantické svadobné šaty v princeznovskom strihu s jemnou čipkou a trblietavým tylom.",
+      "description_en": "Romantic princess-style wedding dress featuring delicate lace details and shimmering tulle.",
+      "price": 429,
+      "size": "38-40",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "White",
+      "style": "čipka,romantická, moderná",
+      "featured": true,
+      "details": "Čipka, s rukávom krátkym",
+      "images": [
+        "trblietave-svadba-28"
+      ]
+    },
+    {
       "id": "svadobne-12",
       "name": "Snová kvetinová éterická róba",
       "name_en": "Dreamy Floral Ethereal Gown",
@@ -226,6 +226,25 @@
       "details": "Hlboký V-výstrih, bez rukávov, dlhá vlečka, hladký materiál",
       "images": [
         "klasicka-biela"
+      ]
+    },
+    {
+      "id": "svadobne-aurora-01",
+      "name": "Svadobné šaty Aurora",
+      "name_en": "Wedding dress Aurora",
+      "description": "Elegantné svadobné šaty v A-línii s čipkou a hlbokým výstrihom a vzdušnou tylovou sukňou.",
+      "description_en": "Elegant A-line wedding dress with delicate lace detailing, a deep V-neckline, and an airy tulle skirt.",
+      "price": 399,
+      "size": "38",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "White",
+      "style": "čipka,romantická, moderná",
+      "featured": true,
+      "details": "Čipka, v-výstrih",
+      "images": [
+        "svadobne-aurora-01"
       ]
     },
     {
