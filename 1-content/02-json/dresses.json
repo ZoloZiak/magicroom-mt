@@ -20,6 +20,25 @@
       ]
     },
     {
+      "id": "saten-svadba-20",
+      "name": "Svadobné šaty Grace",
+      "name_en": "Wedding dress Grace",
+      "description": "Hladká, dokonale tvarovaná saténová sukňa s jemným leskom tvorí nádherný kontrast s precízne vyšívaným dekoltom, ktorý jemne lemuje krk a ramená. Tento model v sebe spája minimalistický luxus a čisté línie, v ktorých vynikne vaša prirodzená krása a ženskosť.",
+      "description_en": "A charming wedding dress for the bride seeking timeless elegance and a touch of royalty. The smooth, perfectly structured satin skirt with a subtle sheen creates a beautiful contrast with the precisely embroidered neckline that gently frames the collarbone and shoulders. This model combines minimalist luxury and clean lines, perfectly highlighting your natural beauty and femininity.",
+      "price": 560,
+      "size": "40-42",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "Ivory",
+      "style": "A-strih, romantická, moderná",
+      "featured": true,
+      "details": "Čipka, V-výstrih, bez rukávov",
+      "images": [
+        "saten-svadba-20"
+      ]
+    },
+    {
       "id": "svadba-13",
       "name": "Žiarivá Nádhera",
       "name_en": "Radiant Sparkle",
