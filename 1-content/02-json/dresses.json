@@ -19,6 +19,25 @@
         "svadobne-00"
       ]
     },
+     {
+      "id": "trblietave-svadba-28",
+      "name": "Svadobné šaty Elizabeth",
+      "name_en": "Wedding dress Elizabeth",
+      "description": "Romantické svadobné šaty v princeznovskom strihu s jemnou čipkou a trblietavým tylom.",
+      "description_en": "Romantic princess-style wedding dress featuring delicate lace details and shimmering tulle.",
+      "price": 429,
+      "size": "38-40",
+      "category": "wedding",
+      "type": "new",
+      "status": "available",
+      "color": "White",
+      "style": "čipka,romantická, moderná",
+      "featured": true,
+      "details": "Čipka, s rukávom krátkym",
+      "images": [
+        "trblietave-svadba-28"
+      ]
+    },
     {
       "id": "saten-svadba-20",
       "name": "Svadobné šaty Grace",
