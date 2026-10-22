@@ -39,25 +39,6 @@
       ]
     },
     {
-      "id": "svadba-13",
-      "name": "Žiarivá Nádhera",
-      "name_en": "Radiant Sparkle",
-      "description": "Elegantné svadobné šaty v A-strihu vyrobené z jemnej čipky bohato zdobenej subtílnymi trblietkami, ktoré dodávajú šatám rozprávkový lesk.  Živôtik bez rukávov má hlboký V-výstrih a je zvýraznený ozdobným pásom z drobných korálok v páse, ktoré opticky zoštíhľujú siluetu.",
-      "description_en": "An elegant A-line wedding dress crafted from delicate lace richly adorned with subtle glitter, giving the gown a fairy-tale sparkle.  The sleeveless bodice features a deep V-neckline and is accentuated by a decorative belt of tiny beads at the waist, which visually slims the silhouette.",
-      "price": 299,
-      "size": "46-50",
-      "category": "wedding",
-      "type": "new",
-      "status": "available",
-      "color": "Ivory",
-      "style": "A-strih, romantická, moderná",
-      "featured": true,
-      "details": "Čipka, trblietky, hlboký V-výstrih, korálkový pás, vlečka, bez rukávov",
-      "images": [
-        "svadba-13"
-      ]
-    },
-    {
       "id": "svadba-09",
       "name": "Kvetinová Slonovinová Romantika",
       "name_en": "Ivory Floral Romance",
@@ -93,25 +74,6 @@
       "details": "Čipka na rukávoch a živôtiku, dlhé iluzórne rukávy, V-výstrih, tylová sukňa, vlečka",
       "images": [
         "wedding-01"
-      ]
-    },
-    {
-      "id": "svadba-005",
-      "name": "Jarný Kvet",
-      "name_en": "Spring Blossom",
-      "description": "Nádherné svadobné šaty v A-strihu z jemného tylu, bohato zdobené kvetinovou čipkou a 3D aplikáciami, ktoré dodávajú šatám romantický a éterický vzhľad.  Živôtik má rafinovaný odhalený V-výstrih s tylovou vsadkou a padnuté ramená, ktoré prechádzajú do dlhých, objemných tylových rukávov s manžetami.",
-      "description_en": "A beautiful A-line wedding dress crafted from delicate tulle, richly adorned with floral lace and 3D appliqués, giving the gown a romantic and ethereal look.  The bodice features a sophisticated plunging V-neck with a sheer insert and off-the-shoulder design, flowing into long, voluminous tulle bishop sleeves with cuffs.",
-      "price": 599,
-      "size": "40",
-      "category": "wedding",
-      "type": "new",
-      "status": "available",
-      "color": "Slonovinová",
-      "style": "A-strih, romantická, boho, éterická",
-      "featured": true,
-      "details": "Odhalené ramená, dlhé tylové rukávy, kvetinová čipka, 3D aplikácie, hlboký V-výstrih (s tylovou vsadkou), A-čková sukňa",
-      "images": [
-        "svadba-005"
       ]
     },
     {
@@ -188,25 +150,6 @@
       "details": "Čipkovaný živôtik, dlhé priehľadné rukávy, hlboký V-výstrih, tylová sukňa, kvetinová čipka, jemné perličky",
       "images": [
         "svadba-16"
-      ]
-    },
-    {
-      "id": "svadba-15",
-      "name": "Kvetinová Luna",
-      "name_en": "Moonlit Bloom",
-      "description": "Tieto svadobné šaty s jemným A-strihom sú skutočným stelesnením romantiky a elegancie.   Živôtik z iluzórneho tylu zdobia prepracované kvetinové čipkové aplikácie, ktoré sa elegantne ťahajú cez dlhé iluzórne rukávy a vytvárajú hlboký V-výstrih.",
-      "description_en": "This wedding dress with a gentle A-line cut is a true embodiment of romance and elegance.   The illusion tulle bodice is adorned with intricate floral lace appliqués that gracefully extend over the long illusion sleeves, forming a deep V-neckline.",
-      "price": 449,
-      "size": "36",
-      "category": "wedding",
-      "type": "new",
-      "status": "available",
-      "color": "Slonovinová",
-      "style": "A-strih, romantická, éterická",
-      "featured": true,
-      "details": "Hlboký V-výstrih, dlhé iluzórne rukávy, čipkové aplikácie, tylová sukňa, jemná vlečka",
-      "images": [
-        "svadba-15"
       ]
     },
     {
@@ -362,44 +305,6 @@
       ]
     },
     {
-      "id": "svadba-saty2",
-      "name": "Aura Saténová",
-      "name_en": "Aurora Satin Gown",
-      "description": "Elegantné svadobné šaty v slonovinovej bielej farbe z luxusného saténu.  Strih sa vyznačuje asymetrickým jedným ramenom a dlhým, objemným rukávom, ktorý kontrastuje s odhalenou líniou dekoltu.",
-      "description_en": "An elegant wedding gown in an ivory hue, crafted from luxurious satin.  The design features an asymmetrical one-shoulder neckline with a long, voluminous sleeve, contrasting beautifully with the exposed décolletage.",
-      "price": 489,
-      "size": "36",
-      "category": "wedding",
-      "type": "new",
-      "status": "available",
-      "color": "Slonovinová biela",
-      "style": "Moderná, A-strih, elegantná, asymetrická",
-      "featured": false,
-      "details": "Jedno rameno, dlhý rukáv, vysoký rozparok, riasený živôtik, satén",
-      "images": [
-        "svadba-saty2"
-      ]
-    },
-    {
-      "id": "svadba-saten-02",
-      "name": "Saténová kráľovná s výšivkou",
-      "name_en": "Embroidered Satin Queen Gown",
-      "description": "Luxusné svadobné šaty v elegantnom A-strihu sú ušité z hladkého saténu, ktorý krásne drží tvar a vytvára bohatú, splývavú sukňu.   Hlboký V-výstrih na živôtiku je decentne prekrytý telovou sieťovinou a zdobený precíznou, trblietavou výšivkou, ktorá opticky zoštíhľuje pás.",
-      "description_en": "This luxurious A-line wedding gown is crafted from smooth satin that beautifully holds its shape, creating a rich, flowing skirt.   The deep V-neckline on the bodice is tastefully covered with a sheer nude mesh and adorned with precise, sparkling embroidery that visually slims the waist.",
-      "price": 419,
-      "size": "36-38",
-      "category": "wedding",
-      "type": "new",
-      "status": "available",
-      "color": "Slonovinová",
-      "style": "A-strih, elegantná, moderná",
-      "featured": false,
-      "details": "Hlboký V-výstrih, trblietavá výšivka, saténová sukňa, široké ramienka",
-      "images": [
-        "svadba-saten-02"
-      ]
-    },
-    {
       "id": "svadobne-08",
       "name": "Éterická Krása",
       "name_en": "Ethereal Beauty",
@@ -439,7 +344,7 @@
     },
     {
       "id": "wedding-04",
-      "name": "Prenájom: Šaty Eufória",
+      "name": "Šaty Eufória",
       "name_en": "Euphoria Gown",
       "description": "Elegantné svadobné šaty z luxusného lesklého saténu v modernom A-strihu na šnurovanie.  S hranatým výstrihom bez rukávov zvýrazňuje dekolt a ramená.",
       "description_en": "Elegant wedding dress made from luxurious lustrous satin in a modern A-line cut.   The sleeveless bodice features a square neckline, highlighting the décolletage and shoulders.",
@@ -587,25 +492,6 @@
       "details": "Halter výstrih, plisé sukňa, vysoký golier, zvýraznený pás",
       "images": [
         "formal-modra-004"
-      ]
-    },
-    {
-      "id": "formal-zelena-06",
-      "name": "Smaragdová Noc",
-      "name_en": "Emerald Night",
-      "description": "Nádherné smaragdovozelené šaty s korzetovým živôtikom z bohato štruktúrovaného žakáru a elegantným strihom s odhalenými ramenami. Bohatá, nadýchaná sukňa z lesklého taftu s jemnou vlečkou dodáva šatám kráľovský a romantický vzhľad, ideálny na plesy a slávnostné príležitosti.",
-      "description_en": "A magnificent emerald green gown featuring a corseted bodice made from richly textured jacquard and an elegant off-the-shoulder design. The voluminous, airy skirt crafted from lustrous taffeta with a subtle train gives the dress a regal and romantic appearance, perfect for balls and formal occasions.",
-      "price": 79,
-      "size": "34-36",
-      "category": "formal",
-      "type": "rental",
-      "status": "available",
-      "color": "Smaragdovozelená",
-      "style": "Princezná, plesové",
-      "featured": false,
-      "details": "Korzetový živôtik, odhalené ramená, štruktúrovaný žakár, lesklý taft, bohatá sukňa, jemná vlečka",
-      "images": [
-        "formal-zelena-06"
       ]
     },
     {
@@ -853,25 +739,6 @@
       "details": "Flitre, hlboký V-výstrih, transparentná vsadka, riasenie v páse, vysoký rozparok",
       "images": [
         "formal-tmavamodra-02"
-      ]
-    },
-    {
-      "id": "formal-marhula-02",
-      "name": "Ružový Sen",
-      "name_en": "Blush Petal Dream",
-      "description": "Elegantné šaty v pudrovo-ružovom odtieni, ktoré pôsobia ako dvojdielny komplet.   Živôtik s odhalenými ramenami je bohato zdobený plastickými 3D ružičkami v kombinácii bledoružovej a krémovej farby, vytvárajúc tak textúrovaný a romantický efekt.",
-      "description_en": "An elegant dress in a blush pink hue, designed to appear as a two-piece ensemble.   The off-the-shoulder bodice is richly adorned with textured 3D rosette appliques in a blend of pale pink and cream, creating a romantic and tactile effect.",
-      "price": 56.9,
-      "size": "36-38",
-      "category": "formal",
-      "type": "new",
-      "status": "available",
-      "color": "Pudrová ružová",
-      "style": "Romantický A-strih",
-      "featured": true,
-      "details": "3D ruže, odhalené ramená, plná sukňa A-strihu, saténový lesk",
-      "images": [
-        "formal-marhula-02"
       ]
     },
     {
