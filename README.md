@@ -1,109 +1,62 @@
-# MagicRoom — Wedding Salon Website
+# MagicRoom (`magicroom.sk`)
 
-> **SPECS-DRIVEN** — All decisions start from `docs/01-specs/`
+Bilingual (Slovak / English) production website for the MagicRoom wedding salon in Martin, Slovakia: **[www.magicroom.sk](https://www.magicroom.sk)**.
 
-Quick: `npm run dev` → localhost:4321
+Built spec-first from `0-docs/10-SPEC-sk.md` with content separated into plain JSON files under `1-content/02-json/`, so the salon owner updates dress catalogs, pricing, FAQs, partner links, and blog posts directly in the GitHub web interface using the Slovak step-by-step guides in `1-content/03-tutorials/`.
 
-Tests: 80 unit + 156 E2E ✅
+## Pre Natáliu (`1-content/03-tutorials/`)
 
-## Project Structure
+Všetok obsah stránky, ktorý bežne upravuješ (šaty, ceny, služby, otázky, galéria, blog), je oddelený od kódu v priečinku `1-content/`:
+
+- **Návody krok za krokom:** `1-content/03-tutorials/README.md` (a samostatné návody `saty.md`, `sluzby.md`, `galeria.md`, `decor.md`, `faq.md`, `blog.md`, `partneri.md`)
+- **Texty a cenníky (JSON):** `1-content/02-json/`
+- **Fotky šiat, výzdoby a salónu:** `1-content/01-images/`
+- **Admin rozhranie:** `/admin/login`
+
+## Repository layout
 
 ```
 magicroom-mt/
-├── content/                          # 📦 CMS & CONTENT (SOURCE OF TRUTH)
-│   ├── images/                       # 🖼️ OPTIMIZED IMAGES (Astro Image)
-│   │   ├── systemassets/             # UI elements (logos, hero, etc.)
-│   │   ├── gallery/                  # Interior & salon photos
-│   │   ├── dresses/                  # Product photos (id.png)
-│   │   ├── decorations/              # Decor catalog (id.jpg)
-│   │   └── unusedimages/             # Temporarily unused files
-│   ├── json/                         # 📦 DATA (JSON — upravuj cez GitHub)
-│   │   ├── services.json
-│   │   ├── dresses.json
-│   │   ├── partners.json
-│   │   ├── faqs.json
-│   │   ├── decor.json
-│   │   ├── blog.json
-│   │   └── gallery.json
-│   └── tutorials/                    # 📦 TUTORIALS — návody pre Natáliu
-│       ├── README.md                 # Hlavný návod pre Natáliu
-│       ├── blog.md                   # Návod: Blog
-│       ├── saty.md                  # Návod: Svadobné šaty
-│       ├── sluzby.md                # Návod: Služby a ceny
-│       ├── partneri.md              # Návod: Partneri
-│       ├── faq.md                   # Návod: FAQ
-│       ├── galeria.md               # Návod: Galéria
-│       └── decor.md                 # Návod: Dekorácie
-│
-├── docs/                             # 📚 TECHNICAL DOCUMENTATION
-│   ├── 01-specs/                     # ✅ SPECS-DRIVEN
-│   ├── 02-architecture/              # Technical architecture
-│   ├── 03-guides/                    # Operational guides
-│   └── 04-notes/                     # Internal notes
-│
-├── src/                              # 💻 SOURCE CODE
-│   ├── components/                   # Astro + React components
-│   ├── data/                         # Config (site.ts, content.ts)
-│   ├── layouts/                     # Page layouts
-│   ├── lib/                          # Utilities & i18n
-│   └── pages/                        # Astro pages & API
-│       └── admin/                    # 🔧 ADMIN PANEL (/admin/*)
-│
-├── e2e/                              # 🧪 E2E TESTS (Playwright)
-├── testing/                          # 🧪 UNIT TESTS (Vitest)
-├── public/                          # 🖼️ STATIC ASSETS (Favicon, fonts, robots.txt)
-│
-├── .kilo/                            # 🤖 KILO CLI CONFIG
-├── .github/workflows/               # 🔄 CI/CD
-│
-├── AGENTS.md                        # 🤖 AI ASSISTANT INSTRUCTIONS
-└── README.md                        # 📖 THIS FILE
+├── 0-docs/                  # Specs, bilingual workflow, SEO/UX notes, architecture
+│   ├── 10-SPEC-sk.md        # Functional specification
+│   ├── 30-bilingual-procedure.md
+│   └── 31-deployment.md
+├── 1-content/               # Content layer edited independently of code
+│   ├── 00-static/           # Static files served at root (robots.txt, llms.txt, favicons)
+│   ├── 01-images/           # Dress, decor, gallery, and UI assets (processed by Sharp)
+│   ├── 02-json/             # Structured SK/EN catalog data (dresses, services, faqs, blog...)
+│   └── 03-tutorials/        # Plain-language Slovak editing guides for the salon owner
+├── 2-src/                   # Astro 6 application source
+│   ├── 02-components/       # Astro & UI components (forms, templates, layout)
+│   ├── 03-data/             # Typed content loaders & site configuration
+│   ├── 04-layouts/          # Page shells & metadata
+│   ├── 05-lib/              # i18n helpers & utilities
+│   ├── 06-pages/            # SK/EN routes, /admin/*, and /api/* endpoints
+│   └── 07-styles/           # Tailwind CSS v4 styles
+└── 3-tests/
+    ├── 01-unit/             # Vitest unit & data-integrity suite (104 tests)
+    └── 02-e2e/              # Playwright end-to-end checks (165 tests, 8 CI shards)
 ```
 
-## Pre Natáliu → `/content/tutorials/`
+## Stack and CI
 
-Všetok obsah, ktorý chceš meniť, sa nachádza v priečinku `content/`.
-- **JSON dáta:** v `content/json/`
-- **Obrázky:** v `content/images/`
-- **Návody:** v `content/tutorials/` (začni súborom `README.md`)
-- **Admin panel:** `/admin/login` — heslo v `.env` alebo v AGENTS.md
-
-## Stack
-
-- **Framework:** Astro 6.x (static-first with Edge API)
-- **Performance:** 100% static prerendering, Edge Runtime for `/api/*`
-- **UI:** Tailwind CSS v4 (@tailwindcss/vite) + shadcn/ui
-- **Email:** Resend (Edge-optimized)
-- **Testing:** Vitest (80 unit) + Playwright (156 E2E with Sharding)
-- **CI:** GitHub Actions (8 parallel shards for E2E)
-- **Hosting:** Vercel (Edge Functions enabled)
+- **App:** Astro 6 (static output with Vercel adapter for `/api/*` and `/admin/*`), TypeScript, Tailwind CSS v4, PhotoSwipe, Resend
+- **Testing:** 104 Vitest unit tests (`npm test`) and 165 Playwright E2E checks (`npm run test:e2e`) running across 8 parallel shards in `.github/workflows/test.yml`
+- **Deployment:** Automatic Vercel builds on `main` alongside `.github/workflows/deploy.yml`
+- **Search and structured data:** `hreflang` pairs for SK/EN routes, filtered XML sitemap, RSS (`/rss.xml`), OpenSearch (`/opensearch.xml`), `llms.txt`, and `Schema.org` JSON-LD (`LocalBusiness`, `Product`, `Service`, `FAQPage`, `HowTo`, `BreadcrumbList`)
 
 ## Commands
 
+Requires Node.js `>= 22.12.0`:
+
 ```bash
-npm run dev           # local dev server (port 4321)
-npm run build         # production build
-npm run test          # unit tests (80)
-npm run test:e2e      # E2E tests (156)
+npm ci
+npm run dev        # local Astro dev server at http://localhost:4321
+npm test           # Vitest unit suite (104 tests)
+npm run build      # production static + Vercel adapter build
+npm run test:e2e   # Playwright E2E suite (165 tests)
 ```
-
-## USP
-
-1. Transparent prices online — only salon in the region
-2. Cheapest in the region — fitting from 12€
-3. Dress consignment — nobody else does it
-4. Personal approach — Natália knows every bride
-
-## SEO & LLM Optimization
-
-- RSS feed (`/rss.xml`)
-- OpenSearch (`/opensearch.xml`)
-- Dublin Core metadata
-- Schema.org (Organization, LocalBusiness, HowTo, Product, Service, FAQ, BreadcrumbList)
-- Sitemap + robots.txt (LLM-optimized: GPTBot, Claude, PerplexityBot)
-- hreflang tags for SK/EN
 
 ## Contact
 
-info@magicroom.sk · +421 950 490 323
-<!-- trigger build -->
+`info@magicroom.sk` · `+421 950 490 323`
