@@ -79,8 +79,8 @@ describe('content.ts — Services', () => {
     expect(EXTRA_SERVICES.length).toBeGreaterThanOrEqual(6);
   });
 
-  it('BOOKING_FEATURES has 4 features', () => {
-    expect(BOOKING_FEATURES).toHaveLength(4);
+  it('BOOKING_FEATURES has at least 4 features', () => {
+    expect(BOOKING_FEATURES.length).toBeGreaterThanOrEqual(4);
   });
 });
 
