@@ -24,7 +24,7 @@ const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingP
 <header class="sticky top-0 z-50 w-full border-b border-border/70 bg-background/80 shadow-[var(--shadow-sm)] backdrop-blur-md">
   <div class="hidden border-b border-border/50 bg-background/60 md:block">
     <div class="container mx-auto flex h-10 items-center justify-between px-4 text-[11px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
-      <p>{t.common.fittingNote} {t.common.fittingPrice}</p>
+      <p class="text-cta font-semibold">{t.common.fittingNote} • {t.common.fittingPrice}</p>
       <div class="flex items-center gap-6">
         <p>{t.common.visitNote}</p>
         <a href={PHONE_HREF} class="hover:text-foreground" data-ga-category="contact" data-ga-action="phone_click" data-ga-label="header_phone">{PHONE_DISPLAY}</a>
@@ -94,6 +94,10 @@ const bookingHref = currentPath === (isEn ? '/en' : '/') ? '#booking' : bookingP
       </button>
     </div>
     <div class="p-5 pt-3">
+      <div class="rounded-2xl border border-cta/30 bg-cta/10 p-4 text-xs text-foreground mb-3">
+        <p class="font-bold text-cta uppercase tracking-wider mb-1">{t.common.fittingNote}</p>
+        <p class="text-muted-foreground">{isEn ? 'Wedding dress fittings are discontinued. Formal dresses available online.' : 'Svadobné skúšky šiat už neposkytujeme. Zakúpiť sa dajú len spoločenské šaty online.'}</p>
+      </div>
       <div class="rounded-2xl border border-border bg-card p-4 text-sm text-muted-foreground">
         <p class="font-medium text-foreground">{t.common.replyNote}</p>
         <a href={PHONE_HREF} class="mt-1 block font-semibold text-primary hover:underline">{PHONE_DISPLAY}</a>

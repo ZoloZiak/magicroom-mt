@@ -31,8 +31,8 @@ const t = getTranslations(language);
 const isEn = language === 'en';
 const labels = t.bookingForm;
 
-const title = propTitle || (isEn ? labels.reservation : 'Zarezervujte si skúšku šiat');
-const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňte krátky formulár a pripravíme vám správu do WhatsAppu, ktorú si pred odoslaním ešte môžete upraviť. Ak vám viac vyhovuje telefonát alebo email, nájdete ich nižšie.');
+const title = propTitle || (isEn ? labels.reservation : 'Online objednávka a dopyt');
+const description = propDescription || (isEn ? labels.notePlaceholder : 'Svadobné skúšky šiat už neposkytujeme (prechod na online-only). Vyplňte krátky formulár pre online objednávku spoločenských šiat alebo dopyt dekorácií.');
 ---
 
 <section id={id} class="rounded-[28px] border border-border/70 bg-card p-5 shadow-[var(--shadow-soft)] md:p-8">
@@ -124,9 +124,9 @@ const description = propDescription || (isEn ? labels.notePlaceholder : 'Vyplňt
       </div>
     </fieldset>
 
-    <div class="mt-8 rounded-2xl bg-primary-900 px-5 py-4 text-sm text-white/80">
-      <p class="font-medium text-white">{labels.priceInfo}</p>
-      <p class="mt-1">{t.common.replyNote} {labels.whatsappPre}</p>
+    <div class="mt-8 rounded-2xl bg-primary-900 px-5 py-4 text-sm text-white/90 border border-cta/30">
+      <p class="font-bold text-amber-300">⚠️ {labels.priceInfo}</p>
+      <p class="mt-1 text-white/80">{t.common.replyNote} {labels.whatsappPre}</p>
     </div>
 
     <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">

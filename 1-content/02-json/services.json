@@ -49,10 +49,10 @@
         "description": "QR formulár a zber odpovedí hostí. Hostia jednoducho naskenujú kód z oznámenia a potvrdia účasť, diéty či ubytovanie. Vy máte všetko v prehľadnej tabuľke bez stresu z obvolávania."
       },
       {
-        "title": "Komisný predaj šiat",
-        "price": "Individuálne",
-        "description": "Pomôžeme vám predať vaše svadobné šaty ďalšej neveste — u nás v salóne.",
-        "link": "komisny-predaj"
+        "title": "Online predaj spoločenských šiat",
+        "price": "Katalóg šiat",
+        "description": "Prechádzame na online-only: široký výber spoločenských šiat s doručením k vám domov.",
+        "link": "spolocenske-saty"
       },
       {
         "title": "Výzdoba na kľúč",
@@ -116,10 +116,10 @@
         "description": "QR form and guest response collection. Guests simply scan a code from your invitation to confirm attendance, dietary needs, or accommodation. You get everything in a clear table without the stress of calling everyone."
       },
       {
-        "title": "Wedding Dress Consignment",
-        "price": "Individual",
-        "description": "We help you sell your wedding dress to another bride right here in our salon.",
-        "link": "consignment-sale"
+        "title": "Online Formal Dresses",
+        "price": "Catalog",
+        "description": "Transition to online-only: wide selection of formal dresses shipped directly to you.",
+        "link": "formal-dresses"
       },
       {
         "title": "Bespoke Decor & Styling",

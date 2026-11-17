@@ -65,6 +65,22 @@ const productSchema = dresses.map((dress) => ({
         <p class="max-w-2xl mx-auto text-lg text-muted-foreground">
           {t.dresses.heroDescription}
         </p>
+
+        <!-- Online-Only Alert Notice -->
+        <div class="mt-8 max-w-2xl mx-auto rounded-2xl border border-destructive/40 bg-destructive/10 p-6 text-center text-foreground shadow-sm">
+          <p class="font-bold text-destructive uppercase tracking-wider text-sm mb-2">
+            {isEn ? '⚠️ Important Notice: In-Person Fittings Discontinued' : '⚠️ Dôležitý oznam: Svadobné skúšky ukončené'}
+          </p>
+          <p class="text-sm leading-relaxed text-muted-foreground mb-4">
+            {isEn
+              ? 'Wedding dress fittings are no longer possible. MagicRoom is moving to online-only: we now exclusively offer formal and evening dresses for online purchase with delivery, plus event decor rentals.'
+              : 'Svadobné skúšky šiat už u nás nie sú možné — prechádzame na online-only. Aktuálne sa u nás dajú zakúpiť len spoločenské šaty online s doručením k vám domov, prípadne rezervovať svadobný inventár a dekorácie.'}
+          </p>
+          <Button variant="cta" href={getRelativeHref(isEn ? 'formal-dresses' : 'spolocenske-saty', language)}>
+            {isEn ? 'View Formal Dresses (Online)' : 'Pozrieť spoločenské šaty online'}
+            <Icon name="ArrowRight" class="ml-2 h-4 w-4" />
+          </Button>
+        </div>
       </div>
     </section>
 
@@ -129,10 +145,9 @@ const productSchema = dresses.map((dress) => ({
                   <span class="text-sm font-medium uppercase tracking-widest text-muted-foreground">
                     {t.dresses.sizeLabel} {dress.size}
                   </span>
-                  <Button variant="ghost" size="sm" class="group/btn text-muted-foreground hover:text-primary" href={isEn ? '/en/contact#booking' : '/kontakt#booking'}>
-                    {t.dresses.bookFitting}
-                    <Icon name="ArrowRight" class="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                  </Button>
+                  <span class="text-xs text-muted-foreground italic">
+                    {isEn ? 'Fittings discontinued' : 'Skúšky ukončené'}
+                  </span>
                 </div>
               </div>
             </div>

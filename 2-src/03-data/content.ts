@@ -75,44 +75,44 @@ async function getDynamicImage(glob: Record<string, () => Promise<{ default: Ima
 }
 
 export const HOME_STATS = [
-  { value: '15 €', label: 'skúška svadobných šiat s nápojom v cene' },
-  { value: '100-700 €', label: 'svadobné šaty (nové aj komis)' },
-  { value: 'Martin', label: 'osobný salón v budove Detský sen' },
+  { value: 'Online', label: 'predaj spoločenských šiat s doručením' },
+  { value: '15-150 €', label: 'spoločenské šaty v ponuke online' },
+  { value: 'Martin', label: 'osobný výdaj inventára v budove Detský sen' },
 ] as const;
 
 export const HOME_STATS_EN = [
-  { value: 'from 30 €', label: 'formal & evening dresses for your events' },
-  { value: '15 €', label: 'private dress fitting with drink included' },
-  { value: 'Martin', label: 'boutique salon in the Detský sen building' },
+  { value: 'Online', label: 'formal & evening dresses shipped directly to you' },
+  { value: 'from 15 €', label: 'curated occasion wear available online' },
+  { value: 'Martin', label: 'decor pickup at the Detský sen building' },
 ] as const;
 
 export const HOME_OFFER_CARDS = [
   {
-    title: 'Skúška svadobných šiat',
-    price: '15 € / neobmedzene',
-    description: 'Pokojná skúška s nápojom v cene, pre 3 osoby/vrátane nevesty',
+    title: 'Spoločenské šaty online',
+    price: 'od 15 €',
+    description: 'Prechádzame na online-only: objednajte si spoločenské šaty na ples, svadbu či večierok s doručením domov.',
+    href: '/spolocenske-saty',
+    cta: 'Kúpiť online',
+    icon: 'Star',
+  },
+  {
+    title: 'Online objednávka',
+    price: 'Rýchle vybavenie',
+    description: 'Objednajte si šaty alebo dopytujte dekorácie cez jednoduchý formulár s WhatsApp prepojením.',
     href: '/kontakt#booking',
-    cta: 'Rezervovať termín',
+    cta: 'Objednať šaty',
     icon: 'Shirt',
   },
   {
     title: 'Svadobné šaty',
-    price: 'od 100 €',
-    description: 'Nové modely aj komis za férové ceny.',
+    price: 'Archív modelov',
+    description: 'Svadobné skúšky šiat už neposkytujeme. Pozrite si prehľad modelov pred ukončením ponuky.',
     href: '/svadobne-saty',
-    cta: 'Pozrieť katalóg',
-    icon: 'Star',
+    cta: 'Prezrieť modely',
+    icon: 'Shirt',
   },
   {
-    title: 'Spoločenské šaty',
-    price: 'od 15 €',
-    description: 'Šaty na stužkovú, ples, oslavu alebo akúkoľvek príležitosť.',
-    href: '/spolocenske-saty',
-    cta: 'Ponuka šiat',
-    icon: 'Star',
-  },
-  {
-    title: 'Výzdoba a inventár',
+    title: 'Prenájom dekorácií',
     price: 'od 0,50 € / ks',
     description: 'Zrkadlá, zlaté príbory, vázy a kompletné kulisy. Všetko, čo potrebujete na zladenie vašej hostiny.',
     href: '/prenajom-dekoracii',
@@ -139,28 +139,28 @@ export const HOME_OFFER_CARDS = [
 
 export const HOME_OFFER_CARDS_EN = [
   {
-    title: 'Formal dresses',
-    price: '0 €',
-    description: 'Perfect for student balls, prom or gala events. Quality dresses at student-friendly prices.',
+    title: 'Formal dresses online',
+    price: 'from 15 €',
+    description: 'Online-only boutique: order prom, gala, or party dresses directly to your doorstep.',
     href: '/en/formal-dresses',
-    cta: 'View collection',
+    cta: 'Shop online',
     icon: 'Star',
   },
   {
-    title: 'Formal dress fitting',
-    price: '0 € ',
-    description: 'Calm fitting for your prom, gala or event dress. Drink included.',
+    title: 'Online orders',
+    price: 'Quick dispatch',
+    description: 'Order your dress or inquire about decor via our online form connected to WhatsApp.',
     href: '/en/contact#booking',
-    cta: 'Book a time',
+    cta: 'Order online',
     icon: 'Shirt',
   },
   {
     title: 'Wedding dresses',
-    price: 'from 100 €',
-    description: 'New models and consignment at fair prices. See them before visiting.',
-    href: '/en/wedding-dresses',
-    cta: 'View collection',
-    icon: 'Star',
+    price: 'Notice',
+    description: 'In-person wedding dress fittings are no longer available. Transitioning to online-only.',
+    href: '/en/dresses',
+    cta: 'View dresses',
+    icon: 'Shirt',
   },
   {
     title: 'Event decorations',
@@ -189,37 +189,36 @@ export const HOME_OFFER_CARDS_EN = [
 ] as const;
 
 export const TRUST_REASONS = [
-  { title: 'Osobný prístup', description: 'Natália sa vám venuje osobne, aby ste našli presne to, čo hľadáte.' },
-  { title: 'Transparentné ceny', description: 'Žiadne skryté poplatky. Ceny šiat a služieb poznáte vopred.' },
-  { title: 'Pokojná atmosféra', description: 'Skúška u nás nie je stres, ale zážitok v príjemnom prostredí.' },
-  { title: 'Všetko na jednom mieste', description: 'Šaty, výzdoba aj rady dodávateľov pod jednou strechou.' },
+  { title: 'Rýchly online nákup', description: 'Vyberte si spoločenské šaty pohodlne online s rýchlym doručením k vám.' },
+  { title: 'Transparentné ceny', description: 'Žiadne skryté poplatky. Ceny šiat a inventára vidíte vopred.' },
+  { title: 'Osobná asistencia online', description: 'Pomôžeme vám vybrať správnu veľkosť a zodpovieme otázky cez WhatsApp.' },
+  { title: 'Všetko na jednom mieste', description: 'Spoločenské šaty, výzdoba aj rady dodávateľov pod jednou strechou.' },
 ] as const;
 
 export const TRUST_REASONS_EN = [
-  { title: 'Personal approach', description: 'Natalia personally attends to you to find exactly what you are looking for.' },
-  { title: 'Transparent pricing', description: 'No hidden fees. Dress and service prices are known upfront.' },
-  { title: 'Calm atmosphere', description: 'A fitting with us is not a stress, but an experience in a pleasant environment.' },
-  { title: 'All in one place', description: 'Dresses, decorations, and vendor advice under one roof.' },
+  { title: 'Fast online shopping', description: 'Order your formal dresses comfortably online with swift home delivery.' },
+  { title: 'Transparent pricing', description: 'No hidden fees. All dress and rental prices are upfront.' },
+  { title: 'Personal support online', description: 'We help you choose the right fit and answer questions via WhatsApp.' },
+  { title: 'All in one place', description: 'Formal wear, decor rentals, and vendor advice under one roof.' },
 ] as const;
 
 export const BOOKING_FEATURES = [
-  'Súkromie a čas na výber v príjemnej atmosfére',
-  'pohárik prosecca, nealka alebo kávy v cene',
-  'skúška svadobných šiat pre max. 3 osoby/vrátane nevesty',
-  'fotenie počas skúšky bez limitu',
-  'poplatok je účtovaný iba v prípade, ak si šaty u nás nevyberiete',
+  'Prechod na online-only predaj',
+  'Svadobné skúšky šiat už neposkytujeme',
+  'Spoločenské šaty s doručením k vám domov',
+  'Rýchle overenie veľkosti a odoslanie cez WhatsApp',
 ] as const;
 
 export const PROCESS_STEPS = [
-  'Vyplníte krátky formulár alebo nám napíšete na WhatsApp.',
-  'Do 24 hodín sa vám ozveme a doladíme termín skúšky či konzultácie.',
-  'Na mieste vyriešite šaty, dekorácie aj ďalšie detaily pokojne a v jednom priestore.',
+  'Vyberte si spoločenské šaty alebo dekorácie v našej online ponuke.',
+  'Pošlite objednávku / dopyt cez formulár alebo priamo cez WhatsApp.',
+  'Potvrdíme dostupnosť, dohodneme doručenie šiat alebo prevzatie dekorácií.',
 ] as const;
 
 export const PROCESS_STEPS_EN = [
-  'Book your fitting via the form or WhatsApp.',
-  'We get back to you within 24 hours to confirm.',
-  'Visit our salon, enjoy a drink, and find your perfect dress.',
+  'Select formal dresses or decorations in our online catalog.',
+  'Send your order or inquiry via the form or WhatsApp.',
+  'We confirm availability and ship the dress or arrange decor pickup.',
 ] as const;
 
 export const FOUNDER_STORY = {

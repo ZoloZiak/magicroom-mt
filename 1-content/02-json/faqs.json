@@ -1,38 +1,38 @@
 {
   "sk": [
     {
-      "question": "Koľko stojí skúška svadobných šiat?",
-      "answer": "15 € za neobmedzený čas — max 2 blízke osoby, prosecco, nealko alebo káva v cene. Poplatok nebude účtovaný, ak si u nás zakúpite šaty."
+      "question": "Sú ešte možné osobné skúšky svadobných šiat?",
+      "answer": "Nie, svadobné skúšky šiat už u nás nie sú možné. MagicRoom prešiel na online-only predaj spoločenských šiat a prenájom inventára."
     },
     {
-      "question": "Môžem si počas skúšky fotiť?",
-      "answer": "Áno, bez obmedzenia."
+      "question": "Ako si môžem zakúpiť spoločenské šaty?",
+      "answer": "Spoločenské šaty si môžete vybrať v našom katalógu a objednať priamo online cez WhatsApp alebo náš objednávkový formulár. Šaty vám bezpečne doručíme k vám."
     },
     {
-      "question": "Ako si rezervujem termín?",
-      "answer": "Formulárom, WhatsApp, emailom alebo zavolaním."
+      "question": "Ako prebieha prenájom svadobných dekorácií?",
+      "answer": "Vyberte si inventár v katalógu dekorácií a pošlite nám dopyt s termínom vašej udalosti. Inventár si po dohode vyzdvihnete v Martine alebo vám zabezpečíme výzdobu na kľúč."
     },
     {
       "question": "Ponúkate aj online konzultácie?",
-      "answer": "Áno, časť plánovania vieme riešiť aj online."
+      "answer": "Áno, výber veľkostí spoločenských šiat aj plánovanie výzdoby ochotne doriešime online alebo cez WhatsApp."
     }
   ],
   "en": [
     {
-      "question": "How much does a wedding dress fitting cost?",
-      "answer": "15 € for unlimited time — up to 2 close persons, prosecco, non-alcoholic or coffee included. The fee will not be charged if you purchase a dress from us."
+      "question": "Are wedding dress fittings still available?",
+      "answer": "No, wedding dress fittings have been discontinued. MagicRoom has transitioned to online-only orders for formal & evening dresses and decor rentals."
     },
     {
-      "question": "Can I take photos during the fitting?",
-      "answer": "Yes, without limits."
+      "question": "How can I purchase formal dresses?",
+      "answer": "You can select your formal dress in our catalog and order directly online via WhatsApp or our form. We will arrange swift delivery to your address."
     },
     {
-      "question": "How do I book an appointment?",
-      "answer": "Via form, WhatsApp, email or phone call."
+      "question": "How does decor rental work?",
+      "answer": "Browse our decoration catalog and submit an inquiry with your event date. Pickup is in Martin, or we can provide full-service event styling."
     },
     {
-      "question": "Do you offer online consultations?",
-      "answer": "Yes, part of the planning can be done online."
+      "question": "Do you offer online support?",
+      "answer": "Yes, we are happy to assist with sizing, details, and decor planning online via WhatsApp or email."
     }
   ]
 }

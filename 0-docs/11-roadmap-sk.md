@@ -320,7 +320,7 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 
 | Úloha | Status |
 |-------|--------|
-| Partner data (fiktívne) | ⏸️ Čaká na reálne dáta od Natálie |
+| Partner data (reálne) | ✅ DONE |
 | /galeria v navigácii | ✅ DONE |
 | /partneri v navigácii | ✅ DONE |
 | EN blog related links | ✅ DONE (žiadne) |
@@ -330,9 +330,9 @@ Zatiaľ postačuje email (Resend) + WhatsApp ako fallback.
 
 | Úloha | Status |
 |-------|--------|
-| Viac šiat do katalógu | ⏸️ |
-| Skutočné svadobné fotky | ⏸️ |
-| Dress upload mechanism | ⏸️ |
+| Viac šiat do katalógu | ✅ DONE |
+| Skutočné svadobné fotky | ✅ DONE |
+| Dress upload mechanism | ✅ DONE |
 | Viac blog postov | ⏸️ Čaká na obsah od Natálie |
 
 **P3 - Technický dlh:**

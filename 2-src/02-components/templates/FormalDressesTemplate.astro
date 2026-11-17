@@ -6,7 +6,7 @@ import ScrollToTop from '@/02-components/layout/ScrollToTop.astro';
 import WhatsAppFAB from '@/02-components/layout/WhatsAppFAB.astro';
 import Badge from '@/02-components/ui/Badge.astro';
 import Button from '@/02-components/ui/Button.astro';
-import { getBookingPageHref } from '@/03-data/site';
+import { getBookingPageHref, buildWhatsAppDressOrderUrl } from '@/03-data/site';
 import { getFormalDresses, IMAGE_URLS } from '@/03-data/content';
 import { getTranslations, getRelativeHref, type Language } from '@/05-lib/translations';
 import Layout from '@/04-layouts/Layout.astro';
@@ -65,6 +65,18 @@ const productSchema = dresses.map((dress) => ({
         <p class="max-w-2xl mx-auto text-lg text-muted-foreground">
           {t.formal.heroDescription}
         </p>
+
+        <!-- Online-Only Notice Banner -->
+        <div class="mt-8 max-w-2xl mx-auto rounded-2xl border border-cta/30 bg-cta/10 p-5 text-center text-foreground shadow-sm">
+          <p class="font-bold text-cta uppercase tracking-wider text-xs mb-1">
+            {isEn ? 'Online-Only Order Available' : 'Online predaj spoločenských šiat'}
+          </p>
+          <p class="text-sm text-muted-foreground">
+            {isEn 
+              ? 'Wedding dress fittings are discontinued. Formal and evening dresses can be ordered online with direct delivery. Select your model below and click "Order online" to order via WhatsApp.' 
+              : 'Svadobné skúšky šiat už neposkytujeme. Zakúpiť sa dajú výhradne spoločenské šaty online s doručením k vám domov. Vyberte si model nižšie a kliknite na "Objednať online".'}
+          </p>
+        </div>
       </div>
     </section>
 
@@ -122,7 +134,7 @@ const productSchema = dresses.map((dress) => ({
                   <span class="text-sm font-medium uppercase tracking-widest text-muted-foreground">
                     {t.dresses.sizeLabel} {dress.size}
                   </span>
-                  <Button variant="ghost" size="sm" class="group/btn text-muted-foreground hover:text-primary" href={isEn ? '/en/contact#booking' : '/kontakt#booking'}>
+                  <Button variant="cta" size="sm" class="group/btn" href={buildWhatsAppDressOrderUrl(dress.name, dress.price, language)} target="_blank" rel="noopener noreferrer">
                     {t.dresses.bookFitting}
                     <Icon name="ArrowRight" class="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </Button>
@@ -134,10 +146,10 @@ const productSchema = dresses.map((dress) => ({
 
         <div class="mt-20 text-center p-12 rounded-[40px] bg-surface border border-dashed border-primary/30">
            <Icon name="Star" class="h-10 w-10 text-primary mx-auto mb-6" aria-hidden="true" />
-           <h3 class="font-display text-3xl mb-4">{isEn ? 'Looking for wedding dresses?' : 'Hľadáte svadobné šaty?'}</h3>
-           <p class="mb-8 text-muted-foreground">{isEn ? 'We also have a beautiful collection of wedding dresses.' : 'V našej ponuke nájdete aj krásnu kolekciu svadobných šiat.'}</p>
-           <Button variant="outline" href={getRelativeHref('svadobne-saty', language)}>
-              {t.nav.dresses}
+           <h3 class="font-display text-3xl mb-4">{isEn ? 'Need event decorations?' : 'Potrebujete svadobné dekorácie?'}</h3>
+           <p class="mb-8 text-muted-foreground">{isEn ? 'We provide complete party decor rentals, centerpieces, and backdrops.' : 'K šatám vám radi zabezpečíme aj kompletný prenájom inventáru a výzdoby na svadby a oslavy.'}</p>
+           <Button variant="outline" href={getRelativeHref('prenajom-dekoracii', language)}>
+              {t.nav.decorations}
            </Button>
         </div>
       </div>

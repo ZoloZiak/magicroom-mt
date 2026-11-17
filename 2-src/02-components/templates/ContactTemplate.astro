@@ -104,6 +104,17 @@ const faqSchema = contactFaqs.length > 0 ? [{
             <p class="text-lg text-muted-foreground mb-10">{t.contact.bookingDescription}</p>
             
             <div class="space-y-8">
+               <div class="rounded-2xl border border-destructive/30 bg-destructive/10 p-5 mb-6">
+                  <h4 class="font-bold text-destructive text-sm uppercase tracking-wider mb-2">
+                     {isEn ? '⚠️ Important Information' : '⚠️ Dôležitá informácia'}
+                  </h4>
+                  <p class="text-sm text-muted-foreground leading-relaxed">
+                     {isEn 
+                       ? 'In-person wedding dress fittings are discontinued. We are transitioning to online-only: you can purchase formal dresses directly online or submit an inquiry for wedding & party decor rentals.'
+                       : 'Svadobné skúšky šiat už u nás nie sú možné — prechádzame na online-only. Aktuálne si môžete online zakúpiť spoločenské šaty s doručením k vám domov alebo si rezervovať prenájom svadobnej výzdoby.'}
+                  </p>
+               </div>
+
                <div>
                   <h3 class="font-bold text-xl mb-4">{t.contact.nextStepsTitle}</h3>
                   <div class="space-y-4">

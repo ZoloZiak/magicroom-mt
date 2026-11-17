@@ -41,7 +41,7 @@ const processSteps = getProcessSteps(language);
 const howToSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
-  name: isEn ? 'How to book a wedding dress fitting' : 'Ako rezervovať skúšku svadobných šiat',
+  name: isEn ? 'How to order dresses and event decor online' : 'Ako objednať spoločenské šaty a výzdobu online',
   step: processSteps.map((step, i) => ({
     '@type': 'HowToStep',
     position: i + 1,
@@ -52,9 +52,9 @@ const howToSchema = {
 ---
 
 <Layout
-  title={isEn ? "MagicRoom — wedding dresses, decor and bridal concierge" : "MagicRoom — svadobné šaty, dekorácie a bridal concierge v Martine"}
-  description={isEn ? "MagicRoom is a boutique wedding salon in Martin. Fitting dresses, event styling and personal bridal assistance." : "MagicRoom je lokálny svadobný salón v Martine. Skúška svadobných, spoločenských šiat, výzdoba svadieb a osláv, svadobné poradenstvo a pokojný osobný prístup."}
-  keywords={isEn ? "wedding dresses, decorations, Martin Slovakia, bridal concierge, wedding consulting" : "svadobne saty, dekoracie, martin, bridal concierge, svadobne poradenstvo"}
+  title={isEn ? "MagicRoom — online formal dresses and decor rentals" : "MagicRoom — online spoločenské šaty a svadobný inventár v Martine"}
+  description={isEn ? "MagicRoom is an online boutique in Martin. Buy formal & evening dresses online with delivery and rent wedding decor. In-person fittings discontinued." : "MagicRoom prechádza na online-only: predaj spoločenských šiat online s doručením a prenájom svadobných dekorácií v Martine. Svadobné skúšky šiat už neposkytujeme."}
+  keywords={isEn ? "formal dresses, occasion wear, wedding decorations, Martin Slovakia, online dress boutique" : "spolocenske saty, predaj siat online, dekoracie, martin, saty na stuzkovu, plesove saty"}
   image={IMAGE_URLS.hero}
   structuredData={howToSchema}
   language={language}
@@ -73,11 +73,23 @@ const howToSchema = {
               {isEn ? "Formal & evening wear boutique" : t.home.heroTitle}
             </h1>
             <p class="hero-description mt-6 max-w-xl text-lg leading-8 text-muted-foreground md:text-xl">
-              {isEn ? "Elegant dresses for your special occasions, prom and gala events. Personalized assistance and calm atmosphere in the heart of Martin." : t.home.heroDescription}
+              {isEn ? "Elegant dresses for your special occasions, prom and gala events shipped directly to you. In-person fittings are discontinued as we move to online-only." : t.home.heroDescription}
             </p>
 
+            <!-- Prominent online-only notice -->
+            <div class="mt-6 rounded-2xl border border-cta/30 bg-cta/10 p-4 text-sm text-foreground">
+              <span class="font-bold text-cta uppercase tracking-wider text-xs block mb-1">
+                {isEn ? 'Notice • Online-Only' : 'Oznam • Prechod na online-only'}
+              </span>
+              <p class="text-muted-foreground">
+                {isEn 
+                  ? 'Wedding dress fittings are discontinued. You can now purchase formal dresses online and rent event decor.' 
+                  : 'Svadobné skúšky šiat už nie sú možné. U nás si po novom zakúpite spoločenské šaty pohodlne online a rezervujete svadobnú výzdobu.'}
+              </p>
+            </div>
+
              <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-               <Button variant="cta" size="lg" class="hero-button interactive-ripple sm:min-w-[220px]" href="#booking" data-ga-category="conversion" data-ga-action="book_appointment_click">
+               <Button variant="cta" size="lg" class="hero-button interactive-ripple sm:min-w-[220px]" href={isEn ? "/en/formal-dresses" : "/spolocenske-saty"} data-ga-category="conversion" data-ga-action="view_formal_dresses_click">
                  {t.home.ctaBook}
                  <Icon name="ArrowRight" class="icon-morph h-5 w-5" />
                </Button>

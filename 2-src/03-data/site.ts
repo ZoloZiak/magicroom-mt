@@ -4,12 +4,12 @@ import { getRelativeHref } from '@/05-lib/i18n';
 export const SITE_URL = 'https://www.magicroom.sk';
 export const SITE_NAME = 'MagicRoom';
 export const DEFAULT_DESCRIPTION =
-  'Malý osobný svadobný salón v Martine. Svadobné šaty 200–700 €, skúška 15 € (v cene nápoj), komis, dekorácie. Ceny vidíte hneď.';
+  'Predaj spoločenských šiat online a prenájom svadobných dekorácií v Martine. Šaty od 15 €, prechod na online predaj bez osobných skúšok. Ceny vidíte hneď.';
 export const DEFAULT_DESCRIPTION_EN =
-  'Boutique wedding salon in Martin, Slovakia. Dresses 200–700 €, fitting 15 € (refreshments included), consignment, decorations. Transparent pricing.';
+  'Online formal & evening dresses and wedding decor rentals in Martin, Slovakia. Dresses from 15 €, transition to online-only orders without in-person bridal fittings.';
 
-export const DEFAULT_KEYWORDS = 'svadobné šaty, svadobný salón, Martin, Turiec, svadobné šaty Martin, svadobné šaty predaj, skúška svadobných šiat, svadobné dekorácie, komisné svadobné šaty';
-export const DEFAULT_KEYWORDS_EN = 'wedding dresses, wedding salon, Martin Slovakia, wedding dress rental, dress fitting, wedding decorations, consignment wedding dresses';
+export const DEFAULT_KEYWORDS = 'spoločenské šaty, spoločenské šaty online, predaj šiat, plesové šaty, šaty na stužkovú, svadobný salón Martin, svadobné dekorácie, prenájom inventáru';
+export const DEFAULT_KEYWORDS_EN = 'formal dresses, evening gowns, prom dresses, online dress boutique, Martin Slovakia, wedding decorations, event decor rental';
 
 export const PHONE_DISPLAY = '+421 950 490 323';
 export const PHONE_HREF = 'tel:+421950490323';
@@ -30,11 +30,18 @@ export const ADDRESS_LABEL = `${ADDRESS.streetAddress}, ${ADDRESS.district}, ${A
 export const MAP_URL = 'https://maps.app.goo.gl/byxiEk5dkQyVN53x9';
 
 export const WHATSAPP_MESSAGE =
-  'Dobrý deň, chcela by som si rezervovať skúšku šiat v MagicRoom.';
+  'Dobrý deň, chcela by som si objednať spoločenské šaty / dopytovať dekorácie v MagicRoom.';
 export const WHATSAPP_BASE_URL = 'https://wa.me/421950490323';
 
 export function buildWhatsAppUrl(message: string) {
   return `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(message)}`;
+}
+
+export function buildWhatsAppDressOrderUrl(dressName: string, dressPrice?: number | string, language: Language = 'sk') {
+  const text = language === 'sk'
+    ? `Dobrý deň, mám záujem o online nákup spoločenských šiat: ${dressName}${dressPrice ? ` (${dressPrice} €)` : ''}. Sú ešte voľné na odoslanie?`
+    : `Hello, I am interested in purchasing these formal dresses online: ${dressName}${dressPrice ? ` (${dressPrice} €)` : ''}. Are they available to ship?`;
+  return buildWhatsAppUrl(text);
 }
 
 export const WHATSAPP_URL = buildWhatsAppUrl(WHATSAPP_MESSAGE);

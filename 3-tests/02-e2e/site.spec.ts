@@ -41,7 +41,7 @@ test.describe('MagicRoom Website', () => {
     await page.fill('[name="name"]', 'Minimálny test');
     
     await page.waitForSelector('[name="service"]', { timeout: 5000 });
-    await page.selectOption('[name="service"]', 'Skúška svadobných alebo spoločenských šiat');
+    await page.selectOption('[name="service"]', 'Objednávka spoločenských šiat online');
     
     await page.click('button[type="submit"]');
     

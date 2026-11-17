@@ -11,9 +11,9 @@ export const prerender = false;
 export const runtime = 'edge';
 
 const siteInfo = {
-  version: '1.0.0',
+  version: '1.1.0',
   name: 'MagicRoom',
-  description: 'Svadobný salón v Martine — skúška šiat, dekorácie, poradenstvo',
+  description: 'Online predaj spoločenských šiat a prenájom svadobných dekorácií v Martine (online-only)',
   url: 'https://www.magicroom.sk',
   phone: '+421 950 490 323',
   email: 'info@magicroom.sk',
@@ -33,16 +33,7 @@ const siteInfo = {
   },
   services: [
     {
-      name: 'Skúška svadobných šiat',
-      price: '15 €',
-      duration: '60 min',
-    },
-    {
-      name: 'Svadobné šaty',
-      priceRange: '200–700 €',
-    },
-    {
-      name: 'Spoločenské šaty',
+      name: 'Spoločenské šaty online',
       priceRange: '15–150 €',
     },
     {
@@ -54,6 +45,7 @@ const siteInfo = {
       priceRange: 'od 40 €',
     },
   ],
+  notice: 'Svadobné skúšky šiat už nie sú možné — prechod na online-only predaj spoločenských šiat.',
   updated: new Date().toISOString(),
 };
 

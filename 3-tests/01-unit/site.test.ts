@@ -27,14 +27,14 @@ describe('site.ts — Contact info', () => {
   });
 
   it('has default description', () => {
-    expect(DEFAULT_DESCRIPTION).toContain('svadobný salón');
+    expect(DEFAULT_DESCRIPTION).toContain('spoločenských');
+    expect(DEFAULT_DESCRIPTION).toContain('online');
     expect(DEFAULT_DESCRIPTION).toContain('Martin');
   });
 
   it('has default keywords', () => {
-    expect(DEFAULT_KEYWORDS).toContain('svadobné šaty');
+    expect(DEFAULT_KEYWORDS).toContain('spoločenské šaty');
     expect(DEFAULT_KEYWORDS).toContain('Martin');
-    expect(DEFAULT_KEYWORDS).toContain('Turiec');
   });
 
   it('has valid email address', () => {

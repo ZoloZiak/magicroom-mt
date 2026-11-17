@@ -57,18 +57,18 @@ export const POST: APIRoute = async ({ request }) => {
     const { error: ownerError } = await resend.emails.send({
       from: 'MagicRoom <info@magicroom.sk>',
       to: 'mt.magicroom@gmail.com',
-      subject: `Nová rezervácia: ${name} (${service})`,
+      subject: `Nová objednávka / dopyt: ${name} (${service})`,
       html: `
-        <h1>Nová rezervácia skúšky / dopyt</h1>
+        <h1>Nová online objednávka / dopyt</h1>
         <p><strong>Meno:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Telefón:</strong> ${phone}</p>
-        <p><strong>Služba:</strong> ${service}</p>
+        <p><strong>Služba / Položka:</strong> ${service}</p>
         <p><strong>Dátum:</strong> ${date || 'neuvedený'}</p>
-        <p><strong>Čas:</strong> ${time || 'neuvedený'}</p>
-        <p><strong>Poznámka:</strong> ${note || '-'}</p>
+        <p><strong>Čas / Poznámka k času:</strong> ${time || 'neuvedený'}</p>
+        <p><strong>Poznámka / Detaily:</strong> ${note || '-'}</p>
         <hr />
-        <p>Táto správa bola odoslaná z kontaktného formulára na magicroom.sk</p>
+        <p>Táto správa bola odoslaná z online formulára na magicroom.sk</p>
       `,
     });
 
@@ -82,20 +82,21 @@ export const POST: APIRoute = async ({ request }) => {
       await resend.emails.send({
         from: 'MagicRoom <info@magicroom.sk>',
         to: email,
-        subject: 'Potvrdenie prijatia vašej rezervácie — MagicRoom',
+        subject: 'Potvrdenie prijatia vašej objednávky — MagicRoom',
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #f0f0f0; rounded: 10px;">
             <h1 style="color: #db2777;">Ahoj ${name}!</h1>
-            <p>Ďakujeme za tvoj záujem o návštevu nášho salónu MagicRoom v Martine.</p>
-            <p>Tvoje údaje sme prijali a čoskoro sa ti ozveme (najčastejšie cez WhatsApp alebo telefonicky), aby sme si potvrdili presný termín.</p>
+            <p>Ďakujeme za tvoju objednávku / dopyt v MagicRoom.</p>
+            <p>Tvoje údaje sme prijali a čoskoro sa ti ozveme (najčastejšie cez WhatsApp alebo telefonicky), aby sme si potvrdili dostupnosť šiat, doručenie alebo detaily k výzdobe.</p>
             <div style="background-color: #fdf2f8; padding: 15px; border-radius: 8px; margin: 20px 0;">
               <h3 style="margin-top: 0; color: #9d174d;">Zhrnutie dopytu:</h3>
               <ul style="list-style: none; padding: 0;">
-                <li><strong>Služba:</strong> ${service}</li>
-                <li><strong>Preferovaný termín:</strong> ${date || 'podľa dohody'} o ${time || 'čase podľa dohody'}</li>
+                <li><strong>Položka / Služba:</strong> ${service}</li>
+                <li><strong>Termín:</strong> ${date || 'podľa dohody'}</li>
               </ul>
             </div>
-            <p>Tešíme sa na teba!</p>
+            <p style="font-size: 13px; color: #666;">Upozornenie: Prešli sme na online-only predaj spoločenských šiat, osobné skúšky svadobných šiat už neposkytujeme.</p>
+            <p>Tešíme sa na komunikáciu!</p>
             <p><strong>Natália & MagicRoom</strong></p>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
             <p style="font-size: 12px; color: #999; text-align: center;">Toto je automatické potvrdenie, neodpovedajte na tento email.</p>
